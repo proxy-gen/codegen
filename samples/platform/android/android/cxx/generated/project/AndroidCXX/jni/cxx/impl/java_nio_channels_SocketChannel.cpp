@@ -42,11 +42,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_nio_channels_SocketChannel"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -166,7 +163,7 @@ long java_nio_channels_SocketChannel::write(std::vector<AndroidCXX::java_nio_Byt
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;)J";
 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_SocketChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -249,7 +246,7 @@ int java_nio_channels_SocketChannel::write(AndroidCXX::java_nio_ByteBuffer const
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)I";
 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_SocketChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -314,7 +311,7 @@ long java_nio_channels_SocketChannel::write(std::vector<AndroidCXX::java_nio_Byt
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;II)J";
 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_SocketChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -439,7 +436,7 @@ long java_nio_channels_SocketChannel::read(std::vector<AndroidCXX::java_nio_Byte
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;II)J";
 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_SocketChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -564,7 +561,7 @@ long java_nio_channels_SocketChannel::read(std::vector<AndroidCXX::java_nio_Byte
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;)J";
 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_SocketChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -647,7 +644,7 @@ int java_nio_channels_SocketChannel::read(AndroidCXX::java_nio_ByteBuffer const&
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)I";
 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_SocketChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -712,7 +709,7 @@ AndroidCXX::java_nio_channels_SocketChannel java_nio_channels_SocketChannel::ope
 	const char *methodSignature = "(Ljava/net/SocketAddress;)Ljava/nio/channels/SocketChannel;";
 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_SocketChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -777,7 +774,7 @@ AndroidCXX::java_nio_channels_SocketChannel java_nio_channels_SocketChannel::ope
 	const char *methodSignature = "()Ljava/nio/channels/SocketChannel;";
 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_SocketChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -821,7 +818,7 @@ bool java_nio_channels_SocketChannel::connect(AndroidCXX::java_net_SocketAddress
 	const char *methodSignature = "(Ljava/net/SocketAddress;)Z";
 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_SocketChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -886,7 +883,7 @@ AndroidCXX::java_net_Socket java_nio_channels_SocketChannel::socket()
 	const char *methodSignature = "()Ljava/net/Socket;";
 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_SocketChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -930,7 +927,7 @@ bool java_nio_channels_SocketChannel::isConnected()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_SocketChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -974,7 +971,7 @@ int java_nio_channels_SocketChannel::validOps()
 	const char *methodSignature = "()I";
 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_SocketChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1018,7 +1015,7 @@ bool java_nio_channels_SocketChannel::isConnectionPending()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_SocketChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1062,7 +1059,7 @@ bool java_nio_channels_SocketChannel::finishConnect()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/channels/SocketChannel";
 
-	LOGV("java_nio_channels_SocketChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_SocketChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

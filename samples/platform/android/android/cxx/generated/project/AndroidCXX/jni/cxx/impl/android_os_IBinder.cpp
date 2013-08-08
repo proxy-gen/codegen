@@ -39,11 +39,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_os_IBinder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -169,7 +166,7 @@ void android_os_IBinder::dump(AndroidCXX::java_io_FileDescriptor const& arg0,std
 	const char *methodSignature = "(Ljava/io/FileDescriptor;[Ljava/lang/String;)V";
 	const char *className = "android/os/IBinder";
 
-	LOGV("android_os_IBinder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_IBinder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -253,7 +250,7 @@ AndroidCXX::java_lang_String android_os_IBinder::getInterfaceDescriptor()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/os/IBinder";
 
-	LOGV("android_os_IBinder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_IBinder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -297,7 +294,7 @@ bool android_os_IBinder::pingBinder()
 	const char *methodSignature = "()Z";
 	const char *className = "android/os/IBinder";
 
-	LOGV("android_os_IBinder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_IBinder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -341,7 +338,7 @@ bool android_os_IBinder::isBinderAlive()
 	const char *methodSignature = "()Z";
 	const char *className = "android/os/IBinder";
 
-	LOGV("android_os_IBinder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_IBinder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -385,7 +382,7 @@ AndroidCXX::android_os_IInterface android_os_IBinder::queryLocalInterface(Androi
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/os/IInterface;";
 	const char *className = "android/os/IBinder";
 
-	LOGV("android_os_IBinder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_IBinder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -450,7 +447,7 @@ void android_os_IBinder::dumpAsync(AndroidCXX::java_io_FileDescriptor const& arg
 	const char *methodSignature = "(Ljava/io/FileDescriptor;[Ljava/lang/String;)V";
 	const char *className = "android/os/IBinder";
 
-	LOGV("android_os_IBinder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_IBinder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -534,7 +531,7 @@ bool android_os_IBinder::transact(int const& arg0,AndroidCXX::android_os_Parcel 
 	const char *methodSignature = "(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z";
 	const char *className = "android/os/IBinder";
 
-	LOGV("android_os_IBinder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_IBinder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -662,7 +659,7 @@ void android_os_IBinder::linkToDeath(AndroidCXX::android_os_IBinder_DeathRecipie
 	const char *methodSignature = "(Landroid/os/IBinder$DeathRecipient;I)V";
 	const char *className = "android/os/IBinder";
 
-	LOGV("android_os_IBinder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_IBinder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -728,7 +725,7 @@ bool android_os_IBinder::unlinkToDeath(AndroidCXX::android_os_IBinder_DeathRecip
 	const char *methodSignature = "(Landroid/os/IBinder$DeathRecipient;I)Z";
 	const char *className = "android/os/IBinder";
 
-	LOGV("android_os_IBinder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_IBinder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

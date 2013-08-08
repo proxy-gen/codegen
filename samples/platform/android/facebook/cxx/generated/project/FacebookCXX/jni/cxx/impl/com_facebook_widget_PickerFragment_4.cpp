@@ -129,7 +129,7 @@ bool com_facebook_widget_PickerFragment_4::onLongClick(AndroidCXX::android_view_
 	const char *methodSignature = "(Landroid/view/View;)Z";
 	const char *className = "com/facebook/widget/PickerFragment$4";
 
-	LOGV("com_facebook_widget_PickerFragment_4 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_4 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

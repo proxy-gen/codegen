@@ -132,7 +132,7 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_Response_PagedResul
 	const char *methodSignature = "()Lcom/facebook/model/GraphObjectList;";
 	const char *className = "com/facebook/Response$PagedResults";
 
-	LOGV("com_facebook_Response_PagedResults className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Response_PagedResults className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -194,7 +194,7 @@ FacebookCXX::com_facebook_Response_PagingInfo com_facebook_Response_PagedResults
 	const char *methodSignature = "()Lcom/facebook/Response$PagingInfo;";
 	const char *className = "com/facebook/Response$PagedResults";
 
-	LOGV("com_facebook_Response_PagedResults className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Response_PagedResults className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

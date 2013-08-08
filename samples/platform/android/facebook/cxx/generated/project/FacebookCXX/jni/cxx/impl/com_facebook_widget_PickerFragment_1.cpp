@@ -134,7 +134,7 @@ void com_facebook_widget_PickerFragment_1::onScrollStateChanged(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/widget/AbsListView;I)V";
 	const char *className = "com/facebook/widget/PickerFragment$1";
 
-	LOGV("com_facebook_widget_PickerFragment_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -200,7 +200,7 @@ void com_facebook_widget_PickerFragment_1::onScroll(AndroidCXX::android_widget_A
 	const char *methodSignature = "(Landroid/widget/AbsListView;III)V";
 	const char *className = "com/facebook/widget/PickerFragment$1";
 
-	LOGV("com_facebook_widget_PickerFragment_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

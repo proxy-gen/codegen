@@ -53,11 +53,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_TimePicker"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -186,7 +183,7 @@ android_widget_TimePicker::android_widget_TimePicker(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -285,7 +282,7 @@ android_widget_TimePicker::android_widget_TimePicker(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -342,7 +339,7 @@ android_widget_TimePicker::android_widget_TimePicker(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -435,7 +432,7 @@ bool android_widget_TimePicker::isEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -479,7 +476,7 @@ bool android_widget_TimePicker::dispatchPopulateAccessibilityEvent(AndroidCXX::a
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)Z";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -544,7 +541,7 @@ void android_widget_TimePicker::onPopulateAccessibilityEvent(AndroidCXX::android
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -589,7 +586,7 @@ void android_widget_TimePicker::onInitializeAccessibilityEvent(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -634,7 +631,7 @@ void android_widget_TimePicker::onInitializeAccessibilityNodeInfo(AndroidCXX::an
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -679,7 +676,7 @@ void android_widget_TimePicker::setEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -724,7 +721,7 @@ int android_widget_TimePicker::getBaseline()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -768,7 +765,7 @@ void android_widget_TimePicker::setOnTimeChangedListener(AndroidCXX::android_wid
 	const char *methodSignature = "(Landroid/widget/TimePicker$OnTimeChangedListener;)V";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -813,7 +810,7 @@ AndroidCXX::java_lang_Integer android_widget_TimePicker::getCurrentHour()
 	const char *methodSignature = "()Ljava/lang/Integer;";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -857,7 +854,7 @@ void android_widget_TimePicker::setCurrentHour(AndroidCXX::java_lang_Integer con
 	const char *methodSignature = "(Ljava/lang/Integer;)V";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -902,7 +899,7 @@ void android_widget_TimePicker::setIs24HourView(AndroidCXX::java_lang_Boolean co
 	const char *methodSignature = "(Ljava/lang/Boolean;)V";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -947,7 +944,7 @@ bool android_widget_TimePicker::is24HourView()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -991,7 +988,7 @@ AndroidCXX::java_lang_Integer android_widget_TimePicker::getCurrentMinute()
 	const char *methodSignature = "()Ljava/lang/Integer;";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1035,7 +1032,7 @@ void android_widget_TimePicker::setCurrentMinute(AndroidCXX::java_lang_Integer c
 	const char *methodSignature = "(Ljava/lang/Integer;)V";
 	const char *className = "android/widget/TimePicker";
 
-	LOGV("android_widget_TimePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TimePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

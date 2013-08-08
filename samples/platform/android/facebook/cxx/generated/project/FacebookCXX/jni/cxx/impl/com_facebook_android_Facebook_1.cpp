@@ -145,7 +145,7 @@ void com_facebook_android_Facebook_1::call(FacebookCXX::com_facebook_Session con
 	const char *methodSignature = "(Lcom/facebook/Session;Lcom/facebook/SessionState;Ljava/lang/Exception;)V";
 	const char *className = "com/facebook/android/Facebook$1";
 
-	LOGV("com_facebook_android_Facebook_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

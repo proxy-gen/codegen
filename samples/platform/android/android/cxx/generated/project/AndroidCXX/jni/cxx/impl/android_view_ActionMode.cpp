@@ -49,11 +49,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_ActionMode"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -167,7 +164,7 @@ android_view_ActionMode::android_view_ActionMode()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -218,7 +215,7 @@ void android_view_ActionMode::finish()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -242,7 +239,7 @@ AndroidCXX::java_lang_Object android_view_ActionMode::getTag()
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -286,7 +283,7 @@ void android_view_ActionMode::invalidate()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -310,7 +307,7 @@ AndroidCXX::android_view_MenuInflater android_view_ActionMode::getMenuInflater()
 	const char *methodSignature = "()Landroid/view/MenuInflater;";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -354,7 +351,7 @@ void android_view_ActionMode::setTag(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)V";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -399,7 +396,7 @@ void android_view_ActionMode::setTitle(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -444,7 +441,7 @@ void android_view_ActionMode::setTitle(AndroidCXX::java_lang_CharSequence const&
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -489,7 +486,7 @@ AndroidCXX::java_lang_CharSequence android_view_ActionMode::getTitle()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -533,7 +530,7 @@ void android_view_ActionMode::setSubtitle(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -578,7 +575,7 @@ void android_view_ActionMode::setSubtitle(AndroidCXX::java_lang_CharSequence con
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -623,7 +620,7 @@ void android_view_ActionMode::setTitleOptionalHint(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -668,7 +665,7 @@ bool android_view_ActionMode::getTitleOptionalHint()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -712,7 +709,7 @@ bool android_view_ActionMode::isTitleOptional()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -756,7 +753,7 @@ void android_view_ActionMode::setCustomView(AndroidCXX::android_view_View const&
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -801,7 +798,7 @@ AndroidCXX::android_view_Menu android_view_ActionMode::getMenu()
 	const char *methodSignature = "()Landroid/view/Menu;";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -845,7 +842,7 @@ AndroidCXX::java_lang_CharSequence android_view_ActionMode::getSubtitle()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -889,7 +886,7 @@ AndroidCXX::android_view_View android_view_ActionMode::getCustomView()
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/view/ActionMode";
 
-	LOGV("android_view_ActionMode className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionMode className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

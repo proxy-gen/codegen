@@ -141,7 +141,7 @@ com_facebook_model_GraphObject_Factory_GraphObjectProxy::com_facebook_model_Grap
 	const char *methodSignature = "(Lorg/json/JSONObject;Ljava/lang/Class;)V";
 	const char *className = "com/facebook/model/GraphObject$Factory$GraphObjectProxy";
 
-	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -252,7 +252,7 @@ AndroidCXX::java_lang_Object com_facebook_model_GraphObject_Factory_GraphObjectP
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;";
 	const char *className = "com/facebook/model/GraphObject$Factory$GraphObjectProxy";
 
-	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -377,7 +377,7 @@ AndroidCXX::java_lang_String com_facebook_model_GraphObject_Factory_GraphObjectP
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/model/GraphObject$Factory$GraphObjectProxy";
 
-	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphObject_Factory_GraphObjectProxy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

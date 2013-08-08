@@ -38,11 +38,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_security_Permission"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -150,7 +147,7 @@ java_security_Permission::java_security_Permission(AndroidCXX::java_lang_String 
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/security/Permission";
 
-	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_Permission className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -222,7 +219,7 @@ bool java_security_Permission::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/security/Permission";
 
-	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_Permission className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -287,7 +284,7 @@ AndroidCXX::java_lang_String java_security_Permission::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/Permission";
 
-	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_Permission className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -331,7 +328,7 @@ int java_security_Permission::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/security/Permission";
 
-	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_Permission className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -375,7 +372,7 @@ AndroidCXX::java_lang_String java_security_Permission::getName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/Permission";
 
-	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_Permission className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -419,7 +416,7 @@ bool java_security_Permission::implies(AndroidCXX::java_security_Permission cons
 	const char *methodSignature = "(Ljava/security/Permission;)Z";
 	const char *className = "java/security/Permission";
 
-	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_Permission className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -484,7 +481,7 @@ AndroidCXX::java_lang_String java_security_Permission::getActions()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/Permission";
 
-	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_Permission className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -528,7 +525,7 @@ AndroidCXX::java_security_PermissionCollection java_security_Permission::newPerm
 	const char *methodSignature = "()Ljava/security/PermissionCollection;";
 	const char *className = "java/security/Permission";
 
-	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_Permission className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -572,7 +569,7 @@ void java_security_Permission::checkGuard(AndroidCXX::java_lang_Object const& ar
 	const char *methodSignature = "(Ljava/lang/Object;)V";
 	const char *className = "java/security/Permission";
 
-	LOGV("java_security_Permission className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_Permission className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

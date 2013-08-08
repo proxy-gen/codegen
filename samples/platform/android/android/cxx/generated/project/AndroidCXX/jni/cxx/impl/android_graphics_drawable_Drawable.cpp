@@ -109,11 +109,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_drawable_Drawable"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -328,7 +325,7 @@ android_graphics_drawable_Drawable::android_graphics_drawable_Drawable()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -379,7 +376,7 @@ std::vector<int> android_graphics_drawable_Drawable::getState()
 	const char *methodSignature = "()[I";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -441,7 +438,7 @@ bool android_graphics_drawable_Drawable::setState(std::vector<int> const& arg0)
 	const char *methodSignature = "([I)Z";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -524,7 +521,7 @@ void android_graphics_drawable_Drawable::inflate(AndroidCXX::android_content_res
 	const char *methodSignature = "(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -611,7 +608,7 @@ AndroidCXX::android_graphics_Rect android_graphics_drawable_Drawable::getBounds(
 	const char *methodSignature = "()Landroid/graphics/Rect;";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -655,7 +652,7 @@ bool android_graphics_drawable_Drawable::isVisible()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -699,7 +696,7 @@ int android_graphics_drawable_Drawable::getChangingConfigurations()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -743,7 +740,7 @@ bool android_graphics_drawable_Drawable::setVisible(bool const& arg0,bool const&
 	const char *methodSignature = "(ZZ)Z";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -829,7 +826,7 @@ void android_graphics_drawable_Drawable::setAlpha(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -874,7 +871,7 @@ void android_graphics_drawable_Drawable::draw(AndroidCXX::android_graphics_Canva
 	const char *methodSignature = "(Landroid/graphics/Canvas;)V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -919,7 +916,7 @@ int android_graphics_drawable_Drawable::getMinimumHeight()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -963,7 +960,7 @@ int android_graphics_drawable_Drawable::getMinimumWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1007,7 +1004,7 @@ void android_graphics_drawable_Drawable::setBounds(int const& arg0,int const& ar
 	const char *methodSignature = "(IIII)V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1115,7 +1112,7 @@ void android_graphics_drawable_Drawable::setBounds(AndroidCXX::android_graphics_
 	const char *methodSignature = "(Landroid/graphics/Rect;)V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1160,7 +1157,7 @@ void android_graphics_drawable_Drawable::copyBounds(AndroidCXX::android_graphics
 	const char *methodSignature = "(Landroid/graphics/Rect;)V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1205,7 +1202,7 @@ AndroidCXX::android_graphics_Rect android_graphics_drawable_Drawable::copyBounds
 	const char *methodSignature = "()Landroid/graphics/Rect;";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1249,7 +1246,7 @@ void android_graphics_drawable_Drawable::setChangingConfigurations(int const& ar
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1294,7 +1291,7 @@ void android_graphics_drawable_Drawable::setDither(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1339,7 +1336,7 @@ void android_graphics_drawable_Drawable::setFilterBitmap(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1384,7 +1381,7 @@ void android_graphics_drawable_Drawable::setCallback(AndroidCXX::android_graphic
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable$Callback;)V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1429,7 +1426,7 @@ AndroidCXX::android_graphics_drawable_Drawable_Callback android_graphics_drawabl
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable$Callback;";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1473,7 +1470,7 @@ void android_graphics_drawable_Drawable::invalidateSelf()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1497,7 +1494,7 @@ void android_graphics_drawable_Drawable::scheduleSelf(AndroidCXX::java_lang_Runn
 	const char *methodSignature = "(Ljava/lang/Runnable;J)V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1563,7 +1560,7 @@ void android_graphics_drawable_Drawable::unscheduleSelf(AndroidCXX::java_lang_Ru
 	const char *methodSignature = "(Ljava/lang/Runnable;)V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1608,7 +1605,7 @@ void android_graphics_drawable_Drawable::setColorFilter(AndroidCXX::android_grap
 	const char *methodSignature = "(Landroid/graphics/ColorFilter;)V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1653,7 +1650,7 @@ void android_graphics_drawable_Drawable::setColorFilter(int const& arg0,android_
 	const char *methodSignature = "(ILandroid/graphics/PorterDuff$Mode;)V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1719,7 +1716,7 @@ void android_graphics_drawable_Drawable::clearColorFilter()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1743,7 +1740,7 @@ bool android_graphics_drawable_Drawable::isStateful()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1787,7 +1784,7 @@ void android_graphics_drawable_Drawable::jumpToCurrentState()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1811,7 +1808,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1855,7 +1852,7 @@ bool android_graphics_drawable_Drawable::setLevel(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1920,7 +1917,7 @@ int android_graphics_drawable_Drawable::getLevel()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1964,7 +1961,7 @@ int android_graphics_drawable_Drawable::getOpacity()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2008,7 +2005,7 @@ int android_graphics_drawable_Drawable::resolveOpacity(int const& arg0,int const
 	const char *methodSignature = "(II)I";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2094,7 +2091,7 @@ AndroidCXX::android_graphics_Region android_graphics_drawable_Drawable::getTrans
 	const char *methodSignature = "()Landroid/graphics/Region;";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2138,7 +2135,7 @@ int android_graphics_drawable_Drawable::getIntrinsicWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2182,7 +2179,7 @@ int android_graphics_drawable_Drawable::getIntrinsicHeight()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2226,7 +2223,7 @@ bool android_graphics_drawable_Drawable::getPadding(AndroidCXX::android_graphics
 	const char *methodSignature = "(Landroid/graphics/Rect;)Z";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2291,7 +2288,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2335,7 +2332,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 	const char *methodSignature = "(Ljava/io/InputStream;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2421,7 +2418,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 	const char *methodSignature = "(Landroid/content/res/Resources;Landroid/util/TypedValue;Ljava/io/InputStream;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2549,7 +2546,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 	const char *methodSignature = "(Landroid/content/res/Resources;Landroid/util/TypedValue;Ljava/io/InputStream;Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2698,7 +2695,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 	const char *methodSignature = "(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;)Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2784,7 +2781,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 	const char *methodSignature = "(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2891,7 +2888,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2956,7 +2953,7 @@ AndroidCXX::android_graphics_drawable_Drawable_ConstantState android_graphics_dr
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable$ConstantState;";
 	const char *className = "android/graphics/drawable/Drawable";
 
-	LOGV("android_graphics_drawable_Drawable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -150,7 +150,7 @@ AndroidCXX::android_support_v4_content_Loader com_facebook_widget_PickerFragment
 	const char *methodSignature = "(ILandroid/os/Bundle;)Landroid/support/v4/content/Loader;";
 	const char *className = "com/facebook/widget/PickerFragment$LoadingStrategy$1";
 
-	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -272,7 +272,7 @@ void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoadFinished(Androi
 	const char *methodSignature = "(Landroid/support/v4/content/Loader;Lcom/facebook/widget/SimpleGraphObjectCursor;)V";
 	const char *className = "com/facebook/widget/PickerFragment$LoadingStrategy$1";
 
-	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -392,7 +392,7 @@ void com_facebook_widget_PickerFragment_LoadingStrategy_1::onLoaderReset(Android
 	const char *methodSignature = "(Landroid/support/v4/content/Loader;)V";
 	const char *className = "com/facebook/widget/PickerFragment$LoadingStrategy$1";
 
-	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

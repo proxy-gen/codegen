@@ -28,11 +28,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_drawable_Drawable_ConstantState"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -125,7 +122,7 @@ android_graphics_drawable_Drawable_ConstantState::android_graphics_drawable_Draw
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/drawable/Drawable$ConstantState";
 
-	LOGV("android_graphics_drawable_Drawable_ConstantState className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable_ConstantState className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -176,7 +173,7 @@ int android_graphics_drawable_Drawable_ConstantState::getChangingConfigurations(
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/drawable/Drawable$ConstantState";
 
-	LOGV("android_graphics_drawable_Drawable_ConstantState className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable_ConstantState className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -220,7 +217,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/graphics/drawable/Drawable$ConstantState";
 
-	LOGV("android_graphics_drawable_Drawable_ConstantState className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable_ConstantState className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -264,7 +261,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_graphics_drawable_Drawabl
 	const char *methodSignature = "(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/graphics/drawable/Drawable$ConstantState";
 
-	LOGV("android_graphics_drawable_Drawable_ConstantState className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_drawable_Drawable_ConstantState className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

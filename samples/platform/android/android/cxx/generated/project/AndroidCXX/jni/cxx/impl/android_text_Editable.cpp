@@ -47,11 +47,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_text_Editable"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -192,7 +189,7 @@ AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java
 	const char *methodSignature = "(Ljava/lang/CharSequence;II)Landroid/text/Editable;";
 	const char *className = "android/text/Editable";
 
-	LOGV("android_text_Editable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -299,7 +296,7 @@ AndroidCXX::android_text_Editable android_text_Editable::append(AndroidCXX::java
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/text/Editable;";
 	const char *className = "android/text/Editable";
 
-	LOGV("android_text_Editable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -364,7 +361,7 @@ AndroidCXX::android_text_Editable android_text_Editable::append(char const& arg0
 	const char *methodSignature = "(C)Landroid/text/Editable;";
 	const char *className = "android/text/Editable";
 
-	LOGV("android_text_Editable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -429,7 +426,7 @@ void android_text_Editable::clear()
 	const char *methodSignature = "()V";
 	const char *className = "android/text/Editable";
 
-	LOGV("android_text_Editable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -453,7 +450,7 @@ AndroidCXX::android_text_Editable android_text_Editable::replace(int const& arg0
 	const char *methodSignature = "(IILjava/lang/CharSequence;II)Landroid/text/Editable;";
 	const char *className = "android/text/Editable";
 
-	LOGV("android_text_Editable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -602,7 +599,7 @@ AndroidCXX::android_text_Editable android_text_Editable::replace(int const& arg0
 	const char *methodSignature = "(IILjava/lang/CharSequence;)Landroid/text/Editable;";
 	const char *className = "android/text/Editable";
 
-	LOGV("android_text_Editable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -709,7 +706,7 @@ AndroidCXX::android_text_Editable android_text_Editable::_delete(int const& arg0
 	const char *methodSignature = "(II)Landroid/text/Editable;";
 	const char *className = "android/text/Editable";
 
-	LOGV("android_text_Editable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -795,7 +792,7 @@ AndroidCXX::android_text_Editable android_text_Editable::insert(int const& arg0,
 	const char *methodSignature = "(ILjava/lang/CharSequence;)Landroid/text/Editable;";
 	const char *className = "android/text/Editable";
 
-	LOGV("android_text_Editable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -881,7 +878,7 @@ AndroidCXX::android_text_Editable android_text_Editable::insert(int const& arg0,
 	const char *methodSignature = "(ILjava/lang/CharSequence;II)Landroid/text/Editable;";
 	const char *className = "android/text/Editable";
 
-	LOGV("android_text_Editable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1009,7 +1006,7 @@ void android_text_Editable::clearSpans()
 	const char *methodSignature = "()V";
 	const char *className = "android/text/Editable";
 
-	LOGV("android_text_Editable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1033,7 +1030,7 @@ void android_text_Editable::setFilters(std::vector<AndroidCXX::android_text_Inpu
 	const char *methodSignature = "([Landroid/text/InputFilter;)V";
 	const char *className = "android/text/Editable";
 
-	LOGV("android_text_Editable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1096,7 +1093,7 @@ std::vector<AndroidCXX::android_text_InputFilter > android_text_Editable::getFil
 	const char *methodSignature = "()[Landroid/text/InputFilter;";
 	const char *className = "android/text/Editable";
 
-	LOGV("android_text_Editable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

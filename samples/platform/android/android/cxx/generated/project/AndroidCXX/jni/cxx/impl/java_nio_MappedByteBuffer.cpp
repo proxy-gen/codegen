@@ -26,11 +26,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_nio_MappedByteBuffer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -135,7 +132,7 @@ AndroidCXX::java_nio_MappedByteBuffer java_nio_MappedByteBuffer::load()
 	const char *methodSignature = "()Ljava/nio/MappedByteBuffer;";
 	const char *className = "java/nio/MappedByteBuffer";
 
-	LOGV("java_nio_MappedByteBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_MappedByteBuffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -179,7 +176,7 @@ bool java_nio_MappedByteBuffer::isLoaded()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/MappedByteBuffer";
 
-	LOGV("java_nio_MappedByteBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_MappedByteBuffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -223,7 +220,7 @@ AndroidCXX::java_nio_MappedByteBuffer java_nio_MappedByteBuffer::force()
 	const char *methodSignature = "()Ljava/nio/MappedByteBuffer;";
 	const char *className = "java/nio/MappedByteBuffer";
 
-	LOGV("java_nio_MappedByteBuffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_MappedByteBuffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -61,11 +61,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_SimpleCursorAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -215,7 +212,7 @@ android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCX
 	const char *methodSignature = "(Landroid/content/Context;ILandroid/database/Cursor;[Ljava/lang/String;[I)V";
 	const char *className = "android/widget/SimpleCursorAdapter";
 
-	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleCursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -392,7 +389,7 @@ android_widget_SimpleCursorAdapter::android_widget_SimpleCursorAdapter(AndroidCX
 	const char *methodSignature = "(Landroid/content/Context;ILandroid/database/Cursor;[Ljava/lang/String;[II)V";
 	const char *className = "android/widget/SimpleCursorAdapter";
 
-	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleCursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -605,7 +602,7 @@ AndroidCXX::java_lang_CharSequence android_widget_SimpleCursorAdapter::convertTo
 	const char *methodSignature = "(Landroid/database/Cursor;)Ljava/lang/CharSequence;";
 	const char *className = "android/widget/SimpleCursorAdapter";
 
-	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleCursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -670,7 +667,7 @@ void android_widget_SimpleCursorAdapter::bindView(AndroidCXX::android_view_View 
 	const char *methodSignature = "(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V";
 	const char *className = "android/widget/SimpleCursorAdapter";
 
-	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleCursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -757,7 +754,7 @@ AndroidCXX::android_database_Cursor android_widget_SimpleCursorAdapter::swapCurs
 	const char *methodSignature = "(Landroid/database/Cursor;)Landroid/database/Cursor;";
 	const char *className = "android/widget/SimpleCursorAdapter";
 
-	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleCursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -822,7 +819,7 @@ AndroidCXX::android_widget_SimpleCursorAdapter_ViewBinder android_widget_SimpleC
 	const char *methodSignature = "()Landroid/widget/SimpleCursorAdapter$ViewBinder;";
 	const char *className = "android/widget/SimpleCursorAdapter";
 
-	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleCursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -866,7 +863,7 @@ void android_widget_SimpleCursorAdapter::setViewBinder(AndroidCXX::android_widge
 	const char *methodSignature = "(Landroid/widget/SimpleCursorAdapter$ViewBinder;)V";
 	const char *className = "android/widget/SimpleCursorAdapter";
 
-	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleCursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -911,7 +908,7 @@ void android_widget_SimpleCursorAdapter::setViewImage(AndroidCXX::android_widget
 	const char *methodSignature = "(Landroid/widget/ImageView;Ljava/lang/String;)V";
 	const char *className = "android/widget/SimpleCursorAdapter";
 
-	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleCursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -977,7 +974,7 @@ void android_widget_SimpleCursorAdapter::setViewText(AndroidCXX::android_widget_
 	const char *methodSignature = "(Landroid/widget/TextView;Ljava/lang/String;)V";
 	const char *className = "android/widget/SimpleCursorAdapter";
 
-	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleCursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1043,7 +1040,7 @@ int android_widget_SimpleCursorAdapter::getStringConversionColumn()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/SimpleCursorAdapter";
 
-	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleCursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1087,7 +1084,7 @@ void android_widget_SimpleCursorAdapter::setStringConversionColumn(int const& ar
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/SimpleCursorAdapter";
 
-	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleCursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1132,7 +1129,7 @@ AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter android_w
 	const char *methodSignature = "()Landroid/widget/SimpleCursorAdapter$CursorToStringConverter;";
 	const char *className = "android/widget/SimpleCursorAdapter";
 
-	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleCursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1176,7 +1173,7 @@ void android_widget_SimpleCursorAdapter::setCursorToStringConverter(AndroidCXX::
 	const char *methodSignature = "(Landroid/widget/SimpleCursorAdapter$CursorToStringConverter;)V";
 	const char *className = "android/widget/SimpleCursorAdapter";
 
-	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleCursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1221,7 +1218,7 @@ void android_widget_SimpleCursorAdapter::changeCursorAndColumns(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/database/Cursor;[Ljava/lang/String;[I)V";
 	const char *className = "android/widget/SimpleCursorAdapter";
 
-	LOGV("android_widget_SimpleCursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleCursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

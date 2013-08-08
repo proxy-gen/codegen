@@ -234,7 +234,7 @@ com_facebook_android_AsyncFacebookRunner::com_facebook_android_AsyncFacebookRunn
 	const char *methodSignature = "(Lcom/facebook/android/Facebook;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -306,7 +306,7 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -435,7 +435,7 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -543,7 +543,7 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -630,7 +630,7 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bu
 	const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -717,7 +717,7 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::android_os_Bu
 	const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -783,7 +783,7 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 	const char *methodSignature = "(Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -870,7 +870,7 @@ void com_facebook_android_AsyncFacebookRunner::request(AndroidCXX::java_lang_Str
 	const char *methodSignature = "(Ljava/lang/String;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -936,7 +936,7 @@ void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_conten
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1002,7 +1002,7 @@ void com_facebook_android_AsyncFacebookRunner::logout(AndroidCXX::android_conten
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/android/AsyncFacebookRunner$RequestListener;Ljava/lang/Object;)V";
 	const char *className = "com/facebook/android/AsyncFacebookRunner";
 
-	LOGV("com_facebook_android_AsyncFacebookRunner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_AsyncFacebookRunner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

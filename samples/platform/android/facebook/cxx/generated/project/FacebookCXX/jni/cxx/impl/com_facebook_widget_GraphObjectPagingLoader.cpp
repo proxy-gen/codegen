@@ -155,7 +155,7 @@ com_facebook_widget_GraphObjectPagingLoader::com_facebook_widget_GraphObjectPagi
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/Class;)V";
 	const char *className = "com/facebook/widget/GraphObjectPagingLoader";
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectPagingLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -266,7 +266,7 @@ bool com_facebook_widget_GraphObjectPagingLoader::isLoading()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/GraphObjectPagingLoader";
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectPagingLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -310,7 +310,7 @@ FacebookCXX::com_facebook_widget_GraphObjectPagingLoader_OnErrorListener com_fac
 	const char *methodSignature = "()Lcom/facebook/widget/GraphObjectPagingLoader$OnErrorListener;";
 	const char *className = "com/facebook/widget/GraphObjectPagingLoader";
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectPagingLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -354,7 +354,7 @@ void com_facebook_widget_GraphObjectPagingLoader::setOnErrorListener(FacebookCXX
 	const char *methodSignature = "(Lcom/facebook/widget/GraphObjectPagingLoader$OnErrorListener;)V";
 	const char *className = "com/facebook/widget/GraphObjectPagingLoader";
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectPagingLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -399,7 +399,7 @@ FacebookCXX::com_facebook_widget_SimpleGraphObjectCursor com_facebook_widget_Gra
 	const char *methodSignature = "()Lcom/facebook/widget/SimpleGraphObjectCursor;";
 	const char *className = "com/facebook/widget/GraphObjectPagingLoader";
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectPagingLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -461,7 +461,7 @@ void com_facebook_widget_GraphObjectPagingLoader::clearResults()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/GraphObjectPagingLoader";
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectPagingLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -485,7 +485,7 @@ void com_facebook_widget_GraphObjectPagingLoader::startLoading(FacebookCXX::com_
 	const char *methodSignature = "(Lcom/facebook/Request;Z)V";
 	const char *className = "com/facebook/widget/GraphObjectPagingLoader";
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectPagingLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -551,7 +551,7 @@ void com_facebook_widget_GraphObjectPagingLoader::followNextLink()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/GraphObjectPagingLoader";
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectPagingLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -575,7 +575,7 @@ void com_facebook_widget_GraphObjectPagingLoader::refreshOriginalRequest(long co
 	const char *methodSignature = "(J)V";
 	const char *className = "com/facebook/widget/GraphObjectPagingLoader";
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectPagingLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -620,7 +620,7 @@ void com_facebook_widget_GraphObjectPagingLoader::deliverResult(FacebookCXX::com
 	const char *methodSignature = "(Lcom/facebook/widget/SimpleGraphObjectCursor;)V";
 	const char *className = "com/facebook/widget/GraphObjectPagingLoader";
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectPagingLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

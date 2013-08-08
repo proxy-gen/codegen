@@ -133,11 +133,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "org_json_JSONObject"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -422,7 +419,7 @@ org_json_JSONObject::org_json_JSONObject(AndroidCXX::org_json_JSONObject const& 
 	const char *methodSignature = "(Lorg/json/JSONObject;[Ljava/lang/String;)V";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -518,7 +515,7 @@ org_json_JSONObject::org_json_JSONObject(AndroidCXX::org_json_JSONTokener const&
 	const char *methodSignature = "(Lorg/json/JSONTokener;)V";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -575,7 +572,7 @@ org_json_JSONObject::org_json_JSONObject(AndroidCXX::java_lang_String const& arg
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -632,7 +629,7 @@ org_json_JSONObject::org_json_JSONObject()
 	const char *methodSignature = "()V";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -668,7 +665,7 @@ org_json_JSONObject::org_json_JSONObject(AndroidCXX::java_util_Map const& arg0)
 	const char *methodSignature = "(Ljava/util/Map;)V";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -740,7 +737,7 @@ AndroidCXX::java_lang_Object org_json_JSONObject::get(AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Object;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -805,7 +802,7 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 	const char *methodSignature = "(Ljava/lang/String;D)Lorg/json/JSONObject;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -891,7 +888,7 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 	const char *methodSignature = "(Ljava/lang/String;Z)Lorg/json/JSONObject;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -977,7 +974,7 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 	const char *methodSignature = "(Ljava/lang/String;I)Lorg/json/JSONObject;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1063,7 +1060,7 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 	const char *methodSignature = "(Ljava/lang/String;J)Lorg/json/JSONObject;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1149,7 +1146,7 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::put(AndroidCXX::java_lang_S
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1235,7 +1232,7 @@ AndroidCXX::java_lang_String org_json_JSONObject::toString(int const& arg0)
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1300,7 +1297,7 @@ AndroidCXX::java_lang_String org_json_JSONObject::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1344,7 +1341,7 @@ bool org_json_JSONObject::getBoolean(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1409,7 +1406,7 @@ int org_json_JSONObject::getInt(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)I";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1474,7 +1471,7 @@ long org_json_JSONObject::getLong(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)J";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1539,7 +1536,7 @@ double org_json_JSONObject::getDouble(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)D";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1604,7 +1601,7 @@ int org_json_JSONObject::length()
 	const char *methodSignature = "()I";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1648,7 +1645,7 @@ AndroidCXX::java_lang_Object org_json_JSONObject::remove(AndroidCXX::java_lang_S
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Object;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1713,7 +1710,7 @@ AndroidCXX::java_util_Iterator org_json_JSONObject::keys()
 	const char *methodSignature = "()Ljava/util/Iterator;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1757,7 +1754,7 @@ AndroidCXX::org_json_JSONArray org_json_JSONObject::names()
 	const char *methodSignature = "()Lorg/json/JSONArray;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1801,7 +1798,7 @@ AndroidCXX::java_lang_String org_json_JSONObject::quote(AndroidCXX::java_lang_St
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1866,7 +1863,7 @@ AndroidCXX::java_lang_String org_json_JSONObject::getString(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1931,7 +1928,7 @@ bool org_json_JSONObject::has(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1996,7 +1993,7 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::putOpt(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2082,7 +2079,7 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::accumulate(AndroidCXX::java
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2168,7 +2165,7 @@ bool org_json_JSONObject::isNull(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2233,7 +2230,7 @@ AndroidCXX::java_lang_Object org_json_JSONObject::opt(AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Object;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2298,7 +2295,7 @@ bool org_json_JSONObject::optBoolean(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2363,7 +2360,7 @@ bool org_json_JSONObject::optBoolean(AndroidCXX::java_lang_String const& arg0,bo
 	const char *methodSignature = "(Ljava/lang/String;Z)Z";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2449,7 +2446,7 @@ double org_json_JSONObject::optDouble(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)D";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2514,7 +2511,7 @@ double org_json_JSONObject::optDouble(AndroidCXX::java_lang_String const& arg0,d
 	const char *methodSignature = "(Ljava/lang/String;D)D";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2600,7 +2597,7 @@ int org_json_JSONObject::optInt(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)I";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2665,7 +2662,7 @@ int org_json_JSONObject::optInt(AndroidCXX::java_lang_String const& arg0,int con
 	const char *methodSignature = "(Ljava/lang/String;I)I";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2751,7 +2748,7 @@ long org_json_JSONObject::optLong(AndroidCXX::java_lang_String const& arg0,long 
 	const char *methodSignature = "(Ljava/lang/String;J)J";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2837,7 +2834,7 @@ long org_json_JSONObject::optLong(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)J";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2902,7 +2899,7 @@ AndroidCXX::java_lang_String org_json_JSONObject::optString(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2967,7 +2964,7 @@ AndroidCXX::java_lang_String org_json_JSONObject::optString(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3053,7 +3050,7 @@ AndroidCXX::org_json_JSONArray org_json_JSONObject::getJSONArray(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/lang/String;)Lorg/json/JSONArray;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3118,7 +3115,7 @@ AndroidCXX::org_json_JSONArray org_json_JSONObject::optJSONArray(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/lang/String;)Lorg/json/JSONArray;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3183,7 +3180,7 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::getJSONObject(AndroidCXX::j
 	const char *methodSignature = "(Ljava/lang/String;)Lorg/json/JSONObject;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3248,7 +3245,7 @@ AndroidCXX::org_json_JSONObject org_json_JSONObject::optJSONObject(AndroidCXX::j
 	const char *methodSignature = "(Ljava/lang/String;)Lorg/json/JSONObject;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3313,7 +3310,7 @@ AndroidCXX::org_json_JSONArray org_json_JSONObject::toJSONArray(AndroidCXX::org_
 	const char *methodSignature = "(Lorg/json/JSONArray;)Lorg/json/JSONArray;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3378,7 +3375,7 @@ AndroidCXX::java_lang_String org_json_JSONObject::numberToString(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/lang/Number;)Ljava/lang/String;";
 	const char *className = "org/json/JSONObject";
 
-	LOGV("org_json_JSONObject className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_json_JSONObject className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

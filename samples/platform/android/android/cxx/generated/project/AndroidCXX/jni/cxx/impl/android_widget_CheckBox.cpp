@@ -33,11 +33,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_CheckBox"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -142,7 +139,7 @@ android_widget_CheckBox::android_widget_CheckBox(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/CheckBox";
 
-	LOGV("android_widget_CheckBox className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckBox className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -199,7 +196,7 @@ android_widget_CheckBox::android_widget_CheckBox(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/CheckBox";
 
-	LOGV("android_widget_CheckBox className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckBox className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -277,7 +274,7 @@ android_widget_CheckBox::android_widget_CheckBox(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/CheckBox";
 
-	LOGV("android_widget_CheckBox className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckBox className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -391,7 +388,7 @@ void android_widget_CheckBox::onInitializeAccessibilityEvent(AndroidCXX::android
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/CheckBox";
 
-	LOGV("android_widget_CheckBox className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckBox className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -436,7 +433,7 @@ void android_widget_CheckBox::onInitializeAccessibilityNodeInfo(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/CheckBox";
 
-	LOGV("android_widget_CheckBox className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckBox className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

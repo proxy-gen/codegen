@@ -138,7 +138,7 @@ void com_facebook_GetTokenClient::onServiceConnected(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/ComponentName;Landroid/os/IBinder;)V";
 	const char *className = "com/facebook/GetTokenClient";
 
-	LOGV("com_facebook_GetTokenClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_GetTokenClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -204,7 +204,7 @@ void com_facebook_GetTokenClient::onServiceDisconnected(AndroidCXX::android_cont
 	const char *methodSignature = "(Landroid/content/ComponentName;)V";
 	const char *className = "com/facebook/GetTokenClient";
 
-	LOGV("com_facebook_GetTokenClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_GetTokenClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

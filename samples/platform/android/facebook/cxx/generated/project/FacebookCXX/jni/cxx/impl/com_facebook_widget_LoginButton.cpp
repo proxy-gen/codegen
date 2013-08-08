@@ -227,7 +227,7 @@ com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(AndroidCXX::and
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -326,7 +326,7 @@ com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(AndroidCXX::and
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -383,7 +383,7 @@ com_facebook_widget_LoginButton::com_facebook_widget_LoginButton(AndroidCXX::and
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -476,7 +476,7 @@ bool com_facebook_widget_LoginButton::onActivityResult(int const& arg0,int const
 	const char *methodSignature = "(IILandroid/content/Intent;)Z";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -583,7 +583,7 @@ com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior com_faceboo
 	const char *methodSignature = "()Lcom/facebook/SessionLoginBehavior;";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -627,7 +627,7 @@ void com_facebook_widget_LoginButton::setSession(FacebookCXX::com_facebook_Sessi
 	const char *methodSignature = "(Lcom/facebook/Session;)V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -672,7 +672,7 @@ void com_facebook_widget_LoginButton::setApplicationId(AndroidCXX::java_lang_Str
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -717,7 +717,7 @@ void com_facebook_widget_LoginButton::setLoginBehavior(com_facebook_SessionLogin
 	const char *methodSignature = "(Lcom/facebook/SessionLoginBehavior;)V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -762,7 +762,7 @@ void com_facebook_widget_LoginButton::setDefaultAudience(com_facebook_SessionDef
 	const char *methodSignature = "(Lcom/facebook/SessionDefaultAudience;)V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -807,7 +807,7 @@ com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience com_fac
 	const char *methodSignature = "()Lcom/facebook/SessionDefaultAudience;";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -851,7 +851,7 @@ void com_facebook_widget_LoginButton::onFinishInflate()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -875,7 +875,7 @@ FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener com_facebook_widget
 	const char *methodSignature = "()Lcom/facebook/widget/LoginButton$OnErrorListener;";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -919,7 +919,7 @@ void com_facebook_widget_LoginButton::setOnErrorListener(FacebookCXX::com_facebo
 	const char *methodSignature = "(Lcom/facebook/widget/LoginButton$OnErrorListener;)V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -964,7 +964,7 @@ void com_facebook_widget_LoginButton::setReadPermissions(AndroidCXX::java_util_L
 	const char *methodSignature = "(Ljava/util/List;)V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1027,7 +1027,7 @@ void com_facebook_widget_LoginButton::setPublishPermissions(AndroidCXX::java_uti
 	const char *methodSignature = "(Ljava/util/List;)V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1090,7 +1090,7 @@ void com_facebook_widget_LoginButton::clearPermissions()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1114,7 +1114,7 @@ FacebookCXX::com_facebook_widget_LoginButton_UserInfoChangedCallback com_faceboo
 	const char *methodSignature = "()Lcom/facebook/widget/LoginButton$UserInfoChangedCallback;";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1158,7 +1158,7 @@ void com_facebook_widget_LoginButton::setUserInfoChangedCallback(FacebookCXX::co
 	const char *methodSignature = "(Lcom/facebook/widget/LoginButton$UserInfoChangedCallback;)V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1203,7 +1203,7 @@ void com_facebook_widget_LoginButton::setSessionStatusCallback(FacebookCXX::com_
 	const char *methodSignature = "(Lcom/facebook/Session$StatusCallback;)V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1248,7 +1248,7 @@ FacebookCXX::com_facebook_Session_StatusCallback com_facebook_widget_LoginButton
 	const char *methodSignature = "()Lcom/facebook/Session$StatusCallback;";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1292,7 +1292,7 @@ void com_facebook_widget_LoginButton::setFragment(AndroidCXX::android_support_v4
 	const char *methodSignature = "(Landroid/support/v4/app/Fragment;)V";
 	const char *className = "com/facebook/widget/LoginButton";
 
-	LOGV("com_facebook_widget_LoginButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

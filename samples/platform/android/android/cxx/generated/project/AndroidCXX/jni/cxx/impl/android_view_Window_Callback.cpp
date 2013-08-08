@@ -60,11 +60,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_Window_Callback"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -217,7 +214,7 @@ bool android_view_Window_Callback::onCreatePanelMenu(int const& arg0,AndroidCXX:
 	const char *methodSignature = "(ILandroid/view/Menu;)Z";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -303,7 +300,7 @@ bool android_view_Window_Callback::onMenuItemSelected(int const& arg0,AndroidCXX
 	const char *methodSignature = "(ILandroid/view/MenuItem;)Z";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -389,7 +386,7 @@ void android_view_Window_Callback::onPanelClosed(int const& arg0,AndroidCXX::and
 	const char *methodSignature = "(ILandroid/view/Menu;)V";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -455,7 +452,7 @@ bool android_view_Window_Callback::onPreparePanel(int const& arg0,AndroidCXX::an
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/Menu;)Z";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -562,7 +559,7 @@ void android_view_Window_Callback::onWindowAttributesChanged(AndroidCXX::android
 	const char *methodSignature = "(Landroid/view/WindowManager$LayoutParams;)V";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -607,7 +604,7 @@ void android_view_Window_Callback::onContentChanged()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -631,7 +628,7 @@ void android_view_Window_Callback::onWindowFocusChanged(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -676,7 +673,7 @@ void android_view_Window_Callback::onAttachedToWindow()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -700,7 +697,7 @@ void android_view_Window_Callback::onDetachedFromWindow()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -724,7 +721,7 @@ bool android_view_Window_Callback::dispatchKeyEvent(AndroidCXX::android_view_Key
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -789,7 +786,7 @@ bool android_view_Window_Callback::dispatchKeyShortcutEvent(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -854,7 +851,7 @@ bool android_view_Window_Callback::dispatchTouchEvent(AndroidCXX::android_view_M
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -919,7 +916,7 @@ bool android_view_Window_Callback::dispatchTrackballEvent(AndroidCXX::android_vi
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -984,7 +981,7 @@ bool android_view_Window_Callback::dispatchGenericMotionEvent(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1049,7 +1046,7 @@ bool android_view_Window_Callback::dispatchPopulateAccessibilityEvent(AndroidCXX
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)Z";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1114,7 +1111,7 @@ AndroidCXX::android_view_View android_view_Window_Callback::onCreatePanelView(in
 	const char *methodSignature = "(I)Landroid/view/View;";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1179,7 +1176,7 @@ bool android_view_Window_Callback::onMenuOpened(int const& arg0,AndroidCXX::andr
 	const char *methodSignature = "(ILandroid/view/Menu;)Z";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1265,7 +1262,7 @@ bool android_view_Window_Callback::onSearchRequested()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1309,7 +1306,7 @@ AndroidCXX::android_view_ActionMode android_view_Window_Callback::onWindowStarti
 	const char *methodSignature = "(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1374,7 +1371,7 @@ void android_view_Window_Callback::onActionModeStarted(AndroidCXX::android_view_
 	const char *methodSignature = "(Landroid/view/ActionMode;)V";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1419,7 +1416,7 @@ void android_view_Window_Callback::onActionModeFinished(AndroidCXX::android_view
 	const char *methodSignature = "(Landroid/view/ActionMode;)V";
 	const char *className = "android/view/Window$Callback";
 
-	LOGV("android_view_Window_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Window_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

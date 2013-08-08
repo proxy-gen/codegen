@@ -74,11 +74,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_util_Locale"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -246,7 +243,7 @@ java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String const& arg0,Andr
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -345,7 +342,7 @@ java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String const& arg0,Andr
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -423,7 +420,7 @@ java_util_Locale::java_util_Locale(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -495,7 +492,7 @@ bool java_util_Locale::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -560,7 +557,7 @@ AndroidCXX::java_lang_String java_util_Locale::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -604,7 +601,7 @@ int java_util_Locale::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -648,7 +645,7 @@ AndroidCXX::java_lang_Object java_util_Locale::clone()
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -692,7 +689,7 @@ AndroidCXX::java_lang_String java_util_Locale::getLanguage()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -736,7 +733,7 @@ AndroidCXX::java_util_Locale java_util_Locale::getDefault()
 	const char *methodSignature = "()Ljava/util/Locale;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -780,7 +777,7 @@ void java_util_Locale::setDefault(AndroidCXX::java_util_Locale const& arg0)
 	const char *methodSignature = "(Ljava/util/Locale;)V";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -825,7 +822,7 @@ std::vector<AndroidCXX::java_util_Locale > java_util_Locale::getAvailableLocales
 	const char *methodSignature = "()[Ljava/util/Locale;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -887,7 +884,7 @@ std::vector<AndroidCXX::java_lang_String > java_util_Locale::getISOCountries()
 	const char *methodSignature = "()[Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -949,7 +946,7 @@ std::vector<AndroidCXX::java_lang_String > java_util_Locale::getISOLanguages()
 	const char *methodSignature = "()[Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1011,7 +1008,7 @@ AndroidCXX::java_lang_String java_util_Locale::getCountry()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1055,7 +1052,7 @@ AndroidCXX::java_lang_String java_util_Locale::getVariant()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1099,7 +1096,7 @@ AndroidCXX::java_lang_String java_util_Locale::getISO3Language()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1143,7 +1140,7 @@ AndroidCXX::java_lang_String java_util_Locale::getISO3Country()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1187,7 +1184,7 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage(AndroidCXX::ja
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1252,7 +1249,7 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayLanguage()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1296,7 +1293,7 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1361,7 +1358,7 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayCountry()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1405,7 +1402,7 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1449,7 +1446,7 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayVariant(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1514,7 +1511,7 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayName(AndroidCXX::java_u
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1579,7 +1576,7 @@ AndroidCXX::java_lang_String java_util_Locale::getDisplayName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Locale";
 
-	LOGV("java_util_Locale className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Locale className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -22,23 +22,25 @@
 	
 	
 	
- 		 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
  		 
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
  		 
 	
+ 		 
+	
+
 
 
 
@@ -83,17 +85,17 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_ViewPropertyAnimator"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
 // 
 // 
 // 
@@ -279,7 +281,7 @@ void android_view_ViewPropertyAnimator::start()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -303,7 +305,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -368,7 +370,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -433,7 +435,7 @@ void android_view_ViewPropertyAnimator::cancel()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -457,7 +459,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -522,7 +524,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -587,7 +589,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(J)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -644,6 +646,50 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 
 	return result;
 }
+AndroidCXX::android_animation_TimeInterpolator android_view_ViewPropertyAnimator::getInterpolator()
+{
+	LOGV("AndroidCXX::android_animation_TimeInterpolator android_view_ViewPropertyAnimator::getInterpolator() enter");
+
+	const char *methodName = "getInterpolator";
+	const char *methodSignature = "()Landroid/animation/TimeInterpolator;";
+	const char *className = "android/view/ViewPropertyAnimator";
+
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_ViewPropertyAnimator cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_ViewPropertyAnimator jni address %d", javaObject);
+
+
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.animation.TimeInterpolator");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_android_animation_TimeInterpolator(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	AndroidCXX::android_animation_TimeInterpolator result((AndroidCXX::android_animation_TimeInterpolator) *((AndroidCXX::android_animation_TimeInterpolator *) cxx_value));
+	delete ((AndroidCXX::android_animation_TimeInterpolator *) cxx_value);
+		
+	LOGV("AndroidCXX::android_animation_TimeInterpolator android_view_ViewPropertyAnimator::getInterpolator() exit");
+
+	return result;
+}
 long android_view_ViewPropertyAnimator::getDuration()
 {
 	LOGV("long android_view_ViewPropertyAnimator::getDuration() enter");
@@ -652,7 +698,7 @@ long android_view_ViewPropertyAnimator::getDuration()
 	const char *methodSignature = "()J";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -696,7 +742,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -761,7 +807,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -826,7 +872,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -891,7 +937,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -956,7 +1002,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1021,7 +1067,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1086,7 +1132,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1151,7 +1197,7 @@ long android_view_ViewPropertyAnimator::getStartDelay()
 	const char *methodSignature = "()J";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1195,7 +1241,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(J)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1260,7 +1306,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1325,7 +1371,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1390,7 +1436,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1455,7 +1501,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1520,7 +1566,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1585,7 +1631,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1650,7 +1696,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1715,7 +1761,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1780,7 +1826,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1845,7 +1891,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1910,7 +1956,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(F)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1975,7 +2021,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "()Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2019,7 +2065,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(Ljava/lang/Runnable;)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2084,7 +2130,7 @@ AndroidCXX::android_view_ViewPropertyAnimator android_view_ViewPropertyAnimator:
 	const char *methodSignature = "(Ljava/lang/Runnable;)Landroid/view/ViewPropertyAnimator;";
 	const char *className = "android/view/ViewPropertyAnimator";
 
-	LOGV("android_view_ViewPropertyAnimator className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewPropertyAnimator className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

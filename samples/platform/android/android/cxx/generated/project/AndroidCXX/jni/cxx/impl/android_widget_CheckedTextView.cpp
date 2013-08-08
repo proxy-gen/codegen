@@ -42,11 +42,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_CheckedTextView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -157,7 +154,7 @@ android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/CheckedTextView";
 
-	LOGV("android_widget_CheckedTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckedTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -235,7 +232,7 @@ android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/CheckedTextView";
 
-	LOGV("android_widget_CheckedTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckedTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -334,7 +331,7 @@ android_widget_CheckedTextView::android_widget_CheckedTextView(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/CheckedTextView";
 
-	LOGV("android_widget_CheckedTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckedTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -406,7 +403,7 @@ void android_widget_CheckedTextView::onInitializeAccessibilityEvent(AndroidCXX::
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/CheckedTextView";
 
-	LOGV("android_widget_CheckedTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckedTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -451,7 +448,7 @@ void android_widget_CheckedTextView::onInitializeAccessibilityNodeInfo(AndroidCX
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/CheckedTextView";
 
-	LOGV("android_widget_CheckedTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckedTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -496,7 +493,7 @@ void android_widget_CheckedTextView::onRtlPropertiesChanged(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/CheckedTextView";
 
-	LOGV("android_widget_CheckedTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckedTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -541,7 +538,7 @@ void android_widget_CheckedTextView::setChecked(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/CheckedTextView";
 
-	LOGV("android_widget_CheckedTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckedTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -586,7 +583,7 @@ bool android_widget_CheckedTextView::isChecked()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/CheckedTextView";
 
-	LOGV("android_widget_CheckedTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckedTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -630,7 +627,7 @@ void android_widget_CheckedTextView::toggle()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/CheckedTextView";
 
-	LOGV("android_widget_CheckedTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckedTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -654,7 +651,7 @@ void android_widget_CheckedTextView::setCheckMarkDrawable(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/CheckedTextView";
 
-	LOGV("android_widget_CheckedTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckedTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -699,7 +696,7 @@ void android_widget_CheckedTextView::setCheckMarkDrawable(AndroidCXX::android_gr
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/CheckedTextView";
 
-	LOGV("android_widget_CheckedTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckedTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -744,7 +741,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_CheckedTextView::g
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/CheckedTextView";
 
-	LOGV("android_widget_CheckedTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CheckedTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

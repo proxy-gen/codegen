@@ -44,11 +44,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_SyncAdapterType"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -162,7 +159,7 @@ android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;ZZ)V";
 	const char *className = "android/content/SyncAdapterType";
 
-	LOGV("android_content_SyncAdapterType className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SyncAdapterType className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -282,7 +279,7 @@ android_content_SyncAdapterType::android_content_SyncAdapterType(AndroidCXX::and
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
 	const char *className = "android/content/SyncAdapterType";
 
-	LOGV("android_content_SyncAdapterType className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SyncAdapterType className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -354,7 +351,7 @@ bool android_content_SyncAdapterType::equals(AndroidCXX::java_lang_Object const&
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "android/content/SyncAdapterType";
 
-	LOGV("android_content_SyncAdapterType className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SyncAdapterType className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -419,7 +416,7 @@ AndroidCXX::java_lang_String android_content_SyncAdapterType::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/SyncAdapterType";
 
-	LOGV("android_content_SyncAdapterType className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SyncAdapterType className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -463,7 +460,7 @@ int android_content_SyncAdapterType::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/SyncAdapterType";
 
-	LOGV("android_content_SyncAdapterType className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SyncAdapterType className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -507,7 +504,7 @@ int android_content_SyncAdapterType::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/SyncAdapterType";
 
-	LOGV("android_content_SyncAdapterType className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SyncAdapterType className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -551,7 +548,7 @@ void android_content_SyncAdapterType::writeToParcel(AndroidCXX::android_os_Parce
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/content/SyncAdapterType";
 
-	LOGV("android_content_SyncAdapterType className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SyncAdapterType className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -617,7 +614,7 @@ bool android_content_SyncAdapterType::supportsUploading()
 	const char *methodSignature = "()Z";
 	const char *className = "android/content/SyncAdapterType";
 
-	LOGV("android_content_SyncAdapterType className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SyncAdapterType className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -661,7 +658,7 @@ bool android_content_SyncAdapterType::isUserVisible()
 	const char *methodSignature = "()Z";
 	const char *className = "android/content/SyncAdapterType";
 
-	LOGV("android_content_SyncAdapterType className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SyncAdapterType className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -705,7 +702,7 @@ bool android_content_SyncAdapterType::allowParallelSyncs()
 	const char *methodSignature = "()Z";
 	const char *className = "android/content/SyncAdapterType";
 
-	LOGV("android_content_SyncAdapterType className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SyncAdapterType className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -749,7 +746,7 @@ bool android_content_SyncAdapterType::isAlwaysSyncable()
 	const char *methodSignature = "()Z";
 	const char *className = "android/content/SyncAdapterType";
 
-	LOGV("android_content_SyncAdapterType className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SyncAdapterType className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -793,7 +790,7 @@ AndroidCXX::java_lang_String android_content_SyncAdapterType::getSettingsActivit
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/SyncAdapterType";
 
-	LOGV("android_content_SyncAdapterType className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SyncAdapterType className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -837,7 +834,7 @@ AndroidCXX::android_content_SyncAdapterType android_content_SyncAdapterType::new
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SyncAdapterType;";
 	const char *className = "android/content/SyncAdapterType";
 
-	LOGV("android_content_SyncAdapterType className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SyncAdapterType className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

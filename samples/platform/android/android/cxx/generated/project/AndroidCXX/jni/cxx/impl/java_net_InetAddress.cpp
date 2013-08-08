@@ -58,11 +58,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_net_InetAddress"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -200,7 +197,7 @@ bool java_net_InetAddress::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -265,7 +262,7 @@ AndroidCXX::java_lang_String java_net_InetAddress::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -309,7 +306,7 @@ int java_net_InetAddress::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -353,7 +350,7 @@ std::vector<byte> java_net_InetAddress::getAddress()
 	const char *methodSignature = "()[B";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -415,7 +412,7 @@ AndroidCXX::java_lang_String java_net_InetAddress::getHostName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -459,7 +456,7 @@ AndroidCXX::java_lang_String java_net_InetAddress::getHostAddress()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -503,7 +500,7 @@ AndroidCXX::java_net_InetAddress java_net_InetAddress::getByName(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/InetAddress;";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -568,7 +565,7 @@ bool java_net_InetAddress::isMulticastAddress()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -612,7 +609,7 @@ bool java_net_InetAddress::isAnyLocalAddress()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -656,7 +653,7 @@ bool java_net_InetAddress::isLoopbackAddress()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -700,7 +697,7 @@ bool java_net_InetAddress::isLinkLocalAddress()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -744,7 +741,7 @@ bool java_net_InetAddress::isSiteLocalAddress()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -788,7 +785,7 @@ bool java_net_InetAddress::isMCGlobal()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -832,7 +829,7 @@ bool java_net_InetAddress::isMCNodeLocal()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -876,7 +873,7 @@ bool java_net_InetAddress::isMCLinkLocal()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -920,7 +917,7 @@ bool java_net_InetAddress::isMCSiteLocal()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -964,7 +961,7 @@ bool java_net_InetAddress::isMCOrgLocal()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1008,7 +1005,7 @@ bool java_net_InetAddress::isReachable(AndroidCXX::java_net_NetworkInterface con
 	const char *methodSignature = "(Ljava/net/NetworkInterface;II)Z";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1115,7 +1112,7 @@ bool java_net_InetAddress::isReachable(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1180,7 +1177,7 @@ AndroidCXX::java_lang_String java_net_InetAddress::getCanonicalHostName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1224,7 +1221,7 @@ AndroidCXX::java_net_InetAddress java_net_InetAddress::getByAddress(std::vector<
 	const char *methodSignature = "([B)Ljava/net/InetAddress;";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1307,7 +1304,7 @@ AndroidCXX::java_net_InetAddress java_net_InetAddress::getByAddress(AndroidCXX::
 	const char *methodSignature = "(Ljava/lang/String;[B)Ljava/net/InetAddress;";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1411,7 +1408,7 @@ std::vector<AndroidCXX::java_net_InetAddress > java_net_InetAddress::getAllByNam
 	const char *methodSignature = "(Ljava/lang/String;)[Ljava/net/InetAddress;";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1494,7 +1491,7 @@ AndroidCXX::java_net_InetAddress java_net_InetAddress::getLocalHost()
 	const char *methodSignature = "()Ljava/net/InetAddress;";
 	const char *className = "java/net/InetAddress";
 
-	LOGV("java_net_InetAddress className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_InetAddress className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

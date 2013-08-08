@@ -159,7 +159,7 @@ com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(A
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "com/facebook/widget/ProfilePictureView";
 
-	LOGV("com_facebook_widget_ProfilePictureView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ProfilePictureView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -216,7 +216,7 @@ com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(A
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "com/facebook/widget/ProfilePictureView";
 
-	LOGV("com_facebook_widget_ProfilePictureView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ProfilePictureView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -294,7 +294,7 @@ com_facebook_widget_ProfilePictureView::com_facebook_widget_ProfilePictureView(A
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "com/facebook/widget/ProfilePictureView";
 
-	LOGV("com_facebook_widget_ProfilePictureView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ProfilePictureView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -408,7 +408,7 @@ FacebookCXX::com_facebook_widget_ProfilePictureView_OnErrorListener com_facebook
 	const char *methodSignature = "()Lcom/facebook/widget/ProfilePictureView$OnErrorListener;";
 	const char *className = "com/facebook/widget/ProfilePictureView";
 
-	LOGV("com_facebook_widget_ProfilePictureView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ProfilePictureView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -452,7 +452,7 @@ void com_facebook_widget_ProfilePictureView::setOnErrorListener(FacebookCXX::com
 	const char *methodSignature = "(Lcom/facebook/widget/ProfilePictureView$OnErrorListener;)V";
 	const char *className = "com/facebook/widget/ProfilePictureView";
 
-	LOGV("com_facebook_widget_ProfilePictureView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ProfilePictureView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -497,7 +497,7 @@ bool com_facebook_widget_ProfilePictureView::isCropped()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/ProfilePictureView";
 
-	LOGV("com_facebook_widget_ProfilePictureView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ProfilePictureView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -541,7 +541,7 @@ int com_facebook_widget_ProfilePictureView::getPresetSize()
 	const char *methodSignature = "()I";
 	const char *className = "com/facebook/widget/ProfilePictureView";
 
-	LOGV("com_facebook_widget_ProfilePictureView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ProfilePictureView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -585,7 +585,7 @@ void com_facebook_widget_ProfilePictureView::setPresetSize(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "com/facebook/widget/ProfilePictureView";
 
-	LOGV("com_facebook_widget_ProfilePictureView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ProfilePictureView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -630,7 +630,7 @@ void com_facebook_widget_ProfilePictureView::setCropped(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "com/facebook/widget/ProfilePictureView";
 
-	LOGV("com_facebook_widget_ProfilePictureView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ProfilePictureView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -675,7 +675,7 @@ AndroidCXX::java_lang_String com_facebook_widget_ProfilePictureView::getProfileI
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/widget/ProfilePictureView";
 
-	LOGV("com_facebook_widget_ProfilePictureView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ProfilePictureView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -719,7 +719,7 @@ void com_facebook_widget_ProfilePictureView::setProfileId(AndroidCXX::java_lang_
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/widget/ProfilePictureView";
 
-	LOGV("com_facebook_widget_ProfilePictureView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ProfilePictureView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

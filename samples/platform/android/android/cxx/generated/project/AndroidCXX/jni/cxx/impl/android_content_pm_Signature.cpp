@@ -36,11 +36,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_pm_Signature"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -136,7 +133,7 @@ android_content_pm_Signature::android_content_pm_Signature(std::vector<byte> con
 	const char *methodSignature = "([B)V";
 	const char *className = "android/content/pm/Signature";
 
-	LOGV("android_content_pm_Signature className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_Signature className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -211,7 +208,7 @@ android_content_pm_Signature::android_content_pm_Signature(AndroidCXX::java_lang
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/content/pm/Signature";
 
-	LOGV("android_content_pm_Signature className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_Signature className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -283,7 +280,7 @@ bool android_content_pm_Signature::equals(AndroidCXX::java_lang_Object const& ar
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "android/content/pm/Signature";
 
-	LOGV("android_content_pm_Signature className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_Signature className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -348,7 +345,7 @@ int android_content_pm_Signature::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/pm/Signature";
 
-	LOGV("android_content_pm_Signature className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_Signature className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -392,7 +389,7 @@ std::vector<char> android_content_pm_Signature::toChars()
 	const char *methodSignature = "()[C";
 	const char *className = "android/content/pm/Signature";
 
-	LOGV("android_content_pm_Signature className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_Signature className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -454,7 +451,7 @@ std::vector<char> android_content_pm_Signature::toChars(std::vector<char> const&
 	const char *methodSignature = "([C[I)[C";
 	const char *className = "android/content/pm/Signature";
 
-	LOGV("android_content_pm_Signature className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_Signature className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -594,7 +591,7 @@ std::vector<byte> android_content_pm_Signature::toByteArray()
 	const char *methodSignature = "()[B";
 	const char *className = "android/content/pm/Signature";
 
-	LOGV("android_content_pm_Signature className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_Signature className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -656,7 +653,7 @@ int android_content_pm_Signature::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/pm/Signature";
 
-	LOGV("android_content_pm_Signature className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_Signature className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -700,7 +697,7 @@ void android_content_pm_Signature::writeToParcel(AndroidCXX::android_os_Parcel c
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/content/pm/Signature";
 
-	LOGV("android_content_pm_Signature className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_Signature className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -766,7 +763,7 @@ AndroidCXX::java_lang_String android_content_pm_Signature::toCharsString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/pm/Signature";
 
-	LOGV("android_content_pm_Signature className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_Signature className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

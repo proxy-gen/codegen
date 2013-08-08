@@ -37,11 +37,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_ActionProvider"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -143,7 +140,7 @@ android_view_ActionProvider::android_view_ActionProvider(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/view/ActionProvider";
 
-	LOGV("android_view_ActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -215,7 +212,7 @@ bool android_view_ActionProvider::isVisible()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/ActionProvider";
 
-	LOGV("android_view_ActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -259,7 +256,7 @@ bool android_view_ActionProvider::hasSubMenu()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/ActionProvider";
 
-	LOGV("android_view_ActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -303,7 +300,7 @@ AndroidCXX::android_view_View android_view_ActionProvider::onCreateActionView()
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/view/ActionProvider";
 
-	LOGV("android_view_ActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -347,7 +344,7 @@ AndroidCXX::android_view_View android_view_ActionProvider::onCreateActionView(An
 	const char *methodSignature = "(Landroid/view/MenuItem;)Landroid/view/View;";
 	const char *className = "android/view/ActionProvider";
 
-	LOGV("android_view_ActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -412,7 +409,7 @@ bool android_view_ActionProvider::overridesItemVisibility()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/ActionProvider";
 
-	LOGV("android_view_ActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -456,7 +453,7 @@ void android_view_ActionProvider::refreshVisibility()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/ActionProvider";
 
-	LOGV("android_view_ActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -480,7 +477,7 @@ bool android_view_ActionProvider::onPerformDefaultAction()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/ActionProvider";
 
-	LOGV("android_view_ActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -524,7 +521,7 @@ void android_view_ActionProvider::onPrepareSubMenu(AndroidCXX::android_view_SubM
 	const char *methodSignature = "(Landroid/view/SubMenu;)V";
 	const char *className = "android/view/ActionProvider";
 
-	LOGV("android_view_ActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -569,7 +566,7 @@ void android_view_ActionProvider::setVisibilityListener(AndroidCXX::android_view
 	const char *methodSignature = "(Landroid/view/ActionProvider$VisibilityListener;)V";
 	const char *className = "android/view/ActionProvider";
 
-	LOGV("android_view_ActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

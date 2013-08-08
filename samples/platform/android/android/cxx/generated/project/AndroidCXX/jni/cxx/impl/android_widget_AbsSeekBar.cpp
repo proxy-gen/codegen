@@ -50,11 +50,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_AbsSeekBar"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -174,7 +171,7 @@ android_widget_AbsSeekBar::android_widget_AbsSeekBar(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -231,7 +228,7 @@ android_widget_AbsSeekBar::android_widget_AbsSeekBar(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -309,7 +306,7 @@ android_widget_AbsSeekBar::android_widget_AbsSeekBar(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -423,7 +420,7 @@ bool android_widget_AbsSeekBar::onKeyDown(int const& arg0,AndroidCXX::android_vi
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -509,7 +506,7 @@ bool android_widget_AbsSeekBar::onTouchEvent(AndroidCXX::android_view_MotionEven
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -574,7 +571,7 @@ void android_widget_AbsSeekBar::jumpDrawablesToCurrentState()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -598,7 +595,7 @@ void android_widget_AbsSeekBar::onInitializeAccessibilityEvent(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -643,7 +640,7 @@ void android_widget_AbsSeekBar::onInitializeAccessibilityNodeInfo(AndroidCXX::an
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -688,7 +685,7 @@ bool android_widget_AbsSeekBar::performAccessibilityAction(int const& arg0,Andro
 	const char *methodSignature = "(ILandroid/os/Bundle;)Z";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -774,7 +771,7 @@ void android_widget_AbsSeekBar::onRtlPropertiesChanged(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -819,7 +816,7 @@ void android_widget_AbsSeekBar::setMax(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -864,7 +861,7 @@ void android_widget_AbsSeekBar::setThumb(AndroidCXX::android_graphics_drawable_D
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -909,7 +906,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_AbsSeekBar::getThu
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -953,7 +950,7 @@ int android_widget_AbsSeekBar::getThumbOffset()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -997,7 +994,7 @@ void android_widget_AbsSeekBar::setThumbOffset(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1042,7 +1039,7 @@ void android_widget_AbsSeekBar::setKeyProgressIncrement(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1087,7 +1084,7 @@ int android_widget_AbsSeekBar::getKeyProgressIncrement()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AbsSeekBar";
 
-	LOGV("android_widget_AbsSeekBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSeekBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

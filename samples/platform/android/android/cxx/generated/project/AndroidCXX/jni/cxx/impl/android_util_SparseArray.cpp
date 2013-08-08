@@ -47,11 +47,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_util_SparseArray"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -162,7 +159,7 @@ android_util_SparseArray::android_util_SparseArray(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -219,7 +216,7 @@ android_util_SparseArray::android_util_SparseArray()
 	const char *methodSignature = "()V";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -270,7 +267,7 @@ AndroidCXX::java_lang_Object android_util_SparseArray::get(int const& arg0)
 	const char *methodSignature = "(I)Ljava/lang/Object;";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -335,7 +332,7 @@ AndroidCXX::java_lang_Object android_util_SparseArray::get(int const& arg0,Andro
 	const char *methodSignature = "(ILjava/lang/Object;)Ljava/lang/Object;";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -421,7 +418,7 @@ void android_util_SparseArray::put(int const& arg0,AndroidCXX::java_lang_Object 
 	const char *methodSignature = "(ILjava/lang/Object;)V";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -487,7 +484,7 @@ void android_util_SparseArray::append(int const& arg0,AndroidCXX::java_lang_Obje
 	const char *methodSignature = "(ILjava/lang/Object;)V";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -553,7 +550,7 @@ AndroidCXX::android_util_SparseArray android_util_SparseArray::clone()
 	const char *methodSignature = "()Landroid/util/SparseArray;";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -615,7 +612,7 @@ void android_util_SparseArray::clear()
 	const char *methodSignature = "()V";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -639,7 +636,7 @@ int android_util_SparseArray::size()
 	const char *methodSignature = "()I";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -683,7 +680,7 @@ void android_util_SparseArray::remove(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -728,7 +725,7 @@ void android_util_SparseArray::_delete(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -773,7 +770,7 @@ void android_util_SparseArray::removeAt(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -818,7 +815,7 @@ int android_util_SparseArray::keyAt(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -883,7 +880,7 @@ AndroidCXX::java_lang_Object android_util_SparseArray::valueAt(int const& arg0)
 	const char *methodSignature = "(I)Ljava/lang/Object;";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -948,7 +945,7 @@ void android_util_SparseArray::setValueAt(int const& arg0,AndroidCXX::java_lang_
 	const char *methodSignature = "(ILjava/lang/Object;)V";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1014,7 +1011,7 @@ int android_util_SparseArray::indexOfKey(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1079,7 +1076,7 @@ int android_util_SparseArray::indexOfValue(AndroidCXX::java_lang_Object const& a
 	const char *methodSignature = "(Ljava/lang/Object;)I";
 	const char *className = "android/util/SparseArray";
 
-	LOGV("android_util_SparseArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_SparseArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -48,11 +48,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_SharedPreferences_Editor"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -202,7 +199,7 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 	const char *methodSignature = "(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;";
 	const char *className = "android/content/SharedPreferences$Editor";
 
-	LOGV("android_content_SharedPreferences_Editor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SharedPreferences_Editor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -288,7 +285,7 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 	const char *methodSignature = "(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;";
 	const char *className = "android/content/SharedPreferences$Editor";
 
-	LOGV("android_content_SharedPreferences_Editor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SharedPreferences_Editor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -374,7 +371,7 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 	const char *methodSignature = "(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;";
 	const char *className = "android/content/SharedPreferences$Editor";
 
-	LOGV("android_content_SharedPreferences_Editor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SharedPreferences_Editor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -460,7 +457,7 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 	const char *methodSignature = "(Ljava/lang/String;F)Landroid/content/SharedPreferences$Editor;";
 	const char *className = "android/content/SharedPreferences$Editor";
 
-	LOGV("android_content_SharedPreferences_Editor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SharedPreferences_Editor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -546,7 +543,7 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 	const char *methodSignature = "()Landroid/content/SharedPreferences$Editor;";
 	const char *className = "android/content/SharedPreferences$Editor";
 
-	LOGV("android_content_SharedPreferences_Editor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SharedPreferences_Editor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -590,7 +587,7 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;";
 	const char *className = "android/content/SharedPreferences$Editor";
 
-	LOGV("android_content_SharedPreferences_Editor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SharedPreferences_Editor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -655,7 +652,7 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;";
 	const char *className = "android/content/SharedPreferences$Editor";
 
-	LOGV("android_content_SharedPreferences_Editor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SharedPreferences_Editor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -741,7 +738,7 @@ void android_content_SharedPreferences_Editor::apply()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/SharedPreferences$Editor";
 
-	LOGV("android_content_SharedPreferences_Editor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SharedPreferences_Editor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -765,7 +762,7 @@ AndroidCXX::android_content_SharedPreferences_Editor android_content_SharedPrefe
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;";
 	const char *className = "android/content/SharedPreferences$Editor";
 
-	LOGV("android_content_SharedPreferences_Editor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SharedPreferences_Editor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -869,7 +866,7 @@ bool android_content_SharedPreferences_Editor::commit()
 	const char *methodSignature = "()Z";
 	const char *className = "android/content/SharedPreferences$Editor";
 
-	LOGV("android_content_SharedPreferences_Editor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SharedPreferences_Editor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -108,11 +108,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_KeyEvent"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -239,7 +236,7 @@ android_view_KeyEvent::android_view_KeyEvent(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)V";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -317,7 +314,7 @@ android_view_KeyEvent::android_view_KeyEvent(long const& arg0,long const& arg1,i
 	const char *methodSignature = "(JJIII)V";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -458,7 +455,7 @@ android_view_KeyEvent::android_view_KeyEvent(long const& arg0,long const& arg1,i
 	const char *methodSignature = "(JJIIII)V";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -620,7 +617,7 @@ android_view_KeyEvent::android_view_KeyEvent(long const& arg0,long const& arg1,i
 	const char *methodSignature = "(JJIIIIII)V";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -824,7 +821,7 @@ android_view_KeyEvent::android_view_KeyEvent(long const& arg0,long const& arg1,i
 	const char *methodSignature = "(JJIIIIIII)V";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1049,7 +1046,7 @@ android_view_KeyEvent::android_view_KeyEvent(long const& arg0,long const& arg1,i
 	const char *methodSignature = "(JJIIIIIIII)V";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1295,7 +1292,7 @@ android_view_KeyEvent::android_view_KeyEvent(long const& arg0,AndroidCXX::java_l
 	const char *methodSignature = "(JLjava/lang/String;II)V";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1415,7 +1412,7 @@ android_view_KeyEvent::android_view_KeyEvent(AndroidCXX::android_view_KeyEvent c
 	const char *methodSignature = "(Landroid/view/KeyEvent;)V";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1472,7 +1469,7 @@ android_view_KeyEvent::android_view_KeyEvent(AndroidCXX::android_view_KeyEvent c
 	const char *methodSignature = "(Landroid/view/KeyEvent;JI)V";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1586,7 +1583,7 @@ bool android_view_KeyEvent::dispatch(AndroidCXX::android_view_KeyEvent_Callback 
 	const char *methodSignature = "(Landroid/view/KeyEvent$Callback;Landroid/view/KeyEvent$DispatcherState;Ljava/lang/Object;)Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1693,7 +1690,7 @@ bool android_view_KeyEvent::dispatch(AndroidCXX::android_view_KeyEvent_Callback 
 	const char *methodSignature = "(Landroid/view/KeyEvent$Callback;)Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1758,7 +1755,7 @@ AndroidCXX::java_lang_String android_view_KeyEvent::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1802,7 +1799,7 @@ int android_view_KeyEvent::getModifiers()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1846,7 +1843,7 @@ char android_view_KeyEvent::getNumber()
 	const char *methodSignature = "()C";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1890,7 +1887,7 @@ void android_view_KeyEvent::writeToParcel(AndroidCXX::android_os_Parcel const& a
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1956,7 +1953,7 @@ int android_view_KeyEvent::getRepeatCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2000,7 +1997,7 @@ int android_view_KeyEvent::getAction()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2044,7 +2041,7 @@ int android_view_KeyEvent::getFlags()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2088,7 +2085,7 @@ bool android_view_KeyEvent::isCanceled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2132,7 +2129,7 @@ int android_view_KeyEvent::getMaxKeyCode()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2176,7 +2173,7 @@ int android_view_KeyEvent::getDeadChar(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2262,7 +2259,7 @@ AndroidCXX::android_view_KeyEvent android_view_KeyEvent::changeTimeRepeat(Androi
 	const char *methodSignature = "(Landroid/view/KeyEvent;JII)Landroid/view/KeyEvent;";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2390,7 +2387,7 @@ AndroidCXX::android_view_KeyEvent android_view_KeyEvent::changeTimeRepeat(Androi
 	const char *methodSignature = "(Landroid/view/KeyEvent;JI)Landroid/view/KeyEvent;";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2497,7 +2494,7 @@ AndroidCXX::android_view_KeyEvent android_view_KeyEvent::changeAction(AndroidCXX
 	const char *methodSignature = "(Landroid/view/KeyEvent;I)Landroid/view/KeyEvent;";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2583,7 +2580,7 @@ AndroidCXX::android_view_KeyEvent android_view_KeyEvent::changeFlags(AndroidCXX:
 	const char *methodSignature = "(Landroid/view/KeyEvent;I)Landroid/view/KeyEvent;";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2669,7 +2666,7 @@ bool android_view_KeyEvent::isSystem()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2713,7 +2710,7 @@ bool android_view_KeyEvent::isGamepadButton(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2778,7 +2775,7 @@ int android_view_KeyEvent::getDeviceId()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2822,7 +2819,7 @@ int android_view_KeyEvent::getSource()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2866,7 +2863,7 @@ void android_view_KeyEvent::setSource(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2911,7 +2908,7 @@ int android_view_KeyEvent::getMetaState()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2955,7 +2952,7 @@ int android_view_KeyEvent::getModifierMetaStateMask()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2999,7 +2996,7 @@ bool android_view_KeyEvent::isModifierKey(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3064,7 +3061,7 @@ int android_view_KeyEvent::normalizeMetaState(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3129,7 +3126,7 @@ bool android_view_KeyEvent::metaStateHasNoModifiers(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3194,7 +3191,7 @@ bool android_view_KeyEvent::metaStateHasModifiers(int const& arg0,int const& arg
 	const char *methodSignature = "(II)Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3280,7 +3277,7 @@ bool android_view_KeyEvent::hasNoModifiers()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3324,7 +3321,7 @@ bool android_view_KeyEvent::hasModifiers(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3389,7 +3386,7 @@ bool android_view_KeyEvent::isAltPressed()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3433,7 +3430,7 @@ bool android_view_KeyEvent::isShiftPressed()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3477,7 +3474,7 @@ bool android_view_KeyEvent::isSymPressed()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3521,7 +3518,7 @@ bool android_view_KeyEvent::isCtrlPressed()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3565,7 +3562,7 @@ bool android_view_KeyEvent::isMetaPressed()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3609,7 +3606,7 @@ bool android_view_KeyEvent::isFunctionPressed()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3653,7 +3650,7 @@ bool android_view_KeyEvent::isCapsLockOn()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3697,7 +3694,7 @@ bool android_view_KeyEvent::isNumLockOn()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3741,7 +3738,7 @@ bool android_view_KeyEvent::isScrollLockOn()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3785,7 +3782,7 @@ void android_view_KeyEvent::startTracking()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3809,7 +3806,7 @@ bool android_view_KeyEvent::isTracking()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3853,7 +3850,7 @@ bool android_view_KeyEvent::isLongPress()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3897,7 +3894,7 @@ int android_view_KeyEvent::getKeyCode()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3941,7 +3938,7 @@ AndroidCXX::java_lang_String android_view_KeyEvent::getCharacters()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3985,7 +3982,7 @@ int android_view_KeyEvent::getScanCode()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4029,7 +4026,7 @@ long android_view_KeyEvent::getDownTime()
 	const char *methodSignature = "()J";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4073,7 +4070,7 @@ long android_view_KeyEvent::getEventTime()
 	const char *methodSignature = "()J";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4117,7 +4114,7 @@ AndroidCXX::android_view_KeyCharacterMap android_view_KeyEvent::getKeyCharacterM
 	const char *methodSignature = "()Landroid/view/KeyCharacterMap;";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4161,7 +4158,7 @@ char android_view_KeyEvent::getDisplayLabel()
 	const char *methodSignature = "()C";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4205,7 +4202,7 @@ int android_view_KeyEvent::getUnicodeChar()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4249,7 +4246,7 @@ int android_view_KeyEvent::getUnicodeChar(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4314,7 +4311,7 @@ bool android_view_KeyEvent::getKeyData(AndroidCXX::android_view_KeyCharacterMap_
 	const char *methodSignature = "(Landroid/view/KeyCharacterMap$KeyData;)Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4379,7 +4376,7 @@ char android_view_KeyEvent::getMatch(std::vector<char> const& arg0,int const& ar
 	const char *methodSignature = "([CI)C";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4483,7 +4480,7 @@ char android_view_KeyEvent::getMatch(std::vector<char> const& arg0)
 	const char *methodSignature = "([C)C";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4566,7 +4563,7 @@ bool android_view_KeyEvent::isPrintingKey()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4610,7 +4607,7 @@ AndroidCXX::java_lang_String android_view_KeyEvent::keyCodeToString(int const& a
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4675,7 +4672,7 @@ int android_view_KeyEvent::keyCodeFromString(AndroidCXX::java_lang_String const&
 	const char *methodSignature = "(Ljava/lang/String;)I";
 	const char *className = "android/view/KeyEvent";
 
-	LOGV("android_view_KeyEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

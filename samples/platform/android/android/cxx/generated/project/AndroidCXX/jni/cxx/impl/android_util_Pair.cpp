@@ -31,11 +31,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_util_Pair"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -137,7 +134,7 @@ android_util_Pair::android_util_Pair(AndroidCXX::java_lang_Object const& arg0,An
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)V";
 	const char *className = "android/util/Pair";
 
-	LOGV("android_util_Pair className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_Pair className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -230,7 +227,7 @@ bool android_util_Pair::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "android/util/Pair";
 
-	LOGV("android_util_Pair className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_Pair className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -295,7 +292,7 @@ int android_util_Pair::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "android/util/Pair";
 
-	LOGV("android_util_Pair className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_Pair className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -339,7 +336,7 @@ AndroidCXX::android_util_Pair android_util_Pair::create(AndroidCXX::java_lang_Ob
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;";
 	const char *className = "android/util/Pair";
 
-	LOGV("android_util_Pair className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_Pair className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

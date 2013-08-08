@@ -56,11 +56,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_util_HashMap"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -195,7 +192,7 @@ java_util_HashMap::java_util_HashMap(int const& arg0,float const& arg1)
 	const char *methodSignature = "(IF)V";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -273,7 +270,7 @@ java_util_HashMap::java_util_HashMap(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -330,7 +327,7 @@ java_util_HashMap::java_util_HashMap()
 	const char *methodSignature = "()V";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -366,7 +363,7 @@ java_util_HashMap::java_util_HashMap(AndroidCXX::java_util_Map const& arg0)
 	const char *methodSignature = "(Ljava/util/Map;)V";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -471,7 +468,7 @@ AndroidCXX::java_lang_Object java_util_HashMap::get(AndroidCXX::java_lang_Object
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/Object;";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -536,7 +533,7 @@ AndroidCXX::java_lang_Object java_util_HashMap::put(AndroidCXX::java_lang_Object
 	const char *methodSignature = "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -622,7 +619,7 @@ AndroidCXX::java_util_Collection java_util_HashMap::values()
 	const char *methodSignature = "()Ljava/util/Collection;";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -684,7 +681,7 @@ AndroidCXX::java_lang_Object java_util_HashMap::clone()
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -728,7 +725,7 @@ void java_util_HashMap::clear()
 	const char *methodSignature = "()V";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -752,7 +749,7 @@ bool java_util_HashMap::isEmpty()
 	const char *methodSignature = "()Z";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -796,7 +793,7 @@ int java_util_HashMap::size()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -840,7 +837,7 @@ AndroidCXX::java_util_Set java_util_HashMap::entrySet()
 	const char *methodSignature = "()Ljava/util/Set;";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -935,7 +932,7 @@ void java_util_HashMap::putAll(AndroidCXX::java_util_Map const& arg0)
 	const char *methodSignature = "(Ljava/util/Map;)V";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1013,7 +1010,7 @@ AndroidCXX::java_lang_Object java_util_HashMap::remove(AndroidCXX::java_lang_Obj
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/Object;";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1078,7 +1075,7 @@ AndroidCXX::java_util_Set java_util_HashMap::keySet()
 	const char *methodSignature = "()Ljava/util/Set;";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1140,7 +1137,7 @@ bool java_util_HashMap::containsValue(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1205,7 +1202,7 @@ bool java_util_HashMap::containsKey(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/util/HashMap";
 
-	LOGV("java_util_HashMap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_HashMap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

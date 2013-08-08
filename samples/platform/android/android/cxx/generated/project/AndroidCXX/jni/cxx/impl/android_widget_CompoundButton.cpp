@@ -49,11 +49,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_CompoundButton"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -170,7 +167,7 @@ android_widget_CompoundButton::android_widget_CompoundButton(AndroidCXX::android
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -248,7 +245,7 @@ android_widget_CompoundButton::android_widget_CompoundButton(AndroidCXX::android
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -347,7 +344,7 @@ android_widget_CompoundButton::android_widget_CompoundButton(AndroidCXX::android
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -419,7 +416,7 @@ AndroidCXX::android_os_Parcelable android_widget_CompoundButton::onSaveInstanceS
 	const char *methodSignature = "()Landroid/os/Parcelable;";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -463,7 +460,7 @@ void android_widget_CompoundButton::onRestoreInstanceState(AndroidCXX::android_o
 	const char *methodSignature = "(Landroid/os/Parcelable;)V";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -508,7 +505,7 @@ void android_widget_CompoundButton::jumpDrawablesToCurrentState()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -532,7 +529,7 @@ bool android_widget_CompoundButton::performClick()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -576,7 +573,7 @@ void android_widget_CompoundButton::onInitializeAccessibilityEvent(AndroidCXX::a
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -621,7 +618,7 @@ void android_widget_CompoundButton::onInitializeAccessibilityNodeInfo(AndroidCXX
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -666,7 +663,7 @@ void android_widget_CompoundButton::setChecked(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -711,7 +708,7 @@ bool android_widget_CompoundButton::isChecked()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -755,7 +752,7 @@ void android_widget_CompoundButton::toggle()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -779,7 +776,7 @@ int android_widget_CompoundButton::getCompoundPaddingLeft()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -823,7 +820,7 @@ int android_widget_CompoundButton::getCompoundPaddingRight()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -867,7 +864,7 @@ void android_widget_CompoundButton::setOnCheckedChangeListener(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -912,7 +909,7 @@ void android_widget_CompoundButton::setButtonDrawable(AndroidCXX::android_graphi
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -957,7 +954,7 @@ void android_widget_CompoundButton::setButtonDrawable(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/CompoundButton";
 
-	LOGV("android_widget_CompoundButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CompoundButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -127,7 +127,7 @@ void com_facebook_widget_ProfilePictureView_OnErrorListener::onError(FacebookCXX
 	const char *methodSignature = "(Lcom/facebook/FacebookException;)V";
 	const char *className = "com/facebook/widget/ProfilePictureView$OnErrorListener";
 
-	LOGV("com_facebook_widget_ProfilePictureView_OnErrorListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ProfilePictureView_OnErrorListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

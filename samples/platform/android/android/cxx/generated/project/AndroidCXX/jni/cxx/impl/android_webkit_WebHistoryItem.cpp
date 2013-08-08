@@ -29,11 +29,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_WebHistoryItem"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -144,7 +141,7 @@ AndroidCXX::java_lang_String android_webkit_WebHistoryItem::getUrl()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebHistoryItem";
 
-	LOGV("android_webkit_WebHistoryItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebHistoryItem className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -188,7 +185,7 @@ AndroidCXX::java_lang_String android_webkit_WebHistoryItem::getTitle()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebHistoryItem";
 
-	LOGV("android_webkit_WebHistoryItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebHistoryItem className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -232,7 +229,7 @@ AndroidCXX::java_lang_String android_webkit_WebHistoryItem::getOriginalUrl()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebHistoryItem";
 
-	LOGV("android_webkit_WebHistoryItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebHistoryItem className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -276,7 +273,7 @@ AndroidCXX::android_graphics_Bitmap android_webkit_WebHistoryItem::getFavicon()
 	const char *methodSignature = "()Landroid/graphics/Bitmap;";
 	const char *className = "android/webkit/WebHistoryItem";
 
-	LOGV("android_webkit_WebHistoryItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebHistoryItem className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

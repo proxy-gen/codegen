@@ -121,7 +121,7 @@ com_facebook_widget_PickerFragment_PickerFragmentAdapter::com_facebook_widget_Pi
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment;Landroid/content/Context;)V";
 	const char *className = "com/facebook/widget/PickerFragment$PickerFragmentAdapter";
 
-	LOGV("com_facebook_widget_PickerFragment_PickerFragmentAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_PickerFragmentAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

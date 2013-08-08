@@ -29,11 +29,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_KeyEvent_Callback"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -144,7 +141,7 @@ bool android_view_KeyEvent_Callback::onKeyDown(int const& arg0,AndroidCXX::andro
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/view/KeyEvent$Callback";
 
-	LOGV("android_view_KeyEvent_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -230,7 +227,7 @@ bool android_view_KeyEvent_Callback::onKeyLongPress(int const& arg0,AndroidCXX::
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/view/KeyEvent$Callback";
 
-	LOGV("android_view_KeyEvent_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -316,7 +313,7 @@ bool android_view_KeyEvent_Callback::onKeyUp(int const& arg0,AndroidCXX::android
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/view/KeyEvent$Callback";
 
-	LOGV("android_view_KeyEvent_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -402,7 +399,7 @@ bool android_view_KeyEvent_Callback::onKeyMultiple(int const& arg0,int const& ar
 	const char *methodSignature = "(IILandroid/view/KeyEvent;)Z";
 	const char *className = "android/view/KeyEvent$Callback";
 
-	LOGV("android_view_KeyEvent_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

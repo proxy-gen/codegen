@@ -27,11 +27,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_LayoutInflater_Factory2"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -145,7 +142,7 @@ AndroidCXX::android_view_View android_view_LayoutInflater_Factory2::onCreateView
 	const char *methodSignature = "(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;";
 	const char *className = "android/view/LayoutInflater$Factory2";
 
-	LOGV("android_view_LayoutInflater_Factory2 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater_Factory2 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

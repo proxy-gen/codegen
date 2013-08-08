@@ -46,11 +46,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_res_AssetManager"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -194,7 +191,7 @@ std::vector<AndroidCXX::java_lang_String > android_content_res_AssetManager::lis
 	const char *methodSignature = "(Ljava/lang/String;)[Ljava/lang/String;";
 	const char *className = "android/content/res/AssetManager";
 
-	LOGV("android_content_res_AssetManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -277,7 +274,7 @@ void android_content_res_AssetManager::close()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/res/AssetManager";
 
-	LOGV("android_content_res_AssetManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -301,7 +298,7 @@ AndroidCXX::java_io_InputStream android_content_res_AssetManager::open(AndroidCX
 	const char *methodSignature = "(Ljava/lang/String;I)Ljava/io/InputStream;";
 	const char *className = "android/content/res/AssetManager";
 
-	LOGV("android_content_res_AssetManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -387,7 +384,7 @@ AndroidCXX::java_io_InputStream android_content_res_AssetManager::open(AndroidCX
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/io/InputStream;";
 	const char *className = "android/content/res/AssetManager";
 
-	LOGV("android_content_res_AssetManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -452,7 +449,7 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_AssetMan
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/res/AssetFileDescriptor;";
 	const char *className = "android/content/res/AssetManager";
 
-	LOGV("android_content_res_AssetManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -517,7 +514,7 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_AssetMan
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/res/AssetFileDescriptor;";
 	const char *className = "android/content/res/AssetManager";
 
-	LOGV("android_content_res_AssetManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -582,7 +579,7 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_AssetMan
 	const char *methodSignature = "(ILjava/lang/String;)Landroid/content/res/AssetFileDescriptor;";
 	const char *className = "android/content/res/AssetManager";
 
-	LOGV("android_content_res_AssetManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -668,7 +665,7 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_AssetManag
 	const char *methodSignature = "(ILjava/lang/String;)Landroid/content/res/XmlResourceParser;";
 	const char *className = "android/content/res/AssetManager";
 
-	LOGV("android_content_res_AssetManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -754,7 +751,7 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_AssetManag
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/content/res/XmlResourceParser;";
 	const char *className = "android/content/res/AssetManager";
 
-	LOGV("android_content_res_AssetManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -819,7 +816,7 @@ std::vector<AndroidCXX::java_lang_String > android_content_res_AssetManager::get
 	const char *methodSignature = "()[Ljava/lang/String;";
 	const char *className = "android/content/res/AssetManager";
 
-	LOGV("android_content_res_AssetManager className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetManager className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

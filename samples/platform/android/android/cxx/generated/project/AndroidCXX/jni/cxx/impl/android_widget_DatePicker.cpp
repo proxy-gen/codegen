@@ -55,11 +55,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_DatePicker"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -176,7 +173,7 @@ android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -254,7 +251,7 @@ android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -353,7 +350,7 @@ android_widget_DatePicker::android_widget_DatePicker(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -425,7 +422,7 @@ void android_widget_DatePicker::init(int const& arg0,int const& arg1,int const& 
 	const char *methodSignature = "(IIILandroid/widget/DatePicker$OnDateChangedListener;)V";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -533,7 +530,7 @@ int android_widget_DatePicker::getYear()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -577,7 +574,7 @@ int android_widget_DatePicker::getMonth()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -621,7 +618,7 @@ int android_widget_DatePicker::getDayOfMonth()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -665,7 +662,7 @@ bool android_widget_DatePicker::isEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -709,7 +706,7 @@ bool android_widget_DatePicker::dispatchPopulateAccessibilityEvent(AndroidCXX::a
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)Z";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -774,7 +771,7 @@ void android_widget_DatePicker::onPopulateAccessibilityEvent(AndroidCXX::android
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -819,7 +816,7 @@ void android_widget_DatePicker::onInitializeAccessibilityEvent(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -864,7 +861,7 @@ void android_widget_DatePicker::onInitializeAccessibilityNodeInfo(AndroidCXX::an
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -909,7 +906,7 @@ void android_widget_DatePicker::setEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -954,7 +951,7 @@ long android_widget_DatePicker::getMinDate()
 	const char *methodSignature = "()J";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -998,7 +995,7 @@ void android_widget_DatePicker::setMinDate(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1043,7 +1040,7 @@ long android_widget_DatePicker::getMaxDate()
 	const char *methodSignature = "()J";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1087,7 +1084,7 @@ void android_widget_DatePicker::setMaxDate(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1132,7 +1129,7 @@ bool android_widget_DatePicker::getCalendarViewShown()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1176,7 +1173,7 @@ AndroidCXX::android_widget_CalendarView android_widget_DatePicker::getCalendarVi
 	const char *methodSignature = "()Landroid/widget/CalendarView;";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1220,7 +1217,7 @@ void android_widget_DatePicker::setCalendarViewShown(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1265,7 +1262,7 @@ bool android_widget_DatePicker::getSpinnersShown()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1309,7 +1306,7 @@ void android_widget_DatePicker::setSpinnersShown(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1354,7 +1351,7 @@ void android_widget_DatePicker::updateDate(int const& arg0,int const& arg1,int c
 	const char *methodSignature = "(III)V";
 	const char *className = "android/widget/DatePicker";
 
-	LOGV("android_widget_DatePicker className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DatePicker className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

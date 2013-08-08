@@ -121,7 +121,7 @@ com_facebook_NonCachingTokenCachingStrategy::com_facebook_NonCachingTokenCaching
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/NonCachingTokenCachingStrategy";
 
-	LOGV("com_facebook_NonCachingTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_NonCachingTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -172,7 +172,7 @@ void com_facebook_NonCachingTokenCachingStrategy::clear()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/NonCachingTokenCachingStrategy";
 
-	LOGV("com_facebook_NonCachingTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_NonCachingTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -196,7 +196,7 @@ AndroidCXX::android_os_Bundle com_facebook_NonCachingTokenCachingStrategy::load(
 	const char *methodSignature = "()Landroid/os/Bundle;";
 	const char *className = "com/facebook/NonCachingTokenCachingStrategy";
 
-	LOGV("com_facebook_NonCachingTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_NonCachingTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -240,7 +240,7 @@ void com_facebook_NonCachingTokenCachingStrategy::save(AndroidCXX::android_os_Bu
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/NonCachingTokenCachingStrategy";
 
-	LOGV("com_facebook_NonCachingTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_NonCachingTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

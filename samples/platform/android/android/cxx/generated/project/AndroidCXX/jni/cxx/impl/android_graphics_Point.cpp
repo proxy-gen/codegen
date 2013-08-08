@@ -39,11 +39,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Point"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -119,7 +116,7 @@ android_graphics_Point::android_graphics_Point()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Point";
 
-	LOGV("android_graphics_Point className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Point className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -155,7 +152,7 @@ android_graphics_Point::android_graphics_Point(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)V";
 	const char *className = "android/graphics/Point";
 
-	LOGV("android_graphics_Point className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Point className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -233,7 +230,7 @@ android_graphics_Point::android_graphics_Point(AndroidCXX::android_graphics_Poin
 	const char *methodSignature = "(Landroid/graphics/Point;)V";
 	const char *className = "android/graphics/Point";
 
-	LOGV("android_graphics_Point className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Point className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -305,7 +302,7 @@ bool android_graphics_Point::equals(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)Z";
 	const char *className = "android/graphics/Point";
 
-	LOGV("android_graphics_Point className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Point className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -391,7 +388,7 @@ bool android_graphics_Point::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "android/graphics/Point";
 
-	LOGV("android_graphics_Point className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Point className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -456,7 +453,7 @@ AndroidCXX::java_lang_String android_graphics_Point::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/graphics/Point";
 
-	LOGV("android_graphics_Point className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Point className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -500,7 +497,7 @@ int android_graphics_Point::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Point";
 
-	LOGV("android_graphics_Point className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Point className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -544,7 +541,7 @@ void android_graphics_Point::offset(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)V";
 	const char *className = "android/graphics/Point";
 
-	LOGV("android_graphics_Point className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Point className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -610,7 +607,7 @@ void android_graphics_Point::set(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)V";
 	const char *className = "android/graphics/Point";
 
-	LOGV("android_graphics_Point className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Point className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -676,7 +673,7 @@ void android_graphics_Point::negate()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Point";
 
-	LOGV("android_graphics_Point className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Point className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -700,7 +697,7 @@ int android_graphics_Point::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Point";
 
-	LOGV("android_graphics_Point className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Point className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -744,7 +741,7 @@ void android_graphics_Point::writeToParcel(AndroidCXX::android_os_Parcel const& 
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/graphics/Point";
 
-	LOGV("android_graphics_Point className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Point className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -810,7 +807,7 @@ void android_graphics_Point::readFromParcel(AndroidCXX::android_os_Parcel const&
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
 	const char *className = "android/graphics/Point";
 
-	LOGV("android_graphics_Point className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Point className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

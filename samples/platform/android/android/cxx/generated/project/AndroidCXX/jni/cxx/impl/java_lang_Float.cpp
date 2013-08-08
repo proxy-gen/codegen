@@ -57,11 +57,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_Float"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -175,7 +172,7 @@ java_lang_Float::java_lang_Float(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -232,7 +229,7 @@ java_lang_Float::java_lang_Float(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -289,7 +286,7 @@ java_lang_Float::java_lang_Float(double const& arg0)
 	const char *methodSignature = "(D)V";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -361,7 +358,7 @@ bool java_lang_Float::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -426,7 +423,7 @@ AndroidCXX::java_lang_String java_lang_Float::toString(float const& arg0)
 	const char *methodSignature = "(F)Ljava/lang/String;";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -491,7 +488,7 @@ AndroidCXX::java_lang_String java_lang_Float::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -535,7 +532,7 @@ int java_lang_Float::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -579,7 +576,7 @@ int java_lang_Float::floatToRawIntBits(float const& arg0)
 	const char *methodSignature = "(F)I";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -644,7 +641,7 @@ int java_lang_Float::floatToIntBits(float const& arg0)
 	const char *methodSignature = "(F)I";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -709,7 +706,7 @@ float java_lang_Float::intBitsToFloat(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -774,7 +771,7 @@ int java_lang_Float::compareTo(AndroidCXX::java_lang_Float const& arg0)
 	const char *methodSignature = "(Ljava/lang/Float;)I";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -839,7 +836,7 @@ byte java_lang_Float::byteValue()
 	const char *methodSignature = "()B";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -883,7 +880,7 @@ short java_lang_Float::shortValue()
 	const char *methodSignature = "()S";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -927,7 +924,7 @@ int java_lang_Float::intValue()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -971,7 +968,7 @@ long java_lang_Float::longValue()
 	const char *methodSignature = "()J";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1015,7 +1012,7 @@ float java_lang_Float::floatValue()
 	const char *methodSignature = "()F";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1059,7 +1056,7 @@ double java_lang_Float::doubleValue()
 	const char *methodSignature = "()D";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1103,7 +1100,7 @@ AndroidCXX::java_lang_Float java_lang_Float::valueOf(AndroidCXX::java_lang_Strin
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Float;";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1168,7 +1165,7 @@ AndroidCXX::java_lang_Float java_lang_Float::valueOf(float const& arg0)
 	const char *methodSignature = "(F)Ljava/lang/Float;";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1233,7 +1230,7 @@ AndroidCXX::java_lang_String java_lang_Float::toHexString(float const& arg0)
 	const char *methodSignature = "(F)Ljava/lang/String;";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1298,7 +1295,7 @@ int java_lang_Float::compare(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)I";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1384,7 +1381,7 @@ bool java_lang_Float::isNaN(float const& arg0)
 	const char *methodSignature = "(F)Z";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1449,7 +1446,7 @@ bool java_lang_Float::isNaN()
 	const char *methodSignature = "()Z";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1493,7 +1490,7 @@ float java_lang_Float::parseFloat(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)F";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1558,7 +1555,7 @@ bool java_lang_Float::isInfinite()
 	const char *methodSignature = "()Z";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1602,7 +1599,7 @@ bool java_lang_Float::isInfinite(float const& arg0)
 	const char *methodSignature = "(F)Z";
 	const char *className = "java/lang/Float";
 
-	LOGV("java_lang_Float className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Float className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

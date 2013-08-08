@@ -127,7 +127,7 @@ void com_facebook_widget_LoginButton_OnErrorListener::onError(FacebookCXX::com_f
 	const char *methodSignature = "(Lcom/facebook/FacebookException;)V";
 	const char *className = "com/facebook/widget/LoginButton$OnErrorListener";
 
-	LOGV("com_facebook_widget_LoginButton_OnErrorListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton_OnErrorListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

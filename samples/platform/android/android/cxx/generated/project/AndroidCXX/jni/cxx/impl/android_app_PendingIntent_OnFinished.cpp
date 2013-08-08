@@ -26,11 +26,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_app_PendingIntent_OnFinished"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -141,7 +138,7 @@ void android_app_PendingIntent_OnFinished::onSendFinished(AndroidCXX::android_ap
 	const char *methodSignature = "(Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V";
 	const char *className = "android/app/PendingIntent$OnFinished";
 
-	LOGV("android_app_PendingIntent_OnFinished className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_PendingIntent_OnFinished className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

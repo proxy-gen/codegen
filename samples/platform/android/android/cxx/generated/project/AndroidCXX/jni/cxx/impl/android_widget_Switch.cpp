@@ -72,11 +72,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Switch"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -220,7 +217,7 @@ android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -298,7 +295,7 @@ android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -397,7 +394,7 @@ android_widget_Switch::android_widget_Switch(AndroidCXX::android_content_Context
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -469,7 +466,7 @@ bool android_widget_Switch::onTouchEvent(AndroidCXX::android_view_MotionEvent co
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -534,7 +531,7 @@ void android_widget_Switch::jumpDrawablesToCurrentState()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -558,7 +555,7 @@ void android_widget_Switch::onPopulateAccessibilityEvent(AndroidCXX::android_vie
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -603,7 +600,7 @@ void android_widget_Switch::onInitializeAccessibilityEvent(AndroidCXX::android_v
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -648,7 +645,7 @@ void android_widget_Switch::onInitializeAccessibilityNodeInfo(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -693,7 +690,7 @@ void android_widget_Switch::onMeasure(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -759,7 +756,7 @@ void android_widget_Switch::setChecked(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -804,7 +801,7 @@ int android_widget_Switch::getCompoundPaddingLeft()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -848,7 +845,7 @@ int android_widget_Switch::getCompoundPaddingRight()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -892,7 +889,7 @@ void android_widget_Switch::setSwitchTextAppearance(AndroidCXX::android_content_
 	const char *methodSignature = "(Landroid/content/Context;I)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -958,7 +955,7 @@ void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typef
 	const char *methodSignature = "(Landroid/graphics/Typeface;I)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1024,7 +1021,7 @@ void android_widget_Switch::setSwitchTypeface(AndroidCXX::android_graphics_Typef
 	const char *methodSignature = "(Landroid/graphics/Typeface;)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1069,7 +1066,7 @@ void android_widget_Switch::setSwitchPadding(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1114,7 +1111,7 @@ int android_widget_Switch::getSwitchPadding()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1158,7 +1155,7 @@ void android_widget_Switch::setSwitchMinWidth(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1203,7 +1200,7 @@ int android_widget_Switch::getSwitchMinWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1247,7 +1244,7 @@ void android_widget_Switch::setThumbTextPadding(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1292,7 +1289,7 @@ int android_widget_Switch::getThumbTextPadding()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1336,7 +1333,7 @@ void android_widget_Switch::setTrackDrawable(AndroidCXX::android_graphics_drawab
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1381,7 +1378,7 @@ void android_widget_Switch::setTrackResource(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1426,7 +1423,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_Switch::getTrackDr
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1470,7 +1467,7 @@ void android_widget_Switch::setThumbDrawable(AndroidCXX::android_graphics_drawab
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1515,7 +1512,7 @@ void android_widget_Switch::setThumbResource(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1560,7 +1557,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_Switch::getThumbDr
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1604,7 +1601,7 @@ AndroidCXX::java_lang_CharSequence android_widget_Switch::getTextOn()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1648,7 +1645,7 @@ void android_widget_Switch::setTextOn(AndroidCXX::java_lang_CharSequence const& 
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1693,7 +1690,7 @@ AndroidCXX::java_lang_CharSequence android_widget_Switch::getTextOff()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1737,7 +1734,7 @@ void android_widget_Switch::setTextOff(AndroidCXX::java_lang_CharSequence const&
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
 	const char *className = "android/widget/Switch";
 
-	LOGV("android_widget_Switch className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Switch className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

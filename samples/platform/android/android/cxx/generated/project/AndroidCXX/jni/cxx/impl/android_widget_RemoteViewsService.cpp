@@ -28,11 +28,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_RemoteViewsService"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -128,7 +125,7 @@ android_widget_RemoteViewsService::android_widget_RemoteViewsService()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/RemoteViewsService";
 
-	LOGV("android_widget_RemoteViewsService className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RemoteViewsService className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -179,7 +176,7 @@ AndroidCXX::android_os_IBinder android_widget_RemoteViewsService::onBind(Android
 	const char *methodSignature = "(Landroid/content/Intent;)Landroid/os/IBinder;";
 	const char *className = "android/widget/RemoteViewsService";
 
-	LOGV("android_widget_RemoteViewsService className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RemoteViewsService className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -244,7 +241,7 @@ AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory android_widget_
 	const char *methodSignature = "(Landroid/content/Intent;)Landroid/widget/RemoteViewsService$RemoteViewsFactory;";
 	const char *className = "android/widget/RemoteViewsService";
 
-	LOGV("android_widget_RemoteViewsService className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RemoteViewsService className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

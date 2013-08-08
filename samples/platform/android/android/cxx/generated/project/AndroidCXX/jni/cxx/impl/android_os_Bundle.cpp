@@ -45,6 +45,62 @@
  		 
 	
  		 
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
+	
+ 		 
+	
  		 
 	
  		 
@@ -59,64 +115,14 @@
  		 
  		 
  		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
 	
- 		 
- 		 
-	
- 		 
-	
- 		 
- 		 
-	
- 		 
-	
- 		 
-	
- 		 
-	
- 		 
-	
- 		 
-	
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
  		 
 
 
  		 
  		 
+
+
 
 
 
@@ -216,17 +222,26 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_os_Bundle"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 // 
 // 
 // 
@@ -602,7 +617,7 @@ android_os_Bundle::android_os_Bundle()
 	const char *methodSignature = "()V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -638,7 +653,7 @@ android_os_Bundle::android_os_Bundle(AndroidCXX::java_lang_ClassLoader const& ar
 	const char *methodSignature = "(Ljava/lang/ClassLoader;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -695,7 +710,7 @@ android_os_Bundle::android_os_Bundle(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -752,7 +767,7 @@ android_os_Bundle::android_os_Bundle(AndroidCXX::android_os_Bundle const& arg0)
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -824,7 +839,7 @@ AndroidCXX::java_lang_Object android_os_Bundle::get(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Object;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -889,7 +904,7 @@ AndroidCXX::java_lang_String android_os_Bundle::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -933,7 +948,7 @@ AndroidCXX::java_lang_Object android_os_Bundle::clone()
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -969,71 +984,6 @@ AndroidCXX::java_lang_Object android_os_Bundle::clone()
 
 	return result;
 }
-bool android_os_Bundle::getBoolean(AndroidCXX::java_lang_String const& arg0)
-{
-	LOGV("bool android_os_Bundle::getBoolean(AndroidCXX::java_lang_String const& arg0) enter");
-
-	const char *methodName = "getBoolean";
-	const char *methodSignature = "(Ljava/lang/String;)Z";
-	const char *className = "android/os/Bundle";
-
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_os_Bundle cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_os_Bundle jni address %d", javaObject);
-
-	jstring jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_string_to_jni(java_value);
-	}
-
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_boolean_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	bool result = (bool) *((bool *) cxx_value);
-	// 
-		
-	LOGV("bool android_os_Bundle::getBoolean(AndroidCXX::java_lang_String const& arg0) exit");
-
-	return result;
-}
 bool android_os_Bundle::getBoolean(AndroidCXX::java_lang_String const& arg0,bool const& arg1)
 {
 	LOGV("bool android_os_Bundle::getBoolean(AndroidCXX::java_lang_String const& arg0,bool const& arg1) enter");
@@ -1042,7 +992,7 @@ bool android_os_Bundle::getBoolean(AndroidCXX::java_lang_String const& arg0,bool
 	const char *methodSignature = "(Ljava/lang/String;Z)Z";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1120,6 +1070,71 @@ bool android_os_Bundle::getBoolean(AndroidCXX::java_lang_String const& arg0,bool
 
 	return result;
 }
+bool android_os_Bundle::getBoolean(AndroidCXX::java_lang_String const& arg0)
+{
+	LOGV("bool android_os_Bundle::getBoolean(AndroidCXX::java_lang_String const& arg0) enter");
+
+	const char *methodName = "getBoolean";
+	const char *methodSignature = "(Ljava/lang/String;)Z";
+	const char *className = "android/os/Bundle";
+
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_os_Bundle cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_os_Bundle jni address %d", javaObject);
+
+	jstring jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_string_to_jni(java_value);
+	}
+
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_os_Bundle::getBoolean(AndroidCXX::java_lang_String const& arg0) exit");
+
+	return result;
+}
 void android_os_Bundle::putBoolean(AndroidCXX::java_lang_String const& arg0,bool const& arg1)
 {
 	LOGV("void android_os_Bundle::putBoolean(AndroidCXX::java_lang_String const& arg0,bool const& arg1) enter");
@@ -1128,7 +1143,7 @@ void android_os_Bundle::putBoolean(AndroidCXX::java_lang_String const& arg0,bool
 	const char *methodSignature = "(Ljava/lang/String;Z)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1194,7 +1209,7 @@ AndroidCXX::java_lang_Byte android_os_Bundle::getByte(AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(Ljava/lang/String;B)Ljava/lang/Byte;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1280,7 +1295,7 @@ byte android_os_Bundle::getByte(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)B";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1345,7 +1360,7 @@ void android_os_Bundle::putByte(AndroidCXX::java_lang_String const& arg0,byte co
 	const char *methodSignature = "(Ljava/lang/String;B)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1411,7 +1426,7 @@ short android_os_Bundle::getShort(AndroidCXX::java_lang_String const& arg0,short
 	const char *methodSignature = "(Ljava/lang/String;S)S";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1497,7 +1512,7 @@ short android_os_Bundle::getShort(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)S";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1562,7 +1577,7 @@ void android_os_Bundle::putShort(AndroidCXX::java_lang_String const& arg0,short 
 	const char *methodSignature = "(Ljava/lang/String;S)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1628,7 +1643,7 @@ char android_os_Bundle::getChar(AndroidCXX::java_lang_String const& arg0,char co
 	const char *methodSignature = "(Ljava/lang/String;C)C";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1714,7 +1729,7 @@ char android_os_Bundle::getChar(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)C";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1779,7 +1794,7 @@ void android_os_Bundle::putChar(AndroidCXX::java_lang_String const& arg0,char co
 	const char *methodSignature = "(Ljava/lang/String;C)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1845,7 +1860,7 @@ int android_os_Bundle::getInt(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)I";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1910,7 +1925,7 @@ int android_os_Bundle::getInt(AndroidCXX::java_lang_String const& arg0,int const
 	const char *methodSignature = "(Ljava/lang/String;I)I";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1996,7 +2011,7 @@ void android_os_Bundle::putInt(AndroidCXX::java_lang_String const& arg0,int cons
 	const char *methodSignature = "(Ljava/lang/String;I)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2062,7 +2077,7 @@ long android_os_Bundle::getLong(AndroidCXX::java_lang_String const& arg0,long co
 	const char *methodSignature = "(Ljava/lang/String;J)J";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2148,7 +2163,7 @@ long android_os_Bundle::getLong(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)J";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2213,7 +2228,7 @@ void android_os_Bundle::putLong(AndroidCXX::java_lang_String const& arg0,long co
 	const char *methodSignature = "(Ljava/lang/String;J)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2279,7 +2294,7 @@ float android_os_Bundle::getFloat(AndroidCXX::java_lang_String const& arg0,float
 	const char *methodSignature = "(Ljava/lang/String;F)F";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2365,7 +2380,7 @@ float android_os_Bundle::getFloat(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)F";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2430,7 +2445,7 @@ void android_os_Bundle::putFloat(AndroidCXX::java_lang_String const& arg0,float 
 	const char *methodSignature = "(Ljava/lang/String;F)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2488,71 +2503,6 @@ void android_os_Bundle::putFloat(AndroidCXX::java_lang_String const& arg0,float 
 	LOGV("void android_os_Bundle::putFloat(AndroidCXX::java_lang_String const& arg0,float const& arg1) exit");
 
 }
-double android_os_Bundle::getDouble(AndroidCXX::java_lang_String const& arg0)
-{
-	LOGV("double android_os_Bundle::getDouble(AndroidCXX::java_lang_String const& arg0) enter");
-
-	const char *methodName = "getDouble";
-	const char *methodSignature = "(Ljava/lang/String;)D";
-	const char *className = "android/os/Bundle";
-
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_os_Bundle cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_os_Bundle jni address %d", javaObject);
-
-	jstring jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_string_to_jni(java_value);
-	}
-
-	jdouble jni_result = (jdouble) jni->invokeDoubleMethod(javaObject,className,methodName,methodSignature,jarg0);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_double_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("double");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	double result = (double) *((double *) cxx_value);
-	// 
-		
-	LOGV("double android_os_Bundle::getDouble(AndroidCXX::java_lang_String const& arg0) exit");
-
-	return result;
-}
 double android_os_Bundle::getDouble(AndroidCXX::java_lang_String const& arg0,double const& arg1)
 {
 	LOGV("double android_os_Bundle::getDouble(AndroidCXX::java_lang_String const& arg0,double const& arg1) enter");
@@ -2561,7 +2511,7 @@ double android_os_Bundle::getDouble(AndroidCXX::java_lang_String const& arg0,dou
 	const char *methodSignature = "(Ljava/lang/String;D)D";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2639,6 +2589,71 @@ double android_os_Bundle::getDouble(AndroidCXX::java_lang_String const& arg0,dou
 
 	return result;
 }
+double android_os_Bundle::getDouble(AndroidCXX::java_lang_String const& arg0)
+{
+	LOGV("double android_os_Bundle::getDouble(AndroidCXX::java_lang_String const& arg0) enter");
+
+	const char *methodName = "getDouble";
+	const char *methodSignature = "(Ljava/lang/String;)D";
+	const char *className = "android/os/Bundle";
+
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_os_Bundle cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_os_Bundle jni address %d", javaObject);
+
+	jstring jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_string_to_jni(java_value);
+	}
+
+	jdouble jni_result = (jdouble) jni->invokeDoubleMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_double_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("double");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	double result = (double) *((double *) cxx_value);
+	// 
+		
+	LOGV("double android_os_Bundle::getDouble(AndroidCXX::java_lang_String const& arg0) exit");
+
+	return result;
+}
 void android_os_Bundle::putDouble(AndroidCXX::java_lang_String const& arg0,double const& arg1)
 {
 	LOGV("void android_os_Bundle::putDouble(AndroidCXX::java_lang_String const& arg0,double const& arg1) enter");
@@ -2647,7 +2662,7 @@ void android_os_Bundle::putDouble(AndroidCXX::java_lang_String const& arg0,doubl
 	const char *methodSignature = "(Ljava/lang/String;D)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2713,7 +2728,7 @@ void android_os_Bundle::clear()
 	const char *methodSignature = "()V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2737,7 +2752,7 @@ bool android_os_Bundle::isEmpty()
 	const char *methodSignature = "()Z";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2781,7 +2796,7 @@ AndroidCXX::java_lang_ClassLoader android_os_Bundle::getClassLoader()
 	const char *methodSignature = "()Ljava/lang/ClassLoader;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2825,7 +2840,7 @@ int android_os_Bundle::size()
 	const char *methodSignature = "()I";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2869,7 +2884,7 @@ void android_os_Bundle::putAll(AndroidCXX::android_os_Bundle const& arg0)
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2914,7 +2929,7 @@ void android_os_Bundle::remove(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2959,7 +2974,7 @@ AndroidCXX::java_util_Set android_os_Bundle::keySet()
 	const char *methodSignature = "()Ljava/util/Set;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3021,7 +3036,7 @@ bool android_os_Bundle::containsKey(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3086,7 +3101,7 @@ AndroidCXX::android_os_Bundle android_os_Bundle::getBundle(AndroidCXX::java_lang
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/os/Bundle;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3143,6 +3158,71 @@ AndroidCXX::android_os_Bundle android_os_Bundle::getBundle(AndroidCXX::java_lang
 
 	return result;
 }
+AndroidCXX::java_lang_String android_os_Bundle::getString(AndroidCXX::java_lang_String const& arg0)
+{
+	LOGV("AndroidCXX::java_lang_String android_os_Bundle::getString(AndroidCXX::java_lang_String const& arg0) enter");
+
+	const char *methodName = "getString";
+	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
+	const char *className = "android/os/Bundle";
+
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_os_Bundle cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_os_Bundle jni address %d", javaObject);
+
+	jstring jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_string_to_jni(java_value);
+	}
+
+	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_string_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
+	delete ((AndroidCXX::java_lang_String *) cxx_value);
+		
+	LOGV("AndroidCXX::java_lang_String android_os_Bundle::getString(AndroidCXX::java_lang_String const& arg0) exit");
+
+	return result;
+}
 AndroidCXX::java_lang_String android_os_Bundle::getString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1)
 {
 	LOGV("AndroidCXX::java_lang_String android_os_Bundle::getString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
@@ -3151,7 +3231,7 @@ AndroidCXX::java_lang_String android_os_Bundle::getString(AndroidCXX::java_lang_
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3229,71 +3309,6 @@ AndroidCXX::java_lang_String android_os_Bundle::getString(AndroidCXX::java_lang_
 
 	return result;
 }
-AndroidCXX::java_lang_String android_os_Bundle::getString(AndroidCXX::java_lang_String const& arg0)
-{
-	LOGV("AndroidCXX::java_lang_String android_os_Bundle::getString(AndroidCXX::java_lang_String const& arg0) enter");
-
-	const char *methodName = "getString";
-	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
-	const char *className = "android/os/Bundle";
-
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_os_Bundle cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_os_Bundle jni address %d", javaObject);
-
-	jstring jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_string_to_jni(java_value);
-	}
-
-	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_string_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
-	delete ((AndroidCXX::java_lang_String *) cxx_value);
-		
-	LOGV("AndroidCXX::java_lang_String android_os_Bundle::getString(AndroidCXX::java_lang_String const& arg0) exit");
-
-	return result;
-}
 std::vector<AndroidCXX::java_lang_String > android_os_Bundle::getStringArray(AndroidCXX::java_lang_String const& arg0)
 {
 	LOGV("std::vector<AndroidCXX::java_lang_String > android_os_Bundle::getStringArray(AndroidCXX::java_lang_String const& arg0) enter");
@@ -3302,7 +3317,7 @@ std::vector<AndroidCXX::java_lang_String > android_os_Bundle::getStringArray(And
 	const char *methodSignature = "(Ljava/lang/String;)[Ljava/lang/String;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3385,7 +3400,7 @@ int android_os_Bundle::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3429,7 +3444,7 @@ void android_os_Bundle::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3495,7 +3510,7 @@ void android_os_Bundle::setClassLoader(AndroidCXX::java_lang_ClassLoader const& 
 	const char *methodSignature = "(Ljava/lang/ClassLoader;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3540,7 +3555,7 @@ bool android_os_Bundle::hasFileDescriptors()
 	const char *methodSignature = "()Z";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3584,7 +3599,7 @@ void android_os_Bundle::putString(AndroidCXX::java_lang_String const& arg0,Andro
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3650,7 +3665,7 @@ void android_os_Bundle::putCharSequence(AndroidCXX::java_lang_String const& arg0
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/CharSequence;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3716,7 +3731,7 @@ void android_os_Bundle::putParcelable(AndroidCXX::java_lang_String const& arg0,A
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Parcelable;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3782,7 +3797,7 @@ void android_os_Bundle::putParcelableArray(AndroidCXX::java_lang_String const& a
 	const char *methodSignature = "(Ljava/lang/String;[Landroid/os/Parcelable;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3866,7 +3881,7 @@ void android_os_Bundle::putParcelableArrayList(AndroidCXX::java_lang_String cons
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/ArrayList;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3950,7 +3965,7 @@ void android_os_Bundle::putSparseParcelableArray(AndroidCXX::java_lang_String co
 	const char *methodSignature = "(Ljava/lang/String;Landroid/util/SparseArray;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4034,7 +4049,7 @@ void android_os_Bundle::putIntegerArrayList(AndroidCXX::java_lang_String const& 
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/ArrayList;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4118,7 +4133,7 @@ void android_os_Bundle::putStringArrayList(AndroidCXX::java_lang_String const& a
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/ArrayList;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4202,7 +4217,7 @@ void android_os_Bundle::putCharSequenceArrayList(AndroidCXX::java_lang_String co
 	const char *methodSignature = "(Ljava/lang/String;Ljava/util/ArrayList;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4286,7 +4301,7 @@ void android_os_Bundle::putSerializable(AndroidCXX::java_lang_String const& arg0
 	const char *methodSignature = "(Ljava/lang/String;Ljava/io/Serializable;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4352,7 +4367,7 @@ void android_os_Bundle::putBooleanArray(AndroidCXX::java_lang_String const& arg0
 	const char *methodSignature = "(Ljava/lang/String;[Z)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4436,7 +4451,7 @@ void android_os_Bundle::putByteArray(AndroidCXX::java_lang_String const& arg0,st
 	const char *methodSignature = "(Ljava/lang/String;[B)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4520,7 +4535,7 @@ void android_os_Bundle::putShortArray(AndroidCXX::java_lang_String const& arg0,s
 	const char *methodSignature = "(Ljava/lang/String;[S)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4604,7 +4619,7 @@ void android_os_Bundle::putCharArray(AndroidCXX::java_lang_String const& arg0,st
 	const char *methodSignature = "(Ljava/lang/String;[C)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4688,7 +4703,7 @@ void android_os_Bundle::putIntArray(AndroidCXX::java_lang_String const& arg0,std
 	const char *methodSignature = "(Ljava/lang/String;[I)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4772,7 +4787,7 @@ void android_os_Bundle::putLongArray(AndroidCXX::java_lang_String const& arg0,st
 	const char *methodSignature = "(Ljava/lang/String;[J)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4856,7 +4871,7 @@ void android_os_Bundle::putFloatArray(AndroidCXX::java_lang_String const& arg0,s
 	const char *methodSignature = "(Ljava/lang/String;[F)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4940,7 +4955,7 @@ void android_os_Bundle::putDoubleArray(AndroidCXX::java_lang_String const& arg0,
 	const char *methodSignature = "(Ljava/lang/String;[D)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5024,7 +5039,7 @@ void android_os_Bundle::putStringArray(AndroidCXX::java_lang_String const& arg0,
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/String;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5108,7 +5123,7 @@ void android_os_Bundle::putCharSequenceArray(AndroidCXX::java_lang_String const&
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/CharSequence;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5192,7 +5207,7 @@ void android_os_Bundle::putBundle(AndroidCXX::java_lang_String const& arg0,Andro
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5250,6 +5265,72 @@ void android_os_Bundle::putBundle(AndroidCXX::java_lang_String const& arg0,Andro
 	LOGV("void android_os_Bundle::putBundle(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1) exit");
 
 }
+void android_os_Bundle::putBinder(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_IBinder const& arg1)
+{
+	LOGV("void android_os_Bundle::putBinder(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_IBinder const& arg1) enter");
+
+	const char *methodName = "putBinder";
+	const char *methodSignature = "(Ljava/lang/String;Landroid/os/IBinder;)V";
+	const char *className = "android/os/Bundle";
+
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_os_Bundle cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_os_Bundle jni address %d", javaObject);
+
+	jstring jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_string_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.os.IBinder");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_os_IBinder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+		
+	LOGV("void android_os_Bundle::putBinder(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_IBinder const& arg1) exit");
+
+}
 AndroidCXX::java_lang_CharSequence android_os_Bundle::getCharSequence(AndroidCXX::java_lang_String const& arg0)
 {
 	LOGV("AndroidCXX::java_lang_CharSequence android_os_Bundle::getCharSequence(AndroidCXX::java_lang_String const& arg0) enter");
@@ -5258,7 +5339,7 @@ AndroidCXX::java_lang_CharSequence android_os_Bundle::getCharSequence(AndroidCXX
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/CharSequence;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5323,7 +5404,7 @@ AndroidCXX::java_lang_CharSequence android_os_Bundle::getCharSequence(AndroidCXX
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5409,7 +5490,7 @@ AndroidCXX::android_os_Parcelable android_os_Bundle::getParcelable(AndroidCXX::j
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/os/Parcelable;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5474,7 +5555,7 @@ std::vector<AndroidCXX::android_os_Parcelable > android_os_Bundle::getParcelable
 	const char *methodSignature = "(Ljava/lang/String;)[Landroid/os/Parcelable;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5557,7 +5638,7 @@ AndroidCXX::java_util_ArrayList android_os_Bundle::getParcelableArrayList(Androi
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/ArrayList;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5640,7 +5721,7 @@ AndroidCXX::android_util_SparseArray android_os_Bundle::getSparseParcelableArray
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/util/SparseArray;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5723,7 +5804,7 @@ AndroidCXX::java_io_Serializable android_os_Bundle::getSerializable(AndroidCXX::
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/io/Serializable;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5788,7 +5869,7 @@ AndroidCXX::java_util_ArrayList android_os_Bundle::getIntegerArrayList(AndroidCX
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/ArrayList;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5871,7 +5952,7 @@ AndroidCXX::java_util_ArrayList android_os_Bundle::getStringArrayList(AndroidCXX
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/ArrayList;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5954,7 +6035,7 @@ AndroidCXX::java_util_ArrayList android_os_Bundle::getCharSequenceArrayList(Andr
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/ArrayList;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6037,7 +6118,7 @@ std::vector<bool> android_os_Bundle::getBooleanArray(AndroidCXX::java_lang_Strin
 	const char *methodSignature = "(Ljava/lang/String;)[Z";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6120,7 +6201,7 @@ std::vector<byte> android_os_Bundle::getByteArray(AndroidCXX::java_lang_String c
 	const char *methodSignature = "(Ljava/lang/String;)[B";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6203,7 +6284,7 @@ std::vector<short> android_os_Bundle::getShortArray(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;)[S";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6286,7 +6367,7 @@ std::vector<char> android_os_Bundle::getCharArray(AndroidCXX::java_lang_String c
 	const char *methodSignature = "(Ljava/lang/String;)[C";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6369,7 +6450,7 @@ std::vector<int> android_os_Bundle::getIntArray(AndroidCXX::java_lang_String con
 	const char *methodSignature = "(Ljava/lang/String;)[I";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6452,7 +6533,7 @@ std::vector<long> android_os_Bundle::getLongArray(AndroidCXX::java_lang_String c
 	const char *methodSignature = "(Ljava/lang/String;)[J";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6535,7 +6616,7 @@ std::vector<float> android_os_Bundle::getFloatArray(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;)[F";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6618,7 +6699,7 @@ std::vector<double> android_os_Bundle::getDoubleArray(AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(Ljava/lang/String;)[D";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6701,7 +6782,7 @@ std::vector<AndroidCXX::java_lang_CharSequence > android_os_Bundle::getCharSeque
 	const char *methodSignature = "(Ljava/lang/String;)[Ljava/lang/CharSequence;";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6776,6 +6857,71 @@ std::vector<AndroidCXX::java_lang_CharSequence > android_os_Bundle::getCharSeque
 
 	return result;
 }
+AndroidCXX::android_os_IBinder android_os_Bundle::getBinder(AndroidCXX::java_lang_String const& arg0)
+{
+	LOGV("AndroidCXX::android_os_IBinder android_os_Bundle::getBinder(AndroidCXX::java_lang_String const& arg0) enter");
+
+	const char *methodName = "getBinder";
+	const char *methodSignature = "(Ljava/lang/String;)Landroid/os/IBinder;";
+	const char *className = "android/os/Bundle";
+
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_os_Bundle cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_os_Bundle jni address %d", javaObject);
+
+	jstring jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_string_to_jni(java_value);
+	}
+
+	jobject jni_result = (jobject) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_java_lang_Object_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.os.IBinder");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_android_os_IBinder(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	AndroidCXX::android_os_IBinder result((AndroidCXX::android_os_IBinder) *((AndroidCXX::android_os_IBinder *) cxx_value));
+	delete ((AndroidCXX::android_os_IBinder *) cxx_value);
+		
+	LOGV("AndroidCXX::android_os_IBinder android_os_Bundle::getBinder(AndroidCXX::java_lang_String const& arg0) exit");
+
+	return result;
+}
 void android_os_Bundle::readFromParcel(AndroidCXX::android_os_Parcel const& arg0)
 {
 	LOGV("void android_os_Bundle::readFromParcel(AndroidCXX::android_os_Parcel const& arg0) enter");
@@ -6784,7 +6930,7 @@ void android_os_Bundle::readFromParcel(AndroidCXX::android_os_Parcel const& arg0
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
 	const char *className = "android/os/Bundle";
 
-	LOGV("android_os_Bundle className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Bundle className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

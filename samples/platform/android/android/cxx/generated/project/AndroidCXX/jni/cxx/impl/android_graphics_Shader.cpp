@@ -26,11 +26,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Shader"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -120,7 +117,7 @@ android_graphics_Shader::android_graphics_Shader()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Shader";
 
-	LOGV("android_graphics_Shader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Shader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -171,7 +168,7 @@ bool android_graphics_Shader::getLocalMatrix(AndroidCXX::android_graphics_Matrix
 	const char *methodSignature = "(Landroid/graphics/Matrix;)Z";
 	const char *className = "android/graphics/Shader";
 
-	LOGV("android_graphics_Shader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Shader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -236,7 +233,7 @@ void android_graphics_Shader::setLocalMatrix(AndroidCXX::android_graphics_Matrix
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
 	const char *className = "android/graphics/Shader";
 
-	LOGV("android_graphics_Shader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Shader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -134,7 +134,7 @@ com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferenc
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "com/facebook/SharedPreferencesTokenCachingStrategy";
 
-	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -191,7 +191,7 @@ com_facebook_SharedPreferencesTokenCachingStrategy::com_facebook_SharedPreferenc
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;)V";
 	const char *className = "com/facebook/SharedPreferencesTokenCachingStrategy";
 
-	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -284,7 +284,7 @@ void com_facebook_SharedPreferencesTokenCachingStrategy::clear()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/SharedPreferencesTokenCachingStrategy";
 
-	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -308,7 +308,7 @@ AndroidCXX::android_os_Bundle com_facebook_SharedPreferencesTokenCachingStrategy
 	const char *methodSignature = "()Landroid/os/Bundle;";
 	const char *className = "com/facebook/SharedPreferencesTokenCachingStrategy";
 
-	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -352,7 +352,7 @@ void com_facebook_SharedPreferencesTokenCachingStrategy::save(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/SharedPreferencesTokenCachingStrategy";
 
-	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_SharedPreferencesTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

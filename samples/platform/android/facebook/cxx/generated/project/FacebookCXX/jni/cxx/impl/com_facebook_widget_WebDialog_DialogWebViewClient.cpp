@@ -181,7 +181,7 @@ bool com_facebook_widget_WebDialog_DialogWebViewClient::shouldOverrideUrlLoading
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)Z";
 	const char *className = "com/facebook/widget/WebDialog$DialogWebViewClient";
 
-	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -267,7 +267,7 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onPageStarted(AndroidCXX
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Landroid/graphics/Bitmap;)V";
 	const char *className = "com/facebook/widget/WebDialog$DialogWebViewClient";
 
-	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -354,7 +354,7 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onPageFinished(AndroidCX
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)V";
 	const char *className = "com/facebook/widget/WebDialog$DialogWebViewClient";
 
-	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -420,7 +420,7 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedError(AndroidC
 	const char *methodSignature = "(Landroid/webkit/WebView;ILjava/lang/String;Ljava/lang/String;)V";
 	const char *className = "com/facebook/widget/WebDialog$DialogWebViewClient";
 
-	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -528,7 +528,7 @@ void com_facebook_widget_WebDialog_DialogWebViewClient::onReceivedSslError(Andro
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/webkit/SslErrorHandler;Landroid/net/http/SslError;)V";
 	const char *className = "com/facebook/widget/WebDialog$DialogWebViewClient";
 
-	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_DialogWebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

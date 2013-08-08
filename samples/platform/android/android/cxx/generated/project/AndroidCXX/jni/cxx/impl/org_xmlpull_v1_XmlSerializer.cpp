@@ -82,11 +82,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "org_xmlpull_v1_XmlSerializer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -293,7 +290,7 @@ void org_xmlpull_v1_XmlSerializer::setProperty(AndroidCXX::java_lang_String cons
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Object;)V";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -359,7 +356,7 @@ AndroidCXX::java_lang_Object org_xmlpull_v1_XmlSerializer::getProperty(AndroidCX
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Object;";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -424,7 +421,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlSerializer::getName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -468,7 +465,7 @@ void org_xmlpull_v1_XmlSerializer::flush()
 	const char *methodSignature = "()V";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -492,7 +489,7 @@ void org_xmlpull_v1_XmlSerializer::comment(AndroidCXX::java_lang_String const& a
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -537,7 +534,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlSerializer::getPrefix(AndroidCXX:
 	const char *methodSignature = "(Ljava/lang/String;Z)Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -623,7 +620,7 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::text(Andr
 	const char *methodSignature = "(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -688,7 +685,7 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::text(std:
 	const char *methodSignature = "([CII)Lorg/xmlpull/v1/XmlSerializer;";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -813,7 +810,7 @@ void org_xmlpull_v1_XmlSerializer::setFeature(AndroidCXX::java_lang_String const
 	const char *methodSignature = "(Ljava/lang/String;Z)V";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -879,7 +876,7 @@ bool org_xmlpull_v1_XmlSerializer::getFeature(AndroidCXX::java_lang_String const
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -944,7 +941,7 @@ AndroidCXX::java_lang_String org_xmlpull_v1_XmlSerializer::getNamespace()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -988,7 +985,7 @@ int org_xmlpull_v1_XmlSerializer::getDepth()
 	const char *methodSignature = "()I";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1032,7 +1029,7 @@ void org_xmlpull_v1_XmlSerializer::setOutput(AndroidCXX::java_io_OutputStream co
 	const char *methodSignature = "(Ljava/io/OutputStream;Ljava/lang/String;)V";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1098,7 +1095,7 @@ void org_xmlpull_v1_XmlSerializer::setOutput(AndroidCXX::java_io_Writer const& a
 	const char *methodSignature = "(Ljava/io/Writer;)V";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1143,7 +1140,7 @@ void org_xmlpull_v1_XmlSerializer::startDocument(AndroidCXX::java_lang_String co
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Boolean;)V";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1209,7 +1206,7 @@ void org_xmlpull_v1_XmlSerializer::endDocument()
 	const char *methodSignature = "()V";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1233,7 +1230,7 @@ void org_xmlpull_v1_XmlSerializer::setPrefix(AndroidCXX::java_lang_String const&
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1299,7 +1296,7 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::startTag(
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1385,7 +1382,7 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::attribute
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1492,7 +1489,7 @@ AndroidCXX::org_xmlpull_v1_XmlSerializer org_xmlpull_v1_XmlSerializer::endTag(An
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1578,7 +1575,7 @@ void org_xmlpull_v1_XmlSerializer::cdsect(AndroidCXX::java_lang_String const& ar
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1623,7 +1620,7 @@ void org_xmlpull_v1_XmlSerializer::entityRef(AndroidCXX::java_lang_String const&
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1668,7 +1665,7 @@ void org_xmlpull_v1_XmlSerializer::processingInstruction(AndroidCXX::java_lang_S
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1713,7 +1710,7 @@ void org_xmlpull_v1_XmlSerializer::docdecl(AndroidCXX::java_lang_String const& a
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1758,7 +1755,7 @@ void org_xmlpull_v1_XmlSerializer::ignorableWhitespace(AndroidCXX::java_lang_Str
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "org/xmlpull/v1/XmlSerializer";
 
-	LOGV("org_xmlpull_v1_XmlSerializer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("org_xmlpull_v1_XmlSerializer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

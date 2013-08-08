@@ -56,11 +56,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_Double"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -174,7 +171,7 @@ java_lang_Double::java_lang_Double(double const& arg0)
 	const char *methodSignature = "(D)V";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -231,7 +228,7 @@ java_lang_Double::java_lang_Double(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -303,7 +300,7 @@ bool java_lang_Double::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -368,7 +365,7 @@ AndroidCXX::java_lang_String java_lang_Double::toString(double const& arg0)
 	const char *methodSignature = "(D)Ljava/lang/String;";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -433,7 +430,7 @@ AndroidCXX::java_lang_String java_lang_Double::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -477,7 +474,7 @@ int java_lang_Double::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -521,7 +518,7 @@ long java_lang_Double::doubleToRawLongBits(double const& arg0)
 	const char *methodSignature = "(D)J";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -586,7 +583,7 @@ long java_lang_Double::doubleToLongBits(double const& arg0)
 	const char *methodSignature = "(D)J";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -651,7 +648,7 @@ double java_lang_Double::longBitsToDouble(long const& arg0)
 	const char *methodSignature = "(J)D";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -716,7 +713,7 @@ int java_lang_Double::compareTo(AndroidCXX::java_lang_Double const& arg0)
 	const char *methodSignature = "(Ljava/lang/Double;)I";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -781,7 +778,7 @@ byte java_lang_Double::byteValue()
 	const char *methodSignature = "()B";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -825,7 +822,7 @@ short java_lang_Double::shortValue()
 	const char *methodSignature = "()S";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -869,7 +866,7 @@ int java_lang_Double::intValue()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -913,7 +910,7 @@ long java_lang_Double::longValue()
 	const char *methodSignature = "()J";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -957,7 +954,7 @@ float java_lang_Double::floatValue()
 	const char *methodSignature = "()F";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1001,7 +998,7 @@ double java_lang_Double::doubleValue()
 	const char *methodSignature = "()D";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1045,7 +1042,7 @@ AndroidCXX::java_lang_Double java_lang_Double::valueOf(AndroidCXX::java_lang_Str
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Double;";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1110,7 +1107,7 @@ AndroidCXX::java_lang_Double java_lang_Double::valueOf(double const& arg0)
 	const char *methodSignature = "(D)Ljava/lang/Double;";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1175,7 +1172,7 @@ AndroidCXX::java_lang_String java_lang_Double::toHexString(double const& arg0)
 	const char *methodSignature = "(D)Ljava/lang/String;";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1240,7 +1237,7 @@ int java_lang_Double::compare(double const& arg0,double const& arg1)
 	const char *methodSignature = "(DD)I";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1326,7 +1323,7 @@ bool java_lang_Double::isNaN(double const& arg0)
 	const char *methodSignature = "(D)Z";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1391,7 +1388,7 @@ bool java_lang_Double::isNaN()
 	const char *methodSignature = "()Z";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1435,7 +1432,7 @@ bool java_lang_Double::isInfinite()
 	const char *methodSignature = "()Z";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1479,7 +1476,7 @@ bool java_lang_Double::isInfinite(double const& arg0)
 	const char *methodSignature = "(D)Z";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1544,7 +1541,7 @@ double java_lang_Double::parseDouble(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)D";
 	const char *className = "java/lang/Double";
 
-	LOGV("java_lang_Double className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Double className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -62,11 +62,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_GridView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -189,7 +186,7 @@ android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -246,7 +243,7 @@ android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -345,7 +342,7 @@ android_widget_GridView::android_widget_GridView(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -438,7 +435,7 @@ bool android_widget_GridView::onKeyDown(int const& arg0,AndroidCXX::android_view
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -524,7 +521,7 @@ bool android_widget_GridView::onKeyUp(int const& arg0,AndroidCXX::android_view_K
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -610,7 +607,7 @@ bool android_widget_GridView::onKeyMultiple(int const& arg0,int const& arg1,Andr
 	const char *methodSignature = "(IILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -717,7 +714,7 @@ void android_widget_GridView::onInitializeAccessibilityEvent(AndroidCXX::android
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -762,7 +759,7 @@ void android_widget_GridView::onInitializeAccessibilityNodeInfo(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -807,7 +804,7 @@ void android_widget_GridView::setSelection(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -852,7 +849,7 @@ void android_widget_GridView::setGravity(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -897,7 +894,7 @@ void android_widget_GridView::setAdapter(AndroidCXX::android_widget_ListAdapter 
 	const char *methodSignature = "(Landroid/widget/ListAdapter;)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -942,7 +939,7 @@ void android_widget_GridView::smoothScrollToPosition(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -987,7 +984,7 @@ void android_widget_GridView::setRemoteViewsAdapter(AndroidCXX::android_content_
 	const char *methodSignature = "(Landroid/content/Intent;)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1032,7 +1029,7 @@ AndroidCXX::android_widget_ListAdapter android_widget_GridView::getAdapter()
 	const char *methodSignature = "()Landroid/widget/ListAdapter;";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1076,7 +1073,7 @@ int android_widget_GridView::getGravity()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1120,7 +1117,7 @@ void android_widget_GridView::smoothScrollByOffset(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1165,7 +1162,7 @@ void android_widget_GridView::setHorizontalSpacing(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1210,7 +1207,7 @@ int android_widget_GridView::getHorizontalSpacing()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1254,7 +1251,7 @@ int android_widget_GridView::getRequestedHorizontalSpacing()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1298,7 +1295,7 @@ void android_widget_GridView::setVerticalSpacing(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1343,7 +1340,7 @@ int android_widget_GridView::getVerticalSpacing()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1387,7 +1384,7 @@ void android_widget_GridView::setStretchMode(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1432,7 +1429,7 @@ int android_widget_GridView::getStretchMode()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1476,7 +1473,7 @@ void android_widget_GridView::setColumnWidth(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1521,7 +1518,7 @@ int android_widget_GridView::getColumnWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1565,7 +1562,7 @@ int android_widget_GridView::getRequestedColumnWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1609,7 +1606,7 @@ void android_widget_GridView::setNumColumns(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1654,7 +1651,7 @@ int android_widget_GridView::getNumColumns()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/GridView";
 
-	LOGV("android_widget_GridView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_GridView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

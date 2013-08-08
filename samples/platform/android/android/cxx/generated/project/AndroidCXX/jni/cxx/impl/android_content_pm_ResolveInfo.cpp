@@ -39,11 +39,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_pm_ResolveInfo"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -131,7 +128,7 @@ android_content_pm_ResolveInfo::android_content_pm_ResolveInfo()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/pm/ResolveInfo";
 
-	LOGV("android_content_pm_ResolveInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ResolveInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -167,7 +164,7 @@ android_content_pm_ResolveInfo::android_content_pm_ResolveInfo(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/pm/ResolveInfo;)V";
 	const char *className = "android/content/pm/ResolveInfo";
 
-	LOGV("android_content_pm_ResolveInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ResolveInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -239,7 +236,7 @@ AndroidCXX::java_lang_String android_content_pm_ResolveInfo::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/pm/ResolveInfo";
 
-	LOGV("android_content_pm_ResolveInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ResolveInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -283,7 +280,7 @@ void android_content_pm_ResolveInfo::dump(AndroidCXX::android_util_Printer const
 	const char *methodSignature = "(Landroid/util/Printer;Ljava/lang/String;)V";
 	const char *className = "android/content/pm/ResolveInfo";
 
-	LOGV("android_content_pm_ResolveInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ResolveInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -349,7 +346,7 @@ int android_content_pm_ResolveInfo::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/pm/ResolveInfo";
 
-	LOGV("android_content_pm_ResolveInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ResolveInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -393,7 +390,7 @@ void android_content_pm_ResolveInfo::writeToParcel(AndroidCXX::android_os_Parcel
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/content/pm/ResolveInfo";
 
-	LOGV("android_content_pm_ResolveInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ResolveInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -459,7 +456,7 @@ AndroidCXX::java_lang_CharSequence android_content_pm_ResolveInfo::loadLabel(And
 	const char *methodSignature = "(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;";
 	const char *className = "android/content/pm/ResolveInfo";
 
-	LOGV("android_content_pm_ResolveInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ResolveInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -524,7 +521,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_pm_ResolveInfo::l
 	const char *methodSignature = "(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/content/pm/ResolveInfo";
 
-	LOGV("android_content_pm_ResolveInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ResolveInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -589,7 +586,7 @@ int android_content_pm_ResolveInfo::getIconResource()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/pm/ResolveInfo";
 
-	LOGV("android_content_pm_ResolveInfo className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_pm_ResolveInfo className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

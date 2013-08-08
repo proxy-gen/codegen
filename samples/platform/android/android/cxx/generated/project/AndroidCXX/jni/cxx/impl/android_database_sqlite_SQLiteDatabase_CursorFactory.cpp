@@ -27,11 +27,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_database_sqlite_SQLiteDatabase_CursorFactory"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -145,7 +142,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase_Curso
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteDatabase;Landroid/database/sqlite/SQLiteCursorDriver;Ljava/lang/String;Landroid/database/sqlite/SQLiteQuery;)Landroid/database/Cursor;";
 	const char *className = "android/database/sqlite/SQLiteDatabase$CursorFactory";
 
-	LOGV("android_database_sqlite_SQLiteDatabase_CursorFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase_CursorFactory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

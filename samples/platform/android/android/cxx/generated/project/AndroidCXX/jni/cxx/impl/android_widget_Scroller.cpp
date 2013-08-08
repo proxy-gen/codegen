@@ -49,11 +49,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Scroller"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -152,7 +149,7 @@ android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -209,7 +206,7 @@ android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/view/animation/Interpolator;)V";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -287,7 +284,7 @@ android_widget_Scroller::android_widget_Scroller(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/view/animation/Interpolator;Z)V";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -401,7 +398,7 @@ int android_widget_Scroller::getDuration()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -445,7 +442,7 @@ void android_widget_Scroller::setFriction(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -490,7 +487,7 @@ bool android_widget_Scroller::isFinished()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -534,7 +531,7 @@ void android_widget_Scroller::forceFinished(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -579,7 +576,7 @@ int android_widget_Scroller::getCurrX()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -623,7 +620,7 @@ int android_widget_Scroller::getCurrY()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -667,7 +664,7 @@ float android_widget_Scroller::getCurrVelocity()
 	const char *methodSignature = "()F";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -711,7 +708,7 @@ int android_widget_Scroller::getStartX()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -755,7 +752,7 @@ int android_widget_Scroller::getStartY()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -799,7 +796,7 @@ int android_widget_Scroller::getFinalX()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -843,7 +840,7 @@ int android_widget_Scroller::getFinalY()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -887,7 +884,7 @@ bool android_widget_Scroller::computeScrollOffset()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -931,7 +928,7 @@ void android_widget_Scroller::startScroll(int const& arg0,int const& arg1,int co
 	const char *methodSignature = "(IIII)V";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1039,7 +1036,7 @@ void android_widget_Scroller::startScroll(int const& arg0,int const& arg1,int co
 	const char *methodSignature = "(IIIII)V";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1168,7 +1165,7 @@ void android_widget_Scroller::fling(int const& arg0,int const& arg1,int const& a
 	const char *methodSignature = "(IIIIIIII)V";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1360,7 +1357,7 @@ void android_widget_Scroller::abortAnimation()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1384,7 +1381,7 @@ void android_widget_Scroller::extendDuration(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1429,7 +1426,7 @@ int android_widget_Scroller::timePassed()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1473,7 +1470,7 @@ void android_widget_Scroller::setFinalX(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1518,7 +1515,7 @@ void android_widget_Scroller::setFinalY(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/Scroller";
 
-	LOGV("android_widget_Scroller className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Scroller className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

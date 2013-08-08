@@ -127,7 +127,7 @@ void com_facebook_Request_1::onCompleted(FacebookCXX::com_facebook_Response cons
 	const char *methodSignature = "(Lcom/facebook/Response;)V";
 	const char *className = "com/facebook/Request$1";
 
-	LOGV("com_facebook_Request_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -52,11 +52,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_ClassLoader"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -209,7 +206,7 @@ AndroidCXX::java_lang_Class java_lang_ClassLoader::loadClass(AndroidCXX::java_la
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/Class;";
 	const char *className = "java/lang/ClassLoader";
 
-	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ClassLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -292,7 +289,7 @@ AndroidCXX::java_lang_ClassLoader java_lang_ClassLoader::getSystemClassLoader()
 	const char *methodSignature = "()Ljava/lang/ClassLoader;";
 	const char *className = "java/lang/ClassLoader";
 
-	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ClassLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -336,7 +333,7 @@ AndroidCXX::java_io_InputStream java_lang_ClassLoader::getResourceAsStream(Andro
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/io/InputStream;";
 	const char *className = "java/lang/ClassLoader";
 
-	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ClassLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -401,7 +398,7 @@ AndroidCXX::java_net_URL java_lang_ClassLoader::getResource(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URL;";
 	const char *className = "java/lang/ClassLoader";
 
-	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ClassLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -466,7 +463,7 @@ AndroidCXX::java_io_InputStream java_lang_ClassLoader::getSystemResourceAsStream
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/io/InputStream;";
 	const char *className = "java/lang/ClassLoader";
 
-	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ClassLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -531,7 +528,7 @@ AndroidCXX::java_net_URL java_lang_ClassLoader::getSystemResource(AndroidCXX::ja
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/net/URL;";
 	const char *className = "java/lang/ClassLoader";
 
-	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ClassLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -596,7 +593,7 @@ AndroidCXX::java_util_Enumeration java_lang_ClassLoader::getResources(AndroidCXX
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/Enumeration;";
 	const char *className = "java/lang/ClassLoader";
 
-	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ClassLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -679,7 +676,7 @@ AndroidCXX::java_util_Enumeration java_lang_ClassLoader::getSystemResources(Andr
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/util/Enumeration;";
 	const char *className = "java/lang/ClassLoader";
 
-	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ClassLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -762,7 +759,7 @@ AndroidCXX::java_lang_ClassLoader java_lang_ClassLoader::getParent()
 	const char *methodSignature = "()Ljava/lang/ClassLoader;";
 	const char *className = "java/lang/ClassLoader";
 
-	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ClassLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -806,7 +803,7 @@ void java_lang_ClassLoader::setDefaultAssertionStatus(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "java/lang/ClassLoader";
 
-	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ClassLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -851,7 +848,7 @@ void java_lang_ClassLoader::setPackageAssertionStatus(AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(Ljava/lang/String;Z)V";
 	const char *className = "java/lang/ClassLoader";
 
-	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ClassLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -917,7 +914,7 @@ void java_lang_ClassLoader::setClassAssertionStatus(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;Z)V";
 	const char *className = "java/lang/ClassLoader";
 
-	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ClassLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -983,7 +980,7 @@ void java_lang_ClassLoader::clearAssertionStatus()
 	const char *methodSignature = "()V";
 	const char *className = "java/lang/ClassLoader";
 
-	LOGV("java_lang_ClassLoader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ClassLoader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

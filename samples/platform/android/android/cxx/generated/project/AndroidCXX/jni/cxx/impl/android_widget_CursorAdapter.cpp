@@ -76,11 +76,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_CursorAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -269,7 +266,7 @@ android_widget_CursorAdapter::android_widget_CursorAdapter(AndroidCXX::android_c
 	const char *methodSignature = "(Landroid/content/Context;Landroid/database/Cursor;Z)V";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -368,7 +365,7 @@ android_widget_CursorAdapter::android_widget_CursorAdapter(AndroidCXX::android_c
 	const char *methodSignature = "(Landroid/content/Context;Landroid/database/Cursor;I)V";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -467,7 +464,7 @@ android_widget_CursorAdapter::android_widget_CursorAdapter(AndroidCXX::android_c
 	const char *methodSignature = "(Landroid/content/Context;Landroid/database/Cursor;)V";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -560,7 +557,7 @@ AndroidCXX::android_view_View android_widget_CursorAdapter::getView(int const& a
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -667,7 +664,7 @@ AndroidCXX::android_widget_Filter android_widget_CursorAdapter::getFilter()
 	const char *methodSignature = "()Landroid/widget/Filter;";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -711,7 +708,7 @@ AndroidCXX::java_lang_Object android_widget_CursorAdapter::getItem(int const& ar
 	const char *methodSignature = "(I)Ljava/lang/Object;";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -776,7 +773,7 @@ long android_widget_CursorAdapter::getItemId(int const& arg0)
 	const char *methodSignature = "(I)J";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -841,7 +838,7 @@ int android_widget_CursorAdapter::getCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -885,7 +882,7 @@ AndroidCXX::android_view_View android_widget_CursorAdapter::getDropDownView(int 
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -992,7 +989,7 @@ bool android_widget_CursorAdapter::hasStableIds()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1036,7 +1033,7 @@ AndroidCXX::java_lang_CharSequence android_widget_CursorAdapter::convertToString
 	const char *methodSignature = "(Landroid/database/Cursor;)Ljava/lang/CharSequence;";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1101,7 +1098,7 @@ AndroidCXX::android_database_Cursor android_widget_CursorAdapter::getCursor()
 	const char *methodSignature = "()Landroid/database/Cursor;";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1145,7 +1142,7 @@ AndroidCXX::android_view_View android_widget_CursorAdapter::newView(AndroidCXX::
 	const char *methodSignature = "(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1252,7 +1249,7 @@ AndroidCXX::android_view_View android_widget_CursorAdapter::newDropDownView(Andr
 	const char *methodSignature = "(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1359,7 +1356,7 @@ void android_widget_CursorAdapter::bindView(AndroidCXX::android_view_View const&
 	const char *methodSignature = "(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1446,7 +1443,7 @@ void android_widget_CursorAdapter::changeCursor(AndroidCXX::android_database_Cur
 	const char *methodSignature = "(Landroid/database/Cursor;)V";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1491,7 +1488,7 @@ AndroidCXX::android_database_Cursor android_widget_CursorAdapter::swapCursor(And
 	const char *methodSignature = "(Landroid/database/Cursor;)Landroid/database/Cursor;";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1556,7 +1553,7 @@ AndroidCXX::android_database_Cursor android_widget_CursorAdapter::runQueryOnBack
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/database/Cursor;";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1621,7 +1618,7 @@ AndroidCXX::android_widget_FilterQueryProvider android_widget_CursorAdapter::get
 	const char *methodSignature = "()Landroid/widget/FilterQueryProvider;";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1665,7 +1662,7 @@ void android_widget_CursorAdapter::setFilterQueryProvider(AndroidCXX::android_wi
 	const char *methodSignature = "(Landroid/widget/FilterQueryProvider;)V";
 	const char *className = "android/widget/CursorAdapter";
 
-	LOGV("android_widget_CursorAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

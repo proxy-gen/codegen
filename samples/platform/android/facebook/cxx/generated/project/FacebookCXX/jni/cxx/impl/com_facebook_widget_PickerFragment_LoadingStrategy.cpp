@@ -135,7 +135,7 @@ void com_facebook_widget_PickerFragment_LoadingStrategy::attach(FacebookCXX::com
 	const char *methodSignature = "(Lcom/facebook/widget/GraphObjectAdapter;)V";
 	const char *className = "com/facebook/widget/PickerFragment$LoadingStrategy";
 
-	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -198,7 +198,7 @@ void com_facebook_widget_PickerFragment_LoadingStrategy::detach()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/PickerFragment$LoadingStrategy";
 
-	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -222,7 +222,7 @@ bool com_facebook_widget_PickerFragment_LoadingStrategy::isDataPresentOrLoading(
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/PickerFragment$LoadingStrategy";
 
-	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -266,7 +266,7 @@ void com_facebook_widget_PickerFragment_LoadingStrategy::clearResults()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/PickerFragment$LoadingStrategy";
 
-	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -290,7 +290,7 @@ void com_facebook_widget_PickerFragment_LoadingStrategy::startLoading(FacebookCX
 	const char *methodSignature = "(Lcom/facebook/Request;)V";
 	const char *className = "com/facebook/widget/PickerFragment$LoadingStrategy";
 
-	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

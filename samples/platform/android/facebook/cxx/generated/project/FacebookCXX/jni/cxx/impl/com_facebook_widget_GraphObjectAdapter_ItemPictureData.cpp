@@ -129,7 +129,7 @@ AndroidCXX::java_lang_String com_facebook_widget_GraphObjectAdapter_ItemPictureD
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/widget/GraphObjectAdapter$ItemPictureData";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter_ItemPictureData className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter_ItemPictureData className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

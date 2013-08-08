@@ -60,11 +60,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_res_TypedArray"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -196,7 +193,7 @@ AndroidCXX::java_lang_String android_content_res_TypedArray::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -240,7 +237,7 @@ bool android_content_res_TypedArray::getBoolean(int const& arg0,bool const& arg1
 	const char *methodSignature = "(IZ)Z";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -326,7 +323,7 @@ int android_content_res_TypedArray::getInt(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)I";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -412,7 +409,7 @@ float android_content_res_TypedArray::getFloat(int const& arg0,float const& arg1
 	const char *methodSignature = "(IF)F";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -498,7 +495,7 @@ int android_content_res_TypedArray::length()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -542,7 +539,7 @@ bool android_content_res_TypedArray::getValue(int const& arg0,AndroidCXX::androi
 	const char *methodSignature = "(ILandroid/util/TypedValue;)Z";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -628,7 +625,7 @@ AndroidCXX::android_content_res_Resources android_content_res_TypedArray::getRes
 	const char *methodSignature = "()Landroid/content/res/Resources;";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -672,7 +669,7 @@ int android_content_res_TypedArray::getInteger(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)I";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -758,7 +755,7 @@ AndroidCXX::java_lang_String android_content_res_TypedArray::getString(int const
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -823,7 +820,7 @@ int android_content_res_TypedArray::getIndex(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -888,7 +885,7 @@ void android_content_res_TypedArray::recycle()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -912,7 +909,7 @@ AndroidCXX::java_lang_CharSequence android_content_res_TypedArray::getText(int c
 	const char *methodSignature = "(I)Ljava/lang/CharSequence;";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -977,7 +974,7 @@ std::vector<AndroidCXX::java_lang_CharSequence > android_content_res_TypedArray:
 	const char *methodSignature = "(I)[Ljava/lang/CharSequence;";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1060,7 +1057,7 @@ float android_content_res_TypedArray::getDimension(int const& arg0,float const& 
 	const char *methodSignature = "(IF)F";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1146,7 +1143,7 @@ int android_content_res_TypedArray::getDimensionPixelOffset(int const& arg0,int 
 	const char *methodSignature = "(II)I";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1232,7 +1229,7 @@ int android_content_res_TypedArray::getDimensionPixelSize(int const& arg0,int co
 	const char *methodSignature = "(II)I";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1318,7 +1315,7 @@ float android_content_res_TypedArray::getFraction(int const& arg0,int const& arg
 	const char *methodSignature = "(IIIF)F";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1446,7 +1443,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_res_TypedArray::g
 	const char *methodSignature = "(I)Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1511,7 +1508,7 @@ int android_content_res_TypedArray::getColor(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)I";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1597,7 +1594,7 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_TypedArray::g
 	const char *methodSignature = "(I)Landroid/content/res/ColorStateList;";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1662,7 +1659,7 @@ int android_content_res_TypedArray::getResourceId(int const& arg0,int const& arg
 	const char *methodSignature = "(II)I";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1748,7 +1745,7 @@ AndroidCXX::java_lang_String android_content_res_TypedArray::getPositionDescript
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1792,7 +1789,7 @@ int android_content_res_TypedArray::getIndexCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1836,7 +1833,7 @@ AndroidCXX::java_lang_String android_content_res_TypedArray::getNonResourceStrin
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1901,7 +1898,7 @@ int android_content_res_TypedArray::getLayoutDimension(int const& arg0,int const
 	const char *methodSignature = "(II)I";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1987,7 +1984,7 @@ int android_content_res_TypedArray::getLayoutDimension(int const& arg0,AndroidCX
 	const char *methodSignature = "(ILjava/lang/String;)I";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2073,7 +2070,7 @@ bool android_content_res_TypedArray::hasValue(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2138,7 +2135,7 @@ AndroidCXX::android_util_TypedValue android_content_res_TypedArray::peekValue(in
 	const char *methodSignature = "(I)Landroid/util/TypedValue;";
 	const char *className = "android/content/res/TypedArray";
 
-	LOGV("android_content_res_TypedArray className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_TypedArray className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

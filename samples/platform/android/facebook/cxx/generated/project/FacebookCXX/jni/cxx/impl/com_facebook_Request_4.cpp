@@ -120,7 +120,7 @@ void com_facebook_Request_4::run()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/Request$4";
 
-	LOGV("com_facebook_Request_4 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request_4 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

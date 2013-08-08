@@ -34,11 +34,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_KeyEvent_DispatcherState"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -140,7 +137,7 @@ android_view_KeyEvent_DispatcherState::android_view_KeyEvent_DispatcherState()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/KeyEvent$DispatcherState";
 
-	LOGV("android_view_KeyEvent_DispatcherState className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent_DispatcherState className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -191,7 +188,7 @@ void android_view_KeyEvent_DispatcherState::reset()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/KeyEvent$DispatcherState";
 
-	LOGV("android_view_KeyEvent_DispatcherState className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent_DispatcherState className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -215,7 +212,7 @@ void android_view_KeyEvent_DispatcherState::reset(AndroidCXX::java_lang_Object c
 	const char *methodSignature = "(Ljava/lang/Object;)V";
 	const char *className = "android/view/KeyEvent$DispatcherState";
 
-	LOGV("android_view_KeyEvent_DispatcherState className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent_DispatcherState className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -260,7 +257,7 @@ void android_view_KeyEvent_DispatcherState::startTracking(AndroidCXX::android_vi
 	const char *methodSignature = "(Landroid/view/KeyEvent;Ljava/lang/Object;)V";
 	const char *className = "android/view/KeyEvent$DispatcherState";
 
-	LOGV("android_view_KeyEvent_DispatcherState className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent_DispatcherState className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -326,7 +323,7 @@ bool android_view_KeyEvent_DispatcherState::isTracking(AndroidCXX::android_view_
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
 	const char *className = "android/view/KeyEvent$DispatcherState";
 
-	LOGV("android_view_KeyEvent_DispatcherState className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent_DispatcherState className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -391,7 +388,7 @@ void android_view_KeyEvent_DispatcherState::performedLongPress(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/view/KeyEvent;)V";
 	const char *className = "android/view/KeyEvent$DispatcherState";
 
-	LOGV("android_view_KeyEvent_DispatcherState className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent_DispatcherState className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -436,7 +433,7 @@ void android_view_KeyEvent_DispatcherState::handleUpEvent(AndroidCXX::android_vi
 	const char *methodSignature = "(Landroid/view/KeyEvent;)V";
 	const char *className = "android/view/KeyEvent$DispatcherState";
 
-	LOGV("android_view_KeyEvent_DispatcherState className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_KeyEvent_DispatcherState className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

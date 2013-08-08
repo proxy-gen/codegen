@@ -40,11 +40,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_res_AssetFileDescriptor"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -149,7 +146,7 @@ android_content_res_AssetFileDescriptor::android_content_res_AssetFileDescriptor
 	const char *methodSignature = "(Landroid/os/ParcelFileDescriptor;JJ)V";
 	const char *className = "android/content/res/AssetFileDescriptor";
 
-	LOGV("android_content_res_AssetFileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetFileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -263,7 +260,7 @@ AndroidCXX::java_lang_String android_content_res_AssetFileDescriptor::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/res/AssetFileDescriptor";
 
-	LOGV("android_content_res_AssetFileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetFileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -307,7 +304,7 @@ long android_content_res_AssetFileDescriptor::getLength()
 	const char *methodSignature = "()J";
 	const char *className = "android/content/res/AssetFileDescriptor";
 
-	LOGV("android_content_res_AssetFileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetFileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -351,7 +348,7 @@ void android_content_res_AssetFileDescriptor::close()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/res/AssetFileDescriptor";
 
-	LOGV("android_content_res_AssetFileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetFileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -375,7 +372,7 @@ int android_content_res_AssetFileDescriptor::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/res/AssetFileDescriptor";
 
-	LOGV("android_content_res_AssetFileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetFileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -419,7 +416,7 @@ void android_content_res_AssetFileDescriptor::writeToParcel(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/content/res/AssetFileDescriptor";
 
-	LOGV("android_content_res_AssetFileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetFileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -485,7 +482,7 @@ AndroidCXX::java_io_FileDescriptor android_content_res_AssetFileDescriptor::getF
 	const char *methodSignature = "()Ljava/io/FileDescriptor;";
 	const char *className = "android/content/res/AssetFileDescriptor";
 
-	LOGV("android_content_res_AssetFileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetFileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -529,7 +526,7 @@ long android_content_res_AssetFileDescriptor::getStartOffset()
 	const char *methodSignature = "()J";
 	const char *className = "android/content/res/AssetFileDescriptor";
 
-	LOGV("android_content_res_AssetFileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetFileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -573,7 +570,7 @@ AndroidCXX::android_os_ParcelFileDescriptor android_content_res_AssetFileDescrip
 	const char *methodSignature = "()Landroid/os/ParcelFileDescriptor;";
 	const char *className = "android/content/res/AssetFileDescriptor";
 
-	LOGV("android_content_res_AssetFileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetFileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -617,7 +614,7 @@ long android_content_res_AssetFileDescriptor::getDeclaredLength()
 	const char *methodSignature = "()J";
 	const char *className = "android/content/res/AssetFileDescriptor";
 
-	LOGV("android_content_res_AssetFileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetFileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -661,7 +658,7 @@ AndroidCXX::java_io_FileInputStream android_content_res_AssetFileDescriptor::cre
 	const char *methodSignature = "()Ljava/io/FileInputStream;";
 	const char *className = "android/content/res/AssetFileDescriptor";
 
-	LOGV("android_content_res_AssetFileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetFileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -705,7 +702,7 @@ AndroidCXX::java_io_FileOutputStream android_content_res_AssetFileDescriptor::cr
 	const char *methodSignature = "()Ljava/io/FileOutputStream;";
 	const char *className = "android/content/res/AssetFileDescriptor";
 
-	LOGV("android_content_res_AssetFileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_AssetFileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

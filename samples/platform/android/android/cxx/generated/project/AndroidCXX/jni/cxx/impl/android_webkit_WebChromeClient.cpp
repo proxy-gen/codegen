@@ -90,11 +90,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_WebChromeClient"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -310,7 +307,7 @@ android_webkit_WebChromeClient::android_webkit_WebChromeClient()
 	const char *methodSignature = "()V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -361,7 +358,7 @@ void android_webkit_WebChromeClient::onProgressChanged(AndroidCXX::android_webki
 	const char *methodSignature = "(Landroid/webkit/WebView;I)V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -427,7 +424,7 @@ void android_webkit_WebChromeClient::onReceivedTitle(AndroidCXX::android_webkit_
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -493,7 +490,7 @@ void android_webkit_WebChromeClient::onReceivedIcon(AndroidCXX::android_webkit_W
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/graphics/Bitmap;)V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -559,7 +556,7 @@ void android_webkit_WebChromeClient::onReceivedTouchIconUrl(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Z)V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -646,7 +643,7 @@ void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_V
 	const char *methodSignature = "(Landroid/view/View;Landroid/webkit/WebChromeClient$CustomViewCallback;)V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -712,7 +709,7 @@ void android_webkit_WebChromeClient::onShowCustomView(AndroidCXX::android_view_V
 	const char *methodSignature = "(Landroid/view/View;ILandroid/webkit/WebChromeClient$CustomViewCallback;)V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -799,7 +796,7 @@ void android_webkit_WebChromeClient::onHideCustomView()
 	const char *methodSignature = "()V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -823,7 +820,7 @@ bool android_webkit_WebChromeClient::onCreateWindow(AndroidCXX::android_webkit_W
 	const char *methodSignature = "(Landroid/webkit/WebView;ZZLandroid/os/Message;)Z";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -951,7 +948,7 @@ void android_webkit_WebChromeClient::onRequestFocus(AndroidCXX::android_webkit_W
 	const char *methodSignature = "(Landroid/webkit/WebView;)V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -996,7 +993,7 @@ void android_webkit_WebChromeClient::onCloseWindow(AndroidCXX::android_webkit_We
 	const char *methodSignature = "(Landroid/webkit/WebView;)V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1041,7 +1038,7 @@ bool android_webkit_WebChromeClient::onJsAlert(AndroidCXX::android_webkit_WebVie
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsResult;)Z";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1169,7 +1166,7 @@ bool android_webkit_WebChromeClient::onJsConfirm(AndroidCXX::android_webkit_WebV
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsResult;)Z";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1297,7 +1294,7 @@ bool android_webkit_WebChromeClient::onJsPrompt(AndroidCXX::android_webkit_WebVi
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsPromptResult;)Z";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1446,7 +1443,7 @@ bool android_webkit_WebChromeClient::onJsBeforeUnload(AndroidCXX::android_webkit
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsResult;)Z";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1574,7 +1571,7 @@ void android_webkit_WebChromeClient::onExceededDatabaseQuota(AndroidCXX::java_la
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;JJJLandroid/webkit/WebStorage$QuotaUpdater;)V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1724,7 +1721,7 @@ void android_webkit_WebChromeClient::onReachedMaxAppCacheSize(long const& arg0,l
 	const char *methodSignature = "(JJLandroid/webkit/WebStorage$QuotaUpdater;)V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1811,7 +1808,7 @@ void android_webkit_WebChromeClient::onGeolocationPermissionsShowPrompt(AndroidC
 	const char *methodSignature = "(Ljava/lang/String;Landroid/webkit/GeolocationPermissions$Callback;)V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1877,7 +1874,7 @@ void android_webkit_WebChromeClient::onGeolocationPermissionsHidePrompt()
 	const char *methodSignature = "()V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1901,7 +1898,7 @@ bool android_webkit_WebChromeClient::onJsTimeout()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1945,7 +1942,7 @@ void android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(Ljava/lang/String;ILjava/lang/String;)V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2032,7 +2029,7 @@ bool android_webkit_WebChromeClient::onConsoleMessage(AndroidCXX::android_webkit
 	const char *methodSignature = "(Landroid/webkit/ConsoleMessage;)Z";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2097,7 +2094,7 @@ AndroidCXX::android_graphics_Bitmap android_webkit_WebChromeClient::getDefaultVi
 	const char *methodSignature = "()Landroid/graphics/Bitmap;";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2141,7 +2138,7 @@ AndroidCXX::android_view_View android_webkit_WebChromeClient::getVideoLoadingPro
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2185,7 +2182,7 @@ void android_webkit_WebChromeClient::getVisitedHistory(AndroidCXX::android_webki
 	const char *methodSignature = "(Landroid/webkit/ValueCallback;)V";
 	const char *className = "android/webkit/WebChromeClient";
 
-	LOGV("android_webkit_WebChromeClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebChromeClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

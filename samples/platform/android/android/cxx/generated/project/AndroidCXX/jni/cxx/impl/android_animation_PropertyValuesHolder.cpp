@@ -63,11 +63,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_animation_PropertyValuesHolder"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -238,7 +235,7 @@ void android_animation_PropertyValuesHolder::setProperty(AndroidCXX::android_uti
 	const char *methodSignature = "(Landroid/util/Property;)V";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -283,7 +280,7 @@ AndroidCXX::java_lang_String android_animation_PropertyValuesHolder::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -327,7 +324,7 @@ AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyVal
 	const char *methodSignature = "()Landroid/animation/PropertyValuesHolder;";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -371,7 +368,7 @@ void android_animation_PropertyValuesHolder::setPropertyName(AndroidCXX::java_la
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -416,7 +413,7 @@ AndroidCXX::java_lang_String android_animation_PropertyValuesHolder::getProperty
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -460,7 +457,7 @@ AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyVal
 	const char *methodSignature = "(Ljava/lang/String;[I)Landroid/animation/PropertyValuesHolder;";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -564,7 +561,7 @@ AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyVal
 	const char *methodSignature = "(Landroid/util/Property;[I)Landroid/animation/PropertyValuesHolder;";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -701,7 +698,7 @@ AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyVal
 	const char *methodSignature = "(Landroid/util/Property;[F)Landroid/animation/PropertyValuesHolder;";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -838,7 +835,7 @@ AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyVal
 	const char *methodSignature = "(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -942,7 +939,7 @@ AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyVal
 	const char *methodSignature = "(Ljava/lang/String;Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/PropertyValuesHolder;";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1067,7 +1064,7 @@ AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyVal
 	const char *methodSignature = "(Landroid/util/Property;Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/PropertyValuesHolder;";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1210,7 +1207,7 @@ void android_animation_PropertyValuesHolder::setIntValues(std::vector<int> const
 	const char *methodSignature = "([I)V";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1273,7 +1270,7 @@ void android_animation_PropertyValuesHolder::setFloatValues(std::vector<float> c
 	const char *methodSignature = "([F)V";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1336,7 +1333,7 @@ void android_animation_PropertyValuesHolder::setObjectValues(std::vector<Android
 	const char *methodSignature = "([Ljava/lang/Object;)V";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1399,7 +1396,7 @@ void android_animation_PropertyValuesHolder::setEvaluator(AndroidCXX::android_an
 	const char *methodSignature = "(Landroid/animation/TypeEvaluator;)V";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1444,7 +1441,7 @@ AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyVal
 	const char *methodSignature = "(Landroid/util/Property;[Landroid/animation/Keyframe;)Landroid/animation/PropertyValuesHolder;";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1548,7 +1545,7 @@ AndroidCXX::android_animation_PropertyValuesHolder android_animation_PropertyVal
 	const char *methodSignature = "(Ljava/lang/String;[Landroid/animation/Keyframe;)Landroid/animation/PropertyValuesHolder;";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1652,7 +1649,7 @@ void android_animation_PropertyValuesHolder::setKeyframes(std::vector<AndroidCXX
 	const char *methodSignature = "([Landroid/animation/Keyframe;)V";
 	const char *className = "android/animation/PropertyValuesHolder";
 
-	LOGV("android_animation_PropertyValuesHolder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_PropertyValuesHolder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

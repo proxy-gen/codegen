@@ -129,7 +129,7 @@ void com_facebook_AuthorizationClient_GetTokenAuthHandler_1::completed(AndroidCX
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/AuthorizationClient$GetTokenAuthHandler$1";
 
-	LOGV("com_facebook_AuthorizationClient_GetTokenAuthHandler_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AuthorizationClient_GetTokenAuthHandler_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -163,11 +163,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Paint"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -407,7 +404,7 @@ android_graphics_Paint::android_graphics_Paint()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -443,7 +440,7 @@ android_graphics_Paint::android_graphics_Paint(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -500,7 +497,7 @@ android_graphics_Paint::android_graphics_Paint(AndroidCXX::android_graphics_Pain
 	const char *methodSignature = "(Landroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -572,7 +569,7 @@ void android_graphics_Paint::set(AndroidCXX::android_graphics_Paint const& arg0)
 	const char *methodSignature = "(Landroid/graphics/Paint;)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -617,7 +614,7 @@ void android_graphics_Paint::reset()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -641,7 +638,7 @@ int android_graphics_Paint::getColor()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -685,7 +682,7 @@ int android_graphics_Paint::getFlags()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -729,7 +726,7 @@ void android_graphics_Paint::setFlags(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -774,7 +771,7 @@ int android_graphics_Paint::getAlpha()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -818,7 +815,7 @@ void android_graphics_Paint::setAlpha(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -863,7 +860,7 @@ void android_graphics_Paint::setDither(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -908,7 +905,7 @@ void android_graphics_Paint::setFilterBitmap(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -953,7 +950,7 @@ AndroidCXX::android_graphics_ColorFilter android_graphics_Paint::setColorFilter(
 	const char *methodSignature = "(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1018,7 +1015,7 @@ int android_graphics_Paint::getHinting()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1062,7 +1059,7 @@ void android_graphics_Paint::setHinting(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1107,7 +1104,7 @@ bool android_graphics_Paint::isAntiAlias()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1151,7 +1148,7 @@ void android_graphics_Paint::setAntiAlias(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1196,7 +1193,7 @@ bool android_graphics_Paint::isDither()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1240,7 +1237,7 @@ bool android_graphics_Paint::isLinearText()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1284,7 +1281,7 @@ void android_graphics_Paint::setLinearText(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1329,7 +1326,7 @@ bool android_graphics_Paint::isSubpixelText()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1373,7 +1370,7 @@ void android_graphics_Paint::setSubpixelText(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1418,7 +1415,7 @@ bool android_graphics_Paint::isUnderlineText()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1462,7 +1459,7 @@ void android_graphics_Paint::setUnderlineText(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1507,7 +1504,7 @@ bool android_graphics_Paint::isStrikeThruText()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1551,7 +1548,7 @@ void android_graphics_Paint::setStrikeThruText(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1596,7 +1593,7 @@ bool android_graphics_Paint::isFakeBoldText()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1640,7 +1637,7 @@ void android_graphics_Paint::setFakeBoldText(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1685,7 +1682,7 @@ bool android_graphics_Paint::isFilterBitmap()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1729,7 +1726,7 @@ android_graphics_Paint_Style::android_graphics_Paint_Style android_graphics_Pain
 	const char *methodSignature = "()Landroid/graphics/Paint$Style;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1773,7 +1770,7 @@ void android_graphics_Paint::setStyle(android_graphics_Paint_Style::android_grap
 	const char *methodSignature = "(Landroid/graphics/Paint$Style;)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1818,7 +1815,7 @@ void android_graphics_Paint::setColor(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1863,7 +1860,7 @@ void android_graphics_Paint::setARGB(int const& arg0,int const& arg1,int const& 
 	const char *methodSignature = "(IIII)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1971,7 +1968,7 @@ float android_graphics_Paint::getStrokeWidth()
 	const char *methodSignature = "()F";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2015,7 +2012,7 @@ void android_graphics_Paint::setStrokeWidth(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2060,7 +2057,7 @@ float android_graphics_Paint::getStrokeMiter()
 	const char *methodSignature = "()F";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2104,7 +2101,7 @@ void android_graphics_Paint::setStrokeMiter(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2149,7 +2146,7 @@ android_graphics_Paint_Cap::android_graphics_Paint_Cap android_graphics_Paint::g
 	const char *methodSignature = "()Landroid/graphics/Paint$Cap;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2193,7 +2190,7 @@ void android_graphics_Paint::setStrokeCap(android_graphics_Paint_Cap::android_gr
 	const char *methodSignature = "(Landroid/graphics/Paint$Cap;)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2238,7 +2235,7 @@ android_graphics_Paint_Join::android_graphics_Paint_Join android_graphics_Paint:
 	const char *methodSignature = "()Landroid/graphics/Paint$Join;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2282,7 +2279,7 @@ void android_graphics_Paint::setStrokeJoin(android_graphics_Paint_Join::android_
 	const char *methodSignature = "(Landroid/graphics/Paint$Join;)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2327,7 +2324,7 @@ bool android_graphics_Paint::getFillPath(AndroidCXX::android_graphics_Path const
 	const char *methodSignature = "(Landroid/graphics/Path;Landroid/graphics/Path;)Z";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2413,7 +2410,7 @@ AndroidCXX::android_graphics_Shader android_graphics_Paint::getShader()
 	const char *methodSignature = "()Landroid/graphics/Shader;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2457,7 +2454,7 @@ AndroidCXX::android_graphics_Shader android_graphics_Paint::setShader(AndroidCXX
 	const char *methodSignature = "(Landroid/graphics/Shader;)Landroid/graphics/Shader;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2522,7 +2519,7 @@ AndroidCXX::android_graphics_ColorFilter android_graphics_Paint::getColorFilter(
 	const char *methodSignature = "()Landroid/graphics/ColorFilter;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2566,7 +2563,7 @@ AndroidCXX::android_graphics_Xfermode android_graphics_Paint::getXfermode()
 	const char *methodSignature = "()Landroid/graphics/Xfermode;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2610,7 +2607,7 @@ AndroidCXX::android_graphics_Xfermode android_graphics_Paint::setXfermode(Androi
 	const char *methodSignature = "(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2675,7 +2672,7 @@ AndroidCXX::android_graphics_PathEffect android_graphics_Paint::getPathEffect()
 	const char *methodSignature = "()Landroid/graphics/PathEffect;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2719,7 +2716,7 @@ AndroidCXX::android_graphics_PathEffect android_graphics_Paint::setPathEffect(An
 	const char *methodSignature = "(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2784,7 +2781,7 @@ AndroidCXX::android_graphics_MaskFilter android_graphics_Paint::getMaskFilter()
 	const char *methodSignature = "()Landroid/graphics/MaskFilter;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2828,7 +2825,7 @@ AndroidCXX::android_graphics_MaskFilter android_graphics_Paint::setMaskFilter(An
 	const char *methodSignature = "(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2893,7 +2890,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Paint::getTypeface()
 	const char *methodSignature = "()Landroid/graphics/Typeface;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2937,7 +2934,7 @@ AndroidCXX::android_graphics_Typeface android_graphics_Paint::setTypeface(Androi
 	const char *methodSignature = "(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3002,7 +2999,7 @@ AndroidCXX::android_graphics_Rasterizer android_graphics_Paint::getRasterizer()
 	const char *methodSignature = "()Landroid/graphics/Rasterizer;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3046,7 +3043,7 @@ AndroidCXX::android_graphics_Rasterizer android_graphics_Paint::setRasterizer(An
 	const char *methodSignature = "(Landroid/graphics/Rasterizer;)Landroid/graphics/Rasterizer;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3111,7 +3108,7 @@ void android_graphics_Paint::setShadowLayer(float const& arg0,float const& arg1,
 	const char *methodSignature = "(FFFI)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3219,7 +3216,7 @@ void android_graphics_Paint::clearShadowLayer()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3243,7 +3240,7 @@ android_graphics_Paint_Align::android_graphics_Paint_Align android_graphics_Pain
 	const char *methodSignature = "()Landroid/graphics/Paint$Align;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3287,7 +3284,7 @@ void android_graphics_Paint::setTextAlign(android_graphics_Paint_Align::android_
 	const char *methodSignature = "(Landroid/graphics/Paint$Align;)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3332,7 +3329,7 @@ AndroidCXX::java_util_Locale android_graphics_Paint::getTextLocale()
 	const char *methodSignature = "()Ljava/util/Locale;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3376,7 +3373,7 @@ void android_graphics_Paint::setTextLocale(AndroidCXX::java_util_Locale const& a
 	const char *methodSignature = "(Ljava/util/Locale;)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3421,7 +3418,7 @@ float android_graphics_Paint::getTextSize()
 	const char *methodSignature = "()F";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3465,7 +3462,7 @@ void android_graphics_Paint::setTextSize(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3510,7 +3507,7 @@ float android_graphics_Paint::getTextScaleX()
 	const char *methodSignature = "()F";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3554,7 +3551,7 @@ void android_graphics_Paint::setTextScaleX(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3599,7 +3596,7 @@ float android_graphics_Paint::getTextSkewX()
 	const char *methodSignature = "()F";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3643,7 +3640,7 @@ void android_graphics_Paint::setTextSkewX(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3688,7 +3685,7 @@ float android_graphics_Paint::ascent()
 	const char *methodSignature = "()F";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3732,7 +3729,7 @@ float android_graphics_Paint::descent()
 	const char *methodSignature = "()F";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3776,7 +3773,7 @@ AndroidCXX::android_graphics_Paint_FontMetrics android_graphics_Paint::getFontMe
 	const char *methodSignature = "()Landroid/graphics/Paint$FontMetrics;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3820,7 +3817,7 @@ float android_graphics_Paint::getFontMetrics(AndroidCXX::android_graphics_Paint_
 	const char *methodSignature = "(Landroid/graphics/Paint$FontMetrics;)F";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3885,7 +3882,7 @@ AndroidCXX::android_graphics_Paint_FontMetricsInt android_graphics_Paint::getFon
 	const char *methodSignature = "()Landroid/graphics/Paint$FontMetricsInt;";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3929,7 +3926,7 @@ int android_graphics_Paint::getFontMetricsInt(AndroidCXX::android_graphics_Paint
 	const char *methodSignature = "(Landroid/graphics/Paint$FontMetricsInt;)I";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3994,7 +3991,7 @@ float android_graphics_Paint::getFontSpacing()
 	const char *methodSignature = "()F";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4038,7 +4035,7 @@ float android_graphics_Paint::measureText(AndroidCXX::java_lang_String const& ar
 	const char *methodSignature = "(Ljava/lang/String;II)F";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4145,7 +4142,7 @@ float android_graphics_Paint::measureText(AndroidCXX::java_lang_String const& ar
 	const char *methodSignature = "(Ljava/lang/String;)F";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4210,7 +4207,7 @@ float android_graphics_Paint::measureText(AndroidCXX::java_lang_CharSequence con
 	const char *methodSignature = "(Ljava/lang/CharSequence;II)F";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4317,7 +4314,7 @@ float android_graphics_Paint::measureText(std::vector<char> const& arg0,int cons
 	const char *methodSignature = "([CII)F";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4442,7 +4439,7 @@ int android_graphics_Paint::breakText(AndroidCXX::java_lang_CharSequence const& 
 	const char *methodSignature = "(Ljava/lang/CharSequence;IIZF[F)I";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4630,7 +4627,7 @@ int android_graphics_Paint::breakText(AndroidCXX::java_lang_String const& arg0,b
 	const char *methodSignature = "(Ljava/lang/String;ZF[F)I";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4776,7 +4773,7 @@ int android_graphics_Paint::breakText(std::vector<char> const& arg0,int const& a
 	const char *methodSignature = "([CIIF[F)I";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4961,7 +4958,7 @@ int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_CharSequence con
 	const char *methodSignature = "(Ljava/lang/CharSequence;II[F)I";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5107,7 +5104,7 @@ int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String const& ar
 	const char *methodSignature = "(Ljava/lang/String;II[F)I";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5253,7 +5250,7 @@ int android_graphics_Paint::getTextWidths(AndroidCXX::java_lang_String const& ar
 	const char *methodSignature = "(Ljava/lang/String;[F)I";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5357,7 +5354,7 @@ int android_graphics_Paint::getTextWidths(std::vector<char> const& arg0,int cons
 	const char *methodSignature = "([CII[F)I";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5521,7 +5518,7 @@ void android_graphics_Paint::getTextPath(AndroidCXX::java_lang_String const& arg
 	const char *methodSignature = "(Ljava/lang/String;IIFFLandroid/graphics/Path;)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5671,7 +5668,7 @@ void android_graphics_Paint::getTextPath(std::vector<char> const& arg0,int const
 	const char *methodSignature = "([CIIFFLandroid/graphics/Path;)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5839,7 +5836,7 @@ void android_graphics_Paint::getTextBounds(AndroidCXX::java_lang_String const& a
 	const char *methodSignature = "(Ljava/lang/String;IILandroid/graphics/Rect;)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5947,7 +5944,7 @@ void android_graphics_Paint::getTextBounds(std::vector<char> const& arg0,int con
 	const char *methodSignature = "([CIILandroid/graphics/Rect;)V";
 	const char *className = "android/graphics/Paint";
 
-	LOGV("android_graphics_Paint className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Paint className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

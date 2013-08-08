@@ -175,11 +175,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_os_Parcel"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -443,7 +440,7 @@ void android_os_Parcel::writeInt(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -488,7 +485,7 @@ int android_os_Parcel::readInt()
 	const char *methodSignature = "()I";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -532,7 +529,7 @@ long android_os_Parcel::readLong()
 	const char *methodSignature = "()J";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -576,7 +573,7 @@ byte android_os_Parcel::readByte()
 	const char *methodSignature = "()B";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -620,7 +617,7 @@ void android_os_Parcel::writeLong(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -665,7 +662,7 @@ void android_os_Parcel::writeByte(byte const& arg0)
 	const char *methodSignature = "(B)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -710,7 +707,7 @@ void android_os_Parcel::writeFloat(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -755,7 +752,7 @@ float android_os_Parcel::readFloat()
 	const char *methodSignature = "()F";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -799,7 +796,7 @@ void android_os_Parcel::writeDouble(double const& arg0)
 	const char *methodSignature = "(D)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -844,7 +841,7 @@ void android_os_Parcel::writeString(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -889,7 +886,7 @@ void android_os_Parcel::writeArray(std::vector<AndroidCXX::java_lang_Object > co
 	const char *methodSignature = "([Ljava/lang/Object;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -952,7 +949,7 @@ double android_os_Parcel::readDouble()
 	const char *methodSignature = "()D";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -996,7 +993,7 @@ AndroidCXX::java_lang_String android_os_Parcel::readString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1040,7 +1037,7 @@ std::vector<AndroidCXX::java_lang_Object > android_os_Parcel::readArray(AndroidC
 	const char *methodSignature = "(Ljava/lang/ClassLoader;)[Ljava/lang/Object;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1123,7 +1120,7 @@ int android_os_Parcel::dataSize()
 	const char *methodSignature = "()I";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1167,7 +1164,7 @@ void android_os_Parcel::writeValue(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1212,7 +1209,7 @@ AndroidCXX::android_os_ParcelFileDescriptor android_os_Parcel::readFileDescripto
 	const char *methodSignature = "()Landroid/os/ParcelFileDescriptor;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1256,7 +1253,7 @@ void android_os_Parcel::writeFileDescriptor(AndroidCXX::java_io_FileDescriptor c
 	const char *methodSignature = "(Ljava/io/FileDescriptor;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1301,7 +1298,7 @@ bool android_os_Parcel::hasFileDescriptors()
 	const char *methodSignature = "()Z";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1345,7 +1342,7 @@ AndroidCXX::android_os_Parcel android_os_Parcel::obtain()
 	const char *methodSignature = "()Landroid/os/Parcel;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1389,7 +1386,7 @@ void android_os_Parcel::recycle()
 	const char *methodSignature = "()V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1413,7 +1410,7 @@ int android_os_Parcel::dataAvail()
 	const char *methodSignature = "()I";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1457,7 +1454,7 @@ int android_os_Parcel::dataPosition()
 	const char *methodSignature = "()I";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1501,7 +1498,7 @@ int android_os_Parcel::dataCapacity()
 	const char *methodSignature = "()I";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1545,7 +1542,7 @@ void android_os_Parcel::setDataSize(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1590,7 +1587,7 @@ void android_os_Parcel::setDataPosition(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1635,7 +1632,7 @@ void android_os_Parcel::setDataCapacity(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1680,7 +1677,7 @@ std::vector<byte> android_os_Parcel::marshall()
 	const char *methodSignature = "()[B";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1742,7 +1739,7 @@ void android_os_Parcel::unmarshall(std::vector<byte> const& arg0,int const& arg1
 	const char *methodSignature = "([BII)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1847,7 +1844,7 @@ void android_os_Parcel::appendFrom(AndroidCXX::android_os_Parcel const& arg0,int
 	const char *methodSignature = "(Landroid/os/Parcel;II)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1934,7 +1931,7 @@ void android_os_Parcel::writeInterfaceToken(AndroidCXX::java_lang_String const& 
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1979,7 +1976,7 @@ void android_os_Parcel::enforceInterface(AndroidCXX::java_lang_String const& arg
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2024,7 +2021,7 @@ void android_os_Parcel::writeByteArray(std::vector<byte> const& arg0)
 	const char *methodSignature = "([B)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2087,7 +2084,7 @@ void android_os_Parcel::writeByteArray(std::vector<byte> const& arg0,int const& 
 	const char *methodSignature = "([BII)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2192,7 +2189,7 @@ void android_os_Parcel::writeStrongBinder(AndroidCXX::android_os_IBinder const& 
 	const char *methodSignature = "(Landroid/os/IBinder;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2237,7 +2234,7 @@ void android_os_Parcel::writeStrongInterface(AndroidCXX::android_os_IInterface c
 	const char *methodSignature = "(Landroid/os/IInterface;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2282,7 +2279,7 @@ void android_os_Parcel::writeMap(AndroidCXX::java_util_Map const& arg0)
 	const char *methodSignature = "(Ljava/util/Map;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2327,7 +2324,7 @@ void android_os_Parcel::writeBundle(AndroidCXX::android_os_Bundle const& arg0)
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2372,7 +2369,7 @@ void android_os_Parcel::writeList(AndroidCXX::java_util_List const& arg0)
 	const char *methodSignature = "(Ljava/util/List;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2417,7 +2414,7 @@ void android_os_Parcel::writeSparseArray(AndroidCXX::android_util_SparseArray co
 	const char *methodSignature = "(Landroid/util/SparseArray;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2480,7 +2477,7 @@ void android_os_Parcel::writeSparseBooleanArray(AndroidCXX::android_util_SparseB
 	const char *methodSignature = "(Landroid/util/SparseBooleanArray;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2525,7 +2522,7 @@ void android_os_Parcel::writeBooleanArray(std::vector<bool> const& arg0)
 	const char *methodSignature = "([Z)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2588,7 +2585,7 @@ std::vector<bool> android_os_Parcel::createBooleanArray()
 	const char *methodSignature = "()[Z";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2650,7 +2647,7 @@ void android_os_Parcel::readBooleanArray(std::vector<bool> const& arg0)
 	const char *methodSignature = "([Z)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2713,7 +2710,7 @@ void android_os_Parcel::writeCharArray(std::vector<char> const& arg0)
 	const char *methodSignature = "([C)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2776,7 +2773,7 @@ std::vector<char> android_os_Parcel::createCharArray()
 	const char *methodSignature = "()[C";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2838,7 +2835,7 @@ void android_os_Parcel::readCharArray(std::vector<char> const& arg0)
 	const char *methodSignature = "([C)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2901,7 +2898,7 @@ void android_os_Parcel::writeIntArray(std::vector<int> const& arg0)
 	const char *methodSignature = "([I)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2964,7 +2961,7 @@ std::vector<int> android_os_Parcel::createIntArray()
 	const char *methodSignature = "()[I";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3026,7 +3023,7 @@ void android_os_Parcel::readIntArray(std::vector<int> const& arg0)
 	const char *methodSignature = "([I)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3089,7 +3086,7 @@ void android_os_Parcel::writeLongArray(std::vector<long> const& arg0)
 	const char *methodSignature = "([J)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3152,7 +3149,7 @@ std::vector<long> android_os_Parcel::createLongArray()
 	const char *methodSignature = "()[J";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3214,7 +3211,7 @@ void android_os_Parcel::readLongArray(std::vector<long> const& arg0)
 	const char *methodSignature = "([J)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3277,7 +3274,7 @@ void android_os_Parcel::writeFloatArray(std::vector<float> const& arg0)
 	const char *methodSignature = "([F)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3340,7 +3337,7 @@ std::vector<float> android_os_Parcel::createFloatArray()
 	const char *methodSignature = "()[F";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3402,7 +3399,7 @@ void android_os_Parcel::readFloatArray(std::vector<float> const& arg0)
 	const char *methodSignature = "([F)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3465,7 +3462,7 @@ void android_os_Parcel::writeDoubleArray(std::vector<double> const& arg0)
 	const char *methodSignature = "([D)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3528,7 +3525,7 @@ std::vector<double> android_os_Parcel::createDoubleArray()
 	const char *methodSignature = "()[D";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3590,7 +3587,7 @@ void android_os_Parcel::readDoubleArray(std::vector<double> const& arg0)
 	const char *methodSignature = "([D)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3653,7 +3650,7 @@ void android_os_Parcel::writeStringArray(std::vector<AndroidCXX::java_lang_Strin
 	const char *methodSignature = "([Ljava/lang/String;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3716,7 +3713,7 @@ std::vector<AndroidCXX::java_lang_String > android_os_Parcel::createStringArray(
 	const char *methodSignature = "()[Ljava/lang/String;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3778,7 +3775,7 @@ void android_os_Parcel::readStringArray(std::vector<AndroidCXX::java_lang_String
 	const char *methodSignature = "([Ljava/lang/String;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3841,7 +3838,7 @@ void android_os_Parcel::writeBinderArray(std::vector<AndroidCXX::android_os_IBin
 	const char *methodSignature = "([Landroid/os/IBinder;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3904,7 +3901,7 @@ std::vector<AndroidCXX::android_os_IBinder > android_os_Parcel::createBinderArra
 	const char *methodSignature = "()[Landroid/os/IBinder;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3966,7 +3963,7 @@ void android_os_Parcel::readBinderArray(std::vector<AndroidCXX::android_os_IBind
 	const char *methodSignature = "([Landroid/os/IBinder;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4029,7 +4026,7 @@ void android_os_Parcel::writeTypedList(AndroidCXX::java_util_List const& arg0)
 	const char *methodSignature = "(Ljava/util/List;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4092,7 +4089,7 @@ void android_os_Parcel::writeStringList(AndroidCXX::java_util_List const& arg0)
 	const char *methodSignature = "(Ljava/util/List;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4155,7 +4152,7 @@ void android_os_Parcel::writeBinderList(AndroidCXX::java_util_List const& arg0)
 	const char *methodSignature = "(Ljava/util/List;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4218,7 +4215,7 @@ void android_os_Parcel::writeTypedArray(std::vector<AndroidCXX::android_os_Parce
 	const char *methodSignature = "([Landroid/os/Parcelable;I)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4302,7 +4299,7 @@ void android_os_Parcel::writeParcelable(AndroidCXX::android_os_Parcelable const&
 	const char *methodSignature = "(Landroid/os/Parcelable;I)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4368,7 +4365,7 @@ void android_os_Parcel::writeSerializable(AndroidCXX::java_io_Serializable const
 	const char *methodSignature = "(Ljava/io/Serializable;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4413,7 +4410,7 @@ void android_os_Parcel::writeException(AndroidCXX::java_lang_Exception const& ar
 	const char *methodSignature = "(Ljava/lang/Exception;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4458,7 +4455,7 @@ void android_os_Parcel::writeNoException()
 	const char *methodSignature = "()V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4482,7 +4479,7 @@ void android_os_Parcel::readException()
 	const char *methodSignature = "()V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4506,7 +4503,7 @@ void android_os_Parcel::readException(int const& arg0,AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(ILjava/lang/String;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4572,7 +4569,7 @@ AndroidCXX::android_os_IBinder android_os_Parcel::readStrongBinder()
 	const char *methodSignature = "()Landroid/os/IBinder;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4616,7 +4613,7 @@ void android_os_Parcel::readMap(AndroidCXX::java_util_Map const& arg0,AndroidCXX
 	const char *methodSignature = "(Ljava/util/Map;Ljava/lang/ClassLoader;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4682,7 +4679,7 @@ void android_os_Parcel::readList(AndroidCXX::java_util_List const& arg0,AndroidC
 	const char *methodSignature = "(Ljava/util/List;Ljava/lang/ClassLoader;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4748,7 +4745,7 @@ AndroidCXX::java_util_HashMap android_os_Parcel::readHashMap(AndroidCXX::java_la
 	const char *methodSignature = "(Ljava/lang/ClassLoader;)Ljava/util/HashMap;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4813,7 +4810,7 @@ AndroidCXX::android_os_Bundle android_os_Parcel::readBundle()
 	const char *methodSignature = "()Landroid/os/Bundle;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4857,7 +4854,7 @@ AndroidCXX::android_os_Bundle android_os_Parcel::readBundle(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/ClassLoader;)Landroid/os/Bundle;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4922,7 +4919,7 @@ std::vector<byte> android_os_Parcel::createByteArray()
 	const char *methodSignature = "()[B";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4984,7 +4981,7 @@ void android_os_Parcel::readByteArray(std::vector<byte> const& arg0)
 	const char *methodSignature = "([B)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5047,7 +5044,7 @@ AndroidCXX::java_util_ArrayList android_os_Parcel::readArrayList(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/lang/ClassLoader;)Ljava/util/ArrayList;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5112,7 +5109,7 @@ AndroidCXX::android_util_SparseArray android_os_Parcel::readSparseArray(AndroidC
 	const char *methodSignature = "(Ljava/lang/ClassLoader;)Landroid/util/SparseArray;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5177,7 +5174,7 @@ AndroidCXX::android_util_SparseBooleanArray android_os_Parcel::readSparseBoolean
 	const char *methodSignature = "()Landroid/util/SparseBooleanArray;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5221,7 +5218,7 @@ AndroidCXX::java_util_ArrayList android_os_Parcel::createTypedArrayList(AndroidC
 	const char *methodSignature = "(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5322,7 +5319,7 @@ void android_os_Parcel::readTypedList(AndroidCXX::java_util_List const& arg0,And
 	const char *methodSignature = "(Ljava/util/List;Landroid/os/Parcelable$Creator;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5424,7 +5421,7 @@ AndroidCXX::java_util_ArrayList android_os_Parcel::createStringArrayList()
 	const char *methodSignature = "()Ljava/util/ArrayList;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5486,7 +5483,7 @@ AndroidCXX::java_util_ArrayList android_os_Parcel::createBinderArrayList()
 	const char *methodSignature = "()Ljava/util/ArrayList;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5548,7 +5545,7 @@ void android_os_Parcel::readStringList(AndroidCXX::java_util_List const& arg0)
 	const char *methodSignature = "(Ljava/util/List;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5611,7 +5608,7 @@ void android_os_Parcel::readBinderList(AndroidCXX::java_util_List const& arg0)
 	const char *methodSignature = "(Ljava/util/List;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5674,7 +5671,7 @@ std::vector<AndroidCXX::java_lang_Object > android_os_Parcel::createTypedArray(A
 	const char *methodSignature = "(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5775,7 +5772,7 @@ void android_os_Parcel::readTypedArray(std::vector<AndroidCXX::java_lang_Object 
 	const char *methodSignature = "([Ljava/lang/Object;Landroid/os/Parcelable$Creator;)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5877,7 +5874,7 @@ void android_os_Parcel::writeParcelableArray(std::vector<AndroidCXX::android_os_
 	const char *methodSignature = "([Landroid/os/Parcelable;I)V";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5961,7 +5958,7 @@ AndroidCXX::java_lang_Object android_os_Parcel::readValue(AndroidCXX::java_lang_
 	const char *methodSignature = "(Ljava/lang/ClassLoader;)Ljava/lang/Object;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6026,7 +6023,7 @@ AndroidCXX::android_os_Parcelable android_os_Parcel::readParcelable(AndroidCXX::
 	const char *methodSignature = "(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6091,7 +6088,7 @@ std::vector<AndroidCXX::android_os_Parcelable > android_os_Parcel::readParcelabl
 	const char *methodSignature = "(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6174,7 +6171,7 @@ AndroidCXX::java_io_Serializable android_os_Parcel::readSerializable()
 	const char *methodSignature = "()Ljava/io/Serializable;";
 	const char *className = "android/os/Parcel";
 
-	LOGV("android_os_Parcel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Parcel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

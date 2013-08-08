@@ -86,11 +86,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Matrix"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -204,7 +201,7 @@ android_graphics_Matrix::android_graphics_Matrix()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -240,7 +237,7 @@ android_graphics_Matrix::android_graphics_Matrix(AndroidCXX::android_graphics_Ma
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -312,7 +309,7 @@ bool android_graphics_Matrix::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -377,7 +374,7 @@ AndroidCXX::java_lang_String android_graphics_Matrix::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -421,7 +418,7 @@ void android_graphics_Matrix::set(AndroidCXX::android_graphics_Matrix const& arg
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -466,7 +463,7 @@ void android_graphics_Matrix::reset()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -490,7 +487,7 @@ void android_graphics_Matrix::setScale(float const& arg0,float const& arg1,float
 	const char *methodSignature = "(FFFF)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -598,7 +595,7 @@ void android_graphics_Matrix::setScale(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -664,7 +661,7 @@ AndroidCXX::java_lang_String android_graphics_Matrix::toShortString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -708,7 +705,7 @@ bool android_graphics_Matrix::isIdentity()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -752,7 +749,7 @@ bool android_graphics_Matrix::rectStaysRect()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -796,7 +793,7 @@ void android_graphics_Matrix::setTranslate(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -862,7 +859,7 @@ void android_graphics_Matrix::setRotate(float const& arg0,float const& arg1,floa
 	const char *methodSignature = "(FFF)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -949,7 +946,7 @@ void android_graphics_Matrix::setRotate(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -994,7 +991,7 @@ void android_graphics_Matrix::setSinCos(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1060,7 +1057,7 @@ void android_graphics_Matrix::setSinCos(float const& arg0,float const& arg1,floa
 	const char *methodSignature = "(FFFF)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1168,7 +1165,7 @@ void android_graphics_Matrix::setSkew(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1234,7 +1231,7 @@ void android_graphics_Matrix::setSkew(float const& arg0,float const& arg1,float 
 	const char *methodSignature = "(FFFF)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1342,7 +1339,7 @@ bool android_graphics_Matrix::setConcat(AndroidCXX::android_graphics_Matrix cons
 	const char *methodSignature = "(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1428,7 +1425,7 @@ bool android_graphics_Matrix::preTranslate(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1514,7 +1511,7 @@ bool android_graphics_Matrix::preScale(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1600,7 +1597,7 @@ bool android_graphics_Matrix::preScale(float const& arg0,float const& arg1,float
 	const char *methodSignature = "(FFFF)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1728,7 +1725,7 @@ bool android_graphics_Matrix::preRotate(float const& arg0)
 	const char *methodSignature = "(F)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1793,7 +1790,7 @@ bool android_graphics_Matrix::preRotate(float const& arg0,float const& arg1,floa
 	const char *methodSignature = "(FFF)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1900,7 +1897,7 @@ bool android_graphics_Matrix::preSkew(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1986,7 +1983,7 @@ bool android_graphics_Matrix::preSkew(float const& arg0,float const& arg1,float 
 	const char *methodSignature = "(FFFF)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2114,7 +2111,7 @@ bool android_graphics_Matrix::preConcat(AndroidCXX::android_graphics_Matrix cons
 	const char *methodSignature = "(Landroid/graphics/Matrix;)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2179,7 +2176,7 @@ bool android_graphics_Matrix::postTranslate(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2265,7 +2262,7 @@ bool android_graphics_Matrix::postScale(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2351,7 +2348,7 @@ bool android_graphics_Matrix::postScale(float const& arg0,float const& arg1,floa
 	const char *methodSignature = "(FFFF)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2479,7 +2476,7 @@ bool android_graphics_Matrix::postRotate(float const& arg0)
 	const char *methodSignature = "(F)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2544,7 +2541,7 @@ bool android_graphics_Matrix::postRotate(float const& arg0,float const& arg1,flo
 	const char *methodSignature = "(FFF)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2651,7 +2648,7 @@ bool android_graphics_Matrix::postSkew(float const& arg0,float const& arg1,float
 	const char *methodSignature = "(FFFF)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2779,7 +2776,7 @@ bool android_graphics_Matrix::postSkew(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2865,7 +2862,7 @@ bool android_graphics_Matrix::postConcat(AndroidCXX::android_graphics_Matrix con
 	const char *methodSignature = "(Landroid/graphics/Matrix;)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2930,7 +2927,7 @@ bool android_graphics_Matrix::setRectToRect(AndroidCXX::android_graphics_RectF c
 	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3037,7 +3034,7 @@ bool android_graphics_Matrix::setPolyToPoly(std::vector<float> const& arg0,int c
 	const char *methodSignature = "([FI[FII)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3222,7 +3219,7 @@ bool android_graphics_Matrix::invert(AndroidCXX::android_graphics_Matrix const& 
 	const char *methodSignature = "(Landroid/graphics/Matrix;)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3287,7 +3284,7 @@ void android_graphics_Matrix::mapPoints(std::vector<float> const& arg0,int const
 	const char *methodSignature = "([FI[FII)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3452,7 +3449,7 @@ void android_graphics_Matrix::mapPoints(std::vector<float> const& arg0)
 	const char *methodSignature = "([F)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3515,7 +3512,7 @@ void android_graphics_Matrix::mapPoints(std::vector<float> const& arg0,std::vect
 	const char *methodSignature = "([F[F)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3617,7 +3614,7 @@ void android_graphics_Matrix::mapVectors(std::vector<float> const& arg0,int cons
 	const char *methodSignature = "([FI[FII)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3782,7 +3779,7 @@ void android_graphics_Matrix::mapVectors(std::vector<float> const& arg0,std::vec
 	const char *methodSignature = "([F[F)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3884,7 +3881,7 @@ void android_graphics_Matrix::mapVectors(std::vector<float> const& arg0)
 	const char *methodSignature = "([F)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3947,7 +3944,7 @@ bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF const& 
 	const char *methodSignature = "(Landroid/graphics/RectF;)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4012,7 +4009,7 @@ bool android_graphics_Matrix::mapRect(AndroidCXX::android_graphics_RectF const& 
 	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/RectF;)Z";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4098,7 +4095,7 @@ float android_graphics_Matrix::mapRadius(float const& arg0)
 	const char *methodSignature = "(F)F";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4163,7 +4160,7 @@ void android_graphics_Matrix::getValues(std::vector<float> const& arg0)
 	const char *methodSignature = "([F)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4226,7 +4223,7 @@ void android_graphics_Matrix::setValues(std::vector<float> const& arg0)
 	const char *methodSignature = "([F)V";
 	const char *className = "android/graphics/Matrix";
 
-	LOGV("android_graphics_Matrix className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Matrix className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -56,11 +56,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_ThreadGroup"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -171,7 +168,7 @@ java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_String const&
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -228,7 +225,7 @@ java_lang_ThreadGroup::java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup c
 	const char *methodSignature = "(Ljava/lang/ThreadGroup;Ljava/lang/String;)V";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -321,7 +318,7 @@ void java_lang_ThreadGroup::uncaughtException(AndroidCXX::java_lang_Thread const
 	const char *methodSignature = "(Ljava/lang/Thread;Ljava/lang/Throwable;)V";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -387,7 +384,7 @@ AndroidCXX::java_lang_String java_lang_ThreadGroup::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -431,7 +428,7 @@ AndroidCXX::java_lang_String java_lang_ThreadGroup::getName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -475,7 +472,7 @@ AndroidCXX::java_lang_ThreadGroup java_lang_ThreadGroup::getParent()
 	const char *methodSignature = "()Ljava/lang/ThreadGroup;";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -519,7 +516,7 @@ void java_lang_ThreadGroup::setDaemon(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -564,7 +561,7 @@ void java_lang_ThreadGroup::stop()
 	const char *methodSignature = "()V";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -588,7 +585,7 @@ void java_lang_ThreadGroup::interrupt()
 	const char *methodSignature = "()V";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -612,7 +609,7 @@ void java_lang_ThreadGroup::destroy()
 	const char *methodSignature = "()V";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -636,7 +633,7 @@ void java_lang_ThreadGroup::suspend()
 	const char *methodSignature = "()V";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -660,7 +657,7 @@ void java_lang_ThreadGroup::resume()
 	const char *methodSignature = "()V";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -684,7 +681,7 @@ int java_lang_ThreadGroup::activeCount()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -728,7 +725,7 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGro
 	const char *methodSignature = "([Ljava/lang/ThreadGroup;)I";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -811,7 +808,7 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_ThreadGro
 	const char *methodSignature = "([Ljava/lang/ThreadGroup;Z)I";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -915,7 +912,7 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread > 
 	const char *methodSignature = "([Ljava/lang/Thread;Z)I";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1019,7 +1016,7 @@ int java_lang_ThreadGroup::enumerate(std::vector<AndroidCXX::java_lang_Thread > 
 	const char *methodSignature = "([Ljava/lang/Thread;)I";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1102,7 +1099,7 @@ bool java_lang_ThreadGroup::isDaemon()
 	const char *methodSignature = "()Z";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1146,7 +1143,7 @@ void java_lang_ThreadGroup::checkAccess()
 	const char *methodSignature = "()V";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1170,7 +1167,7 @@ int java_lang_ThreadGroup::getMaxPriority()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1214,7 +1211,7 @@ bool java_lang_ThreadGroup::isDestroyed()
 	const char *methodSignature = "()Z";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1258,7 +1255,7 @@ void java_lang_ThreadGroup::setMaxPriority(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1303,7 +1300,7 @@ bool java_lang_ThreadGroup::parentOf(AndroidCXX::java_lang_ThreadGroup const& ar
 	const char *methodSignature = "(Ljava/lang/ThreadGroup;)Z";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1368,7 +1365,7 @@ int java_lang_ThreadGroup::activeGroupCount()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1412,7 +1409,7 @@ void java_lang_ThreadGroup::list()
 	const char *methodSignature = "()V";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1436,7 +1433,7 @@ bool java_lang_ThreadGroup::allowThreadSuspension(bool const& arg0)
 	const char *methodSignature = "(Z)Z";
 	const char *className = "java/lang/ThreadGroup";
 
-	LOGV("java_lang_ThreadGroup className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_ThreadGroup className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

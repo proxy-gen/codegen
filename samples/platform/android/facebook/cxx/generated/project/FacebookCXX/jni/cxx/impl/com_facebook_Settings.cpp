@@ -214,7 +214,7 @@ com_facebook_Settings::com_facebook_Settings()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -265,7 +265,7 @@ bool com_facebook_Settings::isLoggingBehaviorEnabled(com_facebook_LoggingBehavio
 	const char *methodSignature = "(Lcom/facebook/LoggingBehavior;)Z";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -330,7 +330,7 @@ AndroidCXX::java_util_concurrent_Executor com_facebook_Settings::getExecutor()
 	const char *methodSignature = "()Ljava/util/concurrent/Executor;";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -374,7 +374,7 @@ bool com_facebook_Settings::getShouldAutoPublishInstall()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -418,7 +418,7 @@ bool com_facebook_Settings::publishInstallAndWait(AndroidCXX::android_content_Co
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;)Z";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -504,7 +504,7 @@ AndroidCXX::java_lang_String com_facebook_Settings::getAttributionId(AndroidCXX:
 	const char *methodSignature = "(Landroid/content/ContentResolver;)Ljava/lang/String;";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -569,7 +569,7 @@ FacebookCXX::com_facebook_Response com_facebook_Settings::publishInstallAndWaitF
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;)Lcom/facebook/Response;";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -655,7 +655,7 @@ void com_facebook_Settings::publishInstallAsync(AndroidCXX::android_content_Cont
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;)V";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -721,7 +721,7 @@ void com_facebook_Settings::publishInstallAsync(AndroidCXX::android_content_Cont
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Lcom/facebook/Request$Callback;)V";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -808,7 +808,7 @@ AndroidCXX::java_util_Set com_facebook_Settings::getLoggingBehaviors()
 	const char *methodSignature = "()Ljava/util/Set;";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -870,7 +870,7 @@ void com_facebook_Settings::addLoggingBehavior(com_facebook_LoggingBehavior::com
 	const char *methodSignature = "(Lcom/facebook/LoggingBehavior;)V";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -915,7 +915,7 @@ void com_facebook_Settings::removeLoggingBehavior(com_facebook_LoggingBehavior::
 	const char *methodSignature = "(Lcom/facebook/LoggingBehavior;)V";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -960,7 +960,7 @@ void com_facebook_Settings::clearLoggingBehaviors()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -984,7 +984,7 @@ void com_facebook_Settings::setExecutor(AndroidCXX::java_util_concurrent_Executo
 	const char *methodSignature = "(Ljava/util/concurrent/Executor;)V";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1029,7 +1029,7 @@ void com_facebook_Settings::setShouldAutoPublishInstall(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1074,7 +1074,7 @@ AndroidCXX::java_lang_String com_facebook_Settings::getSdkVersion()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1118,7 +1118,7 @@ AndroidCXX::java_lang_String com_facebook_Settings::getMigrationBundle()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/Settings";
 
-	LOGV("com_facebook_Settings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

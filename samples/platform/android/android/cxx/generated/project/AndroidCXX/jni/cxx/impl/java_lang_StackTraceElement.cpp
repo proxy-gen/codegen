@@ -38,11 +38,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_StackTraceElement"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -150,7 +147,7 @@ java_lang_StackTraceElement::java_lang_StackTraceElement(AndroidCXX::java_lang_S
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V";
 	const char *className = "java/lang/StackTraceElement";
 
-	LOGV("java_lang_StackTraceElement className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_StackTraceElement className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -285,7 +282,7 @@ bool java_lang_StackTraceElement::equals(AndroidCXX::java_lang_Object const& arg
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/lang/StackTraceElement";
 
-	LOGV("java_lang_StackTraceElement className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_StackTraceElement className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -350,7 +347,7 @@ AndroidCXX::java_lang_String java_lang_StackTraceElement::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/StackTraceElement";
 
-	LOGV("java_lang_StackTraceElement className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_StackTraceElement className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -394,7 +391,7 @@ int java_lang_StackTraceElement::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/StackTraceElement";
 
-	LOGV("java_lang_StackTraceElement className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_StackTraceElement className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -438,7 +435,7 @@ AndroidCXX::java_lang_String java_lang_StackTraceElement::getFileName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/StackTraceElement";
 
-	LOGV("java_lang_StackTraceElement className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_StackTraceElement className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -482,7 +479,7 @@ int java_lang_StackTraceElement::getLineNumber()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/StackTraceElement";
 
-	LOGV("java_lang_StackTraceElement className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_StackTraceElement className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -526,7 +523,7 @@ AndroidCXX::java_lang_String java_lang_StackTraceElement::getClassName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/StackTraceElement";
 
-	LOGV("java_lang_StackTraceElement className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_StackTraceElement className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -570,7 +567,7 @@ AndroidCXX::java_lang_String java_lang_StackTraceElement::getMethodName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/StackTraceElement";
 
-	LOGV("java_lang_StackTraceElement className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_StackTraceElement className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -614,7 +611,7 @@ bool java_lang_StackTraceElement::isNativeMethod()
 	const char *methodSignature = "()Z";
 	const char *className = "java/lang/StackTraceElement";
 
-	LOGV("java_lang_StackTraceElement className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_StackTraceElement className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

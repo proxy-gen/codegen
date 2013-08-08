@@ -25,11 +25,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_AbsListView_OnScrollListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -134,7 +131,7 @@ void android_widget_AbsListView_OnScrollListener::onScrollStateChanged(AndroidCX
 	const char *methodSignature = "(Landroid/widget/AbsListView;I)V";
 	const char *className = "android/widget/AbsListView$OnScrollListener";
 
-	LOGV("android_widget_AbsListView_OnScrollListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView_OnScrollListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -200,7 +197,7 @@ void android_widget_AbsListView_OnScrollListener::onScroll(AndroidCXX::android_w
 	const char *methodSignature = "(Landroid/widget/AbsListView;III)V";
 	const char *className = "android/widget/AbsListView$OnScrollListener";
 
-	LOGV("android_widget_AbsListView_OnScrollListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView_OnScrollListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

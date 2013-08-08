@@ -29,11 +29,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_MotionEvent_PointerCoords"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -100,7 +97,7 @@ android_view_MotionEvent_PointerCoords::android_view_MotionEvent_PointerCoords()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/MotionEvent$PointerCoords";
 
-	LOGV("android_view_MotionEvent_PointerCoords className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent_PointerCoords className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -136,7 +133,7 @@ android_view_MotionEvent_PointerCoords::android_view_MotionEvent_PointerCoords(A
 	const char *methodSignature = "(Landroid/view/MotionEvent$PointerCoords;)V";
 	const char *className = "android/view/MotionEvent$PointerCoords";
 
-	LOGV("android_view_MotionEvent_PointerCoords className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent_PointerCoords className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -208,7 +205,7 @@ void android_view_MotionEvent_PointerCoords::clear()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/MotionEvent$PointerCoords";
 
-	LOGV("android_view_MotionEvent_PointerCoords className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent_PointerCoords className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -232,7 +229,7 @@ void android_view_MotionEvent_PointerCoords::copyFrom(AndroidCXX::android_view_M
 	const char *methodSignature = "(Landroid/view/MotionEvent$PointerCoords;)V";
 	const char *className = "android/view/MotionEvent$PointerCoords";
 
-	LOGV("android_view_MotionEvent_PointerCoords className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent_PointerCoords className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -277,7 +274,7 @@ float android_view_MotionEvent_PointerCoords::getAxisValue(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent$PointerCoords";
 
-	LOGV("android_view_MotionEvent_PointerCoords className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent_PointerCoords className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -342,7 +339,7 @@ void android_view_MotionEvent_PointerCoords::setAxisValue(int const& arg0,float 
 	const char *methodSignature = "(IF)V";
 	const char *className = "android/view/MotionEvent$PointerCoords";
 
-	LOGV("android_view_MotionEvent_PointerCoords className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent_PointerCoords className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

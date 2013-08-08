@@ -30,11 +30,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_app_ActionBar_TabListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -151,7 +148,7 @@ void android_app_ActionBar_TabListener::onTabSelected(AndroidCXX::android_app_Ac
 	const char *methodSignature = "(Landroid/app/ActionBar$Tab;Landroid/app/FragmentTransaction;)V";
 	const char *className = "android/app/ActionBar$TabListener";
 
-	LOGV("android_app_ActionBar_TabListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_TabListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -217,7 +214,7 @@ void android_app_ActionBar_TabListener::onTabUnselected(AndroidCXX::android_app_
 	const char *methodSignature = "(Landroid/app/ActionBar$Tab;Landroid/app/FragmentTransaction;)V";
 	const char *className = "android/app/ActionBar$TabListener";
 
-	LOGV("android_app_ActionBar_TabListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_TabListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -283,7 +280,7 @@ void android_app_ActionBar_TabListener::onTabReselected(AndroidCXX::android_app_
 	const char *methodSignature = "(Landroid/app/ActionBar$Tab;Landroid/app/FragmentTransaction;)V";
 	const char *className = "android/app/ActionBar$TabListener";
 
-	LOGV("android_app_ActionBar_TabListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_TabListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

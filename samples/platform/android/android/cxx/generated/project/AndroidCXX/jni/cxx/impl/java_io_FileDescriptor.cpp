@@ -24,11 +24,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_io_FileDescriptor"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -109,7 +106,7 @@ java_io_FileDescriptor::java_io_FileDescriptor()
 	const char *methodSignature = "()V";
 	const char *className = "java/io/FileDescriptor";
 
-	LOGV("java_io_FileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_FileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -160,7 +157,7 @@ bool java_io_FileDescriptor::valid()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/FileDescriptor";
 
-	LOGV("java_io_FileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_FileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -204,7 +201,7 @@ void java_io_FileDescriptor::sync()
 	const char *methodSignature = "()V";
 	const char *className = "java/io/FileDescriptor";
 
-	LOGV("java_io_FileDescriptor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_FileDescriptor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

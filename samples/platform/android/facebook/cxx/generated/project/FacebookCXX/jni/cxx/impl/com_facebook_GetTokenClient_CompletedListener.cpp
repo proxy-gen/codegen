@@ -129,7 +129,7 @@ void com_facebook_GetTokenClient_CompletedListener::completed(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/GetTokenClient$CompletedListener";
 
-	LOGV("com_facebook_GetTokenClient_CompletedListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_GetTokenClient_CompletedListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

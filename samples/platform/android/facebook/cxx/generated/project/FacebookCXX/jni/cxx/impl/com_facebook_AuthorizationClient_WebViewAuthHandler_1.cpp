@@ -136,7 +136,7 @@ void com_facebook_AuthorizationClient_WebViewAuthHandler_1::onComplete(AndroidCX
 	const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/FacebookException;)V";
 	const char *className = "com/facebook/AuthorizationClient$WebViewAuthHandler$1";
 
-	LOGV("com_facebook_AuthorizationClient_WebViewAuthHandler_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AuthorizationClient_WebViewAuthHandler_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -60,11 +60,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_TabHost"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -199,7 +196,7 @@ android_widget_TabHost::android_widget_TabHost(AndroidCXX::android_content_Conte
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -256,7 +253,7 @@ android_widget_TabHost::android_widget_TabHost(AndroidCXX::android_content_Conte
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -349,7 +346,7 @@ void android_widget_TabHost::setup()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -373,7 +370,7 @@ void android_widget_TabHost::setup(AndroidCXX::android_app_LocalActivityManager 
 	const char *methodSignature = "(Landroid/app/LocalActivityManager;)V";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -418,7 +415,7 @@ bool android_widget_TabHost::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent 
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -483,7 +480,7 @@ void android_widget_TabHost::dispatchWindowFocusChanged(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -528,7 +525,7 @@ void android_widget_TabHost::sendAccessibilityEvent(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -573,7 +570,7 @@ void android_widget_TabHost::onInitializeAccessibilityEvent(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -618,7 +615,7 @@ void android_widget_TabHost::onInitializeAccessibilityNodeInfo(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -663,7 +660,7 @@ void android_widget_TabHost::onTouchModeChanged(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -708,7 +705,7 @@ void android_widget_TabHost::addTab(AndroidCXX::android_widget_TabHost_TabSpec c
 	const char *methodSignature = "(Landroid/widget/TabHost$TabSpec;)V";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -753,7 +750,7 @@ AndroidCXX::android_view_View android_widget_TabHost::getCurrentView()
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -797,7 +794,7 @@ AndroidCXX::android_widget_TabHost_TabSpec android_widget_TabHost::newTabSpec(An
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -862,7 +859,7 @@ void android_widget_TabHost::clearAllTabs()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -886,7 +883,7 @@ AndroidCXX::android_widget_TabWidget android_widget_TabHost::getTabWidget()
 	const char *methodSignature = "()Landroid/widget/TabWidget;";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -930,7 +927,7 @@ int android_widget_TabHost::getCurrentTab()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -974,7 +971,7 @@ AndroidCXX::java_lang_String android_widget_TabHost::getCurrentTabTag()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1018,7 +1015,7 @@ AndroidCXX::android_view_View android_widget_TabHost::getCurrentTabView()
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1062,7 +1059,7 @@ void android_widget_TabHost::setCurrentTabByTag(AndroidCXX::java_lang_String con
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1107,7 +1104,7 @@ AndroidCXX::android_widget_FrameLayout android_widget_TabHost::getTabContentView
 	const char *methodSignature = "()Landroid/widget/FrameLayout;";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1151,7 +1148,7 @@ void android_widget_TabHost::setCurrentTab(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1196,7 +1193,7 @@ void android_widget_TabHost::setOnTabChangedListener(AndroidCXX::android_widget_
 	const char *methodSignature = "(Landroid/widget/TabHost$OnTabChangeListener;)V";
 	const char *className = "android/widget/TabHost";
 
-	LOGV("android_widget_TabHost className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabHost className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

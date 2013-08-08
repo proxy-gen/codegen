@@ -35,11 +35,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_os_PatternMatcher"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -141,7 +138,7 @@ android_os_PatternMatcher::android_os_PatternMatcher(AndroidCXX::java_lang_Strin
 	const char *methodSignature = "(Ljava/lang/String;I)V";
 	const char *className = "android/os/PatternMatcher";
 
-	LOGV("android_os_PatternMatcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_PatternMatcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -219,7 +216,7 @@ android_os_PatternMatcher::android_os_PatternMatcher(AndroidCXX::android_os_Parc
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
 	const char *className = "android/os/PatternMatcher";
 
-	LOGV("android_os_PatternMatcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_PatternMatcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -291,7 +288,7 @@ AndroidCXX::java_lang_String android_os_PatternMatcher::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/os/PatternMatcher";
 
-	LOGV("android_os_PatternMatcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_PatternMatcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -335,7 +332,7 @@ int android_os_PatternMatcher::getType()
 	const char *methodSignature = "()I";
 	const char *className = "android/os/PatternMatcher";
 
-	LOGV("android_os_PatternMatcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_PatternMatcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -379,7 +376,7 @@ AndroidCXX::java_lang_String android_os_PatternMatcher::getPath()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/os/PatternMatcher";
 
-	LOGV("android_os_PatternMatcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_PatternMatcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -423,7 +420,7 @@ bool android_os_PatternMatcher::match(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "android/os/PatternMatcher";
 
-	LOGV("android_os_PatternMatcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_PatternMatcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -488,7 +485,7 @@ int android_os_PatternMatcher::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/os/PatternMatcher";
 
-	LOGV("android_os_PatternMatcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_PatternMatcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -532,7 +529,7 @@ void android_os_PatternMatcher::writeToParcel(AndroidCXX::android_os_Parcel cons
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/os/PatternMatcher";
 
-	LOGV("android_os_PatternMatcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_PatternMatcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

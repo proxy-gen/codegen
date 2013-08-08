@@ -205,7 +205,7 @@ FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/facebook/Session;)Lcom/facebook/InsightsLogger;";
 	const char *className = "com/facebook/InsightsLogger";
 
-	LOGV("com_facebook_InsightsLogger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_InsightsLogger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -333,7 +333,7 @@ FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;)Lcom/facebook/InsightsLogger;";
 	const char *className = "com/facebook/InsightsLogger";
 
-	LOGV("com_facebook_InsightsLogger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_InsightsLogger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -419,7 +419,7 @@ FacebookCXX::com_facebook_InsightsLogger com_facebook_InsightsLogger::newLogger(
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Lcom/facebook/InsightsLogger;";
 	const char *className = "com/facebook/InsightsLogger";
 
-	LOGV("com_facebook_InsightsLogger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_InsightsLogger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -526,7 +526,7 @@ void com_facebook_InsightsLogger::logPurchase(AndroidCXX::java_math_BigDecimal c
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/util/Currency;Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/InsightsLogger";
 
-	LOGV("com_facebook_InsightsLogger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_InsightsLogger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -613,7 +613,7 @@ void com_facebook_InsightsLogger::logPurchase(AndroidCXX::java_math_BigDecimal c
 	const char *methodSignature = "(Ljava/math/BigDecimal;Ljava/util/Currency;)V";
 	const char *className = "com/facebook/InsightsLogger";
 
-	LOGV("com_facebook_InsightsLogger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_InsightsLogger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -679,7 +679,7 @@ void com_facebook_InsightsLogger::logConversionPixel(AndroidCXX::java_lang_Strin
 	const char *methodSignature = "(Ljava/lang/String;D)V";
 	const char *className = "com/facebook/InsightsLogger";
 
-	LOGV("com_facebook_InsightsLogger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_InsightsLogger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

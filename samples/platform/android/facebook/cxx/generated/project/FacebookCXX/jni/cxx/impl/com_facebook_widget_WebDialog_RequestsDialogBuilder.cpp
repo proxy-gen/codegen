@@ -170,7 +170,7 @@ com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDial
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/Session;)V";
 	const char *className = "com/facebook/widget/WebDialog$RequestsDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -248,7 +248,7 @@ com_facebook_widget_WebDialog_RequestsDialogBuilder::com_facebook_widget_WebDial
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/Session;Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/widget/WebDialog$RequestsDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -362,7 +362,7 @@ FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_wi
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$RequestsDialogBuilder;";
 	const char *className = "com/facebook/widget/WebDialog$RequestsDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -427,7 +427,7 @@ FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_wi
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$RequestsDialogBuilder;";
 	const char *className = "com/facebook/widget/WebDialog$RequestsDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -492,7 +492,7 @@ FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_wi
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$RequestsDialogBuilder;";
 	const char *className = "com/facebook/widget/WebDialog$RequestsDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -557,7 +557,7 @@ FacebookCXX::com_facebook_widget_WebDialog_RequestsDialogBuilder com_facebook_wi
 	const char *methodSignature = "(Ljava/lang/String;)Lcom/facebook/widget/WebDialog$RequestsDialogBuilder;";
 	const char *className = "com/facebook/widget/WebDialog$RequestsDialogBuilder";
 
-	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_RequestsDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

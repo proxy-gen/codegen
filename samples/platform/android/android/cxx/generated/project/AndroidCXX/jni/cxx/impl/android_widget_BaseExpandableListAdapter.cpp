@@ -38,11 +38,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_BaseExpandableListAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -132,7 +129,7 @@ android_widget_BaseExpandableListAdapter::android_widget_BaseExpandableListAdapt
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -183,7 +180,7 @@ bool android_widget_BaseExpandableListAdapter::isEmpty()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -227,7 +224,7 @@ void android_widget_BaseExpandableListAdapter::registerDataSetObserver(AndroidCX
 	const char *methodSignature = "(Landroid/database/DataSetObserver;)V";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -272,7 +269,7 @@ void android_widget_BaseExpandableListAdapter::unregisterDataSetObserver(Android
 	const char *methodSignature = "(Landroid/database/DataSetObserver;)V";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -317,7 +314,7 @@ bool android_widget_BaseExpandableListAdapter::areAllItemsEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -361,7 +358,7 @@ void android_widget_BaseExpandableListAdapter::onGroupExpanded(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -406,7 +403,7 @@ void android_widget_BaseExpandableListAdapter::onGroupCollapsed(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -451,7 +448,7 @@ long android_widget_BaseExpandableListAdapter::getCombinedChildId(long const& ar
 	const char *methodSignature = "(JJ)J";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -537,7 +534,7 @@ long android_widget_BaseExpandableListAdapter::getCombinedGroupId(long const& ar
 	const char *methodSignature = "(J)J";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -602,7 +599,7 @@ int android_widget_BaseExpandableListAdapter::getGroupType(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -667,7 +664,7 @@ int android_widget_BaseExpandableListAdapter::getChildType(int const& arg0,int c
 	const char *methodSignature = "(II)I";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -753,7 +750,7 @@ int android_widget_BaseExpandableListAdapter::getGroupTypeCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -797,7 +794,7 @@ int android_widget_BaseExpandableListAdapter::getChildTypeCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -841,7 +838,7 @@ void android_widget_BaseExpandableListAdapter::notifyDataSetChanged()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -865,7 +862,7 @@ void android_widget_BaseExpandableListAdapter::notifyDataSetInvalidated()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/BaseExpandableListAdapter";
 
-	LOGV("android_widget_BaseExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

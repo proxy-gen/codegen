@@ -136,7 +136,7 @@ void com_facebook_widget_WebDialog_OnCompleteListener::onComplete(AndroidCXX::an
 	const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/FacebookException;)V";
 	const char *className = "com/facebook/widget/WebDialog$OnCompleteListener";
 
-	LOGV("com_facebook_widget_WebDialog_OnCompleteListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_OnCompleteListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

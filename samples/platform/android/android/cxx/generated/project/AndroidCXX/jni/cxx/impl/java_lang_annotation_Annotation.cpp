@@ -28,11 +28,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_annotation_Annotation"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -140,7 +137,7 @@ bool java_lang_annotation_Annotation::equals(AndroidCXX::java_lang_Object const&
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/lang/annotation/Annotation";
 
-	LOGV("java_lang_annotation_Annotation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_annotation_Annotation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -205,7 +202,7 @@ AndroidCXX::java_lang_String java_lang_annotation_Annotation::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/annotation/Annotation";
 
-	LOGV("java_lang_annotation_Annotation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_annotation_Annotation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -249,7 +246,7 @@ int java_lang_annotation_Annotation::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/annotation/Annotation";
 
-	LOGV("java_lang_annotation_Annotation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_annotation_Annotation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -293,7 +290,7 @@ AndroidCXX::java_lang_Class java_lang_annotation_Annotation::annotationType()
 	const char *methodSignature = "()Ljava/lang/Class;";
 	const char *className = "java/lang/annotation/Annotation";
 
-	LOGV("java_lang_annotation_Annotation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_annotation_Annotation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

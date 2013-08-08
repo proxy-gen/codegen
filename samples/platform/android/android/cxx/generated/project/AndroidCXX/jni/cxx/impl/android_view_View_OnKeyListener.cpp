@@ -24,11 +24,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_View_OnKeyListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -133,7 +130,7 @@ bool android_view_View_OnKeyListener::onKey(AndroidCXX::android_view_View const&
 	const char *methodSignature = "(Landroid/view/View;ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/view/View$OnKeyListener";
 
-	LOGV("android_view_View_OnKeyListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_View_OnKeyListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

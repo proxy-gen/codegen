@@ -31,11 +31,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_text_Spanned"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -149,7 +146,7 @@ std::vector<AndroidCXX::java_lang_Object > android_text_Spanned::getSpans(int co
 	const char *methodSignature = "(IILjava/lang/Class;)[Ljava/lang/Object;";
 	const char *className = "android/text/Spanned";
 
-	LOGV("android_text_Spanned className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Spanned className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -292,7 +289,7 @@ int android_text_Spanned::getSpanStart(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)I";
 	const char *className = "android/text/Spanned";
 
-	LOGV("android_text_Spanned className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Spanned className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -357,7 +354,7 @@ int android_text_Spanned::getSpanEnd(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)I";
 	const char *className = "android/text/Spanned";
 
-	LOGV("android_text_Spanned className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Spanned className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -422,7 +419,7 @@ int android_text_Spanned::getSpanFlags(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)I";
 	const char *className = "android/text/Spanned";
 
-	LOGV("android_text_Spanned className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Spanned className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -487,7 +484,7 @@ int android_text_Spanned::nextSpanTransition(int const& arg0,int const& arg1,And
 	const char *methodSignature = "(IILjava/lang/Class;)I";
 	const char *className = "android/text/Spanned";
 
-	LOGV("android_text_Spanned className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Spanned className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

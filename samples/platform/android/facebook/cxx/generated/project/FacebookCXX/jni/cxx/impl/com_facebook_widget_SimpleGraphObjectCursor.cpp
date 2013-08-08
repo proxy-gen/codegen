@@ -155,7 +155,7 @@ void com_facebook_widget_SimpleGraphObjectCursor::close()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -179,7 +179,7 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isFirst()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -223,7 +223,7 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isClosed()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -267,7 +267,7 @@ int com_facebook_widget_SimpleGraphObjectCursor::getPosition()
 	const char *methodSignature = "()I";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -311,7 +311,7 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isFromCache()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -355,7 +355,7 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_widget_SimpleGraphObjec
 	const char *methodSignature = "()Lcom/facebook/model/GraphObject;";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -399,7 +399,7 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToFirst()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -443,7 +443,7 @@ int com_facebook_widget_SimpleGraphObjectCursor::getCount()
 	const char *methodSignature = "()I";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -487,7 +487,7 @@ bool com_facebook_widget_SimpleGraphObjectCursor::areMoreObjectsAvailable()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -531,7 +531,7 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToNext()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -575,7 +575,7 @@ bool com_facebook_widget_SimpleGraphObjectCursor::move(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -640,7 +640,7 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToPosition(int const& arg0
 	const char *methodSignature = "(I)Z";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -705,7 +705,7 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToLast()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -749,7 +749,7 @@ bool com_facebook_widget_SimpleGraphObjectCursor::moveToPrevious()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -793,7 +793,7 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isLast()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -837,7 +837,7 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isBeforeFirst()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -881,7 +881,7 @@ bool com_facebook_widget_SimpleGraphObjectCursor::isAfterLast()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -925,7 +925,7 @@ void com_facebook_widget_SimpleGraphObjectCursor::addGraphObjects(AndroidCXX::ja
 	const char *methodSignature = "(Ljava/util/Collection;Z)V";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1009,7 +1009,7 @@ void com_facebook_widget_SimpleGraphObjectCursor::setMoreObjectsAvailable(bool c
 	const char *methodSignature = "(Z)V";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1054,7 +1054,7 @@ void com_facebook_widget_SimpleGraphObjectCursor::setFromCache(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "com/facebook/widget/SimpleGraphObjectCursor";
 
-	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_SimpleGraphObjectCursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

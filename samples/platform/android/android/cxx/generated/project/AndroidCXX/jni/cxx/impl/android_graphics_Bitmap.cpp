@@ -109,11 +109,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Bitmap"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -342,7 +339,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::copy(android_graphi
 	const char *methodSignature = "(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -428,7 +425,7 @@ int android_graphics_Bitmap::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -472,7 +469,7 @@ void android_graphics_Bitmap::writeToParcel(AndroidCXX::android_os_Parcel const&
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -538,7 +535,7 @@ void android_graphics_Bitmap::recycle()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -562,7 +559,7 @@ int android_graphics_Bitmap::getWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -606,7 +603,7 @@ int android_graphics_Bitmap::getHeight()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -650,7 +647,7 @@ int android_graphics_Bitmap::getDensity()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -694,7 +691,7 @@ void android_graphics_Bitmap::setDensity(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -739,7 +736,7 @@ bool android_graphics_Bitmap::hasAlpha()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -783,7 +780,7 @@ bool android_graphics_Bitmap::isRecycled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -827,7 +824,7 @@ int android_graphics_Bitmap::getGenerationId()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -871,7 +868,7 @@ void android_graphics_Bitmap::copyPixelsToBuffer(AndroidCXX::java_nio_Buffer con
 	const char *methodSignature = "(Ljava/nio/Buffer;)V";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -916,7 +913,7 @@ void android_graphics_Bitmap::copyPixelsFromBuffer(AndroidCXX::java_nio_Buffer c
 	const char *methodSignature = "(Ljava/nio/Buffer;)V";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -961,7 +958,7 @@ bool android_graphics_Bitmap::isMutable()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1005,7 +1002,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createScaledBitmap(
 	const char *methodSignature = "(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1133,7 +1130,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::v
 	const char *methodSignature = "([IIILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1279,7 +1276,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;[IIILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1446,7 +1443,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1574,7 +1571,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(std::v
 	const char *methodSignature = "([IIIIILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1762,7 +1759,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;[IIIIILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1971,7 +1968,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(int co
 	const char *methodSignature = "(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2078,7 +2075,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 	const char *methodSignature = "(Landroid/graphics/Bitmap;IIIILandroid/graphics/Matrix;Z)Landroid/graphics/Bitmap;";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2269,7 +2266,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 	const char *methodSignature = "(Landroid/graphics/Bitmap;IIII)Landroid/graphics/Bitmap;";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2418,7 +2415,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::createBitmap(Androi
 	const char *methodSignature = "(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2483,7 +2480,7 @@ std::vector<byte> android_graphics_Bitmap::getNinePatchChunk()
 	const char *methodSignature = "()[B";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2545,7 +2542,7 @@ bool android_graphics_Bitmap::compress(android_graphics_Bitmap_CompressFormat::a
 	const char *methodSignature = "(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2652,7 +2649,7 @@ bool android_graphics_Bitmap::isPremultiplied()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2696,7 +2693,7 @@ int android_graphics_Bitmap::getScaledWidth(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2761,7 +2758,7 @@ int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_util_DisplayMetr
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;)I";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2826,7 +2823,7 @@ int android_graphics_Bitmap::getScaledWidth(AndroidCXX::android_graphics_Canvas 
 	const char *methodSignature = "(Landroid/graphics/Canvas;)I";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2891,7 +2888,7 @@ int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_graphics_Canvas
 	const char *methodSignature = "(Landroid/graphics/Canvas;)I";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2956,7 +2953,7 @@ int android_graphics_Bitmap::getScaledHeight(AndroidCXX::android_util_DisplayMet
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;)I";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3021,7 +3018,7 @@ int android_graphics_Bitmap::getScaledHeight(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3086,7 +3083,7 @@ int android_graphics_Bitmap::getRowBytes()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3130,7 +3127,7 @@ int android_graphics_Bitmap::getByteCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3174,7 +3171,7 @@ android_graphics_Bitmap_Config::android_graphics_Bitmap_Config android_graphics_
 	const char *methodSignature = "()Landroid/graphics/Bitmap$Config;";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3218,7 +3215,7 @@ void android_graphics_Bitmap::setHasAlpha(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3263,7 +3260,7 @@ bool android_graphics_Bitmap::hasMipMap()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3307,7 +3304,7 @@ void android_graphics_Bitmap::setHasMipMap(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3352,7 +3349,7 @@ void android_graphics_Bitmap::eraseColor(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3397,7 +3394,7 @@ int android_graphics_Bitmap::getPixel(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)I";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3483,7 +3480,7 @@ void android_graphics_Bitmap::getPixels(std::vector<int> const& arg0,int const& 
 	const char *methodSignature = "([IIIIIII)V";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3672,7 +3669,7 @@ void android_graphics_Bitmap::setPixel(int const& arg0,int const& arg1,int const
 	const char *methodSignature = "(III)V";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3759,7 +3756,7 @@ void android_graphics_Bitmap::setPixels(std::vector<int> const& arg0,int const& 
 	const char *methodSignature = "([IIIIIII)V";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3948,7 +3945,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha()
 	const char *methodSignature = "()Landroid/graphics/Bitmap;";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3992,7 +3989,7 @@ AndroidCXX::android_graphics_Bitmap android_graphics_Bitmap::extractAlpha(Androi
 	const char *methodSignature = "(Landroid/graphics/Paint;[I)Landroid/graphics/Bitmap;";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4096,7 +4093,7 @@ bool android_graphics_Bitmap::sameAs(AndroidCXX::android_graphics_Bitmap const& 
 	const char *methodSignature = "(Landroid/graphics/Bitmap;)Z";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4161,7 +4158,7 @@ void android_graphics_Bitmap::prepareToDraw()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Bitmap";
 
-	LOGV("android_graphics_Bitmap className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Bitmap className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -49,11 +49,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_Throwable"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -153,7 +150,7 @@ java_lang_Throwable::java_lang_Throwable()
 	const char *methodSignature = "()V";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -189,7 +186,7 @@ java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String const& arg
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -246,7 +243,7 @@ java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_String const& arg
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Throwable;)V";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -324,7 +321,7 @@ java_lang_Throwable::java_lang_Throwable(AndroidCXX::java_lang_Throwable const& 
 	const char *methodSignature = "(Ljava/lang/Throwable;)V";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -396,7 +393,7 @@ void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintStream const&
 	const char *methodSignature = "(Ljava/io/PrintStream;)V";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -441,7 +438,7 @@ void java_lang_Throwable::printStackTrace()
 	const char *methodSignature = "()V";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -465,7 +462,7 @@ void java_lang_Throwable::printStackTrace(AndroidCXX::java_io_PrintWriter const&
 	const char *methodSignature = "(Ljava/io/PrintWriter;)V";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -510,7 +507,7 @@ AndroidCXX::java_lang_Throwable java_lang_Throwable::fillInStackTrace()
 	const char *methodSignature = "()Ljava/lang/Throwable;";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -554,7 +551,7 @@ AndroidCXX::java_lang_Throwable java_lang_Throwable::getCause()
 	const char *methodSignature = "()Ljava/lang/Throwable;";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -598,7 +595,7 @@ AndroidCXX::java_lang_Throwable java_lang_Throwable::initCause(AndroidCXX::java_
 	const char *methodSignature = "(Ljava/lang/Throwable;)Ljava/lang/Throwable;";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -663,7 +660,7 @@ AndroidCXX::java_lang_String java_lang_Throwable::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -707,7 +704,7 @@ AndroidCXX::java_lang_String java_lang_Throwable::getMessage()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -751,7 +748,7 @@ AndroidCXX::java_lang_String java_lang_Throwable::getLocalizedMessage()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -795,7 +792,7 @@ std::vector<AndroidCXX::java_lang_StackTraceElement > java_lang_Throwable::getSt
 	const char *methodSignature = "()[Ljava/lang/StackTraceElement;";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -857,7 +854,7 @@ void java_lang_Throwable::setStackTrace(std::vector<AndroidCXX::java_lang_StackT
 	const char *methodSignature = "([Ljava/lang/StackTraceElement;)V";
 	const char *className = "java/lang/Throwable";
 
-	LOGV("java_lang_Throwable className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_Throwable className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

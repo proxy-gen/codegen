@@ -127,7 +127,7 @@ void com_facebook_widget_GraphObjectPagingLoader_1::onCompleted(FacebookCXX::com
 	const char *methodSignature = "(Lcom/facebook/Response;)V";
 	const char *className = "com/facebook/widget/GraphObjectPagingLoader$1";
 
-	LOGV("com_facebook_widget_GraphObjectPagingLoader_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectPagingLoader_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

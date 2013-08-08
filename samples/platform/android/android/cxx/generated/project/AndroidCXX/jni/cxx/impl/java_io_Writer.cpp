@@ -38,11 +38,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_io_Writer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -162,7 +159,7 @@ AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequ
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Ljava/io/Writer;";
 	const char *className = "java/io/Writer";
 
-	LOGV("java_io_Writer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Writer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -227,7 +224,7 @@ AndroidCXX::java_io_Writer java_io_Writer::append(AndroidCXX::java_lang_CharSequ
 	const char *methodSignature = "(Ljava/lang/CharSequence;II)Ljava/io/Writer;";
 	const char *className = "java/io/Writer";
 
-	LOGV("java_io_Writer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Writer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -334,7 +331,7 @@ AndroidCXX::java_io_Writer java_io_Writer::append(char const& arg0)
 	const char *methodSignature = "(C)Ljava/io/Writer;";
 	const char *className = "java/io/Writer";
 
-	LOGV("java_io_Writer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Writer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -399,7 +396,7 @@ void java_io_Writer::write(std::vector<char> const& arg0,int const& arg1,int con
 	const char *methodSignature = "([CII)V";
 	const char *className = "java/io/Writer";
 
-	LOGV("java_io_Writer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Writer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -504,7 +501,7 @@ void java_io_Writer::write(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/io/Writer";
 
-	LOGV("java_io_Writer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Writer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -549,7 +546,7 @@ void java_io_Writer::write(std::vector<char> const& arg0)
 	const char *methodSignature = "([C)V";
 	const char *className = "java/io/Writer";
 
-	LOGV("java_io_Writer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Writer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -612,7 +609,7 @@ void java_io_Writer::write(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/io/Writer";
 
-	LOGV("java_io_Writer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Writer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -657,7 +654,7 @@ void java_io_Writer::write(AndroidCXX::java_lang_String const& arg0,int const& a
 	const char *methodSignature = "(Ljava/lang/String;II)V";
 	const char *className = "java/io/Writer";
 
-	LOGV("java_io_Writer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Writer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -744,7 +741,7 @@ void java_io_Writer::flush()
 	const char *methodSignature = "()V";
 	const char *className = "java/io/Writer";
 
-	LOGV("java_io_Writer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Writer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -768,7 +765,7 @@ void java_io_Writer::close()
 	const char *methodSignature = "()V";
 	const char *className = "java/io/Writer";
 
-	LOGV("java_io_Writer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Writer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

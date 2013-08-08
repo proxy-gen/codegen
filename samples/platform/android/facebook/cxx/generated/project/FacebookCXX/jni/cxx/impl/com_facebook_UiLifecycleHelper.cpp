@@ -139,7 +139,7 @@ com_facebook_UiLifecycleHelper::com_facebook_UiLifecycleHelper(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/app/Activity;Lcom/facebook/Session$StatusCallback;)V";
 	const char *className = "com/facebook/UiLifecycleHelper";
 
-	LOGV("com_facebook_UiLifecycleHelper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_UiLifecycleHelper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -232,7 +232,7 @@ void com_facebook_UiLifecycleHelper::onCreate(AndroidCXX::android_os_Bundle cons
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/UiLifecycleHelper";
 
-	LOGV("com_facebook_UiLifecycleHelper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_UiLifecycleHelper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -277,7 +277,7 @@ void com_facebook_UiLifecycleHelper::onResume()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/UiLifecycleHelper";
 
-	LOGV("com_facebook_UiLifecycleHelper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_UiLifecycleHelper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -301,7 +301,7 @@ void com_facebook_UiLifecycleHelper::onSaveInstanceState(AndroidCXX::android_os_
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/UiLifecycleHelper";
 
-	LOGV("com_facebook_UiLifecycleHelper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_UiLifecycleHelper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -346,7 +346,7 @@ void com_facebook_UiLifecycleHelper::onPause()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/UiLifecycleHelper";
 
-	LOGV("com_facebook_UiLifecycleHelper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_UiLifecycleHelper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -370,7 +370,7 @@ void com_facebook_UiLifecycleHelper::onDestroy()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/UiLifecycleHelper";
 
-	LOGV("com_facebook_UiLifecycleHelper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_UiLifecycleHelper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -394,7 +394,7 @@ void com_facebook_UiLifecycleHelper::onActivityResult(int const& arg0,int const&
 	const char *methodSignature = "(IILandroid/content/Intent;)V";
 	const char *className = "com/facebook/UiLifecycleHelper";
 
-	LOGV("com_facebook_UiLifecycleHelper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_UiLifecycleHelper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

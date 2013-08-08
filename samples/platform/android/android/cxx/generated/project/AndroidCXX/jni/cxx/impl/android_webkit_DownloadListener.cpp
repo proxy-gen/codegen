@@ -26,11 +26,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_DownloadListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -141,7 +138,7 @@ void android_webkit_DownloadListener::onDownloadStart(AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V";
 	const char *className = "android/webkit/DownloadListener";
 
-	LOGV("android_webkit_DownloadListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_DownloadListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -142,7 +142,7 @@ void com_facebook_android_Facebook_ServiceListener::onComplete(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/android/Facebook$ServiceListener";
 
-	LOGV("com_facebook_android_Facebook_ServiceListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_ServiceListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -187,7 +187,7 @@ void com_facebook_android_Facebook_ServiceListener::onFacebookError(FacebookCXX:
 	const char *methodSignature = "(Lcom/facebook/android/FacebookError;)V";
 	const char *className = "com/facebook/android/Facebook$ServiceListener";
 
-	LOGV("com_facebook_android_Facebook_ServiceListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_ServiceListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -232,7 +232,7 @@ void com_facebook_android_Facebook_ServiceListener::onError(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/Error;)V";
 	const char *className = "com/facebook/android/Facebook$ServiceListener";
 
-	LOGV("com_facebook_android_Facebook_ServiceListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_Facebook_ServiceListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

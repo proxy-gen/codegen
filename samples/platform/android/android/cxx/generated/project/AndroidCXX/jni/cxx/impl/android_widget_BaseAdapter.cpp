@@ -38,11 +38,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_BaseAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -141,7 +138,7 @@ android_widget_BaseAdapter::android_widget_BaseAdapter()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/BaseAdapter";
 
-	LOGV("android_widget_BaseAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -192,7 +189,7 @@ bool android_widget_BaseAdapter::isEmpty()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/BaseAdapter";
 
-	LOGV("android_widget_BaseAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -236,7 +233,7 @@ bool android_widget_BaseAdapter::isEnabled(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/widget/BaseAdapter";
 
-	LOGV("android_widget_BaseAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -301,7 +298,7 @@ void android_widget_BaseAdapter::registerDataSetObserver(AndroidCXX::android_dat
 	const char *methodSignature = "(Landroid/database/DataSetObserver;)V";
 	const char *className = "android/widget/BaseAdapter";
 
-	LOGV("android_widget_BaseAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -346,7 +343,7 @@ void android_widget_BaseAdapter::unregisterDataSetObserver(AndroidCXX::android_d
 	const char *methodSignature = "(Landroid/database/DataSetObserver;)V";
 	const char *className = "android/widget/BaseAdapter";
 
-	LOGV("android_widget_BaseAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -391,7 +388,7 @@ AndroidCXX::android_view_View android_widget_BaseAdapter::getDropDownView(int co
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/BaseAdapter";
 
-	LOGV("android_widget_BaseAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -498,7 +495,7 @@ bool android_widget_BaseAdapter::hasStableIds()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/BaseAdapter";
 
-	LOGV("android_widget_BaseAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -542,7 +539,7 @@ int android_widget_BaseAdapter::getItemViewType(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/widget/BaseAdapter";
 
-	LOGV("android_widget_BaseAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -607,7 +604,7 @@ int android_widget_BaseAdapter::getViewTypeCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/BaseAdapter";
 
-	LOGV("android_widget_BaseAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -651,7 +648,7 @@ bool android_widget_BaseAdapter::areAllItemsEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/BaseAdapter";
 
-	LOGV("android_widget_BaseAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -695,7 +692,7 @@ void android_widget_BaseAdapter::notifyDataSetChanged()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/BaseAdapter";
 
-	LOGV("android_widget_BaseAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -719,7 +716,7 @@ void android_widget_BaseAdapter::notifyDataSetInvalidated()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/BaseAdapter";
 
-	LOGV("android_widget_BaseAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_BaseAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

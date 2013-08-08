@@ -196,7 +196,7 @@ com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior com_faceboo
 	const char *methodSignature = "()Lcom/facebook/SessionLoginBehavior;";
 	const char *className = "com/facebook/widget/LoginButton$LoginButtonProperties";
 
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -240,7 +240,7 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setLoginBehavior(com
 	const char *methodSignature = "(Lcom/facebook/SessionLoginBehavior;)V";
 	const char *className = "com/facebook/widget/LoginButton$LoginButtonProperties";
 
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -285,7 +285,7 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setDefaultAudience(c
 	const char *methodSignature = "(Lcom/facebook/SessionDefaultAudience;)V";
 	const char *className = "com/facebook/widget/LoginButton$LoginButtonProperties";
 
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -330,7 +330,7 @@ com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience com_fac
 	const char *methodSignature = "()Lcom/facebook/SessionDefaultAudience;";
 	const char *className = "com/facebook/widget/LoginButton$LoginButtonProperties";
 
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -374,7 +374,7 @@ FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener com_facebook_widget
 	const char *methodSignature = "()Lcom/facebook/widget/LoginButton$OnErrorListener;";
 	const char *className = "com/facebook/widget/LoginButton$LoginButtonProperties";
 
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -418,7 +418,7 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setOnErrorListener(F
 	const char *methodSignature = "(Lcom/facebook/widget/LoginButton$OnErrorListener;)V";
 	const char *className = "com/facebook/widget/LoginButton$LoginButtonProperties";
 
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -463,7 +463,7 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setReadPermissions(A
 	const char *methodSignature = "(Ljava/util/List;Lcom/facebook/Session;)V";
 	const char *className = "com/facebook/widget/LoginButton$LoginButtonProperties";
 
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -547,7 +547,7 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setPublishPermission
 	const char *methodSignature = "(Ljava/util/List;Lcom/facebook/Session;)V";
 	const char *className = "com/facebook/widget/LoginButton$LoginButtonProperties";
 
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -631,7 +631,7 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::clearPermissions()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/LoginButton$LoginButtonProperties";
 
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -655,7 +655,7 @@ void com_facebook_widget_LoginButton_LoginButtonProperties::setSessionStatusCall
 	const char *methodSignature = "(Lcom/facebook/Session$StatusCallback;)V";
 	const char *className = "com/facebook/widget/LoginButton$LoginButtonProperties";
 
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -700,7 +700,7 @@ FacebookCXX::com_facebook_Session_StatusCallback com_facebook_widget_LoginButton
 	const char *methodSignature = "()Lcom/facebook/Session$StatusCallback;";
 	const char *className = "com/facebook/widget/LoginButton$LoginButtonProperties";
 
-	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton_LoginButtonProperties className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

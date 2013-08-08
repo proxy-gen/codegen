@@ -145,7 +145,7 @@ void com_facebook_widget_PickerFragment_5::call(FacebookCXX::com_facebook_Sessio
 	const char *methodSignature = "(Lcom/facebook/Session;Lcom/facebook/SessionState;Ljava/lang/Exception;)V";
 	const char *className = "com/facebook/widget/PickerFragment$5";
 
-	LOGV("com_facebook_widget_PickerFragment_5 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_5 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -127,7 +127,7 @@ void com_facebook_RequestBatch_Callback::onBatchCompleted(FacebookCXX::com_faceb
 	const char *methodSignature = "(Lcom/facebook/RequestBatch;)V";
 	const char *className = "com/facebook/RequestBatch$Callback";
 
-	LOGV("com_facebook_RequestBatch_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_RequestBatch_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

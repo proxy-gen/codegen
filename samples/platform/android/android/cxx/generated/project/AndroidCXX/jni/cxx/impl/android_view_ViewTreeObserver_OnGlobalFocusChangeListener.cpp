@@ -24,11 +24,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_ViewTreeObserver_OnGlobalFocusChangeListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -133,7 +130,7 @@ void android_view_ViewTreeObserver_OnGlobalFocusChangeListener::onGlobalFocusCha
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/View;)V";
 	const char *className = "android/view/ViewTreeObserver$OnGlobalFocusChangeListener";
 
-	LOGV("android_view_ViewTreeObserver_OnGlobalFocusChangeListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver_OnGlobalFocusChangeListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -8975,6 +8975,23 @@ void convert_android_view_DragEvent(long& java_value, long& cxx_value, const CXX
 		cxx_value = (long) cxx_object;
 	}
 }
+void convert_android_view_ViewGroupOverlay(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		Proxy proxy;
+		proxy.address = (long) java_value;
+		android_view_ViewGroupOverlay *cxx_object = new android_view_ViewGroupOverlay(proxy);
+		cxx_value = (long) cxx_object;
+	}
+}
 void convert_android_view_ViewGroup_OnHierarchyChangeListener(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
@@ -9176,6 +9193,23 @@ void convert_android_view_View_OnCreateContextMenuListener(long& java_value, lon
 		Proxy proxy;
 		proxy.address = (long) java_value;
 		android_view_View_OnCreateContextMenuListener *cxx_object = new android_view_View_OnCreateContextMenuListener(proxy);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_android_view_ViewOverlay(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		Proxy proxy;
+		proxy.address = (long) java_value;
+		android_view_ViewOverlay *cxx_object = new android_view_ViewOverlay(proxy);
 		cxx_value = (long) cxx_object;
 	}
 }
@@ -9519,6 +9553,40 @@ void convert_android_view_TouchDelegate(long& java_value, long& cxx_value, const
 		cxx_value = (long) cxx_object;
 	}
 }
+void convert_android_view_WindowId(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		Proxy proxy;
+		proxy.address = (long) java_value;
+		android_view_WindowId *cxx_object = new android_view_WindowId(proxy);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_android_view_WindowId_FocusObserver(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		Proxy proxy;
+		proxy.address = (long) java_value;
+		android_view_WindowId_FocusObserver *cxx_object = new android_view_WindowId_FocusObserver(proxy);
+		cxx_value = (long) cxx_object;
+	}
+}
 void convert_android_view_ViewTreeObserver(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
@@ -9533,6 +9601,40 @@ void convert_android_view_ViewTreeObserver(long& java_value, long& cxx_value, co
 		Proxy proxy;
 		proxy.address = (long) java_value;
 		android_view_ViewTreeObserver *cxx_object = new android_view_ViewTreeObserver(proxy);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_android_view_ViewTreeObserver_OnWindowAttachListener(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		Proxy proxy;
+		proxy.address = (long) java_value;
+		android_view_ViewTreeObserver_OnWindowAttachListener *cxx_object = new android_view_ViewTreeObserver_OnWindowAttachListener(proxy);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_android_view_ViewTreeObserver_OnWindowFocusChangeListener(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		Proxy proxy;
+		proxy.address = (long) java_value;
+		android_view_ViewTreeObserver_OnWindowFocusChangeListener *cxx_object = new android_view_ViewTreeObserver_OnWindowFocusChangeListener(proxy);
 		cxx_value = (long) cxx_object;
 	}
 }
@@ -10349,6 +10451,23 @@ void convert_android_app_Application_ActivityLifecycleCallbacks(long& java_value
 		Proxy proxy;
 		proxy.address = (long) java_value;
 		android_app_Application_ActivityLifecycleCallbacks *cxx_object = new android_app_Application_ActivityLifecycleCallbacks(proxy);
+		cxx_value = (long) cxx_object;
+	}
+}
+void convert_android_app_Application_OnProvideAssistDataListener(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	if (converter_type == CONVERT_TO_JAVA)
+	{
+		java_value = (long) ctx->findProxyComponent(cxx_value);
+	}
+	else if (converter_type == CONVERT_TO_CXX)
+	{
+		Proxy proxy;
+		proxy.address = (long) java_value;
+		android_app_Application_OnProvideAssistDataListener *cxx_object = new android_app_Application_OnProvideAssistDataListener(proxy);
 		cxx_value = (long) cxx_object;
 	}
 }

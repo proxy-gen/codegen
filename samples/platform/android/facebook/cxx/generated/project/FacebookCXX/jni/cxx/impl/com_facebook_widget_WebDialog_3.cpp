@@ -129,7 +129,7 @@ void com_facebook_widget_WebDialog_3::onClick(AndroidCXX::android_view_View cons
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "com/facebook/widget/WebDialog$3";
 
-	LOGV("com_facebook_widget_WebDialog_3 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_WebDialog_3 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

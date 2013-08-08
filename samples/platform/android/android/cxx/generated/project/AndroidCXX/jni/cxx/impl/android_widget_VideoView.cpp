@@ -61,17 +61,15 @@
 
 
 
+
 // Generated Code 
 
 #include <android_widget_VideoView.hpp>
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_VideoView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -206,7 +204,7 @@ android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -284,7 +282,7 @@ android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -383,7 +381,7 @@ android_widget_VideoView::android_widget_VideoView(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -455,7 +453,7 @@ void android_widget_VideoView::start()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -479,7 +477,7 @@ void android_widget_VideoView::suspend()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -503,7 +501,7 @@ void android_widget_VideoView::resume()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -527,7 +525,7 @@ bool android_widget_VideoView::onKeyDown(int const& arg0,AndroidCXX::android_vie
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -613,7 +611,7 @@ bool android_widget_VideoView::onTouchEvent(AndroidCXX::android_view_MotionEvent
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -678,7 +676,7 @@ bool android_widget_VideoView::onTrackballEvent(AndroidCXX::android_view_MotionE
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -743,7 +741,7 @@ int android_widget_VideoView::getDuration()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -787,7 +785,7 @@ void android_widget_VideoView::onInitializeAccessibilityEvent(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -832,7 +830,7 @@ void android_widget_VideoView::onInitializeAccessibilityNodeInfo(AndroidCXX::and
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -877,7 +875,7 @@ void android_widget_VideoView::pause()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -901,7 +899,7 @@ int android_widget_VideoView::getCurrentPosition()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -945,7 +943,7 @@ void android_widget_VideoView::seekTo(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -990,7 +988,7 @@ bool android_widget_VideoView::isPlaying()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1034,7 +1032,7 @@ int android_widget_VideoView::getBufferPercentage()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1078,7 +1076,7 @@ bool android_widget_VideoView::canPause()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1122,7 +1120,7 @@ bool android_widget_VideoView::canSeekBackward()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1166,7 +1164,7 @@ bool android_widget_VideoView::canSeekForward()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1202,6 +1200,50 @@ bool android_widget_VideoView::canSeekForward()
 
 	return result;
 }
+int android_widget_VideoView::getAudioSessionId()
+{
+	LOGV("int android_widget_VideoView::getAudioSessionId() enter");
+
+	const char *methodName = "getAudioSessionId";
+	const char *methodSignature = "()I";
+	const char *className = "android/widget/VideoView";
+
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_VideoView cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_VideoView jni address %d", javaObject);
+
+
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_widget_VideoView::getAudioSessionId() exit");
+
+	return result;
+}
 int android_widget_VideoView::resolveAdjustedSize(int const& arg0,int const& arg1)
 {
 	LOGV("int android_widget_VideoView::resolveAdjustedSize(int const& arg0,int const& arg1) enter");
@@ -1210,7 +1252,7 @@ int android_widget_VideoView::resolveAdjustedSize(int const& arg0,int const& arg
 	const char *methodSignature = "(II)I";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1296,7 +1338,7 @@ void android_widget_VideoView::setVideoPath(AndroidCXX::java_lang_String const& 
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1341,7 +1383,7 @@ void android_widget_VideoView::setVideoURI(AndroidCXX::android_net_Uri const& ar
 	const char *methodSignature = "(Landroid/net/Uri;)V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1386,7 +1428,7 @@ void android_widget_VideoView::stopPlayback()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1410,7 +1452,7 @@ void android_widget_VideoView::setMediaController(AndroidCXX::android_widget_Med
 	const char *methodSignature = "(Landroid/widget/MediaController;)V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1455,7 +1497,7 @@ void android_widget_VideoView::setOnPreparedListener(AndroidCXX::android_media_M
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnPreparedListener;)V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1500,7 +1542,7 @@ void android_widget_VideoView::setOnCompletionListener(AndroidCXX::android_media
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnCompletionListener;)V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1545,7 +1587,7 @@ void android_widget_VideoView::setOnErrorListener(AndroidCXX::android_media_Medi
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnErrorListener;)V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1590,7 +1632,7 @@ void android_widget_VideoView::setOnInfoListener(AndroidCXX::android_media_Media
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnInfoListener;)V";
 	const char *className = "android/widget/VideoView";
 
-	LOGV("android_widget_VideoView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_VideoView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

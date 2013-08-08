@@ -24,9 +24,18 @@ class Generator(BaseGenerator):
 		super(Generator, self).__init__()
 
 	def setup(self):
+		self._setup_working_dir()
+		self._setup_output_dir()
+		if self.config['generate_code']:
+			self._setup_project_dir()
+		if self.config['generate_projects']:
+			self._setup_project_dir()
+		if self.config['generate_wrapper_code']:
+			self._setup_wrapper_project_dir()
+		if self.config['generate_wrapper_projects']:
+			self._setup_wrapper_project_dir()
 		self._setup_index()
 		self._setup_namespace()
-		self._setup_dirs()
 		self._setup_defaults()
 		self._setup_includes()
 		self._setup_config()
@@ -85,10 +94,6 @@ class Generator(BaseGenerator):
 		self.namespace_name = self.config['namespace_name']
 		logging.debug("_setup_namespace exit")
 
-	def _setup_dirs(self):
-		self._setup_working_dir()
-		self._setup_output_dir()
-
 	def _setup_working_dir(self):
 		logging.debug("_setup_working_dir enter")
 		self.target = os.path.dirname(inspect.getfile(inspect.currentframe()))
@@ -100,16 +105,20 @@ class Generator(BaseGenerator):
 	def _setup_output_dir(self):
 		logging.debug("_setup_output_dir enter")
 		self.package_name = self.config['package_name']
-		self.wrapper_file_name = self.config['wrapper_file_name']
 		self.file_name = self.config['file_name']
 		self.output_dir_name = self.config['output_dir_name']
 		if not os.path.exists(self.output_dir_name):
 			os.makedirs(self.output_dir_name)
 		logging.debug("self.output_dir_name " + str(self.output_dir_name))
+
+	def _setup_project_dir(self):
+		self.output_dir_name = self.config['output_dir_name']
 		self.makefile_outdir_name =  os.path.join(self.output_dir_name, "project")
 		if not os.path.exists(self.makefile_outdir_name):
 			os.makedirs(self.makefile_outdir_name)				
 		logging.debug("self.makefile_outdir_name " + str(self.makefile_outdir_name))		
+
+	def _setup_wrapper_project_dir(self):
 		self.wrapper_makefile_outdir_name =  os.path.join(self.output_dir_name, "wrapper-project")
 		if not os.path.exists(self.wrapper_makefile_outdir_name):
 			os.makedirs(self.wrapper_makefile_outdir_name)				
@@ -145,6 +154,7 @@ class Generator(BaseGenerator):
 		self._setup_included_config_file_path()
 		self._setup_included_converters()		
 		self._setup_included_headers()
+		self._setup_included_projects()
 
 	def _setup_included_packages(self):
 		logging.debug("_setup_included_packages enter")
@@ -187,6 +197,11 @@ class Generator(BaseGenerator):
 		logging.debug("_setup_included_headers enter")
 		self.include_headers = self.config['include_header_files']
 		logging.debug("_setup_included_headers exit")
+
+	def _setup_included_projects(self):
+		logging.debug("_setup_included_projects enter")
+		self.include_projects = self.config['include_projects']
+		logging.debug("_setup_included_projects exit")		
 
 	def _generate_converters_report(self):
 		logging.debug("_generate_converters_report enter")

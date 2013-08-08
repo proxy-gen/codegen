@@ -31,11 +31,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_app_ActionBar_LayoutParams"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -108,7 +105,7 @@ android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCX
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/app/ActionBar$LayoutParams";
 
-	LOGV("android_app_ActionBar_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_LayoutParams className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -186,7 +183,7 @@ android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int const
 	const char *methodSignature = "(II)V";
 	const char *className = "android/app/ActionBar$LayoutParams";
 
-	LOGV("android_app_ActionBar_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_LayoutParams className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -264,7 +261,7 @@ android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int const
 	const char *methodSignature = "(III)V";
 	const char *className = "android/app/ActionBar$LayoutParams";
 
-	LOGV("android_app_ActionBar_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_LayoutParams className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -363,7 +360,7 @@ android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(int const
 	const char *methodSignature = "(I)V";
 	const char *className = "android/app/ActionBar$LayoutParams";
 
-	LOGV("android_app_ActionBar_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_LayoutParams className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -420,7 +417,7 @@ android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCX
 	const char *methodSignature = "(Landroid/app/ActionBar$LayoutParams;)V";
 	const char *className = "android/app/ActionBar$LayoutParams";
 
-	LOGV("android_app_ActionBar_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_LayoutParams className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -477,7 +474,7 @@ android_app_ActionBar_LayoutParams::android_app_ActionBar_LayoutParams(AndroidCX
 	const char *methodSignature = "(Landroid/view/ViewGroup$LayoutParams;)V";
 	const char *className = "android/app/ActionBar$LayoutParams";
 
-	LOGV("android_app_ActionBar_LayoutParams className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_LayoutParams className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

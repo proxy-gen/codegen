@@ -133,7 +133,7 @@ void com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver::onReceive(An
 	const char *methodSignature = "(Landroid/content/Context;Landroid/content/Intent;)V";
 	const char *className = "com/facebook/UiLifecycleHelper$ActiveSessionBroadcastReceiver";
 
-	LOGV("com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

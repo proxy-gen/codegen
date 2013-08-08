@@ -21,6 +21,14 @@
  		 
  		 
  		 
+ 		 
+ 		 
+ 		 
+ 		 
+
+
+
+
 
 
 
@@ -51,17 +59,26 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_ViewTreeObserver"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
 
 using namespace AndroidCXX;
 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 // 
 // 
 // 
@@ -193,7 +210,7 @@ bool android_view_ViewTreeObserver::isAlive()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -229,6 +246,186 @@ bool android_view_ViewTreeObserver::isAlive()
 
 	return result;
 }
+void android_view_ViewTreeObserver::addOnWindowAttachListener(AndroidCXX::android_view_ViewTreeObserver_OnWindowAttachListener const& arg0)
+{
+	LOGV("void android_view_ViewTreeObserver::addOnWindowAttachListener(AndroidCXX::android_view_ViewTreeObserver_OnWindowAttachListener const& arg0) enter");
+
+	const char *methodName = "addOnWindowAttachListener";
+	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnWindowAttachListener;)V";
+	const char *className = "android/view/ViewTreeObserver";
+
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_ViewTreeObserver jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.ViewTreeObserver$OnWindowAttachListener");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_view_ViewTreeObserver_OnWindowAttachListener(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	LOGV("void android_view_ViewTreeObserver::addOnWindowAttachListener(AndroidCXX::android_view_ViewTreeObserver_OnWindowAttachListener const& arg0) exit");
+
+}
+void android_view_ViewTreeObserver::removeOnWindowAttachListener(AndroidCXX::android_view_ViewTreeObserver_OnWindowAttachListener const& arg0)
+{
+	LOGV("void android_view_ViewTreeObserver::removeOnWindowAttachListener(AndroidCXX::android_view_ViewTreeObserver_OnWindowAttachListener const& arg0) enter");
+
+	const char *methodName = "removeOnWindowAttachListener";
+	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnWindowAttachListener;)V";
+	const char *className = "android/view/ViewTreeObserver";
+
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_ViewTreeObserver jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.ViewTreeObserver$OnWindowAttachListener");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_view_ViewTreeObserver_OnWindowAttachListener(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	LOGV("void android_view_ViewTreeObserver::removeOnWindowAttachListener(AndroidCXX::android_view_ViewTreeObserver_OnWindowAttachListener const& arg0) exit");
+
+}
+void android_view_ViewTreeObserver::addOnWindowFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnWindowFocusChangeListener const& arg0)
+{
+	LOGV("void android_view_ViewTreeObserver::addOnWindowFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnWindowFocusChangeListener const& arg0) enter");
+
+	const char *methodName = "addOnWindowFocusChangeListener";
+	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnWindowFocusChangeListener;)V";
+	const char *className = "android/view/ViewTreeObserver";
+
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_ViewTreeObserver jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.ViewTreeObserver$OnWindowFocusChangeListener");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_view_ViewTreeObserver_OnWindowFocusChangeListener(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	LOGV("void android_view_ViewTreeObserver::addOnWindowFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnWindowFocusChangeListener const& arg0) exit");
+
+}
+void android_view_ViewTreeObserver::removeOnWindowFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnWindowFocusChangeListener const& arg0)
+{
+	LOGV("void android_view_ViewTreeObserver::removeOnWindowFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnWindowFocusChangeListener const& arg0) enter");
+
+	const char *methodName = "removeOnWindowFocusChangeListener";
+	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnWindowFocusChangeListener;)V";
+	const char *className = "android/view/ViewTreeObserver";
+
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_view_ViewTreeObserver cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_view_ViewTreeObserver jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.view.ViewTreeObserver$OnWindowFocusChangeListener");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_view_ViewTreeObserver_OnWindowFocusChangeListener(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	LOGV("void android_view_ViewTreeObserver::removeOnWindowFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnWindowFocusChangeListener const& arg0) exit");
+
+}
 void android_view_ViewTreeObserver::addOnGlobalFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener const& arg0)
 {
 	LOGV("void android_view_ViewTreeObserver::addOnGlobalFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener const& arg0) enter");
@@ -237,7 +434,7 @@ void android_view_ViewTreeObserver::addOnGlobalFocusChangeListener(AndroidCXX::a
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnGlobalFocusChangeListener;)V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -282,7 +479,7 @@ void android_view_ViewTreeObserver::removeOnGlobalFocusChangeListener(AndroidCXX
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnGlobalFocusChangeListener;)V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -327,7 +524,7 @@ void android_view_ViewTreeObserver::addOnGlobalLayoutListener(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -372,7 +569,7 @@ void android_view_ViewTreeObserver::removeGlobalOnLayoutListener(AndroidCXX::and
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -417,7 +614,7 @@ void android_view_ViewTreeObserver::removeOnGlobalLayoutListener(AndroidCXX::and
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -462,7 +659,7 @@ void android_view_ViewTreeObserver::addOnPreDrawListener(AndroidCXX::android_vie
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -507,7 +704,7 @@ void android_view_ViewTreeObserver::removeOnPreDrawListener(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -552,7 +749,7 @@ void android_view_ViewTreeObserver::addOnDrawListener(AndroidCXX::android_view_V
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnDrawListener;)V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -597,7 +794,7 @@ void android_view_ViewTreeObserver::removeOnDrawListener(AndroidCXX::android_vie
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnDrawListener;)V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -642,7 +839,7 @@ void android_view_ViewTreeObserver::addOnScrollChangedListener(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnScrollChangedListener;)V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -687,7 +884,7 @@ void android_view_ViewTreeObserver::removeOnScrollChangedListener(AndroidCXX::an
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnScrollChangedListener;)V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -732,7 +929,7 @@ void android_view_ViewTreeObserver::addOnTouchModeChangeListener(AndroidCXX::and
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnTouchModeChangeListener;)V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -777,7 +974,7 @@ void android_view_ViewTreeObserver::removeOnTouchModeChangeListener(AndroidCXX::
 	const char *methodSignature = "(Landroid/view/ViewTreeObserver$OnTouchModeChangeListener;)V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -822,7 +1019,7 @@ void android_view_ViewTreeObserver::dispatchOnGlobalLayout()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -846,7 +1043,7 @@ bool android_view_ViewTreeObserver::dispatchOnPreDraw()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -890,7 +1087,7 @@ void android_view_ViewTreeObserver::dispatchOnDraw()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/ViewTreeObserver";
 
-	LOGV("android_view_ViewTreeObserver className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewTreeObserver className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -39,11 +39,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_Surface"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -151,7 +148,7 @@ android_view_Surface::android_view_Surface(AndroidCXX::android_graphics_SurfaceT
 	const char *methodSignature = "(Landroid/graphics/SurfaceTexture;)V";
 	const char *className = "android/view/Surface";
 
-	LOGV("android_view_Surface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Surface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -223,7 +220,7 @@ AndroidCXX::java_lang_String android_view_Surface::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/view/Surface";
 
-	LOGV("android_view_Surface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Surface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -267,7 +264,7 @@ void android_view_Surface::release()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/Surface";
 
-	LOGV("android_view_Surface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Surface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -291,7 +288,7 @@ bool android_view_Surface::isValid()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/Surface";
 
-	LOGV("android_view_Surface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Surface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -335,7 +332,7 @@ int android_view_Surface::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/Surface";
 
-	LOGV("android_view_Surface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Surface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -379,7 +376,7 @@ void android_view_Surface::writeToParcel(AndroidCXX::android_os_Parcel const& ar
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/view/Surface";
 
-	LOGV("android_view_Surface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Surface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -445,7 +442,7 @@ void android_view_Surface::readFromParcel(AndroidCXX::android_os_Parcel const& a
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
 	const char *className = "android/view/Surface";
 
-	LOGV("android_view_Surface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Surface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -490,7 +487,7 @@ AndroidCXX::android_graphics_Canvas android_view_Surface::lockCanvas(AndroidCXX:
 	const char *methodSignature = "(Landroid/graphics/Rect;)Landroid/graphics/Canvas;";
 	const char *className = "android/view/Surface";
 
-	LOGV("android_view_Surface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Surface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -555,7 +552,7 @@ void android_view_Surface::unlockCanvasAndPost(AndroidCXX::android_graphics_Canv
 	const char *methodSignature = "(Landroid/graphics/Canvas;)V";
 	const char *className = "android/view/Surface";
 
-	LOGV("android_view_Surface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Surface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -600,7 +597,7 @@ void android_view_Surface::unlockCanvas(AndroidCXX::android_graphics_Canvas cons
 	const char *methodSignature = "(Landroid/graphics/Canvas;)V";
 	const char *className = "android/view/Surface";
 
-	LOGV("android_view_Surface className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Surface className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

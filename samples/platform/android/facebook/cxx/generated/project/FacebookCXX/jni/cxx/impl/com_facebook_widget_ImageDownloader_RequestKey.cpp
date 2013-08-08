@@ -130,7 +130,7 @@ bool com_facebook_widget_ImageDownloader_RequestKey::equals(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "com/facebook/widget/ImageDownloader$RequestKey";
 
-	LOGV("com_facebook_widget_ImageDownloader_RequestKey className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ImageDownloader_RequestKey className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -195,7 +195,7 @@ int com_facebook_widget_ImageDownloader_RequestKey::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "com/facebook/widget/ImageDownloader$RequestKey";
 
-	LOGV("com_facebook_widget_ImageDownloader_RequestKey className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ImageDownloader_RequestKey className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

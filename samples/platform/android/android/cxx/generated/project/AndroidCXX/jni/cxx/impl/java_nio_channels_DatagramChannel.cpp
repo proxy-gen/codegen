@@ -46,11 +46,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_nio_channels_DatagramChannel"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -182,7 +179,7 @@ long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_B
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;)J";
 	const char *className = "java/nio/channels/DatagramChannel";
 
-	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_DatagramChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -265,7 +262,7 @@ int java_nio_channels_DatagramChannel::write(AndroidCXX::java_nio_ByteBuffer con
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)I";
 	const char *className = "java/nio/channels/DatagramChannel";
 
-	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_DatagramChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -330,7 +327,7 @@ long java_nio_channels_DatagramChannel::write(std::vector<AndroidCXX::java_nio_B
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;II)J";
 	const char *className = "java/nio/channels/DatagramChannel";
 
-	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_DatagramChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -455,7 +452,7 @@ int java_nio_channels_DatagramChannel::send(AndroidCXX::java_nio_ByteBuffer cons
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;Ljava/net/SocketAddress;)I";
 	const char *className = "java/nio/channels/DatagramChannel";
 
-	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_DatagramChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -541,7 +538,7 @@ long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_By
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;II)J";
 	const char *className = "java/nio/channels/DatagramChannel";
 
-	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_DatagramChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -666,7 +663,7 @@ int java_nio_channels_DatagramChannel::read(AndroidCXX::java_nio_ByteBuffer cons
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)I";
 	const char *className = "java/nio/channels/DatagramChannel";
 
-	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_DatagramChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -731,7 +728,7 @@ long java_nio_channels_DatagramChannel::read(std::vector<AndroidCXX::java_nio_By
 	const char *methodSignature = "([Ljava/nio/ByteBuffer;)J";
 	const char *className = "java/nio/channels/DatagramChannel";
 
-	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_DatagramChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -814,7 +811,7 @@ AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel:
 	const char *methodSignature = "()Ljava/nio/channels/DatagramChannel;";
 	const char *className = "java/nio/channels/DatagramChannel";
 
-	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_DatagramChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -858,7 +855,7 @@ AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel:
 	const char *methodSignature = "(Ljava/net/SocketAddress;)Ljava/nio/channels/DatagramChannel;";
 	const char *className = "java/nio/channels/DatagramChannel";
 
-	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_DatagramChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -923,7 +920,7 @@ AndroidCXX::java_nio_channels_DatagramChannel java_nio_channels_DatagramChannel:
 	const char *methodSignature = "()Ljava/nio/channels/DatagramChannel;";
 	const char *className = "java/nio/channels/DatagramChannel";
 
-	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_DatagramChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -967,7 +964,7 @@ AndroidCXX::java_net_DatagramSocket java_nio_channels_DatagramChannel::socket()
 	const char *methodSignature = "()Ljava/net/DatagramSocket;";
 	const char *className = "java/nio/channels/DatagramChannel";
 
-	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_DatagramChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1011,7 +1008,7 @@ bool java_nio_channels_DatagramChannel::isConnected()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/channels/DatagramChannel";
 
-	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_DatagramChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1055,7 +1052,7 @@ AndroidCXX::java_net_SocketAddress java_nio_channels_DatagramChannel::receive(An
 	const char *methodSignature = "(Ljava/nio/ByteBuffer;)Ljava/net/SocketAddress;";
 	const char *className = "java/nio/channels/DatagramChannel";
 
-	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_DatagramChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1120,7 +1117,7 @@ int java_nio_channels_DatagramChannel::validOps()
 	const char *methodSignature = "()I";
 	const char *className = "java/nio/channels/DatagramChannel";
 
-	LOGV("java_nio_channels_DatagramChannel className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_DatagramChannel className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

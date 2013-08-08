@@ -29,11 +29,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_app_LoaderManager_LoaderCallbacks"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -147,7 +144,7 @@ AndroidCXX::android_content_Loader android_app_LoaderManager_LoaderCallbacks::on
 	const char *methodSignature = "(ILandroid/os/Bundle;)Landroid/content/Loader;";
 	const char *className = "android/app/LoaderManager$LoaderCallbacks";
 
-	LOGV("android_app_LoaderManager_LoaderCallbacks className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LoaderManager_LoaderCallbacks className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -251,7 +248,7 @@ void android_app_LoaderManager_LoaderCallbacks::onLoadFinished(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Loader;Ljava/lang/Object;)V";
 	const char *className = "android/app/LoaderManager$LoaderCallbacks";
 
-	LOGV("android_app_LoaderManager_LoaderCallbacks className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LoaderManager_LoaderCallbacks className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -335,7 +332,7 @@ void android_app_LoaderManager_LoaderCallbacks::onLoaderReset(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/content/Loader;)V";
 	const char *className = "android/app/LoaderManager$LoaderCallbacks";
 
-	LOGV("android_app_LoaderManager_LoaderCallbacks className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_LoaderManager_LoaderCallbacks className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

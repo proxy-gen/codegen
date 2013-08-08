@@ -56,11 +56,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_TableLayout"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -186,7 +183,7 @@ android_widget_TableLayout::android_widget_TableLayout(AndroidCXX::android_conte
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -243,7 +240,7 @@ android_widget_TableLayout::android_widget_TableLayout(AndroidCXX::android_conte
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -336,7 +333,7 @@ void android_widget_TableLayout::addView(AndroidCXX::android_view_View const& ar
 	const char *methodSignature = "(Landroid/view/View;I)V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -402,7 +399,7 @@ void android_widget_TableLayout::addView(AndroidCXX::android_view_View const& ar
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -447,7 +444,7 @@ void android_widget_TableLayout::addView(AndroidCXX::android_view_View const& ar
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -513,7 +510,7 @@ void android_widget_TableLayout::addView(AndroidCXX::android_view_View const& ar
 	const char *methodSignature = "(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -600,7 +597,7 @@ void android_widget_TableLayout::setOnHierarchyChangeListener(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/view/ViewGroup$OnHierarchyChangeListener;)V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -645,7 +642,7 @@ AndroidCXX::android_widget_TableLayout_LayoutParams android_widget_TableLayout::
 	const char *methodSignature = "(Landroid/util/AttributeSet;)Landroid/widget/TableLayout$LayoutParams;";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -710,7 +707,7 @@ void android_widget_TableLayout::requestLayout()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -734,7 +731,7 @@ void android_widget_TableLayout::onInitializeAccessibilityEvent(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -779,7 +776,7 @@ void android_widget_TableLayout::onInitializeAccessibilityNodeInfo(AndroidCXX::a
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -824,7 +821,7 @@ bool android_widget_TableLayout::isShrinkAllColumns()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -868,7 +865,7 @@ void android_widget_TableLayout::setShrinkAllColumns(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -913,7 +910,7 @@ bool android_widget_TableLayout::isStretchAllColumns()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -957,7 +954,7 @@ void android_widget_TableLayout::setStretchAllColumns(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1002,7 +999,7 @@ void android_widget_TableLayout::setColumnCollapsed(int const& arg0,bool const& 
 	const char *methodSignature = "(IZ)V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1068,7 +1065,7 @@ bool android_widget_TableLayout::isColumnCollapsed(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1133,7 +1130,7 @@ void android_widget_TableLayout::setColumnStretchable(int const& arg0,bool const
 	const char *methodSignature = "(IZ)V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1199,7 +1196,7 @@ bool android_widget_TableLayout::isColumnStretchable(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1264,7 +1261,7 @@ void android_widget_TableLayout::setColumnShrinkable(int const& arg0,bool const&
 	const char *methodSignature = "(IZ)V";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1330,7 +1327,7 @@ bool android_widget_TableLayout::isColumnShrinkable(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/widget/TableLayout";
 
-	LOGV("android_widget_TableLayout className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TableLayout className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -27,11 +27,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_CharSequence"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -136,7 +133,7 @@ AndroidCXX::java_lang_String java_lang_CharSequence::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/CharSequence";
 
-	LOGV("java_lang_CharSequence className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_CharSequence className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -180,7 +177,7 @@ int java_lang_CharSequence::length()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/CharSequence";
 
-	LOGV("java_lang_CharSequence className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_CharSequence className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -224,7 +221,7 @@ char java_lang_CharSequence::charAt(int const& arg0)
 	const char *methodSignature = "(I)C";
 	const char *className = "java/lang/CharSequence";
 
-	LOGV("java_lang_CharSequence className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_CharSequence className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -289,7 +286,7 @@ AndroidCXX::java_lang_CharSequence java_lang_CharSequence::subSequence(int const
 	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
 	const char *className = "java/lang/CharSequence";
 
-	LOGV("java_lang_CharSequence className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_CharSequence className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

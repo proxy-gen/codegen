@@ -50,11 +50,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_DialerFilter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -177,7 +174,7 @@ android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -234,7 +231,7 @@ android_widget_DialerFilter::android_widget_DialerFilter(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -327,7 +324,7 @@ void android_widget_DialerFilter::append(AndroidCXX::java_lang_String const& arg
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -372,7 +369,7 @@ void android_widget_DialerFilter::setMode(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -417,7 +414,7 @@ int android_widget_DialerFilter::getMode()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -461,7 +458,7 @@ bool android_widget_DialerFilter::onKeyDown(int const& arg0,AndroidCXX::android_
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -547,7 +544,7 @@ bool android_widget_DialerFilter::onKeyUp(int const& arg0,AndroidCXX::android_vi
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -633,7 +630,7 @@ bool android_widget_DialerFilter::isQwertyKeyboard()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -677,7 +674,7 @@ AndroidCXX::java_lang_CharSequence android_widget_DialerFilter::getLetters()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -721,7 +718,7 @@ AndroidCXX::java_lang_CharSequence android_widget_DialerFilter::getDigits()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -765,7 +762,7 @@ AndroidCXX::java_lang_CharSequence android_widget_DialerFilter::getFilterText()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -809,7 +806,7 @@ void android_widget_DialerFilter::clearText()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -833,7 +830,7 @@ void android_widget_DialerFilter::setLettersWatcher(AndroidCXX::android_text_Tex
 	const char *methodSignature = "(Landroid/text/TextWatcher;)V";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -878,7 +875,7 @@ void android_widget_DialerFilter::setDigitsWatcher(AndroidCXX::android_text_Text
 	const char *methodSignature = "(Landroid/text/TextWatcher;)V";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -923,7 +920,7 @@ void android_widget_DialerFilter::setFilterWatcher(AndroidCXX::android_text_Text
 	const char *methodSignature = "(Landroid/text/TextWatcher;)V";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -968,7 +965,7 @@ void android_widget_DialerFilter::removeFilterWatcher(AndroidCXX::android_text_T
 	const char *methodSignature = "(Landroid/text/TextWatcher;)V";
 	const char *className = "android/widget/DialerFilter";
 
-	LOGV("android_widget_DialerFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_DialerFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

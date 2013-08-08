@@ -60,11 +60,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_LayoutInflater"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -238,7 +235,7 @@ AndroidCXX::android_view_LayoutInflater android_view_LayoutInflater::from(Androi
 	const char *methodSignature = "(Landroid/content/Context;)Landroid/view/LayoutInflater;";
 	const char *className = "android/view/LayoutInflater";
 
-	LOGV("android_view_LayoutInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -303,7 +300,7 @@ AndroidCXX::android_view_LayoutInflater_Factory android_view_LayoutInflater::get
 	const char *methodSignature = "()Landroid/view/LayoutInflater$Factory;";
 	const char *className = "android/view/LayoutInflater";
 
-	LOGV("android_view_LayoutInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -347,7 +344,7 @@ AndroidCXX::android_content_Context android_view_LayoutInflater::getContext()
 	const char *methodSignature = "()Landroid/content/Context;";
 	const char *className = "android/view/LayoutInflater";
 
-	LOGV("android_view_LayoutInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -391,7 +388,7 @@ AndroidCXX::android_view_View android_view_LayoutInflater::inflate(AndroidCXX::o
 	const char *methodSignature = "(Lorg/xmlpull/v1/XmlPullParser;Landroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/view/LayoutInflater";
 
-	LOGV("android_view_LayoutInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -477,7 +474,7 @@ AndroidCXX::android_view_View android_view_LayoutInflater::inflate(AndroidCXX::o
 	const char *methodSignature = "(Lorg/xmlpull/v1/XmlPullParser;Landroid/view/ViewGroup;Z)Landroid/view/View;";
 	const char *className = "android/view/LayoutInflater";
 
-	LOGV("android_view_LayoutInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -584,7 +581,7 @@ AndroidCXX::android_view_View android_view_LayoutInflater::inflate(int const& ar
 	const char *methodSignature = "(ILandroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/view/LayoutInflater";
 
-	LOGV("android_view_LayoutInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -670,7 +667,7 @@ AndroidCXX::android_view_View android_view_LayoutInflater::inflate(int const& ar
 	const char *methodSignature = "(ILandroid/view/ViewGroup;Z)Landroid/view/View;";
 	const char *className = "android/view/LayoutInflater";
 
-	LOGV("android_view_LayoutInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -777,7 +774,7 @@ void android_view_LayoutInflater::setFactory(AndroidCXX::android_view_LayoutInfl
 	const char *methodSignature = "(Landroid/view/LayoutInflater$Factory;)V";
 	const char *className = "android/view/LayoutInflater";
 
-	LOGV("android_view_LayoutInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -822,7 +819,7 @@ AndroidCXX::android_view_LayoutInflater android_view_LayoutInflater::cloneInCont
 	const char *methodSignature = "(Landroid/content/Context;)Landroid/view/LayoutInflater;";
 	const char *className = "android/view/LayoutInflater";
 
-	LOGV("android_view_LayoutInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -887,7 +884,7 @@ AndroidCXX::android_view_LayoutInflater_Factory2 android_view_LayoutInflater::ge
 	const char *methodSignature = "()Landroid/view/LayoutInflater$Factory2;";
 	const char *className = "android/view/LayoutInflater";
 
-	LOGV("android_view_LayoutInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -931,7 +928,7 @@ void android_view_LayoutInflater::setFactory2(AndroidCXX::android_view_LayoutInf
 	const char *methodSignature = "(Landroid/view/LayoutInflater$Factory2;)V";
 	const char *className = "android/view/LayoutInflater";
 
-	LOGV("android_view_LayoutInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -976,7 +973,7 @@ AndroidCXX::android_view_LayoutInflater_Filter android_view_LayoutInflater::getF
 	const char *methodSignature = "()Landroid/view/LayoutInflater$Filter;";
 	const char *className = "android/view/LayoutInflater";
 
-	LOGV("android_view_LayoutInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1020,7 +1017,7 @@ void android_view_LayoutInflater::setFilter(AndroidCXX::android_view_LayoutInfla
 	const char *methodSignature = "(Landroid/view/LayoutInflater$Filter;)V";
 	const char *className = "android/view/LayoutInflater";
 
-	LOGV("android_view_LayoutInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1065,7 +1062,7 @@ AndroidCXX::android_view_View android_view_LayoutInflater::createView(AndroidCXX
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;";
 	const char *className = "android/view/LayoutInflater";
 
-	LOGV("android_view_LayoutInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_LayoutInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -111,11 +111,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_SimpleExpandableListAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -343,7 +340,7 @@ android_widget_SimpleExpandableListAdapter::android_widget_SimpleExpandableListA
 	const char *methodSignature = "(Landroid/content/Context;Ljava/util/List;II[Ljava/lang/String;[ILjava/util/List;I[Ljava/lang/String;[I)V";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -781,7 +778,7 @@ android_widget_SimpleExpandableListAdapter::android_widget_SimpleExpandableListA
 	const char *methodSignature = "(Landroid/content/Context;Ljava/util/List;II[Ljava/lang/String;[ILjava/util/List;II[Ljava/lang/String;[I)V";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1240,7 +1237,7 @@ android_widget_SimpleExpandableListAdapter::android_widget_SimpleExpandableListA
 	const char *methodSignature = "(Landroid/content/Context;Ljava/util/List;I[Ljava/lang/String;[ILjava/util/List;I[Ljava/lang/String;[I)V";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1672,7 +1669,7 @@ long android_widget_SimpleExpandableListAdapter::getGroupId(int const& arg0)
 	const char *methodSignature = "(I)J";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1737,7 +1734,7 @@ AndroidCXX::java_lang_Object android_widget_SimpleExpandableListAdapter::getChil
 	const char *methodSignature = "(II)Ljava/lang/Object;";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1823,7 +1820,7 @@ bool android_widget_SimpleExpandableListAdapter::hasStableIds()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1867,7 +1864,7 @@ int android_widget_SimpleExpandableListAdapter::getGroupCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1911,7 +1908,7 @@ int android_widget_SimpleExpandableListAdapter::getChildrenCount(int const& arg0
 	const char *methodSignature = "(I)I";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1976,7 +1973,7 @@ AndroidCXX::java_lang_Object android_widget_SimpleExpandableListAdapter::getGrou
 	const char *methodSignature = "(I)Ljava/lang/Object;";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2041,7 +2038,7 @@ long android_widget_SimpleExpandableListAdapter::getChildId(int const& arg0,int 
 	const char *methodSignature = "(II)J";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2127,7 +2124,7 @@ AndroidCXX::android_view_View android_widget_SimpleExpandableListAdapter::getGro
 	const char *methodSignature = "(IZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2255,7 +2252,7 @@ AndroidCXX::android_view_View android_widget_SimpleExpandableListAdapter::getChi
 	const char *methodSignature = "(IIZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2404,7 +2401,7 @@ bool android_widget_SimpleExpandableListAdapter::isChildSelectable(int const& ar
 	const char *methodSignature = "(II)Z";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2490,7 +2487,7 @@ AndroidCXX::android_view_View android_widget_SimpleExpandableListAdapter::newGro
 	const char *methodSignature = "(ZLandroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2576,7 +2573,7 @@ AndroidCXX::android_view_View android_widget_SimpleExpandableListAdapter::newChi
 	const char *methodSignature = "(ZLandroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/SimpleExpandableListAdapter";
 
-	LOGV("android_widget_SimpleExpandableListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SimpleExpandableListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

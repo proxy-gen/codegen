@@ -131,7 +131,7 @@ void com_facebook_widget_PickerFragment_LoadingStrategy_3::onError(FacebookCXX::
 	const char *methodSignature = "(Lcom/facebook/widget/GraphObjectAdapter;Lcom/facebook/FacebookException;)V";
 	const char *className = "com/facebook/widget/PickerFragment$LoadingStrategy$3";
 
-	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_LoadingStrategy_3 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
