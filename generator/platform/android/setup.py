@@ -10,6 +10,8 @@ import platform
 import commands
 import inspect
 
+options = dict()
+
 def setup_local_properties():
 	from optparse import OptionParser
 
@@ -18,28 +20,42 @@ def setup_local_properties():
 							help="Path to Android SDK")
 	parser.add_option("-n", "--ndk-dir", action="store", type="string", dest="ndk_dir",
 							help="Path to Android NDK")
+	parser.add_option("--debug", action="store_true", dest="debug", default=False,
+							help="Flag to indicate if debug build")
 	(opts, args) = parser.parse_args()
 	if not opts.sdk_dir or not opts.ndk_dir:
 		parser.print_help()
 		sys.exit(1)
-	sdk_dir = opts.sdk_dir
-	ndk_dir = opts.ndk_dir
-	buildfiles = commands.getoutput('find .. -type f -name "build.xml"')  
-	for buildfile in buildfiles:	
-		builddir = os.path.dirname(buildfile)
-		localpropertiesfile=os.path.join(builddir, "local.properties")
-		with open(localpropertiesfile, "w") as openedfile:
-			openedfile.writelines(["sdk.dir=", sdk_dir, '\n'])
-			openedfile.writelines(["ndk.dir=", ndk_dir, '\n'])
+	options['sdk_dir'] = opts.sdk_dir
+	options['ndk_dir'] = opts.ndk_dir
+	options['debug'] = opts.debug
+	my_dir = os.getcwd()
+	localpropertiesfile=os.path.join(my_dir, "local.properties")
+	with open(localpropertiesfile, "w") as openedfile:
+		openedfile.writelines(["sdk.dir=", options['sdk_dir'], '\n'])
+		openedfile.writelines(["ndk.dir=", options['ndk_dir'], '\n'])
 
-def setup_runtime():
+def setup_generator():
+	from string import Template
+	
+	cxx_generator_root = os.path.join(os.path.dirname(inspect.getfile(inspect.currentframe())), "generator") 
+	command_template = Template("cd ${cxx_generator_root}/runtime;ant")
+	command = command_template.substitute(cxx_generator_root=cxx_generator_root)
+	command_output = commands.getstatusoutput(command)
+	if command_output[0] != 0:
+			print "unable to run " + command
+			return False
+	return True
+
+def setup_framework():
 	from string import Template
 	
 	lib_name = "libCXXGenerator"
 	cxx_generator_root = os.path.join(os.path.dirname(inspect.getfile(inspect.currentframe())), "generator") 
+	cxx_runtime_dir = os.path.join(os.path.dirname(inspect.getfile(inspect.currentframe())), "runtime")
 	cxx_indexer_root = os.path.join(cxx_generator_root, "indexer") 
 	cxx_indexer_cxx = os.path.join(cxx_indexer_root, "cxx") 
-	base_cxx_dir = os.path.join(os.path.join(os.path.dirname(inspect.getfile(inspect.currentframe())), "runtime"), "ZyngaCXX", "jni", "cxx")
+	base_cxx_dir = os.path.join(cxx_runtime_dir, "ZyngaCXX", "jni", "cxx")
 
 	name = platform.system()
 	if name == 'Darwin':
@@ -70,8 +86,24 @@ def setup_runtime():
 					
 	return lib_name
 
+def setup_runtime():
+	from string import Template
+	
+	cxx_generator_root = os.path.join(os.path.dirname(inspect.getfile(inspect.currentframe())), "generator") 
+	cxx_runtime_dir = os.path.join(os.path.dirname(inspect.getfile(inspect.currentframe())), "runtime")
+	command_template = Template("cd ${cxx_runtime_dir}/ZyngaCXX;ant $ant_target")
+	ant_target = "debug" if options['debug'] == True else "release"
+	command = command_template.substitute(cxx_runtime_dir=cxx_runtime_dir,ant_target=ant_target)
+	command_output = commands.getstatusoutput(command)
+	if command_output[0] != 0:
+			print "unable to run " + command
+			return False
+	return True
+
 def main():
 	setup_local_properties()
+	setup_generator()
+	setup_framework()
 	setup_runtime()
 	print "android cxx bindings generator setup complete"
 

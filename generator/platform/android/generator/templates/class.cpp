@@ -22,6 +22,7 @@
 #set $class_jnidata = $CONFIG.entity_class['deriveddata']['jnidata']
 #set $entity_head_file_name = $CONFIG.entity_head_file_name
 #set $entity_callback_file_name = $CONFIG.entity_callback_file_name
+#set $include_headers = $CONFIG.include_headers
 #set $safe_package_name = Utils.to_safe_jni_name($package)
 #set $safe_class_name = Utils.to_safe_jni_name($entity_class_name)
 
@@ -150,14 +151,11 @@ $proxied_typeinfos.extend(constructor['proxied_typeinfo_list'])
 \#include <jni.h>
 \#include <CXXContext.hpp>
 \#include <JNIContext.hpp>
-// TODO: integrate with custom converters
 \#include <CXXConverter.hpp>
 \#include <${package}Converter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
-#if $package == "FacebookCXX"
-\#include <AndroidCXXConverter.hpp>
-#end if
+#for $include_header in $include_headers
+\#include <${include_header}>
+#end for
 
 \#define LOG_TAG "${entity_class_name}"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -411,7 +409,7 @@ ${entity_class_name}::${entity_class_name}()
 	const char *methodSignature = "()V";
 	const char *className = "$class_jnidata['jnisignature']";
 
-	LOGV("${entity_class_name} className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("${entity_class_name} className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -466,7 +464,7 @@ ${entity_class_name}::${entity_class_name}($constructor['param_str'])
 	const char *methodSignature = "$cons_jnidata['jnisignature']";
 	const char *className = "$class_jnidata['jnisignature']";
 
-	LOGV("${entity_class_name} className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("${entity_class_name} className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -590,7 +588,7 @@ $function['retrn_type'] ${entity_class_name}::$Utils.to_safe_cxx_name(function['
 	const char *methodSignature = "$func_jnidata['jnisignature']";
 	const char *className = "$class_jnidata['jnisignature']";
 
-	LOGV("${entity_class_name} className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("${entity_class_name} className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
