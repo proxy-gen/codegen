@@ -46,11 +46,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_nio_Buffer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -173,7 +170,7 @@ int java_nio_Buffer::limit()
 	const char *methodSignature = "()I";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -217,7 +214,7 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::limit(int const& arg0)
 	const char *methodSignature = "(I)Ljava/nio/Buffer;";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -282,7 +279,7 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::clear()
 	const char *methodSignature = "()Ljava/nio/Buffer;";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -326,7 +323,7 @@ int java_nio_Buffer::remaining()
 	const char *methodSignature = "()I";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -370,7 +367,7 @@ bool java_nio_Buffer::isDirect()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -414,7 +411,7 @@ bool java_nio_Buffer::hasArray()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -458,7 +455,7 @@ AndroidCXX::java_lang_Object java_nio_Buffer::array()
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -502,7 +499,7 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::position(int const& arg0)
 	const char *methodSignature = "(I)Ljava/nio/Buffer;";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -567,7 +564,7 @@ int java_nio_Buffer::position()
 	const char *methodSignature = "()I";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -611,7 +608,7 @@ int java_nio_Buffer::arrayOffset()
 	const char *methodSignature = "()I";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -655,7 +652,7 @@ int java_nio_Buffer::capacity()
 	const char *methodSignature = "()I";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -699,7 +696,7 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::mark()
 	const char *methodSignature = "()Ljava/nio/Buffer;";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -743,7 +740,7 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::reset()
 	const char *methodSignature = "()Ljava/nio/Buffer;";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -787,7 +784,7 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::flip()
 	const char *methodSignature = "()Ljava/nio/Buffer;";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -831,7 +828,7 @@ AndroidCXX::java_nio_Buffer java_nio_Buffer::rewind()
 	const char *methodSignature = "()Ljava/nio/Buffer;";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -875,7 +872,7 @@ bool java_nio_Buffer::hasRemaining()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -919,7 +916,7 @@ bool java_nio_Buffer::isReadOnly()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/Buffer";
 
-	LOGV("java_nio_Buffer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_Buffer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

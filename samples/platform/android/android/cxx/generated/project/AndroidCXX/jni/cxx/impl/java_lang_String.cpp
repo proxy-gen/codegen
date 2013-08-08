@@ -181,11 +181,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_lang_String"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -453,7 +450,7 @@ java_lang_String::java_lang_String()
 	const char *methodSignature = "()V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -489,7 +486,7 @@ java_lang_String::java_lang_String(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -546,7 +543,7 @@ java_lang_String::java_lang_String(std::vector<char> const& arg0)
 	const char *methodSignature = "([C)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -621,7 +618,7 @@ java_lang_String::java_lang_String(std::vector<char> const& arg0,int const& arg1
 	const char *methodSignature = "([CII)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -738,7 +735,7 @@ java_lang_String::java_lang_String(std::vector<int> const& arg0,int const& arg1,
 	const char *methodSignature = "([III)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -855,7 +852,7 @@ java_lang_String::java_lang_String(std::vector<byte> const& arg0,int const& arg1
 	const char *methodSignature = "([BIII)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -993,7 +990,7 @@ java_lang_String::java_lang_String(std::vector<byte> const& arg0,int const& arg1
 	const char *methodSignature = "([BI)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1089,7 +1086,7 @@ java_lang_String::java_lang_String(std::vector<byte> const& arg0,int const& arg1
 	const char *methodSignature = "([BIILjava/lang/String;)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1227,7 +1224,7 @@ java_lang_String::java_lang_String(std::vector<byte> const& arg0,int const& arg1
 	const char *methodSignature = "([BIILjava/nio/charset/Charset;)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1365,7 +1362,7 @@ java_lang_String::java_lang_String(std::vector<byte> const& arg0,AndroidCXX::jav
 	const char *methodSignature = "([BLjava/lang/String;)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1461,7 +1458,7 @@ java_lang_String::java_lang_String(std::vector<byte> const& arg0,AndroidCXX::jav
 	const char *methodSignature = "([BLjava/nio/charset/Charset;)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1557,7 +1554,7 @@ java_lang_String::java_lang_String(std::vector<byte> const& arg0,int const& arg1
 	const char *methodSignature = "([BII)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1674,7 +1671,7 @@ java_lang_String::java_lang_String(std::vector<byte> const& arg0)
 	const char *methodSignature = "([B)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1749,7 +1746,7 @@ java_lang_String::java_lang_String(AndroidCXX::java_lang_StringBuffer const& arg
 	const char *methodSignature = "(Ljava/lang/StringBuffer;)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1806,7 +1803,7 @@ java_lang_String::java_lang_String(AndroidCXX::java_lang_StringBuilder const& ar
 	const char *methodSignature = "(Ljava/lang/StringBuilder;)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1878,7 +1875,7 @@ bool java_lang_String::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1943,7 +1940,7 @@ AndroidCXX::java_lang_String java_lang_String::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1987,7 +1984,7 @@ int java_lang_String::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2031,7 +2028,7 @@ int java_lang_String::compareTo(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2096,7 +2093,7 @@ int java_lang_String::indexOf(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2161,7 +2158,7 @@ int java_lang_String::indexOf(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2226,7 +2223,7 @@ int java_lang_String::indexOf(AndroidCXX::java_lang_String const& arg0,int const
 	const char *methodSignature = "(Ljava/lang/String;I)I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2312,7 +2309,7 @@ int java_lang_String::indexOf(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2398,7 +2395,7 @@ AndroidCXX::java_lang_String java_lang_String::valueOf(AndroidCXX::java_lang_Obj
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2463,7 +2460,7 @@ AndroidCXX::java_lang_String java_lang_String::valueOf(double const& arg0)
 	const char *methodSignature = "(D)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2528,7 +2525,7 @@ AndroidCXX::java_lang_String java_lang_String::valueOf(float const& arg0)
 	const char *methodSignature = "(F)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2593,7 +2590,7 @@ AndroidCXX::java_lang_String java_lang_String::valueOf(long const& arg0)
 	const char *methodSignature = "(J)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2658,7 +2655,7 @@ AndroidCXX::java_lang_String java_lang_String::valueOf(int const& arg0)
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2723,7 +2720,7 @@ AndroidCXX::java_lang_String java_lang_String::valueOf(char const& arg0)
 	const char *methodSignature = "(C)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2788,7 +2785,7 @@ AndroidCXX::java_lang_String java_lang_String::valueOf(bool const& arg0)
 	const char *methodSignature = "(Z)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2853,7 +2850,7 @@ AndroidCXX::java_lang_String java_lang_String::valueOf(std::vector<char> const& 
 	const char *methodSignature = "([CII)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2978,7 +2975,7 @@ AndroidCXX::java_lang_String java_lang_String::valueOf(std::vector<char> const& 
 	const char *methodSignature = "([C)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3061,7 +3058,7 @@ int java_lang_String::length()
 	const char *methodSignature = "()I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3105,7 +3102,7 @@ bool java_lang_String::isEmpty()
 	const char *methodSignature = "()Z";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3149,7 +3146,7 @@ char java_lang_String::charAt(int const& arg0)
 	const char *methodSignature = "(I)C";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3214,7 +3211,7 @@ int java_lang_String::codePointAt(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3279,7 +3276,7 @@ int java_lang_String::codePointBefore(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3344,7 +3341,7 @@ int java_lang_String::codePointCount(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3430,7 +3427,7 @@ int java_lang_String::offsetByCodePoints(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3516,7 +3513,7 @@ void java_lang_String::getChars(int const& arg0,int const& arg1,std::vector<char
 	const char *methodSignature = "(II[CI)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3642,7 +3639,7 @@ std::vector<byte> java_lang_String::getBytes(AndroidCXX::java_lang_String const&
 	const char *methodSignature = "(Ljava/lang/String;)[B";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3725,7 +3722,7 @@ void java_lang_String::getBytes(int const& arg0,int const& arg1,std::vector<byte
 	const char *methodSignature = "(II[BI)V";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3851,7 +3848,7 @@ std::vector<byte> java_lang_String::getBytes(AndroidCXX::java_nio_charset_Charse
 	const char *methodSignature = "(Ljava/nio/charset/Charset;)[B";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3934,7 +3931,7 @@ std::vector<byte> java_lang_String::getBytes()
 	const char *methodSignature = "()[B";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3996,7 +3993,7 @@ bool java_lang_String::contentEquals(AndroidCXX::java_lang_StringBuffer const& a
 	const char *methodSignature = "(Ljava/lang/StringBuffer;)Z";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4061,7 +4058,7 @@ bool java_lang_String::contentEquals(AndroidCXX::java_lang_CharSequence const& a
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Z";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4126,7 +4123,7 @@ bool java_lang_String::equalsIgnoreCase(AndroidCXX::java_lang_String const& arg0
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4191,7 +4188,7 @@ int java_lang_String::compareToIgnoreCase(AndroidCXX::java_lang_String const& ar
 	const char *methodSignature = "(Ljava/lang/String;)I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4256,7 +4253,7 @@ bool java_lang_String::regionMatches(int const& arg0,AndroidCXX::java_lang_Strin
 	const char *methodSignature = "(ILjava/lang/String;II)Z";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4384,7 +4381,7 @@ bool java_lang_String::regionMatches(bool const& arg0,int const& arg1,AndroidCXX
 	const char *methodSignature = "(ZILjava/lang/String;II)Z";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4533,7 +4530,7 @@ bool java_lang_String::startsWith(AndroidCXX::java_lang_String const& arg0,int c
 	const char *methodSignature = "(Ljava/lang/String;I)Z";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4619,7 +4616,7 @@ bool java_lang_String::startsWith(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4684,7 +4681,7 @@ bool java_lang_String::endsWith(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4749,7 +4746,7 @@ int java_lang_String::lastIndexOf(AndroidCXX::java_lang_String const& arg0,int c
 	const char *methodSignature = "(Ljava/lang/String;I)I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4835,7 +4832,7 @@ int java_lang_String::lastIndexOf(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4900,7 +4897,7 @@ int java_lang_String::lastIndexOf(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4986,7 +4983,7 @@ int java_lang_String::lastIndexOf(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)I";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5051,7 +5048,7 @@ AndroidCXX::java_lang_String java_lang_String::substring(int const& arg0,int con
 	const char *methodSignature = "(II)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5137,7 +5134,7 @@ AndroidCXX::java_lang_String java_lang_String::substring(int const& arg0)
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5202,7 +5199,7 @@ AndroidCXX::java_lang_CharSequence java_lang_String::subSequence(int const& arg0
 	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5288,7 +5285,7 @@ AndroidCXX::java_lang_String java_lang_String::concat(AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5353,7 +5350,7 @@ AndroidCXX::java_lang_String java_lang_String::replace(AndroidCXX::java_lang_Cha
 	const char *methodSignature = "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5439,7 +5436,7 @@ AndroidCXX::java_lang_String java_lang_String::replace(char const& arg0,char con
 	const char *methodSignature = "(CC)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5525,7 +5522,7 @@ bool java_lang_String::matches(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5590,7 +5587,7 @@ bool java_lang_String::contains(AndroidCXX::java_lang_CharSequence const& arg0)
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Z";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5655,7 +5652,7 @@ AndroidCXX::java_lang_String java_lang_String::replaceFirst(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5741,7 +5738,7 @@ AndroidCXX::java_lang_String java_lang_String::replaceAll(AndroidCXX::java_lang_
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5827,7 +5824,7 @@ std::vector<AndroidCXX::java_lang_String > java_lang_String::split(AndroidCXX::j
 	const char *methodSignature = "(Ljava/lang/String;)[Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5910,7 +5907,7 @@ std::vector<AndroidCXX::java_lang_String > java_lang_String::split(AndroidCXX::j
 	const char *methodSignature = "(Ljava/lang/String;I)[Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6014,7 +6011,7 @@ AndroidCXX::java_lang_String java_lang_String::toLowerCase()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6058,7 +6055,7 @@ AndroidCXX::java_lang_String java_lang_String::toLowerCase(AndroidCXX::java_util
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6123,7 +6120,7 @@ AndroidCXX::java_lang_String java_lang_String::toUpperCase(AndroidCXX::java_util
 	const char *methodSignature = "(Ljava/util/Locale;)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6188,7 +6185,7 @@ AndroidCXX::java_lang_String java_lang_String::toUpperCase()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6232,7 +6229,7 @@ AndroidCXX::java_lang_String java_lang_String::trim()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6276,7 +6273,7 @@ std::vector<char> java_lang_String::toCharArray()
 	const char *methodSignature = "()[C";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6338,7 +6335,7 @@ AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6442,7 +6439,7 @@ AndroidCXX::java_lang_String java_lang_String::format(AndroidCXX::java_util_Loca
 	const char *methodSignature = "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6567,7 +6564,7 @@ AndroidCXX::java_lang_String java_lang_String::copyValueOf(std::vector<char> con
 	const char *methodSignature = "([C)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6650,7 +6647,7 @@ AndroidCXX::java_lang_String java_lang_String::copyValueOf(std::vector<char> con
 	const char *methodSignature = "([CII)Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6775,7 +6772,7 @@ AndroidCXX::java_lang_String java_lang_String::intern()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/lang/String";
 
-	LOGV("java_lang_String className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_lang_String className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

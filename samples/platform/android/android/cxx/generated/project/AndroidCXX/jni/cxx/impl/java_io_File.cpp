@@ -104,11 +104,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_io_File"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -282,7 +279,7 @@ java_io_File::java_io_File(AndroidCXX::java_net_URI const& arg0)
 	const char *methodSignature = "(Ljava/net/URI;)V";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -339,7 +336,7 @@ java_io_File::java_io_File(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -396,7 +393,7 @@ java_io_File::java_io_File(AndroidCXX::java_lang_String const& arg0,AndroidCXX::
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -474,7 +471,7 @@ java_io_File::java_io_File(AndroidCXX::java_io_File const& arg0,AndroidCXX::java
 	const char *methodSignature = "(Ljava/io/File;Ljava/lang/String;)V";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -567,7 +564,7 @@ bool java_io_File::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -632,7 +629,7 @@ AndroidCXX::java_lang_String java_io_File::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -676,7 +673,7 @@ int java_io_File::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -720,7 +717,7 @@ int java_io_File::compareTo(AndroidCXX::java_io_File const& arg0)
 	const char *methodSignature = "(Ljava/io/File;)I";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -785,7 +782,7 @@ AndroidCXX::java_lang_String java_io_File::getName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -829,7 +826,7 @@ long java_io_File::length()
 	const char *methodSignature = "()J";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -873,7 +870,7 @@ AndroidCXX::java_lang_String java_io_File::getParent()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -917,7 +914,7 @@ bool java_io_File::isAbsolute()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -961,7 +958,7 @@ AndroidCXX::java_lang_String java_io_File::getCanonicalPath()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1005,7 +1002,7 @@ bool java_io_File::setReadOnly()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1049,7 +1046,7 @@ std::vector<AndroidCXX::java_lang_String > java_io_File::list(AndroidCXX::java_i
 	const char *methodSignature = "(Ljava/io/FilenameFilter;)[Ljava/lang/String;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1132,7 +1129,7 @@ std::vector<AndroidCXX::java_lang_String > java_io_File::list()
 	const char *methodSignature = "()[Ljava/lang/String;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1194,7 +1191,7 @@ bool java_io_File::_delete()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1238,7 +1235,7 @@ bool java_io_File::exists()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1282,7 +1279,7 @@ AndroidCXX::java_io_File java_io_File::getParentFile()
 	const char *methodSignature = "()Ljava/io/File;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1326,7 +1323,7 @@ AndroidCXX::java_lang_String java_io_File::getPath()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1370,7 +1367,7 @@ AndroidCXX::java_lang_String java_io_File::getAbsolutePath()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1414,7 +1411,7 @@ AndroidCXX::java_io_File java_io_File::getAbsoluteFile()
 	const char *methodSignature = "()Ljava/io/File;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1458,7 +1455,7 @@ AndroidCXX::java_io_File java_io_File::getCanonicalFile()
 	const char *methodSignature = "()Ljava/io/File;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1502,7 +1499,7 @@ AndroidCXX::java_net_URL java_io_File::toURL()
 	const char *methodSignature = "()Ljava/net/URL;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1546,7 +1543,7 @@ AndroidCXX::java_net_URI java_io_File::toURI()
 	const char *methodSignature = "()Ljava/net/URI;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1590,7 +1587,7 @@ bool java_io_File::canRead()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1634,7 +1631,7 @@ bool java_io_File::canWrite()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1678,7 +1675,7 @@ bool java_io_File::isDirectory()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1722,7 +1719,7 @@ bool java_io_File::isFile()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1766,7 +1763,7 @@ bool java_io_File::isHidden()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1810,7 +1807,7 @@ long java_io_File::lastModified()
 	const char *methodSignature = "()J";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1854,7 +1851,7 @@ bool java_io_File::createNewFile()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1898,7 +1895,7 @@ void java_io_File::deleteOnExit()
 	const char *methodSignature = "()V";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1922,7 +1919,7 @@ std::vector<AndroidCXX::java_io_File > java_io_File::listFiles(AndroidCXX::java_
 	const char *methodSignature = "(Ljava/io/FileFilter;)[Ljava/io/File;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2005,7 +2002,7 @@ std::vector<AndroidCXX::java_io_File > java_io_File::listFiles()
 	const char *methodSignature = "()[Ljava/io/File;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2067,7 +2064,7 @@ std::vector<AndroidCXX::java_io_File > java_io_File::listFiles(AndroidCXX::java_
 	const char *methodSignature = "(Ljava/io/FilenameFilter;)[Ljava/io/File;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2150,7 +2147,7 @@ bool java_io_File::mkdir()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2194,7 +2191,7 @@ bool java_io_File::mkdirs()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2238,7 +2235,7 @@ bool java_io_File::renameTo(AndroidCXX::java_io_File const& arg0)
 	const char *methodSignature = "(Ljava/io/File;)Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2303,7 +2300,7 @@ bool java_io_File::setLastModified(long const& arg0)
 	const char *methodSignature = "(J)Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2368,7 +2365,7 @@ bool java_io_File::setWritable(bool const& arg0,bool const& arg1)
 	const char *methodSignature = "(ZZ)Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2454,7 +2451,7 @@ bool java_io_File::setWritable(bool const& arg0)
 	const char *methodSignature = "(Z)Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2519,7 +2516,7 @@ bool java_io_File::setReadable(bool const& arg0,bool const& arg1)
 	const char *methodSignature = "(ZZ)Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2605,7 +2602,7 @@ bool java_io_File::setReadable(bool const& arg0)
 	const char *methodSignature = "(Z)Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2670,7 +2667,7 @@ bool java_io_File::setExecutable(bool const& arg0,bool const& arg1)
 	const char *methodSignature = "(ZZ)Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2756,7 +2753,7 @@ bool java_io_File::setExecutable(bool const& arg0)
 	const char *methodSignature = "(Z)Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2821,7 +2818,7 @@ bool java_io_File::canExecute()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2865,7 +2862,7 @@ std::vector<AndroidCXX::java_io_File > java_io_File::listRoots()
 	const char *methodSignature = "()[Ljava/io/File;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2927,7 +2924,7 @@ long java_io_File::getTotalSpace()
 	const char *methodSignature = "()J";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2971,7 +2968,7 @@ long java_io_File::getFreeSpace()
 	const char *methodSignature = "()J";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3015,7 +3012,7 @@ long java_io_File::getUsableSpace()
 	const char *methodSignature = "()J";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3059,7 +3056,7 @@ AndroidCXX::java_io_File java_io_File::createTempFile(AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3145,7 +3142,7 @@ AndroidCXX::java_io_File java_io_File::createTempFile(AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;";
 	const char *className = "java/io/File";
 
-	LOGV("java_io_File className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_File className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

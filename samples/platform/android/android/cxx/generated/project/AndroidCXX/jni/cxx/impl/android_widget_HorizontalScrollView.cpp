@@ -80,11 +80,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_HorizontalScrollView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -240,7 +237,7 @@ android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(Android
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -297,7 +294,7 @@ android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(Android
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -375,7 +372,7 @@ android_widget_HorizontalScrollView::android_widget_HorizontalScrollView(Android
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -489,7 +486,7 @@ void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View 
 	const char *methodSignature = "(Landroid/view/View;I)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -555,7 +552,7 @@ void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View 
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -621,7 +618,7 @@ void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View 
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -666,7 +663,7 @@ void android_widget_HorizontalScrollView::addView(AndroidCXX::android_view_View 
 	const char *methodSignature = "(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -753,7 +750,7 @@ bool android_widget_HorizontalScrollView::onTouchEvent(AndroidCXX::android_view_
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -818,7 +815,7 @@ bool android_widget_HorizontalScrollView::onGenericMotionEvent(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -883,7 +880,7 @@ bool android_widget_HorizontalScrollView::dispatchKeyEvent(AndroidCXX::android_v
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -948,7 +945,7 @@ void android_widget_HorizontalScrollView::requestChildFocus(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/View;)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1014,7 +1011,7 @@ bool android_widget_HorizontalScrollView::requestChildRectangleOnScreen(AndroidC
 	const char *methodSignature = "(Landroid/view/View;Landroid/graphics/Rect;Z)Z";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1121,7 +1118,7 @@ void android_widget_HorizontalScrollView::requestDisallowInterceptTouchEvent(boo
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1166,7 +1163,7 @@ bool android_widget_HorizontalScrollView::onInterceptTouchEvent(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1231,7 +1228,7 @@ bool android_widget_HorizontalScrollView::shouldDelayChildPressedState()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1275,7 +1272,7 @@ void android_widget_HorizontalScrollView::requestLayout()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1299,7 +1296,7 @@ void android_widget_HorizontalScrollView::onInitializeAccessibilityEvent(Android
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1344,7 +1341,7 @@ void android_widget_HorizontalScrollView::onInitializeAccessibilityNodeInfo(Andr
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1389,7 +1386,7 @@ bool android_widget_HorizontalScrollView::performAccessibilityAction(int const& 
 	const char *methodSignature = "(ILandroid/os/Bundle;)Z";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1475,7 +1472,7 @@ void android_widget_HorizontalScrollView::scrollTo(int const& arg0,int const& ar
 	const char *methodSignature = "(II)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1541,7 +1538,7 @@ void android_widget_HorizontalScrollView::computeScroll()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1565,7 +1562,7 @@ void android_widget_HorizontalScrollView::draw(AndroidCXX::android_graphics_Canv
 	const char *methodSignature = "(Landroid/graphics/Canvas;)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1610,7 +1607,7 @@ void android_widget_HorizontalScrollView::setOverScrollMode(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1655,7 +1652,7 @@ void android_widget_HorizontalScrollView::smoothScrollBy(int const& arg0,int con
 	const char *methodSignature = "(II)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1721,7 +1718,7 @@ int android_widget_HorizontalScrollView::getMaxScrollAmount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1765,7 +1762,7 @@ void android_widget_HorizontalScrollView::fling(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1810,7 +1807,7 @@ bool android_widget_HorizontalScrollView::isFillViewport()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1854,7 +1851,7 @@ void android_widget_HorizontalScrollView::setFillViewport(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1899,7 +1896,7 @@ bool android_widget_HorizontalScrollView::isSmoothScrollingEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1943,7 +1940,7 @@ void android_widget_HorizontalScrollView::setSmoothScrollingEnabled(bool const& 
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1988,7 +1985,7 @@ bool android_widget_HorizontalScrollView::executeKeyEvent(AndroidCXX::android_vi
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2053,7 +2050,7 @@ bool android_widget_HorizontalScrollView::pageScroll(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2118,7 +2115,7 @@ bool android_widget_HorizontalScrollView::fullScroll(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2183,7 +2180,7 @@ bool android_widget_HorizontalScrollView::arrowScroll(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2248,7 +2245,7 @@ void android_widget_HorizontalScrollView::smoothScrollTo(int const& arg0,int con
 	const char *methodSignature = "(II)V";
 	const char *className = "android/widget/HorizontalScrollView";
 
-	LOGV("android_widget_HorizontalScrollView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HorizontalScrollView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -64,11 +64,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_support_v4_app_FragmentActivity"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -221,7 +218,7 @@ android_support_v4_app_FragmentActivity::android_support_v4_app_FragmentActivity
 	const char *methodSignature = "()V";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -272,7 +269,7 @@ void android_support_v4_app_FragmentActivity::dump(AndroidCXX::java_lang_String 
 	const char *methodSignature = "(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -398,7 +395,7 @@ void android_support_v4_app_FragmentActivity::startActivityForResult(AndroidCXX:
 	const char *methodSignature = "(Landroid/content/Intent;I)V";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -464,7 +461,7 @@ AndroidCXX::android_view_View android_support_v4_app_FragmentActivity::onCreateV
 	const char *methodSignature = "(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -571,7 +568,7 @@ void android_support_v4_app_FragmentActivity::onConfigurationChanged(AndroidCXX:
 	const char *methodSignature = "(Landroid/content/res/Configuration;)V";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -616,7 +613,7 @@ void android_support_v4_app_FragmentActivity::onLowMemory()
 	const char *methodSignature = "()V";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -640,7 +637,7 @@ void android_support_v4_app_FragmentActivity::supportInvalidateOptionsMenu()
 	const char *methodSignature = "()V";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -664,7 +661,7 @@ void android_support_v4_app_FragmentActivity::startActivityFromFragment(AndroidC
 	const char *methodSignature = "(Landroid/support/v4/app/Fragment;Landroid/content/Intent;I)V";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -751,7 +748,7 @@ void android_support_v4_app_FragmentActivity::onAttachFragment(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/support/v4/app/Fragment;)V";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -796,7 +793,7 @@ void android_support_v4_app_FragmentActivity::onBackPressed()
 	const char *methodSignature = "()V";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -820,7 +817,7 @@ bool android_support_v4_app_FragmentActivity::onCreatePanelMenu(int const& arg0,
 	const char *methodSignature = "(ILandroid/view/Menu;)Z";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -906,7 +903,7 @@ bool android_support_v4_app_FragmentActivity::onKeyDown(int const& arg0,AndroidC
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -992,7 +989,7 @@ bool android_support_v4_app_FragmentActivity::onMenuItemSelected(int const& arg0
 	const char *methodSignature = "(ILandroid/view/MenuItem;)Z";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1078,7 +1075,7 @@ void android_support_v4_app_FragmentActivity::onPanelClosed(int const& arg0,Andr
 	const char *methodSignature = "(ILandroid/view/Menu;)V";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1144,7 +1141,7 @@ bool android_support_v4_app_FragmentActivity::onPreparePanel(int const& arg0,And
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/Menu;)Z";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1251,7 +1248,7 @@ AndroidCXX::java_lang_Object android_support_v4_app_FragmentActivity::onRetainNo
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1295,7 +1292,7 @@ AndroidCXX::java_lang_Object android_support_v4_app_FragmentActivity::onRetainCu
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1339,7 +1336,7 @@ AndroidCXX::java_lang_Object android_support_v4_app_FragmentActivity::getLastCus
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1383,7 +1380,7 @@ AndroidCXX::android_support_v4_app_FragmentManager android_support_v4_app_Fragme
 	const char *methodSignature = "()Landroid/support/v4/app/FragmentManager;";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1427,7 +1424,7 @@ AndroidCXX::android_support_v4_app_LoaderManager android_support_v4_app_Fragment
 	const char *methodSignature = "()Landroid/support/v4/app/LoaderManager;";
 	const char *className = "android/support/v4/app/FragmentActivity";
 
-	LOGV("android_support_v4_app_FragmentActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_support_v4_app_FragmentActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

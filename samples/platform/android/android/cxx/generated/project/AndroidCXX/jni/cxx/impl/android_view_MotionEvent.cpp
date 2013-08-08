@@ -122,11 +122,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_MotionEvent"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -276,7 +273,7 @@ AndroidCXX::java_lang_String android_view_MotionEvent::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -320,7 +317,7 @@ void android_view_MotionEvent::transform(AndroidCXX::android_graphics_Matrix con
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -365,7 +362,7 @@ float android_view_MotionEvent::getSize(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -430,7 +427,7 @@ float android_view_MotionEvent::getSize()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -474,7 +471,7 @@ float android_view_MotionEvent::getY()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -518,7 +515,7 @@ float android_view_MotionEvent::getY(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -583,7 +580,7 @@ float android_view_MotionEvent::getX()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -627,7 +624,7 @@ float android_view_MotionEvent::getX(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -692,7 +689,7 @@ void android_view_MotionEvent::writeToParcel(AndroidCXX::android_os_Parcel const
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -758,7 +755,7 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long const
 	const char *methodSignature = "(JJIFFFFIFFII)Landroid/view/MotionEvent;";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1054,7 +1051,7 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long const
 	const char *methodSignature = "(JJII[I[Landroid/view/MotionEvent$PointerCoords;IFFIIII)Landroid/view/MotionEvent;";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1407,7 +1404,7 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long const
 	const char *methodSignature = "(JJII[Landroid/view/MotionEvent$PointerProperties;[Landroid/view/MotionEvent$PointerCoords;IIFFIIII)Landroid/view/MotionEvent;";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1781,7 +1778,7 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(AndroidCXX
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1846,7 +1843,7 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long const
 	const char *methodSignature = "(JJIFFI)Landroid/view/MotionEvent;";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2016,7 +2013,7 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtain(long const
 	const char *methodSignature = "(JJIIFFFFIFFII)Landroid/view/MotionEvent;";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2333,7 +2330,7 @@ void android_view_MotionEvent::recycle()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2357,7 +2354,7 @@ int android_view_MotionEvent::getAction()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2401,7 +2398,7 @@ int android_view_MotionEvent::getFlags()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2445,7 +2442,7 @@ void android_view_MotionEvent::setAction(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2490,7 +2487,7 @@ float android_view_MotionEvent::getOrientation(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2555,7 +2552,7 @@ float android_view_MotionEvent::getOrientation()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2599,7 +2596,7 @@ int android_view_MotionEvent::getDeviceId()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2643,7 +2640,7 @@ int android_view_MotionEvent::getSource()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2687,7 +2684,7 @@ void android_view_MotionEvent::setSource(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2732,7 +2729,7 @@ int android_view_MotionEvent::getMetaState()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2776,7 +2773,7 @@ long android_view_MotionEvent::getDownTime()
 	const char *methodSignature = "()J";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2820,7 +2817,7 @@ long android_view_MotionEvent::getEventTime()
 	const char *methodSignature = "()J";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2864,7 +2861,7 @@ AndroidCXX::android_view_MotionEvent android_view_MotionEvent::obtainNoHistory(A
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2929,7 +2926,7 @@ int android_view_MotionEvent::getActionMasked()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2973,7 +2970,7 @@ int android_view_MotionEvent::getActionIndex()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3017,7 +3014,7 @@ float android_view_MotionEvent::getPressure()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3061,7 +3058,7 @@ float android_view_MotionEvent::getPressure(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3126,7 +3123,7 @@ float android_view_MotionEvent::getTouchMajor()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3170,7 +3167,7 @@ float android_view_MotionEvent::getTouchMajor(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3235,7 +3232,7 @@ float android_view_MotionEvent::getTouchMinor()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3279,7 +3276,7 @@ float android_view_MotionEvent::getTouchMinor(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3344,7 +3341,7 @@ float android_view_MotionEvent::getToolMajor(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3409,7 +3406,7 @@ float android_view_MotionEvent::getToolMajor()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3453,7 +3450,7 @@ float android_view_MotionEvent::getToolMinor()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3497,7 +3494,7 @@ float android_view_MotionEvent::getToolMinor(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3562,7 +3559,7 @@ float android_view_MotionEvent::getAxisValue(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3648,7 +3645,7 @@ float android_view_MotionEvent::getAxisValue(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3713,7 +3710,7 @@ int android_view_MotionEvent::getPointerCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3757,7 +3754,7 @@ int android_view_MotionEvent::getPointerId(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3822,7 +3819,7 @@ int android_view_MotionEvent::getToolType(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3887,7 +3884,7 @@ int android_view_MotionEvent::findPointerIndex(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3952,7 +3949,7 @@ void android_view_MotionEvent::getPointerCoords(int const& arg0,AndroidCXX::andr
 	const char *methodSignature = "(ILandroid/view/MotionEvent$PointerCoords;)V";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4018,7 +4015,7 @@ void android_view_MotionEvent::getPointerProperties(int const& arg0,AndroidCXX::
 	const char *methodSignature = "(ILandroid/view/MotionEvent$PointerProperties;)V";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4084,7 +4081,7 @@ int android_view_MotionEvent::getButtonState()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4128,7 +4125,7 @@ float android_view_MotionEvent::getRawX()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4172,7 +4169,7 @@ float android_view_MotionEvent::getRawY()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4216,7 +4213,7 @@ float android_view_MotionEvent::getXPrecision()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4260,7 +4257,7 @@ float android_view_MotionEvent::getYPrecision()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4304,7 +4301,7 @@ int android_view_MotionEvent::getHistorySize()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4348,7 +4345,7 @@ long android_view_MotionEvent::getHistoricalEventTime(int const& arg0)
 	const char *methodSignature = "(I)J";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4413,7 +4410,7 @@ float android_view_MotionEvent::getHistoricalX(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4478,7 +4475,7 @@ float android_view_MotionEvent::getHistoricalX(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4564,7 +4561,7 @@ float android_view_MotionEvent::getHistoricalY(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4629,7 +4626,7 @@ float android_view_MotionEvent::getHistoricalY(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4715,7 +4712,7 @@ float android_view_MotionEvent::getHistoricalPressure(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4780,7 +4777,7 @@ float android_view_MotionEvent::getHistoricalPressure(int const& arg0,int const&
 	const char *methodSignature = "(II)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4866,7 +4863,7 @@ float android_view_MotionEvent::getHistoricalSize(int const& arg0,int const& arg
 	const char *methodSignature = "(II)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4952,7 +4949,7 @@ float android_view_MotionEvent::getHistoricalSize(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5017,7 +5014,7 @@ float android_view_MotionEvent::getHistoricalTouchMajor(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5082,7 +5079,7 @@ float android_view_MotionEvent::getHistoricalTouchMajor(int const& arg0,int cons
 	const char *methodSignature = "(II)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5168,7 +5165,7 @@ float android_view_MotionEvent::getHistoricalTouchMinor(int const& arg0,int cons
 	const char *methodSignature = "(II)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5254,7 +5251,7 @@ float android_view_MotionEvent::getHistoricalTouchMinor(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5319,7 +5316,7 @@ float android_view_MotionEvent::getHistoricalToolMajor(int const& arg0,int const
 	const char *methodSignature = "(II)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5405,7 +5402,7 @@ float android_view_MotionEvent::getHistoricalToolMajor(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5470,7 +5467,7 @@ float android_view_MotionEvent::getHistoricalToolMinor(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5535,7 +5532,7 @@ float android_view_MotionEvent::getHistoricalToolMinor(int const& arg0,int const
 	const char *methodSignature = "(II)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5621,7 +5618,7 @@ float android_view_MotionEvent::getHistoricalOrientation(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5686,7 +5683,7 @@ float android_view_MotionEvent::getHistoricalOrientation(int const& arg0,int con
 	const char *methodSignature = "(II)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5772,7 +5769,7 @@ float android_view_MotionEvent::getHistoricalAxisValue(int const& arg0,int const
 	const char *methodSignature = "(II)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5858,7 +5855,7 @@ float android_view_MotionEvent::getHistoricalAxisValue(int const& arg0,int const
 	const char *methodSignature = "(III)F";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5965,7 +5962,7 @@ void android_view_MotionEvent::getHistoricalPointerCoords(int const& arg0,int co
 	const char *methodSignature = "(IILandroid/view/MotionEvent$PointerCoords;)V";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6052,7 +6049,7 @@ int android_view_MotionEvent::getEdgeFlags()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6096,7 +6093,7 @@ void android_view_MotionEvent::setEdgeFlags(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6141,7 +6138,7 @@ void android_view_MotionEvent::offsetLocation(float const& arg0,float const& arg
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6207,7 +6204,7 @@ void android_view_MotionEvent::setLocation(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6273,7 +6270,7 @@ void android_view_MotionEvent::addBatch(long const& arg0,std::vector<AndroidCXX:
 	const char *methodSignature = "(J[Landroid/view/MotionEvent$PointerCoords;I)V";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6378,7 +6375,7 @@ void android_view_MotionEvent::addBatch(long const& arg0,float const& arg1,float
 	const char *methodSignature = "(JFFFFI)V";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6528,7 +6525,7 @@ AndroidCXX::java_lang_String android_view_MotionEvent::axisToString(int const& a
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6593,7 +6590,7 @@ int android_view_MotionEvent::axisFromString(AndroidCXX::java_lang_String const&
 	const char *methodSignature = "(Ljava/lang/String;)I";
 	const char *className = "android/view/MotionEvent";
 
-	LOGV("android_view_MotionEvent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MotionEvent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

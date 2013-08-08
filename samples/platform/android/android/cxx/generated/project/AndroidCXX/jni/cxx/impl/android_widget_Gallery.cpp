@@ -69,11 +69,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Gallery"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -226,7 +223,7 @@ android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Conte
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -304,7 +301,7 @@ android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Conte
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -403,7 +400,7 @@ android_widget_Gallery::android_widget_Gallery(AndroidCXX::android_content_Conte
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -475,7 +472,7 @@ bool android_widget_Gallery::onKeyDown(int const& arg0,AndroidCXX::android_view_
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -561,7 +558,7 @@ bool android_widget_Gallery::onKeyUp(int const& arg0,AndroidCXX::android_view_Ke
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -647,7 +644,7 @@ bool android_widget_Gallery::onTouchEvent(AndroidCXX::android_view_MotionEvent c
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -712,7 +709,7 @@ bool android_widget_Gallery::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent 
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -777,7 +774,7 @@ bool android_widget_Gallery::showContextMenuForChild(AndroidCXX::android_view_Vi
 	const char *methodSignature = "(Landroid/view/View;)Z";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -842,7 +839,7 @@ void android_widget_Gallery::dispatchSetSelected(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -887,7 +884,7 @@ AndroidCXX::android_view_ViewGroup_LayoutParams android_widget_Gallery::generate
 	const char *methodSignature = "(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -952,7 +949,7 @@ bool android_widget_Gallery::showContextMenu()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -996,7 +993,7 @@ void android_widget_Gallery::onInitializeAccessibilityEvent(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1041,7 +1038,7 @@ void android_widget_Gallery::onInitializeAccessibilityNodeInfo(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1086,7 +1083,7 @@ bool android_widget_Gallery::performAccessibilityAction(int const& arg0,AndroidC
 	const char *methodSignature = "(ILandroid/os/Bundle;)Z";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1172,7 +1169,7 @@ void android_widget_Gallery::setGravity(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1217,7 +1214,7 @@ bool android_widget_Gallery::onScroll(AndroidCXX::android_view_MotionEvent const
 	const char *methodSignature = "(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1345,7 +1342,7 @@ void android_widget_Gallery::setCallbackDuringFling(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1390,7 +1387,7 @@ void android_widget_Gallery::setAnimationDuration(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1435,7 +1432,7 @@ void android_widget_Gallery::setSpacing(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1480,7 +1477,7 @@ void android_widget_Gallery::setUnselectedAlpha(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1525,7 +1522,7 @@ bool android_widget_Gallery::onSingleTapUp(AndroidCXX::android_view_MotionEvent 
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1590,7 +1587,7 @@ bool android_widget_Gallery::onFling(AndroidCXX::android_view_MotionEvent const&
 	const char *methodSignature = "(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1718,7 +1715,7 @@ bool android_widget_Gallery::onDown(AndroidCXX::android_view_MotionEvent const& 
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1783,7 +1780,7 @@ void android_widget_Gallery::onLongPress(AndroidCXX::android_view_MotionEvent co
 	const char *methodSignature = "(Landroid/view/MotionEvent;)V";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1828,7 +1825,7 @@ void android_widget_Gallery::onShowPress(AndroidCXX::android_view_MotionEvent co
 	const char *methodSignature = "(Landroid/view/MotionEvent;)V";
 	const char *className = "android/widget/Gallery";
 
-	LOGV("android_widget_Gallery className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Gallery className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

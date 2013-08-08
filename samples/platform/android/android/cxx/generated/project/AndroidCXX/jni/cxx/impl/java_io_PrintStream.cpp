@@ -88,11 +88,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_io_PrintStream"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -263,7 +260,7 @@ java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream const&
 	const char *methodSignature = "(Ljava/io/OutputStream;Z)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -341,7 +338,7 @@ java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream const&
 	const char *methodSignature = "(Ljava/io/OutputStream;ZLjava/lang/String;)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -440,7 +437,7 @@ java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String const& arg
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -497,7 +494,7 @@ java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_lang_String const& arg
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -575,7 +572,7 @@ java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File const& arg0)
 	const char *methodSignature = "(Ljava/io/File;)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -632,7 +629,7 @@ java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_File const& arg0,An
 	const char *methodSignature = "(Ljava/io/File;Ljava/lang/String;)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -710,7 +707,7 @@ java_io_PrintStream::java_io_PrintStream(AndroidCXX::java_io_OutputStream const&
 	const char *methodSignature = "(Ljava/io/OutputStream;)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -782,7 +779,7 @@ void java_io_PrintStream::println(char const& arg0)
 	const char *methodSignature = "(C)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -827,7 +824,7 @@ void java_io_PrintStream::println()
 	const char *methodSignature = "()V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -851,7 +848,7 @@ void java_io_PrintStream::println(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -896,7 +893,7 @@ void java_io_PrintStream::println(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -941,7 +938,7 @@ void java_io_PrintStream::println(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -986,7 +983,7 @@ void java_io_PrintStream::println(std::vector<char> const& arg0)
 	const char *methodSignature = "([C)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1049,7 +1046,7 @@ void java_io_PrintStream::println(double const& arg0)
 	const char *methodSignature = "(D)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1094,7 +1091,7 @@ void java_io_PrintStream::println(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1139,7 +1136,7 @@ void java_io_PrintStream::println(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1184,7 +1181,7 @@ void java_io_PrintStream::println(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1229,7 +1226,7 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Ljava/io/PrintStream;";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1294,7 +1291,7 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::append(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/CharSequence;II)Ljava/io/PrintStream;";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1401,7 +1398,7 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::append(char const& arg0)
 	const char *methodSignature = "(C)Ljava/io/PrintStream;";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1466,7 +1463,7 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_uti
 	const char *methodSignature = "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1591,7 +1588,7 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::format(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1695,7 +1692,7 @@ void java_io_PrintStream::write(std::vector<byte> const& arg0,int const& arg1,in
 	const char *methodSignature = "([BII)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1800,7 +1797,7 @@ void java_io_PrintStream::write(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1845,7 +1842,7 @@ void java_io_PrintStream::print(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1890,7 +1887,7 @@ void java_io_PrintStream::print(double const& arg0)
 	const char *methodSignature = "(D)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1935,7 +1932,7 @@ void java_io_PrintStream::print(std::vector<char> const& arg0)
 	const char *methodSignature = "([C)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1998,7 +1995,7 @@ void java_io_PrintStream::print(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2043,7 +2040,7 @@ void java_io_PrintStream::print(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2088,7 +2085,7 @@ void java_io_PrintStream::print(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2133,7 +2130,7 @@ void java_io_PrintStream::print(char const& arg0)
 	const char *methodSignature = "(C)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2178,7 +2175,7 @@ void java_io_PrintStream::print(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2223,7 +2220,7 @@ void java_io_PrintStream::print(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2268,7 +2265,7 @@ void java_io_PrintStream::flush()
 	const char *methodSignature = "()V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2292,7 +2289,7 @@ void java_io_PrintStream::close()
 	const char *methodSignature = "()V";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2316,7 +2313,7 @@ bool java_io_PrintStream::checkError()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2360,7 +2357,7 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2464,7 +2461,7 @@ AndroidCXX::java_io_PrintStream java_io_PrintStream::printf(AndroidCXX::java_uti
 	const char *methodSignature = "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;";
 	const char *className = "java/io/PrintStream";
 
-	LOGV("java_io_PrintStream className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_PrintStream className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -44,11 +44,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_StackView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -165,7 +162,7 @@ android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/StackView";
 
-	LOGV("android_widget_StackView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_StackView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -243,7 +240,7 @@ android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/StackView";
 
-	LOGV("android_widget_StackView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_StackView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -342,7 +339,7 @@ android_widget_StackView::android_widget_StackView(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/StackView";
 
-	LOGV("android_widget_StackView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_StackView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -414,7 +411,7 @@ void android_widget_StackView::advance()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/StackView";
 
-	LOGV("android_widget_StackView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_StackView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -438,7 +435,7 @@ bool android_widget_StackView::onTouchEvent(AndroidCXX::android_view_MotionEvent
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/StackView";
 
-	LOGV("android_widget_StackView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_StackView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -503,7 +500,7 @@ bool android_widget_StackView::onGenericMotionEvent(AndroidCXX::android_view_Mot
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/StackView";
 
-	LOGV("android_widget_StackView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_StackView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -568,7 +565,7 @@ bool android_widget_StackView::onInterceptTouchEvent(AndroidCXX::android_view_Mo
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/StackView";
 
-	LOGV("android_widget_StackView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_StackView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -633,7 +630,7 @@ void android_widget_StackView::onInitializeAccessibilityEvent(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/StackView";
 
-	LOGV("android_widget_StackView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_StackView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -678,7 +675,7 @@ void android_widget_StackView::onInitializeAccessibilityNodeInfo(AndroidCXX::and
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/StackView";
 
-	LOGV("android_widget_StackView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_StackView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -723,7 +720,7 @@ bool android_widget_StackView::performAccessibilityAction(int const& arg0,Androi
 	const char *methodSignature = "(ILandroid/os/Bundle;)Z";
 	const char *className = "android/widget/StackView";
 
-	LOGV("android_widget_StackView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_StackView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -809,7 +806,7 @@ void android_widget_StackView::showNext()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/StackView";
 
-	LOGV("android_widget_StackView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_StackView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -833,7 +830,7 @@ void android_widget_StackView::showPrevious()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/StackView";
 
-	LOGV("android_widget_StackView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_StackView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

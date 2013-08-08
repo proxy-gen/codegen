@@ -131,7 +131,7 @@ void com_facebook_widget_PickerFragment_OnErrorListener::onError(FacebookCXX::co
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment;Lcom/facebook/FacebookException;)V";
 	const char *className = "com/facebook/widget/PickerFragment$OnErrorListener";
 
-	LOGV("com_facebook_widget_PickerFragment_OnErrorListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_OnErrorListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

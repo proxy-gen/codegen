@@ -206,11 +206,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_database_sqlite_SQLiteDatabase"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -669,7 +666,7 @@ AndroidCXX::java_lang_String android_database_sqlite_SQLiteDatabase::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -713,7 +710,7 @@ long android_database_sqlite_SQLiteDatabase::replace(AndroidCXX::java_lang_Strin
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -820,7 +817,7 @@ int android_database_sqlite_SQLiteDatabase::_delete(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -945,7 +942,7 @@ long android_database_sqlite_SQLiteDatabase::insert(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1052,7 +1049,7 @@ bool android_database_sqlite_SQLiteDatabase::isReadOnly()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1096,7 +1093,7 @@ AndroidCXX::java_lang_String android_database_sqlite_SQLiteDatabase::getPath()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1140,7 +1137,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 	const char *methodSignature = "(ZLjava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1409,7 +1406,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1657,7 +1654,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1884,7 +1881,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 	const char *methodSignature = "(ZLjava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2174,7 +2171,7 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteDatabase$CursorFactory;)Landroid/database/sqlite/SQLiteDatabase;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2239,7 +2236,7 @@ bool android_database_sqlite_SQLiteDatabase::isOpen()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2283,7 +2280,7 @@ int android_database_sqlite_SQLiteDatabase::update(AndroidCXX::java_lang_String 
 	const char *methodSignature = "(Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2429,7 +2426,7 @@ int android_database_sqlite_SQLiteDatabase::getVersion()
 	const char *methodSignature = "()I";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2473,7 +2470,7 @@ void android_database_sqlite_SQLiteDatabase::setVersion(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2518,7 +2515,7 @@ void android_database_sqlite_SQLiteDatabase::setLocale(AndroidCXX::java_util_Loc
 	const char *methodSignature = "(Ljava/util/Locale;)V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2563,7 +2560,7 @@ void android_database_sqlite_SQLiteDatabase::beginTransaction()
 	const char *methodSignature = "()V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2587,7 +2584,7 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 	const char *methodSignature = "(Ljava/io/File;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;)Landroid/database/sqlite/SQLiteDatabase;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2673,7 +2670,7 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 	const char *methodSignature = "(Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;)Landroid/database/sqlite/SQLiteDatabase;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2759,7 +2756,7 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 	const char *methodSignature = "(Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;Landroid/database/DatabaseErrorHandler;)Landroid/database/sqlite/SQLiteDatabase;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2866,7 +2863,7 @@ bool android_database_sqlite_SQLiteDatabase::deleteDatabase(AndroidCXX::java_io_
 	const char *methodSignature = "(Ljava/io/File;)Z";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2931,7 +2928,7 @@ int android_database_sqlite_SQLiteDatabase::releaseMemory()
 	const char *methodSignature = "()I";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2975,7 +2972,7 @@ void android_database_sqlite_SQLiteDatabase::setLockingEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3020,7 +3017,7 @@ void android_database_sqlite_SQLiteDatabase::beginTransactionNonExclusive()
 	const char *methodSignature = "()V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3044,7 +3041,7 @@ void android_database_sqlite_SQLiteDatabase::beginTransactionWithListener(Androi
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteTransactionListener;)V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3089,7 +3086,7 @@ void android_database_sqlite_SQLiteDatabase::beginTransactionWithListenerNonExcl
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteTransactionListener;)V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3134,7 +3131,7 @@ void android_database_sqlite_SQLiteDatabase::endTransaction()
 	const char *methodSignature = "()V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3158,7 +3155,7 @@ void android_database_sqlite_SQLiteDatabase::setTransactionSuccessful()
 	const char *methodSignature = "()V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3182,7 +3179,7 @@ bool android_database_sqlite_SQLiteDatabase::inTransaction()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3226,7 +3223,7 @@ bool android_database_sqlite_SQLiteDatabase::isDbLockedByCurrentThread()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3270,7 +3267,7 @@ bool android_database_sqlite_SQLiteDatabase::isDbLockedByOtherThreads()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3314,7 +3311,7 @@ bool android_database_sqlite_SQLiteDatabase::yieldIfContended()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3358,7 +3355,7 @@ bool android_database_sqlite_SQLiteDatabase::yieldIfContendedSafely(long const& 
 	const char *methodSignature = "(J)Z";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3423,7 +3420,7 @@ bool android_database_sqlite_SQLiteDatabase::yieldIfContendedSafely()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3467,7 +3464,7 @@ AndroidCXX::java_util_Map android_database_sqlite_SQLiteDatabase::getSyncedTable
 	const char *methodSignature = "()Ljava/util/Map;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3544,7 +3541,7 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 	const char *methodSignature = "(Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ILandroid/database/DatabaseErrorHandler;)Landroid/database/sqlite/SQLiteDatabase;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3672,7 +3669,7 @@ AndroidCXX::android_database_sqlite_SQLiteDatabase android_database_sqlite_SQLit
 	const char *methodSignature = "(Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;I)Landroid/database/sqlite/SQLiteDatabase;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3779,7 +3776,7 @@ long android_database_sqlite_SQLiteDatabase::getMaximumSize()
 	const char *methodSignature = "()J";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3823,7 +3820,7 @@ long android_database_sqlite_SQLiteDatabase::setMaximumSize(long const& arg0)
 	const char *methodSignature = "(J)J";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3888,7 +3885,7 @@ long android_database_sqlite_SQLiteDatabase::getPageSize()
 	const char *methodSignature = "()J";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3932,7 +3929,7 @@ void android_database_sqlite_SQLiteDatabase::setPageSize(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3977,7 +3974,7 @@ void android_database_sqlite_SQLiteDatabase::markTableSyncable(AndroidCXX::java_
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4043,7 +4040,7 @@ void android_database_sqlite_SQLiteDatabase::markTableSyncable(AndroidCXX::java_
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4130,7 +4127,7 @@ AndroidCXX::java_lang_String android_database_sqlite_SQLiteDatabase::findEditTab
 	const char *methodSignature = "(Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4195,7 +4192,7 @@ AndroidCXX::android_database_sqlite_SQLiteStatement android_database_sqlite_SQLi
 	const char *methodSignature = "(Ljava/lang/String;)Landroid/database/sqlite/SQLiteStatement;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4260,7 +4257,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ZLjava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4571,7 +4568,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::quer
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ZLjava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4861,7 +4858,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4986,7 +4983,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5090,7 +5087,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteDatabase$CursorFactory;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5236,7 +5233,7 @@ AndroidCXX::android_database_Cursor android_database_sqlite_SQLiteDatabase::rawQ
 	const char *methodSignature = "(Landroid/database/sqlite/SQLiteDatabase$CursorFactory;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5403,7 +5400,7 @@ long android_database_sqlite_SQLiteDatabase::insertOrThrow(AndroidCXX::java_lang
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5510,7 +5507,7 @@ long android_database_sqlite_SQLiteDatabase::replaceOrThrow(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5617,7 +5614,7 @@ long android_database_sqlite_SQLiteDatabase::insertWithOnConflict(AndroidCXX::ja
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;I)J";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5745,7 +5742,7 @@ int android_database_sqlite_SQLiteDatabase::updateWithOnConflict(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;I)I";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5912,7 +5909,7 @@ void android_database_sqlite_SQLiteDatabase::execSQL(AndroidCXX::java_lang_Strin
 	const char *methodSignature = "(Ljava/lang/String;[Ljava/lang/Object;)V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5996,7 +5993,7 @@ void android_database_sqlite_SQLiteDatabase::execSQL(AndroidCXX::java_lang_Strin
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6041,7 +6038,7 @@ bool android_database_sqlite_SQLiteDatabase::needUpgrade(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6106,7 +6103,7 @@ void android_database_sqlite_SQLiteDatabase::setMaxSqlCacheSize(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6151,7 +6148,7 @@ void android_database_sqlite_SQLiteDatabase::setForeignKeyConstraintsEnabled(boo
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6196,7 +6193,7 @@ bool android_database_sqlite_SQLiteDatabase::enableWriteAheadLogging()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6240,7 +6237,7 @@ void android_database_sqlite_SQLiteDatabase::disableWriteAheadLogging()
 	const char *methodSignature = "()V";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6264,7 +6261,7 @@ bool android_database_sqlite_SQLiteDatabase::isWriteAheadLoggingEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6308,7 +6305,7 @@ AndroidCXX::java_util_List android_database_sqlite_SQLiteDatabase::getAttachedDb
 	const char *methodSignature = "()Ljava/util/List;";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -6403,7 +6400,7 @@ bool android_database_sqlite_SQLiteDatabase::isDatabaseIntegrityOk()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/sqlite/SQLiteDatabase";
 
-	LOGV("android_database_sqlite_SQLiteDatabase className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteDatabase className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

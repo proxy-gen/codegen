@@ -35,11 +35,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_security_cert_CertPath"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -156,7 +153,7 @@ bool java_security_cert_CertPath::equals(AndroidCXX::java_lang_Object const& arg
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/security/cert/CertPath";
 
-	LOGV("java_security_cert_CertPath className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_cert_CertPath className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -221,7 +218,7 @@ AndroidCXX::java_lang_String java_security_cert_CertPath::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/cert/CertPath";
 
-	LOGV("java_security_cert_CertPath className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_cert_CertPath className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -265,7 +262,7 @@ int java_security_cert_CertPath::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/security/cert/CertPath";
 
-	LOGV("java_security_cert_CertPath className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_cert_CertPath className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -309,7 +306,7 @@ AndroidCXX::java_util_List java_security_cert_CertPath::getCertificates()
 	const char *methodSignature = "()Ljava/util/List;";
 	const char *className = "java/security/cert/CertPath";
 
-	LOGV("java_security_cert_CertPath className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_cert_CertPath className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -371,7 +368,7 @@ AndroidCXX::java_lang_String java_security_cert_CertPath::getType()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/cert/CertPath";
 
-	LOGV("java_security_cert_CertPath className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_cert_CertPath className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -415,7 +412,7 @@ std::vector<byte> java_security_cert_CertPath::getEncoded()
 	const char *methodSignature = "()[B";
 	const char *className = "java/security/cert/CertPath";
 
-	LOGV("java_security_cert_CertPath className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_cert_CertPath className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -477,7 +474,7 @@ std::vector<byte> java_security_cert_CertPath::getEncoded(AndroidCXX::java_lang_
 	const char *methodSignature = "(Ljava/lang/String;)[B";
 	const char *className = "java/security/cert/CertPath";
 
-	LOGV("java_security_cert_CertPath className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_cert_CertPath className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -560,7 +557,7 @@ AndroidCXX::java_util_Iterator java_security_cert_CertPath::getEncodings()
 	const char *methodSignature = "()Ljava/util/Iterator;";
 	const char *className = "java/security/cert/CertPath";
 
-	LOGV("java_security_cert_CertPath className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_cert_CertPath className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

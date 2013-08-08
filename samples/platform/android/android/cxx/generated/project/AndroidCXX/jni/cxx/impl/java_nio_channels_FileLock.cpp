@@ -31,11 +31,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_nio_channels_FileLock"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -140,7 +137,7 @@ AndroidCXX::java_lang_String java_nio_channels_FileLock::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/nio/channels/FileLock";
 
-	LOGV("java_nio_channels_FileLock className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileLock className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -184,7 +181,7 @@ long java_nio_channels_FileLock::size()
 	const char *methodSignature = "()J";
 	const char *className = "java/nio/channels/FileLock";
 
-	LOGV("java_nio_channels_FileLock className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileLock className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -228,7 +225,7 @@ long java_nio_channels_FileLock::position()
 	const char *methodSignature = "()J";
 	const char *className = "java/nio/channels/FileLock";
 
-	LOGV("java_nio_channels_FileLock className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileLock className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -272,7 +269,7 @@ void java_nio_channels_FileLock::release()
 	const char *methodSignature = "()V";
 	const char *className = "java/nio/channels/FileLock";
 
-	LOGV("java_nio_channels_FileLock className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileLock className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -296,7 +293,7 @@ AndroidCXX::java_nio_channels_FileChannel java_nio_channels_FileLock::channel()
 	const char *methodSignature = "()Ljava/nio/channels/FileChannel;";
 	const char *className = "java/nio/channels/FileLock";
 
-	LOGV("java_nio_channels_FileLock className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileLock className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -340,7 +337,7 @@ bool java_nio_channels_FileLock::isShared()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/channels/FileLock";
 
-	LOGV("java_nio_channels_FileLock className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileLock className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -384,7 +381,7 @@ bool java_nio_channels_FileLock::isValid()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/channels/FileLock";
 
-	LOGV("java_nio_channels_FileLock className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileLock className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -428,7 +425,7 @@ bool java_nio_channels_FileLock::overlaps(long const& arg0,long const& arg1)
 	const char *methodSignature = "(JJ)Z";
 	const char *className = "java/nio/channels/FileLock";
 
-	LOGV("java_nio_channels_FileLock className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_channels_FileLock className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -139,7 +139,7 @@ void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::onTextChanged(An
 	const char *methodSignature = "(Ljava/lang/CharSequence;III)V";
 	const char *className = "com/facebook/widget/PlacePickerFragment$SearchTextWatcher";
 
-	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -247,7 +247,7 @@ void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::beforeTextChange
 	const char *methodSignature = "(Ljava/lang/CharSequence;III)V";
 	const char *className = "com/facebook/widget/PlacePickerFragment$SearchTextWatcher";
 
-	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -355,7 +355,7 @@ void com_facebook_widget_PlacePickerFragment_SearchTextWatcher::afterTextChanged
 	const char *methodSignature = "(Landroid/text/Editable;)V";
 	const char *className = "com/facebook/widget/PlacePickerFragment$SearchTextWatcher";
 
-	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PlacePickerFragment_SearchTextWatcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

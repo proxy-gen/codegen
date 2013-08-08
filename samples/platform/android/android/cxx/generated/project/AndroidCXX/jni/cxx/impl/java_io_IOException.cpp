@@ -29,11 +29,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_io_IOException"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -129,7 +126,7 @@ java_io_IOException::java_io_IOException()
 	const char *methodSignature = "()V";
 	const char *className = "java/io/IOException";
 
-	LOGV("java_io_IOException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_IOException className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -165,7 +162,7 @@ java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String const& arg
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/io/IOException";
 
-	LOGV("java_io_IOException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_IOException className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -222,7 +219,7 @@ java_io_IOException::java_io_IOException(AndroidCXX::java_lang_String const& arg
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Throwable;)V";
 	const char *className = "java/io/IOException";
 
-	LOGV("java_io_IOException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_IOException className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -300,7 +297,7 @@ java_io_IOException::java_io_IOException(AndroidCXX::java_lang_Throwable const& 
 	const char *methodSignature = "(Ljava/lang/Throwable;)V";
 	const char *className = "java/io/IOException";
 
-	LOGV("java_io_IOException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_IOException className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -134,7 +134,7 @@ void com_facebook_Session_StartActivityDelegate::startActivityForResult(AndroidC
 	const char *methodSignature = "(Landroid/content/Intent;I)V";
 	const char *className = "com/facebook/Session$StartActivityDelegate";
 
-	LOGV("com_facebook_Session_StartActivityDelegate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_StartActivityDelegate className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -200,7 +200,7 @@ AndroidCXX::android_app_Activity com_facebook_Session_StartActivityDelegate::get
 	const char *methodSignature = "()Landroid/app/Activity;";
 	const char *className = "com/facebook/Session$StartActivityDelegate";
 
-	LOGV("com_facebook_Session_StartActivityDelegate className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_StartActivityDelegate className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

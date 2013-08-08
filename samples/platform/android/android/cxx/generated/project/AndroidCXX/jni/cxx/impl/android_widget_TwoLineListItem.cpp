@@ -37,11 +37,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_TwoLineListItem"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -152,7 +149,7 @@ android_widget_TwoLineListItem::android_widget_TwoLineListItem(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/TwoLineListItem";
 
-	LOGV("android_widget_TwoLineListItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TwoLineListItem className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -230,7 +227,7 @@ android_widget_TwoLineListItem::android_widget_TwoLineListItem(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/TwoLineListItem";
 
-	LOGV("android_widget_TwoLineListItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TwoLineListItem className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -329,7 +326,7 @@ android_widget_TwoLineListItem::android_widget_TwoLineListItem(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/TwoLineListItem";
 
-	LOGV("android_widget_TwoLineListItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TwoLineListItem className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -401,7 +398,7 @@ void android_widget_TwoLineListItem::onInitializeAccessibilityEvent(AndroidCXX::
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/TwoLineListItem";
 
-	LOGV("android_widget_TwoLineListItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TwoLineListItem className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -446,7 +443,7 @@ void android_widget_TwoLineListItem::onInitializeAccessibilityNodeInfo(AndroidCX
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/TwoLineListItem";
 
-	LOGV("android_widget_TwoLineListItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TwoLineListItem className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -491,7 +488,7 @@ AndroidCXX::android_widget_TextView android_widget_TwoLineListItem::getText1()
 	const char *methodSignature = "()Landroid/widget/TextView;";
 	const char *className = "android/widget/TwoLineListItem";
 
-	LOGV("android_widget_TwoLineListItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TwoLineListItem className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -535,7 +532,7 @@ AndroidCXX::android_widget_TextView android_widget_TwoLineListItem::getText2()
 	const char *methodSignature = "()Landroid/widget/TextView;";
 	const char *className = "android/widget/TwoLineListItem";
 
-	LOGV("android_widget_TwoLineListItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TwoLineListItem className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -48,11 +48,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_AbsSpinner"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -172,7 +169,7 @@ android_widget_AbsSpinner::android_widget_AbsSpinner(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -229,7 +226,7 @@ android_widget_AbsSpinner::android_widget_AbsSpinner(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -307,7 +304,7 @@ android_widget_AbsSpinner::android_widget_AbsSpinner(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -421,7 +418,7 @@ AndroidCXX::android_os_Parcelable android_widget_AbsSpinner::onSaveInstanceState
 	const char *methodSignature = "()Landroid/os/Parcelable;";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -465,7 +462,7 @@ void android_widget_AbsSpinner::onRestoreInstanceState(AndroidCXX::android_os_Pa
 	const char *methodSignature = "(Landroid/os/Parcelable;)V";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -510,7 +507,7 @@ void android_widget_AbsSpinner::requestLayout()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -534,7 +531,7 @@ void android_widget_AbsSpinner::onInitializeAccessibilityEvent(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -579,7 +576,7 @@ void android_widget_AbsSpinner::onInitializeAccessibilityNodeInfo(AndroidCXX::an
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -624,7 +621,7 @@ int android_widget_AbsSpinner::getCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -668,7 +665,7 @@ void android_widget_AbsSpinner::setSelection(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -713,7 +710,7 @@ void android_widget_AbsSpinner::setSelection(int const& arg0,bool const& arg1)
 	const char *methodSignature = "(IZ)V";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -779,7 +776,7 @@ void android_widget_AbsSpinner::setAdapter(AndroidCXX::android_widget_SpinnerAda
 	const char *methodSignature = "(Landroid/widget/SpinnerAdapter;)V";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -824,7 +821,7 @@ AndroidCXX::android_view_View android_widget_AbsSpinner::getSelectedView()
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -868,7 +865,7 @@ int android_widget_AbsSpinner::pointToPosition(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)I";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -954,7 +951,7 @@ AndroidCXX::android_widget_SpinnerAdapter android_widget_AbsSpinner::getAdapter(
 	const char *methodSignature = "()Landroid/widget/SpinnerAdapter;";
 	const char *className = "android/widget/AbsSpinner";
 
-	LOGV("android_widget_AbsSpinner className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsSpinner className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -129,7 +129,7 @@ com_facebook_FacebookException::com_facebook_FacebookException()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/FacebookException";
 
-	LOGV("com_facebook_FacebookException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_FacebookException className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -165,7 +165,7 @@ com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/FacebookException";
 
-	LOGV("com_facebook_FacebookException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_FacebookException className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -222,7 +222,7 @@ com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/Throwable;)V";
 	const char *className = "com/facebook/FacebookException";
 
-	LOGV("com_facebook_FacebookException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_FacebookException className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -300,7 +300,7 @@ com_facebook_FacebookException::com_facebook_FacebookException(AndroidCXX::java_
 	const char *methodSignature = "(Ljava/lang/Throwable;)V";
 	const char *className = "com/facebook/FacebookException";
 
-	LOGV("com_facebook_FacebookException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_FacebookException className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

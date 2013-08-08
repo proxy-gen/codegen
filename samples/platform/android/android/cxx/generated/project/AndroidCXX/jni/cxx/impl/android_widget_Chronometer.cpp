@@ -45,11 +45,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_Chronometer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -166,7 +163,7 @@ android_widget_Chronometer::android_widget_Chronometer(AndroidCXX::android_conte
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/Chronometer";
 
-	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Chronometer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -244,7 +241,7 @@ android_widget_Chronometer::android_widget_Chronometer(AndroidCXX::android_conte
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/Chronometer";
 
-	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Chronometer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -343,7 +340,7 @@ android_widget_Chronometer::android_widget_Chronometer(AndroidCXX::android_conte
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/Chronometer";
 
-	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Chronometer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -415,7 +412,7 @@ void android_widget_Chronometer::start()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/Chronometer";
 
-	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Chronometer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -439,7 +436,7 @@ void android_widget_Chronometer::stop()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/Chronometer";
 
-	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Chronometer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -463,7 +460,7 @@ AndroidCXX::java_lang_String android_widget_Chronometer::getFormat()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/widget/Chronometer";
 
-	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Chronometer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -507,7 +504,7 @@ void android_widget_Chronometer::setFormat(AndroidCXX::java_lang_String const& a
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/widget/Chronometer";
 
-	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Chronometer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -552,7 +549,7 @@ void android_widget_Chronometer::onInitializeAccessibilityEvent(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/Chronometer";
 
-	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Chronometer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -597,7 +594,7 @@ void android_widget_Chronometer::onInitializeAccessibilityNodeInfo(AndroidCXX::a
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/Chronometer";
 
-	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Chronometer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -642,7 +639,7 @@ void android_widget_Chronometer::setBase(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "android/widget/Chronometer";
 
-	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Chronometer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -687,7 +684,7 @@ long android_widget_Chronometer::getBase()
 	const char *methodSignature = "()J";
 	const char *className = "android/widget/Chronometer";
 
-	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Chronometer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -731,7 +728,7 @@ void android_widget_Chronometer::setOnChronometerTickListener(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/widget/Chronometer$OnChronometerTickListener;)V";
 	const char *className = "android/widget/Chronometer";
 
-	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Chronometer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -776,7 +773,7 @@ AndroidCXX::android_widget_Chronometer_OnChronometerTickListener android_widget_
 	const char *methodSignature = "()Landroid/widget/Chronometer$OnChronometerTickListener;";
 	const char *className = "android/widget/Chronometer";
 
-	LOGV("android_widget_Chronometer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_Chronometer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

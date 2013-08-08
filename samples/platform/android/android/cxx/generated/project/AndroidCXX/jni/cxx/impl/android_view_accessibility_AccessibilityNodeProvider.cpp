@@ -29,11 +29,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_accessibility_AccessibilityNodeProvider"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -129,7 +126,7 @@ android_view_accessibility_AccessibilityNodeProvider::android_view_accessibility
 	const char *methodSignature = "()V";
 	const char *className = "android/view/accessibility/AccessibilityNodeProvider";
 
-	LOGV("android_view_accessibility_AccessibilityNodeProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityNodeProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -180,7 +177,7 @@ AndroidCXX::android_view_accessibility_AccessibilityNodeInfo android_view_access
 	const char *methodSignature = "(I)Landroid/view/accessibility/AccessibilityNodeInfo;";
 	const char *className = "android/view/accessibility/AccessibilityNodeProvider";
 
-	LOGV("android_view_accessibility_AccessibilityNodeProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityNodeProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -245,7 +242,7 @@ bool android_view_accessibility_AccessibilityNodeProvider::performAction(int con
 	const char *methodSignature = "(IILandroid/os/Bundle;)Z";
 	const char *className = "android/view/accessibility/AccessibilityNodeProvider";
 
-	LOGV("android_view_accessibility_AccessibilityNodeProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityNodeProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -352,7 +349,7 @@ AndroidCXX::java_util_List android_view_accessibility_AccessibilityNodeProvider:
 	const char *methodSignature = "(Ljava/lang/String;I)Ljava/util/List;";
 	const char *className = "android/view/accessibility/AccessibilityNodeProvider";
 
-	LOGV("android_view_accessibility_AccessibilityNodeProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_accessibility_AccessibilityNodeProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

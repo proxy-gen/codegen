@@ -67,11 +67,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_animation_LayoutTransition"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -212,7 +209,7 @@ android_animation_LayoutTransition::android_animation_LayoutTransition()
 	const char *methodSignature = "()V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -263,7 +260,7 @@ void android_animation_LayoutTransition::setInterpolator(int const& arg0,Android
 	const char *methodSignature = "(ILandroid/animation/TimeInterpolator;)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -329,7 +326,7 @@ void android_animation_LayoutTransition::setDuration(int const& arg0,long const&
 	const char *methodSignature = "(IJ)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -395,7 +392,7 @@ void android_animation_LayoutTransition::setDuration(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -440,7 +437,7 @@ AndroidCXX::android_animation_TimeInterpolator android_animation_LayoutTransitio
 	const char *methodSignature = "(I)Landroid/animation/TimeInterpolator;";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -505,7 +502,7 @@ long android_animation_LayoutTransition::getDuration(int const& arg0)
 	const char *methodSignature = "(I)J";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -570,7 +567,7 @@ long android_animation_LayoutTransition::getStartDelay(int const& arg0)
 	const char *methodSignature = "(I)J";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -635,7 +632,7 @@ void android_animation_LayoutTransition::setStartDelay(int const& arg0,long cons
 	const char *methodSignature = "(IJ)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -701,7 +698,7 @@ void android_animation_LayoutTransition::addChild(AndroidCXX::android_view_ViewG
 	const char *methodSignature = "(Landroid/view/ViewGroup;Landroid/view/View;)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -767,7 +764,7 @@ void android_animation_LayoutTransition::enableTransitionType(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -812,7 +809,7 @@ void android_animation_LayoutTransition::disableTransitionType(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -857,7 +854,7 @@ bool android_animation_LayoutTransition::isTransitionTypeEnabled(int const& arg0
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -922,7 +919,7 @@ void android_animation_LayoutTransition::setStagger(int const& arg0,long const& 
 	const char *methodSignature = "(IJ)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -988,7 +985,7 @@ long android_animation_LayoutTransition::getStagger(int const& arg0)
 	const char *methodSignature = "(I)J";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1053,7 +1050,7 @@ void android_animation_LayoutTransition::setAnimator(int const& arg0,AndroidCXX:
 	const char *methodSignature = "(ILandroid/animation/Animator;)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1119,7 +1116,7 @@ AndroidCXX::android_animation_Animator android_animation_LayoutTransition::getAn
 	const char *methodSignature = "(I)Landroid/animation/Animator;";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1184,7 +1181,7 @@ void android_animation_LayoutTransition::setAnimateParentHierarchy(bool const& a
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1229,7 +1226,7 @@ bool android_animation_LayoutTransition::isChangingLayout()
 	const char *methodSignature = "()Z";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1273,7 +1270,7 @@ bool android_animation_LayoutTransition::isRunning()
 	const char *methodSignature = "()Z";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1317,7 +1314,7 @@ void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_View
 	const char *methodSignature = "(Landroid/view/ViewGroup;Landroid/view/View;)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1383,7 +1380,7 @@ void android_animation_LayoutTransition::showChild(AndroidCXX::android_view_View
 	const char *methodSignature = "(Landroid/view/ViewGroup;Landroid/view/View;I)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1470,7 +1467,7 @@ void android_animation_LayoutTransition::removeChild(AndroidCXX::android_view_Vi
 	const char *methodSignature = "(Landroid/view/ViewGroup;Landroid/view/View;)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1536,7 +1533,7 @@ void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_View
 	const char *methodSignature = "(Landroid/view/ViewGroup;Landroid/view/View;)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1602,7 +1599,7 @@ void android_animation_LayoutTransition::hideChild(AndroidCXX::android_view_View
 	const char *methodSignature = "(Landroid/view/ViewGroup;Landroid/view/View;I)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1689,7 +1686,7 @@ void android_animation_LayoutTransition::addTransitionListener(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/animation/LayoutTransition$TransitionListener;)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1734,7 +1731,7 @@ void android_animation_LayoutTransition::removeTransitionListener(AndroidCXX::an
 	const char *methodSignature = "(Landroid/animation/LayoutTransition$TransitionListener;)V";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1779,7 +1776,7 @@ AndroidCXX::java_util_List android_animation_LayoutTransition::getTransitionList
 	const char *methodSignature = "()Ljava/util/List;";
 	const char *className = "android/animation/LayoutTransition";
 
-	LOGV("android_animation_LayoutTransition className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_animation_LayoutTransition className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

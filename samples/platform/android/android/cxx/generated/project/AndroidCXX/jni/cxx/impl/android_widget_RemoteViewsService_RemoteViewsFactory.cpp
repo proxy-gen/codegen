@@ -32,11 +32,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_RemoteViewsService_RemoteViewsFactory"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -141,7 +138,7 @@ void android_widget_RemoteViewsService_RemoteViewsFactory::onCreate()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/RemoteViewsService$RemoteViewsFactory";
 
-	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -165,7 +162,7 @@ void android_widget_RemoteViewsService_RemoteViewsFactory::onDestroy()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/RemoteViewsService$RemoteViewsFactory";
 
-	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -189,7 +186,7 @@ long android_widget_RemoteViewsService_RemoteViewsFactory::getItemId(int const& 
 	const char *methodSignature = "(I)J";
 	const char *className = "android/widget/RemoteViewsService$RemoteViewsFactory";
 
-	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -254,7 +251,7 @@ int android_widget_RemoteViewsService_RemoteViewsFactory::getCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/RemoteViewsService$RemoteViewsFactory";
 
-	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -298,7 +295,7 @@ bool android_widget_RemoteViewsService_RemoteViewsFactory::hasStableIds()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/RemoteViewsService$RemoteViewsFactory";
 
-	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -342,7 +339,7 @@ int android_widget_RemoteViewsService_RemoteViewsFactory::getViewTypeCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/RemoteViewsService$RemoteViewsFactory";
 
-	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -386,7 +383,7 @@ void android_widget_RemoteViewsService_RemoteViewsFactory::onDataSetChanged()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/RemoteViewsService$RemoteViewsFactory";
 
-	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -410,7 +407,7 @@ AndroidCXX::android_widget_RemoteViews android_widget_RemoteViewsService_RemoteV
 	const char *methodSignature = "(I)Landroid/widget/RemoteViews;";
 	const char *className = "android/widget/RemoteViewsService$RemoteViewsFactory";
 
-	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -475,7 +472,7 @@ AndroidCXX::android_widget_RemoteViews android_widget_RemoteViewsService_RemoteV
 	const char *methodSignature = "()Landroid/widget/RemoteViews;";
 	const char *className = "android/widget/RemoteViewsService$RemoteViewsFactory";
 
-	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_RemoteViewsService_RemoteViewsFactory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

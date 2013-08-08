@@ -31,8 +31,6 @@
  		 
  		 
  		 
- 		 
-	
 	
  		 
 	
@@ -41,10 +39,6 @@
  		 
 	
  		 
-
-
-
-
 
 
 
@@ -148,11 +142,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_WebSettings"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -241,12 +232,6 @@ using namespace AndroidCXX;
 // 
 // 
 // using namespace android_webkit_WebSettings_PluginState;
-// 
-// 
-// 
-// 
-// 
-// 
 // 
 // 
 // 
@@ -375,7 +360,7 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDatabasePath()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -419,7 +404,7 @@ android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize android
 	const char *methodSignature = "()Landroid/webkit/WebSettings$TextSize;";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -463,7 +448,7 @@ void android_webkit_WebSettings::setTextSize(android_webkit_WebSettings_TextSize
 	const char *methodSignature = "(Landroid/webkit/WebSettings$TextSize;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -508,7 +493,7 @@ void android_webkit_WebSettings::setSupportZoom(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -553,7 +538,7 @@ bool android_webkit_WebSettings::supportZoom()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -597,7 +582,7 @@ void android_webkit_WebSettings::setMediaPlaybackRequiresUserGesture(bool const&
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -642,7 +627,7 @@ bool android_webkit_WebSettings::getMediaPlaybackRequiresUserGesture()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -686,7 +671,7 @@ void android_webkit_WebSettings::setBuiltInZoomControls(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -731,7 +716,7 @@ bool android_webkit_WebSettings::getBuiltInZoomControls()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -775,7 +760,7 @@ void android_webkit_WebSettings::setDisplayZoomControls(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -820,7 +805,7 @@ bool android_webkit_WebSettings::getDisplayZoomControls()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -864,7 +849,7 @@ void android_webkit_WebSettings::setAllowFileAccess(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -909,7 +894,7 @@ bool android_webkit_WebSettings::getAllowFileAccess()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -953,7 +938,7 @@ void android_webkit_WebSettings::setAllowContentAccess(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -998,7 +983,7 @@ bool android_webkit_WebSettings::getAllowContentAccess()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1042,7 +1027,7 @@ void android_webkit_WebSettings::setLoadWithOverviewMode(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1087,7 +1072,7 @@ bool android_webkit_WebSettings::getLoadWithOverviewMode()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1131,7 +1116,7 @@ void android_webkit_WebSettings::setEnableSmoothTransition(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1176,7 +1161,7 @@ bool android_webkit_WebSettings::enableSmoothTransition()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1220,7 +1205,7 @@ void android_webkit_WebSettings::setSaveFormData(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1265,7 +1250,7 @@ bool android_webkit_WebSettings::getSaveFormData()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1309,7 +1294,7 @@ void android_webkit_WebSettings::setSavePassword(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1354,7 +1339,7 @@ bool android_webkit_WebSettings::getSavePassword()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1398,7 +1383,7 @@ void android_webkit_WebSettings::setTextZoom(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1443,7 +1428,7 @@ int android_webkit_WebSettings::getTextZoom()
 	const char *methodSignature = "()I";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1487,7 +1472,7 @@ void android_webkit_WebSettings::setDefaultZoom(android_webkit_WebSettings_ZoomD
 	const char *methodSignature = "(Landroid/webkit/WebSettings$ZoomDensity;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1532,7 +1517,7 @@ android_webkit_WebSettings_ZoomDensity::android_webkit_WebSettings_ZoomDensity a
 	const char *methodSignature = "()Landroid/webkit/WebSettings$ZoomDensity;";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1576,7 +1561,7 @@ void android_webkit_WebSettings::setLightTouchEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1621,7 +1606,7 @@ bool android_webkit_WebSettings::getLightTouchEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1665,7 +1650,7 @@ void android_webkit_WebSettings::setUseWideViewPort(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1710,7 +1695,7 @@ bool android_webkit_WebSettings::getUseWideViewPort()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1754,7 +1739,7 @@ void android_webkit_WebSettings::setSupportMultipleWindows(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1799,7 +1784,7 @@ bool android_webkit_WebSettings::supportMultipleWindows()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1843,7 +1828,7 @@ void android_webkit_WebSettings::setLayoutAlgorithm(android_webkit_WebSettings_L
 	const char *methodSignature = "(Landroid/webkit/WebSettings$LayoutAlgorithm;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1888,7 +1873,7 @@ android_webkit_WebSettings_LayoutAlgorithm::android_webkit_WebSettings_LayoutAlg
 	const char *methodSignature = "()Landroid/webkit/WebSettings$LayoutAlgorithm;";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1932,7 +1917,7 @@ void android_webkit_WebSettings::setStandardFontFamily(AndroidCXX::java_lang_Str
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1977,7 +1962,7 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getStandardFontFamily()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2021,7 +2006,7 @@ void android_webkit_WebSettings::setFixedFontFamily(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2066,7 +2051,7 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getFixedFontFamily()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2110,7 +2095,7 @@ void android_webkit_WebSettings::setSansSerifFontFamily(AndroidCXX::java_lang_St
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2155,7 +2140,7 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getSansSerifFontFamily(
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2199,7 +2184,7 @@ void android_webkit_WebSettings::setSerifFontFamily(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2244,7 +2229,7 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getSerifFontFamily()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2288,7 +2273,7 @@ void android_webkit_WebSettings::setCursiveFontFamily(AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2333,7 +2318,7 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getCursiveFontFamily()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2377,7 +2362,7 @@ void android_webkit_WebSettings::setFantasyFontFamily(AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2422,7 +2407,7 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getFantasyFontFamily()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2466,7 +2451,7 @@ void android_webkit_WebSettings::setMinimumFontSize(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2511,7 +2496,7 @@ int android_webkit_WebSettings::getMinimumFontSize()
 	const char *methodSignature = "()I";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2555,7 +2540,7 @@ void android_webkit_WebSettings::setMinimumLogicalFontSize(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2600,7 +2585,7 @@ int android_webkit_WebSettings::getMinimumLogicalFontSize()
 	const char *methodSignature = "()I";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2644,7 +2629,7 @@ void android_webkit_WebSettings::setDefaultFontSize(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2689,7 +2674,7 @@ int android_webkit_WebSettings::getDefaultFontSize()
 	const char *methodSignature = "()I";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2733,7 +2718,7 @@ void android_webkit_WebSettings::setDefaultFixedFontSize(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2778,7 +2763,7 @@ int android_webkit_WebSettings::getDefaultFixedFontSize()
 	const char *methodSignature = "()I";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2822,7 +2807,7 @@ void android_webkit_WebSettings::setLoadsImagesAutomatically(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2867,7 +2852,7 @@ bool android_webkit_WebSettings::getLoadsImagesAutomatically()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2911,7 +2896,7 @@ void android_webkit_WebSettings::setBlockNetworkImage(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2956,7 +2941,7 @@ bool android_webkit_WebSettings::getBlockNetworkImage()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3000,7 +2985,7 @@ void android_webkit_WebSettings::setBlockNetworkLoads(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3045,7 +3030,7 @@ bool android_webkit_WebSettings::getBlockNetworkLoads()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3089,7 +3074,7 @@ void android_webkit_WebSettings::setJavaScriptEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3134,7 +3119,7 @@ void android_webkit_WebSettings::setAllowUniversalAccessFromFileURLs(bool const&
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3179,7 +3164,7 @@ void android_webkit_WebSettings::setAllowFileAccessFromFileURLs(bool const& arg0
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3216,51 +3201,6 @@ void android_webkit_WebSettings::setAllowFileAccessFromFileURLs(bool const& arg0
 	LOGV("void android_webkit_WebSettings::setAllowFileAccessFromFileURLs(bool const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setPluginsEnabled(bool const& arg0)
-{
-	LOGV("void android_webkit_WebSettings::setPluginsEnabled(bool const& arg0) enter");
-
-	const char *methodName = "setPluginsEnabled";
-	const char *methodSignature = "(Z)V";
-	const char *className = "android/webkit/WebSettings";
-
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_webkit_WebSettings jni address %d", javaObject);
-
-	jboolean jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_boolean_to_jni(java_value);
-	}
-
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
-		
-	LOGV("void android_webkit_WebSettings::setPluginsEnabled(bool const& arg0) exit");
-
-}
 void android_webkit_WebSettings::setPluginState(android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState const& arg0)
 {
 	LOGV("void android_webkit_WebSettings::setPluginState(android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState const& arg0) enter");
@@ -3269,7 +3209,7 @@ void android_webkit_WebSettings::setPluginState(android_webkit_WebSettings_Plugi
 	const char *methodSignature = "(Landroid/webkit/WebSettings$PluginState;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3306,51 +3246,6 @@ void android_webkit_WebSettings::setPluginState(android_webkit_WebSettings_Plugi
 	LOGV("void android_webkit_WebSettings::setPluginState(android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState const& arg0) exit");
 
 }
-void android_webkit_WebSettings::setPluginsPath(AndroidCXX::java_lang_String const& arg0)
-{
-	LOGV("void android_webkit_WebSettings::setPluginsPath(AndroidCXX::java_lang_String const& arg0) enter");
-
-	const char *methodName = "setPluginsPath";
-	const char *methodSignature = "(Ljava/lang/String;)V";
-	const char *className = "android/webkit/WebSettings";
-
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_webkit_WebSettings jni address %d", javaObject);
-
-	jstring jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_string_to_jni(java_value);
-	}
-
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
-		
-	LOGV("void android_webkit_WebSettings::setPluginsPath(AndroidCXX::java_lang_String const& arg0) exit");
-
-}
 void android_webkit_WebSettings::setDatabasePath(AndroidCXX::java_lang_String const& arg0)
 {
 	LOGV("void android_webkit_WebSettings::setDatabasePath(AndroidCXX::java_lang_String const& arg0) enter");
@@ -3359,7 +3254,7 @@ void android_webkit_WebSettings::setDatabasePath(AndroidCXX::java_lang_String co
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3404,7 +3299,7 @@ void android_webkit_WebSettings::setGeolocationDatabasePath(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3449,7 +3344,7 @@ void android_webkit_WebSettings::setAppCacheEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3494,7 +3389,7 @@ void android_webkit_WebSettings::setAppCachePath(AndroidCXX::java_lang_String co
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3539,7 +3434,7 @@ void android_webkit_WebSettings::setAppCacheMaxSize(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3584,7 +3479,7 @@ void android_webkit_WebSettings::setDatabaseEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3629,7 +3524,7 @@ void android_webkit_WebSettings::setDomStorageEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3674,7 +3569,7 @@ bool android_webkit_WebSettings::getDomStorageEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3718,7 +3613,7 @@ bool android_webkit_WebSettings::getDatabaseEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3762,7 +3657,7 @@ void android_webkit_WebSettings::setGeolocationEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3807,7 +3702,7 @@ bool android_webkit_WebSettings::getJavaScriptEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3851,7 +3746,7 @@ bool android_webkit_WebSettings::getAllowUniversalAccessFromFileURLs()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3895,7 +3790,7 @@ bool android_webkit_WebSettings::getAllowFileAccessFromFileURLs()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3931,50 +3826,6 @@ bool android_webkit_WebSettings::getAllowFileAccessFromFileURLs()
 
 	return result;
 }
-bool android_webkit_WebSettings::getPluginsEnabled()
-{
-	LOGV("bool android_webkit_WebSettings::getPluginsEnabled() enter");
-
-	const char *methodName = "getPluginsEnabled";
-	const char *methodSignature = "()Z";
-	const char *className = "android/webkit/WebSettings";
-
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_webkit_WebSettings jni address %d", javaObject);
-
-
-	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_boolean_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("boolean");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	bool result = (bool) *((bool *) cxx_value);
-	// 
-		
-	LOGV("bool android_webkit_WebSettings::getPluginsEnabled() exit");
-
-	return result;
-}
 android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState android_webkit_WebSettings::getPluginState()
 {
 	LOGV("android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState android_webkit_WebSettings::getPluginState() enter");
@@ -3983,7 +3834,7 @@ android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState a
 	const char *methodSignature = "()Landroid/webkit/WebSettings$PluginState;";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4019,50 +3870,6 @@ android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState a
 
 	return result;
 }
-AndroidCXX::java_lang_String android_webkit_WebSettings::getPluginsPath()
-{
-	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getPluginsPath() enter");
-
-	const char *methodName = "getPluginsPath";
-	const char *methodSignature = "()Ljava/lang/String;";
-	const char *className = "android/webkit/WebSettings";
-
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_webkit_WebSettings cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_webkit_WebSettings jni address %d", javaObject);
-
-
-	jstring jni_result = (jstring) jni->invokeObjectMethod(javaObject,className,methodName,methodSignature);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_string_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	AndroidCXX::java_lang_String result((AndroidCXX::java_lang_String) *((AndroidCXX::java_lang_String *) cxx_value));
-	delete ((AndroidCXX::java_lang_String *) cxx_value);
-		
-	LOGV("AndroidCXX::java_lang_String android_webkit_WebSettings::getPluginsPath() exit");
-
-	return result;
-}
 void android_webkit_WebSettings::setJavaScriptCanOpenWindowsAutomatically(bool const& arg0)
 {
 	LOGV("void android_webkit_WebSettings::setJavaScriptCanOpenWindowsAutomatically(bool const& arg0) enter");
@@ -4071,7 +3878,7 @@ void android_webkit_WebSettings::setJavaScriptCanOpenWindowsAutomatically(bool c
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4116,7 +3923,7 @@ bool android_webkit_WebSettings::getJavaScriptCanOpenWindowsAutomatically()
 	const char *methodSignature = "()Z";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4160,7 +3967,7 @@ void android_webkit_WebSettings::setDefaultTextEncodingName(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4205,7 +4012,7 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultTextEncodingN
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4249,7 +4056,7 @@ void android_webkit_WebSettings::setUserAgentString(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4294,7 +4101,7 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getUserAgentString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4338,7 +4145,7 @@ AndroidCXX::java_lang_String android_webkit_WebSettings::getDefaultUserAgent(And
 	const char *methodSignature = "(Landroid/content/Context;)Ljava/lang/String;";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4403,7 +4210,7 @@ void android_webkit_WebSettings::setNeedInitialFocus(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4448,7 +4255,7 @@ void android_webkit_WebSettings::setRenderPriority(android_webkit_WebSettings_Re
 	const char *methodSignature = "(Landroid/webkit/WebSettings$RenderPriority;)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4493,7 +4300,7 @@ void android_webkit_WebSettings::setCacheMode(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4538,7 +4345,7 @@ int android_webkit_WebSettings::getCacheMode()
 	const char *methodSignature = "()I";
 	const char *className = "android/webkit/WebSettings";
 
-	LOGV("android_webkit_WebSettings className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebSettings className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

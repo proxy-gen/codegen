@@ -117,11 +117,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_res_Resources"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -349,7 +346,7 @@ android_content_res_Resources::android_content_res_Resources(AndroidCXX::android
 	const char *methodSignature = "(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;)V";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -463,7 +460,7 @@ bool android_content_res_Resources::getBoolean(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -528,7 +525,7 @@ void android_content_res_Resources::getValue(int const& arg0,AndroidCXX::android
 	const char *methodSignature = "(ILandroid/util/TypedValue;Z)V";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -615,7 +612,7 @@ void android_content_res_Resources::getValue(AndroidCXX::java_lang_String const&
 	const char *methodSignature = "(Ljava/lang/String;Landroid/util/TypedValue;Z)V";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -702,7 +699,7 @@ int android_content_res_Resources::getInteger(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -767,7 +764,7 @@ AndroidCXX::java_lang_String android_content_res_Resources::getString(int const&
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -832,7 +829,7 @@ AndroidCXX::java_lang_String android_content_res_Resources::getString(int const&
 	const char *methodSignature = "(I[Ljava/lang/Object;)Ljava/lang/String;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -936,7 +933,7 @@ int android_content_res_Resources::getIdentifier(AndroidCXX::java_lang_String co
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1043,7 +1040,7 @@ std::vector<AndroidCXX::java_lang_String > android_content_res_Resources::getStr
 	const char *methodSignature = "(I)[Ljava/lang/String;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1126,7 +1123,7 @@ std::vector<int> android_content_res_Resources::getIntArray(int const& arg0)
 	const char *methodSignature = "(I)[I";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1209,7 +1206,7 @@ AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int co
 	const char *methodSignature = "(ILjava/lang/CharSequence;)Ljava/lang/CharSequence;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1295,7 +1292,7 @@ AndroidCXX::java_lang_CharSequence android_content_res_Resources::getText(int co
 	const char *methodSignature = "(I)Ljava/lang/CharSequence;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1360,7 +1357,7 @@ AndroidCXX::java_lang_String android_content_res_Resources::getResourceName(int 
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1425,7 +1422,7 @@ AndroidCXX::android_content_res_Resources android_content_res_Resources::getSyst
 	const char *methodSignature = "()Landroid/content/res/Resources;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1469,7 +1466,7 @@ AndroidCXX::java_lang_CharSequence android_content_res_Resources::getQuantityTex
 	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1555,7 +1552,7 @@ AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(in
 	const char *methodSignature = "(II[Ljava/lang/Object;)Ljava/lang/String;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1680,7 +1677,7 @@ AndroidCXX::java_lang_String android_content_res_Resources::getQuantityString(in
 	const char *methodSignature = "(II)Ljava/lang/String;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1766,7 +1763,7 @@ std::vector<AndroidCXX::java_lang_CharSequence > android_content_res_Resources::
 	const char *methodSignature = "(I)[Ljava/lang/CharSequence;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1849,7 +1846,7 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtain
 	const char *methodSignature = "(I)Landroid/content/res/TypedArray;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1914,7 +1911,7 @@ float android_content_res_Resources::getDimension(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1979,7 +1976,7 @@ int android_content_res_Resources::getDimensionPixelOffset(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2044,7 +2041,7 @@ int android_content_res_Resources::getDimensionPixelSize(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2109,7 +2106,7 @@ float android_content_res_Resources::getFraction(int const& arg0,int const& arg1
 	const char *methodSignature = "(III)F";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2216,7 +2213,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::ge
 	const char *methodSignature = "(I)Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2281,7 +2278,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_content_res_Resources::ge
 	const char *methodSignature = "(II)Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2367,7 +2364,7 @@ AndroidCXX::android_graphics_Movie android_content_res_Resources::getMovie(int c
 	const char *methodSignature = "(I)Landroid/graphics/Movie;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2432,7 +2429,7 @@ int android_content_res_Resources::getColor(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2497,7 +2494,7 @@ AndroidCXX::android_content_res_ColorStateList android_content_res_Resources::ge
 	const char *methodSignature = "(I)Landroid/content/res/ColorStateList;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2562,7 +2559,7 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources:
 	const char *methodSignature = "(I)Landroid/content/res/XmlResourceParser;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2627,7 +2624,7 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources:
 	const char *methodSignature = "(I)Landroid/content/res/XmlResourceParser;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2692,7 +2689,7 @@ AndroidCXX::android_content_res_XmlResourceParser android_content_res_Resources:
 	const char *methodSignature = "(I)Landroid/content/res/XmlResourceParser;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2757,7 +2754,7 @@ AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(i
 	const char *methodSignature = "(ILandroid/util/TypedValue;)Ljava/io/InputStream;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2843,7 +2840,7 @@ AndroidCXX::java_io_InputStream android_content_res_Resources::openRawResource(i
 	const char *methodSignature = "(I)Ljava/io/InputStream;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2908,7 +2905,7 @@ AndroidCXX::android_content_res_AssetFileDescriptor android_content_res_Resource
 	const char *methodSignature = "(I)Landroid/content/res/AssetFileDescriptor;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2973,7 +2970,7 @@ void android_content_res_Resources::getValueForDensity(int const& arg0,int const
 	const char *methodSignature = "(IILandroid/util/TypedValue;Z)V";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3081,7 +3078,7 @@ AndroidCXX::android_content_res_Resources_Theme android_content_res_Resources::n
 	const char *methodSignature = "()Landroid/content/res/Resources$Theme;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3125,7 +3122,7 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources::obtain
 	const char *methodSignature = "(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3229,7 +3226,7 @@ void android_content_res_Resources::updateConfiguration(AndroidCXX::android_cont
 	const char *methodSignature = "(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;)V";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3295,7 +3292,7 @@ AndroidCXX::android_util_DisplayMetrics android_content_res_Resources::getDispla
 	const char *methodSignature = "()Landroid/util/DisplayMetrics;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3339,7 +3336,7 @@ AndroidCXX::android_content_res_Configuration android_content_res_Resources::get
 	const char *methodSignature = "()Landroid/content/res/Configuration;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3383,7 +3380,7 @@ AndroidCXX::java_lang_String android_content_res_Resources::getResourcePackageNa
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3448,7 +3445,7 @@ AndroidCXX::java_lang_String android_content_res_Resources::getResourceTypeName(
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3513,7 +3510,7 @@ AndroidCXX::java_lang_String android_content_res_Resources::getResourceEntryName
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3578,7 +3575,7 @@ void android_content_res_Resources::parseBundleExtras(AndroidCXX::android_conten
 	const char *methodSignature = "(Landroid/content/res/XmlResourceParser;Landroid/os/Bundle;)V";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3644,7 +3641,7 @@ void android_content_res_Resources::parseBundleExtra(AndroidCXX::java_lang_Strin
 	const char *methodSignature = "(Ljava/lang/String;Landroid/util/AttributeSet;Landroid/os/Bundle;)V";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3731,7 +3728,7 @@ AndroidCXX::android_content_res_AssetManager android_content_res_Resources::getA
 	const char *methodSignature = "()Landroid/content/res/AssetManager;";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3775,7 +3772,7 @@ void android_content_res_Resources::flushLayoutCache()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3799,7 +3796,7 @@ void android_content_res_Resources::finishPreloading()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/res/Resources";
 
-	LOGV("android_content_res_Resources className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

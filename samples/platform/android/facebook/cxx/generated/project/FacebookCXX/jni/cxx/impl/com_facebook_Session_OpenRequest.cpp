@@ -173,7 +173,7 @@ com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(AndroidCXX::a
 	const char *methodSignature = "(Landroid/app/Activity;)V";
 	const char *className = "com/facebook/Session$OpenRequest";
 
-	LOGV("com_facebook_Session_OpenRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_OpenRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -230,7 +230,7 @@ com_facebook_Session_OpenRequest::com_facebook_Session_OpenRequest(AndroidCXX::a
 	const char *methodSignature = "(Landroid/support/v4/app/Fragment;)V";
 	const char *className = "com/facebook/Session$OpenRequest";
 
-	LOGV("com_facebook_Session_OpenRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_OpenRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -302,7 +302,7 @@ FacebookCXX::com_facebook_Session_OpenRequest com_facebook_Session_OpenRequest::
 	const char *methodSignature = "(Lcom/facebook/Session$StatusCallback;)Lcom/facebook/Session$OpenRequest;";
 	const char *className = "com/facebook/Session$OpenRequest";
 
-	LOGV("com_facebook_Session_OpenRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_OpenRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -367,7 +367,7 @@ FacebookCXX::com_facebook_Session_OpenRequest com_facebook_Session_OpenRequest::
 	const char *methodSignature = "(Lcom/facebook/SessionLoginBehavior;)Lcom/facebook/Session$OpenRequest;";
 	const char *className = "com/facebook/Session$OpenRequest";
 
-	LOGV("com_facebook_Session_OpenRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_OpenRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -432,7 +432,7 @@ FacebookCXX::com_facebook_Session_OpenRequest com_facebook_Session_OpenRequest::
 	const char *methodSignature = "(I)Lcom/facebook/Session$OpenRequest;";
 	const char *className = "com/facebook/Session$OpenRequest";
 
-	LOGV("com_facebook_Session_OpenRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_OpenRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -497,7 +497,7 @@ FacebookCXX::com_facebook_Session_OpenRequest com_facebook_Session_OpenRequest::
 	const char *methodSignature = "(Ljava/util/List;)Lcom/facebook/Session$OpenRequest;";
 	const char *className = "com/facebook/Session$OpenRequest";
 
-	LOGV("com_facebook_Session_OpenRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_OpenRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -580,7 +580,7 @@ FacebookCXX::com_facebook_Session_OpenRequest com_facebook_Session_OpenRequest::
 	const char *methodSignature = "(Lcom/facebook/SessionDefaultAudience;)Lcom/facebook/Session$OpenRequest;";
 	const char *className = "com/facebook/Session$OpenRequest";
 
-	LOGV("com_facebook_Session_OpenRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_OpenRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

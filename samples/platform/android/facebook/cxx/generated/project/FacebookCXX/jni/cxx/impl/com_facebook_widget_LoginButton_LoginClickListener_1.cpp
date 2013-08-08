@@ -129,7 +129,7 @@ void com_facebook_widget_LoginButton_LoginClickListener_1::onClick(AndroidCXX::a
 	const char *methodSignature = "(Landroid/content/DialogInterface;I)V";
 	const char *className = "com/facebook/widget/LoginButton$LoginClickListener$1";
 
-	LOGV("com_facebook_widget_LoginButton_LoginClickListener_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_LoginButton_LoginClickListener_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

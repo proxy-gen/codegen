@@ -63,11 +63,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_util_AttributeSet"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -226,7 +223,7 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(int co
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -291,7 +288,7 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeValue(Androi
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -377,7 +374,7 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getPositionDescription()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -421,7 +418,7 @@ int android_util_AttributeSet::getAttributeCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -465,7 +462,7 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getAttributeName(int con
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -530,7 +527,7 @@ int android_util_AttributeSet::getAttributeNameResource(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -595,7 +592,7 @@ int android_util_AttributeSet::getAttributeListValue(AndroidCXX::java_lang_Strin
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;I)I";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -741,7 +738,7 @@ int android_util_AttributeSet::getAttributeListValue(int const& arg0,std::vector
 	const char *methodSignature = "(I[Ljava/lang/String;I)I";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -866,7 +863,7 @@ bool android_util_AttributeSet::getAttributeBooleanValue(AndroidCXX::java_lang_S
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Z)Z";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -973,7 +970,7 @@ bool android_util_AttributeSet::getAttributeBooleanValue(int const& arg0,bool co
 	const char *methodSignature = "(IZ)Z";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1059,7 +1056,7 @@ int android_util_AttributeSet::getAttributeResourceValue(AndroidCXX::java_lang_S
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;I)I";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1166,7 +1163,7 @@ int android_util_AttributeSet::getAttributeResourceValue(int const& arg0,int con
 	const char *methodSignature = "(II)I";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1252,7 +1249,7 @@ int android_util_AttributeSet::getAttributeIntValue(int const& arg0,int const& a
 	const char *methodSignature = "(II)I";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1338,7 +1335,7 @@ int android_util_AttributeSet::getAttributeIntValue(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;I)I";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1445,7 +1442,7 @@ int android_util_AttributeSet::getAttributeUnsignedIntValue(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;I)I";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1552,7 +1549,7 @@ int android_util_AttributeSet::getAttributeUnsignedIntValue(int const& arg0,int 
 	const char *methodSignature = "(II)I";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1638,7 +1635,7 @@ float android_util_AttributeSet::getAttributeFloatValue(AndroidCXX::java_lang_St
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;F)F";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1745,7 +1742,7 @@ float android_util_AttributeSet::getAttributeFloatValue(int const& arg0,float co
 	const char *methodSignature = "(IF)F";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1831,7 +1828,7 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getIdAttribute()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1875,7 +1872,7 @@ AndroidCXX::java_lang_String android_util_AttributeSet::getClassAttribute()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1919,7 +1916,7 @@ int android_util_AttributeSet::getIdAttributeResourceValue(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1984,7 +1981,7 @@ int android_util_AttributeSet::getStyleAttribute()
 	const char *methodSignature = "()I";
 	const char *className = "android/util/AttributeSet";
 
-	LOGV("android_util_AttributeSet className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_AttributeSet className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -33,11 +33,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_text_style_URLSpan"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -136,7 +133,7 @@ android_text_style_URLSpan::android_text_style_URLSpan(AndroidCXX::java_lang_Str
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/text/style/URLSpan";
 
-	LOGV("android_text_style_URLSpan className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_style_URLSpan className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -193,7 +190,7 @@ android_text_style_URLSpan::android_text_style_URLSpan(AndroidCXX::android_os_Pa
 	const char *methodSignature = "(Landroid/os/Parcel;)V";
 	const char *className = "android/text/style/URLSpan";
 
-	LOGV("android_text_style_URLSpan className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_style_URLSpan className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -265,7 +262,7 @@ AndroidCXX::java_lang_String android_text_style_URLSpan::getURL()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/text/style/URLSpan";
 
-	LOGV("android_text_style_URLSpan className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_style_URLSpan className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -309,7 +306,7 @@ int android_text_style_URLSpan::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/text/style/URLSpan";
 
-	LOGV("android_text_style_URLSpan className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_style_URLSpan className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -353,7 +350,7 @@ void android_text_style_URLSpan::writeToParcel(AndroidCXX::android_os_Parcel con
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/text/style/URLSpan";
 
-	LOGV("android_text_style_URLSpan className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_style_URLSpan className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -419,7 +416,7 @@ void android_text_style_URLSpan::onClick(AndroidCXX::android_view_View const& ar
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/text/style/URLSpan";
 
-	LOGV("android_text_style_URLSpan className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_style_URLSpan className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -464,7 +461,7 @@ int android_text_style_URLSpan::getSpanTypeId()
 	const char *methodSignature = "()I";
 	const char *className = "android/text/style/URLSpan";
 
-	LOGV("android_text_style_URLSpan className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_style_URLSpan className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -93,11 +93,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ListView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -271,7 +268,7 @@ android_widget_ListView::android_widget_ListView(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -349,7 +346,7 @@ android_widget_ListView::android_widget_ListView(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -448,7 +445,7 @@ android_widget_ListView::android_widget_ListView(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -520,7 +517,7 @@ bool android_widget_ListView::isOpaque()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -564,7 +561,7 @@ bool android_widget_ListView::onKeyDown(int const& arg0,AndroidCXX::android_view
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -650,7 +647,7 @@ bool android_widget_ListView::onKeyUp(int const& arg0,AndroidCXX::android_view_K
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -736,7 +733,7 @@ bool android_widget_ListView::onKeyMultiple(int const& arg0,int const& arg1,Andr
 	const char *methodSignature = "(IILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -843,7 +840,7 @@ bool android_widget_ListView::dispatchKeyEvent(AndroidCXX::android_view_KeyEvent
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -908,7 +905,7 @@ bool android_widget_ListView::requestChildRectangleOnScreen(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/view/View;Landroid/graphics/Rect;Z)Z";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1015,7 +1012,7 @@ void android_widget_ListView::onInitializeAccessibilityEvent(AndroidCXX::android
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1060,7 +1057,7 @@ void android_widget_ListView::onInitializeAccessibilityNodeInfo(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1105,7 +1102,7 @@ void android_widget_ListView::setSelection(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1150,7 +1147,7 @@ void android_widget_ListView::setAdapter(AndroidCXX::android_widget_ListAdapter 
 	const char *methodSignature = "(Landroid/widget/ListAdapter;)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1195,7 +1192,7 @@ void android_widget_ListView::smoothScrollToPosition(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1240,7 +1237,7 @@ void android_widget_ListView::setCacheColorHint(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1285,7 +1282,7 @@ void android_widget_ListView::setRemoteViewsAdapter(AndroidCXX::android_content_
 	const char *methodSignature = "(Landroid/content/Intent;)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1330,7 +1327,7 @@ AndroidCXX::android_widget_ListAdapter android_widget_ListView::getAdapter()
 	const char *methodSignature = "()Landroid/widget/ListAdapter;";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1374,7 +1371,7 @@ int android_widget_ListView::getMaxScrollAmount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1418,7 +1415,7 @@ void android_widget_ListView::addHeaderView(AndroidCXX::android_view_View const&
 	const char *methodSignature = "(Landroid/view/View;Ljava/lang/Object;Z)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1505,7 +1502,7 @@ void android_widget_ListView::addHeaderView(AndroidCXX::android_view_View const&
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1550,7 +1547,7 @@ int android_widget_ListView::getHeaderViewsCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1594,7 +1591,7 @@ bool android_widget_ListView::removeHeaderView(AndroidCXX::android_view_View con
 	const char *methodSignature = "(Landroid/view/View;)Z";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1659,7 +1656,7 @@ void android_widget_ListView::addFooterView(AndroidCXX::android_view_View const&
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1704,7 +1701,7 @@ void android_widget_ListView::addFooterView(AndroidCXX::android_view_View const&
 	const char *methodSignature = "(Landroid/view/View;Ljava/lang/Object;Z)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1791,7 +1788,7 @@ int android_widget_ListView::getFooterViewsCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1835,7 +1832,7 @@ bool android_widget_ListView::removeFooterView(AndroidCXX::android_view_View con
 	const char *methodSignature = "(Landroid/view/View;)Z";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1900,7 +1897,7 @@ void android_widget_ListView::smoothScrollByOffset(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1945,7 +1942,7 @@ void android_widget_ListView::setSelectionFromTop(int const& arg0,int const& arg
 	const char *methodSignature = "(II)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2011,7 +2008,7 @@ void android_widget_ListView::setSelectionAfterHeaderView()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2035,7 +2032,7 @@ void android_widget_ListView::setItemsCanFocus(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2080,7 +2077,7 @@ bool android_widget_ListView::getItemsCanFocus()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2124,7 +2121,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_ListView::getDivid
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2168,7 +2165,7 @@ void android_widget_ListView::setDivider(AndroidCXX::android_graphics_drawable_D
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2213,7 +2210,7 @@ int android_widget_ListView::getDividerHeight()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2257,7 +2254,7 @@ void android_widget_ListView::setDividerHeight(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2302,7 +2299,7 @@ void android_widget_ListView::setHeaderDividersEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2347,7 +2344,7 @@ void android_widget_ListView::setFooterDividersEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2392,7 +2389,7 @@ void android_widget_ListView::setOverscrollHeader(AndroidCXX::android_graphics_d
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2437,7 +2434,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_ListView::getOvers
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2481,7 +2478,7 @@ void android_widget_ListView::setOverscrollFooter(AndroidCXX::android_graphics_d
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2526,7 +2523,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_ListView::getOvers
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2570,7 +2567,7 @@ std::vector<long> android_widget_ListView::getCheckItemIds()
 	const char *methodSignature = "()[J";
 	const char *className = "android/widget/ListView";
 
-	LOGV("android_widget_ListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

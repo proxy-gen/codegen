@@ -64,11 +64,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_util_Date"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -182,7 +179,7 @@ java_util_Date::java_util_Date()
 	const char *methodSignature = "()V";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -218,7 +215,7 @@ java_util_Date::java_util_Date(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -275,7 +272,7 @@ java_util_Date::java_util_Date(int const& arg0,int const& arg1,int const& arg2)
 	const char *methodSignature = "(III)V";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -374,7 +371,7 @@ java_util_Date::java_util_Date(int const& arg0,int const& arg1,int const& arg2,i
 	const char *methodSignature = "(IIIII)V";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -515,7 +512,7 @@ java_util_Date::java_util_Date(int const& arg0,int const& arg1,int const& arg2,i
 	const char *methodSignature = "(IIIIII)V";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -677,7 +674,7 @@ java_util_Date::java_util_Date(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -749,7 +746,7 @@ bool java_util_Date::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -814,7 +811,7 @@ AndroidCXX::java_lang_String java_util_Date::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -858,7 +855,7 @@ int java_util_Date::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -902,7 +899,7 @@ AndroidCXX::java_lang_Object java_util_Date::clone()
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -946,7 +943,7 @@ int java_util_Date::compareTo(AndroidCXX::java_util_Date const& arg0)
 	const char *methodSignature = "(Ljava/util/Date;)I";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1011,7 +1008,7 @@ bool java_util_Date::after(AndroidCXX::java_util_Date const& arg0)
 	const char *methodSignature = "(Ljava/util/Date;)Z";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1076,7 +1073,7 @@ bool java_util_Date::before(AndroidCXX::java_util_Date const& arg0)
 	const char *methodSignature = "(Ljava/util/Date;)Z";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1141,7 +1138,7 @@ long java_util_Date::parse(AndroidCXX::java_lang_String const& arg0)
 	const char *methodSignature = "(Ljava/lang/String;)J";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1206,7 +1203,7 @@ void java_util_Date::setTime(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1251,7 +1248,7 @@ long java_util_Date::getTime()
 	const char *methodSignature = "()J";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1295,7 +1292,7 @@ int java_util_Date::getYear()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1339,7 +1336,7 @@ int java_util_Date::getMonth()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1383,7 +1380,7 @@ int java_util_Date::getDate()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1427,7 +1424,7 @@ int java_util_Date::getHours()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1471,7 +1468,7 @@ int java_util_Date::getMinutes()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1515,7 +1512,7 @@ int java_util_Date::getSeconds()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1559,7 +1556,7 @@ long java_util_Date::UTC(int const& arg0,int const& arg1,int const& arg2,int con
 	const char *methodSignature = "(IIIIII)J";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1729,7 +1726,7 @@ void java_util_Date::setDate(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1774,7 +1771,7 @@ void java_util_Date::setMonth(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1819,7 +1816,7 @@ void java_util_Date::setHours(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1864,7 +1861,7 @@ void java_util_Date::setMinutes(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1909,7 +1906,7 @@ void java_util_Date::setSeconds(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1954,7 +1951,7 @@ void java_util_Date::setYear(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1999,7 +1996,7 @@ int java_util_Date::getDay()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2043,7 +2040,7 @@ AndroidCXX::java_lang_String java_util_Date::toLocaleString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2087,7 +2084,7 @@ AndroidCXX::java_lang_String java_util_Date::toGMTString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2131,7 +2128,7 @@ int java_util_Date::getTimezoneOffset()
 	const char *methodSignature = "()I";
 	const char *className = "java/util/Date";
 
-	LOGV("java_util_Date className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_util_Date className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

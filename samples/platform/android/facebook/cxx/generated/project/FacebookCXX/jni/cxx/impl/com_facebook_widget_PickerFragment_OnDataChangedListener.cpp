@@ -127,7 +127,7 @@ void com_facebook_widget_PickerFragment_OnDataChangedListener::onDataChanged(Fac
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment;)V";
 	const char *className = "com/facebook/widget/PickerFragment$OnDataChangedListener";
 
-	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_OnDataChangedListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

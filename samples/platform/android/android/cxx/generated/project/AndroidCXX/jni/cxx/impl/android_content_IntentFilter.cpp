@@ -122,11 +122,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_IntentFilter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -346,7 +343,7 @@ android_content_IntentFilter::android_content_IntentFilter()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -382,7 +379,7 @@ android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -439,7 +436,7 @@ android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::java_lang
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -517,7 +514,7 @@ android_content_IntentFilter::android_content_IntentFilter(AndroidCXX::android_c
 	const char *methodSignature = "(Landroid/content/IntentFilter;)V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -589,7 +586,7 @@ void android_content_IntentFilter::setPriority(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -634,7 +631,7 @@ int android_content_IntentFilter::getPriority()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -678,7 +675,7 @@ AndroidCXX::android_content_IntentFilter android_content_IntentFilter::create(An
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Landroid/content/IntentFilter;";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -764,7 +761,7 @@ int android_content_IntentFilter::match(AndroidCXX::java_lang_String const& arg0
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/util/Set;Ljava/lang/String;)I";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -952,7 +949,7 @@ int android_content_IntentFilter::match(AndroidCXX::android_content_ContentResol
 	const char *methodSignature = "(Landroid/content/ContentResolver;Landroid/content/Intent;ZLjava/lang/String;)I";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1080,7 +1077,7 @@ void android_content_IntentFilter::dump(AndroidCXX::android_util_Printer const& 
 	const char *methodSignature = "(Landroid/util/Printer;Ljava/lang/String;)V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1146,7 +1143,7 @@ int android_content_IntentFilter::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1190,7 +1187,7 @@ void android_content_IntentFilter::writeToParcel(AndroidCXX::android_os_Parcel c
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1256,7 +1253,7 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getAction(int const& 
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1321,7 +1318,7 @@ bool android_content_IntentFilter::hasCategory(AndroidCXX::java_lang_String cons
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1386,7 +1383,7 @@ void android_content_IntentFilter::addCategory(AndroidCXX::java_lang_String cons
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1431,7 +1428,7 @@ void android_content_IntentFilter::addAction(AndroidCXX::java_lang_String const&
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1476,7 +1473,7 @@ int android_content_IntentFilter::countActions()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1520,7 +1517,7 @@ bool android_content_IntentFilter::hasAction(AndroidCXX::java_lang_String const&
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1585,7 +1582,7 @@ bool android_content_IntentFilter::matchAction(AndroidCXX::java_lang_String cons
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1650,7 +1647,7 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::actionsIterator()
 	const char *methodSignature = "()Ljava/util/Iterator;";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1712,7 +1709,7 @@ void android_content_IntentFilter::addDataType(AndroidCXX::java_lang_String cons
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1757,7 +1754,7 @@ bool android_content_IntentFilter::hasDataType(AndroidCXX::java_lang_String cons
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1822,7 +1819,7 @@ int android_content_IntentFilter::countDataTypes()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1866,7 +1863,7 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getDataType(int const
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1931,7 +1928,7 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::typesIterator()
 	const char *methodSignature = "()Ljava/util/Iterator;";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1993,7 +1990,7 @@ void android_content_IntentFilter::addDataScheme(AndroidCXX::java_lang_String co
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2038,7 +2035,7 @@ int android_content_IntentFilter::countDataSchemes()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2082,7 +2079,7 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getDataScheme(int con
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2147,7 +2144,7 @@ bool android_content_IntentFilter::hasDataScheme(AndroidCXX::java_lang_String co
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2212,7 +2209,7 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::schemesIterator()
 	const char *methodSignature = "()Ljava/util/Iterator;";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2274,7 +2271,7 @@ void android_content_IntentFilter::addDataAuthority(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2340,7 +2337,7 @@ int android_content_IntentFilter::countDataAuthorities()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2384,7 +2381,7 @@ AndroidCXX::android_content_IntentFilter_AuthorityEntry android_content_IntentFi
 	const char *methodSignature = "(I)Landroid/content/IntentFilter$AuthorityEntry;";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2449,7 +2446,7 @@ bool android_content_IntentFilter::hasDataAuthority(AndroidCXX::android_net_Uri 
 	const char *methodSignature = "(Landroid/net/Uri;)Z";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2514,7 +2511,7 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::authoritiesIterator
 	const char *methodSignature = "()Ljava/util/Iterator;";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2576,7 +2573,7 @@ void android_content_IntentFilter::addDataPath(AndroidCXX::java_lang_String cons
 	const char *methodSignature = "(Ljava/lang/String;I)V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2642,7 +2639,7 @@ int android_content_IntentFilter::countDataPaths()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2686,7 +2683,7 @@ AndroidCXX::android_os_PatternMatcher android_content_IntentFilter::getDataPath(
 	const char *methodSignature = "(I)Landroid/os/PatternMatcher;";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2751,7 +2748,7 @@ bool android_content_IntentFilter::hasDataPath(AndroidCXX::java_lang_String cons
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2816,7 +2813,7 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::pathsIterator()
 	const char *methodSignature = "()Ljava/util/Iterator;";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2878,7 +2875,7 @@ int android_content_IntentFilter::matchDataAuthority(AndroidCXX::android_net_Uri
 	const char *methodSignature = "(Landroid/net/Uri;)I";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2943,7 +2940,7 @@ int android_content_IntentFilter::matchData(AndroidCXX::java_lang_String const& 
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)I";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3050,7 +3047,7 @@ int android_content_IntentFilter::countCategories()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3094,7 +3091,7 @@ AndroidCXX::java_lang_String android_content_IntentFilter::getCategory(int const
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3159,7 +3156,7 @@ AndroidCXX::java_util_Iterator android_content_IntentFilter::categoriesIterator(
 	const char *methodSignature = "()Ljava/util/Iterator;";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3221,7 +3218,7 @@ AndroidCXX::java_lang_String android_content_IntentFilter::matchCategories(Andro
 	const char *methodSignature = "(Ljava/util/Set;)Ljava/lang/String;";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3304,7 +3301,7 @@ void android_content_IntentFilter::writeToXml(AndroidCXX::org_xmlpull_v1_XmlSeri
 	const char *methodSignature = "(Lorg/xmlpull/v1/XmlSerializer;)V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3349,7 +3346,7 @@ void android_content_IntentFilter::readFromXml(AndroidCXX::org_xmlpull_v1_XmlPul
 	const char *methodSignature = "(Lorg/xmlpull/v1/XmlPullParser;)V";
 	const char *className = "android/content/IntentFilter";
 
-	LOGV("android_content_IntentFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_IntentFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

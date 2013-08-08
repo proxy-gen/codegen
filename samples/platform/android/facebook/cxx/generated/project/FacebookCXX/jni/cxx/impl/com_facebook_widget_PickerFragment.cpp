@@ -278,7 +278,7 @@ void com_facebook_widget_PickerFragment::onCreate(AndroidCXX::android_os_Bundle 
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -323,7 +323,7 @@ void com_facebook_widget_PickerFragment::onSaveInstanceState(AndroidCXX::android
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -368,7 +368,7 @@ AndroidCXX::android_view_View com_facebook_widget_PickerFragment::onCreateView(A
 	const char *methodSignature = "(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -475,7 +475,7 @@ FacebookCXX::com_facebook_Session com_facebook_widget_PickerFragment::getSession
 	const char *methodSignature = "()Lcom/facebook/Session;";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -519,7 +519,7 @@ void com_facebook_widget_PickerFragment::setSession(FacebookCXX::com_facebook_Se
 	const char *methodSignature = "(Lcom/facebook/Session;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -564,7 +564,7 @@ void com_facebook_widget_PickerFragment::setArguments(AndroidCXX::android_os_Bun
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -609,7 +609,7 @@ void com_facebook_widget_PickerFragment::onInflate(AndroidCXX::android_app_Activ
 	const char *methodSignature = "(Landroid/app/Activity;Landroid/util/AttributeSet;Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -696,7 +696,7 @@ void com_facebook_widget_PickerFragment::onActivityCreated(AndroidCXX::android_o
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -741,7 +741,7 @@ void com_facebook_widget_PickerFragment::onDetach()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -765,7 +765,7 @@ void com_facebook_widget_PickerFragment::loadData(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -810,7 +810,7 @@ FacebookCXX::com_facebook_widget_PickerFragment_OnErrorListener com_facebook_wid
 	const char *methodSignature = "()Lcom/facebook/widget/PickerFragment$OnErrorListener;";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -854,7 +854,7 @@ void com_facebook_widget_PickerFragment::setOnErrorListener(FacebookCXX::com_fac
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment$OnErrorListener;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -899,7 +899,7 @@ FacebookCXX::com_facebook_widget_PickerFragment_GraphObjectFilter com_facebook_w
 	const char *methodSignature = "()Lcom/facebook/widget/PickerFragment$GraphObjectFilter;";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -961,7 +961,7 @@ void com_facebook_widget_PickerFragment::setFilter(FacebookCXX::com_facebook_wid
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment$GraphObjectFilter;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1024,7 +1024,7 @@ void com_facebook_widget_PickerFragment::setSettingsFromBundle(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1069,7 +1069,7 @@ bool com_facebook_widget_PickerFragment::getShowPictures()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1113,7 +1113,7 @@ void com_facebook_widget_PickerFragment::setShowPictures(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1158,7 +1158,7 @@ void com_facebook_widget_PickerFragment::setExtraFields(AndroidCXX::java_util_Co
 	const char *methodSignature = "(Ljava/util/Collection;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1221,7 +1221,7 @@ FacebookCXX::com_facebook_widget_PickerFragment_OnDataChangedListener com_facebo
 	const char *methodSignature = "()Lcom/facebook/widget/PickerFragment$OnDataChangedListener;";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1265,7 +1265,7 @@ void com_facebook_widget_PickerFragment::setOnDataChangedListener(FacebookCXX::c
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment$OnDataChangedListener;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1310,7 +1310,7 @@ FacebookCXX::com_facebook_widget_PickerFragment_OnSelectionChangedListener com_f
 	const char *methodSignature = "()Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1354,7 +1354,7 @@ void com_facebook_widget_PickerFragment::setOnSelectionChangedListener(FacebookC
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment$OnSelectionChangedListener;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1399,7 +1399,7 @@ FacebookCXX::com_facebook_widget_PickerFragment_OnDoneButtonClickedListener com_
 	const char *methodSignature = "()Lcom/facebook/widget/PickerFragment$OnDoneButtonClickedListener;";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1443,7 +1443,7 @@ void com_facebook_widget_PickerFragment::setOnDoneButtonClickedListener(Facebook
 	const char *methodSignature = "(Lcom/facebook/widget/PickerFragment$OnDoneButtonClickedListener;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1488,7 +1488,7 @@ AndroidCXX::java_util_Set com_facebook_widget_PickerFragment::getExtraFields()
 	const char *methodSignature = "()Ljava/util/Set;";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1550,7 +1550,7 @@ void com_facebook_widget_PickerFragment::setShowTitleBar(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1595,7 +1595,7 @@ bool com_facebook_widget_PickerFragment::getShowTitleBar()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1639,7 +1639,7 @@ void com_facebook_widget_PickerFragment::setTitleText(AndroidCXX::java_lang_Stri
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1684,7 +1684,7 @@ AndroidCXX::java_lang_String com_facebook_widget_PickerFragment::getTitleText()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1728,7 +1728,7 @@ void com_facebook_widget_PickerFragment::setDoneButtonText(AndroidCXX::java_lang
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1773,7 +1773,7 @@ AndroidCXX::java_lang_String com_facebook_widget_PickerFragment::getDoneButtonTe
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/widget/PickerFragment";
 
-	LOGV("com_facebook_widget_PickerFragment className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -46,11 +46,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_util_TypedValue"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -164,7 +161,7 @@ android_util_TypedValue::android_util_TypedValue()
 	const char *methodSignature = "()V";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -215,7 +212,7 @@ AndroidCXX::java_lang_String android_util_TypedValue::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -259,7 +256,7 @@ float android_util_TypedValue::getFloat()
 	const char *methodSignature = "()F";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -303,7 +300,7 @@ float android_util_TypedValue::getDimension(AndroidCXX::android_util_DisplayMetr
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;)F";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -368,7 +365,7 @@ float android_util_TypedValue::getFraction(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)F";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -454,7 +451,7 @@ void android_util_TypedValue::setTo(AndroidCXX::android_util_TypedValue const& a
 	const char *methodSignature = "(Landroid/util/TypedValue;)V";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -499,7 +496,7 @@ float android_util_TypedValue::complexToFloat(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -564,7 +561,7 @@ float android_util_TypedValue::complexToDimension(int const& arg0,AndroidCXX::an
 	const char *methodSignature = "(ILandroid/util/DisplayMetrics;)F";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -650,7 +647,7 @@ int android_util_TypedValue::complexToDimensionPixelOffset(int const& arg0,Andro
 	const char *methodSignature = "(ILandroid/util/DisplayMetrics;)I";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -736,7 +733,7 @@ int android_util_TypedValue::complexToDimensionPixelSize(int const& arg0,Android
 	const char *methodSignature = "(ILandroid/util/DisplayMetrics;)I";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -822,7 +819,7 @@ float android_util_TypedValue::complexToDimensionNoisy(int const& arg0,AndroidCX
 	const char *methodSignature = "(ILandroid/util/DisplayMetrics;)F";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -908,7 +905,7 @@ float android_util_TypedValue::applyDimension(int const& arg0,float const& arg1,
 	const char *methodSignature = "(IFLandroid/util/DisplayMetrics;)F";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1015,7 +1012,7 @@ float android_util_TypedValue::complexToFraction(int const& arg0,float const& ar
 	const char *methodSignature = "(IFF)F";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1122,7 +1119,7 @@ AndroidCXX::java_lang_CharSequence android_util_TypedValue::coerceToString()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1166,7 +1163,7 @@ AndroidCXX::java_lang_String android_util_TypedValue::coerceToString(int const& 
 	const char *methodSignature = "(II)Ljava/lang/String;";
 	const char *className = "android/util/TypedValue";
 
-	LOGV("android_util_TypedValue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_TypedValue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

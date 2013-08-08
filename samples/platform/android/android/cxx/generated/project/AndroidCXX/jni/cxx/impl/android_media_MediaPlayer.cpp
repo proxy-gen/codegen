@@ -9,12 +9,12 @@
 
 
  		 
-	
- 		 
- 		 
  		 
 	
  		 
+ 		 
+ 		 
+	
  		 
 	
  		 
@@ -110,11 +110,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_media_MediaPlayer"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -312,7 +309,7 @@ android_media_MediaPlayer::android_media_MediaPlayer()
 	const char *methodSignature = "()V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -363,7 +360,7 @@ void android_media_MediaPlayer::start()
 	const char *methodSignature = "()V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -387,7 +384,7 @@ void android_media_MediaPlayer::stop()
 	const char *methodSignature = "()V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -411,7 +408,7 @@ void android_media_MediaPlayer::reset()
 	const char *methodSignature = "()V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -435,7 +432,7 @@ void android_media_MediaPlayer::release()
 	const char *methodSignature = "()V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -451,15 +448,15 @@ void android_media_MediaPlayer::release()
 	LOGV("void android_media_MediaPlayer::release() exit");
 
 }
-AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidCXX::android_content_Context const& arg0,int const& arg1)
+AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1)
 {
-	LOGV("AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidCXX::android_content_Context const& arg0,int const& arg1) enter");
+	LOGV("AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1) enter");
 
 	const char *methodName = "create";
-	const char *methodSignature = "(Landroid/content/Context;I)Landroid/media/MediaPlayer;";
+	const char *methodSignature = "(Landroid/content/Context;Landroid/net/Uri;)Landroid/media/MediaPlayer;";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -490,7 +487,7 @@ AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidC
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
-	jint jarg1;
+	jobject jarg1;
 	{
 		long cxx_value = (long) & arg1;
 		long java_value = 0;
@@ -502,14 +499,14 @@ AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidC
 		{
 			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
 			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
+			cxx_type_hierarchy.type_name = std::string("android.net.Uri");
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_android_net_Uri(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg1 = convert_jni_int_to_jni(java_value);
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
 
 	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
@@ -533,7 +530,7 @@ AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidC
 	AndroidCXX::android_media_MediaPlayer result((AndroidCXX::android_media_MediaPlayer) *((AndroidCXX::android_media_MediaPlayer *) cxx_value));
 	delete ((AndroidCXX::android_media_MediaPlayer *) cxx_value);
 		
-	LOGV("AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidCXX::android_content_Context const& arg0,int const& arg1) exit");
+	LOGV("AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1) exit");
 
 	return result;
 }
@@ -545,7 +542,7 @@ AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidC
 	const char *methodSignature = "(Landroid/content/Context;Landroid/net/Uri;Landroid/view/SurfaceHolder;)Landroid/media/MediaPlayer;";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -644,15 +641,15 @@ AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidC
 
 	return result;
 }
-AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1)
+AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidCXX::android_content_Context const& arg0,int const& arg1)
 {
-	LOGV("AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1) enter");
+	LOGV("AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidCXX::android_content_Context const& arg0,int const& arg1) enter");
 
 	const char *methodName = "create";
-	const char *methodSignature = "(Landroid/content/Context;Landroid/net/Uri;)Landroid/media/MediaPlayer;";
+	const char *methodSignature = "(Landroid/content/Context;I)Landroid/media/MediaPlayer;";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -683,7 +680,7 @@ AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidC
 		// Convert to JNI
 		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
 	}
-	jobject jarg1;
+	jint jarg1;
 	{
 		long cxx_value = (long) & arg1;
 		long java_value = 0;
@@ -695,14 +692,14 @@ AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidC
 		{
 			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
 			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("android.net.Uri");
+			cxx_type_hierarchy.type_name = std::string("int");
 		}
 		std::stack<long> converter_stack;
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_android_net_Uri(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
 		// Convert to JNI
-		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+		jarg1 = convert_jni_int_to_jni(java_value);
 	}
 
 	jobject jni_result = (jobject) jni->invokeStaticObjectMethod(className,methodName,methodSignature,jarg0,jarg1);
@@ -726,7 +723,7 @@ AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidC
 	AndroidCXX::android_media_MediaPlayer result((AndroidCXX::android_media_MediaPlayer) *((AndroidCXX::android_media_MediaPlayer *) cxx_value));
 	delete ((AndroidCXX::android_media_MediaPlayer *) cxx_value);
 		
-	LOGV("AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1) exit");
+	LOGV("AndroidCXX::android_media_MediaPlayer android_media_MediaPlayer::create(AndroidCXX::android_content_Context const& arg0,int const& arg1) exit");
 
 	return result;
 }
@@ -738,7 +735,7 @@ int android_media_MediaPlayer::getDuration()
 	const char *methodSignature = "()I";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -782,7 +779,7 @@ void android_media_MediaPlayer::prepare()
 	const char *methodSignature = "()V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -806,7 +803,7 @@ void android_media_MediaPlayer::pause()
 	const char *methodSignature = "()V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -830,7 +827,7 @@ int android_media_MediaPlayer::getCurrentPosition()
 	const char *methodSignature = "()I";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -874,7 +871,7 @@ void android_media_MediaPlayer::seekTo(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -919,7 +916,7 @@ bool android_media_MediaPlayer::isPlaying()
 	const char *methodSignature = "()Z";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -955,6 +952,50 @@ bool android_media_MediaPlayer::isPlaying()
 
 	return result;
 }
+int android_media_MediaPlayer::getAudioSessionId()
+{
+	LOGV("int android_media_MediaPlayer::getAudioSessionId() enter");
+
+	const char *methodName = "getAudioSessionId";
+	const char *methodSignature = "()I";
+	const char *className = "android/media/MediaPlayer";
+
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_media_MediaPlayer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_media_MediaPlayer jni address %d", javaObject);
+
+
+	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_int_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	int result = (int) *((int *) cxx_value);
+	// 
+		
+	LOGV("int android_media_MediaPlayer::getAudioSessionId() exit");
+
+	return result;
+}
 void android_media_MediaPlayer::setOnPreparedListener(AndroidCXX::android_media_MediaPlayer_OnPreparedListener const& arg0)
 {
 	LOGV("void android_media_MediaPlayer::setOnPreparedListener(AndroidCXX::android_media_MediaPlayer_OnPreparedListener const& arg0) enter");
@@ -963,7 +1004,7 @@ void android_media_MediaPlayer::setOnPreparedListener(AndroidCXX::android_media_
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnPreparedListener;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1008,7 +1049,7 @@ void android_media_MediaPlayer::setOnCompletionListener(AndroidCXX::android_medi
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnCompletionListener;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1053,7 +1094,7 @@ void android_media_MediaPlayer::setOnErrorListener(AndroidCXX::android_media_Med
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnErrorListener;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1098,7 +1139,7 @@ void android_media_MediaPlayer::setOnInfoListener(AndroidCXX::android_media_Medi
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnInfoListener;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1143,7 +1184,7 @@ void android_media_MediaPlayer::setDisplay(AndroidCXX::android_view_SurfaceHolde
 	const char *methodSignature = "(Landroid/view/SurfaceHolder;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1188,7 +1229,7 @@ void android_media_MediaPlayer::setSurface(AndroidCXX::android_view_Surface cons
 	const char *methodSignature = "(Landroid/view/Surface;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1233,7 +1274,7 @@ void android_media_MediaPlayer::setVideoScalingMode(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1270,162 +1311,6 @@ void android_media_MediaPlayer::setVideoScalingMode(int const& arg0)
 	LOGV("void android_media_MediaPlayer::setVideoScalingMode(int const& arg0) exit");
 
 }
-void android_media_MediaPlayer::setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1)
-{
-	LOGV("void android_media_MediaPlayer::setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1) enter");
-
-	const char *methodName = "setDataSource";
-	const char *methodSignature = "(Landroid/content/Context;Landroid/net/Uri;)V";
-	const char *className = "android/media/MediaPlayer";
-
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_media_MediaPlayer cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_media_MediaPlayer jni address %d", javaObject);
-
-	jobject jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("android.content.Context");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_android_content_Context(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-	jobject jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("android.net.Uri");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_android_net_Uri(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
-		
-	LOGV("void android_media_MediaPlayer::setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1) exit");
-
-}
-void android_media_MediaPlayer::setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0)
-{
-	LOGV("void android_media_MediaPlayer::setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0) enter");
-
-	const char *methodName = "setDataSource";
-	const char *methodSignature = "(Ljava/io/FileDescriptor;)V";
-	const char *className = "android/media/MediaPlayer";
-
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_media_MediaPlayer cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_media_MediaPlayer jni address %d", javaObject);
-
-	jobject jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.io.FileDescriptor");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_io_FileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
-		
-	LOGV("void android_media_MediaPlayer::setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0) exit");
-
-}
-void android_media_MediaPlayer::setDataSource(AndroidCXX::java_lang_String const& arg0)
-{
-	LOGV("void android_media_MediaPlayer::setDataSource(AndroidCXX::java_lang_String const& arg0) enter");
-
-	const char *methodName = "setDataSource";
-	const char *methodSignature = "(Ljava/lang/String;)V";
-	const char *className = "android/media/MediaPlayer";
-
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_media_MediaPlayer cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_media_MediaPlayer jni address %d", javaObject);
-
-	jstring jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_string_to_jni(java_value);
-	}
-
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
-		
-	LOGV("void android_media_MediaPlayer::setDataSource(AndroidCXX::java_lang_String const& arg0) exit");
-
-}
 void android_media_MediaPlayer::setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::java_util_Map const& arg2)
 {
 	LOGV("void android_media_MediaPlayer::setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::java_util_Map const& arg2) enter");
@@ -1434,7 +1319,7 @@ void android_media_MediaPlayer::setDataSource(AndroidCXX::android_content_Contex
 	const char *methodSignature = "(Landroid/content/Context;Landroid/net/Uri;Ljava/util/Map;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1554,7 +1439,7 @@ void android_media_MediaPlayer::setDataSource(AndroidCXX::java_io_FileDescriptor
 	const char *methodSignature = "(Ljava/io/FileDescriptor;JJ)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1633,6 +1518,162 @@ void android_media_MediaPlayer::setDataSource(AndroidCXX::java_io_FileDescriptor
 	LOGV("void android_media_MediaPlayer::setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0,long const& arg1,long const& arg2) exit");
 
 }
+void android_media_MediaPlayer::setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0)
+{
+	LOGV("void android_media_MediaPlayer::setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0) enter");
+
+	const char *methodName = "setDataSource";
+	const char *methodSignature = "(Ljava/io/FileDescriptor;)V";
+	const char *className = "android/media/MediaPlayer";
+
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_media_MediaPlayer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_media_MediaPlayer jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.io.FileDescriptor");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_io_FileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	LOGV("void android_media_MediaPlayer::setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0) exit");
+
+}
+void android_media_MediaPlayer::setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1)
+{
+	LOGV("void android_media_MediaPlayer::setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1) enter");
+
+	const char *methodName = "setDataSource";
+	const char *methodSignature = "(Landroid/content/Context;Landroid/net/Uri;)V";
+	const char *className = "android/media/MediaPlayer";
+
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_media_MediaPlayer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_media_MediaPlayer jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.content.Context");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_content_Context(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jobject jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("android.net.Uri");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_android_net_Uri(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+		
+	LOGV("void android_media_MediaPlayer::setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1) exit");
+
+}
+void android_media_MediaPlayer::setDataSource(AndroidCXX::java_lang_String const& arg0)
+{
+	LOGV("void android_media_MediaPlayer::setDataSource(AndroidCXX::java_lang_String const& arg0) enter");
+
+	const char *methodName = "setDataSource";
+	const char *methodSignature = "(Ljava/lang/String;)V";
+	const char *className = "android/media/MediaPlayer";
+
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_media_MediaPlayer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_media_MediaPlayer jni address %d", javaObject);
+
+	jstring jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_string_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	LOGV("void android_media_MediaPlayer::setDataSource(AndroidCXX::java_lang_String const& arg0) exit");
+
+}
 void android_media_MediaPlayer::prepareAsync()
 {
 	LOGV("void android_media_MediaPlayer::prepareAsync() enter");
@@ -1641,7 +1682,7 @@ void android_media_MediaPlayer::prepareAsync()
 	const char *methodSignature = "()V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1665,7 +1706,7 @@ void android_media_MediaPlayer::setWakeMode(AndroidCXX::android_content_Context 
 	const char *methodSignature = "(Landroid/content/Context;I)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1731,7 +1772,7 @@ void android_media_MediaPlayer::setScreenOnWhilePlaying(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1776,7 +1817,7 @@ int android_media_MediaPlayer::getVideoWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1820,7 +1861,7 @@ int android_media_MediaPlayer::getVideoHeight()
 	const char *methodSignature = "()I";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1864,7 +1905,7 @@ void android_media_MediaPlayer::setNextMediaPlayer(AndroidCXX::android_media_Med
 	const char *methodSignature = "(Landroid/media/MediaPlayer;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1909,7 +1950,7 @@ void android_media_MediaPlayer::setAudioStreamType(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1954,7 +1995,7 @@ void android_media_MediaPlayer::setLooping(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1999,7 +2040,7 @@ bool android_media_MediaPlayer::isLooping()
 	const char *methodSignature = "()Z";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2043,7 +2084,7 @@ void android_media_MediaPlayer::setVolume(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2109,7 +2150,7 @@ void android_media_MediaPlayer::setAudioSessionId(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2146,50 +2187,6 @@ void android_media_MediaPlayer::setAudioSessionId(int const& arg0)
 	LOGV("void android_media_MediaPlayer::setAudioSessionId(int const& arg0) exit");
 
 }
-int android_media_MediaPlayer::getAudioSessionId()
-{
-	LOGV("int android_media_MediaPlayer::getAudioSessionId() enter");
-
-	const char *methodName = "getAudioSessionId";
-	const char *methodSignature = "()I";
-	const char *className = "android/media/MediaPlayer";
-
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_media_MediaPlayer cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_media_MediaPlayer jni address %d", javaObject);
-
-
-	jint jni_result = (jint) jni->invokeIntMethod(javaObject,className,methodName,methodSignature);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_int_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("int");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	int result = (int) *((int *) cxx_value);
-	// 
-		
-	LOGV("int android_media_MediaPlayer::getAudioSessionId() exit");
-
-	return result;
-}
 void android_media_MediaPlayer::attachAuxEffect(int const& arg0)
 {
 	LOGV("void android_media_MediaPlayer::attachAuxEffect(int const& arg0) enter");
@@ -2198,7 +2195,7 @@ void android_media_MediaPlayer::attachAuxEffect(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2243,7 +2240,7 @@ void android_media_MediaPlayer::setAuxEffectSendLevel(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2288,7 +2285,7 @@ std::vector<AndroidCXX::android_media_MediaPlayer_TrackInfo > android_media_Medi
 	const char *methodSignature = "()[Landroid/media/MediaPlayer$TrackInfo;";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2342,72 +2339,6 @@ std::vector<AndroidCXX::android_media_MediaPlayer_TrackInfo > android_media_Medi
 
 	return result;
 }
-void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::java_io_FileDescriptor const& arg0,AndroidCXX::java_lang_String const& arg1)
-{
-	LOGV("void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::java_io_FileDescriptor const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
-
-	const char *methodName = "addTimedTextSource";
-	const char *methodSignature = "(Ljava/io/FileDescriptor;Ljava/lang/String;)V";
-	const char *className = "android/media/MediaPlayer";
-
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("android_media_MediaPlayer cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_media_MediaPlayer jni address %d", javaObject);
-
-	jobject jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.io.FileDescriptor");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_io_FileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
-	}
-	jstring jarg1;
-	{
-		long cxx_value = (long) & arg1;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg1 = convert_jni_string_to_jni(java_value);
-	}
-
-	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
-		
-	LOGV("void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::java_io_FileDescriptor const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
-
-}
 void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::java_lang_String const& arg2)
 {
 	LOGV("void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::java_lang_String const& arg2) enter");
@@ -2416,7 +2347,7 @@ void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2503,7 +2434,7 @@ void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::java_lang_String 
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2561,6 +2492,72 @@ void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::java_lang_String 
 	LOGV("void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
 
 }
+void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::java_io_FileDescriptor const& arg0,AndroidCXX::java_lang_String const& arg1)
+{
+	LOGV("void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::java_io_FileDescriptor const& arg0,AndroidCXX::java_lang_String const& arg1) enter");
+
+	const char *methodName = "addTimedTextSource";
+	const char *methodSignature = "(Ljava/io/FileDescriptor;Ljava/lang/String;)V";
+	const char *className = "android/media/MediaPlayer";
+
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_media_MediaPlayer cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_media_MediaPlayer jni address %d", javaObject);
+
+	jobject jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.io.FileDescriptor");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_io_FileDescriptor(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_java_lang_Object_to_jni(java_value);
+	}
+	jstring jarg1;
+	{
+		long cxx_value = (long) & arg1;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg1 = convert_jni_string_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0,jarg1);
+		
+	LOGV("void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::java_io_FileDescriptor const& arg0,AndroidCXX::java_lang_String const& arg1) exit");
+
+}
 void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::java_io_FileDescriptor const& arg0,long const& arg1,long const& arg2,AndroidCXX::java_lang_String const& arg3)
 {
 	LOGV("void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::java_io_FileDescriptor const& arg0,long const& arg1,long const& arg2,AndroidCXX::java_lang_String const& arg3) enter");
@@ -2569,7 +2566,7 @@ void android_media_MediaPlayer::addTimedTextSource(AndroidCXX::java_io_FileDescr
 	const char *methodSignature = "(Ljava/io/FileDescriptor;JJLjava/lang/String;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2677,7 +2674,7 @@ void android_media_MediaPlayer::selectTrack(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2722,7 +2719,7 @@ void android_media_MediaPlayer::deselectTrack(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2767,7 +2764,7 @@ void android_media_MediaPlayer::setOnBufferingUpdateListener(AndroidCXX::android
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnBufferingUpdateListener;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2812,7 +2809,7 @@ void android_media_MediaPlayer::setOnSeekCompleteListener(AndroidCXX::android_me
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnSeekCompleteListener;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2857,7 +2854,7 @@ void android_media_MediaPlayer::setOnVideoSizeChangedListener(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnVideoSizeChangedListener;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2902,7 +2899,7 @@ void android_media_MediaPlayer::setOnTimedTextListener(AndroidCXX::android_media
 	const char *methodSignature = "(Landroid/media/MediaPlayer$OnTimedTextListener;)V";
 	const char *className = "android/media/MediaPlayer";
 
-	LOGV("android_media_MediaPlayer className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_media_MediaPlayer className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

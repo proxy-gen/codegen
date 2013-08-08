@@ -37,11 +37,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_animation_Transformation"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -140,7 +137,7 @@ android_view_animation_Transformation::android_view_animation_Transformation()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/animation/Transformation";
 
-	LOGV("android_view_animation_Transformation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_animation_Transformation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -191,7 +188,7 @@ AndroidCXX::java_lang_String android_view_animation_Transformation::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/view/animation/Transformation";
 
-	LOGV("android_view_animation_Transformation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_animation_Transformation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -235,7 +232,7 @@ void android_view_animation_Transformation::clear()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/animation/Transformation";
 
-	LOGV("android_view_animation_Transformation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_animation_Transformation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -259,7 +256,7 @@ void android_view_animation_Transformation::set(AndroidCXX::android_view_animati
 	const char *methodSignature = "(Landroid/view/animation/Transformation;)V";
 	const char *className = "android/view/animation/Transformation";
 
-	LOGV("android_view_animation_Transformation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_animation_Transformation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -304,7 +301,7 @@ void android_view_animation_Transformation::compose(AndroidCXX::android_view_ani
 	const char *methodSignature = "(Landroid/view/animation/Transformation;)V";
 	const char *className = "android/view/animation/Transformation";
 
-	LOGV("android_view_animation_Transformation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_animation_Transformation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -349,7 +346,7 @@ AndroidCXX::android_graphics_Matrix android_view_animation_Transformation::getMa
 	const char *methodSignature = "()Landroid/graphics/Matrix;";
 	const char *className = "android/view/animation/Transformation";
 
-	LOGV("android_view_animation_Transformation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_animation_Transformation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -393,7 +390,7 @@ float android_view_animation_Transformation::getAlpha()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/animation/Transformation";
 
-	LOGV("android_view_animation_Transformation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_animation_Transformation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -437,7 +434,7 @@ void android_view_animation_Transformation::setAlpha(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/view/animation/Transformation";
 
-	LOGV("android_view_animation_Transformation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_animation_Transformation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -482,7 +479,7 @@ AndroidCXX::java_lang_String android_view_animation_Transformation::toShortStrin
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/view/animation/Transformation";
 
-	LOGV("android_view_animation_Transformation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_animation_Transformation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -526,7 +523,7 @@ int android_view_animation_Transformation::getTransformationType()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/animation/Transformation";
 
-	LOGV("android_view_animation_Transformation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_animation_Transformation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -570,7 +567,7 @@ void android_view_animation_Transformation::setTransformationType(int const& arg
 	const char *methodSignature = "(I)V";
 	const char *className = "android/view/animation/Transformation";
 
-	LOGV("android_view_animation_Transformation className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_animation_Transformation className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

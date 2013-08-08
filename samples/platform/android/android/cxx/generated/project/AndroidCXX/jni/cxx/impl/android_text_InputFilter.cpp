@@ -25,11 +25,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_text_InputFilter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -137,7 +134,7 @@ AndroidCXX::java_lang_CharSequence android_text_InputFilter::filter(AndroidCXX::
 	const char *methodSignature = "(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;";
 	const char *className = "android/text/InputFilter";
 
-	LOGV("android_text_InputFilter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_InputFilter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

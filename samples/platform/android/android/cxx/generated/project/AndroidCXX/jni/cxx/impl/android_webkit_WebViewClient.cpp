@@ -76,11 +76,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_webkit_WebViewClient"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -281,7 +278,7 @@ android_webkit_WebViewClient::android_webkit_WebViewClient()
 	const char *methodSignature = "()V";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -332,7 +329,7 @@ bool android_webkit_WebViewClient::shouldOverrideUrlLoading(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)Z";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -418,7 +415,7 @@ void android_webkit_WebViewClient::onPageStarted(AndroidCXX::android_webkit_WebV
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Landroid/graphics/Bitmap;)V";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -505,7 +502,7 @@ void android_webkit_WebViewClient::onPageFinished(AndroidCXX::android_webkit_Web
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -571,7 +568,7 @@ void android_webkit_WebViewClient::onLoadResource(AndroidCXX::android_webkit_Web
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -637,7 +634,7 @@ AndroidCXX::android_webkit_WebResourceResponse android_webkit_WebViewClient::sho
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;)Landroid/webkit/WebResourceResponse;";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -723,7 +720,7 @@ void android_webkit_WebViewClient::onTooManyRedirects(AndroidCXX::android_webkit
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/os/Message;Landroid/os/Message;)V";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -810,7 +807,7 @@ void android_webkit_WebViewClient::onReceivedError(AndroidCXX::android_webkit_We
 	const char *methodSignature = "(Landroid/webkit/WebView;ILjava/lang/String;Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -918,7 +915,7 @@ void android_webkit_WebViewClient::onFormResubmission(AndroidCXX::android_webkit
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/os/Message;Landroid/os/Message;)V";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1005,7 +1002,7 @@ void android_webkit_WebViewClient::doUpdateVisitedHistory(AndroidCXX::android_we
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Z)V";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1092,7 +1089,7 @@ void android_webkit_WebViewClient::onReceivedSslError(AndroidCXX::android_webkit
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/webkit/SslErrorHandler;Landroid/net/http/SslError;)V";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1179,7 +1176,7 @@ void android_webkit_WebViewClient::onReceivedHttpAuthRequest(AndroidCXX::android
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/webkit/HttpAuthHandler;Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1287,7 +1284,7 @@ bool android_webkit_WebViewClient::shouldOverrideKeyEvent(AndroidCXX::android_we
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/view/KeyEvent;)Z";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1373,7 +1370,7 @@ void android_webkit_WebViewClient::onUnhandledKeyEvent(AndroidCXX::android_webki
 	const char *methodSignature = "(Landroid/webkit/WebView;Landroid/view/KeyEvent;)V";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1439,7 +1436,7 @@ void android_webkit_WebViewClient::onScaleChanged(AndroidCXX::android_webkit_Web
 	const char *methodSignature = "(Landroid/webkit/WebView;FF)V";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1526,7 +1523,7 @@ void android_webkit_WebViewClient::onReceivedLoginRequest(AndroidCXX::android_we
 	const char *methodSignature = "(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "android/webkit/WebViewClient";
 
-	LOGV("android_webkit_WebViewClient className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_webkit_WebViewClient className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

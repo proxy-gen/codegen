@@ -32,11 +32,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_util_DisplayMetrics"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -132,7 +129,7 @@ android_util_DisplayMetrics::android_util_DisplayMetrics()
 	const char *methodSignature = "()V";
 	const char *className = "android/util/DisplayMetrics";
 
-	LOGV("android_util_DisplayMetrics className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_DisplayMetrics className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -183,7 +180,7 @@ bool android_util_DisplayMetrics::equals(AndroidCXX::java_lang_Object const& arg
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "android/util/DisplayMetrics";
 
-	LOGV("android_util_DisplayMetrics className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_DisplayMetrics className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -248,7 +245,7 @@ bool android_util_DisplayMetrics::equals(AndroidCXX::android_util_DisplayMetrics
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;)Z";
 	const char *className = "android/util/DisplayMetrics";
 
-	LOGV("android_util_DisplayMetrics className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_DisplayMetrics className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -313,7 +310,7 @@ AndroidCXX::java_lang_String android_util_DisplayMetrics::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/util/DisplayMetrics";
 
-	LOGV("android_util_DisplayMetrics className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_DisplayMetrics className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -357,7 +354,7 @@ int android_util_DisplayMetrics::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "android/util/DisplayMetrics";
 
-	LOGV("android_util_DisplayMetrics className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_DisplayMetrics className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -401,7 +398,7 @@ void android_util_DisplayMetrics::setTo(AndroidCXX::android_util_DisplayMetrics 
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;)V";
 	const char *className = "android/util/DisplayMetrics";
 
-	LOGV("android_util_DisplayMetrics className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_DisplayMetrics className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -446,7 +443,7 @@ void android_util_DisplayMetrics::setToDefaults()
 	const char *methodSignature = "()V";
 	const char *className = "android/util/DisplayMetrics";
 
-	LOGV("android_util_DisplayMetrics className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_util_DisplayMetrics className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

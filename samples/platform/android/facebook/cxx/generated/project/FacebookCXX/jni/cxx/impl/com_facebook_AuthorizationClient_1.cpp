@@ -134,7 +134,7 @@ void com_facebook_AuthorizationClient_1::startActivityForResult(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/content/Intent;I)V";
 	const char *className = "com/facebook/AuthorizationClient$1";
 
-	LOGV("com_facebook_AuthorizationClient_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AuthorizationClient_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -200,7 +200,7 @@ AndroidCXX::android_app_Activity com_facebook_AuthorizationClient_1::getActivity
 	const char *methodSignature = "()Landroid/app/Activity;";
 	const char *className = "com/facebook/AuthorizationClient$1";
 
-	LOGV("com_facebook_AuthorizationClient_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AuthorizationClient_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

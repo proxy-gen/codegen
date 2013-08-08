@@ -124,7 +124,7 @@ com_facebook_FacebookDialogException::com_facebook_FacebookDialogException(Andro
 	const char *methodSignature = "(Ljava/lang/String;ILjava/lang/String;)V";
 	const char *className = "com/facebook/FacebookDialogException";
 
-	LOGV("com_facebook_FacebookDialogException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_FacebookDialogException className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -238,7 +238,7 @@ int com_facebook_FacebookDialogException::getErrorCode()
 	const char *methodSignature = "()I";
 	const char *className = "com/facebook/FacebookDialogException";
 
-	LOGV("com_facebook_FacebookDialogException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_FacebookDialogException className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -282,7 +282,7 @@ AndroidCXX::java_lang_String com_facebook_FacebookDialogException::getFailingUrl
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/FacebookDialogException";
 
-	LOGV("com_facebook_FacebookDialogException className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_FacebookDialogException className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

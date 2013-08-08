@@ -133,7 +133,7 @@ void com_facebook_Request_5::writeString(AndroidCXX::java_lang_String const& arg
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)V";
 	const char *className = "com/facebook/Request$5";
 
-	LOGV("com_facebook_Request_5 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request_5 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

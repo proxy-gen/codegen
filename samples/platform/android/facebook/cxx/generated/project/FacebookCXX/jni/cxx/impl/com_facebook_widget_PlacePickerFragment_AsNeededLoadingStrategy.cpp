@@ -127,7 +127,7 @@ void com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy::attach(Fac
 	const char *methodSignature = "(Lcom/facebook/widget/GraphObjectAdapter;)V";
 	const char *className = "com/facebook/widget/PlacePickerFragment$AsNeededLoadingStrategy";
 
-	LOGV("com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

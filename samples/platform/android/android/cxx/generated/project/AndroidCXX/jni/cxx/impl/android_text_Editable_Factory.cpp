@@ -27,11 +27,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_text_Editable_Factory"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -124,7 +121,7 @@ android_text_Editable_Factory::android_text_Editable_Factory()
 	const char *methodSignature = "()V";
 	const char *className = "android/text/Editable$Factory";
 
-	LOGV("android_text_Editable_Factory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable_Factory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -175,7 +172,7 @@ AndroidCXX::android_text_Editable_Factory android_text_Editable_Factory::getInst
 	const char *methodSignature = "()Landroid/text/Editable$Factory;";
 	const char *className = "android/text/Editable$Factory";
 
-	LOGV("android_text_Editable_Factory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable_Factory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -219,7 +216,7 @@ AndroidCXX::android_text_Editable android_text_Editable_Factory::newEditable(And
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/text/Editable;";
 	const char *className = "android/text/Editable$Factory";
 
-	LOGV("android_text_Editable_Factory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_text_Editable_Factory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

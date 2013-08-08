@@ -191,7 +191,7 @@ com_facebook_Request_GraphPlaceListCallback::com_facebook_Request_GraphPlaceList
 	const char *methodSignature = "()V";
 	const char *className = "FacebookCXX/com_facebook_Request_GraphPlaceListCallback";
 
-	LOGV("com_facebook_Request_GraphPlaceListCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request_GraphPlaceListCallback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -257,7 +257,7 @@ void com_facebook_Request_GraphPlaceListCallback::onCompleted(AndroidCXX::java_u
 	const char *methodSignature = "(Ljava/util/List;Lcom/facebook/Response;)V";
 	const char *className = "FacebookCXX/com_facebook_Request_GraphPlaceListCallback";
 
-	LOGV("com_facebook_Request_GraphPlaceListCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request_GraphPlaceListCallback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

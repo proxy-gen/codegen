@@ -11,8 +11,8 @@
 	
  		 
 	
-	
  		 
+	
  		 
  		 
  		 
@@ -25,6 +25,7 @@
 
  		 
  		 
+
 
 
 
@@ -77,11 +78,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_location_Location"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -179,63 +177,6 @@ Proxy android_location_Location::proxy() const
 
 	return proxy;
 }
-android_location_Location::android_location_Location(AndroidCXX::java_lang_String const& arg0)
-{
-	LOGV("android_location_Location::android_location_Location(AndroidCXX::java_lang_String const& arg0) enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "(Ljava/lang/String;)V";
-	const char *className = "android/location/Location";
-
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	long cxxAddress = (long) this;
-	LOGV("android_location_Location cxx address %d", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_location_Location jni address %d", proxiedComponent);
-
-	if (proxiedComponent == 0)
-	{
-
-		jstring jarg0;
-		{
-			long cxx_value = (long) & arg0;
-			long java_value = 0;
-
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			{
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("java.lang.String");
-			}
-			std::stack<long> converter_stack;
-			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-			// Convert to JNI
-			jarg0 = convert_jni_string_to_jni(java_value);
-		}
-			
-		jclass clazz = jni->getClassRef(className);
-
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0);
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("android_location_Location::android_location_Location(AndroidCXX::java_lang_String const& arg0) exit");	
-}
 android_location_Location::android_location_Location(AndroidCXX::android_location_Location const& arg0)
 {
 	LOGV("android_location_Location::android_location_Location(AndroidCXX::android_location_Location const& arg0) enter");	
@@ -244,7 +185,7 @@ android_location_Location::android_location_Location(AndroidCXX::android_locatio
 	const char *methodSignature = "(Landroid/location/Location;)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -293,6 +234,63 @@ android_location_Location::android_location_Location(AndroidCXX::android_locatio
 
 	LOGV("android_location_Location::android_location_Location(AndroidCXX::android_location_Location const& arg0) exit");	
 }
+android_location_Location::android_location_Location(AndroidCXX::java_lang_String const& arg0)
+{
+	LOGV("android_location_Location::android_location_Location(AndroidCXX::java_lang_String const& arg0) enter");	
+
+	const char *methodName = "<init>";
+	const char *methodSignature = "(Ljava/lang/String;)V";
+	const char *className = "android/location/Location";
+
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	long cxxAddress = (long) this;
+	LOGV("android_location_Location cxx address %d", cxxAddress);
+	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_location_Location jni address %d", proxiedComponent);
+
+	if (proxiedComponent == 0)
+	{
+
+		jstring jarg0;
+		{
+			long cxx_value = (long) & arg0;
+			long java_value = 0;
+
+			CXXTypeHierarchy cxx_type_hierarchy;
+			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+			
+			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+			{
+				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+				cxx_type_hierarchy_stack.pop();
+				cxx_type_hierarchy.type_name = std::string("java.lang.String");
+			}
+			std::stack<long> converter_stack;
+			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+			convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+			// Convert to JNI
+			jarg0 = convert_jni_string_to_jni(java_value);
+		}
+			
+		jclass clazz = jni->getClassRef(className);
+
+		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature),jarg0);
+		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+	}
+
+	jni->popLocalFrame();
+
+	LOGV("android_location_Location::android_location_Location(AndroidCXX::java_lang_String const& arg0) exit");	
+}
 // Default Instance Destructor
 android_location_Location::~android_location_Location()
 {
@@ -316,7 +314,7 @@ AndroidCXX::java_lang_String android_location_Location::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -360,7 +358,7 @@ void android_location_Location::set(AndroidCXX::android_location_Location const&
 	const char *methodSignature = "(Landroid/location/Location;)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -405,7 +403,7 @@ void android_location_Location::reset()
 	const char *methodSignature = "()V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -429,7 +427,7 @@ void android_location_Location::setTime(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -474,7 +472,7 @@ long android_location_Location::getTime()
 	const char *methodSignature = "()J";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -518,7 +516,7 @@ AndroidCXX::java_lang_String android_location_Location::getProvider()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -554,6 +552,71 @@ AndroidCXX::java_lang_String android_location_Location::getProvider()
 
 	return result;
 }
+double android_location_Location::convert(AndroidCXX::java_lang_String const& arg0)
+{
+	LOGV("double android_location_Location::convert(AndroidCXX::java_lang_String const& arg0) enter");
+
+	const char *methodName = "convert";
+	const char *methodSignature = "(Ljava/lang/String;)D";
+	const char *className = "android/location/Location";
+
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) static_address; // _static function
+	LOGV("android_location_Location cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_location_Location jni address %d", javaObject);
+
+	jstring jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("java.lang.String");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_string_to_jni(java_value);
+	}
+
+	jdouble jni_result = (jdouble) jni->invokeStaticDoubleMethod(className,methodName,methodSignature,jarg0);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_double_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("double");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	double result = (double) *((double *) cxx_value);
+	// 
+		
+	LOGV("double android_location_Location::convert(AndroidCXX::java_lang_String const& arg0) exit");
+
+	return result;
+}
 AndroidCXX::java_lang_String android_location_Location::convert(double const& arg0,int const& arg1)
 {
 	LOGV("AndroidCXX::java_lang_String android_location_Location::convert(double const& arg0,int const& arg1) enter");
@@ -562,7 +625,7 @@ AndroidCXX::java_lang_String android_location_Location::convert(double const& ar
 	const char *methodSignature = "(DI)Ljava/lang/String;";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -640,71 +703,6 @@ AndroidCXX::java_lang_String android_location_Location::convert(double const& ar
 
 	return result;
 }
-double android_location_Location::convert(AndroidCXX::java_lang_String const& arg0)
-{
-	LOGV("double android_location_Location::convert(AndroidCXX::java_lang_String const& arg0) enter");
-
-	const char *methodName = "convert";
-	const char *methodSignature = "(Ljava/lang/String;)D";
-	const char *className = "android/location/Location";
-
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	long cxxAddress = (long) static_address; // _static function
-	LOGV("android_location_Location cxx address %d", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("android_location_Location jni address %d", javaObject);
-
-	jstring jarg0;
-	{
-		long cxx_value = (long) & arg0;
-		long java_value = 0;
-
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("java.lang.String");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-		convert_java_lang_String(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-		// Convert to JNI
-		jarg0 = convert_jni_string_to_jni(java_value);
-	}
-
-	jdouble jni_result = (jdouble) jni->invokeStaticDoubleMethod(className,methodName,methodSignature,jarg0);
-	long cxx_value = (long) 0;
-	long java_value = convert_jni_double_to_java(jni_result);
-	{
-		CXXTypeHierarchy cxx_type_hierarchy;
-		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-		
-		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-		{
-			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-			cxx_type_hierarchy_stack.pop();
-			cxx_type_hierarchy.type_name = std::string("double");
-		}
-		std::stack<long> converter_stack;
-		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
-		convert_double(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-	}
-
-	double result = (double) *((double *) cxx_value);
-	// 
-		
-	LOGV("double android_location_Location::convert(AndroidCXX::java_lang_String const& arg0) exit");
-
-	return result;
-}
 void android_location_Location::distanceBetween(double const& arg0,double const& arg1,double const& arg2,double const& arg3,std::vector<float> const& arg4)
 {
 	LOGV("void android_location_Location::distanceBetween(double const& arg0,double const& arg1,double const& arg2,double const& arg3,std::vector<float> const& arg4) enter");
@@ -713,7 +711,7 @@ void android_location_Location::distanceBetween(double const& arg0,double const&
 	const char *methodSignature = "(DDDD[F)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -860,7 +858,7 @@ float android_location_Location::distanceTo(AndroidCXX::android_location_Locatio
 	const char *methodSignature = "(Landroid/location/Location;)F";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -925,7 +923,7 @@ float android_location_Location::bearingTo(AndroidCXX::android_location_Location
 	const char *methodSignature = "(Landroid/location/Location;)F";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -990,7 +988,7 @@ void android_location_Location::setProvider(AndroidCXX::java_lang_String const& 
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1035,7 +1033,7 @@ long android_location_Location::getElapsedRealtimeNanos()
 	const char *methodSignature = "()J";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1079,7 +1077,7 @@ void android_location_Location::setElapsedRealtimeNanos(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1124,7 +1122,7 @@ double android_location_Location::getLatitude()
 	const char *methodSignature = "()D";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1168,7 +1166,7 @@ void android_location_Location::setLatitude(double const& arg0)
 	const char *methodSignature = "(D)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1213,7 +1211,7 @@ double android_location_Location::getLongitude()
 	const char *methodSignature = "()D";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1257,7 +1255,7 @@ void android_location_Location::setLongitude(double const& arg0)
 	const char *methodSignature = "(D)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1302,7 +1300,7 @@ bool android_location_Location::hasAltitude()
 	const char *methodSignature = "()Z";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1346,7 +1344,7 @@ double android_location_Location::getAltitude()
 	const char *methodSignature = "()D";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1390,7 +1388,7 @@ void android_location_Location::setAltitude(double const& arg0)
 	const char *methodSignature = "(D)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1435,7 +1433,7 @@ void android_location_Location::removeAltitude()
 	const char *methodSignature = "()V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1459,7 +1457,7 @@ bool android_location_Location::hasSpeed()
 	const char *methodSignature = "()Z";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1503,7 +1501,7 @@ float android_location_Location::getSpeed()
 	const char *methodSignature = "()F";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1547,7 +1545,7 @@ void android_location_Location::setSpeed(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1592,7 +1590,7 @@ void android_location_Location::removeSpeed()
 	const char *methodSignature = "()V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1616,7 +1614,7 @@ bool android_location_Location::hasBearing()
 	const char *methodSignature = "()Z";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1660,7 +1658,7 @@ float android_location_Location::getBearing()
 	const char *methodSignature = "()F";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1704,7 +1702,7 @@ void android_location_Location::setBearing(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1749,7 +1747,7 @@ void android_location_Location::removeBearing()
 	const char *methodSignature = "()V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1773,7 +1771,7 @@ bool android_location_Location::hasAccuracy()
 	const char *methodSignature = "()Z";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1817,7 +1815,7 @@ float android_location_Location::getAccuracy()
 	const char *methodSignature = "()F";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1861,7 +1859,7 @@ void android_location_Location::setAccuracy(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1906,7 +1904,7 @@ void android_location_Location::removeAccuracy()
 	const char *methodSignature = "()V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1930,7 +1928,7 @@ AndroidCXX::android_os_Bundle android_location_Location::getExtras()
 	const char *methodSignature = "()Landroid/os/Bundle;";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1974,7 +1972,7 @@ void android_location_Location::setExtras(AndroidCXX::android_os_Bundle const& a
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2019,7 +2017,7 @@ void android_location_Location::dump(AndroidCXX::android_util_Printer const& arg
 	const char *methodSignature = "(Landroid/util/Printer;Ljava/lang/String;)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2085,7 +2083,7 @@ int android_location_Location::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2129,7 +2127,7 @@ void android_location_Location::writeToParcel(AndroidCXX::android_os_Parcel cons
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/location/Location";
 
-	LOGV("android_location_Location className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2186,4 +2184,48 @@ void android_location_Location::writeToParcel(AndroidCXX::android_os_Parcel cons
 		
 	LOGV("void android_location_Location::writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) exit");
 
+}
+bool android_location_Location::isFromMockProvider()
+{
+	LOGV("bool android_location_Location::isFromMockProvider() enter");
+
+	const char *methodName = "isFromMockProvider";
+	const char *methodSignature = "()Z";
+	const char *className = "android/location/Location";
+
+	LOGV("android_location_Location className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_location_Location cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_location_Location jni address %d", javaObject);
+
+
+	jboolean jni_result = (jboolean) jni->invokeBooleanMethod(javaObject,className,methodName,methodSignature);
+	long cxx_value = (long) 0;
+	long java_value = convert_jni_boolean_to_java(jni_result);
+	{
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("boolean");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_CXX;
+		convert_boolean(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+	}
+
+	bool result = (bool) *((bool *) cxx_value);
+	// 
+		
+	LOGV("bool android_location_Location::isFromMockProvider() exit");
+
+	return result;
 }

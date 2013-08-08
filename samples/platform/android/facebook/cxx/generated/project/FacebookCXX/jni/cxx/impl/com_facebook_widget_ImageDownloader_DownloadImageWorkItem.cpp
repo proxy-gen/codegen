@@ -120,7 +120,7 @@ void com_facebook_widget_ImageDownloader_DownloadImageWorkItem::run()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/ImageDownloader$DownloadImageWorkItem";
 
-	LOGV("com_facebook_widget_ImageDownloader_DownloadImageWorkItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ImageDownloader_DownloadImageWorkItem className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

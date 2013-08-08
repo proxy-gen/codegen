@@ -25,11 +25,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_MenuInflater"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -119,7 +116,7 @@ android_view_MenuInflater::android_view_MenuInflater(AndroidCXX::android_content
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/view/MenuInflater";
 
-	LOGV("android_view_MenuInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MenuInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -191,7 +188,7 @@ void android_view_MenuInflater::inflate(int const& arg0,AndroidCXX::android_view
 	const char *methodSignature = "(ILandroid/view/Menu;)V";
 	const char *className = "android/view/MenuInflater";
 
-	LOGV("android_view_MenuInflater className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_MenuInflater className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

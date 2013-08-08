@@ -44,11 +44,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ToggleButton"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -168,7 +165,7 @@ android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/ToggleButton";
 
-	LOGV("android_widget_ToggleButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ToggleButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -246,7 +243,7 @@ android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/ToggleButton";
 
-	LOGV("android_widget_ToggleButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ToggleButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -303,7 +300,7 @@ android_widget_ToggleButton::android_widget_ToggleButton(AndroidCXX::android_con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/ToggleButton";
 
-	LOGV("android_widget_ToggleButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ToggleButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -417,7 +414,7 @@ void android_widget_ToggleButton::onInitializeAccessibilityEvent(AndroidCXX::and
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/ToggleButton";
 
-	LOGV("android_widget_ToggleButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ToggleButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -462,7 +459,7 @@ void android_widget_ToggleButton::onInitializeAccessibilityNodeInfo(AndroidCXX::
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/ToggleButton";
 
-	LOGV("android_widget_ToggleButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ToggleButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -507,7 +504,7 @@ void android_widget_ToggleButton::setBackgroundDrawable(AndroidCXX::android_grap
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/ToggleButton";
 
-	LOGV("android_widget_ToggleButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ToggleButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -552,7 +549,7 @@ void android_widget_ToggleButton::setChecked(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ToggleButton";
 
-	LOGV("android_widget_ToggleButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ToggleButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -597,7 +594,7 @@ AndroidCXX::java_lang_CharSequence android_widget_ToggleButton::getTextOn()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/widget/ToggleButton";
 
-	LOGV("android_widget_ToggleButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ToggleButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -641,7 +638,7 @@ void android_widget_ToggleButton::setTextOn(AndroidCXX::java_lang_CharSequence c
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
 	const char *className = "android/widget/ToggleButton";
 
-	LOGV("android_widget_ToggleButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ToggleButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -686,7 +683,7 @@ AndroidCXX::java_lang_CharSequence android_widget_ToggleButton::getTextOff()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/widget/ToggleButton";
 
-	LOGV("android_widget_ToggleButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ToggleButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -730,7 +727,7 @@ void android_widget_ToggleButton::setTextOff(AndroidCXX::java_lang_CharSequence 
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
 	const char *className = "android/widget/ToggleButton";
 
-	LOGV("android_widget_ToggleButton className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ToggleButton className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

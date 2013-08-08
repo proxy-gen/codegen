@@ -136,7 +136,7 @@ void com_facebook_android_FbDialog_1::onComplete(AndroidCXX::android_os_Bundle c
 	const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/FacebookException;)V";
 	const char *className = "com/facebook/android/FbDialog$1";
 
-	LOGV("com_facebook_android_FbDialog_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_android_FbDialog_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

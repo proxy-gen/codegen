@@ -55,6 +55,7 @@ class Configurator(object):
 		generator.config['include_config_file_path'] = opts.include_config_file_path if opts.include_config_file_path else None
 		generator.config['include_converter_files'] = opts.include_converter_files if opts.include_converter_files else list()
 		generator.config['include_header_files'] = opts.include_header_files if opts.include_header_files else list()
+		generator.config['include_projects'] = opts.include_projects if opts.include_projects else list()
 
 	@classmethod
 	def list_supported_platforms(cls):
@@ -122,6 +123,8 @@ def main():
 							help="Specifies the path to additional converter file(s) to be used for generating code")
 	parser.add_option("--include-header-file", action="append", dest="include_header_files",
 							help="Specifies the header file(s) to be included in the generated code")
+	parser.add_option("--include-project", action="append", dest="include_projects",
+							help="Specifies the list of projects to be included in the generated code")
 	parser.add_option("--log",  action="store", type="string", dest="loglevel",
 							help="Specifies the generator log level. Valid values are info (for INFO level logging) and debug (for DEBUG level logging)")
 

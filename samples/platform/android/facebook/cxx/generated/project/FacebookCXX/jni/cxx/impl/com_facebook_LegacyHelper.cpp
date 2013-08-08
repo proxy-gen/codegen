@@ -122,7 +122,7 @@ com_facebook_LegacyHelper::com_facebook_LegacyHelper()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/LegacyHelper";
 
-	LOGV("com_facebook_LegacyHelper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_LegacyHelper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -173,7 +173,7 @@ void com_facebook_LegacyHelper::extendTokenCompleted(FacebookCXX::com_facebook_S
 	const char *methodSignature = "(Lcom/facebook/Session;Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/LegacyHelper";
 
-	LOGV("com_facebook_LegacyHelper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_LegacyHelper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

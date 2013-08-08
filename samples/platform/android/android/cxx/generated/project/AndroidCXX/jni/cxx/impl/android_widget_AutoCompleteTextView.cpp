@@ -96,11 +96,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_AutoCompleteTextView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -262,7 +259,7 @@ android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(Android
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -319,7 +316,7 @@ android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(Android
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -418,7 +415,7 @@ android_widget_AutoCompleteTextView::android_widget_AutoCompleteTextView(Android
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -511,7 +508,7 @@ void android_widget_AutoCompleteTextView::setThreshold(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -556,7 +553,7 @@ void android_widget_AutoCompleteTextView::setText(AndroidCXX::java_lang_CharSequ
 	const char *methodSignature = "(Ljava/lang/CharSequence;Z)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -622,7 +619,7 @@ bool android_widget_AutoCompleteTextView::onKeyDown(int const& arg0,AndroidCXX::
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -708,7 +705,7 @@ bool android_widget_AutoCompleteTextView::onKeyUp(int const& arg0,AndroidCXX::an
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -794,7 +791,7 @@ void android_widget_AutoCompleteTextView::onWindowFocusChanged(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -839,7 +836,7 @@ void android_widget_AutoCompleteTextView::setOnClickListener(AndroidCXX::android
 	const char *methodSignature = "(Landroid/view/View$OnClickListener;)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -884,7 +881,7 @@ bool android_widget_AutoCompleteTextView::onKeyPreIme(int const& arg0,AndroidCXX
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -970,7 +967,7 @@ void android_widget_AutoCompleteTextView::setOnDismissListener(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/widget/AutoCompleteTextView$OnDismissListener;)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1015,7 +1012,7 @@ void android_widget_AutoCompleteTextView::setAdapter(AndroidCXX::android_widget_
 	const char *methodSignature = "(Landroid/widget/ListAdapter;)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1060,7 +1057,7 @@ void android_widget_AutoCompleteTextView::onFilterComplete(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1105,7 +1102,7 @@ void android_widget_AutoCompleteTextView::setOnItemClickListener(AndroidCXX::and
 	const char *methodSignature = "(Landroid/widget/AdapterView$OnItemClickListener;)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1150,7 +1147,7 @@ AndroidCXX::android_widget_AdapterView_OnItemClickListener android_widget_AutoCo
 	const char *methodSignature = "()Landroid/widget/AdapterView$OnItemClickListener;";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1194,7 +1191,7 @@ void android_widget_AutoCompleteTextView::setOnItemSelectedListener(AndroidCXX::
 	const char *methodSignature = "(Landroid/widget/AdapterView$OnItemSelectedListener;)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1239,7 +1236,7 @@ AndroidCXX::android_widget_AdapterView_OnItemSelectedListener android_widget_Aut
 	const char *methodSignature = "()Landroid/widget/AdapterView$OnItemSelectedListener;";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1283,7 +1280,7 @@ AndroidCXX::android_widget_ListAdapter android_widget_AutoCompleteTextView::getA
 	const char *methodSignature = "()Landroid/widget/ListAdapter;";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1327,7 +1324,7 @@ void android_widget_AutoCompleteTextView::onCommitCompletion(AndroidCXX::android
 	const char *methodSignature = "(Landroid/view/inputmethod/CompletionInfo;)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1372,7 +1369,7 @@ void android_widget_AutoCompleteTextView::setCompletionHint(AndroidCXX::java_lan
 	const char *methodSignature = "(Ljava/lang/CharSequence;)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1417,7 +1414,7 @@ AndroidCXX::java_lang_CharSequence android_widget_AutoCompleteTextView::getCompl
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1461,7 +1458,7 @@ int android_widget_AutoCompleteTextView::getDropDownWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1505,7 +1502,7 @@ void android_widget_AutoCompleteTextView::setDropDownWidth(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1550,7 +1547,7 @@ int android_widget_AutoCompleteTextView::getDropDownHeight()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1594,7 +1591,7 @@ void android_widget_AutoCompleteTextView::setDropDownHeight(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1639,7 +1636,7 @@ int android_widget_AutoCompleteTextView::getDropDownAnchor()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1683,7 +1680,7 @@ void android_widget_AutoCompleteTextView::setDropDownAnchor(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1728,7 +1725,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_AutoCompleteTextVi
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1772,7 +1769,7 @@ void android_widget_AutoCompleteTextView::setDropDownBackgroundDrawable(AndroidC
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1817,7 +1814,7 @@ void android_widget_AutoCompleteTextView::setDropDownBackgroundResource(int cons
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1862,7 +1859,7 @@ void android_widget_AutoCompleteTextView::setDropDownVerticalOffset(int const& a
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1907,7 +1904,7 @@ int android_widget_AutoCompleteTextView::getDropDownVerticalOffset()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1951,7 +1948,7 @@ void android_widget_AutoCompleteTextView::setDropDownHorizontalOffset(int const&
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1996,7 +1993,7 @@ int android_widget_AutoCompleteTextView::getDropDownHorizontalOffset()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2040,7 +2037,7 @@ int android_widget_AutoCompleteTextView::getThreshold()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2084,7 +2081,7 @@ AndroidCXX::android_widget_AdapterView_OnItemClickListener android_widget_AutoCo
 	const char *methodSignature = "()Landroid/widget/AdapterView$OnItemClickListener;";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2128,7 +2125,7 @@ AndroidCXX::android_widget_AdapterView_OnItemSelectedListener android_widget_Aut
 	const char *methodSignature = "()Landroid/widget/AdapterView$OnItemSelectedListener;";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2172,7 +2169,7 @@ bool android_widget_AutoCompleteTextView::enoughToFilter()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2216,7 +2213,7 @@ bool android_widget_AutoCompleteTextView::isPopupShowing()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2260,7 +2257,7 @@ void android_widget_AutoCompleteTextView::clearListSelection()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2284,7 +2281,7 @@ void android_widget_AutoCompleteTextView::setListSelection(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2329,7 +2326,7 @@ int android_widget_AutoCompleteTextView::getListSelection()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2373,7 +2370,7 @@ void android_widget_AutoCompleteTextView::performCompletion()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2397,7 +2394,7 @@ bool android_widget_AutoCompleteTextView::isPerformingCompletion()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2441,7 +2438,7 @@ void android_widget_AutoCompleteTextView::dismissDropDown()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2465,7 +2462,7 @@ void android_widget_AutoCompleteTextView::showDropDown()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2489,7 +2486,7 @@ void android_widget_AutoCompleteTextView::setValidator(AndroidCXX::android_widge
 	const char *methodSignature = "(Landroid/widget/AutoCompleteTextView$Validator;)V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2534,7 +2531,7 @@ AndroidCXX::android_widget_AutoCompleteTextView_Validator android_widget_AutoCom
 	const char *methodSignature = "()Landroid/widget/AutoCompleteTextView$Validator;";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2578,7 +2575,7 @@ void android_widget_AutoCompleteTextView::performValidation()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AutoCompleteTextView";
 
-	LOGV("android_widget_AutoCompleteTextView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AutoCompleteTextView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

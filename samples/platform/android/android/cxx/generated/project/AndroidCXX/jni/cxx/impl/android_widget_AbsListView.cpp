@@ -153,17 +153,15 @@
 
 
 
+
 // Generated Code 
 
 #include <android_widget_AbsListView.hpp>
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_AbsListView"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -376,7 +374,7 @@ android_widget_AbsListView::android_widget_AbsListView(AndroidCXX::android_conte
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -454,7 +452,7 @@ android_widget_AbsListView::android_widget_AbsListView(AndroidCXX::android_conte
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -553,7 +551,7 @@ android_widget_AbsListView::android_widget_AbsListView(AndroidCXX::android_conte
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -625,7 +623,7 @@ AndroidCXX::android_os_Parcelable android_widget_AbsListView::onSaveInstanceStat
 	const char *methodSignature = "()Landroid/os/Parcelable;";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -669,7 +667,7 @@ bool android_widget_AbsListView::onKeyDown(int const& arg0,AndroidCXX::android_v
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -755,7 +753,7 @@ void android_widget_AbsListView::onRestoreInstanceState(AndroidCXX::android_os_P
 	const char *methodSignature = "(Landroid/os/Parcelable;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -800,7 +798,7 @@ bool android_widget_AbsListView::onKeyUp(int const& arg0,AndroidCXX::android_vie
 	const char *methodSignature = "(ILandroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -886,7 +884,7 @@ bool android_widget_AbsListView::onTouchEvent(AndroidCXX::android_view_MotionEve
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -951,7 +949,7 @@ bool android_widget_AbsListView::onGenericMotionEvent(AndroidCXX::android_view_M
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1016,7 +1014,7 @@ void android_widget_AbsListView::onWindowFocusChanged(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1061,7 +1059,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_AbsListView::getSe
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1105,7 +1103,7 @@ void android_widget_AbsListView::setSelector(AndroidCXX::android_graphics_drawab
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1150,7 +1148,7 @@ void android_widget_AbsListView::setSelector(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1195,7 +1193,7 @@ bool android_widget_AbsListView::showContextMenuForChild(AndroidCXX::android_vie
 	const char *methodSignature = "(Landroid/view/View;)Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1260,7 +1258,7 @@ void android_widget_AbsListView::addTouchables(AndroidCXX::java_util_ArrayList c
 	const char *methodSignature = "(Ljava/util/ArrayList;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1323,7 +1321,7 @@ void android_widget_AbsListView::requestDisallowInterceptTouchEvent(bool const& 
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1368,7 +1366,7 @@ bool android_widget_AbsListView::onInterceptTouchEvent(AndroidCXX::android_view_
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1433,7 +1431,7 @@ AndroidCXX::android_widget_AbsListView_LayoutParams android_widget_AbsListView::
 	const char *methodSignature = "(Landroid/util/AttributeSet;)Landroid/widget/AbsListView$LayoutParams;";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1498,7 +1496,7 @@ void android_widget_AbsListView::jumpDrawablesToCurrentState()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1522,7 +1520,7 @@ void android_widget_AbsListView::requestLayout()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1546,7 +1544,7 @@ int android_widget_AbsListView::getVerticalScrollbarWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1590,7 +1588,7 @@ void android_widget_AbsListView::setVerticalScrollbarPosition(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1635,7 +1633,7 @@ void android_widget_AbsListView::sendAccessibilityEvent(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1680,7 +1678,7 @@ void android_widget_AbsListView::onInitializeAccessibilityEvent(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1725,7 +1723,7 @@ void android_widget_AbsListView::onInitializeAccessibilityNodeInfo(AndroidCXX::a
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1770,7 +1768,7 @@ bool android_widget_AbsListView::performAccessibilityAction(int const& arg0,Andr
 	const char *methodSignature = "(ILandroid/os/Bundle;)Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1856,7 +1854,7 @@ AndroidCXX::android_view_inputmethod_InputConnection android_widget_AbsListView:
 	const char *methodSignature = "(Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1921,7 +1919,7 @@ bool android_widget_AbsListView::checkInputConnectionProxy(AndroidCXX::android_v
 	const char *methodSignature = "(Landroid/view/View;)Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1986,7 +1984,7 @@ void android_widget_AbsListView::getFocusedRect(AndroidCXX::android_graphics_Rec
 	const char *methodSignature = "(Landroid/graphics/Rect;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2023,6 +2021,51 @@ void android_widget_AbsListView::getFocusedRect(AndroidCXX::android_graphics_Rec
 	LOGV("void android_widget_AbsListView::getFocusedRect(AndroidCXX::android_graphics_Rect const& arg0) exit");
 
 }
+void android_widget_AbsListView::onRtlPropertiesChanged(int const& arg0)
+{
+	LOGV("void android_widget_AbsListView::onRtlPropertiesChanged(int const& arg0) enter");
+
+	const char *methodName = "onRtlPropertiesChanged";
+	const char *methodSignature = "(I)V";
+	const char *className = "android/widget/AbsListView";
+
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_widget_AbsListView cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_widget_AbsListView jni address %d", javaObject);
+
+	jint jarg0;
+	{
+		long cxx_value = (long) & arg0;
+		long java_value = 0;
+
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		{
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("int");
+		}
+		std::stack<long> converter_stack;
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		convert_int(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
+
+		// Convert to JNI
+		jarg0 = convert_jni_int_to_jni(java_value);
+	}
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature,jarg0);
+		
+	LOGV("void android_widget_AbsListView::onRtlPropertiesChanged(int const& arg0) exit");
+
+}
 void android_widget_AbsListView::draw(AndroidCXX::android_graphics_Canvas const& arg0)
 {
 	LOGV("void android_widget_AbsListView::draw(AndroidCXX::android_graphics_Canvas const& arg0) enter");
@@ -2031,7 +2074,7 @@ void android_widget_AbsListView::draw(AndroidCXX::android_graphics_Canvas const&
 	const char *methodSignature = "(Landroid/graphics/Canvas;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2076,7 +2119,7 @@ int android_widget_AbsListView::getSolidColor()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2120,7 +2163,7 @@ bool android_widget_AbsListView::verifyDrawable(AndroidCXX::android_graphics_dra
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2185,7 +2228,7 @@ void android_widget_AbsListView::setOverScrollMode(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2230,7 +2273,7 @@ void android_widget_AbsListView::onGlobalLayout()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2254,7 +2297,7 @@ void android_widget_AbsListView::onTouchModeChanged(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2299,7 +2342,7 @@ void android_widget_AbsListView::setAdapter(AndroidCXX::android_widget_ListAdapt
 	const char *methodSignature = "(Landroid/widget/ListAdapter;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2344,7 +2387,7 @@ int android_widget_AbsListView::getCheckedItemCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2388,7 +2431,7 @@ bool android_widget_AbsListView::isItemChecked(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2453,7 +2496,7 @@ int android_widget_AbsListView::getCheckedItemPosition()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2497,7 +2540,7 @@ AndroidCXX::android_util_SparseBooleanArray android_widget_AbsListView::getCheck
 	const char *methodSignature = "()Landroid/util/SparseBooleanArray;";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2541,7 +2584,7 @@ std::vector<long> android_widget_AbsListView::getCheckedItemIds()
 	const char *methodSignature = "()[J";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2603,7 +2646,7 @@ void android_widget_AbsListView::clearChoices()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2627,7 +2670,7 @@ void android_widget_AbsListView::setItemChecked(int const& arg0,bool const& arg1
 	const char *methodSignature = "(IZ)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2693,7 +2736,7 @@ bool android_widget_AbsListView::performItemClick(AndroidCXX::android_view_View 
 	const char *methodSignature = "(Landroid/view/View;IJ)Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2800,7 +2843,7 @@ int android_widget_AbsListView::getChoiceMode()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2844,7 +2887,7 @@ void android_widget_AbsListView::setChoiceMode(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2889,7 +2932,7 @@ void android_widget_AbsListView::setMultiChoiceModeListener(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/widget/AbsListView$MultiChoiceModeListener;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2934,7 +2977,7 @@ void android_widget_AbsListView::setFastScrollEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2979,7 +3022,7 @@ void android_widget_AbsListView::setFastScrollAlwaysVisible(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3024,7 +3067,7 @@ bool android_widget_AbsListView::isFastScrollAlwaysVisible()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3068,7 +3111,7 @@ bool android_widget_AbsListView::isFastScrollEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3112,7 +3155,7 @@ void android_widget_AbsListView::setSmoothScrollbarEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3157,7 +3200,7 @@ bool android_widget_AbsListView::isSmoothScrollbarEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3201,7 +3244,7 @@ void android_widget_AbsListView::setOnScrollListener(AndroidCXX::android_widget_
 	const char *methodSignature = "(Landroid/widget/AbsListView$OnScrollListener;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3246,7 +3289,7 @@ bool android_widget_AbsListView::isScrollingCacheEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3290,7 +3333,7 @@ void android_widget_AbsListView::setScrollingCacheEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3335,7 +3378,7 @@ void android_widget_AbsListView::setTextFilterEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3380,7 +3423,7 @@ bool android_widget_AbsListView::isTextFilterEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3424,7 +3467,7 @@ bool android_widget_AbsListView::isStackFromBottom()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3468,7 +3511,7 @@ void android_widget_AbsListView::setStackFromBottom(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3513,7 +3556,7 @@ void android_widget_AbsListView::setFilterText(AndroidCXX::java_lang_String cons
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3558,7 +3601,7 @@ AndroidCXX::java_lang_CharSequence android_widget_AbsListView::getTextFilter()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3602,7 +3645,7 @@ AndroidCXX::android_view_View android_widget_AbsListView::getSelectedView()
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3646,7 +3689,7 @@ int android_widget_AbsListView::getListPaddingTop()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3690,7 +3733,7 @@ int android_widget_AbsListView::getListPaddingBottom()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3734,7 +3777,7 @@ int android_widget_AbsListView::getListPaddingLeft()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3778,7 +3821,7 @@ int android_widget_AbsListView::getListPaddingRight()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3822,7 +3865,7 @@ void android_widget_AbsListView::setDrawSelectorOnTop(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3867,7 +3910,7 @@ void android_widget_AbsListView::setScrollIndicators(AndroidCXX::android_view_Vi
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/View;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -3933,7 +3976,7 @@ int android_widget_AbsListView::pointToPosition(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)I";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4019,7 +4062,7 @@ long android_widget_AbsListView::pointToRowId(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)J";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4105,7 +4148,7 @@ void android_widget_AbsListView::setFriction(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4150,7 +4193,7 @@ void android_widget_AbsListView::setVelocityScale(float const& arg0)
 	const char *methodSignature = "(F)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4195,7 +4238,7 @@ void android_widget_AbsListView::smoothScrollToPosition(int const& arg0,int cons
 	const char *methodSignature = "(II)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4261,7 +4304,7 @@ void android_widget_AbsListView::smoothScrollToPosition(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4306,7 +4349,7 @@ void android_widget_AbsListView::smoothScrollToPositionFromTop(int const& arg0,i
 	const char *methodSignature = "(III)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4393,7 +4436,7 @@ void android_widget_AbsListView::smoothScrollToPositionFromTop(int const& arg0,i
 	const char *methodSignature = "(II)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4459,7 +4502,7 @@ void android_widget_AbsListView::smoothScrollBy(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4525,7 +4568,7 @@ void android_widget_AbsListView::invalidateViews()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4549,7 +4592,7 @@ void android_widget_AbsListView::clearTextFilter()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4573,7 +4616,7 @@ bool android_widget_AbsListView::hasTextFilter()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4617,7 +4660,7 @@ void android_widget_AbsListView::beforeTextChanged(AndroidCXX::java_lang_CharSeq
 	const char *methodSignature = "(Ljava/lang/CharSequence;III)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4725,7 +4768,7 @@ void android_widget_AbsListView::onTextChanged(AndroidCXX::java_lang_CharSequenc
 	const char *methodSignature = "(Ljava/lang/CharSequence;III)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4833,7 +4876,7 @@ void android_widget_AbsListView::afterTextChanged(AndroidCXX::android_text_Edita
 	const char *methodSignature = "(Landroid/text/Editable;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4878,7 +4921,7 @@ void android_widget_AbsListView::onFilterComplete(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4923,7 +4966,7 @@ void android_widget_AbsListView::setTranscriptMode(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -4968,7 +5011,7 @@ int android_widget_AbsListView::getTranscriptMode()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5012,7 +5055,7 @@ void android_widget_AbsListView::setCacheColorHint(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5057,7 +5100,7 @@ int android_widget_AbsListView::getCacheColorHint()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5101,7 +5144,7 @@ void android_widget_AbsListView::reclaimViews(AndroidCXX::java_util_List const& 
 	const char *methodSignature = "(Ljava/util/List;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5164,7 +5207,7 @@ void android_widget_AbsListView::setRemoteViewsAdapter(AndroidCXX::android_conte
 	const char *methodSignature = "(Landroid/content/Intent;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5209,7 +5252,7 @@ void android_widget_AbsListView::deferNotifyDataSetChanged()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5233,7 +5276,7 @@ bool android_widget_AbsListView::onRemoteAdapterConnected()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5277,7 +5320,7 @@ void android_widget_AbsListView::onRemoteAdapterDisconnected()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -5301,7 +5344,7 @@ void android_widget_AbsListView::setRecyclerListener(AndroidCXX::android_widget_
 	const char *methodSignature = "(Landroid/widget/AbsListView$RecyclerListener;)V";
 	const char *className = "android/widget/AbsListView";
 
-	LOGV("android_widget_AbsListView className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AbsListView className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -46,11 +46,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_net_HttpURLConnection"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -173,7 +170,7 @@ AndroidCXX::java_security_Permission java_net_HttpURLConnection::getPermission()
 	const char *methodSignature = "()Ljava/security/Permission;";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -217,7 +214,7 @@ void java_net_HttpURLConnection::setRequestMethod(AndroidCXX::java_lang_String c
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -262,7 +259,7 @@ int java_net_HttpURLConnection::getResponseCode()
 	const char *methodSignature = "()I";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -306,7 +303,7 @@ AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderField(int cons
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -371,7 +368,7 @@ AndroidCXX::java_lang_String java_net_HttpURLConnection::getHeaderFieldKey(int c
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -436,7 +433,7 @@ long java_net_HttpURLConnection::getHeaderFieldDate(AndroidCXX::java_lang_String
 	const char *methodSignature = "(Ljava/lang/String;J)J";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -522,7 +519,7 @@ void java_net_HttpURLConnection::setFixedLengthStreamingMode(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -567,7 +564,7 @@ void java_net_HttpURLConnection::setChunkedStreamingMode(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -612,7 +609,7 @@ void java_net_HttpURLConnection::setFollowRedirects(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -657,7 +654,7 @@ bool java_net_HttpURLConnection::getFollowRedirects()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -701,7 +698,7 @@ void java_net_HttpURLConnection::setInstanceFollowRedirects(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -746,7 +743,7 @@ bool java_net_HttpURLConnection::getInstanceFollowRedirects()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -790,7 +787,7 @@ AndroidCXX::java_lang_String java_net_HttpURLConnection::getRequestMethod()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -834,7 +831,7 @@ AndroidCXX::java_lang_String java_net_HttpURLConnection::getResponseMessage()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -878,7 +875,7 @@ void java_net_HttpURLConnection::disconnect()
 	const char *methodSignature = "()V";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -902,7 +899,7 @@ bool java_net_HttpURLConnection::usingProxy()
 	const char *methodSignature = "()Z";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -946,7 +943,7 @@ AndroidCXX::java_io_InputStream java_net_HttpURLConnection::getErrorStream()
 	const char *methodSignature = "()Ljava/io/InputStream;";
 	const char *className = "java/net/HttpURLConnection";
 
-	LOGV("java_net_HttpURLConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_net_HttpURLConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

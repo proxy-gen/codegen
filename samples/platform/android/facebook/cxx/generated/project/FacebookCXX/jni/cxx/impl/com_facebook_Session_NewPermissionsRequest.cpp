@@ -182,7 +182,7 @@ com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsR
 	const char *methodSignature = "(Landroid/app/Activity;Ljava/util/List;)V";
 	const char *className = "com/facebook/Session$NewPermissionsRequest";
 
-	LOGV("com_facebook_Session_NewPermissionsRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_NewPermissionsRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -278,7 +278,7 @@ com_facebook_Session_NewPermissionsRequest::com_facebook_Session_NewPermissionsR
 	const char *methodSignature = "(Landroid/support/v4/app/Fragment;Ljava/util/List;)V";
 	const char *className = "com/facebook/Session$NewPermissionsRequest";
 
-	LOGV("com_facebook_Session_NewPermissionsRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_NewPermissionsRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -389,7 +389,7 @@ FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_New
 	const char *methodSignature = "(Lcom/facebook/Session$StatusCallback;)Lcom/facebook/Session$NewPermissionsRequest;";
 	const char *className = "com/facebook/Session$NewPermissionsRequest";
 
-	LOGV("com_facebook_Session_NewPermissionsRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_NewPermissionsRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -454,7 +454,7 @@ FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_New
 	const char *methodSignature = "(Lcom/facebook/SessionLoginBehavior;)Lcom/facebook/Session$NewPermissionsRequest;";
 	const char *className = "com/facebook/Session$NewPermissionsRequest";
 
-	LOGV("com_facebook_Session_NewPermissionsRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_NewPermissionsRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -519,7 +519,7 @@ FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_New
 	const char *methodSignature = "(I)Lcom/facebook/Session$NewPermissionsRequest;";
 	const char *className = "com/facebook/Session$NewPermissionsRequest";
 
-	LOGV("com_facebook_Session_NewPermissionsRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_NewPermissionsRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -584,7 +584,7 @@ FacebookCXX::com_facebook_Session_NewPermissionsRequest com_facebook_Session_New
 	const char *methodSignature = "(Lcom/facebook/SessionDefaultAudience;)Lcom/facebook/Session$NewPermissionsRequest;";
 	const char *className = "com/facebook/Session$NewPermissionsRequest";
 
-	LOGV("com_facebook_Session_NewPermissionsRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_NewPermissionsRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

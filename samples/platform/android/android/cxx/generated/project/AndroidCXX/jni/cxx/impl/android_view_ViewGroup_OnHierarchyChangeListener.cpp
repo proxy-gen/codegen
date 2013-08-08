@@ -27,11 +27,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_ViewGroup_OnHierarchyChangeListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -142,7 +139,7 @@ void android_view_ViewGroup_OnHierarchyChangeListener::onChildViewAdded(AndroidC
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/View;)V";
 	const char *className = "android/view/ViewGroup$OnHierarchyChangeListener";
 
-	LOGV("android_view_ViewGroup_OnHierarchyChangeListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewGroup_OnHierarchyChangeListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -208,7 +205,7 @@ void android_view_ViewGroup_OnHierarchyChangeListener::onChildViewRemoved(Androi
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/View;)V";
 	const char *className = "android/view/ViewGroup$OnHierarchyChangeListener";
 
-	LOGV("android_view_ViewGroup_OnHierarchyChangeListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewGroup_OnHierarchyChangeListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

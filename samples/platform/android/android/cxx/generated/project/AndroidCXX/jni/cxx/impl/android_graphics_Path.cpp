@@ -87,11 +87,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_Path"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -243,7 +240,7 @@ android_graphics_Path::android_graphics_Path()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -279,7 +276,7 @@ android_graphics_Path::android_graphics_Path(AndroidCXX::android_graphics_Path c
 	const char *methodSignature = "(Landroid/graphics/Path;)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -351,7 +348,7 @@ void android_graphics_Path::offset(float const& arg0,float const& arg1,AndroidCX
 	const char *methodSignature = "(FFLandroid/graphics/Path;)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -438,7 +435,7 @@ void android_graphics_Path::offset(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -504,7 +501,7 @@ bool android_graphics_Path::isEmpty()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -548,7 +545,7 @@ void android_graphics_Path::transform(AndroidCXX::android_graphics_Matrix const&
 	const char *methodSignature = "(Landroid/graphics/Matrix;Landroid/graphics/Path;)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -614,7 +611,7 @@ void android_graphics_Path::transform(AndroidCXX::android_graphics_Matrix const&
 	const char *methodSignature = "(Landroid/graphics/Matrix;)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -659,7 +656,7 @@ void android_graphics_Path::close()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -683,7 +680,7 @@ void android_graphics_Path::set(AndroidCXX::android_graphics_Path const& arg0)
 	const char *methodSignature = "(Landroid/graphics/Path;)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -728,7 +725,7 @@ void android_graphics_Path::reset()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -752,7 +749,7 @@ void android_graphics_Path::rewind()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -776,7 +773,7 @@ bool android_graphics_Path::isRect(AndroidCXX::android_graphics_RectF const& arg
 	const char *methodSignature = "(Landroid/graphics/RectF;)Z";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -841,7 +838,7 @@ android_graphics_Path_FillType::android_graphics_Path_FillType android_graphics_
 	const char *methodSignature = "()Landroid/graphics/Path$FillType;";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -885,7 +882,7 @@ void android_graphics_Path::setFillType(android_graphics_Path_FillType::android_
 	const char *methodSignature = "(Landroid/graphics/Path$FillType;)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -930,7 +927,7 @@ bool android_graphics_Path::isInverseFillType()
 	const char *methodSignature = "()Z";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -974,7 +971,7 @@ void android_graphics_Path::toggleInverseFillType()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -998,7 +995,7 @@ void android_graphics_Path::computeBounds(AndroidCXX::android_graphics_RectF con
 	const char *methodSignature = "(Landroid/graphics/RectF;Z)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1064,7 +1061,7 @@ void android_graphics_Path::incReserve(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1109,7 +1106,7 @@ void android_graphics_Path::moveTo(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1175,7 +1172,7 @@ void android_graphics_Path::rMoveTo(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1241,7 +1238,7 @@ void android_graphics_Path::lineTo(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1307,7 +1304,7 @@ void android_graphics_Path::rLineTo(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1373,7 +1370,7 @@ void android_graphics_Path::quadTo(float const& arg0,float const& arg1,float con
 	const char *methodSignature = "(FFFF)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1481,7 +1478,7 @@ void android_graphics_Path::rQuadTo(float const& arg0,float const& arg1,float co
 	const char *methodSignature = "(FFFF)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1589,7 +1586,7 @@ void android_graphics_Path::cubicTo(float const& arg0,float const& arg1,float co
 	const char *methodSignature = "(FFFFFF)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1739,7 +1736,7 @@ void android_graphics_Path::rCubicTo(float const& arg0,float const& arg1,float c
 	const char *methodSignature = "(FFFFFF)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1889,7 +1886,7 @@ void android_graphics_Path::arcTo(AndroidCXX::android_graphics_RectF const& arg0
 	const char *methodSignature = "(Landroid/graphics/RectF;FFZ)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1997,7 +1994,7 @@ void android_graphics_Path::arcTo(AndroidCXX::android_graphics_RectF const& arg0
 	const char *methodSignature = "(Landroid/graphics/RectF;FF)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2084,7 +2081,7 @@ void android_graphics_Path::addRect(float const& arg0,float const& arg1,float co
 	const char *methodSignature = "(FFFFLandroid/graphics/Path$Direction;)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2213,7 +2210,7 @@ void android_graphics_Path::addRect(AndroidCXX::android_graphics_RectF const& ar
 	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/Path$Direction;)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2279,7 +2276,7 @@ void android_graphics_Path::addOval(AndroidCXX::android_graphics_RectF const& ar
 	const char *methodSignature = "(Landroid/graphics/RectF;Landroid/graphics/Path$Direction;)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2345,7 +2342,7 @@ void android_graphics_Path::addCircle(float const& arg0,float const& arg1,float 
 	const char *methodSignature = "(FFFLandroid/graphics/Path$Direction;)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2453,7 +2450,7 @@ void android_graphics_Path::addArc(AndroidCXX::android_graphics_RectF const& arg
 	const char *methodSignature = "(Landroid/graphics/RectF;FF)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2540,7 +2537,7 @@ void android_graphics_Path::addRoundRect(AndroidCXX::android_graphics_RectF cons
 	const char *methodSignature = "(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2648,7 +2645,7 @@ void android_graphics_Path::addRoundRect(AndroidCXX::android_graphics_RectF cons
 	const char *methodSignature = "(Landroid/graphics/RectF;[FLandroid/graphics/Path$Direction;)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2753,7 +2750,7 @@ void android_graphics_Path::addPath(AndroidCXX::android_graphics_Path const& arg
 	const char *methodSignature = "(Landroid/graphics/Path;)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2798,7 +2795,7 @@ void android_graphics_Path::addPath(AndroidCXX::android_graphics_Path const& arg
 	const char *methodSignature = "(Landroid/graphics/Path;Landroid/graphics/Matrix;)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2864,7 +2861,7 @@ void android_graphics_Path::addPath(AndroidCXX::android_graphics_Path const& arg
 	const char *methodSignature = "(Landroid/graphics/Path;FF)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2951,7 +2948,7 @@ void android_graphics_Path::setLastPoint(float const& arg0,float const& arg1)
 	const char *methodSignature = "(FF)V";
 	const char *className = "android/graphics/Path";
 
-	LOGV("android_graphics_Path className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_Path className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

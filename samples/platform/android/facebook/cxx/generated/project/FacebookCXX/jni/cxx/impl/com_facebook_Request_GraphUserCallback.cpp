@@ -168,7 +168,7 @@ com_facebook_Request_GraphUserCallback::com_facebook_Request_GraphUserCallback()
 	const char *methodSignature = "()V";
 	const char *className = "FacebookCXX/com_facebook_Request_GraphUserCallback";
 
-	LOGV("com_facebook_Request_GraphUserCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request_GraphUserCallback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -234,7 +234,7 @@ void com_facebook_Request_GraphUserCallback::onCompleted(FacebookCXX::com_facebo
 	const char *methodSignature = "(Lcom/facebook/model/GraphUser;Lcom/facebook/Response;)V";
 	const char *className = "FacebookCXX/com_facebook_Request_GraphUserCallback";
 
-	LOGV("com_facebook_Request_GraphUserCallback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Request_GraphUserCallback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

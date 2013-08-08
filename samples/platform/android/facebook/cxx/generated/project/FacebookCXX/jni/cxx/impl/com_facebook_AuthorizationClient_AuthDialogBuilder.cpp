@@ -130,7 +130,7 @@ com_facebook_AuthorizationClient_AuthDialogBuilder::com_facebook_AuthorizationCl
 	const char *methodSignature = "(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/AuthorizationClient$AuthDialogBuilder";
 
-	LOGV("com_facebook_AuthorizationClient_AuthDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AuthorizationClient_AuthDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -244,7 +244,7 @@ FacebookCXX::com_facebook_widget_WebDialog com_facebook_AuthorizationClient_Auth
 	const char *methodSignature = "()Lcom/facebook/widget/WebDialog;";
 	const char *className = "com/facebook/AuthorizationClient$AuthDialogBuilder";
 
-	LOGV("com_facebook_AuthorizationClient_AuthDialogBuilder className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_AuthorizationClient_AuthDialogBuilder className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

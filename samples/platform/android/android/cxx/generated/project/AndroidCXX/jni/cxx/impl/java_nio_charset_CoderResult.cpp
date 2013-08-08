@@ -34,11 +34,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_nio_charset_CoderResult"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -146,7 +143,7 @@ AndroidCXX::java_lang_String java_nio_charset_CoderResult::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/nio/charset/CoderResult";
 
-	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CoderResult className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -190,7 +187,7 @@ int java_nio_charset_CoderResult::length()
 	const char *methodSignature = "()I";
 	const char *className = "java/nio/charset/CoderResult";
 
-	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CoderResult className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -234,7 +231,7 @@ void java_nio_charset_CoderResult::throwException()
 	const char *methodSignature = "()V";
 	const char *className = "java/nio/charset/CoderResult";
 
-	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CoderResult className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -258,7 +255,7 @@ bool java_nio_charset_CoderResult::isUnderflow()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/charset/CoderResult";
 
-	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CoderResult className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -302,7 +299,7 @@ bool java_nio_charset_CoderResult::isError()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/charset/CoderResult";
 
-	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CoderResult className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -346,7 +343,7 @@ bool java_nio_charset_CoderResult::isOverflow()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/charset/CoderResult";
 
-	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CoderResult className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -390,7 +387,7 @@ AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CoderResult::malformed
 	const char *methodSignature = "(I)Ljava/nio/charset/CoderResult;";
 	const char *className = "java/nio/charset/CoderResult";
 
-	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CoderResult className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -455,7 +452,7 @@ bool java_nio_charset_CoderResult::isMalformed()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/charset/CoderResult";
 
-	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CoderResult className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -499,7 +496,7 @@ bool java_nio_charset_CoderResult::isUnmappable()
 	const char *methodSignature = "()Z";
 	const char *className = "java/nio/charset/CoderResult";
 
-	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CoderResult className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -543,7 +540,7 @@ AndroidCXX::java_nio_charset_CoderResult java_nio_charset_CoderResult::unmappabl
 	const char *methodSignature = "(I)Ljava/nio/charset/CoderResult;";
 	const char *className = "java/nio/charset/CoderResult";
 
-	LOGV("java_nio_charset_CoderResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_nio_charset_CoderResult className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

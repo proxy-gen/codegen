@@ -51,17 +51,16 @@
 
 
 
+
+
 // Generated Code 
 
 #include <android_content_Loader.hpp>
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_Loader"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -184,7 +183,7 @@ android_content_Loader::android_content_Loader(AndroidCXX::android_content_Conte
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -256,7 +255,7 @@ AndroidCXX::java_lang_String android_content_Loader::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -300,7 +299,7 @@ AndroidCXX::android_content_Context android_content_Loader::getContext()
 	const char *methodSignature = "()Landroid/content/Context;";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -344,7 +343,7 @@ int android_content_Loader::getId()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -388,7 +387,7 @@ void android_content_Loader::reset()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -412,7 +411,7 @@ void android_content_Loader::dump(AndroidCXX::java_lang_String const& arg0,Andro
 	const char *methodSignature = "(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -538,7 +537,7 @@ void android_content_Loader::abandon()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -562,7 +561,7 @@ void android_content_Loader::onContentChanged()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -586,7 +585,7 @@ bool android_content_Loader::isStarted()
 	const char *methodSignature = "()Z";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -630,7 +629,7 @@ void android_content_Loader::deliverResult(AndroidCXX::java_lang_Object const& a
 	const char *methodSignature = "(Ljava/lang/Object;)V";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -675,7 +674,7 @@ void android_content_Loader::registerListener(int const& arg0,AndroidCXX::androi
 	const char *methodSignature = "(ILandroid/content/Loader$OnLoadCompleteListener;)V";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -759,7 +758,7 @@ void android_content_Loader::unregisterListener(AndroidCXX::android_content_Load
 	const char *methodSignature = "(Landroid/content/Loader$OnLoadCompleteListener;)V";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -822,7 +821,7 @@ bool android_content_Loader::isAbandoned()
 	const char *methodSignature = "()Z";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -866,7 +865,7 @@ bool android_content_Loader::isReset()
 	const char *methodSignature = "()Z";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -910,7 +909,7 @@ void android_content_Loader::startLoading()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -934,7 +933,7 @@ void android_content_Loader::forceLoad()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -958,7 +957,7 @@ void android_content_Loader::stopLoading()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -982,7 +981,7 @@ bool android_content_Loader::takeContentChanged()
 	const char *methodSignature = "()Z";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1018,6 +1017,54 @@ bool android_content_Loader::takeContentChanged()
 
 	return result;
 }
+void android_content_Loader::commitContentChanged()
+{
+	LOGV("void android_content_Loader::commitContentChanged() enter");
+
+	const char *methodName = "commitContentChanged";
+	const char *methodSignature = "()V";
+	const char *className = "android/content/Loader";
+
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_content_Loader cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_Loader jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	LOGV("void android_content_Loader::commitContentChanged() exit");
+
+}
+void android_content_Loader::rollbackContentChanged()
+{
+	LOGV("void android_content_Loader::rollbackContentChanged() enter");
+
+	const char *methodName = "rollbackContentChanged";
+	const char *methodSignature = "()V";
+	const char *className = "android/content/Loader";
+
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	CXXContext *ctx = CXXContext::sharedInstance();
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long cxxAddress = (long) this;
+	LOGV("android_content_Loader cxx address %d", cxxAddress);
+	jobject javaObject = ctx->findProxyComponent(cxxAddress);
+	LOGV("android_content_Loader jni address %d", javaObject);
+
+
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature);
+		
+	LOGV("void android_content_Loader::rollbackContentChanged() exit");
+
+}
 AndroidCXX::java_lang_String android_content_Loader::dataToString(AndroidCXX::java_lang_Object const& arg0)
 {
 	LOGV("AndroidCXX::java_lang_String android_content_Loader::dataToString(AndroidCXX::java_lang_Object const& arg0) enter");
@@ -1026,7 +1073,7 @@ AndroidCXX::java_lang_String android_content_Loader::dataToString(AndroidCXX::ja
 	const char *methodSignature = "(Ljava/lang/Object;)Ljava/lang/String;";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1091,7 +1138,7 @@ void android_content_Loader::deliverCancellation()
 	const char *methodSignature = "()V";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1115,7 +1162,7 @@ void android_content_Loader::registerOnLoadCanceledListener(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/content/Loader$OnLoadCanceledListener;)V";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1178,7 +1225,7 @@ void android_content_Loader::unregisterOnLoadCanceledListener(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/content/Loader$OnLoadCanceledListener;)V";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1241,7 +1288,7 @@ bool android_content_Loader::cancelLoad()
 	const char *methodSignature = "()Z";
 	const char *className = "android/content/Loader";
 
-	LOGV("android_content_Loader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_Loader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

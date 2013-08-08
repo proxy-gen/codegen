@@ -25,4 +25,4 @@ include $(BUILD_STATIC_LIBRARY)
 
 $(call import-module, generator/platform/android/runtime/ZyngaCXX/jni)
 
-$(call import-module, ../../../android/cxx/generated/project/exported/cxx/AndroidCXX)
+$(call import-module, ../../../android/cxx/package/AndroidCXX/Debug/)

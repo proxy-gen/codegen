@@ -122,7 +122,7 @@ com_facebook_LoginActivity::com_facebook_LoginActivity()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/LoginActivity";
 
-	LOGV("com_facebook_LoginActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_LoginActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -173,7 +173,7 @@ void com_facebook_LoginActivity::onCreate(AndroidCXX::android_os_Bundle const& a
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/LoginActivity";
 
-	LOGV("com_facebook_LoginActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_LoginActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -218,7 +218,7 @@ void com_facebook_LoginActivity::onResume()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/LoginActivity";
 
-	LOGV("com_facebook_LoginActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_LoginActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -242,7 +242,7 @@ void com_facebook_LoginActivity::onSaveInstanceState(AndroidCXX::android_os_Bund
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/LoginActivity";
 
-	LOGV("com_facebook_LoginActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_LoginActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -287,7 +287,7 @@ void com_facebook_LoginActivity::onPause()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/LoginActivity";
 
-	LOGV("com_facebook_LoginActivity className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_LoginActivity className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

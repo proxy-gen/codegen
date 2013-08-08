@@ -47,11 +47,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_Display"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -177,7 +174,7 @@ AndroidCXX::java_lang_String android_view_Display::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -221,7 +218,7 @@ AndroidCXX::java_lang_String android_view_Display::getName()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -265,7 +262,7 @@ void android_view_Display::getSize(AndroidCXX::android_graphics_Point const& arg
 	const char *methodSignature = "(Landroid/graphics/Point;)V";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -310,7 +307,7 @@ bool android_view_Display::isValid()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -354,7 +351,7 @@ int android_view_Display::getFlags()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -398,7 +395,7 @@ int android_view_Display::getWidth()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -442,7 +439,7 @@ int android_view_Display::getHeight()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -486,7 +483,7 @@ int android_view_Display::getRotation()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -530,7 +527,7 @@ int android_view_Display::getDisplayId()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -574,7 +571,7 @@ void android_view_Display::getRectSize(AndroidCXX::android_graphics_Rect const& 
 	const char *methodSignature = "(Landroid/graphics/Rect;)V";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -619,7 +616,7 @@ void android_view_Display::getCurrentSizeRange(AndroidCXX::android_graphics_Poin
 	const char *methodSignature = "(Landroid/graphics/Point;Landroid/graphics/Point;)V";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -685,7 +682,7 @@ int android_view_Display::getOrientation()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -729,7 +726,7 @@ int android_view_Display::getPixelFormat()
 	const char *methodSignature = "()I";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -773,7 +770,7 @@ float android_view_Display::getRefreshRate()
 	const char *methodSignature = "()F";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -817,7 +814,7 @@ void android_view_Display::getMetrics(AndroidCXX::android_util_DisplayMetrics co
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;)V";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -862,7 +859,7 @@ void android_view_Display::getRealSize(AndroidCXX::android_graphics_Point const&
 	const char *methodSignature = "(Landroid/graphics/Point;)V";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -907,7 +904,7 @@ void android_view_Display::getRealMetrics(AndroidCXX::android_util_DisplayMetric
 	const char *methodSignature = "(Landroid/util/DisplayMetrics;)V";
 	const char *className = "android/view/Display";
 
-	LOGV("android_view_Display className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_Display className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

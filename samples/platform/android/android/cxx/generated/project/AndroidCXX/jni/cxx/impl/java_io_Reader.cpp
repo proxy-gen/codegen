@@ -32,11 +32,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_io_Reader"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -138,7 +135,7 @@ void java_io_Reader::close()
 	const char *methodSignature = "()V";
 	const char *className = "java/io/Reader";
 
-	LOGV("java_io_Reader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Reader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -162,7 +159,7 @@ void java_io_Reader::mark(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "java/io/Reader";
 
-	LOGV("java_io_Reader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Reader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -207,7 +204,7 @@ void java_io_Reader::reset()
 	const char *methodSignature = "()V";
 	const char *className = "java/io/Reader";
 
-	LOGV("java_io_Reader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Reader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -231,7 +228,7 @@ int java_io_Reader::read(std::vector<char> const& arg0,int const& arg1,int const
 	const char *methodSignature = "([CII)I";
 	const char *className = "java/io/Reader";
 
-	LOGV("java_io_Reader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Reader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -356,7 +353,7 @@ int java_io_Reader::read()
 	const char *methodSignature = "()I";
 	const char *className = "java/io/Reader";
 
-	LOGV("java_io_Reader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Reader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -400,7 +397,7 @@ int java_io_Reader::read(std::vector<char> const& arg0)
 	const char *methodSignature = "([C)I";
 	const char *className = "java/io/Reader";
 
-	LOGV("java_io_Reader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Reader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -483,7 +480,7 @@ int java_io_Reader::read(AndroidCXX::java_nio_CharBuffer const& arg0)
 	const char *methodSignature = "(Ljava/nio/CharBuffer;)I";
 	const char *className = "java/io/Reader";
 
-	LOGV("java_io_Reader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Reader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -548,7 +545,7 @@ long java_io_Reader::skip(long const& arg0)
 	const char *methodSignature = "(J)J";
 	const char *className = "java/io/Reader";
 
-	LOGV("java_io_Reader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Reader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -613,7 +610,7 @@ bool java_io_Reader::markSupported()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/Reader";
 
-	LOGV("java_io_Reader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Reader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -657,7 +654,7 @@ bool java_io_Reader::ready()
 	const char *methodSignature = "()Z";
 	const char *className = "java/io/Reader";
 
-	LOGV("java_io_Reader className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_io_Reader className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

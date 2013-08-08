@@ -44,11 +44,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_ClipDescription"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -142,7 +139,7 @@ android_content_ClipDescription::android_content_ClipDescription(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/lang/CharSequence;[Ljava/lang/String;)V";
 	const char *className = "android/content/ClipDescription";
 
-	LOGV("android_content_ClipDescription className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipDescription className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -238,7 +235,7 @@ android_content_ClipDescription::android_content_ClipDescription(AndroidCXX::and
 	const char *methodSignature = "(Landroid/content/ClipDescription;)V";
 	const char *className = "android/content/ClipDescription";
 
-	LOGV("android_content_ClipDescription className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipDescription className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -310,7 +307,7 @@ AndroidCXX::java_lang_String android_content_ClipDescription::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "android/content/ClipDescription";
 
-	LOGV("android_content_ClipDescription className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipDescription className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -354,7 +351,7 @@ int android_content_ClipDescription::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/ClipDescription";
 
-	LOGV("android_content_ClipDescription className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipDescription className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -398,7 +395,7 @@ void android_content_ClipDescription::writeToParcel(AndroidCXX::android_os_Parce
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/content/ClipDescription";
 
-	LOGV("android_content_ClipDescription className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipDescription className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -464,7 +461,7 @@ bool android_content_ClipDescription::compareMimeTypes(AndroidCXX::java_lang_Str
 	const char *methodSignature = "(Ljava/lang/String;Ljava/lang/String;)Z";
 	const char *className = "android/content/ClipDescription";
 
-	LOGV("android_content_ClipDescription className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipDescription className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -550,7 +547,7 @@ AndroidCXX::java_lang_CharSequence android_content_ClipDescription::getLabel()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/content/ClipDescription";
 
-	LOGV("android_content_ClipDescription className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipDescription className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -594,7 +591,7 @@ bool android_content_ClipDescription::hasMimeType(AndroidCXX::java_lang_String c
 	const char *methodSignature = "(Ljava/lang/String;)Z";
 	const char *className = "android/content/ClipDescription";
 
-	LOGV("android_content_ClipDescription className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipDescription className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -659,7 +656,7 @@ std::vector<AndroidCXX::java_lang_String > android_content_ClipDescription::filt
 	const char *methodSignature = "(Ljava/lang/String;)[Ljava/lang/String;";
 	const char *className = "android/content/ClipDescription";
 
-	LOGV("android_content_ClipDescription className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipDescription className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -742,7 +739,7 @@ int android_content_ClipDescription::getMimeTypeCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/ClipDescription";
 
-	LOGV("android_content_ClipDescription className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipDescription className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -786,7 +783,7 @@ AndroidCXX::java_lang_String android_content_ClipDescription::getMimeType(int co
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/content/ClipDescription";
 
-	LOGV("android_content_ClipDescription className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_ClipDescription className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

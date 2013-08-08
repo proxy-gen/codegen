@@ -40,11 +40,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ZoomButtonsController"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -146,7 +143,7 @@ android_widget_ZoomButtonsController::android_widget_ZoomButtonsController(Andro
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/widget/ZoomButtonsController";
 
-	LOGV("android_widget_ZoomButtonsController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ZoomButtonsController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -218,7 +215,7 @@ bool android_widget_ZoomButtonsController::isVisible()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/ZoomButtonsController";
 
-	LOGV("android_widget_ZoomButtonsController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ZoomButtonsController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -262,7 +259,7 @@ void android_widget_ZoomButtonsController::setVisible(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ZoomButtonsController";
 
-	LOGV("android_widget_ZoomButtonsController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ZoomButtonsController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -307,7 +304,7 @@ void android_widget_ZoomButtonsController::setFocusable(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ZoomButtonsController";
 
-	LOGV("android_widget_ZoomButtonsController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ZoomButtonsController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -352,7 +349,7 @@ bool android_widget_ZoomButtonsController::onTouch(AndroidCXX::android_view_View
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/ZoomButtonsController";
 
-	LOGV("android_widget_ZoomButtonsController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ZoomButtonsController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -438,7 +435,7 @@ AndroidCXX::android_view_ViewGroup android_widget_ZoomButtonsController::getCont
 	const char *methodSignature = "()Landroid/view/ViewGroup;";
 	const char *className = "android/widget/ZoomButtonsController";
 
-	LOGV("android_widget_ZoomButtonsController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ZoomButtonsController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -482,7 +479,7 @@ void android_widget_ZoomButtonsController::setZoomSpeed(long const& arg0)
 	const char *methodSignature = "(J)V";
 	const char *className = "android/widget/ZoomButtonsController";
 
-	LOGV("android_widget_ZoomButtonsController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ZoomButtonsController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -527,7 +524,7 @@ void android_widget_ZoomButtonsController::setZoomInEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ZoomButtonsController";
 
-	LOGV("android_widget_ZoomButtonsController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ZoomButtonsController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -572,7 +569,7 @@ void android_widget_ZoomButtonsController::setZoomOutEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ZoomButtonsController";
 
-	LOGV("android_widget_ZoomButtonsController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ZoomButtonsController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -617,7 +614,7 @@ void android_widget_ZoomButtonsController::setOnZoomListener(AndroidCXX::android
 	const char *methodSignature = "(Landroid/widget/ZoomButtonsController$OnZoomListener;)V";
 	const char *className = "android/widget/ZoomButtonsController";
 
-	LOGV("android_widget_ZoomButtonsController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ZoomButtonsController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -662,7 +659,7 @@ bool android_widget_ZoomButtonsController::isAutoDismissed()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/ZoomButtonsController";
 
-	LOGV("android_widget_ZoomButtonsController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ZoomButtonsController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -706,7 +703,7 @@ void android_widget_ZoomButtonsController::setAutoDismissed(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ZoomButtonsController";
 
-	LOGV("android_widget_ZoomButtonsController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ZoomButtonsController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -751,7 +748,7 @@ AndroidCXX::android_view_View android_widget_ZoomButtonsController::getZoomContr
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/widget/ZoomButtonsController";
 
-	LOGV("android_widget_ZoomButtonsController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ZoomButtonsController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

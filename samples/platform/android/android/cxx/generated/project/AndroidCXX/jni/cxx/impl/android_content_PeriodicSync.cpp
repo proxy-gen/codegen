@@ -30,11 +30,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_PeriodicSync"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -133,7 +130,7 @@ android_content_PeriodicSync::android_content_PeriodicSync(AndroidCXX::android_a
 	const char *methodSignature = "(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;J)V";
 	const char *className = "android/content/PeriodicSync";
 
-	LOGV("android_content_PeriodicSync className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_PeriodicSync className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -268,7 +265,7 @@ bool android_content_PeriodicSync::equals(AndroidCXX::java_lang_Object const& ar
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "android/content/PeriodicSync";
 
-	LOGV("android_content_PeriodicSync className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_PeriodicSync className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -333,7 +330,7 @@ int android_content_PeriodicSync::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/content/PeriodicSync";
 
-	LOGV("android_content_PeriodicSync className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_PeriodicSync className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -377,7 +374,7 @@ void android_content_PeriodicSync::writeToParcel(AndroidCXX::android_os_Parcel c
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/content/PeriodicSync";
 
-	LOGV("android_content_PeriodicSync className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_PeriodicSync className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

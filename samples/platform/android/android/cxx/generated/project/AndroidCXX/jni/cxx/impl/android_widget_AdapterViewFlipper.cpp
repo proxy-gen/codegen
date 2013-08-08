@@ -42,11 +42,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_AdapterViewFlipper"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -148,7 +145,7 @@ android_widget_AdapterViewFlipper::android_widget_AdapterViewFlipper(AndroidCXX:
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -226,7 +223,7 @@ android_widget_AdapterViewFlipper::android_widget_AdapterViewFlipper(AndroidCXX:
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -298,7 +295,7 @@ void android_widget_AdapterViewFlipper::onInitializeAccessibilityEvent(AndroidCX
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -343,7 +340,7 @@ void android_widget_AdapterViewFlipper::onInitializeAccessibilityNodeInfo(Androi
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -388,7 +385,7 @@ void android_widget_AdapterViewFlipper::setAdapter(AndroidCXX::android_widget_Ad
 	const char *methodSignature = "(Landroid/widget/Adapter;)V";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -433,7 +430,7 @@ void android_widget_AdapterViewFlipper::fyiWillBeAdvancedByHostKThx()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -457,7 +454,7 @@ void android_widget_AdapterViewFlipper::showNext()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -481,7 +478,7 @@ void android_widget_AdapterViewFlipper::showPrevious()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -505,7 +502,7 @@ int android_widget_AdapterViewFlipper::getFlipInterval()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -549,7 +546,7 @@ void android_widget_AdapterViewFlipper::setFlipInterval(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -594,7 +591,7 @@ void android_widget_AdapterViewFlipper::startFlipping()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -618,7 +615,7 @@ void android_widget_AdapterViewFlipper::stopFlipping()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -642,7 +639,7 @@ bool android_widget_AdapterViewFlipper::isFlipping()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -686,7 +683,7 @@ void android_widget_AdapterViewFlipper::setAutoStart(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -731,7 +728,7 @@ bool android_widget_AdapterViewFlipper::isAutoStart()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/AdapterViewFlipper";
 
-	LOGV("android_widget_AdapterViewFlipper className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_AdapterViewFlipper className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

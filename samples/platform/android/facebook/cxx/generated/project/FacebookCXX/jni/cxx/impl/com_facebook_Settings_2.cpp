@@ -120,7 +120,7 @@ void com_facebook_Settings_2::run()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/Settings$2";
 
-	LOGV("com_facebook_Settings_2 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Settings_2 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

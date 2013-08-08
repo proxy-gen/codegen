@@ -34,11 +34,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ShareActionProvider"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -140,7 +137,7 @@ android_widget_ShareActionProvider::android_widget_ShareActionProvider(AndroidCX
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/ShareActionProvider";
 
-	LOGV("android_widget_ShareActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ShareActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -212,7 +209,7 @@ bool android_widget_ShareActionProvider::hasSubMenu()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/ShareActionProvider";
 
-	LOGV("android_widget_ShareActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ShareActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -256,7 +253,7 @@ AndroidCXX::android_view_View android_widget_ShareActionProvider::onCreateAction
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/widget/ShareActionProvider";
 
-	LOGV("android_widget_ShareActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ShareActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -300,7 +297,7 @@ void android_widget_ShareActionProvider::onPrepareSubMenu(AndroidCXX::android_vi
 	const char *methodSignature = "(Landroid/view/SubMenu;)V";
 	const char *className = "android/widget/ShareActionProvider";
 
-	LOGV("android_widget_ShareActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ShareActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -345,7 +342,7 @@ void android_widget_ShareActionProvider::setOnShareTargetSelectedListener(Androi
 	const char *methodSignature = "(Landroid/widget/ShareActionProvider$OnShareTargetSelectedListener;)V";
 	const char *className = "android/widget/ShareActionProvider";
 
-	LOGV("android_widget_ShareActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ShareActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -390,7 +387,7 @@ void android_widget_ShareActionProvider::setShareHistoryFileName(AndroidCXX::jav
 	const char *methodSignature = "(Ljava/lang/String;)V";
 	const char *className = "android/widget/ShareActionProvider";
 
-	LOGV("android_widget_ShareActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ShareActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -435,7 +432,7 @@ void android_widget_ShareActionProvider::setShareIntent(AndroidCXX::android_cont
 	const char *methodSignature = "(Landroid/content/Intent;)V";
 	const char *className = "android/widget/ShareActionProvider";
 
-	LOGV("android_widget_ShareActionProvider className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ShareActionProvider className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

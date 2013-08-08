@@ -131,7 +131,7 @@ com_facebook_widget_GraphObjectAdapter_SectionAndItem::com_facebook_widget_Graph
 	const char *methodSignature = "(Ljava/lang/String;Lcom/facebook/model/GraphObject;)V";
 	const char *className = "com/facebook/widget/GraphObjectAdapter$SectionAndItem";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -224,7 +224,7 @@ com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type::com_facebook_widget_
 	const char *methodSignature = "()Lcom/facebook/widget/GraphObjectAdapter$SectionAndItem$Type;";
 	const char *className = "com/facebook/widget/GraphObjectAdapter$SectionAndItem";
 
-	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_GraphObjectAdapter_SectionAndItem className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

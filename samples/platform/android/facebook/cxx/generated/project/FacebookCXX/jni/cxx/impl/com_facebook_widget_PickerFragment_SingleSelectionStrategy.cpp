@@ -130,7 +130,7 @@ void com_facebook_widget_PickerFragment_SingleSelectionStrategy::clear()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/PickerFragment$SingleSelectionStrategy";
 
-	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -154,7 +154,7 @@ AndroidCXX::java_util_Collection com_facebook_widget_PickerFragment_SingleSelect
 	const char *methodSignature = "()Ljava/util/Collection;";
 	const char *className = "com/facebook/widget/PickerFragment$SingleSelectionStrategy";
 
-	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PickerFragment_SingleSelectionStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

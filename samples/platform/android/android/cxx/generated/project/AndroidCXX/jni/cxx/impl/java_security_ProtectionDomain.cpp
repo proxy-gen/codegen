@@ -41,11 +41,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "java_security_ProtectionDomain"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -162,7 +159,7 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_
 	const char *methodSignature = "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;)V";
 	const char *className = "java/security/ProtectionDomain";
 
-	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_ProtectionDomain className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -240,7 +237,7 @@ java_security_ProtectionDomain::java_security_ProtectionDomain(AndroidCXX::java_
 	const char *methodSignature = "(Ljava/security/CodeSource;Ljava/security/PermissionCollection;Ljava/lang/ClassLoader;[Ljava/security/Principal;)V";
 	const char *className = "java/security/ProtectionDomain";
 
-	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_ProtectionDomain className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -393,7 +390,7 @@ AndroidCXX::java_lang_String java_security_ProtectionDomain::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "java/security/ProtectionDomain";
 
-	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_ProtectionDomain className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -437,7 +434,7 @@ AndroidCXX::java_lang_ClassLoader java_security_ProtectionDomain::getClassLoader
 	const char *methodSignature = "()Ljava/lang/ClassLoader;";
 	const char *className = "java/security/ProtectionDomain";
 
-	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_ProtectionDomain className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -481,7 +478,7 @@ AndroidCXX::java_security_CodeSource java_security_ProtectionDomain::getCodeSour
 	const char *methodSignature = "()Ljava/security/CodeSource;";
 	const char *className = "java/security/ProtectionDomain";
 
-	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_ProtectionDomain className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -525,7 +522,7 @@ std::vector<AndroidCXX::java_security_Principal > java_security_ProtectionDomain
 	const char *methodSignature = "()[Ljava/security/Principal;";
 	const char *className = "java/security/ProtectionDomain";
 
-	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_ProtectionDomain className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -587,7 +584,7 @@ AndroidCXX::java_security_PermissionCollection java_security_ProtectionDomain::g
 	const char *methodSignature = "()Ljava/security/PermissionCollection;";
 	const char *className = "java/security/ProtectionDomain";
 
-	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_ProtectionDomain className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -631,7 +628,7 @@ bool java_security_ProtectionDomain::implies(AndroidCXX::java_security_Permissio
 	const char *methodSignature = "(Ljava/security/Permission;)Z";
 	const char *className = "java/security/ProtectionDomain";
 
-	LOGV("java_security_ProtectionDomain className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("java_security_ProtectionDomain className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

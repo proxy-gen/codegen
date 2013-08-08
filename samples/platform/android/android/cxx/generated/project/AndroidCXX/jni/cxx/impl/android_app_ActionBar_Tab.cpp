@@ -60,11 +60,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_app_ActionBar_Tab"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -211,7 +208,7 @@ android_app_ActionBar_Tab::android_app_ActionBar_Tab()
 	const char *methodSignature = "()V";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -262,7 +259,7 @@ AndroidCXX::java_lang_Object android_app_ActionBar_Tab::getTag()
 	const char *methodSignature = "()Ljava/lang/Object;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -306,7 +303,7 @@ int android_app_ActionBar_Tab::getPosition()
 	const char *methodSignature = "()I";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -350,7 +347,7 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar_Tab::setText(Android
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/app/ActionBar$Tab;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -415,7 +412,7 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar_Tab::setText(int con
 	const char *methodSignature = "(I)Landroid/app/ActionBar$Tab;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -480,7 +477,7 @@ AndroidCXX::java_lang_CharSequence android_app_ActionBar_Tab::getText()
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -524,7 +521,7 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar_Tab::setTag(AndroidC
 	const char *methodSignature = "(Ljava/lang/Object;)Landroid/app/ActionBar$Tab;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -589,7 +586,7 @@ AndroidCXX::java_lang_CharSequence android_app_ActionBar_Tab::getContentDescript
 	const char *methodSignature = "()Ljava/lang/CharSequence;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -633,7 +630,7 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar_Tab::setContentDescr
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/app/ActionBar$Tab;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -698,7 +695,7 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar_Tab::setContentDescr
 	const char *methodSignature = "(I)Landroid/app/ActionBar$Tab;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -763,7 +760,7 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar_Tab::setIcon(int con
 	const char *methodSignature = "(I)Landroid/app/ActionBar$Tab;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -828,7 +825,7 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar_Tab::setIcon(Android
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)Landroid/app/ActionBar$Tab;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -893,7 +890,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_app_ActionBar_Tab::getIco
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -937,7 +934,7 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar_Tab::setCustomView(A
 	const char *methodSignature = "(Landroid/view/View;)Landroid/app/ActionBar$Tab;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1002,7 +999,7 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar_Tab::setCustomView(i
 	const char *methodSignature = "(I)Landroid/app/ActionBar$Tab;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1067,7 +1064,7 @@ AndroidCXX::android_view_View android_app_ActionBar_Tab::getCustomView()
 	const char *methodSignature = "()Landroid/view/View;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1111,7 +1108,7 @@ AndroidCXX::android_app_ActionBar_Tab android_app_ActionBar_Tab::setTabListener(
 	const char *methodSignature = "(Landroid/app/ActionBar$TabListener;)Landroid/app/ActionBar$Tab;";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1176,7 +1173,7 @@ void android_app_ActionBar_Tab::select()
 	const char *methodSignature = "()V";
 	const char *className = "android/app/ActionBar$Tab";
 
-	LOGV("android_app_ActionBar_Tab className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_app_ActionBar_Tab className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

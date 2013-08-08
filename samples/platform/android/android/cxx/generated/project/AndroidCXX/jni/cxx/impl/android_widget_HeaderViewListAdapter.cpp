@@ -57,11 +57,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_HeaderViewListAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -190,7 +187,7 @@ android_widget_HeaderViewListAdapter::android_widget_HeaderViewListAdapter(Andro
 	const char *methodSignature = "(Ljava/util/ArrayList;Ljava/util/ArrayList;Landroid/widget/ListAdapter;)V";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -340,7 +337,7 @@ bool android_widget_HeaderViewListAdapter::isEmpty()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -384,7 +381,7 @@ AndroidCXX::android_view_View android_widget_HeaderViewListAdapter::getView(int 
 	const char *methodSignature = "(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -491,7 +488,7 @@ bool android_widget_HeaderViewListAdapter::isEnabled(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -556,7 +553,7 @@ AndroidCXX::android_widget_Filter android_widget_HeaderViewListAdapter::getFilte
 	const char *methodSignature = "()Landroid/widget/Filter;";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -600,7 +597,7 @@ AndroidCXX::java_lang_Object android_widget_HeaderViewListAdapter::getItem(int c
 	const char *methodSignature = "(I)Ljava/lang/Object;";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -665,7 +662,7 @@ long android_widget_HeaderViewListAdapter::getItemId(int const& arg0)
 	const char *methodSignature = "(I)J";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -730,7 +727,7 @@ int android_widget_HeaderViewListAdapter::getCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -774,7 +771,7 @@ void android_widget_HeaderViewListAdapter::registerDataSetObserver(AndroidCXX::a
 	const char *methodSignature = "(Landroid/database/DataSetObserver;)V";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -819,7 +816,7 @@ void android_widget_HeaderViewListAdapter::unregisterDataSetObserver(AndroidCXX:
 	const char *methodSignature = "(Landroid/database/DataSetObserver;)V";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -864,7 +861,7 @@ bool android_widget_HeaderViewListAdapter::hasStableIds()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -908,7 +905,7 @@ int android_widget_HeaderViewListAdapter::getItemViewType(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -973,7 +970,7 @@ int android_widget_HeaderViewListAdapter::getViewTypeCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1017,7 +1014,7 @@ bool android_widget_HeaderViewListAdapter::areAllItemsEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1061,7 +1058,7 @@ AndroidCXX::android_widget_ListAdapter android_widget_HeaderViewListAdapter::get
 	const char *methodSignature = "()Landroid/widget/ListAdapter;";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1105,7 +1102,7 @@ int android_widget_HeaderViewListAdapter::getHeadersCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1149,7 +1146,7 @@ int android_widget_HeaderViewListAdapter::getFootersCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1193,7 +1190,7 @@ bool android_widget_HeaderViewListAdapter::removeHeader(AndroidCXX::android_view
 	const char *methodSignature = "(Landroid/view/View;)Z";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1258,7 +1255,7 @@ bool android_widget_HeaderViewListAdapter::removeFooter(AndroidCXX::android_view
 	const char *methodSignature = "(Landroid/view/View;)Z";
 	const char *className = "android/widget/HeaderViewListAdapter";
 
-	LOGV("android_widget_HeaderViewListAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_HeaderViewListAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

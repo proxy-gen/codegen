@@ -241,7 +241,7 @@ com_facebook_TokenCachingStrategy::com_facebook_TokenCachingStrategy()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -292,7 +292,7 @@ void com_facebook_TokenCachingStrategy::clear()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -316,7 +316,7 @@ AndroidCXX::android_os_Bundle com_facebook_TokenCachingStrategy::load()
 	const char *methodSignature = "()Landroid/os/Bundle;";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -360,7 +360,7 @@ AndroidCXX::java_util_List com_facebook_TokenCachingStrategy::getPermissions(And
 	const char *methodSignature = "(Landroid/os/Bundle;)Ljava/util/List;";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -443,7 +443,7 @@ void com_facebook_TokenCachingStrategy::save(AndroidCXX::android_os_Bundle const
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -488,7 +488,7 @@ AndroidCXX::java_lang_String com_facebook_TokenCachingStrategy::getToken(Android
 	const char *methodSignature = "(Landroid/os/Bundle;)Ljava/lang/String;";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -553,7 +553,7 @@ com_facebook_AccessTokenSource::com_facebook_AccessTokenSource com_facebook_Toke
 	const char *methodSignature = "(Landroid/os/Bundle;)Lcom/facebook/AccessTokenSource;";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -618,7 +618,7 @@ bool com_facebook_TokenCachingStrategy::hasTokenInformation(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/os/Bundle;)Z";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -683,7 +683,7 @@ AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getExpirationDate(
 	const char *methodSignature = "(Landroid/os/Bundle;)Ljava/util/Date;";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -748,7 +748,7 @@ void com_facebook_TokenCachingStrategy::putToken(AndroidCXX::android_os_Bundle c
 	const char *methodSignature = "(Landroid/os/Bundle;Ljava/lang/String;)V";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -814,7 +814,7 @@ void com_facebook_TokenCachingStrategy::putExpirationDate(AndroidCXX::android_os
 	const char *methodSignature = "(Landroid/os/Bundle;Ljava/util/Date;)V";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -880,7 +880,7 @@ long com_facebook_TokenCachingStrategy::getExpirationMilliseconds(AndroidCXX::an
 	const char *methodSignature = "(Landroid/os/Bundle;)J";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -945,7 +945,7 @@ void com_facebook_TokenCachingStrategy::putExpirationMilliseconds(AndroidCXX::an
 	const char *methodSignature = "(Landroid/os/Bundle;J)V";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1011,7 +1011,7 @@ void com_facebook_TokenCachingStrategy::putPermissions(AndroidCXX::android_os_Bu
 	const char *methodSignature = "(Landroid/os/Bundle;Ljava/util/List;)V";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1095,7 +1095,7 @@ void com_facebook_TokenCachingStrategy::putSource(AndroidCXX::android_os_Bundle 
 	const char *methodSignature = "(Landroid/os/Bundle;Lcom/facebook/AccessTokenSource;)V";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1161,7 +1161,7 @@ AndroidCXX::java_util_Date com_facebook_TokenCachingStrategy::getLastRefreshDate
 	const char *methodSignature = "(Landroid/os/Bundle;)Ljava/util/Date;";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1226,7 +1226,7 @@ void com_facebook_TokenCachingStrategy::putLastRefreshDate(AndroidCXX::android_o
 	const char *methodSignature = "(Landroid/os/Bundle;Ljava/util/Date;)V";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1292,7 +1292,7 @@ long com_facebook_TokenCachingStrategy::getLastRefreshMilliseconds(AndroidCXX::a
 	const char *methodSignature = "(Landroid/os/Bundle;)J";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1357,7 +1357,7 @@ void com_facebook_TokenCachingStrategy::putLastRefreshMilliseconds(AndroidCXX::a
 	const char *methodSignature = "(Landroid/os/Bundle;J)V";
 	const char *className = "com/facebook/TokenCachingStrategy";
 
-	LOGV("com_facebook_TokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

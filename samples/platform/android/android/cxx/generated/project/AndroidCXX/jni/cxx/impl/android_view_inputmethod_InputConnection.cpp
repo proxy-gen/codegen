@@ -54,11 +54,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_inputmethod_InputConnection"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -193,7 +190,7 @@ AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::get
 	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -279,7 +276,7 @@ AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::get
 	const char *methodSignature = "(II)Ljava/lang/CharSequence;";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -365,7 +362,7 @@ AndroidCXX::java_lang_CharSequence android_view_inputmethod_InputConnection::get
 	const char *methodSignature = "(I)Ljava/lang/CharSequence;";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -430,7 +427,7 @@ int android_view_inputmethod_InputConnection::getCursorCapsMode(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -495,7 +492,7 @@ AndroidCXX::android_view_inputmethod_ExtractedText android_view_inputmethod_Inpu
 	const char *methodSignature = "(Landroid/view/inputmethod/ExtractedTextRequest;I)Landroid/view/inputmethod/ExtractedText;";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -581,7 +578,7 @@ bool android_view_inputmethod_InputConnection::deleteSurroundingText(int const& 
 	const char *methodSignature = "(II)Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -667,7 +664,7 @@ bool android_view_inputmethod_InputConnection::setComposingText(AndroidCXX::java
 	const char *methodSignature = "(Ljava/lang/CharSequence;I)Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -753,7 +750,7 @@ bool android_view_inputmethod_InputConnection::setComposingRegion(int const& arg
 	const char *methodSignature = "(II)Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -839,7 +836,7 @@ bool android_view_inputmethod_InputConnection::finishComposingText()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -883,7 +880,7 @@ bool android_view_inputmethod_InputConnection::commitText(AndroidCXX::java_lang_
 	const char *methodSignature = "(Ljava/lang/CharSequence;I)Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -969,7 +966,7 @@ bool android_view_inputmethod_InputConnection::commitCompletion(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/view/inputmethod/CompletionInfo;)Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1034,7 +1031,7 @@ bool android_view_inputmethod_InputConnection::commitCorrection(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/view/inputmethod/CorrectionInfo;)Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1099,7 +1096,7 @@ bool android_view_inputmethod_InputConnection::setSelection(int const& arg0,int 
 	const char *methodSignature = "(II)Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1185,7 +1182,7 @@ bool android_view_inputmethod_InputConnection::performEditorAction(int const& ar
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1250,7 +1247,7 @@ bool android_view_inputmethod_InputConnection::performContextMenuAction(int cons
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1315,7 +1312,7 @@ bool android_view_inputmethod_InputConnection::beginBatchEdit()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1359,7 +1356,7 @@ bool android_view_inputmethod_InputConnection::endBatchEdit()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1403,7 +1400,7 @@ bool android_view_inputmethod_InputConnection::sendKeyEvent(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1468,7 +1465,7 @@ bool android_view_inputmethod_InputConnection::clearMetaKeyStates(int const& arg
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1533,7 +1530,7 @@ bool android_view_inputmethod_InputConnection::reportFullscreenMode(bool const& 
 	const char *methodSignature = "(Z)Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1598,7 +1595,7 @@ bool android_view_inputmethod_InputConnection::performPrivateCommand(AndroidCXX:
 	const char *methodSignature = "(Ljava/lang/String;Landroid/os/Bundle;)Z";
 	const char *className = "android/view/inputmethod/InputConnection";
 
-	LOGV("android_view_inputmethod_InputConnection className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_inputmethod_InputConnection className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

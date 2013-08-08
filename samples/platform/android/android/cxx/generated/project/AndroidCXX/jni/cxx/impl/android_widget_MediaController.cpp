@@ -51,11 +51,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_MediaController"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -178,7 +175,7 @@ android_widget_MediaController::android_widget_MediaController(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Context;Z)V";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -256,7 +253,7 @@ android_widget_MediaController::android_widget_MediaController(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -313,7 +310,7 @@ android_widget_MediaController::android_widget_MediaController(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -406,7 +403,7 @@ void android_widget_MediaController::show()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -430,7 +427,7 @@ void android_widget_MediaController::show(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -475,7 +472,7 @@ bool android_widget_MediaController::onTouchEvent(AndroidCXX::android_view_Motio
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -540,7 +537,7 @@ bool android_widget_MediaController::onTrackballEvent(AndroidCXX::android_view_M
 	const char *methodSignature = "(Landroid/view/MotionEvent;)Z";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -605,7 +602,7 @@ bool android_widget_MediaController::dispatchKeyEvent(AndroidCXX::android_view_K
 	const char *methodSignature = "(Landroid/view/KeyEvent;)Z";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -670,7 +667,7 @@ void android_widget_MediaController::onInitializeAccessibilityEvent(AndroidCXX::
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -715,7 +712,7 @@ void android_widget_MediaController::onInitializeAccessibilityNodeInfo(AndroidCX
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -760,7 +757,7 @@ void android_widget_MediaController::setEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -805,7 +802,7 @@ void android_widget_MediaController::onFinishInflate()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -829,7 +826,7 @@ void android_widget_MediaController::hide()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -853,7 +850,7 @@ bool android_widget_MediaController::isShowing()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -897,7 +894,7 @@ void android_widget_MediaController::setAnchorView(AndroidCXX::android_view_View
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -942,7 +939,7 @@ void android_widget_MediaController::setMediaPlayer(AndroidCXX::android_widget_M
 	const char *methodSignature = "(Landroid/widget/MediaController$MediaPlayerControl;)V";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -987,7 +984,7 @@ void android_widget_MediaController::setPrevNextListeners(AndroidCXX::android_vi
 	const char *methodSignature = "(Landroid/view/View$OnClickListener;Landroid/view/View$OnClickListener;)V";
 	const char *className = "android/widget/MediaController";
 
-	LOGV("android_widget_MediaController className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_MediaController className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

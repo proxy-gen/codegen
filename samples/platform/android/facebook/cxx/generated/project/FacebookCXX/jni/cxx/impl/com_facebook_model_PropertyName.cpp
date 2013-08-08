@@ -129,7 +129,7 @@ AndroidCXX::java_lang_String com_facebook_model_PropertyName::value()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/model/PropertyName";
 
-	LOGV("com_facebook_model_PropertyName className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_PropertyName className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

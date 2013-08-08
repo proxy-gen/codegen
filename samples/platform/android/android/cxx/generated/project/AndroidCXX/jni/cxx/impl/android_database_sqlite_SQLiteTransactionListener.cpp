@@ -24,11 +24,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_database_sqlite_SQLiteTransactionListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -124,7 +121,7 @@ void android_database_sqlite_SQLiteTransactionListener::onBegin()
 	const char *methodSignature = "()V";
 	const char *className = "android/database/sqlite/SQLiteTransactionListener";
 
-	LOGV("android_database_sqlite_SQLiteTransactionListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteTransactionListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -148,7 +145,7 @@ void android_database_sqlite_SQLiteTransactionListener::onCommit()
 	const char *methodSignature = "()V";
 	const char *className = "android/database/sqlite/SQLiteTransactionListener";
 
-	LOGV("android_database_sqlite_SQLiteTransactionListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteTransactionListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -172,7 +169,7 @@ void android_database_sqlite_SQLiteTransactionListener::onRollback()
 	const char *methodSignature = "()V";
 	const char *className = "android/database/sqlite/SQLiteTransactionListener";
 
-	LOGV("android_database_sqlite_SQLiteTransactionListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_sqlite_SQLiteTransactionListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

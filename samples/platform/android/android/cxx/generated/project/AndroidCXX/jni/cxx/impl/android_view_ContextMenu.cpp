@@ -35,11 +35,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_ContextMenu"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -162,7 +159,7 @@ AndroidCXX::android_view_ContextMenu android_view_ContextMenu::setHeaderTitle(in
 	const char *methodSignature = "(I)Landroid/view/ContextMenu;";
 	const char *className = "android/view/ContextMenu";
 
-	LOGV("android_view_ContextMenu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ContextMenu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -227,7 +224,7 @@ AndroidCXX::android_view_ContextMenu android_view_ContextMenu::setHeaderTitle(An
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/view/ContextMenu;";
 	const char *className = "android/view/ContextMenu";
 
-	LOGV("android_view_ContextMenu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ContextMenu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -292,7 +289,7 @@ AndroidCXX::android_view_ContextMenu android_view_ContextMenu::setHeaderIcon(int
 	const char *methodSignature = "(I)Landroid/view/ContextMenu;";
 	const char *className = "android/view/ContextMenu";
 
-	LOGV("android_view_ContextMenu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ContextMenu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -357,7 +354,7 @@ AndroidCXX::android_view_ContextMenu android_view_ContextMenu::setHeaderIcon(And
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)Landroid/view/ContextMenu;";
 	const char *className = "android/view/ContextMenu";
 
-	LOGV("android_view_ContextMenu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ContextMenu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -422,7 +419,7 @@ AndroidCXX::android_view_ContextMenu android_view_ContextMenu::setHeaderView(And
 	const char *methodSignature = "(Landroid/view/View;)Landroid/view/ContextMenu;";
 	const char *className = "android/view/ContextMenu";
 
-	LOGV("android_view_ContextMenu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ContextMenu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -487,7 +484,7 @@ void android_view_ContextMenu::clearHeader()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/ContextMenu";
 
-	LOGV("android_view_ContextMenu className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ContextMenu className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

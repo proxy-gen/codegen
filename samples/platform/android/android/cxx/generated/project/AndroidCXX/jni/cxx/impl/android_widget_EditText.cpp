@@ -44,11 +44,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_EditText"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -175,7 +172,7 @@ android_widget_EditText::android_widget_EditText(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/EditText";
 
-	LOGV("android_widget_EditText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_EditText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -253,7 +250,7 @@ android_widget_EditText::android_widget_EditText(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/EditText";
 
-	LOGV("android_widget_EditText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_EditText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -352,7 +349,7 @@ android_widget_EditText::android_widget_EditText(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/EditText";
 
-	LOGV("android_widget_EditText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_EditText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -424,7 +421,7 @@ void android_widget_EditText::setText(AndroidCXX::java_lang_CharSequence const& 
 	const char *methodSignature = "(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V";
 	const char *className = "android/widget/EditText";
 
-	LOGV("android_widget_EditText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_EditText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -490,7 +487,7 @@ AndroidCXX::android_text_Editable android_widget_EditText::getText()
 	const char *methodSignature = "()Landroid/text/Editable;";
 	const char *className = "android/widget/EditText";
 
-	LOGV("android_widget_EditText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_EditText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -534,7 +531,7 @@ void android_widget_EditText::onInitializeAccessibilityEvent(AndroidCXX::android
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/EditText";
 
-	LOGV("android_widget_EditText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_EditText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -579,7 +576,7 @@ void android_widget_EditText::onInitializeAccessibilityNodeInfo(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/EditText";
 
-	LOGV("android_widget_EditText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_EditText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -624,7 +621,7 @@ void android_widget_EditText::setSelection(int const& arg0,int const& arg1)
 	const char *methodSignature = "(II)V";
 	const char *className = "android/widget/EditText";
 
-	LOGV("android_widget_EditText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_EditText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -690,7 +687,7 @@ void android_widget_EditText::setSelection(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/EditText";
 
-	LOGV("android_widget_EditText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_EditText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -735,7 +732,7 @@ void android_widget_EditText::setEllipsize(android_text_TextUtils_TruncateAt::an
 	const char *methodSignature = "(Landroid/text/TextUtils$TruncateAt;)V";
 	const char *className = "android/widget/EditText";
 
-	LOGV("android_widget_EditText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_EditText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -780,7 +777,7 @@ void android_widget_EditText::selectAll()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/EditText";
 
-	LOGV("android_widget_EditText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_EditText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -804,7 +801,7 @@ void android_widget_EditText::extendSelection(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/EditText";
 
-	LOGV("android_widget_EditText className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_EditText className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

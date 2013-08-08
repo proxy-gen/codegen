@@ -127,7 +127,7 @@ void com_facebook_widget_ImageRequest_Callback::onCompleted(FacebookCXX::com_fac
 	const char *methodSignature = "(Lcom/facebook/widget/ImageResponse;)V";
 	const char *className = "com/facebook/widget/ImageRequest$Callback";
 
-	LOGV("com_facebook_widget_ImageRequest_Callback className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_ImageRequest_Callback className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

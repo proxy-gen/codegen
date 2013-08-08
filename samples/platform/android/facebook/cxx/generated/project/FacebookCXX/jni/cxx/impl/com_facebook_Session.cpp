@@ -311,7 +311,7 @@ com_facebook_Session::com_facebook_Session(AndroidCXX::android_content_Context c
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -383,7 +383,7 @@ bool com_facebook_Session::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -448,7 +448,7 @@ AndroidCXX::java_lang_String com_facebook_Session::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -492,7 +492,7 @@ int com_facebook_Session::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -536,7 +536,7 @@ AndroidCXX::java_util_List com_facebook_Session::getPermissions()
 	const char *methodSignature = "()Ljava/util/List;";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -598,7 +598,7 @@ com_facebook_SessionState::com_facebook_SessionState com_facebook_Session::getSt
 	const char *methodSignature = "()Lcom/facebook/SessionState;";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -642,7 +642,7 @@ void com_facebook_Session::close()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -666,7 +666,7 @@ void com_facebook_Session::open(FacebookCXX::com_facebook_AccessToken const& arg
 	const char *methodSignature = "(Lcom/facebook/AccessToken;Lcom/facebook/Session$StatusCallback;)V";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -732,7 +732,7 @@ bool com_facebook_Session::isClosed()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -776,7 +776,7 @@ bool com_facebook_Session::onActivityResult(AndroidCXX::android_app_Activity con
 	const char *methodSignature = "(Landroid/app/Activity;IILandroid/content/Intent;)Z";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -904,7 +904,7 @@ AndroidCXX::java_lang_String com_facebook_Session::getApplicationId()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -948,7 +948,7 @@ void com_facebook_Session::addCallback(FacebookCXX::com_facebook_Session_StatusC
 	const char *methodSignature = "(Lcom/facebook/Session$StatusCallback;)V";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -993,7 +993,7 @@ void com_facebook_Session::closeAndClearTokenInformation()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1017,7 +1017,7 @@ bool com_facebook_Session::isOpened()
 	const char *methodSignature = "()Z";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1061,7 +1061,7 @@ AndroidCXX::java_lang_String com_facebook_Session::getAccessToken()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1105,7 +1105,7 @@ void com_facebook_Session::removeCallback(FacebookCXX::com_facebook_Session_Stat
 	const char *methodSignature = "(Lcom/facebook/Session$StatusCallback;)V";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1150,7 +1150,7 @@ AndroidCXX::android_os_Bundle com_facebook_Session::getAuthorizationBundle()
 	const char *methodSignature = "()Landroid/os/Bundle;";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1194,7 +1194,7 @@ AndroidCXX::java_util_Date com_facebook_Session::getExpirationDate()
 	const char *methodSignature = "()Ljava/util/Date;";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1238,7 +1238,7 @@ void com_facebook_Session::openForRead(FacebookCXX::com_facebook_Session_OpenReq
 	const char *methodSignature = "(Lcom/facebook/Session$OpenRequest;)V";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1283,7 +1283,7 @@ void com_facebook_Session::openForPublish(FacebookCXX::com_facebook_Session_Open
 	const char *methodSignature = "(Lcom/facebook/Session$OpenRequest;)V";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1328,7 +1328,7 @@ void com_facebook_Session::requestNewReadPermissions(FacebookCXX::com_facebook_S
 	const char *methodSignature = "(Lcom/facebook/Session$NewPermissionsRequest;)V";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1373,7 +1373,7 @@ void com_facebook_Session::requestNewPublishPermissions(FacebookCXX::com_faceboo
 	const char *methodSignature = "(Lcom/facebook/Session$NewPermissionsRequest;)V";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1418,7 +1418,7 @@ void com_facebook_Session::saveSession(FacebookCXX::com_facebook_Session const& 
 	const char *methodSignature = "(Lcom/facebook/Session;Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1484,7 +1484,7 @@ FacebookCXX::com_facebook_Session com_facebook_Session::restoreSession(AndroidCX
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/TokenCachingStrategy;Lcom/facebook/Session$StatusCallback;Landroid/os/Bundle;)Lcom/facebook/Session;";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1612,7 +1612,7 @@ FacebookCXX::com_facebook_Session com_facebook_Session::getActiveSession()
 	const char *methodSignature = "()Lcom/facebook/Session;";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1656,7 +1656,7 @@ void com_facebook_Session::setActiveSession(FacebookCXX::com_facebook_Session co
 	const char *methodSignature = "(Lcom/facebook/Session;)V";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1701,7 +1701,7 @@ FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionFromCac
 	const char *methodSignature = "(Landroid/content/Context;)Lcom/facebook/Session;";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1766,7 +1766,7 @@ FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(Androi
 	const char *methodSignature = "(Landroid/content/Context;Landroid/support/v4/app/Fragment;ZLcom/facebook/Session$StatusCallback;)Lcom/facebook/Session;";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1894,7 +1894,7 @@ FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSession(Androi
 	const char *methodSignature = "(Landroid/app/Activity;ZLcom/facebook/Session$StatusCallback;)Lcom/facebook/Session;";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2001,7 +2001,7 @@ FacebookCXX::com_facebook_Session com_facebook_Session::openActiveSessionWithAcc
 	const char *methodSignature = "(Landroid/content/Context;Lcom/facebook/AccessToken;Lcom/facebook/Session$StatusCallback;)Lcom/facebook/Session;";
 	const char *className = "com/facebook/Session";
 
-	LOGV("com_facebook_Session className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

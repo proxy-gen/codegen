@@ -69,11 +69,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_CursorTreeAdapter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -226,7 +223,7 @@ android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::a
 	const char *methodSignature = "(Landroid/database/Cursor;Landroid/content/Context;)V";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -304,7 +301,7 @@ android_widget_CursorTreeAdapter::android_widget_CursorTreeAdapter(AndroidCXX::a
 	const char *methodSignature = "(Landroid/database/Cursor;Landroid/content/Context;Z)V";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -418,7 +415,7 @@ AndroidCXX::android_widget_Filter android_widget_CursorTreeAdapter::getFilter()
 	const char *methodSignature = "()Landroid/widget/Filter;";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -462,7 +459,7 @@ long android_widget_CursorTreeAdapter::getGroupId(int const& arg0)
 	const char *methodSignature = "(I)J";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -527,7 +524,7 @@ AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getChild(i
 	const char *methodSignature = "(II)Landroid/database/Cursor;";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -613,7 +610,7 @@ bool android_widget_CursorTreeAdapter::hasStableIds()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -657,7 +654,7 @@ int android_widget_CursorTreeAdapter::getGroupCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -701,7 +698,7 @@ int android_widget_CursorTreeAdapter::getChildrenCount(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -766,7 +763,7 @@ AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getGroup(i
 	const char *methodSignature = "(I)Landroid/database/Cursor;";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -831,7 +828,7 @@ long android_widget_CursorTreeAdapter::getChildId(int const& arg0,int const& arg
 	const char *methodSignature = "(II)J";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -917,7 +914,7 @@ AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getGroupView(int
 	const char *methodSignature = "(IZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1045,7 +1042,7 @@ AndroidCXX::android_view_View android_widget_CursorTreeAdapter::getChildView(int
 	const char *methodSignature = "(IIZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1194,7 +1191,7 @@ bool android_widget_CursorTreeAdapter::isChildSelectable(int const& arg0,int con
 	const char *methodSignature = "(II)Z";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1280,7 +1277,7 @@ void android_widget_CursorTreeAdapter::onGroupCollapsed(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1325,7 +1322,7 @@ AndroidCXX::java_lang_String android_widget_CursorTreeAdapter::convertToString(A
 	const char *methodSignature = "(Landroid/database/Cursor;)Ljava/lang/String;";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1390,7 +1387,7 @@ void android_widget_CursorTreeAdapter::notifyDataSetChanged()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1414,7 +1411,7 @@ void android_widget_CursorTreeAdapter::notifyDataSetChanged(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1459,7 +1456,7 @@ void android_widget_CursorTreeAdapter::notifyDataSetInvalidated()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1483,7 +1480,7 @@ AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::getCursor(
 	const char *methodSignature = "()Landroid/database/Cursor;";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1527,7 +1524,7 @@ void android_widget_CursorTreeAdapter::changeCursor(AndroidCXX::android_database
 	const char *methodSignature = "(Landroid/database/Cursor;)V";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1572,7 +1569,7 @@ AndroidCXX::android_database_Cursor android_widget_CursorTreeAdapter::runQueryOn
 	const char *methodSignature = "(Ljava/lang/CharSequence;)Landroid/database/Cursor;";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1637,7 +1634,7 @@ AndroidCXX::android_widget_FilterQueryProvider android_widget_CursorTreeAdapter:
 	const char *methodSignature = "()Landroid/widget/FilterQueryProvider;";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1681,7 +1678,7 @@ void android_widget_CursorTreeAdapter::setFilterQueryProvider(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/widget/FilterQueryProvider;)V";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1726,7 +1723,7 @@ void android_widget_CursorTreeAdapter::setGroupCursor(AndroidCXX::android_databa
 	const char *methodSignature = "(Landroid/database/Cursor;)V";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1771,7 +1768,7 @@ void android_widget_CursorTreeAdapter::setChildrenCursor(int const& arg0,Android
 	const char *methodSignature = "(ILandroid/database/Cursor;)V";
 	const char *className = "android/widget/CursorTreeAdapter";
 
-	LOGV("android_widget_CursorTreeAdapter className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_CursorTreeAdapter className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

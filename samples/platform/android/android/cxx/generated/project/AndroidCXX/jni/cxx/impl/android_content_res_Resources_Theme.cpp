@@ -36,11 +36,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_res_Resources_Theme"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -163,7 +160,7 @@ void android_content_res_Resources_Theme::dump(int const& arg0,AndroidCXX::java_
 	const char *methodSignature = "(ILjava/lang/String;Ljava/lang/String;)V";
 	const char *className = "android/content/res/Resources$Theme";
 
-	LOGV("android_content_res_Resources_Theme className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources_Theme className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -250,7 +247,7 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::
 	const char *methodSignature = "([I)Landroid/content/res/TypedArray;";
 	const char *className = "android/content/res/Resources$Theme";
 
-	LOGV("android_content_res_Resources_Theme className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources_Theme className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -333,7 +330,7 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::
 	const char *methodSignature = "(I[I)Landroid/content/res/TypedArray;";
 	const char *className = "android/content/res/Resources$Theme";
 
-	LOGV("android_content_res_Resources_Theme className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources_Theme className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -437,7 +434,7 @@ AndroidCXX::android_content_res_TypedArray android_content_res_Resources_Theme::
 	const char *methodSignature = "(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;";
 	const char *className = "android/content/res/Resources$Theme";
 
-	LOGV("android_content_res_Resources_Theme className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources_Theme className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -583,7 +580,7 @@ void android_content_res_Resources_Theme::setTo(AndroidCXX::android_content_res_
 	const char *methodSignature = "(Landroid/content/res/Resources$Theme;)V";
 	const char *className = "android/content/res/Resources$Theme";
 
-	LOGV("android_content_res_Resources_Theme className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources_Theme className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -628,7 +625,7 @@ void android_content_res_Resources_Theme::applyStyle(int const& arg0,bool const&
 	const char *methodSignature = "(IZ)V";
 	const char *className = "android/content/res/Resources$Theme";
 
-	LOGV("android_content_res_Resources_Theme className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources_Theme className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -694,7 +691,7 @@ bool android_content_res_Resources_Theme::resolveAttribute(int const& arg0,Andro
 	const char *methodSignature = "(ILandroid/util/TypedValue;Z)Z";
 	const char *className = "android/content/res/Resources$Theme";
 
-	LOGV("android_content_res_Resources_Theme className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_res_Resources_Theme className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

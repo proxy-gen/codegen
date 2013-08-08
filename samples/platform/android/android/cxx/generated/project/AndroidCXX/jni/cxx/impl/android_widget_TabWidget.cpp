@@ -63,11 +63,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_TabWidget"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -202,7 +199,7 @@ android_widget_TabWidget::android_widget_TabWidget(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -259,7 +256,7 @@ android_widget_TabWidget::android_widget_TabWidget(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -337,7 +334,7 @@ android_widget_TabWidget::android_widget_TabWidget(AndroidCXX::android_content_C
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -451,7 +448,7 @@ void android_widget_TabWidget::addView(AndroidCXX::android_view_View const& arg0
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -496,7 +493,7 @@ bool android_widget_TabWidget::dispatchPopulateAccessibilityEvent(AndroidCXX::an
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)Z";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -561,7 +558,7 @@ void android_widget_TabWidget::dispatchDraw(AndroidCXX::android_graphics_Canvas 
 	const char *methodSignature = "(Landroid/graphics/Canvas;)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -606,7 +603,7 @@ void android_widget_TabWidget::removeAllViews()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -630,7 +627,7 @@ void android_widget_TabWidget::childDrawableStateChanged(AndroidCXX::android_vie
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -675,7 +672,7 @@ void android_widget_TabWidget::sendAccessibilityEventUnchecked(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -720,7 +717,7 @@ void android_widget_TabWidget::onInitializeAccessibilityEvent(AndroidCXX::androi
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -765,7 +762,7 @@ void android_widget_TabWidget::onInitializeAccessibilityNodeInfo(AndroidCXX::and
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -810,7 +807,7 @@ void android_widget_TabWidget::setEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -855,7 +852,7 @@ void android_widget_TabWidget::onFocusChange(AndroidCXX::android_view_View const
 	const char *methodSignature = "(Landroid/view/View;Z)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -921,7 +918,7 @@ int android_widget_TabWidget::getTabCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -965,7 +962,7 @@ void android_widget_TabWidget::setDividerDrawable(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1010,7 +1007,7 @@ void android_widget_TabWidget::setDividerDrawable(AndroidCXX::android_graphics_d
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1055,7 +1052,7 @@ void android_widget_TabWidget::setCurrentTab(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1100,7 +1097,7 @@ AndroidCXX::android_view_View android_widget_TabWidget::getChildTabViewAt(int co
 	const char *methodSignature = "(I)Landroid/view/View;";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1165,7 +1162,7 @@ void android_widget_TabWidget::setLeftStripDrawable(AndroidCXX::android_graphics
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1210,7 +1207,7 @@ void android_widget_TabWidget::setLeftStripDrawable(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1255,7 +1252,7 @@ void android_widget_TabWidget::setRightStripDrawable(AndroidCXX::android_graphic
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1300,7 +1297,7 @@ void android_widget_TabWidget::setRightStripDrawable(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1345,7 +1342,7 @@ void android_widget_TabWidget::setStripEnabled(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1390,7 +1387,7 @@ bool android_widget_TabWidget::isStripEnabled()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1434,7 +1431,7 @@ void android_widget_TabWidget::focusCurrentTab(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/TabWidget";
 
-	LOGV("android_widget_TabWidget className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_TabWidget className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

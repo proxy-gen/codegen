@@ -31,11 +31,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_graphics_SurfaceTexture"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -122,7 +119,7 @@ android_graphics_SurfaceTexture::android_graphics_SurfaceTexture(int const& arg0
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/SurfaceTexture";
 
-	LOGV("android_graphics_SurfaceTexture className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_SurfaceTexture className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -194,7 +191,7 @@ void android_graphics_SurfaceTexture::release()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/SurfaceTexture";
 
-	LOGV("android_graphics_SurfaceTexture className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_SurfaceTexture className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -218,7 +215,7 @@ long android_graphics_SurfaceTexture::getTimestamp()
 	const char *methodSignature = "()J";
 	const char *className = "android/graphics/SurfaceTexture";
 
-	LOGV("android_graphics_SurfaceTexture className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_SurfaceTexture className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -262,7 +259,7 @@ void android_graphics_SurfaceTexture::setOnFrameAvailableListener(AndroidCXX::an
 	const char *methodSignature = "(Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;)V";
 	const char *className = "android/graphics/SurfaceTexture";
 
-	LOGV("android_graphics_SurfaceTexture className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_SurfaceTexture className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -307,7 +304,7 @@ void android_graphics_SurfaceTexture::setDefaultBufferSize(int const& arg0,int c
 	const char *methodSignature = "(II)V";
 	const char *className = "android/graphics/SurfaceTexture";
 
-	LOGV("android_graphics_SurfaceTexture className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_SurfaceTexture className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -373,7 +370,7 @@ void android_graphics_SurfaceTexture::updateTexImage()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/SurfaceTexture";
 
-	LOGV("android_graphics_SurfaceTexture className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_SurfaceTexture className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -397,7 +394,7 @@ void android_graphics_SurfaceTexture::detachFromGLContext()
 	const char *methodSignature = "()V";
 	const char *className = "android/graphics/SurfaceTexture";
 
-	LOGV("android_graphics_SurfaceTexture className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_SurfaceTexture className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -421,7 +418,7 @@ void android_graphics_SurfaceTexture::attachToGLContext(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/graphics/SurfaceTexture";
 
-	LOGV("android_graphics_SurfaceTexture className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_SurfaceTexture className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -466,7 +463,7 @@ void android_graphics_SurfaceTexture::getTransformMatrix(std::vector<float> cons
 	const char *methodSignature = "([F)V";
 	const char *className = "android/graphics/SurfaceTexture";
 
-	LOGV("android_graphics_SurfaceTexture className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_graphics_SurfaceTexture className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

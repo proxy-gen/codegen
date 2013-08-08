@@ -194,7 +194,7 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_model_GraphObject_Facto
 	const char *methodSignature = "(Lorg/json/JSONObject;)Lcom/facebook/model/GraphObject;";
 	const char *className = "com/facebook/model/GraphObject$Factory";
 
-	LOGV("com_facebook_model_GraphObject_Factory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphObject_Factory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -259,7 +259,7 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_model_GraphObject_Facto
 	const char *methodSignature = "(Lorg/json/JSONObject;Ljava/lang/Class;)Lcom/facebook/model/GraphObject;";
 	const char *className = "com/facebook/model/GraphObject$Factory";
 
-	LOGV("com_facebook_model_GraphObject_Factory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphObject_Factory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -363,7 +363,7 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_model_GraphObject_Facto
 	const char *methodSignature = "()Lcom/facebook/model/GraphObject;";
 	const char *className = "com/facebook/model/GraphObject$Factory";
 
-	LOGV("com_facebook_model_GraphObject_Factory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphObject_Factory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -407,7 +407,7 @@ FacebookCXX::com_facebook_model_GraphObject com_facebook_model_GraphObject_Facto
 	const char *methodSignature = "(Ljava/lang/Class;)Lcom/facebook/model/GraphObject;";
 	const char *className = "com/facebook/model/GraphObject$Factory";
 
-	LOGV("com_facebook_model_GraphObject_Factory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphObject_Factory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -490,7 +490,7 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphObject_F
 	const char *methodSignature = "(Lorg/json/JSONArray;Ljava/lang/Class;)Lcom/facebook/model/GraphObjectList;";
 	const char *className = "com/facebook/model/GraphObject$Factory";
 
-	LOGV("com_facebook_model_GraphObject_Factory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphObject_Factory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -612,7 +612,7 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphObject_F
 	const char *methodSignature = "(Ljava/lang/Class;)Lcom/facebook/model/GraphObjectList;";
 	const char *className = "com/facebook/model/GraphObject$Factory";
 
-	LOGV("com_facebook_model_GraphObject_Factory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphObject_Factory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -713,7 +713,7 @@ bool com_facebook_model_GraphObject_Factory::hasSameId(FacebookCXX::com_facebook
 	const char *methodSignature = "(Lcom/facebook/model/GraphObject;Lcom/facebook/model/GraphObject;)Z";
 	const char *className = "com/facebook/model/GraphObject$Factory";
 
-	LOGV("com_facebook_model_GraphObject_Factory className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphObject_Factory className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

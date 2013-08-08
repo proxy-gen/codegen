@@ -171,7 +171,7 @@ com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(std::vector<Faceboo
 	const char *methodSignature = "([Lcom/facebook/Request;)V";
 	const char *className = "com/facebook/RequestAsyncTask";
 
-	LOGV("com_facebook_RequestAsyncTask className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_RequestAsyncTask className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -246,7 +246,7 @@ com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_ut
 	const char *methodSignature = "(Ljava/util/Collection;)V";
 	const char *className = "com/facebook/RequestAsyncTask";
 
-	LOGV("com_facebook_RequestAsyncTask className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_RequestAsyncTask className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -321,7 +321,7 @@ com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(FacebookCXX::com_fa
 	const char *methodSignature = "(Lcom/facebook/RequestBatch;)V";
 	const char *className = "com/facebook/RequestAsyncTask";
 
-	LOGV("com_facebook_RequestAsyncTask className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_RequestAsyncTask className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -378,7 +378,7 @@ com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_ne
 	const char *methodSignature = "(Ljava/net/HttpURLConnection;[Lcom/facebook/Request;)V";
 	const char *className = "com/facebook/RequestAsyncTask";
 
-	LOGV("com_facebook_RequestAsyncTask className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_RequestAsyncTask className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -474,7 +474,7 @@ com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_ne
 	const char *methodSignature = "(Ljava/net/HttpURLConnection;Ljava/util/Collection;)V";
 	const char *className = "com/facebook/RequestAsyncTask";
 
-	LOGV("com_facebook_RequestAsyncTask className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_RequestAsyncTask className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -570,7 +570,7 @@ com_facebook_RequestAsyncTask::com_facebook_RequestAsyncTask(AndroidCXX::java_ne
 	const char *methodSignature = "(Ljava/net/HttpURLConnection;Lcom/facebook/RequestBatch;)V";
 	const char *className = "com/facebook/RequestAsyncTask";
 
-	LOGV("com_facebook_RequestAsyncTask className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_RequestAsyncTask className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -663,7 +663,7 @@ AndroidCXX::java_lang_String com_facebook_RequestAsyncTask::toString()
 	const char *methodSignature = "()Ljava/lang/String;";
 	const char *className = "com/facebook/RequestAsyncTask";
 
-	LOGV("com_facebook_RequestAsyncTask className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_RequestAsyncTask className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -71,11 +71,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_view_ViewParent"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -258,7 +255,7 @@ AndroidCXX::android_view_ViewParent android_view_ViewParent::getParent()
 	const char *methodSignature = "()Landroid/view/ViewParent;";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -302,7 +299,7 @@ void android_view_ViewParent::requestChildFocus(AndroidCXX::android_view_View co
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/View;)V";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -368,7 +365,7 @@ void android_view_ViewParent::focusableViewAvailable(AndroidCXX::android_view_Vi
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -413,7 +410,7 @@ bool android_view_ViewParent::showContextMenuForChild(AndroidCXX::android_view_V
 	const char *methodSignature = "(Landroid/view/View;)Z";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -478,7 +475,7 @@ AndroidCXX::android_view_ActionMode android_view_ViewParent::startActionModeForC
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -564,7 +561,7 @@ AndroidCXX::android_view_View android_view_ViewParent::focusSearch(AndroidCXX::a
 	const char *methodSignature = "(Landroid/view/View;I)Landroid/view/View;";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -650,7 +647,7 @@ bool android_view_ViewParent::requestChildRectangleOnScreen(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/view/View;Landroid/graphics/Rect;Z)Z";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -757,7 +754,7 @@ bool android_view_ViewParent::requestSendAccessibilityEvent(AndroidCXX::android_
 	const char *methodSignature = "(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -843,7 +840,7 @@ void android_view_ViewParent::clearChildFocus(AndroidCXX::android_view_View cons
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -888,7 +885,7 @@ void android_view_ViewParent::recomputeViewAttributes(AndroidCXX::android_view_V
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -933,7 +930,7 @@ void android_view_ViewParent::bringChildToFront(AndroidCXX::android_view_View co
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -978,7 +975,7 @@ void android_view_ViewParent::requestDisallowInterceptTouchEvent(bool const& arg
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1023,7 +1020,7 @@ void android_view_ViewParent::invalidateChild(AndroidCXX::android_view_View cons
 	const char *methodSignature = "(Landroid/view/View;Landroid/graphics/Rect;)V";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1089,7 +1086,7 @@ AndroidCXX::android_view_ViewParent android_view_ViewParent::invalidateChildInPa
 	const char *methodSignature = "([ILandroid/graphics/Rect;)Landroid/view/ViewParent;";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1193,7 +1190,7 @@ bool android_view_ViewParent::getChildVisibleRect(AndroidCXX::android_view_View 
 	const char *methodSignature = "(Landroid/view/View;Landroid/graphics/Rect;Landroid/graphics/Point;)Z";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1300,7 +1297,7 @@ void android_view_ViewParent::requestTransparentRegion(AndroidCXX::android_view_
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1345,7 +1342,7 @@ void android_view_ViewParent::childDrawableStateChanged(AndroidCXX::android_view
 	const char *methodSignature = "(Landroid/view/View;)V";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1390,7 +1387,7 @@ void android_view_ViewParent::requestLayout()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1414,7 +1411,7 @@ bool android_view_ViewParent::isLayoutRequested()
 	const char *methodSignature = "()Z";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1458,7 +1455,7 @@ void android_view_ViewParent::createContextMenu(AndroidCXX::android_view_Context
 	const char *methodSignature = "(Landroid/view/ContextMenu;)V";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1503,7 +1500,7 @@ void android_view_ViewParent::requestFitSystemWindows()
 	const char *methodSignature = "()V";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1527,7 +1524,7 @@ AndroidCXX::android_view_ViewParent android_view_ViewParent::getParentForAccessi
 	const char *methodSignature = "()Landroid/view/ViewParent;";
 	const char *className = "android/view/ViewParent";
 
-	LOGV("android_view_ViewParent className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_view_ViewParent className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

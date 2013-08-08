@@ -35,11 +35,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ImageSwitcher"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -144,7 +141,7 @@ android_widget_ImageSwitcher::android_widget_ImageSwitcher(AndroidCXX::android_c
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/ImageSwitcher";
 
-	LOGV("android_widget_ImageSwitcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageSwitcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -201,7 +198,7 @@ android_widget_ImageSwitcher::android_widget_ImageSwitcher(AndroidCXX::android_c
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/ImageSwitcher";
 
-	LOGV("android_widget_ImageSwitcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageSwitcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -294,7 +291,7 @@ void android_widget_ImageSwitcher::onInitializeAccessibilityEvent(AndroidCXX::an
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/ImageSwitcher";
 
-	LOGV("android_widget_ImageSwitcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageSwitcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -339,7 +336,7 @@ void android_widget_ImageSwitcher::onInitializeAccessibilityNodeInfo(AndroidCXX:
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/ImageSwitcher";
 
-	LOGV("android_widget_ImageSwitcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageSwitcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -384,7 +381,7 @@ void android_widget_ImageSwitcher::setImageResource(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ImageSwitcher";
 
-	LOGV("android_widget_ImageSwitcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageSwitcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -429,7 +426,7 @@ void android_widget_ImageSwitcher::setImageURI(AndroidCXX::android_net_Uri const
 	const char *methodSignature = "(Landroid/net/Uri;)V";
 	const char *className = "android/widget/ImageSwitcher";
 
-	LOGV("android_widget_ImageSwitcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageSwitcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -474,7 +471,7 @@ void android_widget_ImageSwitcher::setImageDrawable(AndroidCXX::android_graphics
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/ImageSwitcher";
 
-	LOGV("android_widget_ImageSwitcher className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ImageSwitcher className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

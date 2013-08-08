@@ -74,11 +74,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_database_Cursor"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -219,7 +216,7 @@ short android_database_Cursor::getShort(int const& arg0)
 	const char *methodSignature = "(I)S";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -284,7 +281,7 @@ int android_database_Cursor::getInt(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -349,7 +346,7 @@ long android_database_Cursor::getLong(int const& arg0)
 	const char *methodSignature = "(I)J";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -414,7 +411,7 @@ float android_database_Cursor::getFloat(int const& arg0)
 	const char *methodSignature = "(I)F";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -479,7 +476,7 @@ double android_database_Cursor::getDouble(int const& arg0)
 	const char *methodSignature = "(I)D";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -544,7 +541,7 @@ void android_database_Cursor::close()
 	const char *methodSignature = "()V";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -568,7 +565,7 @@ int android_database_Cursor::getType(int const& arg0)
 	const char *methodSignature = "(I)I";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -633,7 +630,7 @@ AndroidCXX::java_lang_String android_database_Cursor::getString(int const& arg0)
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -698,7 +695,7 @@ bool android_database_Cursor::isFirst()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -742,7 +739,7 @@ bool android_database_Cursor::isClosed()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -786,7 +783,7 @@ int android_database_Cursor::getPosition()
 	const char *methodSignature = "()I";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -830,7 +827,7 @@ bool android_database_Cursor::isNull(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -895,7 +892,7 @@ AndroidCXX::android_os_Bundle android_database_Cursor::getExtras()
 	const char *methodSignature = "()Landroid/os/Bundle;";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -939,7 +936,7 @@ void android_database_Cursor::registerContentObserver(AndroidCXX::android_databa
 	const char *methodSignature = "(Landroid/database/ContentObserver;)V";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -984,7 +981,7 @@ void android_database_Cursor::unregisterContentObserver(AndroidCXX::android_data
 	const char *methodSignature = "(Landroid/database/ContentObserver;)V";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1029,7 +1026,7 @@ int android_database_Cursor::getCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1073,7 +1070,7 @@ bool android_database_Cursor::move(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1138,7 +1135,7 @@ bool android_database_Cursor::moveToPosition(int const& arg0)
 	const char *methodSignature = "(I)Z";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1203,7 +1200,7 @@ bool android_database_Cursor::moveToFirst()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1247,7 +1244,7 @@ bool android_database_Cursor::moveToLast()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1291,7 +1288,7 @@ bool android_database_Cursor::moveToNext()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1335,7 +1332,7 @@ bool android_database_Cursor::moveToPrevious()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1379,7 +1376,7 @@ bool android_database_Cursor::isLast()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1423,7 +1420,7 @@ bool android_database_Cursor::isBeforeFirst()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1467,7 +1464,7 @@ bool android_database_Cursor::isAfterLast()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1511,7 +1508,7 @@ int android_database_Cursor::getColumnIndex(AndroidCXX::java_lang_String const& 
 	const char *methodSignature = "(Ljava/lang/String;)I";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1576,7 +1573,7 @@ int android_database_Cursor::getColumnIndexOrThrow(AndroidCXX::java_lang_String 
 	const char *methodSignature = "(Ljava/lang/String;)I";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1641,7 +1638,7 @@ AndroidCXX::java_lang_String android_database_Cursor::getColumnName(int const& a
 	const char *methodSignature = "(I)Ljava/lang/String;";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1706,7 +1703,7 @@ std::vector<AndroidCXX::java_lang_String > android_database_Cursor::getColumnNam
 	const char *methodSignature = "()[Ljava/lang/String;";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1768,7 +1765,7 @@ int android_database_Cursor::getColumnCount()
 	const char *methodSignature = "()I";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1812,7 +1809,7 @@ std::vector<byte> android_database_Cursor::getBlob(int const& arg0)
 	const char *methodSignature = "(I)[B";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1895,7 +1892,7 @@ void android_database_Cursor::copyStringToBuffer(int const& arg0,AndroidCXX::and
 	const char *methodSignature = "(ILandroid/database/CharArrayBuffer;)V";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1961,7 +1958,7 @@ void android_database_Cursor::deactivate()
 	const char *methodSignature = "()V";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1985,7 +1982,7 @@ bool android_database_Cursor::requery()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2029,7 +2026,7 @@ void android_database_Cursor::registerDataSetObserver(AndroidCXX::android_databa
 	const char *methodSignature = "(Landroid/database/DataSetObserver;)V";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2074,7 +2071,7 @@ void android_database_Cursor::unregisterDataSetObserver(AndroidCXX::android_data
 	const char *methodSignature = "(Landroid/database/DataSetObserver;)V";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2119,7 +2116,7 @@ void android_database_Cursor::setNotificationUri(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/ContentResolver;Landroid/net/Uri;)V";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2185,7 +2182,7 @@ bool android_database_Cursor::getWantsAllOnMoveCalls()
 	const char *methodSignature = "()Z";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -2229,7 +2226,7 @@ AndroidCXX::android_os_Bundle android_database_Cursor::respond(AndroidCXX::andro
 	const char *methodSignature = "(Landroid/os/Bundle;)Landroid/os/Bundle;";
 	const char *className = "android/database/Cursor";
 
-	LOGV("android_database_Cursor className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_database_Cursor className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

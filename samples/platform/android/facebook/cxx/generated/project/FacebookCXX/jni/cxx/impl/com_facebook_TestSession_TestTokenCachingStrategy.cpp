@@ -135,7 +135,7 @@ void com_facebook_TestSession_TestTokenCachingStrategy::clear()
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/TestSession$TestTokenCachingStrategy";
 
-	LOGV("com_facebook_TestSession_TestTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TestSession_TestTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -159,7 +159,7 @@ AndroidCXX::android_os_Bundle com_facebook_TestSession_TestTokenCachingStrategy:
 	const char *methodSignature = "()Landroid/os/Bundle;";
 	const char *className = "com/facebook/TestSession$TestTokenCachingStrategy";
 
-	LOGV("com_facebook_TestSession_TestTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TestSession_TestTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -203,7 +203,7 @@ void com_facebook_TestSession_TestTokenCachingStrategy::save(AndroidCXX::android
 	const char *methodSignature = "(Landroid/os/Bundle;)V";
 	const char *className = "com/facebook/TestSession$TestTokenCachingStrategy";
 
-	LOGV("com_facebook_TestSession_TestTokenCachingStrategy className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_TestSession_TestTokenCachingStrategy className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

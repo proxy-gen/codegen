@@ -25,11 +25,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_os_MessageQueue"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -134,7 +131,7 @@ void android_os_MessageQueue::addIdleHandler(AndroidCXX::android_os_MessageQueue
 	const char *methodSignature = "(Landroid/os/MessageQueue$IdleHandler;)V";
 	const char *className = "android/os/MessageQueue";
 
-	LOGV("android_os_MessageQueue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_MessageQueue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -179,7 +176,7 @@ void android_os_MessageQueue::removeIdleHandler(AndroidCXX::android_os_MessageQu
 	const char *methodSignature = "(Landroid/os/MessageQueue$IdleHandler;)V";
 	const char *className = "android/os/MessageQueue";
 
-	LOGV("android_os_MessageQueue className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_MessageQueue className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

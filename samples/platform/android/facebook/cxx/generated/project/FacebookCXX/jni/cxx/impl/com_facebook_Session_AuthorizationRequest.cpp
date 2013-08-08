@@ -120,7 +120,7 @@ void com_facebook_Session_AuthorizationRequest::setIsLegacy(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "com/facebook/Session$AuthorizationRequest";
 
-	LOGV("com_facebook_Session_AuthorizationRequest className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_Session_AuthorizationRequest className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

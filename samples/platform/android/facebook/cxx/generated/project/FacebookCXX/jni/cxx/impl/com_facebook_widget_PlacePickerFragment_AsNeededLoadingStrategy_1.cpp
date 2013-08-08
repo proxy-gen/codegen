@@ -120,7 +120,7 @@ void com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy_1::onDataNe
 	const char *methodSignature = "()V";
 	const char *className = "com/facebook/widget/PlacePickerFragment$AsNeededLoadingStrategy$1";
 
-	LOGV("com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

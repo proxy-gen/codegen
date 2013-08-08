@@ -127,7 +127,7 @@ FacebookCXX::com_facebook_model_GraphObjectList com_facebook_model_GraphMultiRes
 	const char *methodSignature = "()Lcom/facebook/model/GraphObjectList;";
 	const char *className = "com/facebook/model/GraphMultiResult";
 
-	LOGV("com_facebook_model_GraphMultiResult className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_model_GraphMultiResult className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

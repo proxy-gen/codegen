@@ -66,11 +66,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_ProgressBar"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -205,7 +202,7 @@ android_widget_ProgressBar::android_widget_ProgressBar(AndroidCXX::android_conte
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -283,7 +280,7 @@ android_widget_ProgressBar::android_widget_ProgressBar(AndroidCXX::android_conte
 	const char *methodSignature = "(Landroid/content/Context;Landroid/util/AttributeSet;I)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -382,7 +379,7 @@ android_widget_ProgressBar::android_widget_ProgressBar(AndroidCXX::android_conte
 	const char *methodSignature = "(Landroid/content/Context;)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -454,7 +451,7 @@ AndroidCXX::android_os_Parcelable android_widget_ProgressBar::onSaveInstanceStat
 	const char *methodSignature = "()Landroid/os/Parcelable;";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -498,7 +495,7 @@ void android_widget_ProgressBar::setInterpolator(AndroidCXX::android_view_animat
 	const char *methodSignature = "(Landroid/view/animation/Interpolator;)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -543,7 +540,7 @@ void android_widget_ProgressBar::setInterpolator(AndroidCXX::android_content_Con
 	const char *methodSignature = "(Landroid/content/Context;I)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -609,7 +606,7 @@ void android_widget_ProgressBar::setVisibility(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -654,7 +651,7 @@ void android_widget_ProgressBar::onRestoreInstanceState(AndroidCXX::android_os_P
 	const char *methodSignature = "(Landroid/os/Parcelable;)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -699,7 +696,7 @@ void android_widget_ProgressBar::setProgress(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -744,7 +741,7 @@ void android_widget_ProgressBar::setSecondaryProgress(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -789,7 +786,7 @@ AndroidCXX::android_view_animation_Interpolator android_widget_ProgressBar::getI
 	const char *methodSignature = "()Landroid/view/animation/Interpolator;";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -833,7 +830,7 @@ void android_widget_ProgressBar::jumpDrawablesToCurrentState()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -857,7 +854,7 @@ void android_widget_ProgressBar::onInitializeAccessibilityEvent(AndroidCXX::andr
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityEvent;)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -902,7 +899,7 @@ void android_widget_ProgressBar::onInitializeAccessibilityNodeInfo(AndroidCXX::a
 	const char *methodSignature = "(Landroid/view/accessibility/AccessibilityNodeInfo;)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -947,7 +944,7 @@ void android_widget_ProgressBar::postInvalidate()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -971,7 +968,7 @@ void android_widget_ProgressBar::invalidateDrawable(AndroidCXX::android_graphics
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1016,7 +1013,7 @@ int android_widget_ProgressBar::getProgress()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1060,7 +1057,7 @@ void android_widget_ProgressBar::setMax(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1105,7 +1102,7 @@ bool android_widget_ProgressBar::isIndeterminate()
 	const char *methodSignature = "()Z";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1149,7 +1146,7 @@ void android_widget_ProgressBar::setIndeterminate(bool const& arg0)
 	const char *methodSignature = "(Z)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1194,7 +1191,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_ProgressBar::getIn
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1238,7 +1235,7 @@ void android_widget_ProgressBar::setIndeterminateDrawable(AndroidCXX::android_gr
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1283,7 +1280,7 @@ AndroidCXX::android_graphics_drawable_Drawable android_widget_ProgressBar::getPr
 	const char *methodSignature = "()Landroid/graphics/drawable/Drawable;";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1327,7 +1324,7 @@ void android_widget_ProgressBar::setProgressDrawable(AndroidCXX::android_graphic
 	const char *methodSignature = "(Landroid/graphics/drawable/Drawable;)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1372,7 +1369,7 @@ int android_widget_ProgressBar::getSecondaryProgress()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1416,7 +1413,7 @@ int android_widget_ProgressBar::getMax()
 	const char *methodSignature = "()I";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1460,7 +1457,7 @@ void android_widget_ProgressBar::incrementProgressBy(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -1505,7 +1502,7 @@ void android_widget_ProgressBar::incrementSecondaryProgressBy(int const& arg0)
 	const char *methodSignature = "(I)V";
 	const char *className = "android/widget/ProgressBar";
 
-	LOGV("android_widget_ProgressBar className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_ProgressBar className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

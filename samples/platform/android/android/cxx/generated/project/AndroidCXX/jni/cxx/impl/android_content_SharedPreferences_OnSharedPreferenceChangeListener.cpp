@@ -24,11 +24,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_content_SharedPreferences_OnSharedPreferenceChangeListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -133,7 +130,7 @@ void android_content_SharedPreferences_OnSharedPreferenceChangeListener::onShare
 	const char *methodSignature = "(Landroid/content/SharedPreferences;Ljava/lang/String;)V";
 	const char *className = "android/content/SharedPreferences$OnSharedPreferenceChangeListener";
 
-	LOGV("android_content_SharedPreferences_OnSharedPreferenceChangeListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_content_SharedPreferences_OnSharedPreferenceChangeListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

@@ -41,11 +41,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_os_Messenger"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -159,7 +156,7 @@ android_os_Messenger::android_os_Messenger(AndroidCXX::android_os_Handler const&
 	const char *methodSignature = "(Landroid/os/Handler;)V";
 	const char *className = "android/os/Messenger";
 
-	LOGV("android_os_Messenger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Messenger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -216,7 +213,7 @@ android_os_Messenger::android_os_Messenger(AndroidCXX::android_os_IBinder const&
 	const char *methodSignature = "(Landroid/os/IBinder;)V";
 	const char *className = "android/os/Messenger";
 
-	LOGV("android_os_Messenger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Messenger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -288,7 +285,7 @@ bool android_os_Messenger::equals(AndroidCXX::java_lang_Object const& arg0)
 	const char *methodSignature = "(Ljava/lang/Object;)Z";
 	const char *className = "android/os/Messenger";
 
-	LOGV("android_os_Messenger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Messenger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -353,7 +350,7 @@ int android_os_Messenger::hashCode()
 	const char *methodSignature = "()I";
 	const char *className = "android/os/Messenger";
 
-	LOGV("android_os_Messenger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Messenger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -397,7 +394,7 @@ void android_os_Messenger::send(AndroidCXX::android_os_Message const& arg0)
 	const char *methodSignature = "(Landroid/os/Message;)V";
 	const char *className = "android/os/Messenger";
 
-	LOGV("android_os_Messenger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Messenger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -442,7 +439,7 @@ int android_os_Messenger::describeContents()
 	const char *methodSignature = "()I";
 	const char *className = "android/os/Messenger";
 
-	LOGV("android_os_Messenger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Messenger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -486,7 +483,7 @@ void android_os_Messenger::writeToParcel(AndroidCXX::android_os_Parcel const& ar
 	const char *methodSignature = "(Landroid/os/Parcel;I)V";
 	const char *className = "android/os/Messenger";
 
-	LOGV("android_os_Messenger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Messenger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -552,7 +549,7 @@ AndroidCXX::android_os_IBinder android_os_Messenger::getBinder()
 	const char *methodSignature = "()Landroid/os/IBinder;";
 	const char *className = "android/os/Messenger";
 
-	LOGV("android_os_Messenger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Messenger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -596,7 +593,7 @@ void android_os_Messenger::writeMessengerOrNullToParcel(AndroidCXX::android_os_M
 	const char *methodSignature = "(Landroid/os/Messenger;Landroid/os/Parcel;)V";
 	const char *className = "android/os/Messenger";
 
-	LOGV("android_os_Messenger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Messenger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
@@ -662,7 +659,7 @@ AndroidCXX::android_os_Messenger android_os_Messenger::readMessengerOrNullFromPa
 	const char *methodSignature = "(Landroid/os/Parcel;)Landroid/os/Messenger;";
 	const char *className = "android/os/Messenger";
 
-	LOGV("android_os_Messenger className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_os_Messenger className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

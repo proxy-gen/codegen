@@ -22,11 +22,8 @@
 #include <jni.h>
 #include <CXXContext.hpp>
 #include <JNIContext.hpp>
-// TODO: integrate with custom converters
 #include <CXXConverter.hpp>
 #include <AndroidCXXConverter.hpp>
-// TODO: FIXME: add include package
-// FIXME: remove after testing
 
 #define LOG_TAG "android_widget_SlidingDrawer_OnDrawerOpenListener"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -122,7 +119,7 @@ void android_widget_SlidingDrawer_OnDrawerOpenListener::onDrawerOpened()
 	const char *methodSignature = "()V";
 	const char *className = "android/widget/SlidingDrawer$OnDrawerOpenListener";
 
-	LOGV("android_widget_SlidingDrawer_OnDrawerOpenListener className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("android_widget_SlidingDrawer_OnDrawerOpenListener className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();

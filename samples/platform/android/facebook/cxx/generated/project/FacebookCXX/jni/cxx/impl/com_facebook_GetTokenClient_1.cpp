@@ -129,7 +129,7 @@ void com_facebook_GetTokenClient_1::handleMessage(AndroidCXX::android_os_Message
 	const char *methodSignature = "(Landroid/os/Message;)V";
 	const char *className = "com/facebook/GetTokenClient$1";
 
-	LOGV("com_facebook_GetTokenClient_1 className %d methodName %s methodSignature %s", className, methodName, methodSignature);
+	LOGV("com_facebook_GetTokenClient_1 className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
