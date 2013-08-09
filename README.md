@@ -191,7 +191,7 @@ You would need to ensure that the Android SDK has the following installed
 	Build Tools for android-18 
 	System Image for Android 2.2 (API 8).  
 	
-Next, run the following in order
+Next, run the following in order under cxx
 
 	./codegen.sh --configure # Generates the full blown config
 	./codegen.sh --generate  # Generates the C++ proxy classes
@@ -200,13 +200,19 @@ Next, run the following in order
 
 `samples/platforms/android/facebook`: Contains the configuration setup to generate proxies for the entire Facebook SDK. 
 
-Configuring this sample is similar to the steps above to generate the Android SDK but has the additional step of requiring to tag the callback classes. 
+Configuring this sample is similar to the steps above to generate the Android SDK but has the additional steps of requiring to build the facebook sdk and to tag the callback classes in the config. 
 
 For example, the `com.facebook.Session#open` function accepts an implementation of the callback `com.facebook.Session$StatusCallback`. At some point in the future, the native Facebook SDK will callback into `com.facebook.Session$StatusCallback#call`. We need to make sure that this call goes all the way through into the C++ layer and is handled by the C++ implementation of the callback.
 
 By tagging the `com.facebook.Session#open` as a callback, we make sure that the code generator will propagate the callback invocation all the way into the C++ layer.
 
-As usual,
+Before getting started, navigate to `java\facebook-android-sdk-3.0.1\facebook` and then run 
+
+	`ant debug` 
+	
+to build the facebook sdk
+
+Then, as usual,
 
 First, setup the following environment variables
 
@@ -219,7 +225,7 @@ You would need to ensure that the Android SDK has the following installed
 	Build Tools for android-18 
 	System Image for Android 2.2 (API 8).  
 	
-Next, run the following
+Next, run the following under `cxx`
 
 	./codegen.sh --configure # Generates the full blown config
 	
@@ -256,7 +262,7 @@ Sample snippet of the changes are below
 	
 Once the above is done, continue as before
 
-Run the following in order
+Run the following in order under `cxx`
 
 	./codegen.sh --generate  # Generates the C++ proxy classes
 	./codegen.sh --package	  # Packages the project as a prebuilt binary
