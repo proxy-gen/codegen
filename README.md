@@ -131,13 +131,13 @@ Snippet of Impl
 	bool com_facebook_Session::equals(AndroidCXX::java_lang_Object const& arg0)
 	{
 		LOGV("bool com_facebook_Session::equals(AndroidCXX::java_lang_Object const& arg0) enter");
-
+		
 		const char *methodName = "equals";
 		const char *methodSignature = "(Ljava/lang/Object;)Z";
 		const char *className = "com/facebook/Session";
-
+		…
 		bool result = (bool) *((bool *) cxx_value);
-
+		...
 		return result;
 	}
 
@@ -200,7 +200,7 @@ Next, run the following in order under cxx
 
 `samples/platforms/android/facebook`: Contains the configuration setup to generate proxies for the entire Facebook SDK. 
 
-Configuring this sample is similar to the steps above to generate the Android SDK but has the additional steps of requiring to build the facebook sdk and to tag the callback classes in the config. 
+Configuring this sample is similar to the steps above to generate the Android SDK but has the additional steps of requiring to build the facebook sdk and to add the `_callback` tags in the config. 
 
 For example, the `com.facebook.Session#open` function accepts an implementation of the callback `com.facebook.Session$StatusCallback`. At some point in the future, the native Facebook SDK will callback into `com.facebook.Session$StatusCallback#call`. We need to make sure that this call goes all the way through into the C++ layer and is handled by the C++ implementation of the callback.
 
@@ -230,7 +230,7 @@ Next, run the following under `cxx`
 	./codegen.sh --configure # Generates the full blown config
 	
 	
-Open up the full blown config file and add callback tags to the following classes and functions
+Open up the full blown config file and add the `_callback` tag to the following classes and functions
 
 	'com.facebook.Request$Callback'
 	'com.facebook.Request$Callback#onCompleted'
