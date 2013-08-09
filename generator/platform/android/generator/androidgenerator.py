@@ -155,6 +155,7 @@ class Generator(BaseGenerator):
 		self._setup_included_converters()		
 		self._setup_included_headers()
 		self._setup_included_projects()
+		self._setup_included_codegen_packages()
 
 	def _setup_included_packages(self):
 		logging.debug("_setup_included_packages enter")
@@ -175,7 +176,7 @@ class Generator(BaseGenerator):
 
 	def _setup_included_config_file_path(self):
 		logging.debug("_setup_included_config_file_path enter")
-		self.include_config_file_path = self.config['include_config_file_path']
+		self.include_config_file_paths = self.config['include_config_file_paths']
 		logging.debug("_setup_included_config_file_path exit")
 
 	def _setup_included_converters(self):
@@ -200,8 +201,35 @@ class Generator(BaseGenerator):
 
 	def _setup_included_projects(self):
 		logging.debug("_setup_included_projects enter")
-		self.include_projects = self.config['include_projects']
-		logging.debug("_setup_included_projects exit")		
+		include_project_abs_paths = self.config['include_projects']
+		include_project_rel_paths = list()
+		start_path = os.path.join(self.output_dir_name, "project", self.package_name)
+		for include_project_abs_path in include_project_abs_paths:
+			include_project_rel_path = os.path.relpath(include_project_abs_path, start_path)
+			include_project_rel_paths.append(include_project_rel_path)
+		self.include_projects = include_project_rel_paths
+		logging.debug("_setup_included_projects exit")
+
+	def _setup_included_codegen_packages(self):
+		logging.debug("_setup_included_codegen_packages enter")
+		self.include_codegen_packages = self.config['include_codegen_packages']
+		# read in the codegen package configs
+		for include_codegen_package in self.include_codegen_packages:
+			include_config_file_path, include_package = os.path.split(include_codegen_package)
+			# append to include_config_file_paths
+			self.include_config_file_paths.append(include_config_file_path)
+			# append to include package
+			self.include_packages.append(include_package)
+			# append to include package rel path
+			#TODO: include_codegen_rel_path
+			include_codegen_androidmk_path = include_codegen_package
+			include_codegen_rel_path = os.path.relpath(include_codegen_androidmk_path, self.output_dir_name)
+			self.include_package_rel_paths.append(include_codegen_rel_path)
+			# append to include header file
+			include_codegen_converter = include_package + "Converter.hpp"
+			self.include_headers.append(include_codegen_converter)
+			self.config_module = None
+		logging.debug("_setup_included_codegen_packages exit")
 
 	def _generate_converters_report(self):
 		logging.debug("_generate_converters_report enter")
@@ -213,7 +241,7 @@ class Generator(BaseGenerator):
 		logging.debug("self.config_report_file_name " + str(self.config_report_file_name))
 		config_report_file_path = os.path.join(self.report_outdir_name, self.config_report_file_name)
 		logging.debug("config_report_file_path " + str(config_report_file_path))
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_paths)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)
 		config_report = self.config_module.analyze_config()
@@ -227,7 +255,7 @@ class Generator(BaseGenerator):
 
 	def _generate_config(self):
 		logging.debug("_generate_config enter")
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_paths)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self.index.build_config_closure(self.config_module.config_data)
 		self._update_config(self.config_module)
@@ -249,7 +277,7 @@ class Generator(BaseGenerator):
 
 	def _generate_cxx_code(self):
 		logging.debug("_generate_cxx_code enter")
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_paths)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)
 		# derived data attached temporary 
@@ -435,7 +463,7 @@ class Generator(BaseGenerator):
 
 	def _generate_jni_code(self):
 			logging.debug("_generate_jni_code enter")
-			self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+			self.config_module = ConfigModule(self.config_file_name, self.include_config_file_paths)
 			assert self.config_module.is_valid, "config_module is not valid"
 			self._update_config(self.config_module)
 			# derived data attached temporary 
@@ -482,7 +510,7 @@ class Generator(BaseGenerator):
 		if not os.path.exists(self.java_outdir_name):
 			os.makedirs(self.java_outdir_name)
 		logging.debug("self.java_outdir_name " + str(self.java_outdir_name))
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_paths)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)
 		# derived data attached temporary 
@@ -511,7 +539,7 @@ class Generator(BaseGenerator):
 
 	def _generate_internal_project(self):
 		logging.debug("_generate_internal_project enter")
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_paths)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)
 		# android src outdir (required)
@@ -654,7 +682,7 @@ class Generator(BaseGenerator):
 		logging.debug("self.exported_androidmk_file_name " + str(self.exported_androidmk_file_name))
 		exported_androidmk_file_path = os.path.join(self.exported_makefile_outdir_name, self.exported_androidmk_file_name)
 		logging.debug("exported_androidmk_file_path " + str(exported_androidmk_file_path))
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_paths)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)		
 		self.external_androidmk_file = open(exported_androidmk_file_path, "w+")
@@ -675,7 +703,7 @@ class Generator(BaseGenerator):
 		logging.debug("self.wrapper_head_file_name " + str(self.wrapper_head_file_name))		
 		wrapper_head_file_path = os.path.join(self.wrapper_header_outdir_name, self.wrapper_head_file_name)
 		logging.debug("wrapper_head_file_path " + str(wrapper_head_file_path))	
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_paths)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)		
 		self.wrapper_head_file = open(wrapper_head_file_path, "w+")
@@ -709,7 +737,7 @@ class Generator(BaseGenerator):
 		logging.debug("self.wrapper_internal_androidmk_file_name " + str(self.wrapper_internal_androidmk_file_name))
 		wrapper_internal_androidmk_file_path = os.path.join(self.wrapper_internal_makefile_outdir_name, self.wrapper_internal_androidmk_file_name)
 		logging.debug("wrapper_internal_androidmk_file_path " + str(wrapper_internal_androidmk_file_path))
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_paths)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)		
 		self.wrapper_internal_androidmk_file = open(wrapper_internal_androidmk_file_path, "w+")
@@ -742,7 +770,7 @@ class Generator(BaseGenerator):
 		logging.debug("self.wrapper_exported_androidmk_file_name " + str(self.wrapper_exported_androidmk_file_name))
 		wrapper_exported_androidmk_file_path = os.path.join(self.wrapper_makefile_outdir_name, self.wrapper_exported_androidmk_file_name)
 		logging.debug("wrapper_exported_androidmk_file_path " + str(wrapper_exported_androidmk_file_path))
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_paths)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)		
 		self.wrapper_external_androidmk_file = open(wrapper_exported_androidmk_file_path, "w+")
@@ -769,11 +797,11 @@ class Generator(BaseGenerator):
 
 
 class ConfigModule(object):
-	def __init__(self, config_file_name, include_config_file_path):
+	def __init__(self, config_file_name, include_config_file_paths):
 		self.config_data = ConfigModule.load_config(config_file_name)
 		self.include_config_data_list = list()
-		if include_config_file_path is not None:
-			self.include_config_data_list = ConfigModule.load_included_configs(self.config_data, include_config_file_path)
+		if include_config_file_paths is not None:
+			self.include_config_data_list = ConfigModule.load_included_configs(self.config_data, include_config_file_paths)
 		self.is_valid = self.config_data is not None
 
 	def add_namespace_to_config_data(self, namespace_name):
@@ -1460,16 +1488,18 @@ class ConfigModule(object):
 		return None
 
 	@classmethod
-	def load_included_configs(cls, config_data, include_config_file_path):
+	def load_included_configs(cls, config_data, include_config_file_paths):
 		include_config_data_list = list()
 		if "includes" in config_data:
 			includes = config_data["includes"]
 			for include in includes:
 				include_rel_config_file_name = include["name"]
-				include_config_file_name = os.path.join(include_config_file_path, include_rel_config_file_name)
-				include_config_data = ConfigModule.load_config(include_config_file_name)
-				if include_config_data is not None:
-					include_config_data_list.append(include_config_data)
+				for include_config_file_path in include_config_file_paths:
+					include_abs_config_file_name = os.path.join(include_config_file_path, include_rel_config_file_name)
+					if os.path.isfile(include_abs_config_file_name):
+						include_config_data = ConfigModule.load_config(include_abs_config_file_name)
+						if include_config_data is not None:
+							include_config_data_list.append(include_config_data)
 		return include_config_data_list
 
 

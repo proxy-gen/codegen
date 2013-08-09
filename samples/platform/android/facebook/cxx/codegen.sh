@@ -2,7 +2,7 @@
 
 set -e
 
-. codegen.config
+. codegen.properties
 
 sdk_dir=$ANDROID_HOME
 ndk_dir=$NDK_HOME
@@ -17,10 +17,9 @@ android_generator_dir=$android_dir/generator
 android_generator_runtime_dir=$android_generator_dir/runtime
 android_indexer=$android_generator_dir/indexer
 android_indexer_cxx=$android_indexer/cxx
-android_configpath=../../
-android_package=AndroidCXX
-android_packagepath=../../../android/cxx/package/AndroidCXX/Debug/
-android_converterfile=AndroidCXXConverter.hpp
+codegen_base_config_file=./base.config.py
+codegen_config_file=./generated/config/$CODEGEN_TARGET/config.py
+
 
 configure_flag=0
 generate_flag=0
@@ -35,11 +34,19 @@ do
 		   	;;
  	--package) package_flag=1
 			;;
-	--help) echo "Usage: $0 [--configure] [--generate] [--package]"
+	--config-file) shift
+			codegen_config_file=$1
+			;;
+	--base-config-file) shift
+			codegen_base_config_file=$1
+			;;
+	--help) echo "Usage: $0 [--configure [--base-config-file <base-config-file>]] | [--generate  [--config-file <config-file>]] | [--package [--config-file <config-file>]]"
         echo "--help: Usage"
         echo "--configure: Generate config file (using a base config file)"
-        echo "--generate: Generate code"
+        echo "--generate: Generate code (using a config file)"
         echo "--package: Package generated code"
+        echo "--base-config-file: Base config file"
+        echo "--config-file: Config file used to generate code"
         exit;;
 	*)  
     esac
@@ -61,15 +68,15 @@ function setup
 function configure
 {
 	# Generate Config
-	LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $CODEGEN_BASE_CONFIG_FILE --platform android --generate-config --namespace $CODEGEN_TARGET --output-dir $my_dir/generated --package $CODEGEN_TARGET --include-config-path $android_configpath --include-package $android_package --include-package-rel-path $android_packagepath --log info
+	LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $codegen_base_config_file --platform android --generate-config --namespace $CODEGEN_TARGET --output-dir $my_dir/generated --package $CODEGEN_TARGET --include-codegen-package $CODEGEN_INCLUDE_CODEGEN_PACKAGE --log info
 }
 
 function generate
 {
 	# Generate Code
-	LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $CODEGEN_CONFIG_FILE --platform android --generate-code --namespace $CODEGEN_TARGET --output-dir $my_dir/generated --package $CODEGEN_TARGET --include-config-path $android_configpath --include-package $android_package --include-package-rel-path $android_packagepath --include-header-file $android_converterfile --log info
+	LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $codegen_config_file --platform android --generate-code --namespace $CODEGEN_TARGET --output-dir $my_dir/generated --package $CODEGEN_TARGET --include-codegen-package $CODEGEN_INCLUDE_CODEGEN_PACKAGE --log info
 	# Generate Projects
-	LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $CODEGEN_CONFIG_FILE --platform android --generate-projects --namespace $CODEGEN_TARGET --output-dir $my_dir/generated --package $CODEGEN_TARGET --include-config-path $android_configpath --include-package $android_package --include-package-rel-path $android_packagepath --include-header-file $android_converterfile --include-project $CODEGEN_INCLUDE_PROJECTS --log info
+	LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $codegen_config_file --platform android --generate-projects --namespace $CODEGEN_TARGET --output-dir $my_dir/generated --package $CODEGEN_TARGET --include-codegen-package $CODEGEN_INCLUDE_CODEGEN_PACKAGE --include-project $CODEGEN_INCLUDE_ANDROID_PROJECT --log info
 
 	pushd $my_project_dir > /dev/null
 	ant debug
@@ -86,13 +93,13 @@ function package
 	fi
 	# Package Project
 	pushd $my_dir > /dev/null
-	mkdir -p package/$CODEGEN_TARGET/$DEPLOY_TARGET/includes
-	cp $my_project_dir/jni/cxx/includes/*.hpp package/$CODEGEN_TARGET/$DEPLOY_TARGET/includes
-	cp $my_project_dir/jni/cxx/converters/*.hpp package/$CODEGEN_TARGET/$DEPLOY_TARGET/includes	
-	mkdir -p package/$CODEGEN_TARGET/$DEPLOY_TARGET/libs/armeabi
-	cp $my_project_dir/obj/local/armeabi/lib${CODEGEN_TARGET}_static.a package/$CODEGEN_TARGET/$DEPLOY_TARGET/libs/armeabi
-	cp $my_generated_project_dir/exported/cxx/$CODEGEN_TARGET/Android.mk package/$CODEGEN_TARGET/$DEPLOY_TARGET/Android.mk
-	cp $CODEGEN_CONFIG_FILE package/$CODEGEN_TARGET/$DEPLOY_TARGET/config.py
+	mkdir -p package/$DEPLOY_TARGET/$CODEGEN_TARGET/includes
+	cp $my_project_dir/jni/cxx/includes/*.hpp package/$DEPLOY_TARGET/$CODEGEN_TARGET/includes
+	cp $my_project_dir/jni/cxx/converters/*.hpp package/$DEPLOY_TARGET/$CODEGEN_TARGET/includes	
+	mkdir -p package/$DEPLOY_TARGET/$CODEGEN_TARGET/libs/armeabi
+	cp $my_project_dir/obj/local/armeabi/lib${CODEGEN_TARGET}_static.a package/$DEPLOY_TARGET/$CODEGEN_TARGET/libs/armeabi
+	cp $my_generated_project_dir/exported/cxx/$CODEGEN_TARGET/Android.mk package/$DEPLOY_TARGET/$CODEGEN_TARGET/Android.mk
+	cp $codegen_config_file package/$DEPLOY_TARGET/$CODEGEN_TARGET/config.py
 	popd
 }
 
@@ -106,13 +113,16 @@ export CXX_JVM_CLASSPATH=$android_generator_runtime_dir/bin:$sdk_dir/platforms/a
 if [ $configure_flag -ne 0 ]
 then
 	setup
+	echo "using base config file " $codegen_base_config_file
 	configure
+	echo "generated config file " $codegen_config_file
 	echo "configure complete"
 fi
 
 if [ $generate_flag -ne 0 ]
 then
-    setup
+	setup
+	echo "using config file " $codegen_config_file
     generate
     echo "generate complete"
 fi
