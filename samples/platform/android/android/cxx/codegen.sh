@@ -24,33 +24,16 @@ configure_flag=0
 generate_flag=0
 package_flag=0
 
-while [ "$1" != "" ];
-do
-	case "$1" in
-	--configure) configure_flag=1
-			;;
-	--generate) generate_flag=1
-		   	;;
- 	--package) package_flag=1
-			;;
-	--config-file) shift
-			codegen_config_file=$1
-			;;
-	--base-config-file) shift
-			codegen_base_config_file=$1
-			;;
-	--help) echo "Usage: $0 [--configure [--base-config-file <base-config-file>]] | [--generate  [--config-file <config-file>]] | [--package [--config-file <config-file>]]"
-        echo "--help: Usage"
-        echo "--configure: Generate config file (using a base config file)"
-        echo "--generate: Generate code (using a config file)"
-        echo "--package: Package generated code"
-        echo "--base-config-file: Base config file"
-        echo "--config-file: Config file used to generate code"
-        exit;;
-	*)  
-    esac
-    shift
-done
+function usage
+{
+	echo "Usage: $0 [--configure [--base-config-file <base-config-file>]] | [--generate  [--config-file <config-file>]] | [--package [--config-file <config-file>]]"
+    echo "--help: Usage"
+    echo "--configure: Generate config file (using a base config file)"
+    echo "--generate: Generate code (using a config file)"
+    echo "--package: Package generated code"
+    echo "--base-config-file: Base config file"
+    echo "--config-file: Config file used to generate code"
+}
 
 function setup
 {
@@ -101,6 +84,34 @@ function package
 	cp $codegen_config_file package/$DEPLOY_TARGET/$CODEGEN_TARGET/config.py
 	popd
 }
+
+if [ -z "$1" ]
+	then
+		usage
+		exit
+fi
+
+while [ "$1" != "" ];
+do
+	case "$1" in
+	--configure) configure_flag=1
+			;;
+	--generate) generate_flag=1
+		   	;;
+ 	--package) package_flag=1
+			;;
+	--config-file) shift
+			codegen_config_file=$1
+			;;
+	--base-config-file) shift
+			codegen_base_config_file=$1
+			;;
+	--help) usage
+        exit;;
+	*)  
+    esac
+    shift
+done
 
 echo "codegen started"
 
