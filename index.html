@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Codegen : A tool to provide automatic C++ bindings for iOS and Android libraries" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Codegen</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/proxy-gen/codegen">View on GitHub</a>
+
+          <h1 id="project_title">Codegen</h1>
+          <h2 id="project_tagline">A tool to provide automatic C++ bindings for iOS and Android libraries</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/proxy-gen/codegen/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/proxy-gen/codegen/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h3>
+
+<p>Codegen implements a proxy based pattern to wrap underlying iOS and Android libraries to provide a C++ interface for them. It implements all the basic converters and JNI details under the hood, so you don't need to worry about them. </p>
+
+<h3>
+<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h3>
+
+<p>After cloning this repository, be sure to udpate and initialize all submodules with</p>
+
+<pre><code>$ git submodule update --init --recursive
+</code></pre>
+
+<p>Note, we depend on our parser <a href="https://github.com/proxy-gen/clocxml">https://github.com/proxy-gen/clocxml</a> to parse ObjC header files properly. The gen_bridge_metadata script that came with MacOSX wasn't providing us with all the parse tokens we needed.</p>
+
+<h3>
+<a name="using-this-tool" class="anchor" href="#using-this-tool"><span class="octicon octicon-link"></span></a>Using this tool</h3>
+
+<p>The main tool that you interface with is a python script that you can find under 'generator/generator.py'. On Android, we provide an additional convenience wrapper call 'codegen.sh' that you can find under samples for Android project.</p>
+
+<p>Platform specific details are as follows</p>
+
+<h3>
+<a name="android" class="anchor" href="#android"><span class="octicon octicon-link"></span></a>Android</h3>
+
+<p>Please follow along with the samples provided under codegen/samples</p>
+
+<p>For Android we recommend that you interact with the wrapper codegen.sh script instead of directly invoking the generator/generator.py</p>
+
+<p>Overall there are 3 steps to this process. 
+a) You create a full blown config file from a minimal config file you seed the tool with 
+b) You make an necessary changes to the generated config as required, and then you generate the C++ files that implements the proxy patterns. This also builds a static library
+c) Finally, you package them</p>
+
+<p>samples/platforms/android/android: Contains the configuration setup to generate proxies for the entire Android SDK</p>
+
+<p>First, setup the following environment variables</p>
+
+<pre><code>ANDROID_HOME=/path/to/android/sdk
+NDK_HOME=/path/to/android/ndk
+CODEGEN_HOME=/path/to/codegen
+</code></pre>
+
+<p>You would need to ensure that the Android SDK has the following installed </p>
+
+<p>Build Tools for android-18 
+System Image for Android 2.2 (API 8).  </p>
+
+<p>Next, run the following in order under cxx</p>
+
+<pre><code>./codegen.sh --configure /path/to/minimum/config/file # Generates the full blown config
+./codegen.sh --generate  # Generates the C++ proxy classes
+./codegen.sh --package   # Packages the project as a pre-built binary
+</code></pre>
+
+<p>samples/platforms/android/facebook: Contains the configuration setup to generate proxies for the entire Facebook SDK. </p>
+
+<p>Configuring this sample is similar to the steps above to generate the Android SDK but has the additional steps of requiring to build the facebook sdk and to add the <code>_callback</code> tags in the config. </p>
+
+<p>For example, the <code>com.facebook.Session#open</code> function accepts an implementation of the callback <code>com.facebook.Session$StatusCallback</code>. At some point in the future, the native Facebook SDK will callback into <code>com.facebook.Session$StatusCallback#call</code>. We need to make sure that this call goes all the way through into the C++ layer and is handled by the C++ implementation of the callback.</p>
+
+<p>By tagging the <code>com.facebook.Session#open</code> as a callback, we make sure that the code generator will propagate the callback invocation all the way into the C++ layer.</p>
+
+<p>Before getting started, navigate to <code>java\facebook-android-sdk-3.0.1\facebook</code> and then run <code>ant debug</code> to build the facebook sdk</p>
+
+<p>Then, as usual,</p>
+
+<p>First, setup the following environment variables</p>
+
+<pre><code>ANDROID_HOME=/path/to/android/sdk
+NDK_HOME=/path/to/android/ndk
+CODEGEN_HOME=/path/to/codegen
+</code></pre>
+
+<p>You would need to ensure that the Android SDK has the following installed </p>
+
+<p>Build Tools for android-18 
+System Image for Android 2.2 (API 8).  </p>
+
+<p>Next, run the following under <code>cxx</code></p>
+
+<pre><code>./codegen.sh --configure /path/to/minimal/config/file # Generates the full blown config
+</code></pre>
+
+<p>Open up the full blown config file and add the <code>_callback</code> tag to the following classes and functions</p>
+
+<p>'com.facebook.Request$Callback'
+'com.facebook.Request$Callback#onCompleted'
+'com.facebook.Request$GraphPlaceListCallback'
+'com.facebook.Request$GraphPlaceListCallback#onCompleted'
+'com.facebook.Request$GraphUserCallback'
+'com.facebook.Request$GraphUserCallback#onCompleted'
+'com.facebook.Request$GraphUserListCallback'
+'com.facebook.Request$GraphUserListCallback#onCompleted'
+'com.facebook.Session$StatusCallback'
+'com.facebook.Session$StatusCallback#call'</p>
+
+<p>Sample snippet of the changes are below</p>
+
+<pre><code>    {
+        'name' : 'com.facebook.Request$Callback',
+        'tags' : ['_interface', '_proxy', '_callback'],
+        'fields' : [
+        ],  
+        'functions' : [
+            {
+                'name' : 'onCompleted',
+                'tags' : ['_instance', '_proxy', '_callback'],
+                'params' : [
+        …
+    }
+</code></pre>
+
+<p>Once the above is done, continue as before</p>
+
+<p>Run the following in order under <code>cxx</code></p>
+
+<pre><code>./codegen.sh --generate  # Generates the C++ proxy classes
+./codegen.sh --package    # Packages the project as a pre-built binary
+</code></pre>
+
+<p>The <code>samples/platforms/android/facebook\cxx\samples\SessionLoginSampleCXX</code> is a sample C++ application that uses the Facebook SDK to perform basic tasks (Login/Logout/Get Friends)</p>
+
+<h3>
+<a name="ios" class="anchor" href="#ios"><span class="octicon octicon-link"></span></a>iOS</h3>
+
+<p>The samples/platforms/ios/facebook directory contains an example of how to use this tool to generate proxies for nearly all of <code>FacebookSDK.framework</code>. The latest FacebookSDK framework is located in the <code>objc</code> subdirectory. An example of using the generated Facebook API to perform basic tasks is located under the <code>TestFacebookCXX</code> subdirectory. Two shell scripts wrap the <code>--generate-config</code> and <code>--generate-code</code> invocations of this tool under the <code>cxx</code> subdirectory. The input config file and generated code are also located under the <code>cxx</code> subdirectory.</p>
+
+<p>First, run the <code>generate_config.sh</code> script from the <code>cxx</code> directory via </p>
+
+<pre><code>./generate_config.sh
+</code></pre>
+
+<p>It may take half a minute to create the AST of the <code>FacebookSDK.framework</code> headers and parse the metadata.</p>
+
+<p>To build a static library for the <code>armv7</code> and <code>i386</code> architectures, change to the <code>generated/project</code> subdirectory and run <code>make</code>. The fat library will be located under the <code>lib/fat</code> subdirectory after completion.</p>
+
+<p>Open the <code>TestFacebookCXX</code> Xcode project and notice that the target's <code>Header Search Path</code> settings contain the generated includes directory. Also notice that the project links with the fat library that we created with <code>make</code>. This project uses Objective-C for the UI, but all button callbacks are written in C++. You can build an run this project on the iOS Simulator.</p>
+
+<h3>
+<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>This project is open sourced as part of the work the Mobile ZDK team did for Zynga.com. Android work was lead by Ron Vergis (<a href="https://github.com/rvergis" class="user-mention">@rvergis</a>), iOS work was lead by Wesley Souza (<a href="https://github.com/wesjarrettsouza" class="user-mention">@wesjarrettsouza</a>) and Andrew Ushnakov. The project and team was managed by Shiva Bhattacharjee (<a href="https://github.com/bhattas" class="user-mention">@bhattas</a>)</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Codegen maintained by <a href="https://github.com/proxy-gen">proxy-gen</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
