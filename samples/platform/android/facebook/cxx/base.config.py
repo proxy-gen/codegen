@@ -1,7 +1,7 @@
 config = {
 	"includes" : [
 		{
-			"name" : "android/cxx/package/AndroidCXX/config.py",
+			"name" : "AndroidCXX/config.py",
 		},
 	],
 	"packages" : [
