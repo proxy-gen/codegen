@@ -39,7 +39,7 @@ config = {
 	'package'	: 'FacebookCXX',
 	'includes' : [
 		{
-			'name'  : 'android/cxx/generated/config/AndroidCXX/config.py',
+			'name'  : 'AndroidCXX/config.py',
 		},
 	],
 	'converters' : [
