@@ -90,7 +90,7 @@ class Generator(BaseGenerator):
 	def _setup_includes(self):
 		self._setup_included_packages()
 		self._setup_included_wrapper_packages()
-		self._setup_included_config_file_path()
+		self._setup_included_config_file_paths()
 		self._setup_included_converters()
 
 	def _setup_included_packages(self):
@@ -105,10 +105,10 @@ class Generator(BaseGenerator):
 		self.include_wrapper_package_rel_paths = self.config['include_wrapper_package_rel_paths']
 		logging.debug("_setup_included_wrapper_packages exit")
 
-	def _setup_included_config_file_path(self):
-		logging.debug("_setup_included_config_file_path enter")
-		self.include_config_file_path = self.config['include_config_file_path']
-		logging.debug("_setup_included_config_file_path exit")
+	def _setup_included_config_file_paths(self):
+		logging.debug("include_config_file_paths enter")
+		self.include_config_file_paths = self.config['include_config_file_paths']
+		logging.debug("include_config_file_paths exit")
 
 	def _setup_included_converters(self):
 		logging.debug("_setup_included_converters enter")
@@ -118,7 +118,7 @@ class Generator(BaseGenerator):
 	def _setup_config(self):
 		logging.debug("_setup_config enter")
 		self.config_file_name = self.config['config_file_name']
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_paths)
 		assert self.config_module.is_valid, "config_module is not valid"
 		logging.debug("_setup_config exit")
 
@@ -176,7 +176,7 @@ class Generator(BaseGenerator):
 
 	def _generate_cxx_code(self):
 		logging.debug("_generate_cxx_code enter")
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_path)
+		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_paths)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)
 		self.config_module.attach_derived_data()
@@ -508,11 +508,11 @@ class Generator(BaseGenerator):
 		logging.debug("Generator _update_config_data exit")
 
 class ConfigModule(object):
-	def __init__(self, config_file_name, include_config_file_path):
+	def __init__(self, config_file_name, include_config_file_paths):
 		self.config_data = ConfigModule.load_config(config_file_name)
 		self.include_config_data_list = list()
-		if include_config_file_path is not None:
-			self.include_config_data_list = ConfigModule.load_included_configs(self.config_data, include_config_file_path)
+		if include_config_file_paths is not None:
+			self.include_config_data_list = ConfigModule.load_included_configs(self.config_data, include_config_file_paths)
 		self.is_valid = self.config_data is not None
 
 	def add_namespace_to_config_data(self, namespace_name):
@@ -1166,16 +1166,18 @@ class ConfigModule(object):
 		return None
 
 	@classmethod
-	def load_included_configs(cls, config_data, include_config_file_path):
+	def load_included_configs(cls, config_data, include_config_file_paths):
 		include_config_data_list = list()
 		if "includes" in config_data:
 			includes = config_data["includes"]
 			for include in includes:
 				include_rel_config_file_name = include["name"]
-				include_config_file_name = os.path.join(include_config_file_path, include_rel_config_file_name)
-				include_config_data = ConfigModule.load_config(include_config_file_name)
-				if include_config_data is not None:
-					include_config_data_list.append(include_config_data)
+				for include_config_file_path in include_config_file_paths:
+					include_abs_config_file_name = os.path.join(include_config_file_path, include_rel_config_file_name)
+					if os.path.isfile(include_abs_config_file_name):
+						include_config_data = ConfigModule.load_config(include_abs_config_file_name)
+						if include_config_data is not None:
+							include_config_data_list.append(include_config_data)
 		return include_config_data_list
 
 class Utils(object):
