@@ -365,12 +365,12 @@ ${entity_class_name}::${entity_class_name}(const ${entity_class_name}& cc)
 	long address = (long) this;
 	LOGV("registerProxyComponent address %ld", address);
 	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	LOGV("registerProxyComponent proxiedComponent %ld", proxiedComponent);
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
 		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %d", proxiedComponent, address);
+		LOGV("registerProxyComponent registering proxied component %ld using %ld", proxiedComponent, address);
 		ctx->registerProxyComponent(address, proxiedComponent);
 	}
 
@@ -385,9 +385,9 @@ ${entity_class_name}::${entity_class_name}(Proxy proxy)
 
 	CXXContext *ctx = CXXContext::sharedInstance();
 	long address = (long) this;
-	LOGV("registerProxyComponent address %d", address);
+	LOGV("registerProxyComponent address %ld", address);
 	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %d", proxiedComponent);
+	LOGV("registerProxyComponent proxiedComponent %ld", proxiedComponent);
 	if (proxiedComponent == 0)
 	{
 		JNIContext *jni = JNIContext::sharedInstance();
@@ -417,9 +417,9 @@ ${entity_class_name}::${entity_class_name}()
 	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
-	LOGV("${entity_class_name} cxx address %d", cxxAddress);
+	LOGV("${entity_class_name} cxx address %ld", cxxAddress);
 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("${entity_class_name} jni address %d", proxiedComponent);
+	LOGV("${entity_class_name} jni address %ld", proxiedComponent);
 
 	if (proxiedComponent == 0)
 	{
@@ -442,9 +442,9 @@ Proxy ${entity_class_name}::proxy() const
 	CXXContext *ctx = CXXContext::sharedInstance();
 
 	long cxxAddress = (long) this;
-	LOGV("${entity_class_name} cxx address %d", cxxAddress);
+	LOGV("${entity_class_name} cxx address %ld", cxxAddress);
 	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
-	LOGV("${entity_class_name} jni address %d", proxiedComponent);
+	LOGV("${entity_class_name} jni address %ld", proxiedComponent);
 
 	Proxy proxy;
 	proxy.address = proxiedComponent;	
@@ -472,9 +472,9 @@ ${entity_class_name}::${entity_class_name}($constructor['param_str'])
 	jni->pushLocalFrame();
 
 	long cxxAddress = (long) this;
-	LOGV("${entity_class_name} cxx address %d", cxxAddress);
+	LOGV("${entity_class_name} cxx address %ld", cxxAddress);
 	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("${entity_class_name} jni address %d", proxiedComponent);
+	LOGV("${entity_class_name} jni address %ld", proxiedComponent);
 
 	if (proxiedComponent == 0)
 	{
@@ -598,9 +598,9 @@ $function['retrn_type'] ${entity_class_name}::$Utils.to_safe_cxx_name(function['
 	#else
 	long cxxAddress = (long) this;
 	#end if
-	LOGV("${entity_class_name} cxx address %d", cxxAddress);
+	LOGV("${entity_class_name} cxx address %ld", cxxAddress);
 	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("${entity_class_name} jni address %d", javaObject);
+	LOGV("${entity_class_name} jni address %ld", javaObject);
 
 	#set methodvararg = ""
 	#set $param_idx = 0
