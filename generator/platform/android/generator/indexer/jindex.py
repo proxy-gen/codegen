@@ -529,10 +529,11 @@ class ArrayType(object):
 	_types_map = {}
 	_name_map = None
 
-	def __init__(self, value):
+	def __init__(self, value, _type):
 		if value in ArrayType._types_map:
 			raise ValueError,'ArrayType already loaded'
 		self.value = value
+		self._type = _type
 		ArrayType._types_map[value] = self
 		ArrayType._name_map = None
 
@@ -547,6 +548,10 @@ class ArrayType(object):
 				if isinstance(value,ArrayType):
 					self._name_map[value] = key
 		return self._name_map[self]
+
+	@property
+	def type(self):
+		return self._type
 
 	@property
 	def id(self):
@@ -576,15 +581,16 @@ class ArrayType(object):
 	def __repr__(self):
 		return 'ArrayType.%s' % (self.name,)
 
-ArrayType.OBJECT_ARRAY = ArrayType("_object_array_type")		
-ArrayType.BYTE_ARRAY = ArrayType("_byte_array_type")
-ArrayType.SHORT_ARRAY = ArrayType("_short_array_type")
-ArrayType.INT_ARRAY = ArrayType("_int_array_type")
-ArrayType.LONG_ARRAY = ArrayType("_long_array_type")
-ArrayType.FLOAT_ARRAY = ArrayType("_float_array_type")
-ArrayType.DOUBLE_ARRAY = ArrayType("_double_array_type")
-ArrayType.BOOLEAN_ARRAY = ArrayType("_boolean_array_type")
-ArrayType.CHAR_ARRAY = ArrayType("_char_array_type")
+ArrayType.ARRAY_OF_ARRAY = ArrayType("_array_array", "array")
+ArrayType.OBJECT_ARRAY = ArrayType("_object_array", "object")		
+ArrayType.BYTE_ARRAY = ArrayType("_byte_array", "byte")
+ArrayType.SHORT_ARRAY = ArrayType("_short_array", "short")
+ArrayType.INT_ARRAY = ArrayType("_int_array", "int")
+ArrayType.LONG_ARRAY = ArrayType("_long_array", "long")
+ArrayType.FLOAT_ARRAY = ArrayType("_float_array", "float")
+ArrayType.DOUBLE_ARRAY = ArrayType("_double_array", "double")
+ArrayType.BOOLEAN_ARRAY = ArrayType("_boolean_array", "boolean")
+ArrayType.CHAR_ARRAY = ArrayType("_char_array", "char")
 
 class CallbackType(object):
 	UNKNOWN = 0
@@ -1022,14 +1028,17 @@ class TranslationUnit(JavaObject):
 		structure = dict()
 		class_name = type_hierarchy._class_name
 		if class_name == 'com.zynga.sdk.cxx.CXXType$Array':
-			class_name = '_object_array_type' # Special type marker representing Java array
+			class_name = '_object_array' # Special type marker representing Java array
 			if type_hierarchy.child_count > 0:
 				children = type_hierarchy.get_children()
 				child = children[0]
 				child_class_name = child._class_name
-				type_kind = PrimitiveType.from_id(child_class_name)
-				if type_kind is not None:
-					class_name = '_%s_array_type' % child_class_name
+				if child_class_name == 'com.zynga.sdk.cxx.CXXType$Array':
+					class_name = '_array_array'
+				else:
+					type_kind = PrimitiveType.from_id(child_class_name)
+					if type_kind is not None:
+						class_name = '_%s_array' % child_class_name
 		structure["type"] = class_name
 		if type_hierarchy.child_count > 0:
 			structure["children"] = list()

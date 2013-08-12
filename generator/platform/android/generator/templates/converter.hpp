@@ -64,4 +64,18 @@ using namespace ${namespace};
 void convert_${entity_class_name}(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 #end for
 
+// Array Converter Types
+#for $class_config in $classes
+#set $classinfo = $class_config['deriveddata']['targetdata']['classinfo']
+#set $entity_class_name = $classinfo['typename']
+void convert_${entity_class_name}_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+#end for
+
+// Array Of Array Converter Types
+#for $class_config in $classes
+#set $classinfo = $class_config['deriveddata']['targetdata']['classinfo']
+#set $entity_class_name = $classinfo['typename']
+void convert_${entity_class_name}_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+#end for
+
 #endif // _${package}Converter
