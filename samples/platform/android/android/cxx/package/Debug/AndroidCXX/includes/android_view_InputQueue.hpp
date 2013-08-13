@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +42,20 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_InputQueue
+class android_view_InputQueue 
 {
 public:
 
+	// Public ConstrucXXX
 	android_view_InputQueue(const android_view_InputQueue& cc);
 	android_view_InputQueue(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_InputQueue();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

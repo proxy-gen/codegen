@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -64,6 +65,9 @@
 
 #include <android_content_ComponentName.hpp>
 
+
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -86,43 +90,46 @@ class java_lang_String;
 
 class android_content_ComponentName;
 
-class android_app_SearchableInfo
+class android_app_SearchableInfo : public android_os_Parcelable
 {
 public:
 
+	// Public ConstrucXXX
 	android_app_SearchableInfo(const android_app_SearchableInfo& cc);
 	android_app_SearchableInfo(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_SearchableInfo();
 	// Functions
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 int getInputType();
-	 int getImeOptions();
-	 AndroidCXX::java_lang_String getSuggestAuthority();
-	 AndroidCXX::java_lang_String getSuggestPackage();
-	 AndroidCXX::android_content_ComponentName getSearchActivity();
-	 bool shouldRewriteQueryFromData();
-	 bool shouldRewriteQueryFromText();
-	 int getSettingsDescriptionId();
-	 AndroidCXX::java_lang_String getSuggestPath();
-	 AndroidCXX::java_lang_String getSuggestSelection();
-	 AndroidCXX::java_lang_String getSuggestIntentAction();
-	 AndroidCXX::java_lang_String getSuggestIntentData();
-	 int getSuggestThreshold();
-	 int getHintId();
-	 bool getVoiceSearchEnabled();
-	 bool getVoiceSearchLaunchWebSearch();
-	 bool getVoiceSearchLaunchRecognizer();
-	 int getVoiceLanguageModeId();
-	 int getVoicePromptTextId();
-	 int getVoiceLanguageId();
-	 int getVoiceMaxResults();
-	 bool shouldIncludeInGlobalSearch();
-	 bool queryAfterZeroResults();
-	 bool autoUrlDetect();
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual int  getInputType() ;
+	virtual int  getImeOptions() ;
+	virtual AndroidCXX::java_lang_String * getSuggestAuthority() ;
+	virtual AndroidCXX::java_lang_String * getSuggestPackage() ;
+	virtual AndroidCXX::android_content_ComponentName * getSearchActivity() ;
+	virtual bool  shouldRewriteQueryFromData() ;
+	virtual bool  shouldRewriteQueryFromText() ;
+	virtual int  getSettingsDescriptionId() ;
+	virtual AndroidCXX::java_lang_String * getSuggestPath() ;
+	virtual AndroidCXX::java_lang_String * getSuggestSelection() ;
+	virtual AndroidCXX::java_lang_String * getSuggestIntentAction() ;
+	virtual AndroidCXX::java_lang_String * getSuggestIntentData() ;
+	virtual int  getSuggestThreshold() ;
+	virtual int  getHintId() ;
+	virtual bool  getVoiceSearchEnabled() ;
+	virtual bool  getVoiceSearchLaunchWebSearch() ;
+	virtual bool  getVoiceSearchLaunchRecognizer() ;
+	virtual int  getVoiceLanguageModeId() ;
+	virtual int  getVoicePromptTextId() ;
+	virtual int  getVoiceLanguageId() ;
+	virtual int  getVoiceMaxResults() ;
+	virtual bool  shouldIncludeInGlobalSearch() ;
+	virtual bool  queryAfterZeroResults() ;
+	virtual bool  autoUrlDetect() ;
+
+protected:
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,6 @@
 //
 
 
-#include <android_app_Activity.hpp>
-
-#include <android_os_Bundle.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +49,21 @@ class android_app_Activity;
 
 class android_os_Bundle;
 
-class android_app_Application_OnProvideAssistDataListener
+class android_app_Application_OnProvideAssistDataListener 
 {
 public:
 
 	android_app_Application_OnProvideAssistDataListener(const android_app_Application_OnProvideAssistDataListener& cc);
 	android_app_Application_OnProvideAssistDataListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_Application_OnProvideAssistDataListener();
 	// Functions
-	 void onProvideAssistData(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_os_Bundle const& arg1);
+	virtual void  onProvideAssistData(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+
+protected:
+	android_app_Application_OnProvideAssistDataListener();
+
 };	
 
 } // namespace

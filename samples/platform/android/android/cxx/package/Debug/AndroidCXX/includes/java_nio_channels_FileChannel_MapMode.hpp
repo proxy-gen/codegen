@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -28,6 +29,7 @@
 
 #include <java_lang_String.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,18 +48,21 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_nio_channels_FileChannel_MapMode
+class java_nio_channels_FileChannel_MapMode 
 {
 public:
 
+	// Public ConstrucXXX
 	java_nio_channels_FileChannel_MapMode(const java_nio_channels_FileChannel_MapMode& cc);
 	java_nio_channels_FileChannel_MapMode(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_FileChannel_MapMode();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
 };	
 
 } // namespace

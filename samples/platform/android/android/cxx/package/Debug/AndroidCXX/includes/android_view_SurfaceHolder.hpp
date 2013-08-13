@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -45,13 +46,6 @@
 //
 
 
-#include <android_view_SurfaceHolder_Callback.hpp>
-
-#include <android_graphics_Canvas.hpp>
-
-#include <android_graphics_Rect.hpp>
-
-#include <android_view_Surface.hpp>
 
 #include <vector>
 #include <map>
@@ -77,30 +71,33 @@ class android_graphics_Rect;
 
 class android_view_Surface;
 
-class android_view_SurfaceHolder
+class android_view_SurfaceHolder 
 {
 public:
 
 	android_view_SurfaceHolder(const android_view_SurfaceHolder& cc);
 	android_view_SurfaceHolder(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_SurfaceHolder();
 	// Functions
-	 void setFormat(int const& arg0);
-	 void setType(int const& arg0);
-	 void setKeepScreenOn(bool const& arg0);
-	 void addCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0);
-	 void removeCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0);
-	 bool isCreating();
-	 void setFixedSize(int const& arg0,int const& arg1);
-	 void setSizeFromLayout();
-	 AndroidCXX::android_graphics_Canvas lockCanvas();
-	 AndroidCXX::android_graphics_Canvas lockCanvas(AndroidCXX::android_graphics_Rect const& arg0);
-	 void unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas const& arg0);
-	 AndroidCXX::android_graphics_Rect getSurfaceFrame();
-	 AndroidCXX::android_view_Surface getSurface();
+	virtual void  setKeepScreenOn(bool const& arg0) ;
+	virtual void  setFormat(int const& arg0) ;
+	virtual void  setType(int const& arg0) ;
+	virtual void  addCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0) ;
+	virtual void  removeCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0) ;
+	virtual bool  isCreating() ;
+	virtual void  setFixedSize(int const& arg0,int const& arg1) ;
+	virtual void  setSizeFromLayout() ;
+	virtual AndroidCXX::android_graphics_Canvas * lockCanvas() ;
+	virtual AndroidCXX::android_graphics_Canvas * lockCanvas(AndroidCXX::android_graphics_Rect const& arg0) ;
+	virtual void  unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual AndroidCXX::android_graphics_Rect * getSurfaceFrame() ;
+	virtual AndroidCXX::android_view_Surface * getSurface() ;
+
+protected:
+	android_view_SurfaceHolder();
+
 };	
 
 } // namespace

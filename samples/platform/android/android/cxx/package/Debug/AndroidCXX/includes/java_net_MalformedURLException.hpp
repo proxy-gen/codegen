@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -29,6 +30,7 @@
 
 #include <java_lang_String.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -47,19 +49,22 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_net_MalformedURLException
+class java_net_MalformedURLException 
 {
 public:
 
-	java_net_MalformedURLException(const java_net_MalformedURLException& cc);
-	java_net_MalformedURLException(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	java_net_MalformedURLException();
 	java_net_MalformedURLException(AndroidCXX::java_lang_String const& arg0);
+	java_net_MalformedURLException(const java_net_MalformedURLException& cc);
+	java_net_MalformedURLException(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_MalformedURLException();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_ViewTreeObserver_OnWindowFocusChangeListener
+class android_view_ViewTreeObserver_OnWindowFocusChangeListener 
 {
 public:
 
 	android_view_ViewTreeObserver_OnWindowFocusChangeListener(const android_view_ViewTreeObserver_OnWindowFocusChangeListener& cc);
 	android_view_ViewTreeObserver_OnWindowFocusChangeListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnWindowFocusChangeListener();
 	// Functions
-	 void onWindowFocusChanged(bool const& arg0);
+	virtual void  onWindowFocusChanged(bool const& arg0) ;
+
+protected:
+	android_view_ViewTreeObserver_OnWindowFocusChangeListener();
+
 };	
 
 } // namespace

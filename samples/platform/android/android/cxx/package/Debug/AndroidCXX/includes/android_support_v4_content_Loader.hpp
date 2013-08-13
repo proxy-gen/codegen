@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -74,6 +75,7 @@
 
 #include <android_support_v4_content_Loader_OnLoadCompleteListener.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -102,38 +104,41 @@ class java_lang_Object;
 
 class android_support_v4_content_Loader_OnLoadCompleteListener;
 
-class android_support_v4_content_Loader
+class android_support_v4_content_Loader 
 {
 public:
 
+	// Public ConstrucXXX
+	android_support_v4_content_Loader(AndroidCXX::android_content_Context const& arg0);
 	android_support_v4_content_Loader(const android_support_v4_content_Loader& cc);
 	android_support_v4_content_Loader(Proxy proxy);
-	// Public Constructors
-	android_support_v4_content_Loader(AndroidCXX::android_content_Context const& arg0);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_content_Loader();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 AndroidCXX::android_content_Context getContext();
-	 int getId();
-	 void reset();
-	 void dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3);
-	 void abandon();
-	 void onContentChanged();
-	 bool isStarted();
-	 void deliverResult(AndroidCXX::java_lang_Object const& arg0);
-	 void registerListener(int const& arg0,AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener const& arg1);
-	 void unregisterListener(AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener const& arg0);
-	 bool isAbandoned();
-	 bool isReset();
-	 void startLoading();
-	 void forceLoad();
-	 void stopLoading();
-	 bool takeContentChanged();
-	 void commitContentChanged();
-	 void rollbackContentChanged();
-	 AndroidCXX::java_lang_String dataToString(AndroidCXX::java_lang_Object const& arg0);
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual AndroidCXX::android_content_Context * getContext() ;
+	virtual int  getId() ;
+	virtual void  reset() ;
+	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3) ;
+	virtual void  abandon() ;
+	virtual void  stopLoading() ;
+	virtual void  onContentChanged() ;
+	virtual bool  isStarted() ;
+	virtual void  deliverResult(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  registerListener(int const& arg0,AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener const& arg1) ;
+	virtual void  unregisterListener(AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener const& arg0) ;
+	virtual bool  isAbandoned() ;
+	virtual bool  isReset() ;
+	virtual void  startLoading() ;
+	virtual void  forceLoad() ;
+	virtual bool  takeContentChanged() ;
+	virtual void  commitContentChanged() ;
+	virtual void  rollbackContentChanged() ;
+	virtual AndroidCXX::java_lang_String * dataToString(AndroidCXX::java_lang_Object const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

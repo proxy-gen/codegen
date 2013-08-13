@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,7 +29,6 @@
 //
 
 
-#include <android_view_InputQueue.hpp>
 
 #include <vector>
 #include <map>
@@ -48,19 +48,22 @@ namespace AndroidCXX {
 
 class android_view_InputQueue;
 
-class android_view_InputQueue_Callback
+class android_view_InputQueue_Callback 
 {
 public:
 
 	android_view_InputQueue_Callback(const android_view_InputQueue_Callback& cc);
 	android_view_InputQueue_Callback(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_InputQueue_Callback();
 	// Functions
-	 void onInputQueueCreated(AndroidCXX::android_view_InputQueue const& arg0);
-	 void onInputQueueDestroyed(AndroidCXX::android_view_InputQueue const& arg0);
+	virtual void  onInputQueueCreated(AndroidCXX::android_view_InputQueue const& arg0) ;
+	virtual void  onInputQueueDestroyed(AndroidCXX::android_view_InputQueue const& arg0) ;
+
+protected:
+	android_view_InputQueue_Callback();
+
 };	
 
 } // namespace

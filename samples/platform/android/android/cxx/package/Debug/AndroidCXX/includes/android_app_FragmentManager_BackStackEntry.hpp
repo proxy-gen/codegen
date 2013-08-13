@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -33,9 +34,6 @@
 //
 
 
-#include <java_lang_String.hpp>
-
-#include <java_lang_CharSequence.hpp>
 
 #include <vector>
 #include <map>
@@ -57,23 +55,26 @@ class java_lang_String;
 
 class java_lang_CharSequence;
 
-class android_app_FragmentManager_BackStackEntry
+class android_app_FragmentManager_BackStackEntry 
 {
 public:
 
 	android_app_FragmentManager_BackStackEntry(const android_app_FragmentManager_BackStackEntry& cc);
 	android_app_FragmentManager_BackStackEntry(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_FragmentManager_BackStackEntry();
 	// Functions
-	 AndroidCXX::java_lang_String getName();
-	 int getId();
-	 int getBreadCrumbTitleRes();
-	 int getBreadCrumbShortTitleRes();
-	 AndroidCXX::java_lang_CharSequence getBreadCrumbTitle();
-	 AndroidCXX::java_lang_CharSequence getBreadCrumbShortTitle();
+	virtual AndroidCXX::java_lang_String * getName() ;
+	virtual int  getId() ;
+	virtual int  getBreadCrumbTitleRes() ;
+	virtual int  getBreadCrumbShortTitleRes() ;
+	virtual AndroidCXX::java_lang_CharSequence * getBreadCrumbTitle() ;
+	virtual AndroidCXX::java_lang_CharSequence * getBreadCrumbShortTitle() ;
+
+protected:
+	android_app_FragmentManager_BackStackEntry();
+
 };	
 
 } // namespace

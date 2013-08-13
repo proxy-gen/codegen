@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,6 @@
 //
 
 
-#include <java_io_File.hpp>
-
-#include <java_lang_String.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +49,21 @@ class java_io_File;
 
 class java_lang_String;
 
-class java_io_FilenameFilter
+class java_io_FilenameFilter 
 {
 public:
 
 	java_io_FilenameFilter(const java_io_FilenameFilter& cc);
 	java_io_FilenameFilter(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FilenameFilter();
 	// Functions
-	 bool accept(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1);
+	virtual bool  accept(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+
+protected:
+	java_io_FilenameFilter();
+
 };	
 
 } // namespace

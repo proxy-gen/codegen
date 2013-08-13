@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -29,6 +30,7 @@
 
 #include <java_lang_Object.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -47,19 +49,22 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class android_widget_GridLayout_Spec
+class android_widget_GridLayout_Spec 
 {
 public:
 
+	// Public ConstrucXXX
 	android_widget_GridLayout_Spec(const android_widget_GridLayout_Spec& cc);
 	android_widget_GridLayout_Spec(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_GridLayout_Spec();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 int hashCode();
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+
+protected:
+
 };	
 
 } // namespace

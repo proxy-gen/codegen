@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -26,7 +27,6 @@
 //
 
 
-#include <java_lang_String.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +46,21 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_widget_NumberPicker_Formatter
+class android_widget_NumberPicker_Formatter 
 {
 public:
 
 	android_widget_NumberPicker_Formatter(const android_widget_NumberPicker_Formatter& cc);
 	android_widget_NumberPicker_Formatter(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_NumberPicker_Formatter();
 	// Functions
-	 AndroidCXX::java_lang_String format(int const& arg0);
+	virtual AndroidCXX::java_lang_String * format(int const& arg0) ;
+
+protected:
+	android_widget_NumberPicker_Formatter();
+
 };	
 
 } // namespace

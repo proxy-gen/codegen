@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,6 +8,9 @@
 //
 
 
+
+ 		 
+ 		 
  		 
  		 
  		 
@@ -24,8 +27,6 @@
  		 
  		 
 	
- 		 
- 		 
 
 
 
@@ -54,15 +55,16 @@
 
 #include <android_view_View.hpp>
 
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
 #include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_os_Bundle.hpp>
 
 #include <android_view_ViewGroup.hpp>
 
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
 #include <android_view_accessibility_AccessibilityNodeProvider.hpp>
 
-#include <android_os_Bundle.hpp>
 
 #include <vector>
 #include <map>
@@ -82,37 +84,40 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_view_accessibility_AccessibilityEvent;
-
-class android_view_ViewGroup;
-
 class android_view_accessibility_AccessibilityNodeInfo;
 
-class android_view_accessibility_AccessibilityNodeProvider;
+class android_view_accessibility_AccessibilityEvent;
 
 class android_os_Bundle;
 
-class android_view_View_AccessibilityDelegate
+class android_view_ViewGroup;
+
+class android_view_accessibility_AccessibilityNodeProvider;
+
+class android_view_View_AccessibilityDelegate 
 {
 public:
 
+	// Public ConstrucXXX
+	android_view_View_AccessibilityDelegate();
 	android_view_View_AccessibilityDelegate(const android_view_View_AccessibilityDelegate& cc);
 	android_view_View_AccessibilityDelegate(Proxy proxy);
-	// Public Constructors
-	android_view_View_AccessibilityDelegate();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_AccessibilityDelegate();
 	// Functions
-	 bool dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1);
-	 bool onRequestSendAccessibilityEvent(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg2);
-	 void sendAccessibilityEvent(AndroidCXX::android_view_View const& arg0,int const& arg1);
-	 void sendAccessibilityEventUnchecked(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1);
-	 void onPopulateAccessibilityEvent(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg1);
-	 AndroidCXX::android_view_accessibility_AccessibilityNodeProvider getAccessibilityNodeProvider(AndroidCXX::android_view_View const& arg0);
-	 bool performAccessibilityAction(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg1) ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1) ;
+	virtual bool  performAccessibilityAction(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
+	virtual bool  onRequestSendAccessibilityEvent(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg2) ;
+	virtual void  sendAccessibilityEvent(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
+	virtual void  sendAccessibilityEventUnchecked(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1) ;
+	virtual bool  dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1) ;
+	virtual void  onPopulateAccessibilityEvent(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1) ;
+	virtual AndroidCXX::android_view_accessibility_AccessibilityNodeProvider * getAccessibilityNodeProvider(AndroidCXX::android_view_View const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

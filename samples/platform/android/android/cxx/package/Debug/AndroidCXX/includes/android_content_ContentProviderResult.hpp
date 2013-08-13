@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -40,6 +41,9 @@
 
 #include <android_net_Uri.hpp>
 
+
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -62,23 +66,26 @@ class android_os_Parcel;
 
 class android_net_Uri;
 
-class android_content_ContentProviderResult
+class android_content_ContentProviderResult : public android_os_Parcelable
 {
 public:
 
-	android_content_ContentProviderResult(const android_content_ContentProviderResult& cc);
-	android_content_ContentProviderResult(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_content_ContentProviderResult(AndroidCXX::android_net_Uri const& arg0);
 	android_content_ContentProviderResult(int const& arg0);
 	android_content_ContentProviderResult(AndroidCXX::android_os_Parcel const& arg0);
+	android_content_ContentProviderResult(const android_content_ContentProviderResult& cc);
+	android_content_ContentProviderResult(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContentProviderResult();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
 };	
 
 } // namespace

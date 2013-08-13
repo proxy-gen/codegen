@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -31,6 +32,9 @@
 //
 
 
+
+#include <java_io_Serializable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -47,24 +51,26 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Number
+class java_lang_Number : public java_io_Serializable
 {
 public:
 
 	java_lang_Number(const java_lang_Number& cc);
 	java_lang_Number(Proxy proxy);
-	// Public Constructors
-	java_lang_Number();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Number();
 	// Functions
-	 byte byteValue();
-	 short shortValue();
-	 int intValue();
-	 long longValue();
-	 float floatValue();
-	 double doubleValue();
+	virtual byte  byteValue() ;
+	virtual short  shortValue() ;
+	virtual int  intValue() ;
+	virtual long  longValue() ;
+	virtual float  floatValue() ;
+	virtual double  doubleValue() ;
+
+protected:
+	java_lang_Number();
+
 };	
 
 } // namespace

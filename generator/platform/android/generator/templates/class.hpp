@@ -14,7 +14,7 @@
 ##
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -23,8 +23,10 @@
 #from Utils import Utils
 #set $SPACE = " "
 #set $COMMA = ","
+#set $COLON = ":" 
 #set $CONST = "const"
 #set $REF = "&"
+#set $PUBLIC = "public"
 #set $config_module = $CONFIG.config_module
 #set $config_data = $config_module.config_data
 #set $package = $config_data['package']
@@ -33,6 +35,37 @@
 #set $entity_class_name = $CONFIG.entity_class_name
 #set $class_name = $CONFIG.class_name
 #set $entity_head_file_name = $CONFIG.entity_head_file_name
+#set $entity_marker = $entity_class_info['isinterface'] or $entity_class_info['isabstract'] or $entity_class_info['typename'] == 'java_lang_Object' 
+#set $entity_virtual = $entity_marker or '_callback' in $entity_class_config['tags']
+#set $superclass_typeinfos = $entity_class_info['superclasses'] if 'superclasses' in $entity_class_info else None
+
+#set $superclassStr = ""
+#set $superclassCCStr = ""
+#set $superclassProxyStr = "" 
+#set $superclassDefaultStr = ""  
+#if $superclass_typeinfos is not None
+#set $superclassIdx = 0
+#set $superclassStr = $COLON + $SPACE
+#set $superclassCCStr = $COLON
+#set $superclassProxyStr = $COLON
+#set $superclassDefaultStr = $COLON
+#for $superclass_typeinfo in $superclass_typeinfos
+#set $superclass_marker = $superclass_typeinfo['isinterface'] or $superclass_typeinfo['isabstract'] or $superclass_typeinfo['typename'] == 'java_lang_Object'
+#if $superclass_marker
+#if $superclassIdx > 0
+#set $superclassStr = $superclassStr + COMMA
+#set $superclassCCStr = $superclassCCStr + COMMA
+#set $superclassProxyStr = $superclassProxyStr + COMMA
+#set $superclassDefaultStr = $superclassDefaultStr + COMMA
+#end if
+#set $superclassStr = $superclassStr + $PUBLIC + SPACE + $superclass_typeinfo['typename']
+#set $superclassCCStr = $superclassCCStr + SPACE + $superclass_typeinfo['typename'] + '(cc)'
+#set $superclassProxyStr = $superclassProxyStr + SPACE + $superclass_typeinfo['typename'] + '(proxy)'
+#set $superclassDefaultStr = $superclassDefaultStr + SPACE + $superclass_typeinfo['typename'] + '()' 
+#end if
+#set $superclassIdx = $superclassIdx + 1
+#end for
+#end if
 
 #set $functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_proxy'],function_xtags=None,function_name=None)	
 
@@ -42,21 +75,22 @@
 #set $params = $function['params']
 #set $param_idx = 0
 #set $proxied_typeinfo_list = list()
-#set $modifier_str = None
+#set $modifier_prefix = None
 #if '_static' in $function['tags']
-#if $modifier_str
-#set $modifier_str = $modifier_str + SPACE + 'static' 
+#if $modifier_prefix
+#set $modifier_prefix = $modifier_prefix + SPACE + 'static' 
 #else
-#set $modifier_str = 'static'  
+#set $modifier_prefix = 'static'  
 #end if
 #end if
-#if '_callback' in $function['tags']
-#if $modifier_str
-#set $modifier_str = $modifier_str + SPACE + 'virtual' 
+#if not '_static' in $function['tags']
+#if $modifier_prefix
+#set $modifier_prefix = $modifier_prefix + SPACE + 'virtual' 
 #else
-#set $modifier_str = 'virtual'  
+#set $modifier_prefix = 'virtual'  
 #end if
 #end if
+#set modifier_postfix = None
 #set $child_type_stack = list()
 #for $param in $params
  	#set $typeinfo = $param['deriveddata']['targetdata']['typeinfo']
@@ -88,8 +122,14 @@
 	#set $jnidata = $retrn['deriveddata']['jnidata']
  	#if 'isproxied' in $typeinfo
  	#set $function['retrn_type'] = $typeinfo['namespace'] + '::' + $typeinfo['typename']
+ 	#if $typeinfo['isenum'] == True
+ 	#set $function['retrn_type_modifier'] = ''
+ 	#else
+ 	#set $function['retrn_type_modifier'] = '*'
+ 	#end if
  	#else
  	#set $function['retrn_type'] = $typeinfo['typename']
+ 	#set $function['retrn_type_modifier'] = ''
  	#end if
  	#set $function['jni_retrn_type'] = $jnidata['jnitypename']
  	#if 'isproxied' in $typeinfo
@@ -111,7 +151,8 @@
  	#end if
 #end while
 #set $function['proxied_typeinfo_list'] = $proxied_typeinfo_list
-#set $function['modifier_str'] = $modifier_str
+#set $function['modifier_prefix'] = $modifier_prefix
+#set $function['modifier_postfix'] = $modifier_postfix
 #end for
 
 #set $constructors = $config_module.list_constructors(class_tags=None,class_xtags=None,class_name=$class_name,constructor_tags=['_proxy'],constructor_xtags=None,constructor_name=None)	
@@ -154,7 +195,6 @@
 #set $constructor['proxied_typeinfo_list'] = $proxied_typeinfo_list
 #end for
 
-#set $no_arg_constructor = True if '_callback' in $entity_class_config['tags'] else False
 #set $no_copy_constructor = True if $entity_class_info['no_copy_constructor'] else False
 
 #set $proxied_typeinfos = list()
@@ -178,13 +218,33 @@ $proxied_typeinfos.extend(constructor['proxied_typeinfo_list'])
 #set $included_types = list()
 #for $proxied_typeinfo in $proxied_typeinfos
 #set $proxied_type = $proxied_typeinfo['typename']
+#if $entity_head_file_name != $proxied_typeinfo['filename']
+#if $proxied_typeinfo['isenum'] == True
 #if $proxied_typeinfo['filename'] not in $included_types
 $included_types.append($proxied_typeinfo['filename'])
-#if $entity_head_file_name != $proxied_typeinfo['filename']
+\#include <$proxied_typeinfo['filename']>
+#end if
+#else
+#if not $entity_virtual
+#if $proxied_typeinfo['filename'] not in $included_types
+$included_types.append($proxied_typeinfo['filename'])
 \#include <$proxied_typeinfo['filename']>
 #end if
 #end if
+#end if
+#end if
 #end for
+
+#if $superclass_typeinfos is not None
+#for $superclass_typeinfo in $superclass_typeinfos
+#if $superclass_typeinfo['filename'] not in $included_types
+$included_types.append($superclass_typeinfo['filename'])
+#if $entity_head_file_name != $superclass_typeinfo['filename']
+\#include <$superclass_typeinfo['filename']>
+#end if
+#end if
+#end for
+#end if
 
 \#include <vector>
 \#include <map>
@@ -209,16 +269,41 @@ $forwarded_types.append(proxied_type)
 #set $proxied_namespace = $proxied_typeinfo['namespace']
 #if $proxied_typeinfo['isenum'] == False
 #if $proxied_namespace == $entity_class_info['namespace']
+#if $proxied_type != $entity_class_name
+#set $skip_class = False
+#if $superclass_typeinfos is not None
+#for $superclass_typeinfo in $superclass_typeinfos
+	#set $superclass_marker = $superclass_typeinfo['isinterface'] or $superclass_typeinfo['isabstract'] or $superclass_typeinfo['typename'] == 'java_lang_Object'
+	#if $superclass_marker
+	#set $superclass_type = $superclass_typeinfo['typename']
+	#if $superclass_type == $proxied_type
+		#set $skip_class = True
+		#break
+	#end if
+	#end if
+#end for
+#end if
+#if not $skip_class
 class $proxied_type;
+#end if
+#end if
 #end if
 #end if
 #end if
 #end for
 
-class $entity_class_name
+class $entity_class_name $superclassStr
 {
 public:
 
+	#if not $entity_virtual
+	#if not '_static' in $entity_class_config['tags']
+	// Public ConstrucXXX
+	#for $constructor in $constructors
+	${entity_class_name}($constructor['param_str']);
+	#end for
+	#end if
+	#end if
 	#if not '_static' in $entity_class_config['tags']
 	#if $no_copy_constructor
 	${entity_class_name}(const ${entity_class_name}& cc);
@@ -228,23 +313,24 @@ public:
 	${entity_class_name}(Proxy proxy);
 	#end if
 	#if not '_static' in $entity_class_config['tags']
-	// Public Constructors
-	#for $constructor in $constructors
-	${entity_class_name}($constructor['param_str']);
-	#end for
-	#if $no_arg_constructor
-	${entity_class_name}();
-	#end if
-	#end if
 	Proxy proxy() const;	
+	#end if
 	#if not '_static' in $entity_class_config['tags']
 	// Default Destructor
 	virtual ~${entity_class_name}();
 	#end if	
 	// Functions
 	#for $function in $functions
-	$function['modifier_str'] $function['retrn_type'] $Utils.to_safe_cxx_name(function['name'])($function['param_str']);
+	$function['modifier_prefix'] $function['retrn_type'] $function['retrn_type_modifier'] $Utils.to_safe_cxx_name(function['name'])($function['param_str']) $function['modifier_postfix'];
 	#end for
+
+protected:
+	#if $entity_virtual
+	#if not '_static' in $entity_class_config['tags']
+	${entity_class_name}();
+	#end if
+	#end if
+
 };	
 
 } // namespace

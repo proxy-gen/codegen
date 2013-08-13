@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,23 +8,24 @@
 //
 
 
+
 	
  		 
 	
 	
 	
- 		 
 	
 	
  		 
 	
-	
+ 		 
 	
  		 
 	
 	
- 		 
 	
+	
+ 		 
 	
 	
  		 
@@ -63,16 +64,6 @@
 //
 
 
-#include <java_lang_Object.hpp>
-
-#include <java_lang_CharSequence.hpp>
-
-
-#include <android_graphics_drawable_Drawable.hpp>
-
-#include <android_view_View.hpp>
-
-#include <android_app_ActionBar_TabListener.hpp>
 
 #include <vector>
 #include <map>
@@ -94,43 +85,44 @@ class java_lang_Object;
 
 class java_lang_CharSequence;
 
-class android_app_ActionBar_Tab;
-
-class android_graphics_drawable_Drawable;
 
 class android_view_View;
 
+class android_graphics_drawable_Drawable;
+
 class android_app_ActionBar_TabListener;
 
-class android_app_ActionBar_Tab
+class android_app_ActionBar_Tab 
 {
 public:
 
 	android_app_ActionBar_Tab(const android_app_ActionBar_Tab& cc);
 	android_app_ActionBar_Tab(Proxy proxy);
-	// Public Constructors
-	android_app_ActionBar_Tab();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_ActionBar_Tab();
 	// Functions
-	 AndroidCXX::java_lang_Object getTag();
-	 int getPosition();
-	 AndroidCXX::android_app_ActionBar_Tab setText(AndroidCXX::java_lang_CharSequence const& arg0);
-	 AndroidCXX::android_app_ActionBar_Tab setText(int const& arg0);
-	 AndroidCXX::java_lang_CharSequence getText();
-	 AndroidCXX::android_app_ActionBar_Tab setTag(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_CharSequence getContentDescription();
-	 AndroidCXX::android_app_ActionBar_Tab setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0);
-	 AndroidCXX::android_app_ActionBar_Tab setContentDescription(int const& arg0);
-	 AndroidCXX::android_app_ActionBar_Tab setIcon(int const& arg0);
-	 AndroidCXX::android_app_ActionBar_Tab setIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
-	 AndroidCXX::android_graphics_drawable_Drawable getIcon();
-	 AndroidCXX::android_app_ActionBar_Tab setCustomView(AndroidCXX::android_view_View const& arg0);
-	 AndroidCXX::android_app_ActionBar_Tab setCustomView(int const& arg0);
-	 AndroidCXX::android_view_View getCustomView();
-	 AndroidCXX::android_app_ActionBar_Tab setTabListener(AndroidCXX::android_app_ActionBar_TabListener const& arg0);
-	 void select();
+	virtual AndroidCXX::java_lang_Object * getTag() ;
+	virtual int  getPosition() ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setText(int const& arg0) ;
+	virtual AndroidCXX::java_lang_CharSequence * getText() ;
+	virtual AndroidCXX::java_lang_CharSequence * getContentDescription() ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setContentDescription(int const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setTag(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setCustomView(AndroidCXX::android_view_View const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setCustomView(int const& arg0) ;
+	virtual AndroidCXX::android_view_View * getCustomView() ;
+	virtual void  select() ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setIcon(int const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getIcon() ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setTabListener(AndroidCXX::android_app_ActionBar_TabListener const& arg0) ;
+
+protected:
+	android_app_ActionBar_Tab();
+
 };	
 
 } // namespace

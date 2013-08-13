@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,6 @@
 //
 
 
-#include <android_view_View.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +46,21 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_view_View_OnFocusChangeListener
+class android_view_View_OnFocusChangeListener 
 {
 public:
 
 	android_view_View_OnFocusChangeListener(const android_view_View_OnFocusChangeListener& cc);
 	android_view_View_OnFocusChangeListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnFocusChangeListener();
 	// Functions
-	 void onFocusChange(AndroidCXX::android_view_View const& arg0,bool const& arg1);
+	virtual void  onFocusChange(AndroidCXX::android_view_View const& arg0,bool const& arg1) ;
+
+protected:
+	android_view_View_OnFocusChangeListener();
+
 };	
 
 } // namespace

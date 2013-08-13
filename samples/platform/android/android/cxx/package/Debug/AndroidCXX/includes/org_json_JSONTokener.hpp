@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -57,6 +58,7 @@
 
 #include <org_json_JSONException.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -79,33 +81,36 @@ class java_lang_Object;
 
 class org_json_JSONException;
 
-class org_json_JSONTokener
+class org_json_JSONTokener 
 {
 public:
 
+	// Public ConstrucXXX
+	org_json_JSONTokener(AndroidCXX::java_lang_String const& arg0);
 	org_json_JSONTokener(const org_json_JSONTokener& cc);
 	org_json_JSONTokener(Proxy proxy);
-	// Public Constructors
-	org_json_JSONTokener(AndroidCXX::java_lang_String const& arg0);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~org_json_JSONTokener();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 char next(char const& arg0);
-	 char next();
-	 AndroidCXX::java_lang_String next(int const& arg0);
-	 AndroidCXX::java_lang_Object nextValue();
-	 AndroidCXX::java_lang_String nextString(char const& arg0);
-	 AndroidCXX::org_json_JSONException syntaxError(AndroidCXX::java_lang_String const& arg0);
-	 bool more();
-	 char nextClean();
-	 AndroidCXX::java_lang_String nextTo(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String nextTo(char const& arg0);
-	 void skipPast(AndroidCXX::java_lang_String const& arg0);
-	 char skipTo(char const& arg0);
-	 void back();
-	static int dehexchar(char const& arg0);
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual char  next(char const& arg0) ;
+	virtual char  next() ;
+	virtual AndroidCXX::java_lang_String * next(int const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * nextValue() ;
+	virtual AndroidCXX::java_lang_String * nextString(char const& arg0) ;
+	virtual AndroidCXX::org_json_JSONException * syntaxError(AndroidCXX::java_lang_String const& arg0) ;
+	virtual bool  more() ;
+	virtual char  nextClean() ;
+	virtual AndroidCXX::java_lang_String * nextTo(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * nextTo(char const& arg0) ;
+	virtual void  skipPast(AndroidCXX::java_lang_String const& arg0) ;
+	virtual char  skipTo(char const& arg0) ;
+	virtual void  back() ;
+	static int  dehexchar(char const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

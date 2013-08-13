@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,15 +8,16 @@
 //
 
 
+
 	
  		 
+	
+	
 	
 	
 	
  	
  		 
-	
-	
 	
 	
  		 
@@ -77,6 +78,7 @@
 
 #include <android_content_res_ColorStateList.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -105,45 +107,48 @@ class android_graphics_drawable_Drawable;
 
 class android_content_res_ColorStateList;
 
-class android_content_res_TypedArray
+class android_content_res_TypedArray 
 {
 public:
 
+	// Public ConstrucXXX
 	android_content_res_TypedArray(const android_content_res_TypedArray& cc);
 	android_content_res_TypedArray(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_TypedArray();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 bool getBoolean(int const& arg0,bool const& arg1);
-	 int getInt(int const& arg0,int const& arg1);
-	 float getFloat(int const& arg0,float const& arg1);
-	 int length();
-	 bool getValue(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1);
-	 AndroidCXX::android_content_res_Resources getResources();
-	 int getInteger(int const& arg0,int const& arg1);
-	 AndroidCXX::java_lang_String getString(int const& arg0);
-	 int getIndex(int const& arg0);
-	 void recycle();
-	 AndroidCXX::java_lang_CharSequence getText(int const& arg0);
-	 std::vector<java_lang_CharSequence> getTextArray(int const& arg0);
-	 float getDimension(int const& arg0,float const& arg1);
-	 int getDimensionPixelOffset(int const& arg0,int const& arg1);
-	 int getDimensionPixelSize(int const& arg0,int const& arg1);
-	 float getFraction(int const& arg0,int const& arg1,int const& arg2,float const& arg3);
-	 AndroidCXX::android_graphics_drawable_Drawable getDrawable(int const& arg0);
-	 int getColor(int const& arg0,int const& arg1);
-	 AndroidCXX::android_content_res_ColorStateList getColorStateList(int const& arg0);
-	 int getResourceId(int const& arg0,int const& arg1);
-	 AndroidCXX::java_lang_String getPositionDescription();
-	 int getIndexCount();
-	 AndroidCXX::java_lang_String getNonResourceString(int const& arg0);
-	 int getLayoutDimension(int const& arg0,int const& arg1);
-	 int getLayoutDimension(int const& arg0,AndroidCXX::java_lang_String const& arg1);
-	 bool hasValue(int const& arg0);
-	 AndroidCXX::android_util_TypedValue peekValue(int const& arg0);
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual bool  getBoolean(int const& arg0,bool const& arg1) ;
+	virtual int  getInt(int const& arg0,int const& arg1) ;
+	virtual float  getFloat(int const& arg0,float const& arg1) ;
+	virtual int  length() ;
+	virtual bool  getValue(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1) ;
+	virtual AndroidCXX::android_content_res_Resources * getResources() ;
+	virtual int  getInteger(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::java_lang_String * getString(int const& arg0) ;
+	virtual int  getIndex(int const& arg0) ;
+	virtual void  recycle() ;
+	virtual AndroidCXX::java_lang_CharSequence * getText(int const& arg0) ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getDrawable(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getPositionDescription() ;
+	virtual std::vector<java_lang_CharSequence>  getTextArray(int const& arg0) ;
+	virtual float  getDimension(int const& arg0,float const& arg1) ;
+	virtual int  getDimensionPixelOffset(int const& arg0,int const& arg1) ;
+	virtual int  getDimensionPixelSize(int const& arg0,int const& arg1) ;
+	virtual float  getFraction(int const& arg0,int const& arg1,int const& arg2,float const& arg3) ;
+	virtual int  getColor(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::android_content_res_ColorStateList * getColorStateList(int const& arg0) ;
+	virtual int  getIndexCount() ;
+	virtual AndroidCXX::java_lang_String * getNonResourceString(int const& arg0) ;
+	virtual int  getLayoutDimension(int const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual int  getLayoutDimension(int const& arg0,int const& arg1) ;
+	virtual int  getResourceId(int const& arg0,int const& arg1) ;
+	virtual bool  hasValue(int const& arg0) ;
+	virtual AndroidCXX::android_util_TypedValue * peekValue(int const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

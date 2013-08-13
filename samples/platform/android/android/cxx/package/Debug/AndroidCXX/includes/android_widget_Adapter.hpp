@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,12 +8,13 @@
 //
 
 
+
  		 
  		 
 	
+ 		 
+ 		 
 	
- 		 
- 		 
 
 
 
@@ -40,13 +41,6 @@
 //
 
 
-#include <android_view_View.hpp>
-
-#include <android_view_ViewGroup.hpp>
-
-#include <java_lang_Object.hpp>
-
-#include <android_database_DataSetObserver.hpp>
 
 #include <vector>
 #include <map>
@@ -68,31 +62,34 @@ class android_view_View;
 
 class android_view_ViewGroup;
 
-class java_lang_Object;
-
 class android_database_DataSetObserver;
 
-class android_widget_Adapter
+class java_lang_Object;
+
+class android_widget_Adapter 
 {
 public:
 
 	android_widget_Adapter(const android_widget_Adapter& cc);
 	android_widget_Adapter(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Adapter();
 	// Functions
-	 bool isEmpty();
-	 AndroidCXX::android_view_View getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
-	 AndroidCXX::java_lang_Object getItem(int const& arg0);
-	 long getItemId(int const& arg0);
-	 int getCount();
-	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
-	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
-	 bool hasStableIds();
-	 int getItemViewType(int const& arg0);
-	 int getViewTypeCount();
+	virtual bool  isEmpty() ;
+	virtual AndroidCXX::android_view_View * getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
+	virtual int  getCount() ;
+	virtual void  registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
+	virtual void  unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * getItem(int const& arg0) ;
+	virtual long  getItemId(int const& arg0) ;
+	virtual bool  hasStableIds() ;
+	virtual int  getItemViewType(int const& arg0) ;
+	virtual int  getViewTypeCount() ;
+
+protected:
+	android_widget_Adapter();
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -48,10 +49,10 @@
 
 #include <android_util_Printer.hpp>
 
-
 #include <android_os_MessageQueue.hpp>
 
 #include <java_lang_Thread.hpp>
+
 
 #include <vector>
 #include <map>
@@ -73,35 +74,37 @@ class java_lang_String;
 
 class android_util_Printer;
 
-class android_os_Looper;
 
 class android_os_MessageQueue;
 
 class java_lang_Thread;
 
-class android_os_Looper
+class android_os_Looper 
 {
 public:
 
+	// Public ConstrucXXX
 	android_os_Looper(const android_os_Looper& cc);
 	android_os_Looper(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Looper();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	static void loop();
-	 void dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1);
-	static AndroidCXX::android_os_Looper myLooper();
-	static AndroidCXX::android_os_Looper getMainLooper();
-	static void prepare();
-	static void prepareMainLooper();
-	 void setMessageLogging(AndroidCXX::android_util_Printer const& arg0);
-	static AndroidCXX::android_os_MessageQueue myQueue();
-	 void quit();
-	 void quitSafely();
-	 AndroidCXX::java_lang_Thread getThread();
+	virtual AndroidCXX::java_lang_String * toString() ;
+	static void  loop() ;
+	virtual void  dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	static AndroidCXX::android_os_Looper * myLooper() ;
+	static AndroidCXX::android_os_Looper * getMainLooper() ;
+	static void  prepare() ;
+	static void  prepareMainLooper() ;
+	virtual void  setMessageLogging(AndroidCXX::android_util_Printer const& arg0) ;
+	static AndroidCXX::android_os_MessageQueue * myQueue() ;
+	virtual void  quit() ;
+	virtual void  quitSafely() ;
+	virtual AndroidCXX::java_lang_Thread * getThread() ;
+
+protected:
+
 };	
 
 } // namespace

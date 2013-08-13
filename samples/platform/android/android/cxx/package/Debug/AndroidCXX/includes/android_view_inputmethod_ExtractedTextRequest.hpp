@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -30,6 +31,9 @@
 
 #include <android_os_Parcel.hpp>
 
+
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -48,20 +52,23 @@ namespace AndroidCXX {
 
 class android_os_Parcel;
 
-class android_view_inputmethod_ExtractedTextRequest
+class android_view_inputmethod_ExtractedTextRequest : public android_os_Parcelable
 {
 public:
 
+	// Public ConstrucXXX
+	android_view_inputmethod_ExtractedTextRequest();
 	android_view_inputmethod_ExtractedTextRequest(const android_view_inputmethod_ExtractedTextRequest& cc);
 	android_view_inputmethod_ExtractedTextRequest(Proxy proxy);
-	// Public Constructors
-	android_view_inputmethod_ExtractedTextRequest();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_ExtractedTextRequest();
 	// Functions
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
 };	
 
 } // namespace

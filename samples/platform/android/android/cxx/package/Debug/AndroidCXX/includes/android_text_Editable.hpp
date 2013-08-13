@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -54,10 +55,12 @@
 //
 
 
-#include <java_lang_CharSequence.hpp>
 
+#include <android_text_GetChars.hpp>
 
-#include <android_text_InputFilter.hpp>
+#include <android_text_Spannable.hpp>
+
+#include <java_lang_Appendable.hpp>
 
 #include <vector>
 #include <map>
@@ -77,33 +80,35 @@ namespace AndroidCXX {
 
 class java_lang_CharSequence;
 
-class android_text_Editable;
 
 class android_text_InputFilter;
 
-class android_text_Editable
+class android_text_Editable : public android_text_GetChars,public android_text_Spannable,public java_lang_Appendable
 {
 public:
 
 	android_text_Editable(const android_text_Editable& cc);
 	android_text_Editable(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_Editable();
 	// Functions
-	 AndroidCXX::android_text_Editable append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2);
-	 AndroidCXX::android_text_Editable append(AndroidCXX::java_lang_CharSequence const& arg0);
-	 AndroidCXX::android_text_Editable append(char const& arg0);
-	 void clear();
-	 AndroidCXX::android_text_Editable replace(int const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,int const& arg3,int const& arg4);
-	 AndroidCXX::android_text_Editable replace(int const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2);
-	 AndroidCXX::android_text_Editable _delete(int const& arg0,int const& arg1);
-	 AndroidCXX::android_text_Editable insert(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1);
-	 AndroidCXX::android_text_Editable insert(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2,int const& arg3);
-	 void clearSpans();
-	 void setFilters(std::vector<android_text_InputFilter> const& arg0);
-	 std::vector<android_text_InputFilter> getFilters();
+	virtual AndroidCXX::android_text_Editable * append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) ;
+	virtual AndroidCXX::android_text_Editable * append(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual AndroidCXX::android_text_Editable * append(char const& arg0) ;
+	virtual void  clear() ;
+	virtual AndroidCXX::android_text_Editable * replace(int const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,int const& arg3,int const& arg4) ;
+	virtual AndroidCXX::android_text_Editable * replace(int const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2) ;
+	virtual AndroidCXX::android_text_Editable * _delete(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::android_text_Editable * insert(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) ;
+	virtual AndroidCXX::android_text_Editable * insert(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  setFilters(std::vector<android_text_InputFilter> const& arg0) ;
+	virtual std::vector<android_text_InputFilter>  getFilters() ;
+	virtual void  clearSpans() ;
+
+protected:
+	android_text_Editable();
+
 };	
 
 } // namespace

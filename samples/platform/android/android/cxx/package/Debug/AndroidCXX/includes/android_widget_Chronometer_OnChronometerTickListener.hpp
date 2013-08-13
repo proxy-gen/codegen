@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,6 @@
 //
 
 
-#include <android_widget_Chronometer.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +46,21 @@ namespace AndroidCXX {
 
 class android_widget_Chronometer;
 
-class android_widget_Chronometer_OnChronometerTickListener
+class android_widget_Chronometer_OnChronometerTickListener 
 {
 public:
 
 	android_widget_Chronometer_OnChronometerTickListener(const android_widget_Chronometer_OnChronometerTickListener& cc);
 	android_widget_Chronometer_OnChronometerTickListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Chronometer_OnChronometerTickListener();
 	// Functions
-	 void onChronometerTick(AndroidCXX::android_widget_Chronometer const& arg0);
+	virtual void  onChronometerTick(AndroidCXX::android_widget_Chronometer const& arg0) ;
+
+protected:
+	android_widget_Chronometer_OnChronometerTickListener();
+
 };	
 
 } // namespace

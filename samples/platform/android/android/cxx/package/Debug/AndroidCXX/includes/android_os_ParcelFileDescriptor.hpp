@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -62,7 +63,6 @@
 
 #include <java_io_File.hpp>
 
-
 #include <java_io_FileDescriptor.hpp>
 
 #include <android_os_Parcel.hpp>
@@ -70,6 +70,11 @@
 #include <java_net_Socket.hpp>
 
 #include <java_net_DatagramSocket.hpp>
+
+
+#include <android_os_Parcelable.hpp>
+
+#include <java_io_Closeable.hpp>
 
 #include <vector>
 #include <map>
@@ -91,7 +96,6 @@ class java_lang_String;
 
 class java_io_File;
 
-class android_os_ParcelFileDescriptor;
 
 class java_io_FileDescriptor;
 
@@ -101,33 +105,36 @@ class java_net_Socket;
 
 class java_net_DatagramSocket;
 
-class android_os_ParcelFileDescriptor
+class android_os_ParcelFileDescriptor : public android_os_Parcelable,public java_io_Closeable
 {
 public:
 
-	android_os_ParcelFileDescriptor(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_os_ParcelFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor const& arg0);
+	android_os_ParcelFileDescriptor(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_ParcelFileDescriptor();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 void close();
-	static AndroidCXX::android_os_ParcelFileDescriptor open(AndroidCXX::java_io_File const& arg0,int const& arg1);
-	static AndroidCXX::android_os_ParcelFileDescriptor dup(AndroidCXX::java_io_FileDescriptor const& arg0);
-	 AndroidCXX::android_os_ParcelFileDescriptor dup();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	static AndroidCXX::android_os_ParcelFileDescriptor fromFd(int const& arg0);
-	static AndroidCXX::android_os_ParcelFileDescriptor adoptFd(int const& arg0);
-	static AndroidCXX::android_os_ParcelFileDescriptor fromSocket(AndroidCXX::java_net_Socket const& arg0);
-	static AndroidCXX::android_os_ParcelFileDescriptor fromDatagramSocket(AndroidCXX::java_net_DatagramSocket const& arg0);
-	static std::vector<android_os_ParcelFileDescriptor> createPipe();
-	 AndroidCXX::java_io_FileDescriptor getFileDescriptor();
-	 long getStatSize();
-	 int getFd();
-	 int detachFd();
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  close() ;
+	static AndroidCXX::android_os_ParcelFileDescriptor * open(AndroidCXX::java_io_File const& arg0,int const& arg1) ;
+	static AndroidCXX::android_os_ParcelFileDescriptor * dup(AndroidCXX::java_io_FileDescriptor const& arg0) ;
+	virtual AndroidCXX::android_os_ParcelFileDescriptor * dup() ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	static AndroidCXX::android_os_ParcelFileDescriptor * fromFd(int const& arg0) ;
+	static AndroidCXX::android_os_ParcelFileDescriptor * adoptFd(int const& arg0) ;
+	static AndroidCXX::android_os_ParcelFileDescriptor * fromSocket(AndroidCXX::java_net_Socket const& arg0) ;
+	static AndroidCXX::android_os_ParcelFileDescriptor * fromDatagramSocket(AndroidCXX::java_net_DatagramSocket const& arg0) ;
+	static std::vector<android_os_ParcelFileDescriptor>  createPipe() ;
+	virtual AndroidCXX::java_io_FileDescriptor * getFileDescriptor() ;
+	virtual long  getStatSize() ;
+	virtual int  getFd() ;
+	virtual int  detachFd() ;
+
+protected:
+
 };	
 
 } // namespace

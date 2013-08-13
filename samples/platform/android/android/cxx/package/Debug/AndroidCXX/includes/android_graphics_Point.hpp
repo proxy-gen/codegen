@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -49,6 +50,8 @@
 #include <android_os_Parcel.hpp>
 
 
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -71,31 +74,33 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_graphics_Point;
 
-class android_graphics_Point
+class android_graphics_Point : public android_os_Parcelable
 {
 public:
 
-	android_graphics_Point(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_graphics_Point();
 	android_graphics_Point(int const& arg0,int const& arg1);
 	android_graphics_Point(AndroidCXX::android_graphics_Point const& arg0);
+	android_graphics_Point(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Point();
 	// Functions
-	 bool equals(int const& arg0,int const& arg1);
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 void offset(int const& arg0,int const& arg1);
-	 void set(int const& arg0,int const& arg1);
-	 void negate();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 void readFromParcel(AndroidCXX::android_os_Parcel const& arg0);
+	virtual bool  equals(int const& arg0,int const& arg1) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual int  hashCode() ;
+	virtual void  offset(int const& arg0,int const& arg1) ;
+	virtual void  set(int const& arg0,int const& arg1) ;
+	virtual void  negate() ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual void  readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

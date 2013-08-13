@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -38,6 +39,7 @@
 
 #include <android_content_Context.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -58,25 +60,28 @@ class android_graphics_Canvas;
 
 class android_content_Context;
 
-class android_widget_EdgeEffect
+class android_widget_EdgeEffect 
 {
 public:
 
+	// Public ConstrucXXX
+	android_widget_EdgeEffect(AndroidCXX::android_content_Context const& arg0);
 	android_widget_EdgeEffect(const android_widget_EdgeEffect& cc);
 	android_widget_EdgeEffect(Proxy proxy);
-	// Public Constructors
-	android_widget_EdgeEffect(AndroidCXX::android_content_Context const& arg0);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_EdgeEffect();
 	// Functions
-	 void setSize(int const& arg0,int const& arg1);
-	 void finish();
-	 bool draw(AndroidCXX::android_graphics_Canvas const& arg0);
-	 bool isFinished();
-	 void onPull(float const& arg0);
-	 void onRelease();
-	 void onAbsorb(int const& arg0);
+	virtual void  setSize(int const& arg0,int const& arg1) ;
+	virtual bool  draw(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual bool  isFinished() ;
+	virtual void  finish() ;
+	virtual void  onPull(float const& arg0) ;
+	virtual void  onRelease() ;
+	virtual void  onAbsorb(int const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

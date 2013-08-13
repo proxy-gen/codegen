@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  	
@@ -34,6 +35,7 @@
 
 #include <java_io_OutputStream.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -52,22 +54,25 @@ namespace AndroidCXX {
 
 class java_io_OutputStream;
 
-class java_io_BufferedOutputStream
+class java_io_BufferedOutputStream 
 {
 public:
 
-	java_io_BufferedOutputStream(const java_io_BufferedOutputStream& cc);
-	java_io_BufferedOutputStream(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream const& arg0);
 	java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream const& arg0,int const& arg1);
+	java_io_BufferedOutputStream(const java_io_BufferedOutputStream& cc);
+	java_io_BufferedOutputStream(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_BufferedOutputStream();
 	// Functions
-	 void write(int const& arg0);
-	 void write(std::vector<byte> const& arg0,int const& arg1,int const& arg2);
-	 void flush();
+	virtual void  write(int const& arg0) ;
+	virtual void  write(std::vector<byte> const& arg0,int const& arg1,int const& arg2) ;
+	virtual void  flush() ;
+
+protected:
+
 };	
 
 } // namespace

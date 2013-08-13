@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -27,6 +28,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -43,20 +45,23 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_Checkable
+class android_widget_Checkable 
 {
 public:
 
 	android_widget_Checkable(const android_widget_Checkable& cc);
 	android_widget_Checkable(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Checkable();
 	// Functions
-	 void setChecked(bool const& arg0);
-	 bool isChecked();
-	 void toggle();
+	virtual void  setChecked(bool const& arg0) ;
+	virtual bool  isChecked() ;
+	virtual void  toggle() ;
+
+protected:
+	android_widget_Checkable();
+
 };	
 
 } // namespace

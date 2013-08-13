@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -36,13 +37,14 @@
 //
 
 
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_content_Context.hpp>
 
 #include <android_util_AttributeSet.hpp>
+
 
 #include <vector>
 #include <map>
@@ -60,30 +62,33 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_accessibility_AccessibilityEvent;
-
 class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_view_accessibility_AccessibilityEvent;
 
 class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_ImageButton
+class android_widget_ImageButton 
 {
 public:
 
-	android_widget_ImageButton(const android_widget_ImageButton& cc);
-	android_widget_ImageButton(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_widget_ImageButton(AndroidCXX::android_content_Context const& arg0);
 	android_widget_ImageButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_ImageButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_ImageButton(const android_widget_ImageButton& cc);
+	android_widget_ImageButton(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ImageButton();
 	// Functions
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

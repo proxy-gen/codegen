@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -27,6 +28,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -43,19 +45,22 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_database_CharArrayBuffer
+class android_database_CharArrayBuffer 
 {
 public:
 
-	android_database_CharArrayBuffer(const android_database_CharArrayBuffer& cc);
-	android_database_CharArrayBuffer(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_database_CharArrayBuffer(int const& arg0);
 	android_database_CharArrayBuffer(std::vector<char> const& arg0);
+	android_database_CharArrayBuffer(const android_database_CharArrayBuffer& cc);
+	android_database_CharArrayBuffer(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_database_CharArrayBuffer();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

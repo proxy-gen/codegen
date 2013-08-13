@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -81,6 +82,11 @@
 
 #include <java_util_Map.hpp>
 
+
+#include <java_io_Serializable.hpp>
+
+#include <java_lang_Cloneable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -105,36 +111,38 @@ class java_util_Set;
 
 class java_util_Map_Entry;
 
-class java_util_Map;
 
-class java_util_HashMap
+class java_util_HashMap : public java_io_Serializable,public java_lang_Cloneable,public java_util_Map
 {
 public:
 
-	java_util_HashMap(const java_util_HashMap& cc);
-	java_util_HashMap(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	java_util_HashMap(int const& arg0,float const& arg1);
 	java_util_HashMap(int const& arg0);
 	java_util_HashMap();
 	java_util_HashMap(AndroidCXX::java_util_Map const& arg0);
+	java_util_HashMap(const java_util_HashMap& cc);
+	java_util_HashMap(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_HashMap();
 	// Functions
-	 AndroidCXX::java_lang_Object get(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_Object put(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 AndroidCXX::java_util_Collection values();
-	 AndroidCXX::java_lang_Object clone();
-	 void clear();
-	 bool isEmpty();
-	 int size();
-	 AndroidCXX::java_util_Set entrySet();
-	 void putAll(AndroidCXX::java_util_Map const& arg0);
-	 AndroidCXX::java_lang_Object remove(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_util_Set keySet();
-	 bool containsValue(AndroidCXX::java_lang_Object const& arg0);
-	 bool containsKey(AndroidCXX::java_lang_Object const& arg0);
+	virtual AndroidCXX::java_lang_Object * get(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * put(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual AndroidCXX::java_util_Collection * values() ;
+	virtual AndroidCXX::java_lang_Object * clone() ;
+	virtual void  clear() ;
+	virtual bool  isEmpty() ;
+	virtual int  size() ;
+	virtual AndroidCXX::java_util_Set * entrySet() ;
+	virtual void  putAll(AndroidCXX::java_util_Map const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * remove(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_util_Set * keySet() ;
+	virtual bool  containsValue(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual bool  containsKey(AndroidCXX::java_lang_Object const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

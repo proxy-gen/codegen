@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,9 +8,10 @@
 //
 
 
-	
+
 	
  		 
+	
  		 
 	
  		 
@@ -145,8 +146,6 @@
 //
 
 
-#include <java_lang_String.hpp>
-
 #include <android_webkit_WebSettings_TextSize.hpp>
 
 #include <android_webkit_WebSettings_ZoomDensity.hpp>
@@ -155,9 +154,8 @@
 
 #include <android_webkit_WebSettings_PluginState.hpp>
 
-#include <android_content_Context.hpp>
-
 #include <android_webkit_WebSettings_RenderPriority.hpp>
+
 
 #include <vector>
 #include <map>
@@ -175,8 +173,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
 
+class java_lang_String;
 
 
 
@@ -184,107 +182,110 @@ class java_lang_String;
 class android_content_Context;
 
 
-class android_webkit_WebSettings
+class android_webkit_WebSettings 
 {
 public:
 
 	android_webkit_WebSettings(const android_webkit_WebSettings& cc);
 	android_webkit_WebSettings(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebSettings();
 	// Functions
-	 AndroidCXX::java_lang_String getDatabasePath();
-	 android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize getTextSize();
-	 void setTextSize(android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize const& arg0);
-	 void setSupportZoom(bool const& arg0);
-	 bool supportZoom();
-	 void setMediaPlaybackRequiresUserGesture(bool const& arg0);
-	 bool getMediaPlaybackRequiresUserGesture();
-	 void setBuiltInZoomControls(bool const& arg0);
-	 bool getBuiltInZoomControls();
-	 void setDisplayZoomControls(bool const& arg0);
-	 bool getDisplayZoomControls();
-	 void setAllowFileAccess(bool const& arg0);
-	 bool getAllowFileAccess();
-	 void setAllowContentAccess(bool const& arg0);
-	 bool getAllowContentAccess();
-	 void setLoadWithOverviewMode(bool const& arg0);
-	 bool getLoadWithOverviewMode();
-	 void setEnableSmoothTransition(bool const& arg0);
-	 bool enableSmoothTransition();
-	 void setSaveFormData(bool const& arg0);
-	 bool getSaveFormData();
-	 void setSavePassword(bool const& arg0);
-	 bool getSavePassword();
-	 void setTextZoom(int const& arg0);
-	 int getTextZoom();
-	 void setDefaultZoom(android_webkit_WebSettings_ZoomDensity::android_webkit_WebSettings_ZoomDensity const& arg0);
-	 android_webkit_WebSettings_ZoomDensity::android_webkit_WebSettings_ZoomDensity getDefaultZoom();
-	 void setLightTouchEnabled(bool const& arg0);
-	 bool getLightTouchEnabled();
-	 void setUseWideViewPort(bool const& arg0);
-	 bool getUseWideViewPort();
-	 void setSupportMultipleWindows(bool const& arg0);
-	 bool supportMultipleWindows();
-	 void setLayoutAlgorithm(android_webkit_WebSettings_LayoutAlgorithm::android_webkit_WebSettings_LayoutAlgorithm const& arg0);
-	 android_webkit_WebSettings_LayoutAlgorithm::android_webkit_WebSettings_LayoutAlgorithm getLayoutAlgorithm();
-	 void setStandardFontFamily(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getStandardFontFamily();
-	 void setFixedFontFamily(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getFixedFontFamily();
-	 void setSansSerifFontFamily(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getSansSerifFontFamily();
-	 void setSerifFontFamily(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getSerifFontFamily();
-	 void setCursiveFontFamily(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getCursiveFontFamily();
-	 void setFantasyFontFamily(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getFantasyFontFamily();
-	 void setMinimumFontSize(int const& arg0);
-	 int getMinimumFontSize();
-	 void setMinimumLogicalFontSize(int const& arg0);
-	 int getMinimumLogicalFontSize();
-	 void setDefaultFontSize(int const& arg0);
-	 int getDefaultFontSize();
-	 void setDefaultFixedFontSize(int const& arg0);
-	 int getDefaultFixedFontSize();
-	 void setLoadsImagesAutomatically(bool const& arg0);
-	 bool getLoadsImagesAutomatically();
-	 void setBlockNetworkImage(bool const& arg0);
-	 bool getBlockNetworkImage();
-	 void setBlockNetworkLoads(bool const& arg0);
-	 bool getBlockNetworkLoads();
-	 void setJavaScriptEnabled(bool const& arg0);
-	 void setAllowUniversalAccessFromFileURLs(bool const& arg0);
-	 void setAllowFileAccessFromFileURLs(bool const& arg0);
-	 void setPluginState(android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState const& arg0);
-	 void setDatabasePath(AndroidCXX::java_lang_String const& arg0);
-	 void setGeolocationDatabasePath(AndroidCXX::java_lang_String const& arg0);
-	 void setAppCacheEnabled(bool const& arg0);
-	 void setAppCachePath(AndroidCXX::java_lang_String const& arg0);
-	 void setAppCacheMaxSize(long const& arg0);
-	 void setDatabaseEnabled(bool const& arg0);
-	 void setDomStorageEnabled(bool const& arg0);
-	 bool getDomStorageEnabled();
-	 bool getDatabaseEnabled();
-	 void setGeolocationEnabled(bool const& arg0);
-	 bool getJavaScriptEnabled();
-	 bool getAllowUniversalAccessFromFileURLs();
-	 bool getAllowFileAccessFromFileURLs();
-	 android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState getPluginState();
-	 void setJavaScriptCanOpenWindowsAutomatically(bool const& arg0);
-	 bool getJavaScriptCanOpenWindowsAutomatically();
-	 void setDefaultTextEncodingName(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getDefaultTextEncodingName();
-	 void setUserAgentString(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getUserAgentString();
-	static AndroidCXX::java_lang_String getDefaultUserAgent(AndroidCXX::android_content_Context const& arg0);
-	 void setNeedInitialFocus(bool const& arg0);
-	 void setRenderPriority(android_webkit_WebSettings_RenderPriority::android_webkit_WebSettings_RenderPriority const& arg0);
-	 void setCacheMode(int const& arg0);
-	 int getCacheMode();
+	virtual android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize  getTextSize() ;
+	virtual void  setTextSize(android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getDatabasePath() ;
+	virtual void  setSupportZoom(bool const& arg0) ;
+	virtual bool  supportZoom() ;
+	virtual void  setMediaPlaybackRequiresUserGesture(bool const& arg0) ;
+	virtual bool  getMediaPlaybackRequiresUserGesture() ;
+	virtual void  setBuiltInZoomControls(bool const& arg0) ;
+	virtual bool  getBuiltInZoomControls() ;
+	virtual void  setDisplayZoomControls(bool const& arg0) ;
+	virtual bool  getDisplayZoomControls() ;
+	virtual void  setAllowFileAccess(bool const& arg0) ;
+	virtual bool  getAllowFileAccess() ;
+	virtual void  setAllowContentAccess(bool const& arg0) ;
+	virtual bool  getAllowContentAccess() ;
+	virtual void  setLoadWithOverviewMode(bool const& arg0) ;
+	virtual bool  getLoadWithOverviewMode() ;
+	virtual void  setEnableSmoothTransition(bool const& arg0) ;
+	virtual bool  enableSmoothTransition() ;
+	virtual void  setSaveFormData(bool const& arg0) ;
+	virtual bool  getSaveFormData() ;
+	virtual void  setSavePassword(bool const& arg0) ;
+	virtual bool  getSavePassword() ;
+	virtual void  setTextZoom(int const& arg0) ;
+	virtual int  getTextZoom() ;
+	virtual void  setDefaultZoom(android_webkit_WebSettings_ZoomDensity::android_webkit_WebSettings_ZoomDensity const& arg0) ;
+	virtual android_webkit_WebSettings_ZoomDensity::android_webkit_WebSettings_ZoomDensity  getDefaultZoom() ;
+	virtual void  setLightTouchEnabled(bool const& arg0) ;
+	virtual bool  getLightTouchEnabled() ;
+	virtual void  setUseWideViewPort(bool const& arg0) ;
+	virtual bool  getUseWideViewPort() ;
+	virtual void  setSupportMultipleWindows(bool const& arg0) ;
+	virtual bool  supportMultipleWindows() ;
+	virtual void  setLayoutAlgorithm(android_webkit_WebSettings_LayoutAlgorithm::android_webkit_WebSettings_LayoutAlgorithm const& arg0) ;
+	virtual android_webkit_WebSettings_LayoutAlgorithm::android_webkit_WebSettings_LayoutAlgorithm  getLayoutAlgorithm() ;
+	virtual void  setStandardFontFamily(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getStandardFontFamily() ;
+	virtual void  setFixedFontFamily(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getFixedFontFamily() ;
+	virtual void  setSansSerifFontFamily(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getSansSerifFontFamily() ;
+	virtual void  setSerifFontFamily(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getSerifFontFamily() ;
+	virtual void  setCursiveFontFamily(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getCursiveFontFamily() ;
+	virtual void  setFantasyFontFamily(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getFantasyFontFamily() ;
+	virtual void  setMinimumFontSize(int const& arg0) ;
+	virtual int  getMinimumFontSize() ;
+	virtual void  setMinimumLogicalFontSize(int const& arg0) ;
+	virtual int  getMinimumLogicalFontSize() ;
+	virtual void  setDefaultFontSize(int const& arg0) ;
+	virtual int  getDefaultFontSize() ;
+	virtual void  setDefaultFixedFontSize(int const& arg0) ;
+	virtual int  getDefaultFixedFontSize() ;
+	virtual void  setLoadsImagesAutomatically(bool const& arg0) ;
+	virtual bool  getLoadsImagesAutomatically() ;
+	virtual void  setBlockNetworkImage(bool const& arg0) ;
+	virtual bool  getBlockNetworkImage() ;
+	virtual void  setBlockNetworkLoads(bool const& arg0) ;
+	virtual bool  getBlockNetworkLoads() ;
+	virtual void  setJavaScriptEnabled(bool const& arg0) ;
+	virtual void  setAllowUniversalAccessFromFileURLs(bool const& arg0) ;
+	virtual void  setAllowFileAccessFromFileURLs(bool const& arg0) ;
+	virtual void  setPluginState(android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState const& arg0) ;
+	virtual void  setDatabasePath(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setGeolocationDatabasePath(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setAppCacheEnabled(bool const& arg0) ;
+	virtual void  setAppCachePath(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setAppCacheMaxSize(long const& arg0) ;
+	virtual void  setDatabaseEnabled(bool const& arg0) ;
+	virtual void  setDomStorageEnabled(bool const& arg0) ;
+	virtual bool  getDomStorageEnabled() ;
+	virtual bool  getDatabaseEnabled() ;
+	virtual void  setGeolocationEnabled(bool const& arg0) ;
+	virtual bool  getJavaScriptEnabled() ;
+	virtual bool  getAllowUniversalAccessFromFileURLs() ;
+	virtual bool  getAllowFileAccessFromFileURLs() ;
+	virtual android_webkit_WebSettings_PluginState::android_webkit_WebSettings_PluginState  getPluginState() ;
+	virtual void  setJavaScriptCanOpenWindowsAutomatically(bool const& arg0) ;
+	virtual bool  getJavaScriptCanOpenWindowsAutomatically() ;
+	virtual void  setDefaultTextEncodingName(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getDefaultTextEncodingName() ;
+	virtual void  setUserAgentString(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getUserAgentString() ;
+	static AndroidCXX::java_lang_String * getDefaultUserAgent(AndroidCXX::android_content_Context const& arg0) ;
+	virtual void  setNeedInitialFocus(bool const& arg0) ;
+	virtual void  setRenderPriority(android_webkit_WebSettings_RenderPriority::android_webkit_WebSettings_RenderPriority const& arg0) ;
+	virtual void  setCacheMode(int const& arg0) ;
+	virtual int  getCacheMode() ;
+
+protected:
+	android_webkit_WebSettings();
+
 };	
 
 } // namespace

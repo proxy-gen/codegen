@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_graphics_Rasterizer
+class android_graphics_Rasterizer 
 {
 public:
 
+	// Public ConstrucXXX
+	android_graphics_Rasterizer();
 	android_graphics_Rasterizer(const android_graphics_Rasterizer& cc);
 	android_graphics_Rasterizer(Proxy proxy);
-	// Public Constructors
-	android_graphics_Rasterizer();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Rasterizer();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -26,6 +27,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,19 +44,22 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_SearchView_OnSuggestionListener
+class android_widget_SearchView_OnSuggestionListener 
 {
 public:
 
 	android_widget_SearchView_OnSuggestionListener(const android_widget_SearchView_OnSuggestionListener& cc);
 	android_widget_SearchView_OnSuggestionListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SearchView_OnSuggestionListener();
 	// Functions
-	 bool onSuggestionSelect(int const& arg0);
-	 bool onSuggestionClick(int const& arg0);
+	virtual bool  onSuggestionSelect(int const& arg0) ;
+	virtual bool  onSuggestionClick(int const& arg0) ;
+
+protected:
+	android_widget_SearchView_OnSuggestionListener();
+
 };	
 
 } // namespace

@@ -1176,6 +1176,9 @@ class ConfigModule(object):
 			class_file_name = Utils.to_file_name(class_name,"hpp")
 			classinfo['filename'] = class_file_name
 			classinfo['namespace'] = config_data['namespace']
+			classinfo['isenum'] = True if '_enum' in class_config['tags'] else False
+			classinfo['isinterface'] = True if '_interface' in class_config['tags'] else False
+			classinfo['isabstract'] = True if '_abstract' in class_config['tags'] else False
 			if '_enum' in class_config['tags']:
 				classinfo['namespace'] = class_name
 			classinfo['no_copy_constructor'] = True
@@ -1185,6 +1188,32 @@ class ConfigModule(object):
 						if constructor['params'][0]['type'] == class_config['name']:
 							classinfo['no_copy_constructor'] = False
 							break
+			config_superclasses = list()
+			if 'extends' in class_config:
+				config_superclasses.extend(class_config['extends'])
+			if 'implements' in class_config:
+				config_superclasses.extend(class_config['implements'])
+			superclasses = [ config_superclass['name'] for config_superclass in config_superclasses ]
+			superclass_rankings = { superclass : 0 for superclass in superclasses }
+			self._rank_superclasses(superclasses, superclass_rankings)
+			# update after ranking
+			superclasses = list()
+			for config_superclass in config_superclasses:
+				if superclass_rankings[config_superclass['name']] == 1:
+					namespaced_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=config_superclass['name'])
+					for namespaced_class in namespaced_classes:
+						superclass = dict(config_superclass)
+						superclass['namespace'] = namespaced_class['namespace']
+						superclass['name'] = config_superclass['name']
+						superclass['typename'] = Utils.to_class_name(superclass['name'])
+						file_name = Utils.to_file_name(superclass['typename'],"hpp")
+						superclass['filename'] = file_name	
+						superclass['isenum'] = True if '_enum' in namespaced_class['clazz']['tags'] else False
+						superclass['isinterface'] = True if '_interface' in namespaced_class['clazz']['tags'] else False
+						superclass['isabstract'] = True if '_abstract' in namespaced_class['clazz']['tags'] else False
+						superclasses.append(superclass)
+			if len(superclasses) > 0:
+				classinfo['superclasses'] = superclasses			
 		assert "classinfo" in targetdata, "classinfo not attached to " + str(class_config)
 		logging.debug("_attach_derived_target_class_info exit")	
 
@@ -1478,6 +1507,20 @@ class ConfigModule(object):
 			for child_type_config in type_config["children"]:
 				self._detach_derived_type_data(child_type_config, config_data)
 		logging.debug("_detach_derived_type_data exit")	
+
+	def _rank_superclasses(self, superclasses, superclass_rankings):
+		for superclass in superclasses:
+			if superclass in superclass_rankings:
+				superclass_rankings[superclass] += 1
+			superclass_configs = self.list_all_classes(tags=None,xtags=None,name=superclass)
+			for superclass_config in superclass_configs:
+				superclass_superclass_config_list = list()
+				if 'extends' in superclass_config:
+					superclass_superclass_config_list.extend(superclass_config['extends'])
+				if 'implements' in superclass_config:
+					superclass_superclass_config_list.extend(superclass_config['implements'])
+				superclass_superclasses = [ superclass_superclass_config['name'] for superclass_superclass_config in superclass_superclass_config_list ]
+				self._rank_superclasses(superclass_superclasses, superclass_rankings)
 
 	@classmethod
 	def load_config(cls, config_file_name):

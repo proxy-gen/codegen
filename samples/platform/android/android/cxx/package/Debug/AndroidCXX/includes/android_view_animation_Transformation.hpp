@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -42,8 +43,8 @@
 
 #include <java_lang_String.hpp>
 
-
 #include <android_graphics_Matrix.hpp>
+
 
 #include <vector>
 #include <map>
@@ -63,32 +64,34 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_view_animation_Transformation;
 
 class android_graphics_Matrix;
 
-class android_view_animation_Transformation
+class android_view_animation_Transformation 
 {
 public:
 
+	// Public ConstrucXXX
+	android_view_animation_Transformation();
 	android_view_animation_Transformation(const android_view_animation_Transformation& cc);
 	android_view_animation_Transformation(Proxy proxy);
-	// Public Constructors
-	android_view_animation_Transformation();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_Transformation();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 void clear();
-	 void set(AndroidCXX::android_view_animation_Transformation const& arg0);
-	 void compose(AndroidCXX::android_view_animation_Transformation const& arg0);
-	 AndroidCXX::android_graphics_Matrix getMatrix();
-	 float getAlpha();
-	 void setAlpha(float const& arg0);
-	 AndroidCXX::java_lang_String toShortString();
-	 int getTransformationType();
-	 void setTransformationType(int const& arg0);
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  clear() ;
+	virtual void  set(AndroidCXX::android_view_animation_Transformation const& arg0) ;
+	virtual void  compose(AndroidCXX::android_view_animation_Transformation const& arg0) ;
+	virtual AndroidCXX::android_graphics_Matrix * getMatrix() ;
+	virtual float  getAlpha() ;
+	virtual void  setAlpha(float const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toShortString() ;
+	virtual int  getTransformationType() ;
+	virtual void  setTransformationType(int const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

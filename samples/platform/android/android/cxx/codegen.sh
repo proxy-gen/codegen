@@ -74,15 +74,14 @@ function generate
 	LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $codegen_config_file --platform android --generate-code --namespace $CODEGEN_TARGET --output-dir $my_dir/generated --package $CODEGEN_TARGET --log info
 	# Generate Projects
 	LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $codegen_config_file --platform android --generate-projects --namespace $CODEGEN_TARGET --output-dir $my_dir/generated --package $CODEGEN_TARGET --log info
-
-	pushd $my_project_dir > /dev/null
-	ant debug
-	ndk-build NDK_DEBUG=$DEBUG
-	popd
 }
 
 function package
 {
+	pushd $my_project_dir > /dev/null
+	ant debug
+	ndk-build NDK_DEBUG=$DEBUG
+	popd
 	DEPLOY_TARGET=Release
 	if [ $DEBUG -ne 0 ]
 	then

@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,8 +8,9 @@
 //
 
 
-	
+
  		 
+	
 	
  		 
 
@@ -38,17 +39,18 @@
 //
 
 
+#include <android_widget_PopupMenu_OnDismissListener.hpp>
+
+#include <android_view_Menu.hpp>
+
 #include <android_view_MenuInflater.hpp>
 
 #include <android_widget_PopupMenu_OnMenuItemClickListener.hpp>
 
-#include <android_view_Menu.hpp>
-
-#include <android_widget_PopupMenu_OnDismissListener.hpp>
-
 #include <android_content_Context.hpp>
 
 #include <android_view_View.hpp>
+
 
 #include <vector>
 #include <map>
@@ -66,37 +68,40 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_MenuInflater;
-
-class android_widget_PopupMenu_OnMenuItemClickListener;
+class android_widget_PopupMenu_OnDismissListener;
 
 class android_view_Menu;
 
-class android_widget_PopupMenu_OnDismissListener;
+class android_view_MenuInflater;
+
+class android_widget_PopupMenu_OnMenuItemClickListener;
 
 class android_content_Context;
 
 class android_view_View;
 
-class android_widget_PopupMenu
+class android_widget_PopupMenu 
 {
 public:
 
+	// Public ConstrucXXX
+	android_widget_PopupMenu(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_View const& arg1);
 	android_widget_PopupMenu(const android_widget_PopupMenu& cc);
 	android_widget_PopupMenu(Proxy proxy);
-	// Public Constructors
-	android_widget_PopupMenu(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_View const& arg1);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_PopupMenu();
 	// Functions
-	 void inflate(int const& arg0);
-	 void show();
-	 AndroidCXX::android_view_MenuInflater getMenuInflater();
-	 void setOnMenuItemClickListener(AndroidCXX::android_widget_PopupMenu_OnMenuItemClickListener const& arg0);
-	 AndroidCXX::android_view_Menu getMenu();
-	 void dismiss();
-	 void setOnDismissListener(AndroidCXX::android_widget_PopupMenu_OnDismissListener const& arg0);
+	virtual void  inflate(int const& arg0) ;
+	virtual void  show() ;
+	virtual void  setOnDismissListener(AndroidCXX::android_widget_PopupMenu_OnDismissListener const& arg0) ;
+	virtual void  dismiss() ;
+	virtual AndroidCXX::android_view_Menu * getMenu() ;
+	virtual AndroidCXX::android_view_MenuInflater * getMenuInflater() ;
+	virtual void  setOnMenuItemClickListener(AndroidCXX::android_widget_PopupMenu_OnMenuItemClickListener const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

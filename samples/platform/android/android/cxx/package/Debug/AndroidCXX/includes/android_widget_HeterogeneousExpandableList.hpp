@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -28,6 +29,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -44,21 +46,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_HeterogeneousExpandableList
+class android_widget_HeterogeneousExpandableList 
 {
 public:
 
 	android_widget_HeterogeneousExpandableList(const android_widget_HeterogeneousExpandableList& cc);
 	android_widget_HeterogeneousExpandableList(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_HeterogeneousExpandableList();
 	// Functions
-	 int getGroupType(int const& arg0);
-	 int getChildType(int const& arg0,int const& arg1);
-	 int getGroupTypeCount();
-	 int getChildTypeCount();
+	virtual int  getGroupType(int const& arg0) ;
+	virtual int  getChildType(int const& arg0,int const& arg1) ;
+	virtual int  getGroupTypeCount() ;
+	virtual int  getChildTypeCount() ;
+
+protected:
+	android_widget_HeterogeneousExpandableList();
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -26,7 +27,6 @@
 //
 
 
-#include <android_view_View.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +46,21 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_widget_ViewSwitcher_ViewFactory
+class android_widget_ViewSwitcher_ViewFactory 
 {
 public:
 
 	android_widget_ViewSwitcher_ViewFactory(const android_widget_ViewSwitcher_ViewFactory& cc);
 	android_widget_ViewSwitcher_ViewFactory(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ViewSwitcher_ViewFactory();
 	// Functions
-	 AndroidCXX::android_view_View makeView();
+	virtual AndroidCXX::android_view_View * makeView() ;
+
+protected:
+	android_widget_ViewSwitcher_ViewFactory();
+
 };	
 
 } // namespace

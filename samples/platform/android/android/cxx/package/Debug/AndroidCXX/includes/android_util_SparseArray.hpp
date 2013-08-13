@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -55,6 +56,8 @@
 #include <java_lang_Object.hpp>
 
 
+#include <java_lang_Cloneable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -73,36 +76,38 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class android_util_SparseArray;
 
-class android_util_SparseArray
+class android_util_SparseArray : public java_lang_Cloneable
 {
 public:
 
-	android_util_SparseArray(const android_util_SparseArray& cc);
-	android_util_SparseArray(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_util_SparseArray(int const& arg0);
 	android_util_SparseArray();
+	android_util_SparseArray(const android_util_SparseArray& cc);
+	android_util_SparseArray(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_util_SparseArray();
 	// Functions
-	 AndroidCXX::java_lang_Object get(int const& arg0);
-	 AndroidCXX::java_lang_Object get(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 void put(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 void append(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 AndroidCXX::android_util_SparseArray clone();
-	 void clear();
-	 int size();
-	 void remove(int const& arg0);
-	 void _delete(int const& arg0);
-	 void removeAt(int const& arg0);
-	 int keyAt(int const& arg0);
-	 AndroidCXX::java_lang_Object valueAt(int const& arg0);
-	 void setValueAt(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 int indexOfKey(int const& arg0);
-	 int indexOfValue(AndroidCXX::java_lang_Object const& arg0);
+	virtual AndroidCXX::java_lang_Object * get(int const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * get(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual void  put(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual void  append(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual AndroidCXX::android_util_SparseArray * clone() ;
+	virtual void  clear() ;
+	virtual int  size() ;
+	virtual void  remove(int const& arg0) ;
+	virtual void  _delete(int const& arg0) ;
+	virtual int  indexOfKey(int const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * valueAt(int const& arg0) ;
+	virtual void  removeAt(int const& arg0) ;
+	virtual int  keyAt(int const& arg0) ;
+	virtual void  setValueAt(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual int  indexOfValue(AndroidCXX::java_lang_Object const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

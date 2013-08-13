@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -29,7 +30,6 @@
 //
 
 
-#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -49,19 +49,22 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_util_Comparator
+class java_util_Comparator 
 {
 public:
 
 	java_util_Comparator(const java_util_Comparator& cc);
 	java_util_Comparator(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Comparator();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 int compare(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  compare(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+
+protected:
+	java_util_Comparator();
+
 };	
 
 } // namespace

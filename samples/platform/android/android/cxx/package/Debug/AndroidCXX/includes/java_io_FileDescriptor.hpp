@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -27,6 +28,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -43,20 +45,23 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_io_FileDescriptor
+class java_io_FileDescriptor 
 {
 public:
 
+	// Public ConstrucXXX
+	java_io_FileDescriptor();
 	java_io_FileDescriptor(const java_io_FileDescriptor& cc);
 	java_io_FileDescriptor(Proxy proxy);
-	// Public Constructors
-	java_io_FileDescriptor();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FileDescriptor();
 	// Functions
-	 bool valid();
-	 void sync();
+	virtual bool  valid() ;
+	virtual void  sync() ;
+
+protected:
+
 };	
 
 } // namespace

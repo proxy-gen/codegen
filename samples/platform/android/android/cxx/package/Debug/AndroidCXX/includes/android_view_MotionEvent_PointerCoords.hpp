@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -49,24 +50,26 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_MotionEvent_PointerCoords;
 
-class android_view_MotionEvent_PointerCoords
+class android_view_MotionEvent_PointerCoords 
 {
 public:
 
-	android_view_MotionEvent_PointerCoords(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_view_MotionEvent_PointerCoords();
 	android_view_MotionEvent_PointerCoords(AndroidCXX::android_view_MotionEvent_PointerCoords const& arg0);
+	android_view_MotionEvent_PointerCoords(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_MotionEvent_PointerCoords();
 	// Functions
-	 void clear();
-	 void copyFrom(AndroidCXX::android_view_MotionEvent_PointerCoords const& arg0);
-	 float getAxisValue(int const& arg0);
-	 void setAxisValue(int const& arg0,float const& arg1);
+	virtual void  clear() ;
+	virtual void  copyFrom(AndroidCXX::android_view_MotionEvent_PointerCoords const& arg0) ;
+	virtual float  getAxisValue(int const& arg0) ;
+	virtual void  setAxisValue(int const& arg0,float const& arg1) ;
+
+protected:
+
 };	
 
 } // namespace

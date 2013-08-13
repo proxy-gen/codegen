@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_graphics_ColorFilter
+class android_graphics_ColorFilter 
 {
 public:
 
+	// Public ConstrucXXX
+	android_graphics_ColorFilter();
 	android_graphics_ColorFilter(const android_graphics_ColorFilter& cc);
 	android_graphics_ColorFilter(Proxy proxy);
-	// Public Constructors
-	android_graphics_ColorFilter();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_ColorFilter();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

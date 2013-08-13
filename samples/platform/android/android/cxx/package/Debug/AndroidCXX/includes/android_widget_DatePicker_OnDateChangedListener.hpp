@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,6 @@
 //
 
 
-#include <android_widget_DatePicker.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +46,21 @@ namespace AndroidCXX {
 
 class android_widget_DatePicker;
 
-class android_widget_DatePicker_OnDateChangedListener
+class android_widget_DatePicker_OnDateChangedListener 
 {
 public:
 
 	android_widget_DatePicker_OnDateChangedListener(const android_widget_DatePicker_OnDateChangedListener& cc);
 	android_widget_DatePicker_OnDateChangedListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_DatePicker_OnDateChangedListener();
 	// Functions
-	 void onDateChanged(AndroidCXX::android_widget_DatePicker const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	virtual void  onDateChanged(AndroidCXX::android_widget_DatePicker const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+
+protected:
+	android_widget_DatePicker_OnDateChangedListener();
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_app_ActionBar_OnMenuVisibilityListener
+class android_app_ActionBar_OnMenuVisibilityListener 
 {
 public:
 
 	android_app_ActionBar_OnMenuVisibilityListener(const android_app_ActionBar_OnMenuVisibilityListener& cc);
 	android_app_ActionBar_OnMenuVisibilityListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_ActionBar_OnMenuVisibilityListener();
 	// Functions
-	 void onMenuVisibilityChanged(bool const& arg0);
+	virtual void  onMenuVisibilityChanged(bool const& arg0) ;
+
+protected:
+	android_app_ActionBar_OnMenuVisibilityListener();
+
 };	
 
 } // namespace

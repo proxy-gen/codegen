@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -30,6 +31,7 @@
 
 #include <android_view_View.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -48,19 +50,22 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_view_ViewGroupOverlay
+class android_view_ViewGroupOverlay 
 {
 public:
 
+	// Public ConstrucXXX
 	android_view_ViewGroupOverlay(const android_view_ViewGroupOverlay& cc);
 	android_view_ViewGroupOverlay(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewGroupOverlay();
 	// Functions
-	 void add(AndroidCXX::android_view_View const& arg0);
-	 void remove(AndroidCXX::android_view_View const& arg0);
+	virtual void  add(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  remove(AndroidCXX::android_view_View const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <android_view_SurfaceHolder.hpp>
+
+#include <android_view_SurfaceHolder_Callback.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,21 @@ namespace AndroidCXX {
 
 class android_view_SurfaceHolder;
 
-class android_view_SurfaceHolder_Callback2
+class android_view_SurfaceHolder_Callback2 : public android_view_SurfaceHolder_Callback
 {
 public:
 
 	android_view_SurfaceHolder_Callback2(const android_view_SurfaceHolder_Callback2& cc);
 	android_view_SurfaceHolder_Callback2(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_SurfaceHolder_Callback2();
 	// Functions
-	 void surfaceRedrawNeeded(AndroidCXX::android_view_SurfaceHolder const& arg0);
+	virtual void  surfaceRedrawNeeded(AndroidCXX::android_view_SurfaceHolder const& arg0) ;
+
+protected:
+	android_view_SurfaceHolder_Callback2();
+
 };	
 
 } // namespace

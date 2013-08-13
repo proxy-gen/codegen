@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  	
@@ -75,21 +76,8 @@
 //
 
 
-#include <java_math_BigInteger.hpp>
 
-#include <java_security_Principal.hpp>
-
-#include <java_util_Date.hpp>
-
-#include <javax_security_auth_x500_X500Principal.hpp>
-
-#include <java_lang_String.hpp>
-
-#include <java_util_List.hpp>
-
-#include <java_util_Collection.hpp>
-
-#include <java_lang_Object.hpp>
+#include <java_security_cert_X509Extension.hpp>
 
 #include <vector>
 #include <map>
@@ -123,39 +111,42 @@ class java_util_Collection;
 
 class java_lang_Object;
 
-class java_security_cert_X509Certificate
+class java_security_cert_X509Certificate : public java_security_cert_X509Extension
 {
 public:
 
 	java_security_cert_X509Certificate(const java_security_cert_X509Certificate& cc);
 	java_security_cert_X509Certificate(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_cert_X509Certificate();
 	// Functions
-	 std::vector<byte> getSignature();
-	 int getBasicConstraints();
-	 int getVersion();
-	 AndroidCXX::java_math_BigInteger getSerialNumber();
-	 AndroidCXX::java_security_Principal getIssuerDN();
-	 std::vector<byte> getTBSCertificate();
-	 void checkValidity();
-	 void checkValidity(AndroidCXX::java_util_Date const& arg0);
-	 AndroidCXX::javax_security_auth_x500_X500Principal getIssuerX500Principal();
-	 AndroidCXX::java_security_Principal getSubjectDN();
-	 AndroidCXX::javax_security_auth_x500_X500Principal getSubjectX500Principal();
-	 AndroidCXX::java_util_Date getNotBefore();
-	 AndroidCXX::java_util_Date getNotAfter();
-	 AndroidCXX::java_lang_String getSigAlgName();
-	 AndroidCXX::java_lang_String getSigAlgOID();
-	 std::vector<byte> getSigAlgParams();
-	 std::vector<bool> getIssuerUniqueID();
-	 std::vector<bool> getSubjectUniqueID();
-	 std::vector<bool> getKeyUsage();
-	 AndroidCXX::java_util_List getExtendedKeyUsage();
-	 AndroidCXX::java_util_Collection getSubjectAlternativeNames();
-	 AndroidCXX::java_util_Collection getIssuerAlternativeNames();
+	virtual std::vector<byte>  getSignature() ;
+	virtual int  getBasicConstraints() ;
+	virtual int  getVersion() ;
+	virtual AndroidCXX::java_math_BigInteger * getSerialNumber() ;
+	virtual AndroidCXX::java_security_Principal * getIssuerDN() ;
+	virtual std::vector<byte>  getTBSCertificate() ;
+	virtual void  checkValidity() ;
+	virtual void  checkValidity(AndroidCXX::java_util_Date const& arg0) ;
+	virtual AndroidCXX::javax_security_auth_x500_X500Principal * getIssuerX500Principal() ;
+	virtual AndroidCXX::java_security_Principal * getSubjectDN() ;
+	virtual AndroidCXX::javax_security_auth_x500_X500Principal * getSubjectX500Principal() ;
+	virtual AndroidCXX::java_util_Date * getNotBefore() ;
+	virtual AndroidCXX::java_util_Date * getNotAfter() ;
+	virtual AndroidCXX::java_lang_String * getSigAlgName() ;
+	virtual AndroidCXX::java_lang_String * getSigAlgOID() ;
+	virtual std::vector<byte>  getSigAlgParams() ;
+	virtual std::vector<bool>  getIssuerUniqueID() ;
+	virtual std::vector<bool>  getSubjectUniqueID() ;
+	virtual std::vector<bool>  getKeyUsage() ;
+	virtual AndroidCXX::java_util_List * getExtendedKeyUsage() ;
+	virtual AndroidCXX::java_util_Collection * getSubjectAlternativeNames() ;
+	virtual AndroidCXX::java_util_Collection * getIssuerAlternativeNames() ;
+
+protected:
+	java_security_cert_X509Certificate();
+
 };	
 
 } // namespace

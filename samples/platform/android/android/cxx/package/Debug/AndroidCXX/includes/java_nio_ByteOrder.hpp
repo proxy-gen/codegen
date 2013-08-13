@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -49,21 +50,23 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_nio_ByteOrder;
 
-class java_nio_ByteOrder
+class java_nio_ByteOrder 
 {
 public:
 
+	// Public ConstrucXXX
 	java_nio_ByteOrder(const java_nio_ByteOrder& cc);
 	java_nio_ByteOrder(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_ByteOrder();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	static AndroidCXX::java_nio_ByteOrder nativeOrder();
+	virtual AndroidCXX::java_lang_String * toString() ;
+	static AndroidCXX::java_nio_ByteOrder * nativeOrder() ;
+
+protected:
+
 };	
 
 } // namespace

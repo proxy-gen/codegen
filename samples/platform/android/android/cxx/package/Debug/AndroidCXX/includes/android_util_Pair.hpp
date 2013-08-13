@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -58,23 +59,25 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class android_util_Pair;
 
-class android_util_Pair
+class android_util_Pair 
 {
 public:
 
+	// Public ConstrucXXX
+	android_util_Pair(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1);
 	android_util_Pair(const android_util_Pair& cc);
 	android_util_Pair(Proxy proxy);
-	// Public Constructors
-	android_util_Pair(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_util_Pair();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 int hashCode();
-	static AndroidCXX::android_util_Pair create(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	static AndroidCXX::android_util_Pair * create(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+
+protected:
+
 };	
 
 } // namespace

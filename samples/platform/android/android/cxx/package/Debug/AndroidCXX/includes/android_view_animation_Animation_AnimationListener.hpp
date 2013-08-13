@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -30,7 +31,6 @@
 //
 
 
-#include <android_view_animation_Animation.hpp>
 
 #include <vector>
 #include <map>
@@ -50,20 +50,23 @@ namespace AndroidCXX {
 
 class android_view_animation_Animation;
 
-class android_view_animation_Animation_AnimationListener
+class android_view_animation_Animation_AnimationListener 
 {
 public:
 
 	android_view_animation_Animation_AnimationListener(const android_view_animation_Animation_AnimationListener& cc);
 	android_view_animation_Animation_AnimationListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_Animation_AnimationListener();
 	// Functions
-	 void onAnimationStart(AndroidCXX::android_view_animation_Animation const& arg0);
-	 void onAnimationEnd(AndroidCXX::android_view_animation_Animation const& arg0);
-	 void onAnimationRepeat(AndroidCXX::android_view_animation_Animation const& arg0);
+	virtual void  onAnimationStart(AndroidCXX::android_view_animation_Animation const& arg0) ;
+	virtual void  onAnimationEnd(AndroidCXX::android_view_animation_Animation const& arg0) ;
+	virtual void  onAnimationRepeat(AndroidCXX::android_view_animation_Animation const& arg0) ;
+
+protected:
+	android_view_animation_Animation_AnimationListener();
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -43,6 +44,8 @@
 #include <android_os_Parcel.hpp>
 
 
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -65,25 +68,27 @@ class android_util_Printer;
 
 class android_os_Parcel;
 
-class android_content_pm_ActivityInfo;
 
-class android_content_pm_ActivityInfo
+class android_content_pm_ActivityInfo : public android_os_Parcelable
 {
 public:
 
-	android_content_pm_ActivityInfo(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_content_pm_ActivityInfo();
 	android_content_pm_ActivityInfo(AndroidCXX::android_content_pm_ActivityInfo const& arg0);
+	android_content_pm_ActivityInfo(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_ActivityInfo();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 void dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1);
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 int getThemeResource();
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual int  getThemeResource() ;
+
+protected:
+
 };	
 
 } // namespace

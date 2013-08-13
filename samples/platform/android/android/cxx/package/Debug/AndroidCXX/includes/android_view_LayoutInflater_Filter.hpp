@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,6 @@
 //
 
 
-#include <java_lang_Class.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +46,21 @@ namespace AndroidCXX {
 
 class java_lang_Class;
 
-class android_view_LayoutInflater_Filter
+class android_view_LayoutInflater_Filter 
 {
 public:
 
 	android_view_LayoutInflater_Filter(const android_view_LayoutInflater_Filter& cc);
 	android_view_LayoutInflater_Filter(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_LayoutInflater_Filter();
 	// Functions
-	 bool onLoadClass(AndroidCXX::java_lang_Class const& arg0);
+	virtual bool  onLoadClass(AndroidCXX::java_lang_Class const& arg0) ;
+
+protected:
+	android_view_LayoutInflater_Filter();
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -49,6 +50,9 @@
 
 #include <java_lang_Object.hpp>
 
+
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -75,27 +79,30 @@ class android_content_ClipDescription;
 
 class java_lang_Object;
 
-class android_view_DragEvent
+class android_view_DragEvent : public android_os_Parcelable
 {
 public:
 
+	// Public ConstrucXXX
 	android_view_DragEvent(const android_view_DragEvent& cc);
 	android_view_DragEvent(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_DragEvent();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 float getY();
-	 float getX();
-	 bool getResult();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 int getAction();
-	 AndroidCXX::android_content_ClipData getClipData();
-	 AndroidCXX::android_content_ClipDescription getClipDescription();
-	 AndroidCXX::java_lang_Object getLocalState();
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual float  getY() ;
+	virtual float  getX() ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual bool  getResult() ;
+	virtual int  getAction() ;
+	virtual AndroidCXX::android_content_ClipData * getClipData() ;
+	virtual AndroidCXX::android_content_ClipDescription * getClipDescription() ;
+	virtual AndroidCXX::java_lang_Object * getLocalState() ;
+
+protected:
+
 };	
 
 } // namespace

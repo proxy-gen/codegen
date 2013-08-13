@@ -14,7 +14,7 @@
 ##
 /*
  * Implementation (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -23,6 +23,7 @@
 #from Utils import Utils
 #set $SPACE = " "
 #set $COMMA = ","
+#set $COLON = ":"  
 #set $CONST = "const"
 #set $REF = "&"
 #set $config_module = $CONFIG.config_module
@@ -39,6 +40,33 @@
 #set $include_headers = $CONFIG.include_headers
 #set $safe_package_name = Utils.to_safe_jni_name($package)
 #set $safe_class_name = Utils.to_safe_jni_name($entity_class_name)
+#set $entity_marker = $entity_class_info['isinterface'] or $entity_class_info['isabstract'] or $entity_class_info['typename'] == 'java_lang_Object'
+#set $entity_virtual = $entity_marker or '_callback' in $entity_class_config['tags']
+#set $superclass_typeinfos = $entity_class_info['superclasses'] if 'superclasses' in $entity_class_info else None
+
+#set $superclassCCStr = ""
+#set $superclassProxyStr = "" 
+#set $superclassDefaultStr = ""  
+#if $superclass_typeinfos is not None
+#set $superclassIdx = 0
+#set $superclassCCStr = $COLON
+#set $superclassProxyStr = $COLON
+#set $superclassDefaultStr = $COLON
+#for $superclass_typeinfo in $superclass_typeinfos
+#set $superclass_marker = $superclass_typeinfo['isinterface'] or $superclass_typeinfo['isabstract'] or $superclass_typeinfo['typename'] == 'java_lang_Object'
+#if $superclass_marker
+#if $superclassIdx > 0
+#set $superclassCCStr = $superclassCCStr + COMMA
+#set $superclassProxyStr = $superclassProxyStr + COMMA
+#set $superclassDefaultStr = $superclassDefaultStr + COMMA
+#end if
+#set $superclassCCStr = $superclassCCStr + SPACE + $superclass_typeinfo['typename'] + '(cc)'
+#set $superclassProxyStr = $superclassProxyStr + SPACE + $superclass_typeinfo['typename'] + '(proxy)'
+#set $superclassDefaultStr = $superclassDefaultStr + SPACE + $superclass_typeinfo['typename'] + '()' 
+#end if
+#set $superclassIdx = $superclassIdx + 1
+#end for
+#end if
 
 #set $functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_proxy'],function_xtags=None,function_name=None)	
 
@@ -90,8 +118,14 @@
  	#set $jnidata = $retrn['deriveddata']['jnidata']
  	#if 'isproxied' in $typeinfo
  	#set $function['retrn_type'] = $typeinfo['namespace'] + '::' + $typeinfo['typename']
+ 	#if $typeinfo['isenum'] == True
+ 	#set $function['retrn_type_modifier'] = ''
+ 	#else
+ 	#set $function['retrn_type_modifier'] = '*'
+ 	#end if
  	#else
  	#set $function['retrn_type'] = $typeinfo['typename']
+ 	#set $function['retrn_type_modifier'] = ''
  	#end if
  	#set $function['jni_retrn_type'] = $jnidata['jnitypename']
  	#if 'isproxied' in $typeinfo
@@ -143,7 +177,6 @@
 #set $constructor['proxied_typeinfo_list'] = $proxied_typeinfo_list
 #end for
 
-#set $no_arg_constructor = True if '_callback' in $entity_class_config['tags'] else False
 #set $no_copy_constructor = True if $entity_class_info['no_copy_constructor'] else False
 
 #set $proxied_typeinfos = list()
@@ -365,9 +398,17 @@ $function['jni_retrn_type'] Java_${safe_package_name}_${safe_class_name}_${safe_
 }
 #end for
 #end if
+#if $entity_virtual
+#if not '_static' in $entity_class_config['tags']
+${entity_class_name}::${entity_class_name}()
+{
+	LOGV("${entity_class_name}::${entity_class_name}() is a no-op");
+}
+#end if
+#end if
 #if not '_static' in $entity_class_config['tags']
 #if $no_copy_constructor
-${entity_class_name}::${entity_class_name}(const ${entity_class_name}& cc)
+${entity_class_name}::${entity_class_name}(const ${entity_class_name}& cc) $superclassCCStr
 {
 	LOGV("${entity_class_name}::${entity_class_name}(const ${entity_class_name}& cc) enter");
 
@@ -393,7 +434,7 @@ ${entity_class_name}::${entity_class_name}(const ${entity_class_name}& cc)
 #end if
 #end if
 #if not '_static' in $entity_class_config['tags']
-${entity_class_name}::${entity_class_name}(Proxy proxy)
+${entity_class_name}::${entity_class_name}(Proxy proxy) $superclassProxyStr
 {
 	LOGV("${entity_class_name}::${entity_class_name}(Proxy proxy) enter");
 
@@ -414,42 +455,7 @@ ${entity_class_name}::${entity_class_name}(Proxy proxy)
 	LOGV("${entity_class_name}::${entity_class_name}(Proxy proxy) exit");
 }
 #end if
-#if $no_arg_constructor
-${entity_class_name}::${entity_class_name}()
-{
-	LOGV("${entity_class_name}::${entity_class_name}() enter");	
-
-	const char *methodName = "<init>";
-	const char *methodSignature = "()V";
-	const char *className = "$class_jnidata['jnisignature']";
-
-	LOGV("${entity_class_name} className %s methodName %s methodSignature %s", className, methodName, methodSignature);
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	jni->pushLocalFrame();
-
-	long cxxAddress = (long) this;
-	LOGV("${entity_class_name} cxx address %ld", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("${entity_class_name} jni address %ld", proxiedComponent);
-
-	if (proxiedComponent == 0)
-	{
-		jclass clazz = jni->getClassRef(className);
-
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, "<init>", methodSignature));
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
-
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
-	}
-
-	jni->popLocalFrame();
-
-	LOGV("${entity_class_name}::${entity_class_name}() exit");	
-}
-#end if
+#if not '_static' in $entity_class_config['tags']
 Proxy ${entity_class_name}::proxy() const
 {	
 	LOGV("${entity_class_name}::proxy() enter");	
@@ -467,9 +473,12 @@ Proxy ${entity_class_name}::proxy() const
 
 	return proxy;
 }
+#end if
+#if not $entity_virtual
 #if not '_static' in $entity_class_config['tags']
+// Public Constructors
 #for $constructor in $constructors
-${entity_class_name}::${entity_class_name}($constructor['param_str'])
+${entity_class_name}::${entity_class_name}($constructor['param_str']) $superclassDefaultStr
 {
 	LOGV("${entity_class_name}::${entity_class_name}($constructor['param_str']) enter");	
 
@@ -575,6 +584,7 @@ ${entity_class_name}::${entity_class_name}($constructor['param_str'])
 }
 #end for
 #end if
+#end if
 #if not '_static' in $entity_class_config['tags']
 // Default Instance Destructor
 ${entity_class_name}::~${entity_class_name}()
@@ -593,7 +603,7 @@ ${entity_class_name}::~${entity_class_name}()
 #end if
 // Functions
 #for $function in $functions
-$function['retrn_type'] ${entity_class_name}::$Utils.to_safe_cxx_name(function['name'])($function['param_str'])
+$function['retrn_type'] $function['retrn_type_modifier'] ${entity_class_name}::$Utils.to_safe_cxx_name(function['name'])($function['param_str'])
 {
 	LOGV("$function['retrn_type'] ${entity_class_name}::$Utils.to_safe_cxx_name(function['name'])($function['param_str']) enter");
 
@@ -748,22 +758,11 @@ $function['retrn_type'] ${entity_class_name}::$Utils.to_safe_cxx_name(function['
 	}
 
 	#if $retrn_typeinfo['isenum'] == True
-	$function['retrn_type'] result = (${function['retrn_type']}) (cxx_value);
+	$function['retrn_type'] $function['retrn_type_modifier'] result = (${function['retrn_type']}) (cxx_value);
 	#else if 'isproxied' in $retrn_typeinfo
-	$function['retrn_type'] result((${function['retrn_type']}) *((${function['retrn_type']} *) cxx_value));
+	$function['retrn_type'] $function['retrn_type_modifier'] result = ((${function['retrn_type']} *) cxx_value);
 	#else
-	$function['retrn_type'] result = (${function['retrn_type']}) *((${function['retrn_type']} *) cxx_value);
-	#end if
-	#if $retrn_typeinfo['isenum'] == True
-	//
-	#elif $retrn_typeinfo['isprimitive'] == True
-	// 
-	#elif $retrn_typeinfo['isvoid'] == True
-	//
-	#elif $retrn_typeinfo['isarray'] == True
-	delete (($function['retrn_type'] *) cxx_value);
-	#else 
-	delete (($function['retrn_type'] *) cxx_value);
+	$function['retrn_type'] $function['retrn_type_modifier'] result = (${function['retrn_type']}) *((${function['retrn_type']} *) cxx_value);
 	#end if
 	#else
 	#if '_static' in $function['tags']

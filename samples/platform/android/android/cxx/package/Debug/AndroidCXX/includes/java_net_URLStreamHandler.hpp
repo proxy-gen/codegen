@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,20 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_net_URLStreamHandler
+class java_net_URLStreamHandler 
 {
 public:
 
 	java_net_URLStreamHandler(const java_net_URLStreamHandler& cc);
 	java_net_URLStreamHandler(Proxy proxy);
-	// Public Constructors
-	java_net_URLStreamHandler();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_URLStreamHandler();
 	// Functions
+
+protected:
+	java_net_URLStreamHandler();
+
 };	
 
 } // namespace

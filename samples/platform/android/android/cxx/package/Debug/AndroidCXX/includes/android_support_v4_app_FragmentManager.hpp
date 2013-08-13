@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -72,25 +73,6 @@
 //
 
 
-#include <android_os_Bundle.hpp>
-
-#include <java_lang_String.hpp>
-
-#include <android_support_v4_app_Fragment.hpp>
-
-#include <java_io_FileDescriptor.hpp>
-
-#include <java_io_PrintWriter.hpp>
-
-#include <android_support_v4_app_FragmentTransaction.hpp>
-
-#include <android_support_v4_app_FragmentManager_BackStackEntry.hpp>
-
-#include <android_support_v4_app_FragmentManager_OnBackStackChangedListener.hpp>
-
-#include <java_util_List.hpp>
-
-#include <android_support_v4_app_Fragment_SavedState.hpp>
 
 #include <vector>
 #include <map>
@@ -128,39 +110,41 @@ class java_util_List;
 
 class android_support_v4_app_Fragment_SavedState;
 
-class android_support_v4_app_FragmentManager
+class android_support_v4_app_FragmentManager 
 {
 public:
 
 	android_support_v4_app_FragmentManager(const android_support_v4_app_FragmentManager& cc);
 	android_support_v4_app_FragmentManager(Proxy proxy);
-	// Public Constructors
-	android_support_v4_app_FragmentManager();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_app_FragmentManager();
 	// Functions
-	 AndroidCXX::android_support_v4_app_Fragment getFragment(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1);
-	 void dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3);
-	static void enableDebugLogging(bool const& arg0);
-	 AndroidCXX::android_support_v4_app_FragmentTransaction beginTransaction();
-	 AndroidCXX::android_support_v4_app_FragmentTransaction openTransaction();
-	 bool executePendingTransactions();
-	 AndroidCXX::android_support_v4_app_Fragment findFragmentById(int const& arg0);
-	 AndroidCXX::android_support_v4_app_Fragment findFragmentByTag(AndroidCXX::java_lang_String const& arg0);
-	 void popBackStack(int const& arg0,int const& arg1);
-	 void popBackStack(AndroidCXX::java_lang_String const& arg0,int const& arg1);
-	 void popBackStack();
-	 bool popBackStackImmediate(int const& arg0,int const& arg1);
-	 bool popBackStackImmediate();
-	 bool popBackStackImmediate(AndroidCXX::java_lang_String const& arg0,int const& arg1);
-	 int getBackStackEntryCount();
-	 AndroidCXX::android_support_v4_app_FragmentManager_BackStackEntry getBackStackEntryAt(int const& arg0);
-	 void addOnBackStackChangedListener(AndroidCXX::android_support_v4_app_FragmentManager_OnBackStackChangedListener const& arg0);
-	 void removeOnBackStackChangedListener(AndroidCXX::android_support_v4_app_FragmentManager_OnBackStackChangedListener const& arg0);
-	 void putFragment(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_support_v4_app_Fragment const& arg2);
-	 AndroidCXX::java_util_List getFragments();
-	 AndroidCXX::android_support_v4_app_Fragment_SavedState saveFragmentInstanceState(AndroidCXX::android_support_v4_app_Fragment const& arg0);
+	virtual AndroidCXX::android_support_v4_app_Fragment * getFragment(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3) ;
+	static void  enableDebugLogging(bool const& arg0) ;
+	virtual AndroidCXX::android_support_v4_app_FragmentTransaction * beginTransaction() ;
+	virtual AndroidCXX::android_support_v4_app_FragmentTransaction * openTransaction() ;
+	virtual bool  executePendingTransactions() ;
+	virtual AndroidCXX::android_support_v4_app_Fragment * findFragmentById(int const& arg0) ;
+	virtual AndroidCXX::android_support_v4_app_Fragment * findFragmentByTag(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  popBackStack(int const& arg0,int const& arg1) ;
+	virtual void  popBackStack(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	virtual void  popBackStack() ;
+	virtual bool  popBackStackImmediate(int const& arg0,int const& arg1) ;
+	virtual bool  popBackStackImmediate() ;
+	virtual bool  popBackStackImmediate(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	virtual int  getBackStackEntryCount() ;
+	virtual AndroidCXX::android_support_v4_app_FragmentManager_BackStackEntry * getBackStackEntryAt(int const& arg0) ;
+	virtual void  addOnBackStackChangedListener(AndroidCXX::android_support_v4_app_FragmentManager_OnBackStackChangedListener const& arg0) ;
+	virtual void  removeOnBackStackChangedListener(AndroidCXX::android_support_v4_app_FragmentManager_OnBackStackChangedListener const& arg0) ;
+	virtual void  putFragment(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_support_v4_app_Fragment const& arg2) ;
+	virtual AndroidCXX::java_util_List * getFragments() ;
+	virtual AndroidCXX::android_support_v4_app_Fragment_SavedState * saveFragmentInstanceState(AndroidCXX::android_support_v4_app_Fragment const& arg0) ;
+
+protected:
+	android_support_v4_app_FragmentManager();
+
 };	
 
 } // namespace

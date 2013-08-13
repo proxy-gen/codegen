@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -72,6 +73,12 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_io_Serializable.hpp>
+
+#include <java_lang_Cloneable.hpp>
+
+#include <java_lang_Comparable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -92,52 +99,54 @@ class java_lang_Object;
 
 class java_lang_String;
 
-class java_util_Date;
 
-class java_util_Date
+class java_util_Date : public java_io_Serializable,public java_lang_Cloneable,public java_lang_Comparable
 {
 public:
 
-	java_util_Date(const java_util_Date& cc);
-	java_util_Date(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	java_util_Date();
 	java_util_Date(long const& arg0);
 	java_util_Date(int const& arg0,int const& arg1,int const& arg2);
 	java_util_Date(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4);
 	java_util_Date(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5);
 	java_util_Date(AndroidCXX::java_lang_String const& arg0);
+	java_util_Date(const java_util_Date& cc);
+	java_util_Date(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Date();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_lang_Object clone();
-	 int compareTo(AndroidCXX::java_util_Date const& arg0);
-	 bool after(AndroidCXX::java_util_Date const& arg0);
-	 bool before(AndroidCXX::java_util_Date const& arg0);
-	static long parse(AndroidCXX::java_lang_String const& arg0);
-	 void setTime(long const& arg0);
-	 long getTime();
-	 int getYear();
-	 int getMonth();
-	 int getDate();
-	 int getHours();
-	 int getMinutes();
-	 int getSeconds();
-	static long UTC(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5);
-	 void setDate(int const& arg0);
-	 void setMonth(int const& arg0);
-	 void setHours(int const& arg0);
-	 void setMinutes(int const& arg0);
-	 void setSeconds(int const& arg0);
-	 void setYear(int const& arg0);
-	 int getDay();
-	 AndroidCXX::java_lang_String toLocaleString();
-	 AndroidCXX::java_lang_String toGMTString();
-	 int getTimezoneOffset();
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_Object * clone() ;
+	virtual int  compareTo(AndroidCXX::java_util_Date const& arg0) ;
+	virtual bool  after(AndroidCXX::java_util_Date const& arg0) ;
+	virtual bool  before(AndroidCXX::java_util_Date const& arg0) ;
+	static long  parse(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setTime(long const& arg0) ;
+	virtual long  getTime() ;
+	virtual int  getYear() ;
+	virtual int  getMonth() ;
+	virtual int  getDate() ;
+	virtual int  getHours() ;
+	virtual int  getMinutes() ;
+	virtual int  getSeconds() ;
+	static long  UTC(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5) ;
+	virtual void  setDate(int const& arg0) ;
+	virtual void  setMonth(int const& arg0) ;
+	virtual void  setHours(int const& arg0) ;
+	virtual void  setMinutes(int const& arg0) ;
+	virtual void  setSeconds(int const& arg0) ;
+	virtual void  setYear(int const& arg0) ;
+	virtual int  getDay() ;
+	virtual AndroidCXX::java_lang_String * toLocaleString() ;
+	virtual AndroidCXX::java_lang_String * toGMTString() ;
+	virtual int  getTimezoneOffset() ;
+
+protected:
+
 };	
 
 } // namespace

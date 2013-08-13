@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -59,6 +60,7 @@
 
 #include <android_os_Bundle.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -85,30 +87,33 @@ class android_view_Window;
 
 class android_os_Bundle;
 
-class android_app_LocalActivityManager
+class android_app_LocalActivityManager 
 {
 public:
 
+	// Public ConstrucXXX
+	android_app_LocalActivityManager(AndroidCXX::android_app_Activity const& arg0,bool const& arg1);
 	android_app_LocalActivityManager(const android_app_LocalActivityManager& cc);
 	android_app_LocalActivityManager(Proxy proxy);
-	// Public Constructors
-	android_app_LocalActivityManager(AndroidCXX::android_app_Activity const& arg0,bool const& arg1);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_LocalActivityManager();
 	// Functions
-	 AndroidCXX::android_app_Activity getActivity(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::android_view_Window startActivity(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_content_Intent const& arg1);
-	 void dispatchResume();
-	 void dispatchCreate(AndroidCXX::android_os_Bundle const& arg0);
-	 void dispatchPause(bool const& arg0);
-	 void dispatchStop();
-	 void dispatchDestroy(bool const& arg0);
-	 AndroidCXX::android_view_Window destroyActivity(AndroidCXX::java_lang_String const& arg0,bool const& arg1);
-	 AndroidCXX::android_app_Activity getCurrentActivity();
-	 AndroidCXX::java_lang_String getCurrentId();
-	 AndroidCXX::android_os_Bundle saveInstanceState();
-	 void removeAllActivities();
+	virtual AndroidCXX::android_app_Activity * getActivity(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::android_view_Window * startActivity(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_content_Intent const& arg1) ;
+	virtual void  dispatchResume() ;
+	virtual void  dispatchCreate(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual void  dispatchPause(bool const& arg0) ;
+	virtual void  dispatchStop() ;
+	virtual void  dispatchDestroy(bool const& arg0) ;
+	virtual AndroidCXX::android_view_Window * destroyActivity(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
+	virtual AndroidCXX::android_app_Activity * getCurrentActivity() ;
+	virtual AndroidCXX::java_lang_String * getCurrentId() ;
+	virtual AndroidCXX::android_os_Bundle * saveInstanceState() ;
+	virtual void  removeAllActivities() ;
+
+protected:
+
 };	
 
 } // namespace

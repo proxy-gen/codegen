@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_ViewTreeObserver_OnPreDrawListener
+class android_view_ViewTreeObserver_OnPreDrawListener 
 {
 public:
 
 	android_view_ViewTreeObserver_OnPreDrawListener(const android_view_ViewTreeObserver_OnPreDrawListener& cc);
 	android_view_ViewTreeObserver_OnPreDrawListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnPreDrawListener();
 	// Functions
-	 bool onPreDraw();
+	virtual bool  onPreDraw() ;
+
+protected:
+	android_view_ViewTreeObserver_OnPreDrawListener();
+
 };	
 
 } // namespace

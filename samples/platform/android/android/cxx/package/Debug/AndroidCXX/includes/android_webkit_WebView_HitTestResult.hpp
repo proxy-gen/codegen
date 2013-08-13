@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -29,6 +30,7 @@
 
 #include <java_lang_String.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -47,19 +49,22 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_webkit_WebView_HitTestResult
+class android_webkit_WebView_HitTestResult 
 {
 public:
 
+	// Public ConstrucXXX
 	android_webkit_WebView_HitTestResult(const android_webkit_WebView_HitTestResult& cc);
 	android_webkit_WebView_HitTestResult(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebView_HitTestResult();
 	// Functions
-	 int getType();
-	 AndroidCXX::java_lang_String getExtra();
+	virtual int  getType() ;
+	virtual AndroidCXX::java_lang_String * getExtra() ;
+
+protected:
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -34,7 +35,6 @@
 //
 
 
-#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -54,22 +54,25 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_util_Map_Entry
+class java_util_Map_Entry 
 {
 public:
 
 	java_util_Map_Entry(const java_util_Map_Entry& cc);
 	java_util_Map_Entry(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Map_Entry();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 int hashCode();
-	 AndroidCXX::java_lang_Object getValue();
-	 AndroidCXX::java_lang_Object getKey();
-	 AndroidCXX::java_lang_Object setValue(AndroidCXX::java_lang_Object const& arg0);
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_Object * getValue() ;
+	virtual AndroidCXX::java_lang_Object * getKey() ;
+	virtual AndroidCXX::java_lang_Object * setValue(AndroidCXX::java_lang_Object const& arg0) ;
+
+protected:
+	java_util_Map_Entry();
+
 };	
 
 } // namespace

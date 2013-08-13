@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -29,7 +30,6 @@
 //
 
 
-#include <java_lang_CharSequence.hpp>
 
 #include <vector>
 #include <map>
@@ -49,19 +49,22 @@ namespace AndroidCXX {
 
 class java_lang_CharSequence;
 
-class android_widget_AutoCompleteTextView_Validator
+class android_widget_AutoCompleteTextView_Validator 
 {
 public:
 
 	android_widget_AutoCompleteTextView_Validator(const android_widget_AutoCompleteTextView_Validator& cc);
 	android_widget_AutoCompleteTextView_Validator(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AutoCompleteTextView_Validator();
 	// Functions
-	 bool isValid(AndroidCXX::java_lang_CharSequence const& arg0);
-	 AndroidCXX::java_lang_CharSequence fixText(AndroidCXX::java_lang_CharSequence const& arg0);
+	virtual bool  isValid(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual AndroidCXX::java_lang_CharSequence * fixText(AndroidCXX::java_lang_CharSequence const& arg0) ;
+
+protected:
+	android_widget_AutoCompleteTextView_Validator();
+
 };	
 
 } // namespace

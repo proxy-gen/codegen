@@ -14,7 +14,7 @@
 ##
 /*
  * Header (Proxy Converter CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -25,7 +25,6 @@
 #set $config_data = $config_module.config_data
 #set $namespace = $config_data['namespace']
 #set $package = $config_data['package']
-
 // Generated Code 
 
 #ifndef _${package}Converter
@@ -34,7 +33,7 @@
 // Scroll Down 
 //
 
-#set $classes = $config_module.list_classes(tags=None,xtags=['_static'],name=None)	
+#set $classes = $config_module.list_classes(tags=None,xtags=['_static','_no_proxy'],name=None)	
 
 \#include <CXXConverter.hpp>
 \#include <CXXContext.hpp>

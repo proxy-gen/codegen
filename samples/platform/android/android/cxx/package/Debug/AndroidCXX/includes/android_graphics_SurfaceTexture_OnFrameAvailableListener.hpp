@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,6 @@
 //
 
 
-#include <android_graphics_SurfaceTexture.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +46,21 @@ namespace AndroidCXX {
 
 class android_graphics_SurfaceTexture;
 
-class android_graphics_SurfaceTexture_OnFrameAvailableListener
+class android_graphics_SurfaceTexture_OnFrameAvailableListener 
 {
 public:
 
 	android_graphics_SurfaceTexture_OnFrameAvailableListener(const android_graphics_SurfaceTexture_OnFrameAvailableListener& cc);
 	android_graphics_SurfaceTexture_OnFrameAvailableListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_SurfaceTexture_OnFrameAvailableListener();
 	// Functions
-	 void onFrameAvailable(AndroidCXX::android_graphics_SurfaceTexture const& arg0);
+	virtual void  onFrameAvailable(AndroidCXX::android_graphics_SurfaceTexture const& arg0) ;
+
+protected:
+	android_graphics_SurfaceTexture_OnFrameAvailableListener();
+
 };	
 
 } // namespace

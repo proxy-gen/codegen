@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -41,6 +42,7 @@
 
 #include <android_view_KeyEvent.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -61,24 +63,27 @@ class java_lang_Object;
 
 class android_view_KeyEvent;
 
-class android_view_KeyEvent_DispatcherState
+class android_view_KeyEvent_DispatcherState 
 {
 public:
 
+	// Public ConstrucXXX
+	android_view_KeyEvent_DispatcherState();
 	android_view_KeyEvent_DispatcherState(const android_view_KeyEvent_DispatcherState& cc);
 	android_view_KeyEvent_DispatcherState(Proxy proxy);
-	// Public Constructors
-	android_view_KeyEvent_DispatcherState();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_KeyEvent_DispatcherState();
 	// Functions
-	 void reset();
-	 void reset(AndroidCXX::java_lang_Object const& arg0);
-	 void startTracking(AndroidCXX::android_view_KeyEvent const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 bool isTracking(AndroidCXX::android_view_KeyEvent const& arg0);
-	 void performedLongPress(AndroidCXX::android_view_KeyEvent const& arg0);
-	 void handleUpEvent(AndroidCXX::android_view_KeyEvent const& arg0);
+	virtual void  reset() ;
+	virtual void  reset(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  startTracking(AndroidCXX::android_view_KeyEvent const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual bool  isTracking(AndroidCXX::android_view_KeyEvent const& arg0) ;
+	virtual void  performedLongPress(AndroidCXX::android_view_KeyEvent const& arg0) ;
+	virtual void  handleUpEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

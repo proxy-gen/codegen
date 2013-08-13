@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -36,6 +37,7 @@
 
 #include <android_net_Uri.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -56,21 +58,24 @@ class java_lang_String;
 
 class android_net_Uri;
 
-class android_content_IntentFilter_AuthorityEntry
+class android_content_IntentFilter_AuthorityEntry 
 {
 public:
 
+	// Public ConstrucXXX
+	android_content_IntentFilter_AuthorityEntry(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
 	android_content_IntentFilter_AuthorityEntry(const android_content_IntentFilter_AuthorityEntry& cc);
 	android_content_IntentFilter_AuthorityEntry(Proxy proxy);
-	// Public Constructors
-	android_content_IntentFilter_AuthorityEntry(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_IntentFilter_AuthorityEntry();
 	// Functions
-	 int getPort();
-	 AndroidCXX::java_lang_String getHost();
-	 int match(AndroidCXX::android_net_Uri const& arg0);
+	virtual int  getPort() ;
+	virtual AndroidCXX::java_lang_String * getHost() ;
+	virtual int  match(AndroidCXX::android_net_Uri const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

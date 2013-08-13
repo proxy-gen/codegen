@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -37,11 +38,8 @@
 //
 
 
-#include <java_security_Permission.hpp>
 
-#include <java_lang_String.hpp>
-
-#include <java_util_Enumeration.hpp>
+#include <java_io_Serializable.hpp>
 
 #include <vector>
 #include <map>
@@ -65,24 +63,26 @@ class java_lang_String;
 
 class java_util_Enumeration;
 
-class java_security_PermissionCollection
+class java_security_PermissionCollection : public java_io_Serializable
 {
 public:
 
 	java_security_PermissionCollection(const java_security_PermissionCollection& cc);
 	java_security_PermissionCollection(Proxy proxy);
-	// Public Constructors
-	java_security_PermissionCollection();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_PermissionCollection();
 	// Functions
-	 void add(AndroidCXX::java_security_Permission const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 bool implies(AndroidCXX::java_security_Permission const& arg0);
-	 void setReadOnly();
-	 AndroidCXX::java_util_Enumeration elements();
-	 bool isReadOnly();
+	virtual void  add(AndroidCXX::java_security_Permission const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual bool  implies(AndroidCXX::java_security_Permission const& arg0) ;
+	virtual void  setReadOnly() ;
+	virtual AndroidCXX::java_util_Enumeration * elements() ;
+	virtual bool  isReadOnly() ;
+
+protected:
+	java_security_PermissionCollection();
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -29,13 +30,6 @@
 //
 
 
-#include <java_lang_String.hpp>
-
-#include <android_content_Context.hpp>
-
-#include <android_util_AttributeSet.hpp>
-
-#include <android_view_View.hpp>
 
 #include <vector>
 #include <map>
@@ -61,18 +55,21 @@ class android_util_AttributeSet;
 
 class android_view_View;
 
-class android_view_LayoutInflater_Factory
+class android_view_LayoutInflater_Factory 
 {
 public:
 
 	android_view_LayoutInflater_Factory(const android_view_LayoutInflater_Factory& cc);
 	android_view_LayoutInflater_Factory(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_LayoutInflater_Factory();
 	// Functions
-	 AndroidCXX::android_view_View onCreateView(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_util_AttributeSet const& arg2);
+	virtual AndroidCXX::android_view_View * onCreateView(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_util_AttributeSet const& arg2) ;
+
+protected:
+	android_view_LayoutInflater_Factory();
+
 };	
 
 } // namespace

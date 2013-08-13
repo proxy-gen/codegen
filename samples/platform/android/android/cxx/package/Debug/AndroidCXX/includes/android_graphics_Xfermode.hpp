@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_graphics_Xfermode
+class android_graphics_Xfermode 
 {
 public:
 
+	// Public ConstrucXXX
+	android_graphics_Xfermode();
 	android_graphics_Xfermode(const android_graphics_Xfermode& cc);
 	android_graphics_Xfermode(Proxy proxy);
-	// Public Constructors
-	android_graphics_Xfermode();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Xfermode();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

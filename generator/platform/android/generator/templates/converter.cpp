@@ -14,7 +14,7 @@
 ##
 /*
  * Implementation (Proxy Converter CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -26,7 +26,7 @@
 #set $namespace = $config_data['namespace']
 #set $package = $config_data['package']
 
-#set $classes = $config_module.list_classes(tags=None,xtags=['_static'],name=None)	
+#set $classes = $config_module.list_classes(tags=None,xtags=['_static', '_no_proxy'],name=None)	
 
 \#include <${package}Converter.hpp>
 
@@ -109,7 +109,7 @@ void convert_${entity_class_name}_array(long& java_value, long& cxx_value, const
 
 		cxx_converter item_converter = get_converter(converter_stack);
 
-		std::vector<${entity_qualified_name}> *cxx_vector = (std::vector<${entity_qualified_name}> *) cxx_value;
+		std::vector<${entity_qualified_name} *> *cxx_vector = (std::vector<${entity_qualified_name} *> *) cxx_value;
 		int count = cxx_vector->size();
 
 		std::string child_type = jni->getJNIName( std::string("java.lang.Object") );
@@ -124,9 +124,9 @@ void convert_${entity_class_name}_array(long& java_value, long& cxx_value, const
 
 		java_value = (long) jni->createObjectArray(count, jni->getClassRef( child_type.c_str() ));
 
-		for(std::vector<${entity_qualified_name}>::iterator it = cxx_vector->begin(); it != cxx_vector->end(); ++it)
+		for(std::vector<${entity_qualified_name} *>::iterator it = cxx_vector->begin(); it != cxx_vector->end(); ++it)
 		{
-			long cxx_item_ptr = (long) &(*it);
+			long cxx_item_ptr = (long) (*it);
 			long java_item_ptr = 0;
 			int item_idx = it - cxx_vector->begin();
 			item_converter(java_item_ptr, cxx_item_ptr, item_type, converter_type, converter_stack);
@@ -150,14 +150,14 @@ void convert_${entity_class_name}_array(long& java_value, long& cxx_value, const
 		}
 
 		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<${entity_qualified_name}> *cxx_vector = (std::vector<${entity_qualified_name}> *) cxx_value;
+		std::vector<${entity_qualified_name} *> *cxx_vector = (std::vector<${entity_qualified_name} *> *) cxx_value;
 		int size = (int) jni->getArrayLength((jobjectArray) java_value);
 		for (int idx = 0 ; idx < size; idx++)
 		{
 			long java_item_ptr = (long) jni->getObjectArrayElement((jobjectArray) java_value, idx);
 			long cxx_item_ptr = 0;
 			item_converter(java_item_ptr, cxx_item_ptr, item_type, converter_type, converter_stack);
-			cxx_vector->push_back(*((${entity_qualified_name} *) cxx_item_ptr));
+			cxx_vector->push_back((${entity_qualified_name} *) cxx_item_ptr);
 		}
 
 		jni->popLocalFrame();
@@ -181,7 +181,7 @@ void convert_${entity_class_name}_array_array(long& java_value, long& cxx_value,
 
 		cxx_converter item_converter = get_converter(converter_stack);
 
-		std::vector<std::vector<${entity_qualified_name}> > *cxx_vector = (std::vector<std::vector<${entity_qualified_name}> > *) cxx_value;
+		std::vector<std::vector<${entity_qualified_name} *> > *cxx_vector = (std::vector<std::vector<${entity_qualified_name} *> > *) cxx_value;
 		int count = cxx_vector->size();
 
 		CXXTypeHierarchy item_type;
@@ -202,7 +202,7 @@ void convert_${entity_class_name}_array_array(long& java_value, long& cxx_value,
 
 		java_value = (long) jni->createObjectArray(count, jni->getClassRef( child_type.c_str() ));
 
-		for(std::vector<std::vector<${entity_qualified_name}> >::iterator it = cxx_vector->begin(); it != cxx_vector->end(); ++it)
+		for(std::vector<std::vector<${entity_qualified_name} *> >::iterator it = cxx_vector->begin(); it != cxx_vector->end(); ++it)
 		{
 			long cxx_item_ptr = (long) &(*it);
 			long java_item_ptr = 0;
@@ -234,14 +234,14 @@ void convert_${entity_class_name}_array_array(long& java_value, long& cxx_value,
 		}
 
 		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<std::vector<${entity_qualified_name}> > *cxx_vector = (std::vector<std::vector<${entity_qualified_name}> > *) cxx_value;
+		std::vector<std::vector<${entity_qualified_name} *> > *cxx_vector = (std::vector<std::vector<${entity_qualified_name} *> > *) cxx_value;
 		int size = (int) jni->getArrayLength((jobjectArray) java_value);
 		for (int idx = 0 ; idx < size; idx++)
 		{
 			long java_item_ptr = (long) jni->getObjectArrayElement((jobjectArray) java_value, idx);
 			long cxx_item_ptr = 0;
 			item_converter(java_item_ptr, cxx_item_ptr, item_type, converter_type, converter_stack);
-			cxx_vector->push_back(*((std::vector<${entity_qualified_name}> *) cxx_item_ptr));
+			cxx_vector->push_back(*((std::vector<${entity_qualified_name} *> *) cxx_item_ptr));
 		}
 
 		jni->popLocalFrame();

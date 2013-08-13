@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -40,9 +41,6 @@
 //
 
 
-#include <android_app_Activity.hpp>
-
-#include <android_os_Bundle.hpp>
 
 #include <vector>
 #include <map>
@@ -64,24 +62,27 @@ class android_app_Activity;
 
 class android_os_Bundle;
 
-class android_app_Application_ActivityLifecycleCallbacks
+class android_app_Application_ActivityLifecycleCallbacks 
 {
 public:
 
 	android_app_Application_ActivityLifecycleCallbacks(const android_app_Application_ActivityLifecycleCallbacks& cc);
 	android_app_Application_ActivityLifecycleCallbacks(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_Application_ActivityLifecycleCallbacks();
 	// Functions
-	 void onActivityCreated(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_os_Bundle const& arg1);
-	 void onActivityStarted(AndroidCXX::android_app_Activity const& arg0);
-	 void onActivityResumed(AndroidCXX::android_app_Activity const& arg0);
-	 void onActivityPaused(AndroidCXX::android_app_Activity const& arg0);
-	 void onActivityStopped(AndroidCXX::android_app_Activity const& arg0);
-	 void onActivitySaveInstanceState(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_os_Bundle const& arg1);
-	 void onActivityDestroyed(AndroidCXX::android_app_Activity const& arg0);
+	virtual void  onActivityCreated(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual void  onActivityStarted(AndroidCXX::android_app_Activity const& arg0) ;
+	virtual void  onActivityResumed(AndroidCXX::android_app_Activity const& arg0) ;
+	virtual void  onActivityPaused(AndroidCXX::android_app_Activity const& arg0) ;
+	virtual void  onActivityStopped(AndroidCXX::android_app_Activity const& arg0) ;
+	virtual void  onActivitySaveInstanceState(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual void  onActivityDestroyed(AndroidCXX::android_app_Activity const& arg0) ;
+
+protected:
+	android_app_Application_ActivityLifecycleCallbacks();
+
 };	
 
 } // namespace

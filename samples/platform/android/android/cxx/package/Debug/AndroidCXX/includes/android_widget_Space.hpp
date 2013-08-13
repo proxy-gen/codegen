@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -40,6 +41,7 @@
 
 #include <android_util_AttributeSet.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -62,21 +64,24 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_Space
+class android_widget_Space 
 {
 public:
 
-	android_widget_Space(const android_widget_Space& cc);
-	android_widget_Space(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_widget_Space(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_Space(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_Space(AndroidCXX::android_content_Context const& arg0);
+	android_widget_Space(const android_widget_Space& cc);
+	android_widget_Space(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Space();
 	// Functions
-	 void draw(AndroidCXX::android_graphics_Canvas const& arg0);
+	virtual void  draw(AndroidCXX::android_graphics_Canvas const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

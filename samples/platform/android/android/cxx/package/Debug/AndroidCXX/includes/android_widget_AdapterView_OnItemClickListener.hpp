@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -29,11 +30,6 @@
 //
 
 
-#include <android_widget_AdapterView.hpp>
-
-#include <android_view_View.hpp>
-
-#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -57,18 +53,21 @@ class android_view_View;
 
 class java_lang_Object;
 
-class android_widget_AdapterView_OnItemClickListener
+class android_widget_AdapterView_OnItemClickListener 
 {
 public:
 
 	android_widget_AdapterView_OnItemClickListener(const android_widget_AdapterView_OnItemClickListener& cc);
 	android_widget_AdapterView_OnItemClickListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterView_OnItemClickListener();
 	// Functions
-	 void onItemClick(AndroidCXX::android_widget_AdapterView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,long const& arg3);
+	virtual void  onItemClick(AndroidCXX::android_widget_AdapterView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,long const& arg3) ;
+
+protected:
+	android_widget_AdapterView_OnItemClickListener();
+
 };	
 
 } // namespace

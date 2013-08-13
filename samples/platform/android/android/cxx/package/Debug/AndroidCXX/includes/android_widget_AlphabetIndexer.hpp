@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  	
@@ -42,6 +43,9 @@
 
 #include <java_lang_CharSequence.hpp>
 
+
+#include <android_widget_SectionIndexer.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -64,24 +68,27 @@ class android_database_Cursor;
 
 class java_lang_CharSequence;
 
-class android_widget_AlphabetIndexer
+class android_widget_AlphabetIndexer : public android_widget_SectionIndexer
 {
 public:
 
+	// Public ConstrucXXX
+	android_widget_AlphabetIndexer(AndroidCXX::android_database_Cursor const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2);
 	android_widget_AlphabetIndexer(const android_widget_AlphabetIndexer& cc);
 	android_widget_AlphabetIndexer(Proxy proxy);
-	// Public Constructors
-	android_widget_AlphabetIndexer(AndroidCXX::android_database_Cursor const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AlphabetIndexer();
 	// Functions
-	 void onChanged();
-	 void onInvalidated();
-	 std::vector<java_lang_Object> getSections();
-	 int getPositionForSection(int const& arg0);
-	 int getSectionForPosition(int const& arg0);
-	 void setCursor(AndroidCXX::android_database_Cursor const& arg0);
+	virtual std::vector<java_lang_Object>  getSections() ;
+	virtual int  getPositionForSection(int const& arg0) ;
+	virtual int  getSectionForPosition(int const& arg0) ;
+	virtual void  setCursor(AndroidCXX::android_database_Cursor const& arg0) ;
+	virtual void  onChanged() ;
+	virtual void  onInvalidated() ;
+
+protected:
+
 };	
 
 } // namespace

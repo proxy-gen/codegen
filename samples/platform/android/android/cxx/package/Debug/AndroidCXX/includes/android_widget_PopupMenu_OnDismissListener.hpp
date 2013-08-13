@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,6 @@
 //
 
 
-#include <android_widget_PopupMenu.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +46,21 @@ namespace AndroidCXX {
 
 class android_widget_PopupMenu;
 
-class android_widget_PopupMenu_OnDismissListener
+class android_widget_PopupMenu_OnDismissListener 
 {
 public:
 
 	android_widget_PopupMenu_OnDismissListener(const android_widget_PopupMenu_OnDismissListener& cc);
 	android_widget_PopupMenu_OnDismissListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_PopupMenu_OnDismissListener();
 	// Functions
-	 void onDismiss(AndroidCXX::android_widget_PopupMenu const& arg0);
+	virtual void  onDismiss(AndroidCXX::android_widget_PopupMenu const& arg0) ;
+
+protected:
+	android_widget_PopupMenu_OnDismissListener();
+
 };	
 
 } // namespace

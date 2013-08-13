@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,9 +29,8 @@
 //
 
 
-#include <android_view_View.hpp>
 
-#include <android_view_ViewGroup.hpp>
+#include <android_widget_Adapter.hpp>
 
 #include <vector>
 #include <map>
@@ -52,18 +52,21 @@ class android_view_View;
 
 class android_view_ViewGroup;
 
-class android_widget_SpinnerAdapter
+class android_widget_SpinnerAdapter : public android_widget_Adapter
 {
 public:
 
 	android_widget_SpinnerAdapter(const android_widget_SpinnerAdapter& cc);
 	android_widget_SpinnerAdapter(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SpinnerAdapter();
 	// Functions
-	 AndroidCXX::android_view_View getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
+	virtual AndroidCXX::android_view_View * getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
+
+protected:
+	android_widget_SpinnerAdapter();
+
 };	
 
 } // namespace

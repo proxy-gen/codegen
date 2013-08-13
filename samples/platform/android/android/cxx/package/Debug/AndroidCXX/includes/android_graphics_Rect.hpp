@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,6 +8,7 @@
 //
 
 
+
  		 
 	
  		 
@@ -16,11 +17,11 @@
  		 
  		 
  		 
- 		 
 	
 	
  		 
 	
+ 		 
  		 
  		 
  		 
@@ -82,8 +83,10 @@
 
 #include <java_lang_String.hpp>
 
-
 #include <android_os_Parcel.hpp>
+
+
+#include <android_os_Parcelable.hpp>
 
 #include <vector>
 #include <map>
@@ -105,57 +108,59 @@ class java_lang_Object;
 
 class java_lang_String;
 
-class android_graphics_Rect;
 
 class android_os_Parcel;
 
-class android_graphics_Rect
+class android_graphics_Rect : public android_os_Parcelable
 {
 public:
 
-	android_graphics_Rect(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_graphics_Rect();
 	android_graphics_Rect(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
 	android_graphics_Rect(AndroidCXX::android_graphics_Rect const& arg0);
+	android_graphics_Rect(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Rect();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 void offset(int const& arg0,int const& arg1);
-	 bool isEmpty();
-	 bool contains(AndroidCXX::android_graphics_Rect const& arg0);
-	 bool contains(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
-	 bool contains(int const& arg0,int const& arg1);
-	 void set(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
-	 void set(AndroidCXX::android_graphics_Rect const& arg0);
-	 void sort();
-	 bool intersects(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
-	static bool intersects(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_graphics_Rect const& arg1);
-	 void _union(int const& arg0,int const& arg1);
-	 void _union(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
-	 void _union(AndroidCXX::android_graphics_Rect const& arg0);
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 void readFromParcel(AndroidCXX::android_os_Parcel const& arg0);
-	 int width();
-	 int height();
-	 AndroidCXX::java_lang_String toShortString();
-	 AndroidCXX::java_lang_String flattenToString();
-	static AndroidCXX::android_graphics_Rect unflattenFromString(AndroidCXX::java_lang_String const& arg0);
-	 int centerX();
-	 int centerY();
-	 float exactCenterX();
-	 float exactCenterY();
-	 void setEmpty();
-	 void offsetTo(int const& arg0,int const& arg1);
-	 void inset(int const& arg0,int const& arg1);
-	 bool intersect(AndroidCXX::android_graphics_Rect const& arg0);
-	 bool intersect(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
-	 bool setIntersect(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_graphics_Rect const& arg1);
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual int  hashCode() ;
+	virtual void  offset(int const& arg0,int const& arg1) ;
+	virtual bool  isEmpty() ;
+	virtual bool  contains(AndroidCXX::android_graphics_Rect const& arg0) ;
+	virtual bool  contains(int const& arg0,int const& arg1) ;
+	virtual bool  contains(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  set(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  set(AndroidCXX::android_graphics_Rect const& arg0) ;
+	virtual void  sort() ;
+	static bool  intersects(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
+	virtual bool  intersects(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  _union(AndroidCXX::android_graphics_Rect const& arg0) ;
+	virtual void  _union(int const& arg0,int const& arg1) ;
+	virtual void  _union(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual int  width() ;
+	virtual int  height() ;
+	virtual AndroidCXX::java_lang_String * toShortString() ;
+	virtual AndroidCXX::java_lang_String * flattenToString() ;
+	static AndroidCXX::android_graphics_Rect * unflattenFromString(AndroidCXX::java_lang_String const& arg0) ;
+	virtual int  centerX() ;
+	virtual int  centerY() ;
+	virtual float  exactCenterX() ;
+	virtual float  exactCenterY() ;
+	virtual void  setEmpty() ;
+	virtual void  offsetTo(int const& arg0,int const& arg1) ;
+	virtual void  inset(int const& arg0,int const& arg1) ;
+	virtual bool  intersect(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual bool  intersect(AndroidCXX::android_graphics_Rect const& arg0) ;
+	virtual bool  setIntersect(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
+	virtual void  readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

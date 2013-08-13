@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,6 @@
 //
 
 
-#include <android_widget_RadioGroup.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +46,21 @@ namespace AndroidCXX {
 
 class android_widget_RadioGroup;
 
-class android_widget_RadioGroup_OnCheckedChangeListener
+class android_widget_RadioGroup_OnCheckedChangeListener 
 {
 public:
 
 	android_widget_RadioGroup_OnCheckedChangeListener(const android_widget_RadioGroup_OnCheckedChangeListener& cc);
 	android_widget_RadioGroup_OnCheckedChangeListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RadioGroup_OnCheckedChangeListener();
 	// Functions
-	 void onCheckedChanged(AndroidCXX::android_widget_RadioGroup const& arg0,int const& arg1);
+	virtual void  onCheckedChanged(AndroidCXX::android_widget_RadioGroup const& arg0,int const& arg1) ;
+
+protected:
+	android_widget_RadioGroup_OnCheckedChangeListener();
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_graphics_PathEffect
+class android_graphics_PathEffect 
 {
 public:
 
+	// Public ConstrucXXX
+	android_graphics_PathEffect();
 	android_graphics_PathEffect(const android_graphics_PathEffect& cc);
 	android_graphics_PathEffect(Proxy proxy);
-	// Public Constructors
-	android_graphics_PathEffect();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_PathEffect();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

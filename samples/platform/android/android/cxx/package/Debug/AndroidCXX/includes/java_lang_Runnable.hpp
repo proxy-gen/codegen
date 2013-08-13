@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Runnable
+class java_lang_Runnable 
 {
 public:
 
 	java_lang_Runnable(const java_lang_Runnable& cc);
 	java_lang_Runnable(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Runnable();
 	// Functions
-	 void run();
+	virtual void  run() ;
+
+protected:
+	java_lang_Runnable();
+
 };	
 
 } // namespace

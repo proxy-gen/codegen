@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  	
@@ -37,7 +38,10 @@
 //
 
 
-#include <java_nio_CharBuffer.hpp>
+
+#include <java_io_Closeable.hpp>
+
+#include <java_lang_Readable.hpp>
 
 #include <vector>
 #include <map>
@@ -57,27 +61,30 @@ namespace AndroidCXX {
 
 class java_nio_CharBuffer;
 
-class java_io_Reader
+class java_io_Reader : public java_io_Closeable,public java_lang_Readable
 {
 public:
 
 	java_io_Reader(const java_io_Reader& cc);
 	java_io_Reader(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_Reader();
 	// Functions
-	 void close();
-	 void mark(int const& arg0);
-	 void reset();
-	 int read(std::vector<char> const& arg0,int const& arg1,int const& arg2);
-	 int read();
-	 int read(std::vector<char> const& arg0);
-	 int read(AndroidCXX::java_nio_CharBuffer const& arg0);
-	 long skip(long const& arg0);
-	 bool markSupported();
-	 bool ready();
+	virtual void  close() ;
+	virtual void  mark(int const& arg0) ;
+	virtual void  reset() ;
+	virtual int  read(std::vector<char> const& arg0,int const& arg1,int const& arg2) ;
+	virtual int  read() ;
+	virtual int  read(std::vector<char> const& arg0) ;
+	virtual int  read(AndroidCXX::java_nio_CharBuffer const& arg0) ;
+	virtual long  skip(long const& arg0) ;
+	virtual bool  markSupported() ;
+	virtual bool  ready() ;
+
+protected:
+	java_io_Reader();
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -44,6 +45,9 @@
 
 #include <java_util_Date.hpp>
 
+
+#include <java_io_Serializable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -68,23 +72,26 @@ class java_security_cert_CertPath;
 
 class java_util_Date;
 
-class java_security_Timestamp
+class java_security_Timestamp : public java_io_Serializable
 {
 public:
 
+	// Public ConstrucXXX
+	java_security_Timestamp(AndroidCXX::java_util_Date const& arg0,AndroidCXX::java_security_cert_CertPath const& arg1);
 	java_security_Timestamp(const java_security_Timestamp& cc);
 	java_security_Timestamp(Proxy proxy);
-	// Public Constructors
-	java_security_Timestamp(AndroidCXX::java_util_Date const& arg0,AndroidCXX::java_security_cert_CertPath const& arg1);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_Timestamp();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_security_cert_CertPath getSignerCertPath();
-	 AndroidCXX::java_util_Date getTimestamp();
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_security_cert_CertPath * getSignerCertPath() ;
+	virtual AndroidCXX::java_util_Date * getTimestamp() ;
+
+protected:
+
 };	
 
 } // namespace

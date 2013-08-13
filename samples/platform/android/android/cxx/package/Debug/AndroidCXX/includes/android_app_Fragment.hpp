@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -179,7 +180,6 @@
 
 #include <android_os_Bundle.hpp>
 
-
 #include <android_app_Fragment_SavedState.hpp>
 
 #include <android_app_Activity.hpp>
@@ -214,6 +214,11 @@
 
 #include <android_animation_Animator.hpp>
 
+
+#include <android_content_ComponentCallbacks2.hpp>
+
+#include <android_view_View_OnCreateContextMenuListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -244,7 +249,6 @@ class android_content_Context;
 
 class android_os_Bundle;
 
-class android_app_Fragment;
 
 class android_app_Fragment_SavedState;
 
@@ -280,90 +284,93 @@ class android_view_ContextMenu_ContextMenuInfo;
 
 class android_animation_Animator;
 
-class android_app_Fragment
+class android_app_Fragment : public android_content_ComponentCallbacks2,public android_view_View_OnCreateContextMenuListener
 {
 public:
 
+	// Public ConstrucXXX
+	android_app_Fragment();
 	android_app_Fragment(const android_app_Fragment& cc);
 	android_app_Fragment(Proxy proxy);
-	// Public Constructors
-	android_app_Fragment();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_Fragment();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::android_content_res_Resources getResources();
-	 int getId();
-	 bool isHidden();
-	 AndroidCXX::java_lang_String getString(int const& arg0,std::vector<java_lang_Object> const& arg1);
-	 AndroidCXX::java_lang_String getString(int const& arg0);
-	 AndroidCXX::java_lang_String getTag();
-	 void dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3);
-	static AndroidCXX::android_app_Fragment instantiate(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2);
-	static AndroidCXX::android_app_Fragment instantiate(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
-	 void setArguments(AndroidCXX::android_os_Bundle const& arg0);
-	 AndroidCXX::android_os_Bundle getArguments();
-	 void setInitialSavedState(AndroidCXX::android_app_Fragment_SavedState const& arg0);
-	 void setTargetFragment(AndroidCXX::android_app_Fragment const& arg0,int const& arg1);
-	 AndroidCXX::android_app_Fragment getTargetFragment();
-	 int getTargetRequestCode();
-	 AndroidCXX::android_app_Activity getActivity();
-	 AndroidCXX::java_lang_CharSequence getText(int const& arg0);
-	 AndroidCXX::android_app_FragmentManager getFragmentManager();
-	 AndroidCXX::android_app_FragmentManager getChildFragmentManager();
-	 AndroidCXX::android_app_Fragment getParentFragment();
-	 bool isAdded();
-	 bool isDetached();
-	 bool isRemoving();
-	 bool isInLayout();
-	 bool isResumed();
-	 bool isVisible();
-	 void onHiddenChanged(bool const& arg0);
-	 void setRetainInstance(bool const& arg0);
-	 bool getRetainInstance();
-	 void setHasOptionsMenu(bool const& arg0);
-	 void setMenuVisibility(bool const& arg0);
-	 void setUserVisibleHint(bool const& arg0);
-	 bool getUserVisibleHint();
-	 AndroidCXX::android_app_LoaderManager getLoaderManager();
-	 void startActivity(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_os_Bundle const& arg1);
-	 void startActivity(AndroidCXX::android_content_Intent const& arg0);
-	 void startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2);
-	 void startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1);
-	 void onActivityResult(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2);
-	 void onInflate(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,AndroidCXX::android_os_Bundle const& arg2);
-	 void onInflate(AndroidCXX::android_util_AttributeSet const& arg0,AndroidCXX::android_os_Bundle const& arg1);
-	 void onAttach(AndroidCXX::android_app_Activity const& arg0);
-	 void onCreate(AndroidCXX::android_os_Bundle const& arg0);
-	 AndroidCXX::android_view_View onCreateView(AndroidCXX::android_view_LayoutInflater const& arg0,AndroidCXX::android_view_ViewGroup const& arg1,AndroidCXX::android_os_Bundle const& arg2);
-	 void onViewCreated(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_os_Bundle const& arg1);
-	 AndroidCXX::android_view_View getView();
-	 void onActivityCreated(AndroidCXX::android_os_Bundle const& arg0);
-	 void onViewStateRestored(AndroidCXX::android_os_Bundle const& arg0);
-	 void onStart();
-	 void onResume();
-	 void onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0);
-	 void onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0);
-	 void onPause();
-	 void onStop();
-	 void onLowMemory();
-	 void onDestroyView();
-	 void onDestroy();
-	 void onDetach();
-	 void onCreateOptionsMenu(AndroidCXX::android_view_Menu const& arg0,AndroidCXX::android_view_MenuInflater const& arg1);
-	 void onPrepareOptionsMenu(AndroidCXX::android_view_Menu const& arg0);
-	 void onDestroyOptionsMenu();
-	 bool onOptionsItemSelected(AndroidCXX::android_view_MenuItem const& arg0);
-	 void onOptionsMenuClosed(AndroidCXX::android_view_Menu const& arg0);
-	 void onCreateContextMenu(AndroidCXX::android_view_ContextMenu const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ContextMenu_ContextMenuInfo const& arg2);
-	 void registerForContextMenu(AndroidCXX::android_view_View const& arg0);
-	 void unregisterForContextMenu(AndroidCXX::android_view_View const& arg0);
-	 bool onContextItemSelected(AndroidCXX::android_view_MenuItem const& arg0);
-	 void onTrimMemory(int const& arg0);
-	 AndroidCXX::android_animation_Animator onCreateAnimator(int const& arg0,bool const& arg1,int const& arg2);
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::android_content_res_Resources * getResources() ;
+	virtual int  getId() ;
+	virtual bool  isHidden() ;
+	virtual AndroidCXX::java_lang_String * getString(int const& arg0,std::vector<java_lang_Object> const& arg1) ;
+	virtual AndroidCXX::java_lang_String * getString(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getTag() ;
+	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3) ;
+	static AndroidCXX::android_app_Fragment * instantiate(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
+	static AndroidCXX::android_app_Fragment * instantiate(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  setArguments(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual AndroidCXX::android_os_Bundle * getArguments() ;
+	virtual void  setInitialSavedState(AndroidCXX::android_app_Fragment_SavedState const& arg0) ;
+	virtual void  setTargetFragment(AndroidCXX::android_app_Fragment const& arg0,int const& arg1) ;
+	virtual AndroidCXX::android_app_Fragment * getTargetFragment() ;
+	virtual int  getTargetRequestCode() ;
+	virtual AndroidCXX::android_app_Activity * getActivity() ;
+	virtual AndroidCXX::java_lang_CharSequence * getText(int const& arg0) ;
+	virtual AndroidCXX::android_app_FragmentManager * getFragmentManager() ;
+	virtual AndroidCXX::android_app_FragmentManager * getChildFragmentManager() ;
+	virtual AndroidCXX::android_app_Fragment * getParentFragment() ;
+	virtual bool  isAdded() ;
+	virtual bool  isDetached() ;
+	virtual bool  isRemoving() ;
+	virtual bool  isInLayout() ;
+	virtual bool  isResumed() ;
+	virtual bool  isVisible() ;
+	virtual void  onHiddenChanged(bool const& arg0) ;
+	virtual void  setRetainInstance(bool const& arg0) ;
+	virtual bool  getRetainInstance() ;
+	virtual void  setHasOptionsMenu(bool const& arg0) ;
+	virtual void  setMenuVisibility(bool const& arg0) ;
+	virtual void  setUserVisibleHint(bool const& arg0) ;
+	virtual bool  getUserVisibleHint() ;
+	virtual AndroidCXX::android_app_LoaderManager * getLoaderManager() ;
+	virtual void  startActivity(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual void  startActivity(AndroidCXX::android_content_Intent const& arg0) ;
+	virtual void  startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
+	virtual void  startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1) ;
+	virtual void  onActivityResult(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2) ;
+	virtual void  onInflate(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
+	virtual void  onInflate(AndroidCXX::android_util_AttributeSet const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual void  onAttach(AndroidCXX::android_app_Activity const& arg0) ;
+	virtual void  onCreate(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual AndroidCXX::android_view_View * onCreateView(AndroidCXX::android_view_LayoutInflater const& arg0,AndroidCXX::android_view_ViewGroup const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
+	virtual void  onViewCreated(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual AndroidCXX::android_view_View * getView() ;
+	virtual void  onActivityCreated(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual void  onViewStateRestored(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual void  onStart() ;
+	virtual void  onResume() ;
+	virtual void  onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual void  onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0) ;
+	virtual void  onPause() ;
+	virtual void  onStop() ;
+	virtual void  onLowMemory() ;
+	virtual void  onDestroyView() ;
+	virtual void  onDestroy() ;
+	virtual void  onDetach() ;
+	virtual void  onCreateOptionsMenu(AndroidCXX::android_view_Menu const& arg0,AndroidCXX::android_view_MenuInflater const& arg1) ;
+	virtual void  onPrepareOptionsMenu(AndroidCXX::android_view_Menu const& arg0) ;
+	virtual void  onDestroyOptionsMenu() ;
+	virtual bool  onOptionsItemSelected(AndroidCXX::android_view_MenuItem const& arg0) ;
+	virtual void  onOptionsMenuClosed(AndroidCXX::android_view_Menu const& arg0) ;
+	virtual void  onCreateContextMenu(AndroidCXX::android_view_ContextMenu const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ContextMenu_ContextMenuInfo const& arg2) ;
+	virtual void  registerForContextMenu(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  unregisterForContextMenu(AndroidCXX::android_view_View const& arg0) ;
+	virtual bool  onContextItemSelected(AndroidCXX::android_view_MenuItem const& arg0) ;
+	virtual void  onTrimMemory(int const& arg0) ;
+	virtual AndroidCXX::android_animation_Animator * onCreateAnimator(int const& arg0,bool const& arg1,int const& arg2) ;
+
+protected:
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -34,13 +35,6 @@
 //
 
 
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
-#include <android_os_Bundle.hpp>
-
-#include <java_lang_String.hpp>
-
-#include <java_util_List.hpp>
 
 #include <vector>
 #include <map>
@@ -66,21 +60,23 @@ class java_lang_String;
 
 class java_util_List;
 
-class android_view_accessibility_AccessibilityNodeProvider
+class android_view_accessibility_AccessibilityNodeProvider 
 {
 public:
 
 	android_view_accessibility_AccessibilityNodeProvider(const android_view_accessibility_AccessibilityNodeProvider& cc);
 	android_view_accessibility_AccessibilityNodeProvider(Proxy proxy);
-	// Public Constructors
-	android_view_accessibility_AccessibilityNodeProvider();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityNodeProvider();
 	// Functions
-	 AndroidCXX::android_view_accessibility_AccessibilityNodeInfo createAccessibilityNodeInfo(int const& arg0);
-	 bool performAction(int const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2);
-	 AndroidCXX::java_util_List findAccessibilityNodeInfosByText(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	virtual AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * createAccessibilityNodeInfo(int const& arg0) ;
+	virtual bool  performAction(int const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
+	virtual AndroidCXX::java_util_List * findAccessibilityNodeInfosByText(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+
+protected:
+	android_view_accessibility_AccessibilityNodeProvider();
+
 };	
 
 } // namespace

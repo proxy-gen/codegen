@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_IBinder_DeathRecipient
+class android_os_IBinder_DeathRecipient 
 {
 public:
 
 	android_os_IBinder_DeathRecipient(const android_os_IBinder_DeathRecipient& cc);
 	android_os_IBinder_DeathRecipient(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_IBinder_DeathRecipient();
 	// Functions
-	 void binderDied();
+	virtual void  binderDied() ;
+
+protected:
+	android_os_IBinder_DeathRecipient();
+
 };	
 
 } // namespace

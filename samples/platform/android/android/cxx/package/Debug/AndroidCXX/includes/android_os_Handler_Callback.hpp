@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,6 @@
 //
 
 
-#include <android_os_Message.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +46,21 @@ namespace AndroidCXX {
 
 class android_os_Message;
 
-class android_os_Handler_Callback
+class android_os_Handler_Callback 
 {
 public:
 
 	android_os_Handler_Callback(const android_os_Handler_Callback& cc);
 	android_os_Handler_Callback(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Handler_Callback();
 	// Functions
-	 bool handleMessage(AndroidCXX::android_os_Message const& arg0);
+	virtual bool  handleMessage(AndroidCXX::android_os_Message const& arg0) ;
+
+protected:
+	android_os_Handler_Callback();
+
 };	
 
 } // namespace

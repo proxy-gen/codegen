@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -39,6 +40,7 @@
 
 #include <android_net_http_SslCertificate.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -59,22 +61,25 @@ class java_lang_String;
 
 class android_net_http_SslCertificate;
 
-class android_net_http_SslCertificate_DName
+class android_net_http_SslCertificate_DName 
 {
 public:
 
+	// Public ConstrucXXX
+	android_net_http_SslCertificate_DName(AndroidCXX::android_net_http_SslCertificate const& arg0,AndroidCXX::java_lang_String const& arg1);
 	android_net_http_SslCertificate_DName(const android_net_http_SslCertificate_DName& cc);
 	android_net_http_SslCertificate_DName(Proxy proxy);
-	// Public Constructors
-	android_net_http_SslCertificate_DName(AndroidCXX::android_net_http_SslCertificate const& arg0,AndroidCXX::java_lang_String const& arg1);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_net_http_SslCertificate_DName();
 	// Functions
-	 AndroidCXX::java_lang_String getDName();
-	 AndroidCXX::java_lang_String getCName();
-	 AndroidCXX::java_lang_String getOName();
-	 AndroidCXX::java_lang_String getUName();
+	virtual AndroidCXX::java_lang_String * getDName() ;
+	virtual AndroidCXX::java_lang_String * getCName() ;
+	virtual AndroidCXX::java_lang_String * getOName() ;
+	virtual AndroidCXX::java_lang_String * getUName() ;
+
+protected:
+
 };	
 
 } // namespace

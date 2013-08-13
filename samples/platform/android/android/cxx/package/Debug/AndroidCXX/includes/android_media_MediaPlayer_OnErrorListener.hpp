@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,6 @@
 //
 
 
-#include <android_media_MediaPlayer.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +46,21 @@ namespace AndroidCXX {
 
 class android_media_MediaPlayer;
 
-class android_media_MediaPlayer_OnErrorListener
+class android_media_MediaPlayer_OnErrorListener 
 {
 public:
 
 	android_media_MediaPlayer_OnErrorListener(const android_media_MediaPlayer_OnErrorListener& cc);
 	android_media_MediaPlayer_OnErrorListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnErrorListener();
 	// Functions
-	 bool onError(AndroidCXX::android_media_MediaPlayer const& arg0,int const& arg1,int const& arg2);
+	virtual bool  onError(AndroidCXX::android_media_MediaPlayer const& arg0,int const& arg1,int const& arg2) ;
+
+protected:
+	android_media_MediaPlayer_OnErrorListener();
+
 };	
 
 } // namespace

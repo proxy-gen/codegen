@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -29,6 +30,9 @@
 
 #include <android_os_Parcel.hpp>
 
+
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -47,19 +51,22 @@ namespace AndroidCXX {
 
 class android_os_Parcel;
 
-class android_content_SyncInfo
+class android_content_SyncInfo : public android_os_Parcelable
 {
 public:
 
+	// Public ConstrucXXX
 	android_content_SyncInfo(const android_content_SyncInfo& cc);
 	android_content_SyncInfo(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_SyncInfo();
 	// Functions
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
 };	
 
 } // namespace

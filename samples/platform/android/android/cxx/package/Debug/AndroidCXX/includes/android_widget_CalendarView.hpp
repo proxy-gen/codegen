@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -72,9 +73,9 @@
 //
 
 
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_graphics_drawable_Drawable.hpp>
 
@@ -83,6 +84,7 @@
 #include <android_content_Context.hpp>
 
 #include <android_util_AttributeSet.hpp>
+
 
 #include <vector>
 #include <map>
@@ -100,9 +102,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_accessibility_AccessibilityEvent;
-
 class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_view_accessibility_AccessibilityEvent;
 
 class android_graphics_drawable_Drawable;
 
@@ -112,55 +114,58 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_CalendarView
+class android_widget_CalendarView 
 {
 public:
 
-	android_widget_CalendarView(const android_widget_CalendarView& cc);
-	android_widget_CalendarView(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_widget_CalendarView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_CalendarView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_CalendarView(AndroidCXX::android_content_Context const& arg0);
+	android_widget_CalendarView(const android_widget_CalendarView& cc);
+	android_widget_CalendarView(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CalendarView();
 	// Functions
-	 long getDate();
-	 void setDate(long const& arg0,bool const& arg1,bool const& arg2);
-	 void setDate(long const& arg0);
-	 bool isEnabled();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
-	 void setEnabled(bool const& arg0);
-	 void setShownWeekCount(int const& arg0);
-	 int getShownWeekCount();
-	 void setSelectedWeekBackgroundColor(int const& arg0);
-	 int getSelectedWeekBackgroundColor();
-	 void setFocusedMonthDateColor(int const& arg0);
-	 int getFocusedMonthDateColor();
-	 void setUnfocusedMonthDateColor(int const& arg0);
-	 int getUnfocusedMonthDateColor();
-	 void setWeekNumberColor(int const& arg0);
-	 int getWeekNumberColor();
-	 void setWeekSeparatorLineColor(int const& arg0);
-	 int getWeekSeparatorLineColor();
-	 void setSelectedDateVerticalBar(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
-	 void setSelectedDateVerticalBar(int const& arg0);
-	 AndroidCXX::android_graphics_drawable_Drawable getSelectedDateVerticalBar();
-	 void setWeekDayTextAppearance(int const& arg0);
-	 int getWeekDayTextAppearance();
-	 void setDateTextAppearance(int const& arg0);
-	 int getDateTextAppearance();
-	 long getMinDate();
-	 void setMinDate(long const& arg0);
-	 long getMaxDate();
-	 void setMaxDate(long const& arg0);
-	 void setShowWeekNumber(bool const& arg0);
-	 bool getShowWeekNumber();
-	 int getFirstDayOfWeek();
-	 void setFirstDayOfWeek(int const& arg0);
-	 void setOnDateChangeListener(AndroidCXX::android_widget_CalendarView_OnDateChangeListener const& arg0);
+	virtual long  getDate() ;
+	virtual void  setDate(long const& arg0,bool const& arg1,bool const& arg2) ;
+	virtual void  setDate(long const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual bool  isEnabled() ;
+	virtual void  setEnabled(bool const& arg0) ;
+	virtual void  setShownWeekCount(int const& arg0) ;
+	virtual int  getShownWeekCount() ;
+	virtual void  setSelectedWeekBackgroundColor(int const& arg0) ;
+	virtual int  getSelectedWeekBackgroundColor() ;
+	virtual void  setFocusedMonthDateColor(int const& arg0) ;
+	virtual int  getFocusedMonthDateColor() ;
+	virtual void  setUnfocusedMonthDateColor(int const& arg0) ;
+	virtual int  getUnfocusedMonthDateColor() ;
+	virtual void  setWeekNumberColor(int const& arg0) ;
+	virtual int  getWeekNumberColor() ;
+	virtual void  setWeekSeparatorLineColor(int const& arg0) ;
+	virtual int  getWeekSeparatorLineColor() ;
+	virtual void  setSelectedDateVerticalBar(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  setSelectedDateVerticalBar(int const& arg0) ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getSelectedDateVerticalBar() ;
+	virtual void  setWeekDayTextAppearance(int const& arg0) ;
+	virtual int  getWeekDayTextAppearance() ;
+	virtual void  setDateTextAppearance(int const& arg0) ;
+	virtual int  getDateTextAppearance() ;
+	virtual long  getMinDate() ;
+	virtual void  setMinDate(long const& arg0) ;
+	virtual long  getMaxDate() ;
+	virtual void  setMaxDate(long const& arg0) ;
+	virtual void  setShowWeekNumber(bool const& arg0) ;
+	virtual bool  getShowWeekNumber() ;
+	virtual int  getFirstDayOfWeek() ;
+	virtual void  setFirstDayOfWeek(int const& arg0) ;
+	virtual void  setOnDateChangeListener(AndroidCXX::android_widget_CalendarView_OnDateChangeListener const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

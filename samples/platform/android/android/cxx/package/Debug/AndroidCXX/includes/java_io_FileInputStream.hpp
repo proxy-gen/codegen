@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  	
@@ -50,6 +51,7 @@
 
 #include <java_io_File.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -74,28 +76,31 @@ class java_lang_String;
 
 class java_io_File;
 
-class java_io_FileInputStream
+class java_io_FileInputStream 
 {
 public:
 
-	java_io_FileInputStream(const java_io_FileInputStream& cc);
-	java_io_FileInputStream(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	java_io_FileInputStream(AndroidCXX::java_lang_String const& arg0);
 	java_io_FileInputStream(AndroidCXX::java_io_File const& arg0);
 	java_io_FileInputStream(AndroidCXX::java_io_FileDescriptor const& arg0);
+	java_io_FileInputStream(const java_io_FileInputStream& cc);
+	java_io_FileInputStream(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FileInputStream();
 	// Functions
-	 void close();
-	 int read(std::vector<byte> const& arg0);
-	 int read(std::vector<byte> const& arg0,int const& arg1,int const& arg2);
-	 int read();
-	 long skip(long const& arg0);
-	 int available();
-	 AndroidCXX::java_io_FileDescriptor getFD();
-	 AndroidCXX::java_nio_channels_FileChannel getChannel();
+	virtual void  close() ;
+	virtual int  read(std::vector<byte> const& arg0) ;
+	virtual int  read(std::vector<byte> const& arg0,int const& arg1,int const& arg2) ;
+	virtual int  read() ;
+	virtual long  skip(long const& arg0) ;
+	virtual int  available() ;
+	virtual AndroidCXX::java_io_FileDescriptor * getFD() ;
+	virtual AndroidCXX::java_nio_channels_FileChannel * getChannel() ;
+
+protected:
+
 };	
 
 } // namespace

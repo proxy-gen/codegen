@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -81,6 +82,7 @@
 
 #include <java_net_DatagramSocketImplFactory.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -107,51 +109,54 @@ class java_net_InetAddress;
 
 class java_net_DatagramSocketImplFactory;
 
-class java_net_DatagramSocket
+class java_net_DatagramSocket 
 {
 public:
 
-	java_net_DatagramSocket(const java_net_DatagramSocket& cc);
-	java_net_DatagramSocket(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	java_net_DatagramSocket(int const& arg0,AndroidCXX::java_net_InetAddress const& arg1);
 	java_net_DatagramSocket();
 	java_net_DatagramSocket(AndroidCXX::java_net_SocketAddress const& arg0);
 	java_net_DatagramSocket(int const& arg0);
+	java_net_DatagramSocket(const java_net_DatagramSocket& cc);
+	java_net_DatagramSocket(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_DatagramSocket();
 	// Functions
-	 void close();
-	 void send(AndroidCXX::java_net_DatagramPacket const& arg0);
-	 int getPort();
-	 AndroidCXX::java_nio_channels_DatagramChannel getChannel();
-	 void connect(AndroidCXX::java_net_SocketAddress const& arg0);
-	 void connect(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1);
-	 bool isClosed();
-	 void disconnect();
-	 void bind(AndroidCXX::java_net_SocketAddress const& arg0);
-	 AndroidCXX::java_net_InetAddress getInetAddress();
-	 AndroidCXX::java_net_InetAddress getLocalAddress();
-	 int getLocalPort();
-	 AndroidCXX::java_net_SocketAddress getRemoteSocketAddress();
-	 AndroidCXX::java_net_SocketAddress getLocalSocketAddress();
-	 void setSoTimeout(int const& arg0);
-	 int getSoTimeout();
-	 void setSendBufferSize(int const& arg0);
-	 int getSendBufferSize();
-	 void setReceiveBufferSize(int const& arg0);
-	 int getReceiveBufferSize();
-	 void setTrafficClass(int const& arg0);
-	 int getTrafficClass();
-	 void setReuseAddress(bool const& arg0);
-	 bool getReuseAddress();
-	 bool isConnected();
-	 bool isBound();
-	 void receive(AndroidCXX::java_net_DatagramPacket const& arg0);
-	 void setBroadcast(bool const& arg0);
-	 bool getBroadcast();
-	static void setDatagramSocketImplFactory(AndroidCXX::java_net_DatagramSocketImplFactory const& arg0);
+	virtual void  close() ;
+	virtual void  send(AndroidCXX::java_net_DatagramPacket const& arg0) ;
+	virtual int  getPort() ;
+	virtual AndroidCXX::java_nio_channels_DatagramChannel * getChannel() ;
+	virtual void  connect(AndroidCXX::java_net_SocketAddress const& arg0) ;
+	virtual void  connect(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1) ;
+	virtual bool  isClosed() ;
+	virtual void  disconnect() ;
+	virtual void  bind(AndroidCXX::java_net_SocketAddress const& arg0) ;
+	virtual AndroidCXX::java_net_InetAddress * getInetAddress() ;
+	virtual AndroidCXX::java_net_InetAddress * getLocalAddress() ;
+	virtual int  getLocalPort() ;
+	virtual AndroidCXX::java_net_SocketAddress * getRemoteSocketAddress() ;
+	virtual AndroidCXX::java_net_SocketAddress * getLocalSocketAddress() ;
+	virtual void  setSoTimeout(int const& arg0) ;
+	virtual int  getSoTimeout() ;
+	virtual void  setSendBufferSize(int const& arg0) ;
+	virtual int  getSendBufferSize() ;
+	virtual void  setReceiveBufferSize(int const& arg0) ;
+	virtual int  getReceiveBufferSize() ;
+	virtual void  setTrafficClass(int const& arg0) ;
+	virtual int  getTrafficClass() ;
+	virtual void  setReuseAddress(bool const& arg0) ;
+	virtual bool  getReuseAddress() ;
+	virtual bool  isConnected() ;
+	virtual bool  isBound() ;
+	virtual void  receive(AndroidCXX::java_net_DatagramPacket const& arg0) ;
+	virtual void  setBroadcast(bool const& arg0) ;
+	virtual bool  getBroadcast() ;
+	static void  setDatagramSocketImplFactory(AndroidCXX::java_net_DatagramSocketImplFactory const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

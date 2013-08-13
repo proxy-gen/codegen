@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_KeyCharacterMap_KeyData
+class android_view_KeyCharacterMap_KeyData 
 {
 public:
 
+	// Public ConstrucXXX
+	android_view_KeyCharacterMap_KeyData();
 	android_view_KeyCharacterMap_KeyData(const android_view_KeyCharacterMap_KeyData& cc);
 	android_view_KeyCharacterMap_KeyData(Proxy proxy);
-	// Public Constructors
-	android_view_KeyCharacterMap_KeyData();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_KeyCharacterMap_KeyData();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -38,6 +39,7 @@
 
 #include <android_os_ParcelFileDescriptor.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -58,24 +60,27 @@ class java_lang_String;
 
 class android_os_ParcelFileDescriptor;
 
-class android_database_sqlite_SQLiteStatement
+class android_database_sqlite_SQLiteStatement 
 {
 public:
 
+	// Public ConstrucXXX
 	android_database_sqlite_SQLiteStatement(const android_database_sqlite_SQLiteStatement& cc);
 	android_database_sqlite_SQLiteStatement(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteStatement();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 void execute();
-	 int executeUpdateDelete();
-	 long executeInsert();
-	 long simpleQueryForLong();
-	 AndroidCXX::java_lang_String simpleQueryForString();
-	 AndroidCXX::android_os_ParcelFileDescriptor simpleQueryForBlobFileDescriptor();
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  execute() ;
+	virtual int  executeUpdateDelete() ;
+	virtual long  executeInsert() ;
+	virtual long  simpleQueryForLong() ;
+	virtual AndroidCXX::java_lang_String * simpleQueryForString() ;
+	virtual AndroidCXX::android_os_ParcelFileDescriptor * simpleQueryForBlobFileDescriptor() ;
+
+protected:
+
 };	
 
 } // namespace

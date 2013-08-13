@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -54,24 +55,26 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class android_view_MotionEvent_PointerProperties;
 
-class android_view_MotionEvent_PointerProperties
+class android_view_MotionEvent_PointerProperties 
 {
 public:
 
-	android_view_MotionEvent_PointerProperties(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_view_MotionEvent_PointerProperties();
 	android_view_MotionEvent_PointerProperties(AndroidCXX::android_view_MotionEvent_PointerProperties const& arg0);
+	android_view_MotionEvent_PointerProperties(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_MotionEvent_PointerProperties();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 int hashCode();
-	 void clear();
-	 void copyFrom(AndroidCXX::android_view_MotionEvent_PointerProperties const& arg0);
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	virtual void  clear() ;
+	virtual void  copyFrom(AndroidCXX::android_view_MotionEvent_PointerProperties const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

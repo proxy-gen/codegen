@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -45,6 +46,9 @@
 
 #include <java_lang_String.hpp>
 
+
+#include <java_io_Serializable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -65,26 +69,29 @@ class java_lang_Object;
 
 class java_lang_String;
 
-class java_lang_StackTraceElement
+class java_lang_StackTraceElement : public java_io_Serializable
 {
 public:
 
+	// Public ConstrucXXX
+	java_lang_StackTraceElement(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3);
 	java_lang_StackTraceElement(const java_lang_StackTraceElement& cc);
 	java_lang_StackTraceElement(Proxy proxy);
-	// Public Constructors
-	java_lang_StackTraceElement(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_StackTraceElement();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_lang_String getFileName();
-	 int getLineNumber();
-	 AndroidCXX::java_lang_String getClassName();
-	 AndroidCXX::java_lang_String getMethodName();
-	 bool isNativeMethod();
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * getFileName() ;
+	virtual int  getLineNumber() ;
+	virtual AndroidCXX::java_lang_String * getClassName() ;
+	virtual AndroidCXX::java_lang_String * getMethodName() ;
+	virtual bool  isNativeMethod() ;
+
+protected:
+
 };	
 
 } // namespace

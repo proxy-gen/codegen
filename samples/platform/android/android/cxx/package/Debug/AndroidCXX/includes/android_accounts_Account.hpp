@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -43,6 +44,9 @@
 
 #include <android_os_Parcel.hpp>
 
+
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -65,24 +69,27 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_accounts_Account
+class android_accounts_Account : public android_os_Parcelable
 {
 public:
 
-	android_accounts_Account(const android_accounts_Account& cc);
-	android_accounts_Account(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_accounts_Account(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
 	android_accounts_Account(AndroidCXX::android_os_Parcel const& arg0);
+	android_accounts_Account(const android_accounts_Account& cc);
+	android_accounts_Account(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_accounts_Account();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual int  hashCode() ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
 };	
 
 } // namespace

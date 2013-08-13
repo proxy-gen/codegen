@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -38,9 +39,8 @@
 //
 
 
-#include <java_lang_Class.hpp>
 
-#include <java_lang_Object.hpp>
+#include <java_lang_CharSequence.hpp>
 
 #include <vector>
 #include <map>
@@ -62,22 +62,25 @@ class java_lang_Class;
 
 class java_lang_Object;
 
-class android_text_Spanned
+class android_text_Spanned : public java_lang_CharSequence
 {
 public:
 
 	android_text_Spanned(const android_text_Spanned& cc);
 	android_text_Spanned(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_Spanned();
 	// Functions
-	 std::vector<java_lang_Object> getSpans(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2);
-	 int getSpanStart(AndroidCXX::java_lang_Object const& arg0);
-	 int getSpanEnd(AndroidCXX::java_lang_Object const& arg0);
-	 int getSpanFlags(AndroidCXX::java_lang_Object const& arg0);
-	 int nextSpanTransition(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2);
+	virtual std::vector<java_lang_Object>  getSpans(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2) ;
+	virtual int  getSpanStart(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  getSpanEnd(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  getSpanFlags(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  nextSpanTransition(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2) ;
+
+protected:
+	android_text_Spanned();
+
 };	
 
 } // namespace

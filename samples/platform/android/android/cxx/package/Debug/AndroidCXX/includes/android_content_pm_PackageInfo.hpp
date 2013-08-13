@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -34,6 +35,9 @@
 
 #include <android_os_Parcel.hpp>
 
+
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,21 +58,24 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_content_pm_PackageInfo
+class android_content_pm_PackageInfo : public android_os_Parcelable
 {
 public:
 
+	// Public ConstrucXXX
+	android_content_pm_PackageInfo();
 	android_content_pm_PackageInfo(const android_content_pm_PackageInfo& cc);
 	android_content_pm_PackageInfo(Proxy proxy);
-	// Public Constructors
-	android_content_pm_PackageInfo();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_PackageInfo();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
 };	
 
 } // namespace

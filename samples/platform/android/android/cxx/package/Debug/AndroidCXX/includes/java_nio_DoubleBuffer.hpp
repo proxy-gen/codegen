@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  	
@@ -76,11 +77,7 @@
 
 
 
-#include <java_lang_Object.hpp>
-
-#include <java_lang_String.hpp>
-
-#include <java_nio_ByteOrder.hpp>
+#include <java_lang_Comparable.hpp>
 
 #include <vector>
 #include <map>
@@ -98,7 +95,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_DoubleBuffer;
 
 class java_lang_Object;
 
@@ -106,42 +102,45 @@ class java_lang_String;
 
 class java_nio_ByteOrder;
 
-class java_nio_DoubleBuffer
+class java_nio_DoubleBuffer : public java_lang_Comparable
 {
 public:
 
 	java_nio_DoubleBuffer(const java_nio_DoubleBuffer& cc);
 	java_nio_DoubleBuffer(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_DoubleBuffer();
 	// Functions
-	 double get();
-	 AndroidCXX::java_nio_DoubleBuffer get(std::vector<double> const& arg0);
-	 AndroidCXX::java_nio_DoubleBuffer get(std::vector<double> const& arg0,int const& arg1,int const& arg2);
-	 double get(int const& arg0);
-	 AndroidCXX::java_nio_DoubleBuffer put(AndroidCXX::java_nio_DoubleBuffer const& arg0);
-	 AndroidCXX::java_nio_DoubleBuffer put(double const& arg0);
-	 AndroidCXX::java_nio_DoubleBuffer put(int const& arg0,double const& arg1);
-	 AndroidCXX::java_nio_DoubleBuffer put(std::vector<double> const& arg0,int const& arg1,int const& arg2);
-	 AndroidCXX::java_nio_DoubleBuffer put(std::vector<double> const& arg0);
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 int compareTo(AndroidCXX::java_nio_DoubleBuffer const& arg0);
-	 bool isDirect();
-	 bool hasArray();
-	 std::vector<double> array();
-	 int arrayOffset();
-	static AndroidCXX::java_nio_DoubleBuffer wrap(std::vector<double> const& arg0,int const& arg1,int const& arg2);
-	static AndroidCXX::java_nio_DoubleBuffer wrap(std::vector<double> const& arg0);
-	static AndroidCXX::java_nio_DoubleBuffer allocate(int const& arg0);
-	 AndroidCXX::java_nio_DoubleBuffer duplicate();
-	 AndroidCXX::java_nio_DoubleBuffer slice();
-	 AndroidCXX::java_nio_DoubleBuffer asReadOnlyBuffer();
-	 AndroidCXX::java_nio_DoubleBuffer compact();
-	 AndroidCXX::java_nio_ByteOrder order();
+	virtual double  get() ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * get(std::vector<double> const& arg0) ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * get(std::vector<double> const& arg0,int const& arg1,int const& arg2) ;
+	virtual double  get(int const& arg0) ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * put(AndroidCXX::java_nio_DoubleBuffer const& arg0) ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * put(double const& arg0) ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * put(int const& arg0,double const& arg1) ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * put(std::vector<double> const& arg0,int const& arg1,int const& arg2) ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * put(std::vector<double> const& arg0) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual int  hashCode() ;
+	virtual int  compareTo(AndroidCXX::java_nio_DoubleBuffer const& arg0) ;
+	virtual bool  isDirect() ;
+	virtual bool  hasArray() ;
+	virtual std::vector<double>  array() ;
+	virtual int  arrayOffset() ;
+	static AndroidCXX::java_nio_DoubleBuffer * wrap(std::vector<double> const& arg0,int const& arg1,int const& arg2) ;
+	static AndroidCXX::java_nio_DoubleBuffer * wrap(std::vector<double> const& arg0) ;
+	static AndroidCXX::java_nio_DoubleBuffer * allocate(int const& arg0) ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * duplicate() ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * slice() ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * asReadOnlyBuffer() ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * compact() ;
+	virtual AndroidCXX::java_nio_ByteOrder * order() ;
+
+protected:
+	java_nio_DoubleBuffer();
+
 };	
 
 } // namespace

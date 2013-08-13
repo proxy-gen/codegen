@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -63,6 +64,7 @@
 
 #include <java_net_SocketAddress.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -83,35 +85,38 @@ class java_net_InetAddress;
 
 class java_net_SocketAddress;
 
-class java_net_DatagramPacket
+class java_net_DatagramPacket 
 {
 public:
 
-	java_net_DatagramPacket(const java_net_DatagramPacket& cc);
-	java_net_DatagramPacket(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,int const& arg2);
 	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1);
 	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_net_InetAddress const& arg3,int const& arg4);
 	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_net_SocketAddress const& arg3);
 	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2,int const& arg3);
 	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,AndroidCXX::java_net_SocketAddress const& arg2);
+	java_net_DatagramPacket(const java_net_DatagramPacket& cc);
+	java_net_DatagramPacket(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_DatagramPacket();
 	// Functions
-	 int getLength();
-	 AndroidCXX::java_net_InetAddress getAddress();
-	 void setLength(int const& arg0);
-	 int getOffset();
-	 int getPort();
-	 std::vector<byte> getData();
-	 void setAddress(AndroidCXX::java_net_InetAddress const& arg0);
-	 void setPort(int const& arg0);
-	 void setData(std::vector<byte> const& arg0);
-	 void setData(std::vector<byte> const& arg0,int const& arg1,int const& arg2);
-	 void setSocketAddress(AndroidCXX::java_net_SocketAddress const& arg0);
-	 AndroidCXX::java_net_SocketAddress getSocketAddress();
+	virtual int  getLength() ;
+	virtual AndroidCXX::java_net_InetAddress * getAddress() ;
+	virtual void  setLength(int const& arg0) ;
+	virtual int  getOffset() ;
+	virtual int  getPort() ;
+	virtual std::vector<byte>  getData() ;
+	virtual void  setAddress(AndroidCXX::java_net_InetAddress const& arg0) ;
+	virtual void  setPort(int const& arg0) ;
+	virtual void  setData(std::vector<byte> const& arg0) ;
+	virtual void  setData(std::vector<byte> const& arg0,int const& arg1,int const& arg2) ;
+	virtual void  setSocketAddress(AndroidCXX::java_net_SocketAddress const& arg0) ;
+	virtual AndroidCXX::java_net_SocketAddress * getSocketAddress() ;
+
+protected:
+
 };	
 
 } // namespace

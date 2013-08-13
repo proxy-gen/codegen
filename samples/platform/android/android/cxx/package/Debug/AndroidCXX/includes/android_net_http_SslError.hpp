@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -49,6 +50,7 @@
 
 #include <java_security_cert_X509Certificate.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -71,27 +73,30 @@ class android_net_http_SslCertificate;
 
 class java_security_cert_X509Certificate;
 
-class android_net_http_SslError
+class android_net_http_SslError 
 {
 public:
 
-	android_net_http_SslError(const android_net_http_SslError& cc);
-	android_net_http_SslError(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_net_http_SslError(int const& arg0,AndroidCXX::android_net_http_SslCertificate const& arg1);
 	android_net_http_SslError(int const& arg0,AndroidCXX::java_security_cert_X509Certificate const& arg1);
 	android_net_http_SslError(int const& arg0,AndroidCXX::android_net_http_SslCertificate const& arg1,AndroidCXX::java_lang_String const& arg2);
 	android_net_http_SslError(int const& arg0,AndroidCXX::java_security_cert_X509Certificate const& arg1,AndroidCXX::java_lang_String const& arg2);
+	android_net_http_SslError(const android_net_http_SslError& cc);
+	android_net_http_SslError(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_net_http_SslError();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 AndroidCXX::android_net_http_SslCertificate getCertificate();
-	 AndroidCXX::java_lang_String getUrl();
-	 bool addError(int const& arg0);
-	 bool hasError(int const& arg0);
-	 int getPrimaryError();
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual AndroidCXX::android_net_http_SslCertificate * getCertificate() ;
+	virtual AndroidCXX::java_lang_String * getUrl() ;
+	virtual bool  addError(int const& arg0) ;
+	virtual bool  hasError(int const& arg0) ;
+	virtual int  getPrimaryError() ;
+
+protected:
+
 };	
 
 } // namespace

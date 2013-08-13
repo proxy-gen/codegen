@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,6 @@
 //
 
 
-#include <android_view_View.hpp>
-
-#include <android_view_MotionEvent.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +49,21 @@ class android_view_View;
 
 class android_view_MotionEvent;
 
-class android_view_View_OnHoverListener
+class android_view_View_OnHoverListener 
 {
 public:
 
 	android_view_View_OnHoverListener(const android_view_View_OnHoverListener& cc);
 	android_view_View_OnHoverListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnHoverListener();
 	// Functions
-	 bool onHover(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1);
+	virtual bool  onHover(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1) ;
+
+protected:
+	android_view_View_OnHoverListener();
+
 };	
 
 } // namespace

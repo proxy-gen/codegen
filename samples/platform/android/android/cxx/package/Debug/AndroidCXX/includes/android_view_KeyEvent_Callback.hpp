@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -32,7 +33,6 @@
 //
 
 
-#include <android_view_KeyEvent.hpp>
 
 #include <vector>
 #include <map>
@@ -52,21 +52,24 @@ namespace AndroidCXX {
 
 class android_view_KeyEvent;
 
-class android_view_KeyEvent_Callback
+class android_view_KeyEvent_Callback 
 {
 public:
 
 	android_view_KeyEvent_Callback(const android_view_KeyEvent_Callback& cc);
 	android_view_KeyEvent_Callback(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_KeyEvent_Callback();
 	// Functions
-	 bool onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
-	 bool onKeyLongPress(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
-	 bool onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1);
-	 bool onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2);
+	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
+	virtual bool  onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
+	virtual bool  onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
+	virtual bool  onKeyLongPress(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
+
+protected:
+	android_view_KeyEvent_Callback();
+
 };	
 
 } // namespace

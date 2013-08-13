@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -66,9 +67,9 @@
 
 #include <android_view_ViewGroup.hpp>
 
-#include <android_widget_Filter.hpp>
-
 #include <java_lang_Object.hpp>
+
+#include <android_widget_Filter.hpp>
 
 #include <android_widget_SimpleAdapter_ViewBinder.hpp>
 
@@ -83,6 +84,9 @@
 #include <java_util_List.hpp>
 
 #include <java_util_Map.hpp>
+
+
+#include <android_widget_Filterable.hpp>
 
 #include <vector>
 #include <map>
@@ -104,9 +108,9 @@ class android_view_View;
 
 class android_view_ViewGroup;
 
-class android_widget_Filter;
-
 class java_lang_Object;
+
+class android_widget_Filter;
 
 class android_widget_SimpleAdapter_ViewBinder;
 
@@ -122,30 +126,33 @@ class java_util_List;
 
 class java_util_Map;
 
-class android_widget_SimpleAdapter
+class android_widget_SimpleAdapter : public android_widget_Filterable
 {
 public:
 
+	// Public ConstrucXXX
+	android_widget_SimpleAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,std::vector<java_lang_String> const& arg3,std::vector<int> const& arg4);
 	android_widget_SimpleAdapter(const android_widget_SimpleAdapter& cc);
 	android_widget_SimpleAdapter(Proxy proxy);
-	// Public Constructors
-	android_widget_SimpleAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,std::vector<java_lang_String> const& arg3,std::vector<int> const& arg4);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SimpleAdapter();
 	// Functions
-	 AndroidCXX::android_view_View getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
-	 AndroidCXX::android_widget_Filter getFilter();
-	 AndroidCXX::java_lang_Object getItem(int const& arg0);
-	 long getItemId(int const& arg0);
-	 int getCount();
-	 AndroidCXX::android_view_View getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
-	 void setDropDownViewResource(int const& arg0);
-	 AndroidCXX::android_widget_SimpleAdapter_ViewBinder getViewBinder();
-	 void setViewBinder(AndroidCXX::android_widget_SimpleAdapter_ViewBinder const& arg0);
-	 void setViewImage(AndroidCXX::android_widget_ImageView const& arg0,int const& arg1);
-	 void setViewImage(AndroidCXX::android_widget_ImageView const& arg0,AndroidCXX::java_lang_String const& arg1);
-	 void setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1);
+	virtual AndroidCXX::android_view_View * getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
+	virtual int  getCount() ;
+	virtual AndroidCXX::java_lang_Object * getItem(int const& arg0) ;
+	virtual long  getItemId(int const& arg0) ;
+	virtual AndroidCXX::android_widget_Filter * getFilter() ;
+	virtual AndroidCXX::android_view_View * getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
+	virtual void  setDropDownViewResource(int const& arg0) ;
+	virtual AndroidCXX::android_widget_SimpleAdapter_ViewBinder * getViewBinder() ;
+	virtual void  setViewBinder(AndroidCXX::android_widget_SimpleAdapter_ViewBinder const& arg0) ;
+	virtual void  setViewImage(AndroidCXX::android_widget_ImageView const& arg0,int const& arg1) ;
+	virtual void  setViewImage(AndroidCXX::android_widget_ImageView const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+
+protected:
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_Filter_FilterListener
+class android_widget_Filter_FilterListener 
 {
 public:
 
 	android_widget_Filter_FilterListener(const android_widget_Filter_FilterListener& cc);
 	android_widget_Filter_FilterListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Filter_FilterListener();
 	// Functions
-	 void onFilterComplete(int const& arg0);
+	virtual void  onFilterComplete(int const& arg0) ;
+
+protected:
+	android_widget_Filter_FilterListener();
+
 };	
 
 } // namespace

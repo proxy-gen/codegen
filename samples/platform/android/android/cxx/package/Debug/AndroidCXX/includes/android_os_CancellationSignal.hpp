@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -32,6 +33,7 @@
 
 #include <android_os_CancellationSignal_OnCancelListener.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -50,22 +52,25 @@ namespace AndroidCXX {
 
 class android_os_CancellationSignal_OnCancelListener;
 
-class android_os_CancellationSignal
+class android_os_CancellationSignal 
 {
 public:
 
+	// Public ConstrucXXX
+	android_os_CancellationSignal();
 	android_os_CancellationSignal(const android_os_CancellationSignal& cc);
 	android_os_CancellationSignal(Proxy proxy);
-	// Public Constructors
-	android_os_CancellationSignal();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_CancellationSignal();
 	// Functions
-	 void cancel();
-	 bool isCanceled();
-	 void throwIfCanceled();
-	 void setOnCancelListener(AndroidCXX::android_os_CancellationSignal_OnCancelListener const& arg0);
+	virtual void  cancel() ;
+	virtual bool  isCanceled() ;
+	virtual void  throwIfCanceled() ;
+	virtual void  setOnCancelListener(AndroidCXX::android_os_CancellationSignal_OnCancelListener const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

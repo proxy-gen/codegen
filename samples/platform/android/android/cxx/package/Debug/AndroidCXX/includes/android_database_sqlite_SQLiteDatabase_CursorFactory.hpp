@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -30,15 +31,6 @@
 //
 
 
-#include <android_database_sqlite_SQLiteDatabase.hpp>
-
-#include <android_database_sqlite_SQLiteCursorDriver.hpp>
-
-#include <java_lang_String.hpp>
-
-#include <android_database_sqlite_SQLiteQuery.hpp>
-
-#include <android_database_Cursor.hpp>
 
 #include <vector>
 #include <map>
@@ -66,18 +58,21 @@ class android_database_sqlite_SQLiteQuery;
 
 class android_database_Cursor;
 
-class android_database_sqlite_SQLiteDatabase_CursorFactory
+class android_database_sqlite_SQLiteDatabase_CursorFactory 
 {
 public:
 
 	android_database_sqlite_SQLiteDatabase_CursorFactory(const android_database_sqlite_SQLiteDatabase_CursorFactory& cc);
 	android_database_sqlite_SQLiteDatabase_CursorFactory(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteDatabase_CursorFactory();
 	// Functions
-	 AndroidCXX::android_database_Cursor newCursor(AndroidCXX::android_database_sqlite_SQLiteDatabase const& arg0,AndroidCXX::android_database_sqlite_SQLiteCursorDriver const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_database_sqlite_SQLiteQuery const& arg3);
+	virtual AndroidCXX::android_database_Cursor * newCursor(AndroidCXX::android_database_sqlite_SQLiteDatabase const& arg0,AndroidCXX::android_database_sqlite_SQLiteCursorDriver const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_database_sqlite_SQLiteQuery const& arg3) ;
+
+protected:
+	android_database_sqlite_SQLiteDatabase_CursorFactory();
+
 };	
 
 } // namespace

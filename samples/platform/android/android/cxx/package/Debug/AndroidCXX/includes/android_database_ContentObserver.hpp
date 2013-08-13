@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -33,9 +34,6 @@
 //
 
 
-#include <android_net_Uri.hpp>
-
-#include <android_os_Handler.hpp>
 
 #include <vector>
 #include <map>
@@ -57,23 +55,25 @@ class android_net_Uri;
 
 class android_os_Handler;
 
-class android_database_ContentObserver
+class android_database_ContentObserver 
 {
 public:
 
 	android_database_ContentObserver(const android_database_ContentObserver& cc);
 	android_database_ContentObserver(Proxy proxy);
-	// Public Constructors
-	android_database_ContentObserver(AndroidCXX::android_os_Handler const& arg0);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_database_ContentObserver();
 	// Functions
-	 bool deliverSelfNotifications();
-	 void onChange(bool const& arg0);
-	 void onChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1);
-	 void dispatchChange(bool const& arg0);
-	 void dispatchChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1);
+	virtual bool  deliverSelfNotifications() ;
+	virtual void  onChange(bool const& arg0) ;
+	virtual void  onChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1) ;
+	virtual void  dispatchChange(bool const& arg0) ;
+	virtual void  dispatchChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1) ;
+
+protected:
+	android_database_ContentObserver();
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -26,6 +27,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,19 +44,22 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_Advanceable
+class android_widget_Advanceable 
 {
 public:
 
 	android_widget_Advanceable(const android_widget_Advanceable& cc);
 	android_widget_Advanceable(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Advanceable();
 	// Functions
-	 void advance();
-	 void fyiWillBeAdvancedByHostKThx();
+	virtual void  advance() ;
+	virtual void  fyiWillBeAdvancedByHostKThx() ;
+
+protected:
+	android_widget_Advanceable();
+
 };	
 
 } // namespace

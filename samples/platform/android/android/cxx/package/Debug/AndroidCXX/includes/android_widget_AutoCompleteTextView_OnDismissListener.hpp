@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_AutoCompleteTextView_OnDismissListener
+class android_widget_AutoCompleteTextView_OnDismissListener 
 {
 public:
 
 	android_widget_AutoCompleteTextView_OnDismissListener(const android_widget_AutoCompleteTextView_OnDismissListener& cc);
 	android_widget_AutoCompleteTextView_OnDismissListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AutoCompleteTextView_OnDismissListener();
 	// Functions
-	 void onDismiss();
+	virtual void  onDismiss() ;
+
+protected:
+	android_widget_AutoCompleteTextView_OnDismissListener();
+
 };	
 
 } // namespace

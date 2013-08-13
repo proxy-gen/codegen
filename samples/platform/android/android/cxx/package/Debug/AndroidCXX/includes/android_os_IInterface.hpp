@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -26,7 +27,6 @@
 //
 
 
-#include <android_os_IBinder.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +46,21 @@ namespace AndroidCXX {
 
 class android_os_IBinder;
 
-class android_os_IInterface
+class android_os_IInterface 
 {
 public:
 
 	android_os_IInterface(const android_os_IInterface& cc);
 	android_os_IInterface(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_IInterface();
 	// Functions
-	 AndroidCXX::android_os_IBinder asBinder();
+	virtual AndroidCXX::android_os_IBinder * asBinder() ;
+
+protected:
+	android_os_IInterface();
+
 };	
 
 } // namespace

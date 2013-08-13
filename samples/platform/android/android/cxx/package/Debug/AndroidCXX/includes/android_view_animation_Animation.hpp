@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -75,15 +76,8 @@
 //
 
 
-#include <android_content_Context.hpp>
 
-#include <android_view_animation_Interpolator.hpp>
-
-#include <android_view_animation_Animation_AnimationListener.hpp>
-
-#include <android_view_animation_Transformation.hpp>
-
-#include <android_util_AttributeSet.hpp>
+#include <java_lang_Cloneable.hpp>
 
 #include <vector>
 #include <map>
@@ -101,9 +95,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_content_Context;
-
 class android_view_animation_Interpolator;
+
+class android_content_Context;
 
 class android_view_animation_Animation_AnimationListener;
 
@@ -111,60 +105,61 @@ class android_view_animation_Transformation;
 
 class android_util_AttributeSet;
 
-class android_view_animation_Animation
+class android_view_animation_Animation : public java_lang_Cloneable
 {
 public:
 
 	android_view_animation_Animation(const android_view_animation_Animation& cc);
 	android_view_animation_Animation(Proxy proxy);
-	// Public Constructors
-	android_view_animation_Animation(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_view_animation_Animation();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_Animation();
 	// Functions
-	 void start();
-	 void reset();
-	 void initialize(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
-	 void cancel();
-	 void setInterpolator(AndroidCXX::android_content_Context const& arg0,int const& arg1);
-	 void setInterpolator(AndroidCXX::android_view_animation_Interpolator const& arg0);
-	 void setDuration(long const& arg0);
-	 void setAnimationListener(AndroidCXX::android_view_animation_Animation_AnimationListener const& arg0);
-	 int getRepeatCount();
-	 bool isInitialized();
-	 void setStartOffset(long const& arg0);
-	 void restrictDuration(long const& arg0);
-	 void scaleCurrentDuration(float const& arg0);
-	 void setStartTime(long const& arg0);
-	 void startNow();
-	 void setRepeatMode(int const& arg0);
-	 void setRepeatCount(int const& arg0);
-	 bool isFillEnabled();
-	 void setFillEnabled(bool const& arg0);
-	 void setFillBefore(bool const& arg0);
-	 void setFillAfter(bool const& arg0);
-	 void setZAdjustment(int const& arg0);
-	 void setBackgroundColor(int const& arg0);
-	 void setDetachWallpaper(bool const& arg0);
-	 AndroidCXX::android_view_animation_Interpolator getInterpolator();
-	 long getStartTime();
-	 long getDuration();
-	 long getStartOffset();
-	 int getRepeatMode();
-	 bool getFillBefore();
-	 bool getFillAfter();
-	 int getZAdjustment();
-	 int getBackgroundColor();
-	 bool getDetachWallpaper();
-	 bool willChangeTransformationMatrix();
-	 bool willChangeBounds();
-	 long computeDurationHint();
-	 bool getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1);
-	 bool getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1,float const& arg2);
-	 bool hasStarted();
-	 bool hasEnded();
+	virtual void  start() ;
+	virtual void  reset() ;
+	virtual void  initialize(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  setInterpolator(AndroidCXX::android_view_animation_Interpolator const& arg0) ;
+	virtual void  setInterpolator(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
+	virtual void  setDuration(long const& arg0) ;
+	virtual void  setAnimationListener(AndroidCXX::android_view_animation_Animation_AnimationListener const& arg0) ;
+	virtual void  setBackgroundColor(int const& arg0) ;
+	virtual void  cancel() ;
+	virtual long  getDuration() ;
+	virtual AndroidCXX::android_view_animation_Interpolator * getInterpolator() ;
+	virtual bool  isInitialized() ;
+	virtual void  setStartOffset(long const& arg0) ;
+	virtual void  restrictDuration(long const& arg0) ;
+	virtual void  scaleCurrentDuration(float const& arg0) ;
+	virtual void  setStartTime(long const& arg0) ;
+	virtual void  startNow() ;
+	virtual void  setRepeatMode(int const& arg0) ;
+	virtual void  setRepeatCount(int const& arg0) ;
+	virtual bool  isFillEnabled() ;
+	virtual void  setFillEnabled(bool const& arg0) ;
+	virtual void  setFillBefore(bool const& arg0) ;
+	virtual void  setFillAfter(bool const& arg0) ;
+	virtual void  setZAdjustment(int const& arg0) ;
+	virtual void  setDetachWallpaper(bool const& arg0) ;
+	virtual long  getStartTime() ;
+	virtual long  getStartOffset() ;
+	virtual int  getRepeatMode() ;
+	virtual int  getRepeatCount() ;
+	virtual bool  getFillBefore() ;
+	virtual bool  getFillAfter() ;
+	virtual int  getZAdjustment() ;
+	virtual int  getBackgroundColor() ;
+	virtual bool  getDetachWallpaper() ;
+	virtual bool  willChangeTransformationMatrix() ;
+	virtual bool  willChangeBounds() ;
+	virtual long  computeDurationHint() ;
+	virtual bool  getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1) ;
+	virtual bool  getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1,float const& arg2) ;
+	virtual bool  hasStarted() ;
+	virtual bool  hasEnded() ;
+
+protected:
+	android_view_animation_Animation();
+
 };	
 
 } // namespace

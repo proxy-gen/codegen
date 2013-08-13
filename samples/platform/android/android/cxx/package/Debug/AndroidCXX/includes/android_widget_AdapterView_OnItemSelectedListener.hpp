@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -33,11 +34,6 @@
 //
 
 
-#include <android_widget_AdapterView.hpp>
-
-#include <android_view_View.hpp>
-
-#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -61,19 +57,22 @@ class android_view_View;
 
 class java_lang_Object;
 
-class android_widget_AdapterView_OnItemSelectedListener
+class android_widget_AdapterView_OnItemSelectedListener 
 {
 public:
 
 	android_widget_AdapterView_OnItemSelectedListener(const android_widget_AdapterView_OnItemSelectedListener& cc);
 	android_widget_AdapterView_OnItemSelectedListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterView_OnItemSelectedListener();
 	// Functions
-	 void onItemSelected(AndroidCXX::android_widget_AdapterView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,long const& arg3);
-	 void onNothingSelected(AndroidCXX::android_widget_AdapterView const& arg0);
+	virtual void  onItemSelected(AndroidCXX::android_widget_AdapterView const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2,long const& arg3) ;
+	virtual void  onNothingSelected(AndroidCXX::android_widget_AdapterView const& arg0) ;
+
+protected:
+	android_widget_AdapterView_OnItemSelectedListener();
+
 };	
 
 } // namespace

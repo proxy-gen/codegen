@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -27,6 +28,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -43,20 +45,23 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_database_sqlite_SQLiteTransactionListener
+class android_database_sqlite_SQLiteTransactionListener 
 {
 public:
 
 	android_database_sqlite_SQLiteTransactionListener(const android_database_sqlite_SQLiteTransactionListener& cc);
 	android_database_sqlite_SQLiteTransactionListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteTransactionListener();
 	// Functions
-	 void onBegin();
-	 void onCommit();
-	 void onRollback();
+	virtual void  onBegin() ;
+	virtual void  onCommit() ;
+	virtual void  onRollback() ;
+
+protected:
+	android_database_sqlite_SQLiteTransactionListener();
+
 };	
 
 } // namespace

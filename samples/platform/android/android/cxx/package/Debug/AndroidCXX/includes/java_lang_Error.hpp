@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -36,6 +37,7 @@
 
 #include <java_lang_Throwable.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -56,21 +58,24 @@ class java_lang_String;
 
 class java_lang_Throwable;
 
-class java_lang_Error
+class java_lang_Error 
 {
 public:
 
-	java_lang_Error(const java_lang_Error& cc);
-	java_lang_Error(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	java_lang_Error();
 	java_lang_Error(AndroidCXX::java_lang_String const& arg0);
 	java_lang_Error(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
 	java_lang_Error(AndroidCXX::java_lang_Throwable const& arg0);
+	java_lang_Error(const java_lang_Error& cc);
+	java_lang_Error(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Error();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

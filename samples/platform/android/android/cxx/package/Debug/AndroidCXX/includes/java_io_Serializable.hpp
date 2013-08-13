@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +42,20 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_io_Serializable
+class java_io_Serializable 
 {
 public:
 
 	java_io_Serializable(const java_io_Serializable& cc);
 	java_io_Serializable(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_Serializable();
 	// Functions
+
+protected:
+	java_io_Serializable();
+
 };	
 
 } // namespace

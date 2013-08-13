@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_ActionProvider_VisibilityListener
+class android_view_ActionProvider_VisibilityListener 
 {
 public:
 
 	android_view_ActionProvider_VisibilityListener(const android_view_ActionProvider_VisibilityListener& cc);
 	android_view_ActionProvider_VisibilityListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ActionProvider_VisibilityListener();
 	// Functions
-	 void onActionProviderVisibilityChanged(bool const& arg0);
+	virtual void  onActionProviderVisibilityChanged(bool const& arg0) ;
+
+protected:
+	android_view_ActionProvider_VisibilityListener();
+
 };	
 
 } // namespace

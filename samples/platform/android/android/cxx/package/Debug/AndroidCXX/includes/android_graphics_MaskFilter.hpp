@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_graphics_MaskFilter
+class android_graphics_MaskFilter 
 {
 public:
 
+	// Public ConstrucXXX
+	android_graphics_MaskFilter();
 	android_graphics_MaskFilter(const android_graphics_MaskFilter& cc);
 	android_graphics_MaskFilter(Proxy proxy);
-	// Public Constructors
-	android_graphics_MaskFilter();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_MaskFilter();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

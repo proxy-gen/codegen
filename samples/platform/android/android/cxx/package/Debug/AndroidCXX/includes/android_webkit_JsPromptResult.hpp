@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,6 +29,7 @@
 
 #include <java_lang_String.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,18 +48,21 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_webkit_JsPromptResult
+class android_webkit_JsPromptResult 
 {
 public:
 
+	// Public ConstrucXXX
 	android_webkit_JsPromptResult(const android_webkit_JsPromptResult& cc);
 	android_webkit_JsPromptResult(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_JsPromptResult();
 	// Functions
-	 void confirm(AndroidCXX::java_lang_String const& arg0);
+	virtual void  confirm(AndroidCXX::java_lang_String const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

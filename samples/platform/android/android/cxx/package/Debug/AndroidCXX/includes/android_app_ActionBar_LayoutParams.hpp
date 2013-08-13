@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -38,8 +39,8 @@
 
 #include <android_util_AttributeSet.hpp>
 
-
 #include <android_view_ViewGroup_LayoutParams.hpp>
+
 
 #include <vector>
 #include <map>
@@ -61,26 +62,28 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_app_ActionBar_LayoutParams;
 
 class android_view_ViewGroup_LayoutParams;
 
-class android_app_ActionBar_LayoutParams
+class android_app_ActionBar_LayoutParams 
 {
 public:
 
-	android_app_ActionBar_LayoutParams(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_app_ActionBar_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_app_ActionBar_LayoutParams(int const& arg0,int const& arg1);
 	android_app_ActionBar_LayoutParams(int const& arg0,int const& arg1,int const& arg2);
 	android_app_ActionBar_LayoutParams(int const& arg0);
 	android_app_ActionBar_LayoutParams(AndroidCXX::android_app_ActionBar_LayoutParams const& arg0);
 	android_app_ActionBar_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
+	android_app_ActionBar_LayoutParams(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_app_ActionBar_LayoutParams();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

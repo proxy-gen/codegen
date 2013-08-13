@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -46,6 +47,7 @@
 
 #include <android_view_ViewGroup_MarginLayoutParams.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -72,23 +74,26 @@ class android_view_ViewGroup_LayoutParams;
 
 class android_view_ViewGroup_MarginLayoutParams;
 
-class android_widget_LinearLayout_LayoutParams
+class android_widget_LinearLayout_LayoutParams 
 {
 public:
 
-	android_widget_LinearLayout_LayoutParams(const android_widget_LinearLayout_LayoutParams& cc);
-	android_widget_LinearLayout_LayoutParams(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_widget_LinearLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_LinearLayout_LayoutParams(int const& arg0,int const& arg1);
 	android_widget_LinearLayout_LayoutParams(int const& arg0,int const& arg1,float const& arg2);
 	android_widget_LinearLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
 	android_widget_LinearLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0);
+	android_widget_LinearLayout_LayoutParams(const android_widget_LinearLayout_LayoutParams& cc);
+	android_widget_LinearLayout_LayoutParams(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_LinearLayout_LayoutParams();
 	// Functions
-	 AndroidCXX::java_lang_String debug(AndroidCXX::java_lang_String const& arg0);
+	virtual AndroidCXX::java_lang_String * debug(AndroidCXX::java_lang_String const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

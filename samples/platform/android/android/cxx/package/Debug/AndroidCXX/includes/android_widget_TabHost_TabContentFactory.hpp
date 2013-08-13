@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,6 @@
 //
 
 
-#include <java_lang_String.hpp>
-
-#include <android_view_View.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +49,21 @@ class java_lang_String;
 
 class android_view_View;
 
-class android_widget_TabHost_TabContentFactory
+class android_widget_TabHost_TabContentFactory 
 {
 public:
 
 	android_widget_TabHost_TabContentFactory(const android_widget_TabHost_TabContentFactory& cc);
 	android_widget_TabHost_TabContentFactory(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TabHost_TabContentFactory();
 	// Functions
-	 AndroidCXX::android_view_View createTabContent(AndroidCXX::java_lang_String const& arg0);
+	virtual AndroidCXX::android_view_View * createTabContent(AndroidCXX::java_lang_String const& arg0) ;
+
+protected:
+	android_widget_TabHost_TabContentFactory();
+
 };	
 
 } // namespace

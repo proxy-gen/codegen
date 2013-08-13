@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -26,6 +27,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,19 +44,22 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_graphics_BitmapFactory_Options
+class android_graphics_BitmapFactory_Options 
 {
 public:
 
+	// Public ConstrucXXX
+	android_graphics_BitmapFactory_Options();
 	android_graphics_BitmapFactory_Options(const android_graphics_BitmapFactory_Options& cc);
 	android_graphics_BitmapFactory_Options(Proxy proxy);
-	// Public Constructors
-	android_graphics_BitmapFactory_Options();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_BitmapFactory_Options();
 	// Functions
-	 void requestCancelDecode();
+	virtual void  requestCancelDecode() ;
+
+protected:
+
 };	
 
 } // namespace

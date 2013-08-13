@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -46,13 +47,14 @@
 
 #include <android_view_ViewGroup_LayoutParams.hpp>
 
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_content_Context.hpp>
 
 #include <android_util_AttributeSet.hpp>
+
 
 #include <vector>
 #include <map>
@@ -76,32 +78,35 @@ class android_view_View;
 
 class android_view_ViewGroup_LayoutParams;
 
-class android_view_accessibility_AccessibilityEvent;
-
 class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_view_accessibility_AccessibilityEvent;
 
 class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_TextSwitcher
+class android_widget_TextSwitcher 
 {
 public:
 
-	android_widget_TextSwitcher(const android_widget_TextSwitcher& cc);
-	android_widget_TextSwitcher(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_widget_TextSwitcher(AndroidCXX::android_content_Context const& arg0);
 	android_widget_TextSwitcher(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_TextSwitcher(const android_widget_TextSwitcher& cc);
+	android_widget_TextSwitcher(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TextSwitcher();
 	// Functions
-	 void setText(AndroidCXX::java_lang_CharSequence const& arg0);
-	 void addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
-	 void setCurrentText(AndroidCXX::java_lang_CharSequence const& arg0);
+	virtual void  setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  setCurrentText(AndroidCXX::java_lang_CharSequence const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

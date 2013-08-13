@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,6 @@
 //
 
 
-#include <android_widget_CalendarView.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +46,21 @@ namespace AndroidCXX {
 
 class android_widget_CalendarView;
 
-class android_widget_CalendarView_OnDateChangeListener
+class android_widget_CalendarView_OnDateChangeListener 
 {
 public:
 
 	android_widget_CalendarView_OnDateChangeListener(const android_widget_CalendarView_OnDateChangeListener& cc);
 	android_widget_CalendarView_OnDateChangeListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CalendarView_OnDateChangeListener();
 	// Functions
-	 void onSelectedDayChange(AndroidCXX::android_widget_CalendarView const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	virtual void  onSelectedDayChange(AndroidCXX::android_widget_CalendarView const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+
+protected:
+	android_widget_CalendarView_OnDateChangeListener();
+
 };	
 
 } // namespace

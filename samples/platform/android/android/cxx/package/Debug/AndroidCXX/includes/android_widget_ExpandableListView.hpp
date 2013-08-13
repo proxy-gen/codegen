@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -88,9 +89,9 @@
 
 #include <android_os_Parcelable.hpp>
 
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_widget_ExpandableListAdapter.hpp>
 
@@ -114,6 +115,7 @@
 
 #include <android_util_AttributeSet.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -132,9 +134,9 @@ namespace AndroidCXX {
 
 class android_os_Parcelable;
 
-class android_view_accessibility_AccessibilityEvent;
-
 class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_view_accessibility_AccessibilityEvent;
 
 class android_widget_ExpandableListAdapter;
 
@@ -158,57 +160,60 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_ExpandableListView
+class android_widget_ExpandableListView 
 {
 public:
 
-	android_widget_ExpandableListView(const android_widget_ExpandableListView& cc);
-	android_widget_ExpandableListView(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_widget_ExpandableListView(AndroidCXX::android_content_Context const& arg0);
 	android_widget_ExpandableListView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_ExpandableListView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_ExpandableListView(const android_widget_ExpandableListView& cc);
+	android_widget_ExpandableListView(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ExpandableListView();
 	// Functions
-	 AndroidCXX::android_os_Parcelable onSaveInstanceState();
-	 void onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
-	 void onRtlPropertiesChanged(int const& arg0);
-	 void setAdapter(AndroidCXX::android_widget_ExpandableListAdapter const& arg0);
-	 void setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0);
-	 bool performItemClick(AndroidCXX::android_view_View const& arg0,int const& arg1,long const& arg2);
-	 void setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0);
-	 AndroidCXX::android_widget_ListAdapter getAdapter();
-	 void setChildDivider(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
-	 AndroidCXX::android_widget_ExpandableListAdapter getExpandableListAdapter();
-	 bool expandGroup(int const& arg0);
-	 bool expandGroup(int const& arg0,bool const& arg1);
-	 bool collapseGroup(int const& arg0);
-	 void setOnGroupCollapseListener(AndroidCXX::android_widget_ExpandableListView_OnGroupCollapseListener const& arg0);
-	 void setOnGroupExpandListener(AndroidCXX::android_widget_ExpandableListView_OnGroupExpandListener const& arg0);
-	 void setOnGroupClickListener(AndroidCXX::android_widget_ExpandableListView_OnGroupClickListener const& arg0);
-	 void setOnChildClickListener(AndroidCXX::android_widget_ExpandableListView_OnChildClickListener const& arg0);
-	 long getExpandableListPosition(int const& arg0);
-	 int getFlatListPosition(long const& arg0);
-	 long getSelectedPosition();
-	 long getSelectedId();
-	 void setSelectedGroup(int const& arg0);
-	 bool setSelectedChild(int const& arg0,int const& arg1,bool const& arg2);
-	 bool isGroupExpanded(int const& arg0);
-	static int getPackedPositionType(long const& arg0);
-	static int getPackedPositionGroup(long const& arg0);
-	static int getPackedPositionChild(long const& arg0);
-	static long getPackedPositionForChild(int const& arg0,int const& arg1);
-	static long getPackedPositionForGroup(int const& arg0);
-	 void setChildIndicator(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
-	 void setChildIndicatorBounds(int const& arg0,int const& arg1);
-	 void setChildIndicatorBoundsRelative(int const& arg0,int const& arg1);
-	 void setGroupIndicator(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
-	 void setIndicatorBounds(int const& arg0,int const& arg1);
-	 void setIndicatorBoundsRelative(int const& arg0,int const& arg1);
+	virtual AndroidCXX::android_os_Parcelable * onSaveInstanceState() ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onRtlPropertiesChanged(int const& arg0) ;
+	virtual void  onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0) ;
+	virtual void  setAdapter(AndroidCXX::android_widget_ExpandableListAdapter const& arg0) ;
+	virtual void  setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0) ;
+	virtual bool  performItemClick(AndroidCXX::android_view_View const& arg0,int const& arg1,long const& arg2) ;
+	virtual void  setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0) ;
+	virtual AndroidCXX::android_widget_ListAdapter * getAdapter() ;
+	virtual void  setChildDivider(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual AndroidCXX::android_widget_ExpandableListAdapter * getExpandableListAdapter() ;
+	virtual bool  expandGroup(int const& arg0) ;
+	virtual bool  expandGroup(int const& arg0,bool const& arg1) ;
+	virtual bool  collapseGroup(int const& arg0) ;
+	virtual void  setOnGroupCollapseListener(AndroidCXX::android_widget_ExpandableListView_OnGroupCollapseListener const& arg0) ;
+	virtual void  setOnGroupExpandListener(AndroidCXX::android_widget_ExpandableListView_OnGroupExpandListener const& arg0) ;
+	virtual void  setOnGroupClickListener(AndroidCXX::android_widget_ExpandableListView_OnGroupClickListener const& arg0) ;
+	virtual void  setOnChildClickListener(AndroidCXX::android_widget_ExpandableListView_OnChildClickListener const& arg0) ;
+	virtual long  getExpandableListPosition(int const& arg0) ;
+	virtual int  getFlatListPosition(long const& arg0) ;
+	virtual long  getSelectedPosition() ;
+	virtual long  getSelectedId() ;
+	virtual void  setSelectedGroup(int const& arg0) ;
+	virtual bool  setSelectedChild(int const& arg0,int const& arg1,bool const& arg2) ;
+	virtual bool  isGroupExpanded(int const& arg0) ;
+	static int  getPackedPositionType(long const& arg0) ;
+	static int  getPackedPositionGroup(long const& arg0) ;
+	static int  getPackedPositionChild(long const& arg0) ;
+	static long  getPackedPositionForChild(int const& arg0,int const& arg1) ;
+	static long  getPackedPositionForGroup(int const& arg0) ;
+	virtual void  setChildIndicator(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  setChildIndicatorBounds(int const& arg0,int const& arg1) ;
+	virtual void  setChildIndicatorBoundsRelative(int const& arg0,int const& arg1) ;
+	virtual void  setGroupIndicator(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  setIndicatorBounds(int const& arg0,int const& arg1) ;
+	virtual void  setIndicatorBoundsRelative(int const& arg0,int const& arg1) ;
+
+protected:
+
 };	
 
 } // namespace

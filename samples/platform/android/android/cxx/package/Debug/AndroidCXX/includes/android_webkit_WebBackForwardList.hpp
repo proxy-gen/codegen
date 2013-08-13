@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -32,6 +33,11 @@
 
 #include <android_webkit_WebHistoryItem.hpp>
 
+
+#include <java_io_Serializable.hpp>
+
+#include <java_lang_Cloneable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -50,21 +56,24 @@ namespace AndroidCXX {
 
 class android_webkit_WebHistoryItem;
 
-class android_webkit_WebBackForwardList
+class android_webkit_WebBackForwardList : public java_io_Serializable,public java_lang_Cloneable
 {
 public:
 
+	// Public ConstrucXXX
 	android_webkit_WebBackForwardList(const android_webkit_WebBackForwardList& cc);
 	android_webkit_WebBackForwardList(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebBackForwardList();
 	// Functions
-	 int getSize();
-	 AndroidCXX::android_webkit_WebHistoryItem getCurrentItem();
-	 int getCurrentIndex();
-	 AndroidCXX::android_webkit_WebHistoryItem getItemAtIndex(int const& arg0);
+	virtual int  getSize() ;
+	virtual AndroidCXX::android_webkit_WebHistoryItem * getCurrentItem() ;
+	virtual int  getCurrentIndex() ;
+	virtual AndroidCXX::android_webkit_WebHistoryItem * getItemAtIndex(int const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

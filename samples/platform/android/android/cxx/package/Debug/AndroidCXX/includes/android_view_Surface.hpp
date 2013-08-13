@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -52,6 +53,9 @@
 
 #include <android_graphics_SurfaceTexture.hpp>
 
+
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -78,27 +82,30 @@ class android_graphics_Canvas;
 
 class android_graphics_SurfaceTexture;
 
-class android_view_Surface
+class android_view_Surface : public android_os_Parcelable
 {
 public:
 
+	// Public ConstrucXXX
+	android_view_Surface(AndroidCXX::android_graphics_SurfaceTexture const& arg0);
 	android_view_Surface(const android_view_Surface& cc);
 	android_view_Surface(Proxy proxy);
-	// Public Constructors
-	android_view_Surface(AndroidCXX::android_graphics_SurfaceTexture const& arg0);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_Surface();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 void release();
-	 bool isValid();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 void readFromParcel(AndroidCXX::android_os_Parcel const& arg0);
-	 AndroidCXX::android_graphics_Canvas lockCanvas(AndroidCXX::android_graphics_Rect const& arg0);
-	 void unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas const& arg0);
-	 void unlockCanvas(AndroidCXX::android_graphics_Canvas const& arg0);
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  release() ;
+	virtual bool  isValid() ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual void  readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
+	virtual AndroidCXX::android_graphics_Canvas * lockCanvas(AndroidCXX::android_graphics_Rect const& arg0) ;
+	virtual void  unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual void  unlockCanvas(AndroidCXX::android_graphics_Canvas const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_net_SocketOptions.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,20 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_net_DatagramSocketImpl
+class java_net_DatagramSocketImpl : public java_net_SocketOptions
 {
 public:
 
 	java_net_DatagramSocketImpl(const java_net_DatagramSocketImpl& cc);
 	java_net_DatagramSocketImpl(Proxy proxy);
-	// Public Constructors
-	java_net_DatagramSocketImpl();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_DatagramSocketImpl();
 	// Functions
+
+protected:
+	java_net_DatagramSocketImpl();
+
 };	
 
 } // namespace

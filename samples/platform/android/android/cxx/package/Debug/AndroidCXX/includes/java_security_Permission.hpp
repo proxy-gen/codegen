@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -41,12 +42,10 @@
 //
 
 
-#include <java_lang_Object.hpp>
 
-#include <java_lang_String.hpp>
+#include <java_io_Serializable.hpp>
 
-
-#include <java_security_PermissionCollection.hpp>
+#include <java_security_Guard.hpp>
 
 #include <vector>
 #include <map>
@@ -68,30 +67,31 @@ class java_lang_Object;
 
 class java_lang_String;
 
-class java_security_Permission;
 
 class java_security_PermissionCollection;
 
-class java_security_Permission
+class java_security_Permission : public java_io_Serializable,public java_security_Guard
 {
 public:
 
 	java_security_Permission(const java_security_Permission& cc);
 	java_security_Permission(Proxy proxy);
-	// Public Constructors
-	java_security_Permission(AndroidCXX::java_lang_String const& arg0);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_Permission();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_lang_String getName();
-	 bool implies(AndroidCXX::java_security_Permission const& arg0);
-	 AndroidCXX::java_lang_String getActions();
-	 AndroidCXX::java_security_PermissionCollection newPermissionCollection();
-	 void checkGuard(AndroidCXX::java_lang_Object const& arg0);
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+	virtual bool  implies(AndroidCXX::java_security_Permission const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getActions() ;
+	virtual AndroidCXX::java_security_PermissionCollection * newPermissionCollection() ;
+	virtual void  checkGuard(AndroidCXX::java_lang_Object const& arg0) ;
+
+protected:
+	java_security_Permission();
+
 };	
 
 } // namespace

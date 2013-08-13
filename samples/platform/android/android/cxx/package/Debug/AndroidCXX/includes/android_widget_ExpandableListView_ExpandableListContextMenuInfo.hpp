@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -28,6 +29,9 @@
 
 #include <android_view_View.hpp>
 
+
+#include <android_view_ContextMenu_ContextMenuInfo.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,18 +50,21 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_widget_ExpandableListView_ExpandableListContextMenuInfo
+class android_widget_ExpandableListView_ExpandableListContextMenuInfo : public android_view_ContextMenu_ContextMenuInfo
 {
 public:
 
+	// Public ConstrucXXX
+	android_widget_ExpandableListView_ExpandableListContextMenuInfo(AndroidCXX::android_view_View const& arg0,long const& arg1,long const& arg2);
 	android_widget_ExpandableListView_ExpandableListContextMenuInfo(const android_widget_ExpandableListView_ExpandableListContextMenuInfo& cc);
 	android_widget_ExpandableListView_ExpandableListContextMenuInfo(Proxy proxy);
-	// Public Constructors
-	android_widget_ExpandableListView_ExpandableListContextMenuInfo(AndroidCXX::android_view_View const& arg0,long const& arg1,long const& arg2);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ExpandableListView_ExpandableListContextMenuInfo();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

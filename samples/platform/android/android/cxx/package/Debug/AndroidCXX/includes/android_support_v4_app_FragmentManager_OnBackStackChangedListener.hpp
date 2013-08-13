@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_support_v4_app_FragmentManager_OnBackStackChangedListener
+class android_support_v4_app_FragmentManager_OnBackStackChangedListener 
 {
 public:
 
 	android_support_v4_app_FragmentManager_OnBackStackChangedListener(const android_support_v4_app_FragmentManager_OnBackStackChangedListener& cc);
 	android_support_v4_app_FragmentManager_OnBackStackChangedListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_app_FragmentManager_OnBackStackChangedListener();
 	// Functions
-	 void onBackStackChanged();
+	virtual void  onBackStackChanged() ;
+
+protected:
+	android_support_v4_app_FragmentManager_OnBackStackChangedListener();
+
 };	
 
 } // namespace

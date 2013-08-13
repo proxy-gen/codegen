@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -44,6 +45,7 @@
 
 #include <java_net_SocketAddress.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -67,23 +69,26 @@ class java_lang_String;
 
 class java_net_SocketAddress;
 
-class java_net_Proxy
+class java_net_Proxy 
 {
 public:
 
+	// Public ConstrucXXX
+	java_net_Proxy(java_net_Proxy_Type::java_net_Proxy_Type const& arg0,AndroidCXX::java_net_SocketAddress const& arg1);
 	java_net_Proxy(const java_net_Proxy& cc);
 	java_net_Proxy(Proxy proxy);
-	// Public Constructors
-	java_net_Proxy(java_net_Proxy_Type::java_net_Proxy_Type const& arg0,AndroidCXX::java_net_SocketAddress const& arg1);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_Proxy();
 	// Functions
-	 java_net_Proxy_Type::java_net_Proxy_Type type();
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_net_SocketAddress address();
+	virtual java_net_Proxy_Type::java_net_Proxy_Type  type() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_net_SocketAddress * address() ;
+
+protected:
+
 };	
 
 } // namespace

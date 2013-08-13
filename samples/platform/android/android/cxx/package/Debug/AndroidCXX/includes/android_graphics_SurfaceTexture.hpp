@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -37,6 +38,7 @@
 
 #include <android_graphics_SurfaceTexture_OnFrameAvailableListener.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -55,26 +57,29 @@ namespace AndroidCXX {
 
 class android_graphics_SurfaceTexture_OnFrameAvailableListener;
 
-class android_graphics_SurfaceTexture
+class android_graphics_SurfaceTexture 
 {
 public:
 
+	// Public ConstrucXXX
+	android_graphics_SurfaceTexture(int const& arg0);
 	android_graphics_SurfaceTexture(const android_graphics_SurfaceTexture& cc);
 	android_graphics_SurfaceTexture(Proxy proxy);
-	// Public Constructors
-	android_graphics_SurfaceTexture(int const& arg0);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_SurfaceTexture();
 	// Functions
-	 void release();
-	 long getTimestamp();
-	 void setOnFrameAvailableListener(AndroidCXX::android_graphics_SurfaceTexture_OnFrameAvailableListener const& arg0);
-	 void setDefaultBufferSize(int const& arg0,int const& arg1);
-	 void updateTexImage();
-	 void detachFromGLContext();
-	 void attachToGLContext(int const& arg0);
-	 void getTransformMatrix(std::vector<float> const& arg0);
+	virtual void  release() ;
+	virtual long  getTimestamp() ;
+	virtual void  setOnFrameAvailableListener(AndroidCXX::android_graphics_SurfaceTexture_OnFrameAvailableListener const& arg0) ;
+	virtual void  setDefaultBufferSize(int const& arg0,int const& arg1) ;
+	virtual void  updateTexImage() ;
+	virtual void  detachFromGLContext() ;
+	virtual void  attachToGLContext(int const& arg0) ;
+	virtual void  getTransformMatrix(std::vector<float> const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -33,11 +34,6 @@
 //
 
 
-#include <java_net_URLConnection.hpp>
-
-#include <java_lang_Object.hpp>
-
-#include <java_lang_Class.hpp>
 
 #include <vector>
 #include <map>
@@ -61,20 +57,22 @@ class java_lang_Object;
 
 class java_lang_Class;
 
-class java_net_ContentHandler
+class java_net_ContentHandler 
 {
 public:
 
 	java_net_ContentHandler(const java_net_ContentHandler& cc);
 	java_net_ContentHandler(Proxy proxy);
-	// Public Constructors
-	java_net_ContentHandler();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_ContentHandler();
 	// Functions
-	 AndroidCXX::java_lang_Object getContent(AndroidCXX::java_net_URLConnection const& arg0);
-	 AndroidCXX::java_lang_Object getContent(AndroidCXX::java_net_URLConnection const& arg0,std::vector<java_lang_Class> const& arg1);
+	virtual AndroidCXX::java_lang_Object * getContent(AndroidCXX::java_net_URLConnection const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * getContent(AndroidCXX::java_net_URLConnection const& arg0,std::vector<java_lang_Class> const& arg1) ;
+
+protected:
+	java_net_ContentHandler();
+
 };	
 
 } // namespace

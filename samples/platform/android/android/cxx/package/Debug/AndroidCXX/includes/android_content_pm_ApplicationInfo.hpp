@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -49,6 +50,8 @@
 #include <java_lang_CharSequence.hpp>
 
 
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -75,25 +78,27 @@ class android_content_pm_PackageManager;
 
 class java_lang_CharSequence;
 
-class android_content_pm_ApplicationInfo;
 
-class android_content_pm_ApplicationInfo
+class android_content_pm_ApplicationInfo : public android_os_Parcelable
 {
 public:
 
-	android_content_pm_ApplicationInfo(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_content_pm_ApplicationInfo();
 	android_content_pm_ApplicationInfo(AndroidCXX::android_content_pm_ApplicationInfo const& arg0);
+	android_content_pm_ApplicationInfo(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_ApplicationInfo();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 void dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1);
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 AndroidCXX::java_lang_CharSequence loadDescription(AndroidCXX::android_content_pm_PackageManager const& arg0);
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual AndroidCXX::java_lang_CharSequence * loadDescription(AndroidCXX::android_content_pm_PackageManager const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

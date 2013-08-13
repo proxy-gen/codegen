@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -42,6 +43,7 @@
 
 #include <android_content_Context.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -64,22 +66,25 @@ class android_view_ViewGroup_LayoutParams;
 
 class android_content_Context;
 
-class android_widget_AbsoluteLayout
+class android_widget_AbsoluteLayout 
 {
 public:
 
-	android_widget_AbsoluteLayout(const android_widget_AbsoluteLayout& cc);
-	android_widget_AbsoluteLayout(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	android_widget_AbsoluteLayout(AndroidCXX::android_content_Context const& arg0);
 	android_widget_AbsoluteLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_AbsoluteLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_AbsoluteLayout(const android_widget_AbsoluteLayout& cc);
+	android_widget_AbsoluteLayout(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsoluteLayout();
 	// Functions
-	 AndroidCXX::android_view_ViewGroup_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0);
-	 bool shouldDelayChildPressedState();
+	virtual bool  shouldDelayChildPressedState() ;
+	virtual AndroidCXX::android_view_ViewGroup_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

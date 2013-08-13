@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,6 @@
 //
 
 
-#include <android_graphics_Rect.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +46,21 @@ namespace AndroidCXX {
 
 class android_graphics_Rect;
 
-class android_widget_AbsListView_SelectionBoundsAdjuster
+class android_widget_AbsListView_SelectionBoundsAdjuster 
 {
 public:
 
 	android_widget_AbsListView_SelectionBoundsAdjuster(const android_widget_AbsListView_SelectionBoundsAdjuster& cc);
 	android_widget_AbsListView_SelectionBoundsAdjuster(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsListView_SelectionBoundsAdjuster();
 	// Functions
-	 void adjustListItemSelectionBounds(AndroidCXX::android_graphics_Rect const& arg0);
+	virtual void  adjustListItemSelectionBounds(AndroidCXX::android_graphics_Rect const& arg0) ;
+
+protected:
+	android_widget_AbsListView_SelectionBoundsAdjuster();
+
 };	
 
 } // namespace

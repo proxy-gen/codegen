@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -28,9 +29,10 @@
 //
 
 
+#include <java_lang_String.hpp>
+
 #include <android_graphics_Rect.hpp>
 
-#include <java_lang_String.hpp>
 
 #include <vector>
 #include <map>
@@ -48,23 +50,26 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_graphics_Rect;
-
 class java_lang_String;
 
-class android_media_TimedText
+class android_graphics_Rect;
+
+class android_media_TimedText 
 {
 public:
 
+	// Public ConstrucXXX
 	android_media_TimedText(const android_media_TimedText& cc);
 	android_media_TimedText(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_media_TimedText();
 	// Functions
-	 AndroidCXX::android_graphics_Rect getBounds();
-	 AndroidCXX::java_lang_String getText();
+	virtual AndroidCXX::java_lang_String * getText() ;
+	virtual AndroidCXX::android_graphics_Rect * getBounds() ;
+
+protected:
+
 };	
 
 } // namespace

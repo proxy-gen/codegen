@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +42,20 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_GridLayout_Alignment
+class android_widget_GridLayout_Alignment 
 {
 public:
 
 	android_widget_GridLayout_Alignment(const android_widget_GridLayout_Alignment& cc);
 	android_widget_GridLayout_Alignment(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_GridLayout_Alignment();
 	// Functions
+
+protected:
+	android_widget_GridLayout_Alignment();
+
 };	
 
 } // namespace

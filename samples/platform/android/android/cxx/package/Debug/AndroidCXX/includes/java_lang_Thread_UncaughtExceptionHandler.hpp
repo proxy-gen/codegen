@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,6 @@
 //
 
 
-#include <java_lang_Thread.hpp>
-
-#include <java_lang_Throwable.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +49,21 @@ class java_lang_Thread;
 
 class java_lang_Throwable;
 
-class java_lang_Thread_UncaughtExceptionHandler
+class java_lang_Thread_UncaughtExceptionHandler 
 {
 public:
 
 	java_lang_Thread_UncaughtExceptionHandler(const java_lang_Thread_UncaughtExceptionHandler& cc);
 	java_lang_Thread_UncaughtExceptionHandler(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Thread_UncaughtExceptionHandler();
 	// Functions
-	 void uncaughtException(AndroidCXX::java_lang_Thread const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
+	virtual void  uncaughtException(AndroidCXX::java_lang_Thread const& arg0,AndroidCXX::java_lang_Throwable const& arg1) ;
+
+protected:
+	java_lang_Thread_UncaughtExceptionHandler();
+
 };	
 
 } // namespace

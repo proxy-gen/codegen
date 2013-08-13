@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  	
@@ -36,6 +37,9 @@
 //
 
 
+
+#include <java_io_Serializable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -52,28 +56,31 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_util_Random
+class java_util_Random : public java_io_Serializable
 {
 public:
 
-	java_util_Random(const java_util_Random& cc);
-	java_util_Random(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	java_util_Random();
 	java_util_Random(long const& arg0);
+	java_util_Random(const java_util_Random& cc);
+	java_util_Random(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Random();
 	// Functions
-	 int nextInt();
-	 int nextInt(int const& arg0);
-	 double nextDouble();
-	 long nextLong();
-	 void nextBytes(std::vector<byte> const& arg0);
-	 void setSeed(long const& arg0);
-	 bool nextBoolean();
-	 float nextFloat();
-	 double nextGaussian();
+	virtual int  nextInt() ;
+	virtual int  nextInt(int const& arg0) ;
+	virtual double  nextDouble() ;
+	virtual long  nextLong() ;
+	virtual void  nextBytes(std::vector<byte> const& arg0) ;
+	virtual void  setSeed(long const& arg0) ;
+	virtual bool  nextBoolean() ;
+	virtual float  nextFloat() ;
+	virtual double  nextGaussian() ;
+
+protected:
+
 };	
 
 } // namespace

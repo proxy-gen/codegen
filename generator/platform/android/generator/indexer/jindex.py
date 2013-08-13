@@ -45,8 +45,9 @@ lib_name = "libCXXGenerator"
 lib = load_jindex_library(lib_name)
 
 STR_ATTR_SIZE = 80
+MAX_ATT_COUNT = 16
 MAX_PACKAGE_COUNT = 256
-MAX_CLASSE_COUNT = 1024
+MAX_CLASSES_COUNT = 1024
 
 ### Exception Classes ###
 
@@ -325,6 +326,84 @@ class JavaObject(object):
 	def from_param(self):
 		return self._as_parameter_
 
+class StringAttributes(Structure):
+
+	_fields_ = [
+					("_count", c_int),
+					("_key_0", c_char * STR_ATTR_SIZE),
+					("_value_0", c_char * STR_ATTR_SIZE),
+					("_key_1", c_char * STR_ATTR_SIZE),
+					("_value_1", c_char * STR_ATTR_SIZE),
+					("_key_2", c_char * STR_ATTR_SIZE),
+					("_value_2", c_char * STR_ATTR_SIZE),
+					("_key_3", c_char * STR_ATTR_SIZE),
+					("_value_3", c_char * STR_ATTR_SIZE),
+					("_key_4", c_char * STR_ATTR_SIZE),
+					("_value_4", c_char * STR_ATTR_SIZE),
+					("_key_5", c_char * STR_ATTR_SIZE),
+					("_value_5", c_char * STR_ATTR_SIZE),
+					("_key_6", c_char * STR_ATTR_SIZE),
+					("_value_6", c_char * STR_ATTR_SIZE),
+					("_key_7", c_char * STR_ATTR_SIZE),
+					("_value_7", c_char * STR_ATTR_SIZE),
+					("_key_8", c_char * STR_ATTR_SIZE),
+					("_value_8", c_char * STR_ATTR_SIZE),
+					("_key_9", c_char * STR_ATTR_SIZE),
+					("_value_9", c_char * STR_ATTR_SIZE),
+					("_key_10", c_char * STR_ATTR_SIZE),
+					("_value_10", c_char * STR_ATTR_SIZE),
+					("_key_11", c_char * STR_ATTR_SIZE),
+					("_value_11", c_char * STR_ATTR_SIZE),
+					("_key_12", c_char * STR_ATTR_SIZE),
+					("_value_12", c_char * STR_ATTR_SIZE),
+					("_key_13", c_char * STR_ATTR_SIZE),
+					("_value_13", c_char * STR_ATTR_SIZE),
+					("_key_14", c_char * STR_ATTR_SIZE),
+					("_value_14", c_char * STR_ATTR_SIZE),
+					("_key_15", c_char * STR_ATTR_SIZE),
+					("_value_15", c_char * STR_ATTR_SIZE),
+					("_key_16", c_char * STR_ATTR_SIZE),
+					("_value_16", c_char * STR_ATTR_SIZE),
+					("_key_17", c_char * STR_ATTR_SIZE),
+					("_value_17", c_char * STR_ATTR_SIZE),
+					("_key_18", c_char * STR_ATTR_SIZE),
+					("_value_18", c_char * STR_ATTR_SIZE),
+					("_key_19", c_char * STR_ATTR_SIZE),
+					("_value_19", c_char * STR_ATTR_SIZE),
+					("_key_20", c_char * STR_ATTR_SIZE),
+					("_value_20", c_char * STR_ATTR_SIZE),
+					("_key_21", c_char * STR_ATTR_SIZE),
+					("_value_21", c_char * STR_ATTR_SIZE),
+					("_key_22", c_char * STR_ATTR_SIZE),
+					("_value_22", c_char * STR_ATTR_SIZE),
+					("_key_23", c_char * STR_ATTR_SIZE),
+					("_value_23", c_char * STR_ATTR_SIZE),
+					("_key_24", c_char * STR_ATTR_SIZE),
+					("_value_24", c_char * STR_ATTR_SIZE),
+					("_key_25", c_char * STR_ATTR_SIZE),
+					("_value_25", c_char * STR_ATTR_SIZE),
+					("_key_26", c_char * STR_ATTR_SIZE),
+					("_value_26", c_char * STR_ATTR_SIZE),
+					("_key_27", c_char * STR_ATTR_SIZE),
+					("_value_27", c_char * STR_ATTR_SIZE),
+					("_key_28", c_char * STR_ATTR_SIZE),
+					("_value_28", c_char * STR_ATTR_SIZE),
+					("_key_29", c_char * STR_ATTR_SIZE),
+					("_value_29", c_char * STR_ATTR_SIZE),
+					("_key_30", c_char * STR_ATTR_SIZE),
+					("_value_30", c_char * STR_ATTR_SIZE),
+					("_key_31", c_char * STR_ATTR_SIZE),
+					("_value_31", c_char * STR_ATTR_SIZE),
+				]
+
+	def get_key(self, idx):
+		key_name = "_key_" + str(idx);
+		return getattr(self, key_name)
+
+	def get_value(self, idx):
+		value_name = "_value_" + str(idx);
+		return getattr(self, value_name)
+
 class TypeHierarchy(Structure):
 
 	_fields_ = [
@@ -581,9 +660,9 @@ class ArrayType(object):
 	def __repr__(self):
 		return 'ArrayType.%s' % (self.name,)
 
-ArrayType.ARRAY_OF_ARRAY = ArrayType("_array_array", "array")
-ArrayType.OBJECT_ARRAY = ArrayType("_object_array", "object")		
-ArrayType.BYTE_ARRAY = ArrayType("_byte_array", "byte")
+ArrayType.ARRAY_ARRAY = ArrayType("_array_array", "array")
+ArrayType.OBJECT_ARRAY = ArrayType("_object_array", "array")		
+ArrayType.BYTE_ARRAY = ArrayType("_byte_array", "object")
 ArrayType.SHORT_ARRAY = ArrayType("_short_array", "short")
 ArrayType.INT_ARRAY = ArrayType("_int_array", "int")
 ArrayType.LONG_ARRAY = ArrayType("_long_array", "long")
@@ -628,8 +707,8 @@ class TranslationUnit(JavaObject):
 	def build_config_closure(cls, config_data):
 		assert "packages" in config_data
 		assert "classes" in config_data
-		def visitor(callback_type, cursor_type, type, modifiers, name, idx, type_id, config_data_stack):
-			TranslationUnit._process_config_data(callback_type, cursor_type, type, modifiers, name, idx, type_id, config_data_stack)
+		def visitor(callback_type, cursor_type, type, modifiers, name, idx, type_id, str_attributes, config_data_stack):
+			TranslationUnit._process_config_data(callback_type, cursor_type, type, modifiers, name, idx, type_id, str_attributes, config_data_stack)
 			return 0
 		packages = config_data["packages"]
 		classes = config_data["classes"]
@@ -637,7 +716,7 @@ class TranslationUnit(JavaObject):
 		for idx in range(len(packages)):
 			c_types_packages[idx].value = packages[idx]["name"]
 		c_types_packages_count = len(packages)
-		c_types_classes = ((c_char * STR_ATTR_SIZE) * MAX_CLASSE_COUNT)()
+		c_types_classes = ((c_char * STR_ATTR_SIZE) * MAX_CLASSES_COUNT)()
 		for idx in range(len(classes)):
 			c_types_classes[idx].value = classes[idx]["name"]
 		c_types_classes_count = len(classes)
@@ -664,28 +743,28 @@ class TranslationUnit(JavaObject):
 		return TranslationUnit_cursor(self)
 
 	@classmethod
-	def _process_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
+	def _process_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack):
 		if CursorKind.from_id(cursor_type) == CursorKind.CLASS_DECL:
-			TranslationUnit._process_class_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack)
+			TranslationUnit._process_class_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack)
 		if CursorKind.from_id(cursor_type) == CursorKind.CONSTRUCTOR_DECL:
-			TranslationUnit._process_constructor_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack)
+			TranslationUnit._process_constructor_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack)
 		if CursorKind.from_id(cursor_type) == CursorKind.FUNCTION_DECL:
-			TranslationUnit._process_function_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack)
+			TranslationUnit._process_function_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack)
 		if CursorKind.from_id(cursor_type) == CursorKind.FIELD_DECL:
-			TranslationUnit._process_field_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack)
+			TranslationUnit._process_field_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack)
 		if CursorKind.from_id(cursor_type) == CursorKind.PARAM_DECL:
-			TranslationUnit._process_param_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack)
+			TranslationUnit._process_param_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack)
 		if CursorKind.from_id(cursor_type) == CursorKind.RETURN_DECL:
-			TranslationUnit._process_return_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack)
+			TranslationUnit._process_return_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack)
 		if CursorKind.from_id(cursor_type) == CursorKind.FIELD_TYPE_DECL:
-			TranslationUnit._process_field_type_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack)
+			TranslationUnit._process_field_type_config_data(callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack)
 
 	@classmethod
-	def _process_class_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
+	def _process_class_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack):
 		logging.debug("_process_class_config_data " + name) 
 		if callback_type == CallbackType.ENTER:
 			config_data = config_data_stack[0] # classes at the root
-			config_data = TranslationUnit._find_or_create_class_config_data(config_data["classes"], name)
+			config_data = TranslationUnit._find_or_create_class_config_data(config_data["classes"], name, str_attributes)
 			config_data_stack.append(config_data)
 		if callback_type == CallbackType.PROCESS:
 			config_data = config_data_stack[len(config_data_stack)-1]
@@ -694,7 +773,7 @@ class TranslationUnit(JavaObject):
 			config_data_stack.pop()
 
 	@classmethod
-	def _process_constructor_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
+	def _process_constructor_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack):
 		logging.debug("_process_constructor_config_data " + name) 
 		if callback_type == CallbackType.ENTER:
 			config_data = config_data_stack[len(config_data_stack)-1]
@@ -708,7 +787,7 @@ class TranslationUnit(JavaObject):
 			config_data_stack.pop()
 
 	@classmethod
-	def _process_function_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
+	def _process_function_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack):
 		logging.debug("_process_function_config_data " + name) 
 		if callback_type == CallbackType.ENTER:
 			config_data = config_data_stack[len(config_data_stack)-1]
@@ -722,7 +801,7 @@ class TranslationUnit(JavaObject):
 			config_data_stack.pop()
 
 	@classmethod
-	def _process_field_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
+	def _process_field_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack):
 		logging.debug("_process_field_config_data " + name)
 		if callback_type == CallbackType.ENTER:
 			config_data = config_data_stack[len(config_data_stack)-1]
@@ -736,7 +815,7 @@ class TranslationUnit(JavaObject):
 			config_data_stack.pop()
 
 	@classmethod
-	def _process_param_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
+	def _process_param_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack):
 		logging.debug("_process_param_config_data " + name) 
 		if callback_type == CallbackType.ENTER:
 			config_data = config_data_stack[len(config_data_stack)-1]
@@ -751,7 +830,7 @@ class TranslationUnit(JavaObject):
 			config_data_stack.pop()
 
 	@classmethod
-	def _process_return_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
+	def _process_return_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack):
 		logging.debug("_process_return_config_data " + name) 
 		if callback_type == CallbackType.ENTER:
 			config_data = config_data_stack[len(config_data_stack)-1]
@@ -766,7 +845,7 @@ class TranslationUnit(JavaObject):
 			config_data_stack.pop()
 
 	@classmethod
-	def _process_field_type_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, config_data_stack):
+	def _process_field_type_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack):
 		logging.debug("_process_field_type_config_data " + name) 
 		if callback_type == CallbackType.ENTER:
 			config_data = config_data_stack[len(config_data_stack)-1]
@@ -781,7 +860,7 @@ class TranslationUnit(JavaObject):
 			config_data_stack.pop()
 
 	@classmethod
-	def _find_or_create_class_config_data(cls, classes, class_name):
+	def _find_or_create_class_config_data(cls, classes, class_name, class_attributes):
 		the_clazz = None
 		for clazz in classes:
 			if clazz["name"] == class_name:
@@ -794,6 +873,21 @@ class TranslationUnit(JavaObject):
 		the_clazz["constructors"] = the_clazz.get("constructors", list())
 		the_clazz["functions"] = the_clazz.get("functions", list())
 		the_clazz["fields"] = the_clazz.get("fields", list())
+		extends = []
+		implements = []
+		for idx in range(class_attributes._count):
+			key = class_attributes.get_key(idx)
+			value = class_attributes.get_value(idx)
+			item = dict()
+			item['name'] = value
+			if key == "extends":
+				extends.append(item)
+			elif key == "implements":
+				implements.append(item)
+		if len(extends) > 0:
+			the_clazz["extends"] = extends
+		if len(implements) > 0:
+			the_clazz["implements"] = implements
 		return the_clazz
 
 #   Special Class Tags
@@ -855,7 +949,6 @@ class TranslationUnit(JavaObject):
 				tags.append("_singleton")
 			elif type_kind == TypeKind.JAVA_NOT_INSTANTIATABLE:
 				tags[:] = list()
-				tags.append("_abstract")
 			if "_no_proxy" in tags:
 				tags.remove("_no_proxy")
 			tags.append("_proxy")
@@ -1154,9 +1247,9 @@ Index_destroy.restype = c_int
 
 # Translation Unit Functions
 
-TranslationUnit_classes_visit_callback = CFUNCTYPE(c_int, c_int, c_int, c_int, c_int, c_char_p, c_int, c_long, py_object)
+TranslationUnit_classes_visit_callback = CFUNCTYPE(c_int, c_int, c_int, c_int, c_int, c_char_p, c_int, c_long, StringAttributes, py_object)
 TranslationUnit_classes_visit = lib.visitTranslationUnitClasses
-TranslationUnit_classes_visit.argtypes = [(c_char * STR_ATTR_SIZE) * MAX_PACKAGE_COUNT, c_int, (c_char * STR_ATTR_SIZE) * MAX_CLASSE_COUNT, c_int, TranslationUnit_classes_visit_callback, py_object]
+TranslationUnit_classes_visit.argtypes = [(c_char * STR_ATTR_SIZE) * MAX_PACKAGE_COUNT, c_int, (c_char * STR_ATTR_SIZE) * MAX_CLASSES_COUNT, c_int, TranslationUnit_classes_visit_callback, py_object]
 
 TranslationUnit_parse = lib.parseTranslationUnit
 TranslationUnit_parse.argtypes = [Index, c_char_p]
@@ -1227,4 +1320,3 @@ TypeHierarchy_canCastClass1ToClass2.restype = c_bool
 # Globals
 INDEX_OK = 0
 INDEX_ERR = -1
-

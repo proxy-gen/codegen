@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +43,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_io_Closeable
+class java_io_Closeable 
 {
 public:
 
 	java_io_Closeable(const java_io_Closeable& cc);
 	java_io_Closeable(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_Closeable();
 	// Functions
-	 void close();
+	virtual void  close() ;
+
+protected:
+	java_io_Closeable();
+
 };	
 
 } // namespace

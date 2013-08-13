@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,12 +8,13 @@
 //
 
 
+
+ 		 
+ 		 
+ 		 
  		 
  		 
 	
- 		 
- 		 
- 		 
 
 
 
@@ -32,11 +33,6 @@
 //
 
 
-#include <java_lang_CharSequence.hpp>
-
-#include <android_view_View.hpp>
-
-#include <android_graphics_Rect.hpp>
 
 #include <vector>
 #include <map>
@@ -54,25 +50,28 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_CharSequence;
-
 class android_view_View;
+
+class java_lang_CharSequence;
 
 class android_graphics_Rect;
 
-class android_text_method_TransformationMethod
+class android_text_method_TransformationMethod 
 {
 public:
 
 	android_text_method_TransformationMethod(const android_text_method_TransformationMethod& cc);
 	android_text_method_TransformationMethod(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_text_method_TransformationMethod();
 	// Functions
-	 AndroidCXX::java_lang_CharSequence getTransformation(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_view_View const& arg1);
-	 void onFocusChanged(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,bool const& arg2,int const& arg3,AndroidCXX::android_graphics_Rect const& arg4);
+	virtual void  onFocusChanged(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,bool const& arg2,int const& arg3,AndroidCXX::android_graphics_Rect const& arg4) ;
+	virtual AndroidCXX::java_lang_CharSequence * getTransformation(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_view_View const& arg1) ;
+
+protected:
+	android_text_method_TransformationMethod();
+
 };	
 
 } // namespace

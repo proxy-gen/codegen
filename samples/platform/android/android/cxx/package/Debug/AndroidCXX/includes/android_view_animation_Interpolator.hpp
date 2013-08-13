@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,9 @@
 //
 
 
+
+#include <android_animation_TimeInterpolator.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +44,20 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_animation_Interpolator
+class android_view_animation_Interpolator : public android_animation_TimeInterpolator
 {
 public:
 
 	android_view_animation_Interpolator(const android_view_animation_Interpolator& cc);
 	android_view_animation_Interpolator(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_Interpolator();
 	// Functions
+
+protected:
+	android_view_animation_Interpolator();
+
 };	
 
 } // namespace

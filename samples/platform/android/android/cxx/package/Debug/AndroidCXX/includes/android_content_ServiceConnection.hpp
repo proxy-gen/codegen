@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -29,9 +30,6 @@
 //
 
 
-#include <android_content_ComponentName.hpp>
-
-#include <android_os_IBinder.hpp>
 
 #include <vector>
 #include <map>
@@ -53,19 +51,22 @@ class android_content_ComponentName;
 
 class android_os_IBinder;
 
-class android_content_ServiceConnection
+class android_content_ServiceConnection 
 {
 public:
 
 	android_content_ServiceConnection(const android_content_ServiceConnection& cc);
 	android_content_ServiceConnection(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ServiceConnection();
 	// Functions
-	 void onServiceConnected(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_IBinder const& arg1);
-	 void onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0);
+	virtual void  onServiceConnected(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_IBinder const& arg1) ;
+	virtual void  onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0) ;
+
+protected:
+	android_content_ServiceConnection();
+
 };	
 
 } // namespace

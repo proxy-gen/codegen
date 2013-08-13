@@ -14,7 +14,7 @@
 ##
 /*
  * Implementation (Java)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 #from Utils import Utils
 #set $config_module = $CONFIG.config_module

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -45,6 +46,8 @@
 #include <java_util_Locale.hpp>
 
 
+#include <java_io_Serializable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -65,26 +68,28 @@ class java_lang_String;
 
 class java_util_Locale;
 
-class java_util_Currency;
 
-class java_util_Currency
+class java_util_Currency : public java_io_Serializable
 {
 public:
 
+	// Public ConstrucXXX
 	java_util_Currency(const java_util_Currency& cc);
 	java_util_Currency(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Currency();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	static AndroidCXX::java_util_Currency getInstance(AndroidCXX::java_util_Locale const& arg0);
-	static AndroidCXX::java_util_Currency getInstance(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getCurrencyCode();
-	 AndroidCXX::java_lang_String getSymbol(AndroidCXX::java_util_Locale const& arg0);
-	 AndroidCXX::java_lang_String getSymbol();
-	 int getDefaultFractionDigits();
+	virtual AndroidCXX::java_lang_String * toString() ;
+	static AndroidCXX::java_util_Currency * getInstance(AndroidCXX::java_util_Locale const& arg0) ;
+	static AndroidCXX::java_util_Currency * getInstance(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getCurrencyCode() ;
+	virtual AndroidCXX::java_lang_String * getSymbol(AndroidCXX::java_util_Locale const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getSymbol() ;
+	virtual int  getDefaultFractionDigits() ;
+
+protected:
+
 };	
 
 } // namespace

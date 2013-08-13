@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_io_Serializable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,20 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_net_SocketAddress
+class java_net_SocketAddress : public java_io_Serializable
 {
 public:
 
 	java_net_SocketAddress(const java_net_SocketAddress& cc);
 	java_net_SocketAddress(Proxy proxy);
-	// Public Constructors
-	java_net_SocketAddress();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_SocketAddress();
 	// Functions
+
+protected:
+	java_net_SocketAddress();
+
 };	
 
 } // namespace

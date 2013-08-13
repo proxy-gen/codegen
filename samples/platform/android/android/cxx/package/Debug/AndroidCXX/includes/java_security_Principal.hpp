@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -31,9 +32,6 @@
 //
 
 
-#include <java_lang_Object.hpp>
-
-#include <java_lang_String.hpp>
 
 #include <vector>
 #include <map>
@@ -55,21 +53,24 @@ class java_lang_Object;
 
 class java_lang_String;
 
-class java_security_Principal
+class java_security_Principal 
 {
 public:
 
 	java_security_Principal(const java_security_Principal& cc);
 	java_security_Principal(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_security_Principal();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_lang_String getName();
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+
+protected:
+	java_security_Principal();
+
 };	
 
 } // namespace

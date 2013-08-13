@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -58,15 +59,6 @@
 //
 
 
-#include <android_widget_SimpleCursorTreeAdapter_ViewBinder.hpp>
-
-#include <android_widget_TextView.hpp>
-
-#include <java_lang_String.hpp>
-
-#include <android_content_Context.hpp>
-
-#include <android_database_Cursor.hpp>
 
 #include <vector>
 #include <map>
@@ -94,23 +86,23 @@ class android_content_Context;
 
 class android_database_Cursor;
 
-class android_widget_SimpleCursorTreeAdapter
+class android_widget_SimpleCursorTreeAdapter 
 {
 public:
 
 	android_widget_SimpleCursorTreeAdapter(const android_widget_SimpleCursorTreeAdapter& cc);
 	android_widget_SimpleCursorTreeAdapter(Proxy proxy);
-	// Public Constructors
-	android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,int const& arg2,int const& arg3,std::vector<java_lang_String> const& arg4,std::vector<int> const& arg5,int const& arg6,std::vector<java_lang_String> const& arg7,std::vector<int> const& arg8);
-	android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,int const& arg2,std::vector<java_lang_String> const& arg3,std::vector<int> const& arg4,int const& arg5,std::vector<java_lang_String> const& arg6,std::vector<int> const& arg7);
-	android_widget_SimpleCursorTreeAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,int const& arg2,int const& arg3,std::vector<java_lang_String> const& arg4,std::vector<int> const& arg5,int const& arg6,int const& arg7,std::vector<java_lang_String> const& arg8,std::vector<int> const& arg9);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SimpleCursorTreeAdapter();
 	// Functions
-	 AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder getViewBinder();
-	 void setViewBinder(AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder const& arg0);
-	 void setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1);
+	virtual AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder * getViewBinder() ;
+	virtual void  setViewBinder(AndroidCXX::android_widget_SimpleCursorTreeAdapter_ViewBinder const& arg0) ;
+	virtual void  setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+
+protected:
+	android_widget_SimpleCursorTreeAdapter();
+
 };	
 
 } // namespace
