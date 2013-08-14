@@ -31,6 +31,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -48,7 +50,7 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class java_nio_MappedByteBuffer 
+class java_nio_MappedByteBuffer : public java_lang_Object
 {
 public:
 

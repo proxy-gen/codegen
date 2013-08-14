@@ -37,6 +37,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -55,7 +57,7 @@ namespace AndroidCXX {
 
 class android_widget_RemoteViews;
 
-class android_widget_RemoteViewsService_RemoteViewsFactory 
+class android_widget_RemoteViewsService_RemoteViewsFactory : public java_lang_Object
 {
 public:
 

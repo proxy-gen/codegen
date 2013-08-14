@@ -32,6 +32,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -50,7 +52,7 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_view_ViewGroup_OnHierarchyChangeListener 
+class android_view_ViewGroup_OnHierarchyChangeListener : public java_lang_Object
 {
 public:
 

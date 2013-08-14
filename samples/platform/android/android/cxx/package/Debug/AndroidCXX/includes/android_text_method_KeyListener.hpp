@@ -42,6 +42,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -64,7 +66,7 @@ class android_text_Editable;
 
 class android_view_KeyEvent;
 
-class android_text_method_KeyListener 
+class android_text_method_KeyListener : public java_lang_Object
 {
 public:
 

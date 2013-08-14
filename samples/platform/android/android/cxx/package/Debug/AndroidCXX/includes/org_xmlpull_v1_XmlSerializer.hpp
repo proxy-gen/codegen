@@ -88,6 +88,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -106,7 +108,6 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_lang_Object;
 
 
 class java_io_OutputStream;
@@ -115,7 +116,7 @@ class java_io_Writer;
 
 class java_lang_Boolean;
 
-class org_xmlpull_v1_XmlSerializer 
+class org_xmlpull_v1_XmlSerializer : public java_lang_Object
 {
 public:
 

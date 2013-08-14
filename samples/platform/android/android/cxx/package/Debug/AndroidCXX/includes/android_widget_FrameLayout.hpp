@@ -72,6 +72,8 @@
 #include <android_content_Context.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -104,7 +106,7 @@ class android_graphics_drawable_Drawable;
 
 class android_content_Context;
 
-class android_widget_FrameLayout 
+class android_widget_FrameLayout : public java_lang_Object
 {
 public:
 

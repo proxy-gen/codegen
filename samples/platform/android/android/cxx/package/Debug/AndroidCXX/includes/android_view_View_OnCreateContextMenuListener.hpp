@@ -30,6 +30,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -52,7 +54,7 @@ class android_view_View;
 
 class android_view_ContextMenu_ContextMenuInfo;
 
-class android_view_View_OnCreateContextMenuListener 
+class android_view_View_OnCreateContextMenuListener : public java_lang_Object
 {
 public:
 

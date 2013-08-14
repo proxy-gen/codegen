@@ -32,6 +32,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -50,7 +52,7 @@ namespace AndroidCXX {
 
 class android_view_animation_Animation;
 
-class android_view_animation_Animation_AnimationListener 
+class android_view_animation_Animation_AnimationListener : public java_lang_Object
 {
 public:
 

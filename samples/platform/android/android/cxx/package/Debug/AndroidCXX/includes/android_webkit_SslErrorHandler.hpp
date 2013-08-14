@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -44,7 +46,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_webkit_SslErrorHandler 
+class android_webkit_SslErrorHandler : public java_lang_Object
 {
 public:
 

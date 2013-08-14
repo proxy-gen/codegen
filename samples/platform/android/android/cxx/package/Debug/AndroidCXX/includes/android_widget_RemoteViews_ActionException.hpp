@@ -34,6 +34,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,7 +56,7 @@ class java_lang_Exception;
 
 class java_lang_String;
 
-class android_widget_RemoteViews_ActionException 
+class android_widget_RemoteViews_ActionException : public java_lang_Object
 {
 public:
 

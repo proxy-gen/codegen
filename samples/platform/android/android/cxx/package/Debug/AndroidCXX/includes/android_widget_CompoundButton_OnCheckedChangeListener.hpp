@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class android_widget_CompoundButton;
 
-class android_widget_CompoundButton_OnCheckedChangeListener 
+class android_widget_CompoundButton_OnCheckedChangeListener : public java_lang_Object
 {
 public:
 

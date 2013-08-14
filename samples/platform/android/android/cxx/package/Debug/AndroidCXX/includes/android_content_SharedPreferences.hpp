@@ -59,6 +59,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -79,7 +81,6 @@ class java_lang_String;
 
 class java_util_Map;
 
-class java_lang_Object;
 
 class java_util_Set;
 
@@ -87,7 +88,7 @@ class android_content_SharedPreferences_Editor;
 
 class android_content_SharedPreferences_OnSharedPreferenceChangeListener;
 
-class android_content_SharedPreferences 
+class android_content_SharedPreferences : public java_lang_Object
 {
 public:
 

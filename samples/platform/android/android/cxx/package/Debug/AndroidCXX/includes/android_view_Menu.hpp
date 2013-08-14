@@ -72,6 +72,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -100,7 +102,7 @@ class android_content_Intent;
 
 class android_view_KeyEvent;
 
-class android_view_Menu 
+class android_view_Menu : public java_lang_Object
 {
 public:
 

@@ -40,6 +40,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -60,9 +62,8 @@ class android_os_Bundle;
 
 class android_support_v4_content_Loader;
 
-class java_lang_Object;
 
-class android_support_v4_app_LoaderManager_LoaderCallbacks 
+class android_support_v4_app_LoaderManager_LoaderCallbacks : public java_lang_Object
 {
 public:
 

@@ -32,6 +32,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -58,7 +60,7 @@ class android_database_sqlite_SQLiteQuery;
 
 class android_database_Cursor;
 
-class android_database_sqlite_SQLiteDatabase_CursorFactory 
+class android_database_sqlite_SQLiteDatabase_CursorFactory : public java_lang_Object
 {
 public:
 

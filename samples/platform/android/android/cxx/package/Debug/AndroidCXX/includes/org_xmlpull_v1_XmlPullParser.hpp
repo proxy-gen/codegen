@@ -97,6 +97,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -115,13 +117,12 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_lang_Object;
 
 class java_io_InputStream;
 
 class java_io_Reader;
 
-class org_xmlpull_v1_XmlPullParser 
+class org_xmlpull_v1_XmlPullParser : public java_lang_Object
 {
 public:
 

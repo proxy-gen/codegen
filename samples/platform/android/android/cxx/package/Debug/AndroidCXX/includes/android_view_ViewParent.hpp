@@ -77,6 +77,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -108,7 +110,7 @@ class android_graphics_Point;
 
 class android_view_ContextMenu;
 
-class android_view_ViewParent 
+class android_view_ViewParent : public java_lang_Object
 {
 public:
 

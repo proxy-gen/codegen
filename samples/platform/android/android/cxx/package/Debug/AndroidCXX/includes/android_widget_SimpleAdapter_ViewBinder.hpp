@@ -30,6 +30,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -48,11 +50,10 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class java_lang_Object;
 
 class java_lang_String;
 
-class android_widget_SimpleAdapter_ViewBinder 
+class android_widget_SimpleAdapter_ViewBinder : public java_lang_Object
 {
 public:
 

@@ -98,6 +98,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -132,13 +134,12 @@ class android_widget_AdapterView_OnItemLongClickListener;
 
 class android_widget_AdapterView_OnItemSelectedListener;
 
-class java_lang_Object;
 
 class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_AdapterView 
+class android_widget_AdapterView : public java_lang_Object
 {
 public:
 

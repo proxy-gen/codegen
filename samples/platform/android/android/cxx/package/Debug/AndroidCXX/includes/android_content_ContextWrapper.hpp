@@ -409,7 +409,6 @@ class android_content_ComponentName;
 
 class android_content_ServiceConnection;
 
-class java_lang_Object;
 
 class android_net_Uri;
 
@@ -417,7 +416,7 @@ class android_content_res_Configuration;
 
 class android_view_Display;
 
-class android_content_ContextWrapper 
+class android_content_ContextWrapper : public java_lang_Object
 {
 public:
 

@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class android_content_DialogInterface;
 
-class android_content_DialogInterface_OnClickListener 
+class android_content_DialogInterface_OnClickListener : public java_lang_Object
 {
 public:
 

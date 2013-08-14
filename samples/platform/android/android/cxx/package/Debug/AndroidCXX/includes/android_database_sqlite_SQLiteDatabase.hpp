@@ -326,13 +326,12 @@ class java_util_Map;
 
 class android_database_sqlite_SQLiteStatement;
 
-class java_lang_Object;
 
 class java_util_List;
 
 class android_util_Pair;
 
-class android_database_sqlite_SQLiteDatabase 
+class android_database_sqlite_SQLiteDatabase : public java_lang_Object
 {
 public:
 

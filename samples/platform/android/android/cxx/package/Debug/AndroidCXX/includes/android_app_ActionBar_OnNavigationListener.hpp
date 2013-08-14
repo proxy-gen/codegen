@@ -27,6 +27,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -43,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_app_ActionBar_OnNavigationListener 
+class android_app_ActionBar_OnNavigationListener : public java_lang_Object
 {
 public:
 

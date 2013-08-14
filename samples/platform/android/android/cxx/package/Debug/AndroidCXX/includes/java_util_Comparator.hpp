@@ -31,6 +31,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -47,9 +49,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
-class java_util_Comparator 
+class java_util_Comparator : public java_lang_Object
 {
 public:
 

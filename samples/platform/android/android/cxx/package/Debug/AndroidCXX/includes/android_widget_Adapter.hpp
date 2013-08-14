@@ -42,6 +42,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -64,9 +66,8 @@ class android_view_ViewGroup;
 
 class android_database_DataSetObserver;
 
-class java_lang_Object;
 
-class android_widget_Adapter 
+class android_widget_Adapter : public java_lang_Object
 {
 public:
 

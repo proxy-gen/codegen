@@ -29,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +51,7 @@ class android_view_View;
 
 class android_view_MotionEvent;
 
-class android_view_View_OnTouchListener 
+class android_view_View_OnTouchListener : public java_lang_Object
 {
 public:
 

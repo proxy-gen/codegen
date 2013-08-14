@@ -80,6 +80,8 @@
 #include <android_content_Context.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -110,7 +112,7 @@ class android_widget_GridLayout_Spec;
 
 class android_content_Context;
 
-class android_widget_GridLayout 
+class android_widget_GridLayout : public java_lang_Object
 {
 public:
 

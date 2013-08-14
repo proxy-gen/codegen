@@ -31,6 +31,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -51,9 +53,8 @@ class android_widget_AdapterView;
 
 class android_view_View;
 
-class java_lang_Object;
 
-class android_widget_AdapterView_OnItemClickListener 
+class android_widget_AdapterView_OnItemClickListener : public java_lang_Object
 {
 public:
 

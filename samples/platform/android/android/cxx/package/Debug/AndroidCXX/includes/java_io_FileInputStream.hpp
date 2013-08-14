@@ -52,6 +52,8 @@
 #include <java_io_File.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -76,7 +78,7 @@ class java_lang_String;
 
 class java_io_File;
 
-class java_io_FileInputStream 
+class java_io_FileInputStream : public java_lang_Object
 {
 public:
 

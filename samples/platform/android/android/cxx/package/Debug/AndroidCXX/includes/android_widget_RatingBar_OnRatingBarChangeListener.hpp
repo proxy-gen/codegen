@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class android_widget_RatingBar;
 
-class android_widget_RatingBar_OnRatingBarChangeListener 
+class android_widget_RatingBar_OnRatingBarChangeListener : public java_lang_Object
 {
 public:
 

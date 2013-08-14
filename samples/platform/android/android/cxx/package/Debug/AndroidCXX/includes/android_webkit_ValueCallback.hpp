@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -44,9 +46,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
-class android_webkit_ValueCallback 
+class android_webkit_ValueCallback : public java_lang_Object
 {
 public:
 

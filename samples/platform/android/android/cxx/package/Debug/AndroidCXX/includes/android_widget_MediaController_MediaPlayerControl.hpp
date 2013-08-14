@@ -37,6 +37,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -53,7 +55,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_MediaController_MediaPlayerControl 
+class android_widget_MediaController_MediaPlayerControl : public java_lang_Object
 {
 public:
 

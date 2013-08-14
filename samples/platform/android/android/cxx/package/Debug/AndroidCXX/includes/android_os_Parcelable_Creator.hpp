@@ -32,6 +32,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -48,11 +50,10 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
 class android_os_Parcel;
 
-class android_os_Parcelable_Creator 
+class android_os_Parcelable_Creator : public java_lang_Object
 {
 public:
 

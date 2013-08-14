@@ -51,6 +51,8 @@
 #include <android_content_Context.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -79,7 +81,7 @@ class android_content_Intent;
 
 class android_content_Context;
 
-class android_widget_ShareActionProvider 
+class android_widget_ShareActionProvider : public java_lang_Object
 {
 public:
 

@@ -35,6 +35,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -55,7 +57,7 @@ class java_lang_String;
 
 class java_lang_CharSequence;
 
-class android_support_v4_app_FragmentManager_BackStackEntry 
+class android_support_v4_app_FragmentManager_BackStackEntry : public java_lang_Object
 {
 public:
 

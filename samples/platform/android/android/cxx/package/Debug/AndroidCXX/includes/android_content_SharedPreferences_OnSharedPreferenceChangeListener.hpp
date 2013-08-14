@@ -29,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +51,7 @@ class android_content_SharedPreferences;
 
 class java_lang_String;
 
-class android_content_SharedPreferences_OnSharedPreferenceChangeListener 
+class android_content_SharedPreferences_OnSharedPreferenceChangeListener : public java_lang_Object
 {
 public:
 

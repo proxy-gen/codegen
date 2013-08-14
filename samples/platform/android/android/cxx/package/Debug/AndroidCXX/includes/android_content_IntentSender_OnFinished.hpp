@@ -31,6 +31,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -55,7 +57,7 @@ class java_lang_String;
 
 class android_os_Bundle;
 
-class android_content_IntentSender_OnFinished 
+class android_content_IntentSender_OnFinished : public java_lang_Object
 {
 public:
 

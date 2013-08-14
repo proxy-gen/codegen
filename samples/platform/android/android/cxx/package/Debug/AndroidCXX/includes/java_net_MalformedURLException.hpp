@@ -31,6 +31,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +51,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_net_MalformedURLException 
+class java_net_MalformedURLException : public java_lang_Object
 {
 public:
 

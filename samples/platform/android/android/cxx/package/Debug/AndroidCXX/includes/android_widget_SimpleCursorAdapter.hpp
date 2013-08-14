@@ -87,6 +87,8 @@
 #include <android_widget_SimpleCursorAdapter_CursorToStringConverter.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -121,7 +123,7 @@ class android_widget_TextView;
 
 class android_widget_SimpleCursorAdapter_CursorToStringConverter;
 
-class android_widget_SimpleCursorAdapter 
+class android_widget_SimpleCursorAdapter : public java_lang_Object
 {
 public:
 

@@ -42,6 +42,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -62,7 +64,7 @@ class android_os_Parcel;
 
 class java_lang_String;
 
-class android_content_pm_PathPermission 
+class android_content_pm_PathPermission : public java_lang_Object
 {
 public:
 

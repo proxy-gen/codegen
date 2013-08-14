@@ -132,11 +132,10 @@ class android_animation_PropertyValuesHolder;
 
 class android_animation_TypeEvaluator;
 
-class java_lang_Object;
 
 class android_animation_ValueAnimator_AnimatorUpdateListener;
 
-class android_animation_ValueAnimator 
+class android_animation_ValueAnimator : public java_lang_Object
 {
 public:
 

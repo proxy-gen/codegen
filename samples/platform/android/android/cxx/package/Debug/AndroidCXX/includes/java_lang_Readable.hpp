@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class java_nio_CharBuffer;
 
-class java_lang_Readable 
+class java_lang_Readable : public java_lang_Object
 {
 public:
 

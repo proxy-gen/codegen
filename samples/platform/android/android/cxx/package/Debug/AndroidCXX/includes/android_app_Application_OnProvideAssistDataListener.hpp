@@ -29,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +51,7 @@ class android_app_Activity;
 
 class android_os_Bundle;
 
-class android_app_Application_OnProvideAssistDataListener 
+class android_app_Application_OnProvideAssistDataListener : public java_lang_Object
 {
 public:
 

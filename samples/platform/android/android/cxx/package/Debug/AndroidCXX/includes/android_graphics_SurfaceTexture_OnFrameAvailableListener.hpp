@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class android_graphics_SurfaceTexture;
 
-class android_graphics_SurfaceTexture_OnFrameAvailableListener 
+class android_graphics_SurfaceTexture_OnFrameAvailableListener : public java_lang_Object
 {
 public:
 

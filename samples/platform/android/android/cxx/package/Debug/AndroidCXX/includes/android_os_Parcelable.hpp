@@ -29,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -47,7 +49,7 @@ namespace AndroidCXX {
 
 class android_os_Parcel;
 
-class android_os_Parcelable 
+class android_os_Parcelable : public java_lang_Object
 {
 public:
 

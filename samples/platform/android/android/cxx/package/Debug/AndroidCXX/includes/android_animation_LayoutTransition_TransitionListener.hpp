@@ -34,6 +34,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -56,7 +58,7 @@ class android_view_ViewGroup;
 
 class android_view_View;
 
-class android_animation_LayoutTransition_TransitionListener 
+class android_animation_LayoutTransition_TransitionListener : public java_lang_Object
 {
 public:
 

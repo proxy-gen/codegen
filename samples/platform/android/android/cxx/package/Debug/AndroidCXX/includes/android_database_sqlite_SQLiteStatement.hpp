@@ -40,6 +40,8 @@
 #include <android_os_ParcelFileDescriptor.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -60,7 +62,7 @@ class java_lang_String;
 
 class android_os_ParcelFileDescriptor;
 
-class android_database_sqlite_SQLiteStatement 
+class android_database_sqlite_SQLiteStatement : public java_lang_Object
 {
 public:
 

@@ -45,6 +45,8 @@
 #include <android_view_ViewGroup_MarginLayoutParams.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -69,7 +71,7 @@ class android_view_ViewGroup_LayoutParams;
 
 class android_view_ViewGroup_MarginLayoutParams;
 
-class android_widget_TableRow_LayoutParams 
+class android_widget_TableRow_LayoutParams : public java_lang_Object
 {
 public:
 

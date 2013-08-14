@@ -29,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +51,7 @@ class java_lang_String;
 
 class android_view_View;
 
-class android_widget_TabHost_TabContentFactory 
+class android_widget_TabHost_TabContentFactory : public java_lang_Object
 {
 public:
 

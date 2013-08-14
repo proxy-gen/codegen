@@ -137,7 +137,6 @@ class android_support_v4_app_Fragment;
 
 class android_view_KeyEvent;
 
-class java_lang_Object;
 
 class android_view_Menu;
 
@@ -147,7 +146,7 @@ class android_support_v4_app_FragmentManager;
 
 class android_support_v4_app_LoaderManager;
 
-class android_support_v4_app_FragmentActivity 
+class android_support_v4_app_FragmentActivity : public java_lang_Object
 {
 public:
 

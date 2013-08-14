@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class android_os_Message;
 
-class android_os_Handler_Callback 
+class android_os_Handler_Callback : public java_lang_Object
 {
 public:
 

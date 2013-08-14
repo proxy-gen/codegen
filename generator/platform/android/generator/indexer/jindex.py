@@ -48,6 +48,7 @@ STR_ATTR_SIZE = 80
 MAX_ATT_COUNT = 16
 MAX_PACKAGE_COUNT = 256
 MAX_CLASSES_COUNT = 1024
+JAVA_OBJECT = 'java.lang.Object'
 
 ### Exception Classes ###
 
@@ -884,6 +885,11 @@ class TranslationUnit(JavaObject):
 				extends.append(item)
 			elif key == "implements":
 				implements.append(item)
+		if class_name != JAVA_OBJECT:
+			if JAVA_OBJECT not in extends:
+				item = dict()
+				item['name'] = JAVA_OBJECT
+				extends.append(item)
 		if len(extends) > 0:
 			the_clazz["extends"] = extends
 		if len(implements) > 0:

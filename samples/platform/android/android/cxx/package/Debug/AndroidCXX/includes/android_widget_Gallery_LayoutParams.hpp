@@ -38,6 +38,8 @@
 #include <android_view_ViewGroup_LayoutParams.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -60,7 +62,7 @@ class android_util_AttributeSet;
 
 class android_view_ViewGroup_LayoutParams;
 
-class android_widget_Gallery_LayoutParams 
+class android_widget_Gallery_LayoutParams : public java_lang_Object
 {
 public:
 

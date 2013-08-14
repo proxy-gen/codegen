@@ -36,6 +36,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -52,9 +54,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
-class java_util_Map_Entry 
+class java_util_Map_Entry : public java_lang_Object
 {
 public:
 

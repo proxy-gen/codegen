@@ -42,6 +42,8 @@
 #include <java_lang_CharSequence.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -65,7 +67,7 @@ class android_content_pm_PackageManager;
 class java_lang_CharSequence;
 
 
-class android_content_pm_ComponentInfo 
+class android_content_pm_ComponentInfo : public java_lang_Object
 {
 public:
 

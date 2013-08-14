@@ -141,7 +141,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
 class java_lang_String;
 
@@ -156,7 +155,7 @@ class java_io_OutputStream;
 
 class java_io_File;
 
-class java_io_PrintWriter 
+class java_io_PrintWriter : public java_lang_Object
 {
 public:
 

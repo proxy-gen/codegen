@@ -59,6 +59,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -91,7 +93,7 @@ class java_lang_String;
 
 class android_os_Bundle;
 
-class android_view_inputmethod_InputConnection 
+class android_view_inputmethod_InputConnection : public java_lang_Object
 {
 public:
 

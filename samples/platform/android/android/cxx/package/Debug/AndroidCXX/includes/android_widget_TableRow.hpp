@@ -57,6 +57,8 @@
 #include <android_content_Context.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -87,7 +89,7 @@ class android_view_View;
 
 class android_content_Context;
 
-class android_widget_TableRow 
+class android_widget_TableRow : public java_lang_Object
 {
 public:
 

@@ -1190,7 +1190,9 @@ class ConfigModule(object):
 							break
 			config_superclasses = list()
 			if 'extends' in class_config:
-				config_superclasses.extend(class_config['extends'])
+				for config_extend in class_config['extends']:
+					if config_extend['name'] == jindex.JAVA_OBJECT:
+						config_superclasses.append(config_extend)
 			if 'implements' in class_config:
 				config_superclasses.extend(class_config['implements'])
 			superclasses = [ config_superclass['name'] for config_superclass in config_superclasses ]
@@ -1550,7 +1552,6 @@ class ConfigModule(object):
 						if include_config_data is not None:
 							include_config_data_list.append(include_config_data)
 		return include_config_data_list
-
 
 
 

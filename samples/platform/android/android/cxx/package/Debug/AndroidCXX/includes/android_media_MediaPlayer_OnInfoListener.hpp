@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class android_media_MediaPlayer;
 
-class android_media_MediaPlayer_OnInfoListener 
+class android_media_MediaPlayer_OnInfoListener : public java_lang_Object
 {
 public:
 

@@ -48,6 +48,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -74,7 +76,7 @@ class android_os_Parcel;
 
 class android_os_IBinder_DeathRecipient;
 
-class android_os_IBinder 
+class android_os_IBinder : public java_lang_Object
 {
 public:
 

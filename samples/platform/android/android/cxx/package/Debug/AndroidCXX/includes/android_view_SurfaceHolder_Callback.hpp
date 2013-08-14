@@ -32,6 +32,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -50,7 +52,7 @@ namespace AndroidCXX {
 
 class android_view_SurfaceHolder;
 
-class android_view_SurfaceHolder_Callback 
+class android_view_SurfaceHolder_Callback : public java_lang_Object
 {
 public:
 

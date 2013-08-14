@@ -45,6 +45,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -69,7 +71,7 @@ class android_view_ViewGroup;
 
 class android_view_View;
 
-class android_widget_ResourceCursorTreeAdapter 
+class android_widget_ResourceCursorTreeAdapter : public java_lang_Object
 {
 public:
 

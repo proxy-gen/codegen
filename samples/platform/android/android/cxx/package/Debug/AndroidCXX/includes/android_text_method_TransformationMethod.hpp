@@ -34,6 +34,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -56,7 +58,7 @@ class java_lang_CharSequence;
 
 class android_graphics_Rect;
 
-class android_text_method_TransformationMethod 
+class android_text_method_TransformationMethod : public java_lang_Object
 {
 public:
 

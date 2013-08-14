@@ -151,7 +151,6 @@ class android_widget_ListAdapter;
 
 class android_content_Intent;
 
-class java_lang_Object;
 
 class android_graphics_drawable_Drawable;
 
@@ -159,7 +158,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_ListView 
+class android_widget_ListView : public java_lang_Object
 {
 public:
 

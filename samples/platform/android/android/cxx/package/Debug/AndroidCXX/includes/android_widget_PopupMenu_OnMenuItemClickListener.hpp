@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class android_view_MenuItem;
 
-class android_widget_PopupMenu_OnMenuItemClickListener 
+class android_widget_PopupMenu_OnMenuItemClickListener : public java_lang_Object
 {
 public:
 

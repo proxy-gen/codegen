@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class android_widget_NumberPicker;
 
-class android_widget_NumberPicker_OnValueChangeListener 
+class android_widget_NumberPicker_OnValueChangeListener : public java_lang_Object
 {
 public:
 

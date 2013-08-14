@@ -30,6 +30,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,9 +48,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
-class android_animation_TypeEvaluator 
+class android_animation_TypeEvaluator : public java_lang_Object
 {
 public:
 

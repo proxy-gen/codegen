@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class android_widget_PopupMenu;
 
-class android_widget_PopupMenu_OnDismissListener 
+class android_widget_PopupMenu_OnDismissListener : public java_lang_Object
 {
 public:
 

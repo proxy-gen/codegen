@@ -29,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +51,7 @@ class java_lang_String;
 
 class java_net_ContentHandler;
 
-class java_net_ContentHandlerFactory 
+class java_net_ContentHandlerFactory : public java_lang_Object
 {
 public:
 

@@ -73,13 +73,12 @@ class android_content_res_Resources_Theme;
 
 class java_lang_String;
 
-class java_lang_Object;
 
 class android_content_res_Configuration;
 
 class android_content_Context;
 
-class android_view_ContextThemeWrapper 
+class android_view_ContextThemeWrapper : public java_lang_Object
 {
 public:
 

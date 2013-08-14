@@ -31,6 +31,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +51,7 @@ namespace AndroidCXX {
 
 class java_lang_CharSequence;
 
-class android_widget_AutoCompleteTextView_Validator 
+class android_widget_AutoCompleteTextView_Validator : public java_lang_Object
 {
 public:
 

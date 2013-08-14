@@ -29,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +51,7 @@ class android_media_MediaPlayer;
 
 class android_media_TimedText;
 
-class android_media_MediaPlayer_OnTimedTextListener 
+class android_media_MediaPlayer_OnTimedTextListener : public java_lang_Object
 {
 public:
 

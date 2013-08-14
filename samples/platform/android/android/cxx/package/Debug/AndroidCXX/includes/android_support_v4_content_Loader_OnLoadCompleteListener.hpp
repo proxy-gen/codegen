@@ -31,6 +31,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,9 +51,8 @@ namespace AndroidCXX {
 
 class android_support_v4_content_Loader;
 
-class java_lang_Object;
 
-class android_support_v4_content_Loader_OnLoadCompleteListener 
+class android_support_v4_content_Loader_OnLoadCompleteListener : public java_lang_Object
 {
 public:
 

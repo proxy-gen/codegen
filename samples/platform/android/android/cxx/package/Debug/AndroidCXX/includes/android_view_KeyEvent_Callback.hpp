@@ -34,6 +34,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -52,7 +54,7 @@ namespace AndroidCXX {
 
 class android_view_KeyEvent;
 
-class android_view_KeyEvent_Callback 
+class android_view_KeyEvent_Callback : public java_lang_Object
 {
 public:
 

@@ -29,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +51,7 @@ class android_widget_ExpandableListView;
 
 class android_view_View;
 
-class android_widget_ExpandableListView_OnGroupClickListener 
+class android_widget_ExpandableListView_OnGroupClickListener : public java_lang_Object
 {
 public:
 

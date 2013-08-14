@@ -34,6 +34,8 @@
 #include <android_graphics_Paint.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -53,7 +55,7 @@ namespace AndroidCXX {
 
 class android_graphics_Paint;
 
-class android_text_TextPaint 
+class android_text_TextPaint : public java_lang_Object
 {
 public:
 

@@ -51,6 +51,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -73,7 +75,7 @@ class java_lang_String;
 
 class java_io_InputStream;
 
-class java_net_HttpURLConnection 
+class java_net_HttpURLConnection : public java_lang_Object
 {
 public:
 

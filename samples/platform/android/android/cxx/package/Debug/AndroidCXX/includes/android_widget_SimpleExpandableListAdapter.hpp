@@ -146,7 +146,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
 class android_view_View;
 
@@ -160,7 +159,7 @@ class java_lang_String;
 
 class java_util_Map;
 
-class android_widget_SimpleExpandableListAdapter 
+class android_widget_SimpleExpandableListAdapter : public java_lang_Object
 {
 public:
 

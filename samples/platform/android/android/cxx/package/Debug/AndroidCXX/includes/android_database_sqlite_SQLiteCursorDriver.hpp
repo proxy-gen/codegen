@@ -38,6 +38,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -60,7 +62,7 @@ class android_database_Cursor;
 
 class java_lang_String;
 
-class android_database_sqlite_SQLiteCursorDriver 
+class android_database_sqlite_SQLiteCursorDriver : public java_lang_Object
 {
 public:
 

@@ -139,7 +139,6 @@ class android_util_Property;
 class java_lang_String;
 
 
-class java_lang_Object;
 
 class java_lang_Integer;
 
@@ -149,7 +148,7 @@ class android_animation_TypeEvaluator;
 
 class android_animation_PropertyValuesHolder;
 
-class android_animation_ObjectAnimator 
+class android_animation_ObjectAnimator : public java_lang_Object
 {
 public:
 

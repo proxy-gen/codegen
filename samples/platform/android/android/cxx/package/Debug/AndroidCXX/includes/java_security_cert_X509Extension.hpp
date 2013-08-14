@@ -38,6 +38,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -58,7 +60,7 @@ class java_util_Set;
 
 class java_lang_String;
 
-class java_security_cert_X509Extension 
+class java_security_cert_X509Extension : public java_lang_Object
 {
 public:
 

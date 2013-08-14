@@ -31,6 +31,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,9 +51,8 @@ namespace AndroidCXX {
 
 class java_lang_reflect_TypeVariable;
 
-class java_lang_Object;
 
-class java_lang_reflect_GenericDeclaration 
+class java_lang_reflect_GenericDeclaration : public java_lang_Object
 {
 public:
 

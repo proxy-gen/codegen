@@ -34,6 +34,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,7 +56,7 @@ class android_view_View;
 
 class android_view_ViewGroup_LayoutParams;
 
-class android_view_ViewManager 
+class android_view_ViewManager : public java_lang_Object
 {
 public:
 

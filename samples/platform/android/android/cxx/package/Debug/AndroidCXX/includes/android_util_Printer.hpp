@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_util_Printer 
+class android_util_Printer : public java_lang_Object
 {
 public:
 

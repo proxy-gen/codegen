@@ -30,6 +30,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -48,7 +50,7 @@ namespace AndroidCXX {
 
 class android_view_InputQueue;
 
-class android_view_InputQueue_Callback 
+class android_view_InputQueue_Callback : public java_lang_Object
 {
 public:
 

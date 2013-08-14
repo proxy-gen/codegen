@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class java_io_File;
 
-class java_io_FileFilter 
+class java_io_FileFilter : public java_lang_Object
 {
 public:
 

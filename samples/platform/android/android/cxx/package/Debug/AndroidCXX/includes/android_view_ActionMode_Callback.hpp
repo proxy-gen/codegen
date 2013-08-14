@@ -37,6 +37,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -59,7 +61,7 @@ class android_view_Menu;
 
 class android_view_MenuItem;
 
-class android_view_ActionMode_Callback 
+class android_view_ActionMode_Callback : public java_lang_Object
 {
 public:
 

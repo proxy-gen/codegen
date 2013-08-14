@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class android_database_sqlite_SQLiteDatabase;
 
-class android_database_DatabaseErrorHandler 
+class android_database_DatabaseErrorHandler : public java_lang_Object
 {
 public:
 

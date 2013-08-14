@@ -29,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -47,7 +49,7 @@ namespace AndroidCXX {
 
 class android_content_res_Configuration;
 
-class android_content_ComponentCallbacks 
+class android_content_ComponentCallbacks : public java_lang_Object
 {
 public:
 

@@ -29,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +51,7 @@ class android_webkit_WebView;
 
 class android_graphics_Picture;
 
-class android_webkit_WebView_PictureListener 
+class android_webkit_WebView_PictureListener : public java_lang_Object
 {
 public:
 

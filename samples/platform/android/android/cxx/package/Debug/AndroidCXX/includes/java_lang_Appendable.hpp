@@ -34,6 +34,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -53,7 +55,7 @@ namespace AndroidCXX {
 class java_lang_CharSequence;
 
 
-class java_lang_Appendable 
+class java_lang_Appendable : public java_lang_Object
 {
 public:
 

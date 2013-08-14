@@ -30,6 +30,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -48,9 +50,8 @@ namespace AndroidCXX {
 
 class java_util_Iterator;
 
-class java_lang_Object;
 
-class java_lang_Iterable 
+class java_lang_Iterable : public java_lang_Object
 {
 public:
 

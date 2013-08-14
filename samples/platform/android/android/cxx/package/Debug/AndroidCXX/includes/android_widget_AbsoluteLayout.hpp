@@ -44,6 +44,8 @@
 #include <android_content_Context.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -66,7 +68,7 @@ class android_view_ViewGroup_LayoutParams;
 
 class android_content_Context;
 
-class android_widget_AbsoluteLayout 
+class android_widget_AbsoluteLayout : public java_lang_Object
 {
 public:
 

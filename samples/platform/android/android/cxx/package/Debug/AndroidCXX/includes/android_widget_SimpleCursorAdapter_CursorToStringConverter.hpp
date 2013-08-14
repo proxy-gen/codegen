@@ -29,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +51,7 @@ class android_database_Cursor;
 
 class java_lang_CharSequence;
 
-class android_widget_SimpleCursorAdapter_CursorToStringConverter 
+class android_widget_SimpleCursorAdapter_CursorToStringConverter : public java_lang_Object
 {
 public:
 

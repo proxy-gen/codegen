@@ -33,6 +33,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,7 +56,7 @@ class java_nio_channels_SocketChannel;
 
 class java_net_ServerSocket;
 
-class java_nio_channels_ServerSocketChannel 
+class java_nio_channels_ServerSocketChannel : public java_lang_Object
 {
 public:
 

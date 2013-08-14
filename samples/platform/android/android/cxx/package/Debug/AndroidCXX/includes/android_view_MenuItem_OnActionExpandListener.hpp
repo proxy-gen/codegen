@@ -30,6 +30,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -48,7 +50,7 @@ namespace AndroidCXX {
 
 class android_view_MenuItem;
 
-class android_view_MenuItem_OnActionExpandListener 
+class android_view_MenuItem_OnActionExpandListener : public java_lang_Object
 {
 public:
 

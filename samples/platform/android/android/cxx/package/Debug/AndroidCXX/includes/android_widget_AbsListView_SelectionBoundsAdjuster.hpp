@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class android_graphics_Rect;
 
-class android_widget_AbsListView_SelectionBoundsAdjuster 
+class android_widget_AbsListView_SelectionBoundsAdjuster : public java_lang_Object
 {
 public:
 

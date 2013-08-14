@@ -57,6 +57,8 @@
 #include <android_util_AttributeSet.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -83,7 +85,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_AdapterViewFlipper 
+class android_widget_AdapterViewFlipper : public java_lang_Object
 {
 public:
 

@@ -26,6 +26,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,7 +44,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_text_NoCopySpan 
+class android_text_NoCopySpan : public java_lang_Object
 {
 public:
 

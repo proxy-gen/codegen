@@ -30,6 +30,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -48,7 +50,7 @@ namespace AndroidCXX {
 
 class android_widget_AbsListView;
 
-class android_widget_AbsListView_OnScrollListener 
+class android_widget_AbsListView_OnScrollListener : public java_lang_Object
 {
 public:
 

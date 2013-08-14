@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class java_net_DatagramSocketImpl;
 
-class java_net_DatagramSocketImplFactory 
+class java_net_DatagramSocketImplFactory : public java_lang_Object
 {
 public:
 

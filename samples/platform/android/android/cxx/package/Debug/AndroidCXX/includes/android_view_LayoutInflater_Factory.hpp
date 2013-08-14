@@ -31,6 +31,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -55,7 +57,7 @@ class android_util_AttributeSet;
 
 class android_view_View;
 
-class android_view_LayoutInflater_Factory 
+class android_view_LayoutInflater_Factory : public java_lang_Object
 {
 public:
 

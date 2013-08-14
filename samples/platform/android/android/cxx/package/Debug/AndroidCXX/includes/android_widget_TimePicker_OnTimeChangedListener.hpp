@@ -28,6 +28,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,7 +48,7 @@ namespace AndroidCXX {
 
 class android_widget_TimePicker;
 
-class android_widget_TimePicker_OnTimeChangedListener 
+class android_widget_TimePicker_OnTimeChangedListener : public java_lang_Object
 {
 public:
 

@@ -29,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +51,7 @@ class android_view_View;
 
 class android_view_KeyEvent;
 
-class android_view_View_OnKeyListener 
+class android_view_View_OnKeyListener : public java_lang_Object
 {
 public:
 

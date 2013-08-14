@@ -41,6 +41,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -61,7 +63,7 @@ class java_lang_Class;
 
 class java_lang_annotation_Annotation;
 
-class java_lang_reflect_AnnotatedElement 
+class java_lang_reflect_AnnotatedElement : public java_lang_Object
 {
 public:
 

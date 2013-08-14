@@ -33,6 +33,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -51,7 +53,7 @@ namespace AndroidCXX {
 
 class java_lang_CharSequence;
 
-class android_widget_MultiAutoCompleteTextView_Tokenizer 
+class android_widget_MultiAutoCompleteTextView_Tokenizer : public java_lang_Object
 {
 public:
 

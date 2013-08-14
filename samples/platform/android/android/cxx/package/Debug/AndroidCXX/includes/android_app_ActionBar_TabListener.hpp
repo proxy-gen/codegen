@@ -35,6 +35,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -55,7 +57,7 @@ class android_app_ActionBar_Tab;
 
 class android_app_FragmentTransaction;
 
-class android_app_ActionBar_TabListener 
+class android_app_ActionBar_TabListener : public java_lang_Object
 {
 public:
 

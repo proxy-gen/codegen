@@ -29,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +51,7 @@ class android_widget_ShareActionProvider;
 
 class android_content_Intent;
 
-class android_widget_ShareActionProvider_OnShareTargetSelectedListener 
+class android_widget_ShareActionProvider_OnShareTargetSelectedListener : public java_lang_Object
 {
 public:
 

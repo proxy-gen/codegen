@@ -85,6 +85,8 @@
 #include <android_util_AttributeSet.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -115,7 +117,7 @@ class android_graphics_drawable_Drawable;
 
 class android_util_AttributeSet;
 
-class android_widget_ProgressBar 
+class android_widget_ProgressBar : public java_lang_Object
 {
 public:
 

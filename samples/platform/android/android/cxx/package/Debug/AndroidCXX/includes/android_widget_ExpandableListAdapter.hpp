@@ -54,6 +54,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -72,13 +74,12 @@ namespace AndroidCXX {
 
 class android_database_DataSetObserver;
 
-class java_lang_Object;
 
 class android_view_View;
 
 class android_view_ViewGroup;
 
-class android_widget_ExpandableListAdapter 
+class android_widget_ExpandableListAdapter : public java_lang_Object
 {
 public:
 
