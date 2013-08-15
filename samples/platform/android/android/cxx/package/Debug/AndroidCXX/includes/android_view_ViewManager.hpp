@@ -67,8 +67,8 @@ public:
 	virtual ~android_view_ViewManager();
 	// Functions
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) ;
-	virtual void  removeView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  updateViewLayout(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) ;
+	virtual void  removeView(AndroidCXX::android_view_View const& arg0) ;
 
 protected:
 	android_view_ViewManager();

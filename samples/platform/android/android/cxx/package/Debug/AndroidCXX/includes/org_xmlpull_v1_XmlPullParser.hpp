@@ -32,8 +32,8 @@
  		 
 	
 	
-	
  		 
+	
 	
  	
  	
@@ -148,7 +148,6 @@ public:
 	virtual int  getAttributeCount() ;
 	virtual AndroidCXX::java_lang_String * getAttributeName(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getPositionDescription() ;
-	virtual int  getEventType() ;
 	virtual void  setFeature(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
 	virtual bool  getFeature(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getInputEncoding() ;
@@ -156,8 +155,8 @@ public:
 	virtual int  getNamespaceCount(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getNamespacePrefix(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getNamespaceUri(int const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getNamespace() ;
 	virtual AndroidCXX::java_lang_String * getNamespace(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getNamespace() ;
 	virtual int  getDepth() ;
 	virtual int  getColumnNumber() ;
 	virtual std::vector<char>  getTextCharacters(std::vector<int> const& arg0) ;
@@ -166,6 +165,7 @@ public:
 	virtual AndroidCXX::java_lang_String * getAttributePrefix(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getAttributeType(int const& arg0) ;
 	virtual bool  isAttributeDefault(int const& arg0) ;
+	virtual int  getEventType() ;
 	virtual void  require(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) ;
 	virtual AndroidCXX::java_lang_String * nextText() ;
 	virtual int  nextTag() ;

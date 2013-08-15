@@ -87,17 +87,17 @@ class android_view_SurfaceView : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
+	android_view_SurfaceView(AndroidCXX::android_content_Context const& arg0);
 	android_view_SurfaceView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_view_SurfaceView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
-	android_view_SurfaceView(AndroidCXX::android_content_Context const& arg0);
 	android_view_SurfaceView(const android_view_SurfaceView& cc);
 	android_view_SurfaceView(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_SurfaceView();
 	// Functions
-	virtual void  setVisibility(int const& arg0) ;
 	virtual bool  gatherTransparentRegion(AndroidCXX::android_graphics_Region const& arg0) ;
+	virtual void  setVisibility(int const& arg0) ;
 	virtual void  draw(AndroidCXX::android_graphics_Canvas const& arg0) ;
 	virtual AndroidCXX::android_view_SurfaceHolder * getHolder() ;
 	virtual void  setZOrderMediaOverlay(bool const& arg0) ;

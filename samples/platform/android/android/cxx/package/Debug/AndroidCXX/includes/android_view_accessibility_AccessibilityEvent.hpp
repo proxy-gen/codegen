@@ -17,8 +17,8 @@
  		 
 	
  		 
- 		 
 	
+ 		 
  		 
 	
 
@@ -108,22 +108,22 @@ public:
 	// Functions
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual AndroidCXX::java_lang_CharSequence * getPackageName() ;
+	virtual int  getAction() ;
 	virtual int  describeContents() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 	static AndroidCXX::android_view_accessibility_AccessibilityEvent * obtain(int const& arg0) ;
 	static AndroidCXX::android_view_accessibility_AccessibilityEvent * obtain() ;
 	static AndroidCXX::android_view_accessibility_AccessibilityEvent * obtain(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  recycle() ;
-	virtual int  getAction() ;
-	virtual long  getEventTime() ;
 	virtual void  setAction(int const& arg0) ;
-	virtual void  setPackageName(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual int  getEventType() ;
+	virtual long  getEventTime() ;
 	virtual int  getRecordCount() ;
 	virtual void  appendRecord(AndroidCXX::android_view_accessibility_AccessibilityRecord const& arg0) ;
 	virtual AndroidCXX::android_view_accessibility_AccessibilityRecord * getRecord(int const& arg0) ;
-	virtual int  getEventType() ;
 	virtual void  setEventType(int const& arg0) ;
 	virtual void  setEventTime(long const& arg0) ;
+	virtual void  setPackageName(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setMovementGranularity(int const& arg0) ;
 	virtual int  getMovementGranularity() ;
 	virtual void  initFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;

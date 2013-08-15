@@ -97,10 +97,10 @@ public:
 	// Functions
 	virtual AndroidCXX::android_content_Loader * getLoader(int const& arg0) ;
 	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3) ;
+	static void  enableDebugLogging(bool const& arg0) ;
 	virtual AndroidCXX::android_content_Loader * initLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::android_app_LoaderManager_LoaderCallbacks const& arg2) ;
 	virtual AndroidCXX::android_content_Loader * restartLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::android_app_LoaderManager_LoaderCallbacks const& arg2) ;
 	virtual void  destroyLoader(int const& arg0) ;
-	static void  enableDebugLogging(bool const& arg0) ;
 
 protected:
 	android_app_LoaderManager();

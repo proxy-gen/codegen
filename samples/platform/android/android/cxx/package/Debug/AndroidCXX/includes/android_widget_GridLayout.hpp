@@ -15,9 +15,9 @@
 	
  		 
 	
-	
-	
  		 
+	
+	
 	
 
 
@@ -65,9 +65,9 @@
 //
 
 
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
 #include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_util_AttributeSet.hpp>
 
@@ -98,9 +98,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_accessibility_AccessibilityNodeInfo;
-
 class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_util_AttributeSet;
 
@@ -126,19 +126,19 @@ public:
 	// Default Destructor
 	virtual ~android_widget_GridLayout();
 	// Functions
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  setOrientation(int const& arg0) ;
+	virtual int  getOrientation() ;
 	virtual AndroidCXX::android_widget_GridLayout_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
+	static AndroidCXX::android_widget_GridLayout_Spec * spec(int const& arg0,int const& arg1,AndroidCXX::android_widget_GridLayout_Alignment const& arg2) ;
 	static AndroidCXX::android_widget_GridLayout_Spec * spec(int const& arg0,AndroidCXX::android_widget_GridLayout_Alignment const& arg1) ;
 	static AndroidCXX::android_widget_GridLayout_Spec * spec(int const& arg0,int const& arg1) ;
 	static AndroidCXX::android_widget_GridLayout_Spec * spec(int const& arg0) ;
-	static AndroidCXX::android_widget_GridLayout_Spec * spec(int const& arg0,int const& arg1,AndroidCXX::android_widget_GridLayout_Alignment const& arg2) ;
 	virtual void  requestLayout() ;
-	virtual int  getOrientation() ;
-	virtual void  setOrientation(int const& arg0) ;
+	virtual int  getColumnCount() ;
 	virtual int  getRowCount() ;
 	virtual void  setRowCount(int const& arg0) ;
-	virtual int  getColumnCount() ;
 	virtual void  setColumnCount(int const& arg0) ;
 	virtual bool  getUseDefaultMargins() ;
 	virtual void  setUseDefaultMargins(bool const& arg0) ;

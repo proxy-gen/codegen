@@ -87,9 +87,9 @@ public:
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual int  hashCode() ;
+	virtual bool  isFocused() ;
 	virtual int  describeContents() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual bool  isFocused() ;
 	virtual void  registerFocusObserver(AndroidCXX::android_view_WindowId_FocusObserver const& arg0) ;
 	virtual void  unregisterFocusObserver(AndroidCXX::android_view_WindowId_FocusObserver const& arg0) ;
 

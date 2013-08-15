@@ -64,8 +64,8 @@ public:
 	// Default Destructor
 	virtual ~android_text_TextWatcher();
 	// Functions
-	virtual void  beforeTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual void  onTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  beforeTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual void  afterTextChanged(AndroidCXX::android_text_Editable const& arg0) ;
 
 protected:

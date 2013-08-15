@@ -11,8 +11,8 @@
 
 	
 	
-	
  		 
+	
  		 
  		 
 
@@ -80,8 +80,8 @@ public:
 	// Functions
 	virtual AndroidCXX::java_lang_String * getEncoding() ;
 	virtual AndroidCXX::java_io_InputStream * getData() ;
-	virtual AndroidCXX::java_lang_String * getMimeType() ;
 	virtual void  setData(AndroidCXX::java_io_InputStream const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getMimeType() ;
 	virtual void  setMimeType(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setEncoding(AndroidCXX::java_lang_String const& arg0) ;
 

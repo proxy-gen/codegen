@@ -59,29 +59,29 @@
  		 
 	
  		 
- 	
- 		 
- 		 
  		 
  	
  		 
  		 
+ 	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+	
+ 		 
+	
+	
+ 		 
+	
+	
 	
  		 
  		 
 	
  		 
-	
-	
-	
- 		 
- 		 
-	
- 		 
-	
- 		 
-	
-	
 	
 	
  		 
@@ -303,22 +303,22 @@ public:
 	virtual AndroidCXX::java_math_BigDecimal * divide(AndroidCXX::java_math_BigDecimal const& arg0,java_math_RoundingMode::java_math_RoundingMode const& arg1) ;
 	virtual AndroidCXX::java_math_BigDecimal * divide(AndroidCXX::java_math_BigDecimal const& arg0) ;
 	virtual AndroidCXX::java_math_BigDecimal * divide(AndroidCXX::java_math_BigDecimal const& arg0,int const& arg1,int const& arg2) ;
-	virtual std::vector<java_math_BigDecimal>  divideAndRemainder(AndroidCXX::java_math_BigDecimal const& arg0) ;
 	virtual std::vector<java_math_BigDecimal>  divideAndRemainder(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) ;
+	virtual std::vector<java_math_BigDecimal>  divideAndRemainder(AndroidCXX::java_math_BigDecimal const& arg0) ;
 	virtual AndroidCXX::java_math_BigDecimal * remainder(AndroidCXX::java_math_BigDecimal const& arg0) ;
 	virtual AndroidCXX::java_math_BigDecimal * remainder(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) ;
-	virtual AndroidCXX::java_math_BigDecimal * negate(AndroidCXX::java_math_MathContext const& arg0) ;
 	virtual AndroidCXX::java_math_BigDecimal * negate() ;
+	virtual AndroidCXX::java_math_BigDecimal * negate(AndroidCXX::java_math_MathContext const& arg0) ;
 	virtual AndroidCXX::java_math_BigInteger * toBigInteger() ;
+	virtual AndroidCXX::java_math_BigDecimal * setScale(int const& arg0,java_math_RoundingMode::java_math_RoundingMode const& arg1) ;
+	virtual AndroidCXX::java_math_BigDecimal * setScale(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::java_math_BigDecimal * setScale(int const& arg0) ;
 	virtual int  precision() ;
 	virtual AndroidCXX::java_math_BigDecimal * divideToIntegralValue(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) ;
 	virtual AndroidCXX::java_math_BigDecimal * divideToIntegralValue(AndroidCXX::java_math_BigDecimal const& arg0) ;
-	virtual AndroidCXX::java_math_BigDecimal * plus(AndroidCXX::java_math_MathContext const& arg0) ;
 	virtual AndroidCXX::java_math_BigDecimal * plus() ;
+	virtual AndroidCXX::java_math_BigDecimal * plus(AndroidCXX::java_math_MathContext const& arg0) ;
 	virtual AndroidCXX::java_math_BigInteger * unscaledValue() ;
-	virtual AndroidCXX::java_math_BigDecimal * setScale(int const& arg0,int const& arg1) ;
-	virtual AndroidCXX::java_math_BigDecimal * setScale(int const& arg0,java_math_RoundingMode::java_math_RoundingMode const& arg1) ;
-	virtual AndroidCXX::java_math_BigDecimal * setScale(int const& arg0) ;
 	virtual AndroidCXX::java_math_BigDecimal * movePointLeft(int const& arg0) ;
 	virtual AndroidCXX::java_math_BigDecimal * movePointRight(int const& arg0) ;
 	virtual AndroidCXX::java_math_BigDecimal * scaleByPowerOfTen(int const& arg0) ;

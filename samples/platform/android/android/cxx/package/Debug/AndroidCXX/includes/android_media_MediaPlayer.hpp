@@ -10,11 +10,11 @@
 
 
  		 
+	
  		 
  		 
 	
  		 
-	
  		 
  		 
 	
@@ -170,10 +170,10 @@ namespace AndroidCXX {
 
 class android_content_Context;
 
+
 class android_net_Uri;
 
 class android_view_SurfaceHolder;
-
 
 class android_media_MediaPlayer_OnPreparedListener;
 
@@ -217,28 +217,28 @@ public:
 	virtual void  stop() ;
 	virtual void  reset() ;
 	virtual void  release() ;
-	static AndroidCXX::android_media_MediaPlayer * create(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::android_view_SurfaceHolder const& arg2) ;
 	static AndroidCXX::android_media_MediaPlayer * create(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
 	static AndroidCXX::android_media_MediaPlayer * create(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1) ;
-	virtual void  pause() ;
+	static AndroidCXX::android_media_MediaPlayer * create(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::android_view_SurfaceHolder const& arg2) ;
 	virtual int  getDuration() ;
-	virtual int  getCurrentPosition() ;
-	virtual void  seekTo(int const& arg0) ;
-	virtual bool  isPlaying() ;
-	virtual int  getAudioSessionId() ;
+	virtual void  prepare() ;
 	virtual void  setOnPreparedListener(AndroidCXX::android_media_MediaPlayer_OnPreparedListener const& arg0) ;
 	virtual void  setOnCompletionListener(AndroidCXX::android_media_MediaPlayer_OnCompletionListener const& arg0) ;
 	virtual void  setOnErrorListener(AndroidCXX::android_media_MediaPlayer_OnErrorListener const& arg0) ;
 	virtual void  setOnInfoListener(AndroidCXX::android_media_MediaPlayer_OnInfoListener const& arg0) ;
-	virtual void  prepare() ;
+	virtual void  pause() ;
+	virtual int  getCurrentPosition() ;
+	virtual void  seekTo(int const& arg0) ;
+	virtual bool  isPlaying() ;
+	virtual int  getAudioSessionId() ;
 	virtual void  setDisplay(AndroidCXX::android_view_SurfaceHolder const& arg0) ;
 	virtual void  setSurface(AndroidCXX::android_view_Surface const& arg0) ;
 	virtual void  setVideoScalingMode(int const& arg0) ;
 	virtual void  setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::java_util_Map const& arg2) ;
-	virtual void  setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0) ;
-	virtual void  setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1) ;
-	virtual void  setDataSource(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0,long const& arg1,long const& arg2) ;
+	virtual void  setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0) ;
+	virtual void  setDataSource(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1) ;
 	virtual void  prepareAsync() ;
 	virtual void  setWakeMode(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
 	virtual void  setScreenOnWhilePlaying(bool const& arg0) ;

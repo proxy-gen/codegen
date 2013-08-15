@@ -19,8 +19,8 @@
  		 
  		 
  		 
-	
  		 
+	
  		 
  		 
  		 
@@ -143,15 +143,16 @@ public:
 	virtual void  set(AndroidCXX::android_graphics_Rect const& arg0) ;
 	virtual void  sort() ;
 	virtual void  round(AndroidCXX::android_graphics_Rect const& arg0) ;
-	virtual bool  intersects(float const& arg0,float const& arg1,float const& arg2,float const& arg3) ;
 	static bool  intersects(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_RectF const& arg1) ;
-	virtual void  _union(AndroidCXX::android_graphics_RectF const& arg0) ;
+	virtual bool  intersects(float const& arg0,float const& arg1,float const& arg2,float const& arg3) ;
 	virtual void  _union(float const& arg0,float const& arg1,float const& arg2,float const& arg3) ;
 	virtual void  _union(float const& arg0,float const& arg1) ;
-	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual void  _union(AndroidCXX::android_graphics_RectF const& arg0) ;
 	virtual float  width() ;
 	virtual float  height() ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual void  readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toShortString() ;
 	virtual float  centerX() ;
 	virtual float  centerY() ;
@@ -161,7 +162,6 @@ public:
 	virtual bool  intersect(float const& arg0,float const& arg1,float const& arg2,float const& arg3) ;
 	virtual bool  intersect(AndroidCXX::android_graphics_RectF const& arg0) ;
 	virtual bool  setIntersect(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_RectF const& arg1) ;
-	virtual void  readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
 	virtual void  roundOut(AndroidCXX::android_graphics_Rect const& arg0) ;
 
 protected:

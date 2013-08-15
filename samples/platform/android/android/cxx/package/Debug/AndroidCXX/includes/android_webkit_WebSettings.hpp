@@ -10,8 +10,8 @@
 
 
 	
- 		 
 	
+ 		 
  		 
 	
  		 
@@ -173,8 +173,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-
 class java_lang_String;
+
 
 
 
@@ -192,9 +192,9 @@ public:
 	// Default Destructor
 	virtual ~android_webkit_WebSettings();
 	// Functions
+	virtual AndroidCXX::java_lang_String * getDatabasePath() ;
 	virtual android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize  getTextSize() ;
 	virtual void  setTextSize(android_webkit_WebSettings_TextSize::android_webkit_WebSettings_TextSize const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getDatabasePath() ;
 	virtual void  setSupportZoom(bool const& arg0) ;
 	virtual bool  supportZoom() ;
 	virtual void  setMediaPlaybackRequiresUserGesture(bool const& arg0) ;

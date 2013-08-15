@@ -78,17 +78,17 @@ public:
 	virtual bool  isEmpty() ;
 	virtual void  registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
 	virtual void  unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
+	virtual void  notifyDataSetInvalidated() ;
+	virtual void  notifyDataSetChanged() ;
 	virtual bool  areAllItemsEnabled() ;
-	virtual void  onGroupExpanded(int const& arg0) ;
 	virtual void  onGroupCollapsed(int const& arg0) ;
+	virtual void  onGroupExpanded(int const& arg0) ;
 	virtual long  getCombinedChildId(long const& arg0,long const& arg1) ;
 	virtual long  getCombinedGroupId(long const& arg0) ;
-	virtual int  getGroupType(int const& arg0) ;
 	virtual int  getChildType(int const& arg0,int const& arg1) ;
-	virtual int  getGroupTypeCount() ;
 	virtual int  getChildTypeCount() ;
-	virtual void  notifyDataSetChanged() ;
-	virtual void  notifyDataSetInvalidated() ;
+	virtual int  getGroupType(int const& arg0) ;
+	virtual int  getGroupTypeCount() ;
 
 protected:
 	android_widget_BaseExpandableListAdapter();

@@ -10,10 +10,10 @@
 
 
  		 
- 		 
+	
 	
  		 
-	
+ 		 
  		 
 	
 	
@@ -65,11 +65,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_SurfaceHolder_Callback;
+class android_graphics_Rect;
 
 class android_graphics_Canvas;
 
-class android_graphics_Rect;
+class android_view_SurfaceHolder_Callback;
 
 class android_view_Surface;
 
@@ -84,16 +84,16 @@ public:
 	virtual ~android_view_SurfaceHolder();
 	// Functions
 	virtual void  setKeepScreenOn(bool const& arg0) ;
-	virtual void  setFormat(int const& arg0) ;
 	virtual void  setType(int const& arg0) ;
+	virtual AndroidCXX::android_graphics_Canvas * lockCanvas(AndroidCXX::android_graphics_Rect const& arg0) ;
+	virtual AndroidCXX::android_graphics_Canvas * lockCanvas() ;
+	virtual void  unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas const& arg0) ;
 	virtual void  addCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0) ;
 	virtual void  removeCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0) ;
 	virtual bool  isCreating() ;
 	virtual void  setFixedSize(int const& arg0,int const& arg1) ;
 	virtual void  setSizeFromLayout() ;
-	virtual AndroidCXX::android_graphics_Canvas * lockCanvas() ;
-	virtual AndroidCXX::android_graphics_Canvas * lockCanvas(AndroidCXX::android_graphics_Rect const& arg0) ;
-	virtual void  unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual void  setFormat(int const& arg0) ;
 	virtual AndroidCXX::android_graphics_Rect * getSurfaceFrame() ;
 	virtual AndroidCXX::android_view_Surface * getSurface() ;
 

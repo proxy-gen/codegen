@@ -9,9 +9,6 @@
 
 
 
-	
- 		 
- 		 
  		 
  		 
  		 
@@ -19,12 +16,15 @@
  		 
 	
 	
-	
  		 
  		 
 	
  		 
  		 
+	
+ 		 
+ 		 
+	
 
 
  		 
@@ -96,23 +96,23 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_Parcelable;
-
 class android_view_MotionEvent;
-
-class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_view_accessibility_AccessibilityEvent;
 
-class android_widget_Adapter;
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_os_Parcelable;
 
 class android_view_View;
-
-class android_content_Intent;
 
 class android_animation_ObjectAnimator;
 
 class android_content_Context;
+
+class android_widget_Adapter;
+
+class android_content_Intent;
 
 class android_util_AttributeSet;
 
@@ -126,22 +126,13 @@ public:
 	// Default Destructor
 	virtual ~android_widget_AdapterViewAnimator();
 	// Functions
-	virtual AndroidCXX::android_os_Parcelable * onSaveInstanceState() ;
 	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual void  onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual int  getBaseline() ;
-	virtual void  setAdapter(AndroidCXX::android_widget_Adapter const& arg0) ;
-	virtual AndroidCXX::android_view_View * getSelectedView() ;
-	virtual void  setRemoteViewsAdapter(AndroidCXX::android_content_Intent const& arg0) ;
-	virtual void  deferNotifyDataSetChanged() ;
-	virtual bool  onRemoteAdapterConnected() ;
-	virtual void  onRemoteAdapterDisconnected() ;
-	virtual AndroidCXX::android_widget_Adapter * getAdapter() ;
+	virtual AndroidCXX::android_os_Parcelable * onSaveInstanceState() ;
+	virtual void  onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0) ;
 	virtual void  setSelection(int const& arg0) ;
-	virtual void  advance() ;
-	virtual void  fyiWillBeAdvancedByHostKThx() ;
 	virtual void  setDisplayedChild(int const& arg0) ;
 	virtual int  getDisplayedChild() ;
 	virtual void  showNext() ;
@@ -151,9 +142,18 @@ public:
 	virtual void  setInAnimation(AndroidCXX::android_animation_ObjectAnimator const& arg0) ;
 	virtual void  setInAnimation(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_animation_ObjectAnimator * getOutAnimation() ;
-	virtual void  setOutAnimation(AndroidCXX::android_animation_ObjectAnimator const& arg0) ;
 	virtual void  setOutAnimation(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
+	virtual void  setOutAnimation(AndroidCXX::android_animation_ObjectAnimator const& arg0) ;
 	virtual void  setAnimateFirstView(bool const& arg0) ;
+	virtual void  advance() ;
+	virtual AndroidCXX::android_widget_Adapter * getAdapter() ;
+	virtual void  setAdapter(AndroidCXX::android_widget_Adapter const& arg0) ;
+	virtual void  setRemoteViewsAdapter(AndroidCXX::android_content_Intent const& arg0) ;
+	virtual AndroidCXX::android_view_View * getSelectedView() ;
+	virtual void  deferNotifyDataSetChanged() ;
+	virtual bool  onRemoteAdapterConnected() ;
+	virtual void  onRemoteAdapterDisconnected() ;
+	virtual void  fyiWillBeAdvancedByHostKThx() ;
 
 protected:
 	android_widget_AdapterViewAnimator();

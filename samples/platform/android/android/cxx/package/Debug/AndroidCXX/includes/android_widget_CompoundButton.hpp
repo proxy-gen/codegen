@@ -9,9 +9,9 @@
 
 
 
+ 		 
+ 		 
 	
- 		 
- 		 
  		 
  		 
  		 
@@ -72,11 +72,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_Parcelable;
+class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
-class android_view_accessibility_AccessibilityEvent;
+class android_os_Parcelable;
 
 class android_widget_CompoundButton_OnCheckedChangeListener;
 
@@ -96,20 +96,20 @@ public:
 	// Default Destructor
 	virtual ~android_widget_CompoundButton();
 	// Functions
-	virtual AndroidCXX::android_os_Parcelable * onSaveInstanceState() ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  jumpDrawablesToCurrentState() ;
 	virtual bool  performClick() ;
+	virtual AndroidCXX::android_os_Parcelable * onSaveInstanceState() ;
 	virtual void  onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0) ;
 	virtual void  setChecked(bool const& arg0) ;
 	virtual bool  isChecked() ;
-	virtual void  toggle() ;
 	virtual int  getCompoundPaddingLeft() ;
 	virtual int  getCompoundPaddingRight() ;
+	virtual void  toggle() ;
 	virtual void  setOnCheckedChangeListener(AndroidCXX::android_widget_CompoundButton_OnCheckedChangeListener const& arg0) ;
-	virtual void  setButtonDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setButtonDrawable(int const& arg0) ;
+	virtual void  setButtonDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 
 protected:
 	android_widget_CompoundButton();

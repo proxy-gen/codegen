@@ -17,9 +17,9 @@
  		 
  		 
  		 
- 		 
- 		 
 	
+ 		 
+ 		 
  		 
  		 
  		 
@@ -98,15 +98,15 @@
 //
 
 
-#include <android_view_KeyEvent.hpp>
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
-#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_View.hpp>
 
 #include <android_graphics_Rect.hpp>
+
+#include <android_view_KeyEvent.hpp>
 
 #include <android_widget_ListAdapter.hpp>
 
@@ -137,15 +137,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_KeyEvent;
+class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
-
-class android_view_accessibility_AccessibilityEvent;
 
 class android_view_View;
 
 class android_graphics_Rect;
+
+class android_view_KeyEvent;
 
 class android_widget_ListAdapter;
 
@@ -173,33 +173,33 @@ public:
 	virtual ~android_widget_ListView();
 	// Functions
 	virtual bool  isOpaque() ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual bool  requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) ;
+	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
 	virtual bool  onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
 	virtual bool  onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
-	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
-	virtual bool  requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) ;
-	virtual void  setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0) ;
-	virtual void  smoothScrollToPosition(int const& arg0) ;
-	virtual void  setCacheColorHint(int const& arg0) ;
-	virtual void  setRemoteViewsAdapter(AndroidCXX::android_content_Intent const& arg0) ;
-	virtual AndroidCXX::android_widget_ListAdapter * getAdapter() ;
 	virtual void  setSelection(int const& arg0) ;
+	virtual AndroidCXX::android_widget_ListAdapter * getAdapter() ;
+	virtual void  setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0) ;
+	virtual void  setRemoteViewsAdapter(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual int  getMaxScrollAmount() ;
-	virtual void  addHeaderView(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_Object const& arg1,bool const& arg2) ;
 	virtual void  addHeaderView(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  addHeaderView(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_Object const& arg1,bool const& arg2) ;
 	virtual int  getHeaderViewsCount() ;
 	virtual bool  removeHeaderView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  addFooterView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  addFooterView(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_Object const& arg1,bool const& arg2) ;
 	virtual int  getFooterViewsCount() ;
 	virtual bool  removeFooterView(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  smoothScrollToPosition(int const& arg0) ;
 	virtual void  smoothScrollByOffset(int const& arg0) ;
 	virtual void  setSelectionFromTop(int const& arg0,int const& arg1) ;
 	virtual void  setSelectionAfterHeaderView() ;
 	virtual void  setItemsCanFocus(bool const& arg0) ;
 	virtual bool  getItemsCanFocus() ;
+	virtual void  setCacheColorHint(int const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getDivider() ;
 	virtual void  setDivider(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual int  getDividerHeight() ;

@@ -63,9 +63,9 @@
 
 #include <android_view_MotionEvent.hpp>
 
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
 #include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_widget_SlidingDrawer_OnDrawerOpenListener.hpp>
 
@@ -100,9 +100,9 @@ class android_view_View;
 
 class android_view_MotionEvent;
 
-class android_view_accessibility_AccessibilityNodeInfo;
-
 class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_widget_SlidingDrawer_OnDrawerOpenListener;
 
@@ -134,8 +134,8 @@ public:
 	virtual AndroidCXX::android_view_View * getHandle() ;
 	virtual void  unlock() ;
 	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual bool  onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual void  toggle() ;
 	virtual void  animateToggle() ;

@@ -17,15 +17,15 @@
 	
  		 
  		 
+	
+ 		 
+ 		 
  		 
  	
  		 
 	
 	
  		 
- 		 
- 		 
-	
 
 
  		 
@@ -90,11 +90,15 @@
 //
 
 
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
 #include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_graphics_PorterDuff_Mode.hpp>
+
+#include <android_graphics_ColorFilter.hpp>
 
 #include <android_net_Uri.hpp>
 
@@ -103,10 +107,6 @@
 #include <android_widget_ImageView_ScaleType.hpp>
 
 #include <android_graphics_Matrix.hpp>
-
-#include <android_graphics_ColorFilter.hpp>
-
-#include <android_graphics_PorterDuff_Mode.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -131,11 +131,14 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_accessibility_AccessibilityNodeInfo;
-
 class android_view_accessibility_AccessibilityEvent;
 
+class android_view_accessibility_AccessibilityNodeInfo;
+
 class android_graphics_drawable_Drawable;
+
+
+class android_graphics_ColorFilter;
 
 class android_net_Uri;
 
@@ -143,9 +146,6 @@ class android_graphics_Bitmap;
 
 
 class android_graphics_Matrix;
-
-class android_graphics_ColorFilter;
-
 
 class android_content_Context;
 
@@ -156,33 +156,38 @@ class android_widget_ImageView : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_ImageView(AndroidCXX::android_content_Context const& arg0);
 	android_widget_ImageView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_ImageView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_ImageView(AndroidCXX::android_content_Context const& arg0);
 	android_widget_ImageView(const android_widget_ImageView& cc);
 	android_widget_ImageView(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ImageView();
 	// Functions
-	virtual void  setVisibility(int const& arg0) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual int  getBaseline() ;
 	virtual void  jumpDrawablesToCurrentState() ;
 	virtual std::vector<int>  onCreateDrawableState(int const& arg0) ;
 	virtual void  onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  setVisibility(int const& arg0) ;
 	virtual bool  hasOverlappingRendering() ;
 	virtual void  setAlpha(int const& arg0) ;
 	virtual void  invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setSelected(bool const& arg0) ;
-	virtual int  getBaseline() ;
-	virtual void  setMaxHeight(int const& arg0) ;
-	virtual int  getMaxHeight() ;
-	virtual void  setMaxWidth(int const& arg0) ;
-	virtual int  getMaxWidth() ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getDrawable() ;
+	virtual void  setColorFilter(int const& arg0,android_graphics_PorterDuff_Mode::android_graphics_PorterDuff_Mode const& arg1) ;
+	virtual void  setColorFilter(int const& arg0) ;
+	virtual void  setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0) ;
+	virtual void  clearColorFilter() ;
+	virtual AndroidCXX::android_graphics_ColorFilter * getColorFilter() ;
 	virtual bool  getAdjustViewBounds() ;
 	virtual void  setAdjustViewBounds(bool const& arg0) ;
-	virtual AndroidCXX::android_graphics_drawable_Drawable * getDrawable() ;
+	virtual int  getMaxWidth() ;
+	virtual void  setMaxWidth(int const& arg0) ;
+	virtual int  getMaxHeight() ;
+	virtual void  setMaxHeight(int const& arg0) ;
 	virtual void  setImageResource(int const& arg0) ;
 	virtual void  setImageURI(AndroidCXX::android_net_Uri const& arg0) ;
 	virtual void  setImageDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
@@ -198,11 +203,6 @@ public:
 	virtual void  setBaseline(int const& arg0) ;
 	virtual void  setBaselineAlignBottom(bool const& arg0) ;
 	virtual bool  getBaselineAlignBottom() ;
-	virtual void  setColorFilter(int const& arg0) ;
-	virtual void  setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0) ;
-	virtual void  setColorFilter(int const& arg0,android_graphics_PorterDuff_Mode::android_graphics_PorterDuff_Mode const& arg1) ;
-	virtual void  clearColorFilter() ;
-	virtual AndroidCXX::android_graphics_ColorFilter * getColorFilter() ;
 	virtual int  getImageAlpha() ;
 	virtual void  setImageAlpha(int const& arg0) ;
 

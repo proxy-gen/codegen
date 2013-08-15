@@ -13,10 +13,6 @@
  		 
 	
 	
- 		 
- 		 
- 		 
-	
 	
 	
 	
@@ -34,21 +30,21 @@
 	
  		 
  		 
+	
+	
+ 		 
+	
+	
+	
 	
  	
  		 
-	
- 		 
-	
-	
-	
-	
  		 
 	
  		 
  		 
- 		 
 	
+ 		 
  		 
  		 
 	
@@ -61,6 +57,9 @@
 	
  		 
  		 
+ 		 
+ 		 
+ 		 
  	
  		 
  	
@@ -163,6 +162,7 @@
  		 
 	
  		 
+	
 	
 
 
@@ -274,12 +274,6 @@
 
 #include <android_content_res_Resources.hpp>
 
-#include <android_content_Intent.hpp>
-
-#include <android_os_Bundle.hpp>
-
-#include <android_content_Context.hpp>
-
 #include <android_content_res_AssetManager.hpp>
 
 #include <android_content_pm_PackageManager.hpp>
@@ -287,6 +281,8 @@
 #include <android_content_ContentResolver.hpp>
 
 #include <android_os_Looper.hpp>
+
+#include <android_content_Context.hpp>
 
 #include <android_content_res_Resources_Theme.hpp>
 
@@ -302,15 +298,19 @@
 
 #include <android_database_sqlite_SQLiteDatabase_CursorFactory.hpp>
 
-#include <android_database_DatabaseErrorHandler.hpp>
-
 #include <android_database_sqlite_SQLiteDatabase.hpp>
+
+#include <android_database_DatabaseErrorHandler.hpp>
 
 #include <android_graphics_drawable_Drawable.hpp>
 
 #include <android_graphics_Bitmap.hpp>
 
 #include <java_io_InputStream.hpp>
+
+#include <android_content_Intent.hpp>
+
+#include <android_os_Bundle.hpp>
 
 #include <android_content_IntentSender.hpp>
 
@@ -357,12 +357,6 @@ class java_lang_String;
 
 class android_content_res_Resources;
 
-class android_content_Intent;
-
-class android_os_Bundle;
-
-class android_content_Context;
-
 class android_content_res_AssetManager;
 
 class android_content_pm_PackageManager;
@@ -370,6 +364,8 @@ class android_content_pm_PackageManager;
 class android_content_ContentResolver;
 
 class android_os_Looper;
+
+class android_content_Context;
 
 class android_content_res_Resources_Theme;
 
@@ -385,15 +381,19 @@ class java_io_File;
 
 class android_database_sqlite_SQLiteDatabase_CursorFactory;
 
-class android_database_DatabaseErrorHandler;
-
 class android_database_sqlite_SQLiteDatabase;
+
+class android_database_DatabaseErrorHandler;
 
 class android_graphics_drawable_Drawable;
 
 class android_graphics_Bitmap;
 
 class java_io_InputStream;
+
+class android_content_Intent;
+
+class android_os_Bundle;
 
 class android_content_IntentSender;
 
@@ -432,9 +432,6 @@ public:
 	virtual int  checkPermission(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::android_content_res_Resources * getResources() ;
 	virtual AndroidCXX::java_lang_String * getPackageName() ;
-	virtual void  startActivity(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
-	virtual void  startActivity(AndroidCXX::android_content_Intent const& arg0) ;
-	virtual AndroidCXX::android_content_Context * getBaseContext() ;
 	virtual AndroidCXX::android_content_res_AssetManager * getAssets() ;
 	virtual AndroidCXX::android_content_pm_PackageManager * getPackageManager() ;
 	virtual AndroidCXX::android_content_ContentResolver * getContentResolver() ;
@@ -450,15 +447,15 @@ public:
 	virtual AndroidCXX::java_io_FileOutputStream * openFileOutput(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual bool  deleteFile(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_io_File * getFileStreamPath(AndroidCXX::java_lang_String const& arg0) ;
-	virtual std::vector<java_lang_String>  fileList() ;
 	virtual AndroidCXX::java_io_File * getFilesDir() ;
 	virtual AndroidCXX::java_io_File * getExternalFilesDir(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_io_File * getObbDir() ;
 	virtual AndroidCXX::java_io_File * getCacheDir() ;
 	virtual AndroidCXX::java_io_File * getExternalCacheDir() ;
+	virtual std::vector<java_lang_String>  fileList() ;
 	virtual AndroidCXX::java_io_File * getDir(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
-	virtual AndroidCXX::android_database_sqlite_SQLiteDatabase * openOrCreateDatabase(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg2,AndroidCXX::android_database_DatabaseErrorHandler const& arg3) ;
 	virtual AndroidCXX::android_database_sqlite_SQLiteDatabase * openOrCreateDatabase(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg2) ;
+	virtual AndroidCXX::android_database_sqlite_SQLiteDatabase * openOrCreateDatabase(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg2,AndroidCXX::android_database_DatabaseErrorHandler const& arg3) ;
 	virtual bool  deleteDatabase(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_io_File * getDatabasePath(AndroidCXX::java_lang_String const& arg0) ;
 	virtual std::vector<java_lang_String>  databaseList() ;
@@ -469,6 +466,8 @@ public:
 	virtual void  setWallpaper(AndroidCXX::android_graphics_Bitmap const& arg0) ;
 	virtual void  setWallpaper(AndroidCXX::java_io_InputStream const& arg0) ;
 	virtual void  clearWallpaper() ;
+	virtual void  startActivity(AndroidCXX::android_content_Intent const& arg0) ;
+	virtual void  startActivity(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
 	virtual void  startActivities(std::vector<android_content_Intent> const& arg0) ;
 	virtual void  startActivities(std::vector<android_content_Intent> const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
 	virtual void  startIntentSender(AndroidCXX::android_content_IntentSender const& arg0,AndroidCXX::android_content_Intent const& arg1,int const& arg2,int const& arg3,int const& arg4) ;
@@ -506,14 +505,15 @@ public:
 	virtual int  checkUriPermission(AndroidCXX::android_net_Uri const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual int  checkCallingUriPermission(AndroidCXX::android_net_Uri const& arg0,int const& arg1) ;
 	virtual int  checkCallingOrSelfUriPermission(AndroidCXX::android_net_Uri const& arg0,int const& arg1) ;
-	virtual void  enforceUriPermission(AndroidCXX::android_net_Uri const& arg0,int const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4) ;
 	virtual void  enforceUriPermission(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3,int const& arg4,int const& arg5,AndroidCXX::java_lang_String const& arg6) ;
+	virtual void  enforceUriPermission(AndroidCXX::android_net_Uri const& arg0,int const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4) ;
 	virtual void  enforceCallingUriPermission(AndroidCXX::android_net_Uri const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2) ;
 	virtual void  enforceCallingOrSelfUriPermission(AndroidCXX::android_net_Uri const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2) ;
 	virtual AndroidCXX::android_content_Context * createPackageContext(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_content_Context * createConfigurationContext(AndroidCXX::android_content_res_Configuration const& arg0) ;
 	virtual AndroidCXX::android_content_Context * createDisplayContext(AndroidCXX::android_view_Display const& arg0) ;
 	virtual bool  isRestricted() ;
+	virtual AndroidCXX::android_content_Context * getBaseContext() ;
 
 protected:
 

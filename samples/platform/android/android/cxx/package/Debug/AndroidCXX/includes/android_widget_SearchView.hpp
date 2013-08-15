@@ -80,11 +80,11 @@
 
 #include <java_lang_CharSequence.hpp>
 
-#include <android_view_KeyEvent.hpp>
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
-#include <android_view_accessibility_AccessibilityEvent.hpp>
+#include <android_view_KeyEvent.hpp>
 
 #include <android_app_SearchableInfo.hpp>
 
@@ -125,11 +125,11 @@ namespace AndroidCXX {
 
 class java_lang_CharSequence;
 
-class android_view_KeyEvent;
+class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
-class android_view_accessibility_AccessibilityEvent;
+class android_view_KeyEvent;
 
 class android_app_SearchableInfo;
 
@@ -163,13 +163,13 @@ public:
 	virtual ~android_widget_SearchView();
 	// Functions
 	virtual AndroidCXX::java_lang_CharSequence * getQuery() ;
-	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onWindowFocusChanged(bool const& arg0) ;
+	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
 	virtual void  onRtlPropertiesChanged(int const& arg0) ;
-	virtual void  setMaxWidth(int const& arg0) ;
 	virtual int  getMaxWidth() ;
+	virtual void  setMaxWidth(int const& arg0) ;
 	virtual void  setInputType(int const& arg0) ;
 	virtual int  getInputType() ;
 	virtual void  setImeOptions(int const& arg0) ;

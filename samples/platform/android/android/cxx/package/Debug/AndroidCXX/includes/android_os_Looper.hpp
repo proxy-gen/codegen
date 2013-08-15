@@ -93,10 +93,10 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 	static void  loop() ;
 	virtual void  dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	static AndroidCXX::android_os_Looper * myLooper() ;
 	static AndroidCXX::android_os_Looper * getMainLooper() ;
 	static void  prepare() ;
 	static void  prepareMainLooper() ;
+	static AndroidCXX::android_os_Looper * myLooper() ;
 	virtual void  setMessageLogging(AndroidCXX::android_util_Printer const& arg0) ;
 	static AndroidCXX::android_os_MessageQueue * myQueue() ;
 	virtual void  quit() ;

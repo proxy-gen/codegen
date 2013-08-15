@@ -92,10 +92,9 @@ public:
 	// Default Destructor
 	virtual ~android_widget_Scroller();
 	// Functions
-	virtual void  setFriction(float const& arg0) ;
 	virtual int  getDuration() ;
+	virtual void  setFriction(float const& arg0) ;
 	virtual bool  isFinished() ;
-	virtual void  fling(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7) ;
 	virtual void  forceFinished(bool const& arg0) ;
 	virtual int  getCurrX() ;
 	virtual int  getCurrY() ;
@@ -107,6 +106,7 @@ public:
 	virtual bool  computeScrollOffset() ;
 	virtual void  startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual void  startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) ;
+	virtual void  fling(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7) ;
 	virtual void  abortAnimation() ;
 	virtual void  extendDuration(int const& arg0) ;
 	virtual int  timePassed() ;

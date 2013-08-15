@@ -10,17 +10,16 @@
 
 
 	
-	
- 		 
-	
- 		 
-	
-	
-	
  		 
 	
 	
  		 
+	
+ 		 
+	
+	
+ 		 
+	
 	
  		 
  	
@@ -28,6 +27,7 @@
  	
  		 
  		 
+	
 	
  		 
  		 
@@ -112,18 +112,17 @@ public:
 	// Default Destructor
 	virtual ~android_view_Menu();
 	// Functions
-	virtual AndroidCXX::android_view_MenuItem * add(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual AndroidCXX::android_view_MenuItem * add(int const& arg0) ;
 	virtual AndroidCXX::android_view_MenuItem * add(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_lang_CharSequence const& arg3) ;
+	virtual AndroidCXX::android_view_MenuItem * add(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual AndroidCXX::android_view_MenuItem * add(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  clear() ;
 	virtual int  size() ;
 	virtual void  close() ;
-	virtual AndroidCXX::android_view_MenuItem * getItem(int const& arg0) ;
+	virtual AndroidCXX::android_view_SubMenu * addSubMenu(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::android_view_SubMenu * addSubMenu(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual AndroidCXX::android_view_SubMenu * addSubMenu(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_lang_CharSequence const& arg3) ;
 	virtual AndroidCXX::android_view_SubMenu * addSubMenu(int const& arg0) ;
-	virtual AndroidCXX::android_view_SubMenu * addSubMenu(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual int  addIntentOptions(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_content_ComponentName const& arg3,std::vector<android_content_Intent> const& arg4,AndroidCXX::android_content_Intent const& arg5,int const& arg6,std::vector<android_view_MenuItem> const& arg7) ;
 	virtual void  removeItem(int const& arg0) ;
 	virtual void  removeGroup(int const& arg0) ;
@@ -132,6 +131,7 @@ public:
 	virtual void  setGroupEnabled(int const& arg0,bool const& arg1) ;
 	virtual bool  hasVisibleItems() ;
 	virtual AndroidCXX::android_view_MenuItem * findItem(int const& arg0) ;
+	virtual AndroidCXX::android_view_MenuItem * getItem(int const& arg0) ;
 	virtual bool  performShortcut(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1,int const& arg2) ;
 	virtual bool  isShortcutKey(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
 	virtual bool  performIdentifierAction(int const& arg0,int const& arg1) ;

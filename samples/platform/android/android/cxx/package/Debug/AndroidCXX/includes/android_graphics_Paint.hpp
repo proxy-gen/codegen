@@ -17,17 +17,12 @@
 	
  		 
 	
-	
-	
- 		 
-	
- 		 
-	
  		 
  		 
  		 
 	
  		 
+	
 	
 	
  		 
@@ -41,6 +36,11 @@
 	
  		 
 	
+	
+ 		 
+	
+	
+ 		 
 	
  		 
 	
@@ -179,10 +179,6 @@
 //
 
 
-#include <android_graphics_Typeface.hpp>
-
-#include <java_util_Locale.hpp>
-
 #include <android_graphics_ColorFilter.hpp>
 
 #include <android_graphics_Paint_Style.hpp>
@@ -201,9 +197,13 @@
 
 #include <android_graphics_MaskFilter.hpp>
 
+#include <android_graphics_Typeface.hpp>
+
 #include <android_graphics_Rasterizer.hpp>
 
 #include <android_graphics_Paint_Align.hpp>
+
+#include <java_util_Locale.hpp>
 
 #include <android_graphics_Paint_FontMetrics.hpp>
 
@@ -233,10 +233,6 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class android_graphics_Typeface;
-
-class java_util_Locale;
-
 class android_graphics_ColorFilter;
 
 
@@ -252,8 +248,12 @@ class android_graphics_PathEffect;
 
 class android_graphics_MaskFilter;
 
+class android_graphics_Typeface;
+
 class android_graphics_Rasterizer;
 
+
+class java_util_Locale;
 
 class android_graphics_Paint_FontMetrics;
 
@@ -270,9 +270,9 @@ class android_graphics_Paint
 public:
 
 	// Public ConstrucXXX
+	android_graphics_Paint();
 	android_graphics_Paint(int const& arg0);
 	android_graphics_Paint(AndroidCXX::android_graphics_Paint const& arg0);
-	android_graphics_Paint();
 	android_graphics_Paint(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
@@ -282,26 +282,17 @@ public:
 	virtual void  reset() ;
 	virtual int  getAlpha() ;
 	virtual void  setAlpha(int const& arg0) ;
-	virtual AndroidCXX::android_graphics_Typeface * setTypeface(AndroidCXX::android_graphics_Typeface const& arg0) ;
-	virtual AndroidCXX::java_util_Locale * getTextLocale() ;
-	virtual void  setTextLocale(AndroidCXX::java_util_Locale const& arg0) ;
-	virtual float  getTextSize() ;
-	virtual void  setTextSize(float const& arg0) ;
-	virtual float  getTextScaleX() ;
-	virtual void  setTextScaleX(float const& arg0) ;
-	virtual AndroidCXX::android_graphics_Typeface * getTypeface() ;
-	virtual void  setShadowLayer(float const& arg0,float const& arg1,float const& arg2,int const& arg3) ;
-	virtual AndroidCXX::android_graphics_ColorFilter * setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0) ;
-	virtual AndroidCXX::android_graphics_ColorFilter * getColorFilter() ;
 	virtual int  getFlags() ;
-	virtual int  getColor() ;
 	virtual void  setFlags(int const& arg0) ;
+	virtual int  getColor() ;
+	virtual void  setDither(bool const& arg0) ;
+	virtual void  setFilterBitmap(bool const& arg0) ;
+	virtual AndroidCXX::android_graphics_ColorFilter * setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0) ;
 	virtual int  getHinting() ;
 	virtual void  setHinting(int const& arg0) ;
 	virtual bool  isAntiAlias() ;
 	virtual void  setAntiAlias(bool const& arg0) ;
 	virtual bool  isDither() ;
-	virtual void  setDither(bool const& arg0) ;
 	virtual bool  isLinearText() ;
 	virtual void  setLinearText(bool const& arg0) ;
 	virtual bool  isSubpixelText() ;
@@ -313,7 +304,6 @@ public:
 	virtual bool  isFakeBoldText() ;
 	virtual void  setFakeBoldText(bool const& arg0) ;
 	virtual bool  isFilterBitmap() ;
-	virtual void  setFilterBitmap(bool const& arg0) ;
 	virtual android_graphics_Paint_Style::android_graphics_Paint_Style  getStyle() ;
 	virtual void  setStyle(android_graphics_Paint_Style::android_graphics_Paint_Style const& arg0) ;
 	virtual void  setColor(int const& arg0) ;
@@ -329,17 +319,27 @@ public:
 	virtual bool  getFillPath(AndroidCXX::android_graphics_Path const& arg0,AndroidCXX::android_graphics_Path const& arg1) ;
 	virtual AndroidCXX::android_graphics_Shader * getShader() ;
 	virtual AndroidCXX::android_graphics_Shader * setShader(AndroidCXX::android_graphics_Shader const& arg0) ;
+	virtual AndroidCXX::android_graphics_ColorFilter * getColorFilter() ;
 	virtual AndroidCXX::android_graphics_Xfermode * getXfermode() ;
 	virtual AndroidCXX::android_graphics_Xfermode * setXfermode(AndroidCXX::android_graphics_Xfermode const& arg0) ;
 	virtual AndroidCXX::android_graphics_PathEffect * getPathEffect() ;
 	virtual AndroidCXX::android_graphics_PathEffect * setPathEffect(AndroidCXX::android_graphics_PathEffect const& arg0) ;
 	virtual AndroidCXX::android_graphics_MaskFilter * getMaskFilter() ;
 	virtual AndroidCXX::android_graphics_MaskFilter * setMaskFilter(AndroidCXX::android_graphics_MaskFilter const& arg0) ;
+	virtual AndroidCXX::android_graphics_Typeface * getTypeface() ;
+	virtual AndroidCXX::android_graphics_Typeface * setTypeface(AndroidCXX::android_graphics_Typeface const& arg0) ;
 	virtual AndroidCXX::android_graphics_Rasterizer * getRasterizer() ;
 	virtual AndroidCXX::android_graphics_Rasterizer * setRasterizer(AndroidCXX::android_graphics_Rasterizer const& arg0) ;
+	virtual void  setShadowLayer(float const& arg0,float const& arg1,float const& arg2,int const& arg3) ;
 	virtual void  clearShadowLayer() ;
 	virtual android_graphics_Paint_Align::android_graphics_Paint_Align  getTextAlign() ;
 	virtual void  setTextAlign(android_graphics_Paint_Align::android_graphics_Paint_Align const& arg0) ;
+	virtual AndroidCXX::java_util_Locale * getTextLocale() ;
+	virtual void  setTextLocale(AndroidCXX::java_util_Locale const& arg0) ;
+	virtual float  getTextSize() ;
+	virtual void  setTextSize(float const& arg0) ;
+	virtual float  getTextScaleX() ;
+	virtual void  setTextScaleX(float const& arg0) ;
 	virtual float  getTextSkewX() ;
 	virtual void  setTextSkewX(float const& arg0) ;
 	virtual float  ascent() ;

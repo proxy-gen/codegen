@@ -14,11 +14,11 @@
 	
  		 
 	
- 	
  		 
  		 
  		 
 	
+ 	
  		 
  		 
  		 
@@ -85,11 +85,11 @@
 
 #include <java_lang_String.hpp>
 
-#include <android_os_Bundle.hpp>
+#include <android_os_Parcel.hpp>
 
 #include <android_util_Printer.hpp>
 
-#include <android_os_Parcel.hpp>
+#include <android_os_Bundle.hpp>
 
 
 #include <android_os_Parcelable.hpp>
@@ -113,11 +113,11 @@ namespace AndroidCXX {
 class java_lang_String;
 
 
-class android_os_Bundle;
+class android_os_Parcel;
 
 class android_util_Printer;
 
-class android_os_Parcel;
+class android_os_Bundle;
 
 class android_location_Location : public android_os_Parcelable
 {
@@ -139,6 +139,10 @@ public:
 	virtual AndroidCXX::java_lang_String * getProvider() ;
 	static double  convert(AndroidCXX::java_lang_String const& arg0) ;
 	static AndroidCXX::java_lang_String * convert(double const& arg0,int const& arg1) ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual void  dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual AndroidCXX::android_os_Bundle * getExtras() ;
 	static void  distanceBetween(double const& arg0,double const& arg1,double const& arg2,double const& arg3,std::vector<float> const& arg4) ;
 	virtual float  distanceTo(AndroidCXX::android_location_Location const& arg0) ;
 	virtual float  bearingTo(AndroidCXX::android_location_Location const& arg0) ;
@@ -165,11 +169,7 @@ public:
 	virtual float  getAccuracy() ;
 	virtual void  setAccuracy(float const& arg0) ;
 	virtual void  removeAccuracy() ;
-	virtual AndroidCXX::android_os_Bundle * getExtras() ;
 	virtual void  setExtras(AndroidCXX::android_os_Bundle const& arg0) ;
-	virtual void  dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 	virtual bool  isFromMockProvider() ;
 
 protected:

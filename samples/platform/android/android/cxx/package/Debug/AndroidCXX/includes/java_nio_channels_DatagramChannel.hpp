@@ -18,8 +18,8 @@
  		 
  	
  		 
- 		 
  	
+ 		 
  		 
 	
  		 
@@ -103,12 +103,12 @@ public:
 	virtual long  write(std::vector<java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
 	virtual int  send(AndroidCXX::java_nio_ByteBuffer const& arg0,AndroidCXX::java_net_SocketAddress const& arg1) ;
 	virtual long  read(std::vector<java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
-	virtual int  read(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
 	virtual long  read(std::vector<java_nio_ByteBuffer> const& arg0) ;
+	virtual int  read(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
 	static AndroidCXX::java_nio_channels_DatagramChannel * open() ;
 	virtual AndroidCXX::java_nio_channels_DatagramChannel * connect(AndroidCXX::java_net_SocketAddress const& arg0) ;
-	virtual AndroidCXX::java_nio_channels_DatagramChannel * disconnect() ;
 	virtual AndroidCXX::java_net_DatagramSocket * socket() ;
+	virtual AndroidCXX::java_nio_channels_DatagramChannel * disconnect() ;
 	virtual bool  isConnected() ;
 	virtual AndroidCXX::java_net_SocketAddress * receive(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
 	virtual int  validOps() ;

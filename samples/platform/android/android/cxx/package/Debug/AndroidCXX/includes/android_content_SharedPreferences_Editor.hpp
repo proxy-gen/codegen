@@ -94,8 +94,8 @@ public:
 	virtual AndroidCXX::android_content_SharedPreferences_Editor * putFloat(AndroidCXX::java_lang_String const& arg0,float const& arg1) ;
 	virtual AndroidCXX::android_content_SharedPreferences_Editor * clear() ;
 	virtual AndroidCXX::android_content_SharedPreferences_Editor * remove(AndroidCXX::java_lang_String const& arg0) ;
-	virtual void  apply() ;
 	virtual AndroidCXX::android_content_SharedPreferences_Editor * putString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  apply() ;
 	virtual AndroidCXX::android_content_SharedPreferences_Editor * putStringSet(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Set const& arg1) ;
 	virtual bool  commit() ;
 

@@ -137,7 +137,6 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual int  describeContents() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual int  getItemCount() ;
 	static AndroidCXX::android_content_ClipData * newPlainText(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) ;
 	static AndroidCXX::android_content_ClipData * newHtmlText(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,AndroidCXX::java_lang_String const& arg2) ;
 	static AndroidCXX::android_content_ClipData * newIntent(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_content_Intent const& arg1) ;
@@ -145,6 +144,7 @@ public:
 	static AndroidCXX::android_content_ClipData * newRawUri(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_net_Uri const& arg1) ;
 	virtual AndroidCXX::android_content_ClipDescription * getDescription() ;
 	virtual void  addItem(AndroidCXX::android_content_ClipData_Item const& arg0) ;
+	virtual int  getItemCount() ;
 	virtual AndroidCXX::android_content_ClipData_Item * getItemAt(int const& arg0) ;
 
 protected:

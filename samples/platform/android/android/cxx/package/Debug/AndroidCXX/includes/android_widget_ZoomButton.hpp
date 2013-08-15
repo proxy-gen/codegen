@@ -49,13 +49,13 @@
 
 #include <android_view_MotionEvent.hpp>
 
-#include <android_view_KeyEvent.hpp>
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-
 #include <android_view_View.hpp>
+
+#include <android_view_KeyEvent.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -82,13 +82,13 @@ namespace AndroidCXX {
 
 class android_view_MotionEvent;
 
-class android_view_KeyEvent;
+class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
-class android_view_accessibility_AccessibilityEvent;
-
 class android_view_View;
+
+class android_view_KeyEvent;
 
 class android_content_Context;
 
@@ -108,13 +108,13 @@ public:
 	// Default Destructor
 	virtual ~android_widget_ZoomButton();
 	// Functions
+	virtual void  setZoomSpeed(long const& arg0) ;
 	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual bool  onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual bool  dispatchUnhandledMove(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
 	virtual void  setEnabled(bool const& arg0) ;
-	virtual void  setZoomSpeed(long const& arg0) ;
+	virtual bool  onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
 	virtual bool  onLongClick(AndroidCXX::android_view_View const& arg0) ;
 
 protected:

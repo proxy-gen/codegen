@@ -16,7 +16,6 @@
  		 
  		 
  		 
-	
  		 
  		 
  		 
@@ -24,11 +23,11 @@
 	
  		 
 	
-	
  		 
 	
 	
 	
+	
  		 
  		 
  		 
@@ -42,6 +41,7 @@
  		 
  		 
  		 
+	
 
 
  		 
@@ -106,15 +106,15 @@
 
 #include <java_lang_String.hpp>
 
-#include <android_util_Printer.hpp>
-
 #include <java_lang_Runnable.hpp>
 
 #include <java_lang_Object.hpp>
 
-#include <android_os_Looper.hpp>
+#include <android_util_Printer.hpp>
 
 #include <android_os_Message.hpp>
+
+#include <android_os_Looper.hpp>
 
 #include <android_os_Handler_Callback.hpp>
 
@@ -137,15 +137,15 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_util_Printer;
-
 class java_lang_Runnable;
 
 class java_lang_Object;
 
-class android_os_Looper;
+class android_util_Printer;
 
 class android_os_Message;
+
+class android_os_Looper;
 
 class android_os_Handler_Callback;
 
@@ -154,13 +154,13 @@ class android_os_Handler
 public:
 
 	// Public ConstrucXXX
-	android_os_Handler(AndroidCXX::android_os_Looper const& arg0,AndroidCXX::android_os_Handler_Callback const& arg1,bool const& arg2);
-	android_os_Handler(bool const& arg0);
 	android_os_Handler(AndroidCXX::android_os_Handler_Callback const& arg0,bool const& arg1);
 	android_os_Handler();
 	android_os_Handler(AndroidCXX::android_os_Handler_Callback const& arg0);
 	android_os_Handler(AndroidCXX::android_os_Looper const& arg0);
 	android_os_Handler(AndroidCXX::android_os_Looper const& arg0,AndroidCXX::android_os_Handler_Callback const& arg1);
+	android_os_Handler(bool const& arg0);
+	android_os_Handler(AndroidCXX::android_os_Looper const& arg0,AndroidCXX::android_os_Handler_Callback const& arg1,bool const& arg2);
 	android_os_Handler(const android_os_Handler& cc);
 	android_os_Handler(Proxy proxy);
 	Proxy proxy() const;	
@@ -168,22 +168,21 @@ public:
 	virtual ~android_os_Handler();
 	// Functions
 	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual void  dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual void  removeCallbacks(AndroidCXX::java_lang_Runnable const& arg0) ;
-	virtual void  removeCallbacks(AndroidCXX::java_lang_Runnable const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual bool  post(AndroidCXX::java_lang_Runnable const& arg0) ;
-	virtual AndroidCXX::android_os_Looper * getLooper() ;
 	virtual bool  postDelayed(AndroidCXX::java_lang_Runnable const& arg0,long const& arg1) ;
+	virtual void  removeCallbacks(AndroidCXX::java_lang_Runnable const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual void  removeCallbacks(AndroidCXX::java_lang_Runnable const& arg0) ;
+	virtual void  dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual void  handleMessage(AndroidCXX::android_os_Message const& arg0) ;
 	virtual void  dispatchMessage(AndroidCXX::android_os_Message const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getMessageName(AndroidCXX::android_os_Message const& arg0) ;
+	virtual AndroidCXX::android_os_Message * obtainMessage(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual AndroidCXX::android_os_Message * obtainMessage(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_lang_Object const& arg3) ;
 	virtual AndroidCXX::android_os_Message * obtainMessage(int const& arg0,int const& arg1,int const& arg2) ;
-	virtual AndroidCXX::android_os_Message * obtainMessage(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual AndroidCXX::android_os_Message * obtainMessage(int const& arg0) ;
 	virtual AndroidCXX::android_os_Message * obtainMessage() ;
-	virtual bool  postAtTime(AndroidCXX::java_lang_Runnable const& arg0,AndroidCXX::java_lang_Object const& arg1,long const& arg2) ;
 	virtual bool  postAtTime(AndroidCXX::java_lang_Runnable const& arg0,long const& arg1) ;
+	virtual bool  postAtTime(AndroidCXX::java_lang_Runnable const& arg0,AndroidCXX::java_lang_Object const& arg1,long const& arg2) ;
 	virtual bool  postAtFrontOfQueue(AndroidCXX::java_lang_Runnable const& arg0) ;
 	virtual bool  runWithScissors(AndroidCXX::java_lang_Runnable const& arg0,long const& arg1) ;
 	virtual bool  sendMessage(AndroidCXX::android_os_Message const& arg0) ;
@@ -196,9 +195,10 @@ public:
 	virtual void  removeMessages(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual void  removeMessages(int const& arg0) ;
 	virtual void  removeCallbacksAndMessages(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual bool  hasMessages(int const& arg0) ;
 	virtual bool  hasMessages(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual bool  hasMessages(int const& arg0) ;
 	virtual bool  hasCallbacks(AndroidCXX::java_lang_Runnable const& arg0) ;
+	virtual AndroidCXX::android_os_Looper * getLooper() ;
 
 protected:
 

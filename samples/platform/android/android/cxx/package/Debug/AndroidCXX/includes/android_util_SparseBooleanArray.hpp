@@ -81,9 +81,9 @@ public:
 	virtual void  clear() ;
 	virtual int  size() ;
 	virtual void  _delete(int const& arg0) ;
-	virtual int  indexOfKey(int const& arg0) ;
-	virtual bool  valueAt(int const& arg0) ;
 	virtual int  keyAt(int const& arg0) ;
+	virtual bool  valueAt(int const& arg0) ;
+	virtual int  indexOfKey(int const& arg0) ;
 	virtual int  indexOfValue(bool const& arg0) ;
 
 protected:

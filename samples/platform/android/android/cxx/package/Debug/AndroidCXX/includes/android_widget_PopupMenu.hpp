@@ -39,13 +39,13 @@
 //
 
 
-#include <android_widget_PopupMenu_OnDismissListener.hpp>
+#include <android_widget_PopupMenu_OnMenuItemClickListener.hpp>
 
 #include <android_view_Menu.hpp>
 
 #include <android_view_MenuInflater.hpp>
 
-#include <android_widget_PopupMenu_OnMenuItemClickListener.hpp>
+#include <android_widget_PopupMenu_OnDismissListener.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -68,13 +68,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_PopupMenu_OnDismissListener;
+class android_widget_PopupMenu_OnMenuItemClickListener;
 
 class android_view_Menu;
 
 class android_view_MenuInflater;
 
-class android_widget_PopupMenu_OnMenuItemClickListener;
+class android_widget_PopupMenu_OnDismissListener;
 
 class android_content_Context;
 
@@ -94,11 +94,11 @@ public:
 	// Functions
 	virtual void  inflate(int const& arg0) ;
 	virtual void  show() ;
-	virtual void  setOnDismissListener(AndroidCXX::android_widget_PopupMenu_OnDismissListener const& arg0) ;
-	virtual void  dismiss() ;
+	virtual void  setOnMenuItemClickListener(AndroidCXX::android_widget_PopupMenu_OnMenuItemClickListener const& arg0) ;
 	virtual AndroidCXX::android_view_Menu * getMenu() ;
 	virtual AndroidCXX::android_view_MenuInflater * getMenuInflater() ;
-	virtual void  setOnMenuItemClickListener(AndroidCXX::android_widget_PopupMenu_OnMenuItemClickListener const& arg0) ;
+	virtual void  dismiss() ;
+	virtual void  setOnDismissListener(AndroidCXX::android_widget_PopupMenu_OnDismissListener const& arg0) ;
 
 protected:
 

@@ -79,8 +79,8 @@ public:
 	// Default Destructor
 	virtual ~android_content_pm_ComponentInfo();
 	// Functions
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 	virtual bool  isEnabled() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_CharSequence * loadLabel(AndroidCXX::android_content_pm_PackageManager const& arg0) ;
 	virtual int  getIconResource() ;
 

@@ -15,9 +15,9 @@
 	
 	
 	
-	
  	
  		 
+	
 	
 	
  		 
@@ -130,19 +130,19 @@ public:
 	virtual int  getIndex(int const& arg0) ;
 	virtual void  recycle() ;
 	virtual AndroidCXX::java_lang_CharSequence * getText(int const& arg0) ;
-	virtual AndroidCXX::android_graphics_drawable_Drawable * getDrawable(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getPositionDescription() ;
 	virtual std::vector<java_lang_CharSequence>  getTextArray(int const& arg0) ;
 	virtual float  getDimension(int const& arg0,float const& arg1) ;
 	virtual int  getDimensionPixelOffset(int const& arg0,int const& arg1) ;
 	virtual int  getDimensionPixelSize(int const& arg0,int const& arg1) ;
 	virtual float  getFraction(int const& arg0,int const& arg1,int const& arg2,float const& arg3) ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getDrawable(int const& arg0) ;
 	virtual int  getColor(int const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_content_res_ColorStateList * getColorStateList(int const& arg0) ;
 	virtual int  getIndexCount() ;
 	virtual AndroidCXX::java_lang_String * getNonResourceString(int const& arg0) ;
-	virtual int  getLayoutDimension(int const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual int  getLayoutDimension(int const& arg0,int const& arg1) ;
+	virtual int  getLayoutDimension(int const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual int  getResourceId(int const& arg0,int const& arg1) ;
 	virtual bool  hasValue(int const& arg0) ;
 	virtual AndroidCXX::android_util_TypedValue * peekValue(int const& arg0) ;

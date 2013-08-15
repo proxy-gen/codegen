@@ -57,8 +57,8 @@ public:
 	// Default Destructor
 	virtual ~android_webkit_SslErrorHandler();
 	// Functions
-	virtual void  proceed() ;
 	virtual void  cancel() ;
+	virtual void  proceed() ;
 
 protected:
 

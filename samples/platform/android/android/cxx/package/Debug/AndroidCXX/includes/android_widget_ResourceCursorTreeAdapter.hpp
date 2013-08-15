@@ -81,8 +81,8 @@ public:
 	// Default Destructor
 	virtual ~android_widget_ResourceCursorTreeAdapter();
 	// Functions
-	virtual AndroidCXX::android_view_View * newGroupView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,bool const& arg2,AndroidCXX::android_view_ViewGroup const& arg3) ;
 	virtual AndroidCXX::android_view_View * newChildView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,bool const& arg2,AndroidCXX::android_view_ViewGroup const& arg3) ;
+	virtual AndroidCXX::android_view_View * newGroupView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,bool const& arg2,AndroidCXX::android_view_ViewGroup const& arg3) ;
 
 protected:
 	android_widget_ResourceCursorTreeAdapter();

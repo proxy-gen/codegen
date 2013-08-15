@@ -66,8 +66,8 @@ public:
 	virtual ~android_widget_MediaController_MediaPlayerControl();
 	// Functions
 	virtual void  start() ;
-	virtual void  pause() ;
 	virtual int  getDuration() ;
+	virtual void  pause() ;
 	virtual int  getCurrentPosition() ;
 	virtual void  seekTo(int const& arg0) ;
 	virtual bool  isPlaying() ;

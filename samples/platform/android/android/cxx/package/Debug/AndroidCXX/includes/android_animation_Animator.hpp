@@ -10,14 +10,14 @@
 
 
 	
- 		 
-	
 	
  		 
+	
  		 
  		 
 	
  	
+ 		 
  		 
 
 
@@ -77,11 +77,11 @@ namespace AndroidCXX {
 
 class android_animation_TimeInterpolator;
 
-class java_lang_Object;
-
 class android_animation_Animator_AnimatorListener;
 
 class java_util_ArrayList;
+
+class java_lang_Object;
 
 class android_animation_Animator : public java_lang_Cloneable
 {
@@ -96,14 +96,13 @@ public:
 	virtual AndroidCXX::android_animation_Animator * clone() ;
 	virtual void  start() ;
 	virtual void  end() ;
-	virtual void  setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0) ;
 	virtual AndroidCXX::android_animation_Animator * setDuration(long const& arg0) ;
-	virtual void  cancel() ;
 	virtual long  getDuration() ;
-	virtual AndroidCXX::android_animation_TimeInterpolator * getInterpolator() ;
 	virtual long  getStartDelay() ;
 	virtual void  setStartDelay(long const& arg0) ;
-	virtual void  setTarget(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0) ;
+	virtual AndroidCXX::android_animation_TimeInterpolator * getInterpolator() ;
+	virtual void  cancel() ;
 	virtual bool  isRunning() ;
 	virtual bool  isStarted() ;
 	virtual void  addListener(AndroidCXX::android_animation_Animator_AnimatorListener const& arg0) ;
@@ -112,6 +111,7 @@ public:
 	virtual void  removeAllListeners() ;
 	virtual void  setupStartValues() ;
 	virtual void  setupEndValues() ;
+	virtual void  setTarget(AndroidCXX::java_lang_Object const& arg0) ;
 
 protected:
 	android_animation_Animator();

@@ -103,9 +103,9 @@
 
 #include <android_graphics_drawable_Drawable.hpp>
 
-#include <android_widget_PopupWindow_OnDismissListener.hpp>
-
 #include <android_view_View_OnTouchListener.hpp>
+
+#include <android_widget_PopupWindow_OnDismissListener.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -132,9 +132,9 @@ class android_view_View;
 
 class android_graphics_drawable_Drawable;
 
-class android_widget_PopupWindow_OnDismissListener;
-
 class android_view_View_OnTouchListener;
+
+class android_widget_PopupWindow_OnDismissListener;
 
 class android_content_Context;
 
@@ -160,33 +160,32 @@ public:
 	// Default Destructor
 	virtual ~android_widget_PopupWindow();
 	// Functions
-	virtual void  update(int const& arg0,int const& arg1) ;
-	virtual void  update() ;
 	virtual void  update(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) ;
-	virtual void  update(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2) ;
-	virtual void  update(int const& arg0,int const& arg1,int const& arg2,int const& arg3,bool const& arg4) ;
+	virtual void  update() ;
+	virtual void  update(int const& arg0,int const& arg1) ;
 	virtual void  update(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  update(int const& arg0,int const& arg1,int const& arg2,int const& arg3,bool const& arg4) ;
+	virtual void  update(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2) ;
 	virtual void  setFocusable(bool const& arg0) ;
 	virtual bool  isFocusable() ;
 	virtual int  getWidth() ;
 	virtual int  getHeight() ;
 	virtual void  setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getBackground() ;
-	virtual void  setOnDismissListener(AndroidCXX::android_widget_PopupWindow_OnDismissListener const& arg0) ;
+	virtual bool  isShowing() ;
 	virtual void  setHeight(int const& arg0) ;
 	virtual void  setWidth(int const& arg0) ;
-	virtual void  setSoftInputMode(int const& arg0) ;
-	virtual int  getSoftInputMode() ;
-	virtual void  setAnimationStyle(int const& arg0) ;
-	virtual int  getAnimationStyle() ;
-	virtual void  dismiss() ;
-	virtual void  setInputMethodMode(int const& arg0) ;
-	virtual int  getInputMethodMode() ;
-	virtual bool  isShowing() ;
-	virtual void  setIgnoreCheekPress() ;
-	virtual AndroidCXX::android_view_View * getContentView() ;
 	virtual void  setContentView(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  setSoftInputMode(int const& arg0) ;
+	virtual void  dismiss() ;
+	virtual int  getAnimationStyle() ;
+	virtual void  setIgnoreCheekPress() ;
+	virtual void  setAnimationStyle(int const& arg0) ;
+	virtual AndroidCXX::android_view_View * getContentView() ;
 	virtual void  setTouchInterceptor(AndroidCXX::android_view_View_OnTouchListener const& arg0) ;
+	virtual int  getInputMethodMode() ;
+	virtual void  setInputMethodMode(int const& arg0) ;
+	virtual int  getSoftInputMode() ;
 	virtual bool  isTouchable() ;
 	virtual void  setTouchable(bool const& arg0) ;
 	virtual bool  isOutsideTouchable() ;
@@ -202,6 +201,7 @@ public:
 	virtual bool  isAboveAnchor() ;
 	virtual int  getMaxAvailableHeight(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
 	virtual int  getMaxAvailableHeight(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  setOnDismissListener(AndroidCXX::android_widget_PopupWindow_OnDismissListener const& arg0) ;
 
 protected:
 

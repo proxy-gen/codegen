@@ -17,11 +17,11 @@
  		 
  		 
  		 
+ 		 
 	
 	
  		 
 	
- 		 
  		 
  		 
  		 
@@ -130,20 +130,21 @@ public:
 	virtual void  offset(int const& arg0,int const& arg1) ;
 	virtual bool  isEmpty() ;
 	virtual bool  contains(AndroidCXX::android_graphics_Rect const& arg0) ;
-	virtual bool  contains(int const& arg0,int const& arg1) ;
 	virtual bool  contains(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual bool  contains(int const& arg0,int const& arg1) ;
 	virtual void  set(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual void  set(AndroidCXX::android_graphics_Rect const& arg0) ;
 	virtual void  sort() ;
-	static bool  intersects(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
 	virtual bool  intersects(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
-	virtual void  _union(AndroidCXX::android_graphics_Rect const& arg0) ;
+	static bool  intersects(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
 	virtual void  _union(int const& arg0,int const& arg1) ;
 	virtual void  _union(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
-	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual void  _union(AndroidCXX::android_graphics_Rect const& arg0) ;
 	virtual int  width() ;
 	virtual int  height() ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual void  readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toShortString() ;
 	virtual AndroidCXX::java_lang_String * flattenToString() ;
 	static AndroidCXX::android_graphics_Rect * unflattenFromString(AndroidCXX::java_lang_String const& arg0) ;
@@ -154,10 +155,9 @@ public:
 	virtual void  setEmpty() ;
 	virtual void  offsetTo(int const& arg0,int const& arg1) ;
 	virtual void  inset(int const& arg0,int const& arg1) ;
-	virtual bool  intersect(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual bool  intersect(AndroidCXX::android_graphics_Rect const& arg0) ;
+	virtual bool  intersect(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual bool  setIntersect(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
-	virtual void  readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
 
 protected:
 

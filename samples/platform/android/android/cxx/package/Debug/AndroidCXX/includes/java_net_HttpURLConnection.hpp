@@ -91,6 +91,7 @@ public:
 	virtual AndroidCXX::java_lang_String * getHeaderField(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getHeaderFieldKey(int const& arg0) ;
 	virtual long  getHeaderFieldDate(AndroidCXX::java_lang_String const& arg0,long const& arg1) ;
+	virtual void  disconnect() ;
 	virtual void  setFixedLengthStreamingMode(int const& arg0) ;
 	virtual void  setChunkedStreamingMode(int const& arg0) ;
 	static void  setFollowRedirects(bool const& arg0) ;
@@ -99,7 +100,6 @@ public:
 	virtual bool  getInstanceFollowRedirects() ;
 	virtual AndroidCXX::java_lang_String * getRequestMethod() ;
 	virtual AndroidCXX::java_lang_String * getResponseMessage() ;
-	virtual void  disconnect() ;
 	virtual bool  usingProxy() ;
 	virtual AndroidCXX::java_io_InputStream * getErrorStream() ;
 

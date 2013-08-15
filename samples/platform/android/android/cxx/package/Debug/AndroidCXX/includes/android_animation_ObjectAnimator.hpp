@@ -165,10 +165,10 @@ public:
 	virtual AndroidCXX::android_animation_ObjectAnimator * clone() ;
 	virtual void  start() ;
 	virtual AndroidCXX::android_animation_ObjectAnimator * setDuration(long const& arg0) ;
-	virtual void  setTarget(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_Object * getTarget() ;
 	virtual void  setupStartValues() ;
 	virtual void  setupEndValues() ;
+	virtual void  setTarget(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * getTarget() ;
 	virtual void  setPropertyName(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getPropertyName() ;
 	static AndroidCXX::android_animation_ObjectAnimator * ofInt(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<int> const& arg2) ;

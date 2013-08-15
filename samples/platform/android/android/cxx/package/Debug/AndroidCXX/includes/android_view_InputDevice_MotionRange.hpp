@@ -62,11 +62,11 @@ public:
 	// Default Destructor
 	virtual ~android_view_InputDevice_MotionRange();
 	// Functions
-	virtual float  getMax() ;
 	virtual int  getSource() ;
 	virtual bool  isFromSource(int const& arg0) ;
 	virtual int  getAxis() ;
 	virtual float  getMin() ;
+	virtual float  getMax() ;
 	virtual float  getRange() ;
 	virtual float  getFlat() ;
 	virtual float  getFuzz() ;

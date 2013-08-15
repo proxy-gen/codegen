@@ -9,8 +9,8 @@
 
 
 
- 		 
 	
+ 		 
  		 
  		 
  		 
@@ -38,11 +38,11 @@
 //
 
 
-#include <android_widget_ShareActionProvider_OnShareTargetSelectedListener.hpp>
-
 #include <android_view_View.hpp>
 
 #include <android_view_SubMenu.hpp>
+
+#include <android_widget_ShareActionProvider_OnShareTargetSelectedListener.hpp>
 
 #include <java_lang_String.hpp>
 
@@ -69,11 +69,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_ShareActionProvider_OnShareTargetSelectedListener;
-
 class android_view_View;
 
 class android_view_SubMenu;
+
+class android_widget_ShareActionProvider_OnShareTargetSelectedListener;
 
 class java_lang_String;
 
@@ -93,10 +93,10 @@ public:
 	// Default Destructor
 	virtual ~android_widget_ShareActionProvider();
 	// Functions
-	virtual void  setOnShareTargetSelectedListener(AndroidCXX::android_widget_ShareActionProvider_OnShareTargetSelectedListener const& arg0) ;
-	virtual AndroidCXX::android_view_View * onCreateActionView() ;
 	virtual bool  hasSubMenu() ;
+	virtual AndroidCXX::android_view_View * onCreateActionView() ;
 	virtual void  onPrepareSubMenu(AndroidCXX::android_view_SubMenu const& arg0) ;
+	virtual void  setOnShareTargetSelectedListener(AndroidCXX::android_widget_ShareActionProvider_OnShareTargetSelectedListener const& arg0) ;
 	virtual void  setShareHistoryFileName(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setShareIntent(AndroidCXX::android_content_Intent const& arg0) ;
 

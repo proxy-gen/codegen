@@ -10,15 +10,15 @@
 
 
  		 
-	
- 		 
  		 
 	
  		 
+	
+	
+	
  		 
 	
-	
-	
+ 		 
 	
 
 
@@ -52,11 +52,11 @@
 
 #include <java_lang_String.hpp>
 
-#include <android_app_Activity.hpp>
-
 #include <android_content_Intent.hpp>
 
 #include <android_view_Window.hpp>
+
+#include <android_app_Activity.hpp>
 
 #include <android_os_Bundle.hpp>
 
@@ -79,11 +79,11 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_app_Activity;
-
 class android_content_Intent;
 
 class android_view_Window;
+
+class android_app_Activity;
 
 class android_os_Bundle;
 
@@ -99,18 +99,18 @@ public:
 	// Default Destructor
 	virtual ~android_app_LocalActivityManager();
 	// Functions
-	virtual AndroidCXX::android_app_Activity * getActivity(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_view_Window * startActivity(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_content_Intent const& arg1) ;
-	virtual void  dispatchResume() ;
-	virtual void  dispatchCreate(AndroidCXX::android_os_Bundle const& arg0) ;
-	virtual void  dispatchPause(bool const& arg0) ;
-	virtual void  dispatchStop() ;
-	virtual void  dispatchDestroy(bool const& arg0) ;
 	virtual AndroidCXX::android_view_Window * destroyActivity(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
 	virtual AndroidCXX::android_app_Activity * getCurrentActivity() ;
 	virtual AndroidCXX::java_lang_String * getCurrentId() ;
+	virtual AndroidCXX::android_app_Activity * getActivity(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  dispatchCreate(AndroidCXX::android_os_Bundle const& arg0) ;
 	virtual AndroidCXX::android_os_Bundle * saveInstanceState() ;
+	virtual void  dispatchResume() ;
+	virtual void  dispatchPause(bool const& arg0) ;
+	virtual void  dispatchStop() ;
 	virtual void  removeAllActivities() ;
+	virtual void  dispatchDestroy(bool const& arg0) ;
 
 protected:
 

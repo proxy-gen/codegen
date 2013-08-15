@@ -12,16 +12,16 @@
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
  		 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
  		 
@@ -133,22 +133,22 @@ public:
 	virtual void  start() ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * y(float const& arg0) ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * x(float const& arg0) ;
-	virtual AndroidCXX::android_view_ViewPropertyAnimator * alpha(float const& arg0) ;
-	virtual AndroidCXX::android_view_ViewPropertyAnimator * setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0) ;
-	virtual AndroidCXX::android_view_ViewPropertyAnimator * setDuration(long const& arg0) ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * rotation(float const& arg0) ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * rotationY(float const& arg0) ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * rotationX(float const& arg0) ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * scaleX(float const& arg0) ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * scaleY(float const& arg0) ;
+	virtual AndroidCXX::android_view_ViewPropertyAnimator * alpha(float const& arg0) ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * translationX(float const& arg0) ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * translationY(float const& arg0) ;
-	virtual void  cancel() ;
+	virtual AndroidCXX::android_view_ViewPropertyAnimator * setDuration(long const& arg0) ;
 	virtual long  getDuration() ;
-	virtual AndroidCXX::android_animation_TimeInterpolator * getInterpolator() ;
 	virtual long  getStartDelay() ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * setStartDelay(long const& arg0) ;
+	virtual AndroidCXX::android_view_ViewPropertyAnimator * setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0) ;
+	virtual AndroidCXX::android_animation_TimeInterpolator * getInterpolator() ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * setListener(AndroidCXX::android_animation_Animator_AnimatorListener const& arg0) ;
+	virtual void  cancel() ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * xBy(float const& arg0) ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * yBy(float const& arg0) ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * rotationBy(float const& arg0) ;

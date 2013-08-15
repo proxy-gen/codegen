@@ -193,7 +193,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_lang_String
@@ -277,7 +276,6 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual int  hashCode() ;
 	virtual int  compareTo(AndroidCXX::java_lang_String const& arg0) ;
-	virtual int  indexOf(int const& arg0) ;
 	virtual int  indexOf(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  indexOf(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual int  indexOf(int const& arg0,int const& arg1) ;

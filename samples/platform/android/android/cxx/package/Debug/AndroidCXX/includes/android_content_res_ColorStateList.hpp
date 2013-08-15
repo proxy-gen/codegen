@@ -98,9 +98,9 @@ public:
 	static AndroidCXX::android_content_res_ColorStateList * valueOf(int const& arg0) ;
 	virtual int  describeContents() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual bool  isStateful() ;
 	static AndroidCXX::android_content_res_ColorStateList * createFromXml(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1) ;
 	virtual AndroidCXX::android_content_res_ColorStateList * withAlpha(int const& arg0) ;
+	virtual bool  isStateful() ;
 	virtual int  getColorForState(std::vector<int> const& arg0,int const& arg1) ;
 	virtual int  getDefaultColor() ;
 

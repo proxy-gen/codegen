@@ -15,19 +15,19 @@
  		 
 	
  		 
- 		 
 	
- 		 
-	
- 		 
-	
- 		 
-	
-	
-	
- 		 
  	
  	
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
+	
+ 		 
+	
+	
 	
  		 
 
@@ -157,10 +157,10 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-
 class android_view_KeyCharacterMap;
 
 class android_view_KeyCharacterMap_KeyData;
+
 
 class android_view_KeyEvent : public android_os_Parcelable
 {
@@ -186,20 +186,27 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual int  getModifiers() ;
 	virtual char  getNumber() ;
+	virtual int  getAction() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual int  getFlags() ;
+	virtual bool  isCanceled() ;
+	virtual int  getRepeatCount() ;
 	virtual int  getDeviceId() ;
 	virtual int  getSource() ;
 	virtual void  setSource(int const& arg0) ;
-	virtual int  getAction() ;
-	virtual int  getFlags() ;
 	virtual long  getDownTime() ;
 	virtual long  getEventTime() ;
 	virtual int  getMetaState() ;
-	virtual int  getRepeatCount() ;
-	static int  getMaxKeyCode() ;
+	virtual AndroidCXX::android_view_KeyCharacterMap * getKeyCharacterMap() ;
+	virtual char  getMatch(std::vector<char> const& arg0,int const& arg1) ;
+	virtual char  getMatch(std::vector<char> const& arg0) ;
+	virtual char  getDisplayLabel() ;
 	static int  getDeadChar(int const& arg0,int const& arg1) ;
-	static AndroidCXX::android_view_KeyEvent * changeTimeRepeat(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2) ;
+	virtual bool  getKeyData(AndroidCXX::android_view_KeyCharacterMap_KeyData const& arg0) ;
+	virtual bool  isPrintingKey() ;
+	static int  getMaxKeyCode() ;
 	static AndroidCXX::android_view_KeyEvent * changeTimeRepeat(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2,int const& arg3) ;
+	static AndroidCXX::android_view_KeyEvent * changeTimeRepeat(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2) ;
 	static AndroidCXX::android_view_KeyEvent * changeAction(AndroidCXX::android_view_KeyEvent const& arg0,int const& arg1) ;
 	static AndroidCXX::android_view_KeyEvent * changeFlags(AndroidCXX::android_view_KeyEvent const& arg0,int const& arg1) ;
 	virtual bool  isSystem() ;
@@ -220,21 +227,14 @@ public:
 	virtual bool  isCapsLockOn() ;
 	virtual bool  isNumLockOn() ;
 	virtual bool  isScrollLockOn() ;
-	virtual bool  isCanceled() ;
 	virtual void  startTracking() ;
 	virtual bool  isTracking() ;
 	virtual bool  isLongPress() ;
 	virtual int  getKeyCode() ;
 	virtual AndroidCXX::java_lang_String * getCharacters() ;
 	virtual int  getScanCode() ;
-	virtual AndroidCXX::android_view_KeyCharacterMap * getKeyCharacterMap() ;
-	virtual char  getDisplayLabel() ;
-	virtual int  getUnicodeChar() ;
 	virtual int  getUnicodeChar(int const& arg0) ;
-	virtual bool  getKeyData(AndroidCXX::android_view_KeyCharacterMap_KeyData const& arg0) ;
-	virtual char  getMatch(std::vector<char> const& arg0,int const& arg1) ;
-	virtual char  getMatch(std::vector<char> const& arg0) ;
-	virtual bool  isPrintingKey() ;
+	virtual int  getUnicodeChar() ;
 	static AndroidCXX::java_lang_String * keyCodeToString(int const& arg0) ;
 	static int  keyCodeFromString(AndroidCXX::java_lang_String const& arg0) ;
 

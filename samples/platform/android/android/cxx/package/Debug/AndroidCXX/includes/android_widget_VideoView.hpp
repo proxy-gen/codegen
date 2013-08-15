@@ -74,11 +74,11 @@
 
 #include <android_view_MotionEvent.hpp>
 
-#include <android_view_KeyEvent.hpp>
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
-#include <android_view_accessibility_AccessibilityEvent.hpp>
+#include <android_view_KeyEvent.hpp>
 
 #include <java_lang_String.hpp>
 
@@ -119,11 +119,11 @@ namespace AndroidCXX {
 
 class android_view_MotionEvent;
 
-class android_view_KeyEvent;
+class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
-class android_view_accessibility_AccessibilityEvent;
+class android_view_KeyEvent;
 
 class java_lang_String;
 
@@ -161,20 +161,11 @@ public:
 	virtual void  suspend() ;
 	virtual void  resume() ;
 	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual bool  onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual void  pause() ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
+	virtual bool  onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual int  getDuration() ;
-	virtual int  getCurrentPosition() ;
-	virtual void  seekTo(int const& arg0) ;
-	virtual bool  isPlaying() ;
-	virtual int  getBufferPercentage() ;
-	virtual bool  canPause() ;
-	virtual bool  canSeekBackward() ;
-	virtual bool  canSeekForward() ;
-	virtual int  getAudioSessionId() ;
 	virtual int  resolveAdjustedSize(int const& arg0,int const& arg1) ;
 	virtual void  setVideoPath(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setVideoURI(AndroidCXX::android_net_Uri const& arg0) ;
@@ -184,6 +175,15 @@ public:
 	virtual void  setOnCompletionListener(AndroidCXX::android_media_MediaPlayer_OnCompletionListener const& arg0) ;
 	virtual void  setOnErrorListener(AndroidCXX::android_media_MediaPlayer_OnErrorListener const& arg0) ;
 	virtual void  setOnInfoListener(AndroidCXX::android_media_MediaPlayer_OnInfoListener const& arg0) ;
+	virtual void  pause() ;
+	virtual int  getCurrentPosition() ;
+	virtual void  seekTo(int const& arg0) ;
+	virtual bool  isPlaying() ;
+	virtual int  getBufferPercentage() ;
+	virtual bool  canPause() ;
+	virtual bool  canSeekBackward() ;
+	virtual bool  canSeekForward() ;
+	virtual int  getAudioSessionId() ;
 
 protected:
 

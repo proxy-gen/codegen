@@ -11,8 +11,8 @@
 
 	
 	
- 		 
 	
+ 		 
 	
  	
  		 
@@ -152,21 +152,21 @@ public:
 	virtual void  start() ;
 	virtual void  reverse() ;
 	virtual void  end() ;
-	virtual void  setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0) ;
 	virtual AndroidCXX::android_animation_ValueAnimator * setDuration(long const& arg0) ;
-	virtual void  cancel() ;
 	virtual long  getDuration() ;
+	virtual long  getStartDelay() ;
+	virtual void  setStartDelay(long const& arg0) ;
+	virtual void  setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0) ;
 	virtual AndroidCXX::android_animation_TimeInterpolator * getInterpolator() ;
+	virtual void  cancel() ;
+	virtual bool  isRunning() ;
+	virtual bool  isStarted() ;
+	virtual std::vector<android_animation_PropertyValuesHolder>  getValues() ;
+	virtual void  setValues(std::vector<android_animation_PropertyValuesHolder> const& arg0) ;
 	virtual void  setRepeatMode(int const& arg0) ;
 	virtual void  setRepeatCount(int const& arg0) ;
 	virtual int  getRepeatMode() ;
 	virtual int  getRepeatCount() ;
-	virtual long  getStartDelay() ;
-	virtual void  setStartDelay(long const& arg0) ;
-	virtual std::vector<android_animation_PropertyValuesHolder>  getValues() ;
-	virtual void  setValues(std::vector<android_animation_PropertyValuesHolder> const& arg0) ;
-	virtual bool  isRunning() ;
-	virtual bool  isStarted() ;
 	static AndroidCXX::android_animation_ValueAnimator * ofInt(std::vector<int> const& arg0) ;
 	static AndroidCXX::android_animation_ValueAnimator * ofFloat(std::vector<float> const& arg0) ;
 	static AndroidCXX::android_animation_ValueAnimator * ofObject(AndroidCXX::android_animation_TypeEvaluator const& arg0,std::vector<java_lang_Object> const& arg1) ;

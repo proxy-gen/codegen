@@ -14,14 +14,14 @@
 	
 	
 	
+ 		 
 	
 	
  		 
 	
- 		 
+	
 	
  		 
-	
 	
 	
 	
@@ -86,9 +86,9 @@ class java_lang_Object;
 class java_lang_CharSequence;
 
 
-class android_view_View;
-
 class android_graphics_drawable_Drawable;
+
+class android_view_View;
 
 class android_app_ActionBar_TabListener;
 
@@ -106,18 +106,18 @@ public:
 	virtual int  getPosition() ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setText(int const& arg0) ;
-	virtual AndroidCXX::java_lang_CharSequence * getText() ;
 	virtual AndroidCXX::java_lang_CharSequence * getContentDescription() ;
-	virtual AndroidCXX::android_app_ActionBar_Tab * setContentDescription(int const& arg0) ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setContentDescription(int const& arg0) ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setTag(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::android_app_ActionBar_Tab * setCustomView(AndroidCXX::android_view_View const& arg0) ;
-	virtual AndroidCXX::android_app_ActionBar_Tab * setCustomView(int const& arg0) ;
-	virtual AndroidCXX::android_view_View * getCustomView() ;
 	virtual void  select() ;
+	virtual AndroidCXX::java_lang_CharSequence * getText() ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setIcon(int const& arg0) ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getIcon() ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setCustomView(int const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setCustomView(AndroidCXX::android_view_View const& arg0) ;
+	virtual AndroidCXX::android_view_View * getCustomView() ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setTabListener(AndroidCXX::android_app_ActionBar_TabListener const& arg0) ;
 
 protected:

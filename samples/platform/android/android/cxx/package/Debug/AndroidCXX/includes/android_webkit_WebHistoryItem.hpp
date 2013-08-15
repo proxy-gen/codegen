@@ -71,9 +71,9 @@ public:
 	// Default Destructor
 	virtual ~android_webkit_WebHistoryItem();
 	// Functions
+	virtual AndroidCXX::java_lang_String * getTitle() ;
 	virtual AndroidCXX::java_lang_String * getUrl() ;
 	virtual AndroidCXX::java_lang_String * getOriginalUrl() ;
-	virtual AndroidCXX::java_lang_String * getTitle() ;
 	virtual AndroidCXX::android_graphics_Bitmap * getFavicon() ;
 
 protected:

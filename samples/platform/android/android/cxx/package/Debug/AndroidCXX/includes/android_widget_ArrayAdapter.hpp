@@ -173,15 +173,15 @@ public:
 	virtual void  insert(AndroidCXX::java_lang_Object const& arg0,int const& arg1) ;
 	virtual void  sort(AndroidCXX::java_util_Comparator const& arg0) ;
 	virtual int  getPosition(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::android_view_View * getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
 	virtual int  getCount() ;
+	virtual AndroidCXX::android_view_View * getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
 	virtual AndroidCXX::java_lang_Object * getItem(int const& arg0) ;
 	virtual long  getItemId(int const& arg0) ;
 	virtual AndroidCXX::android_widget_Filter * getFilter() ;
 	virtual AndroidCXX::android_view_View * getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
 	virtual void  notifyDataSetChanged() ;
-	virtual void  setNotifyOnChange(bool const& arg0) ;
 	virtual void  setDropDownViewResource(int const& arg0) ;
+	virtual void  setNotifyOnChange(bool const& arg0) ;
 	static AndroidCXX::android_widget_ArrayAdapter * createFromResource(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2) ;
 
 protected:

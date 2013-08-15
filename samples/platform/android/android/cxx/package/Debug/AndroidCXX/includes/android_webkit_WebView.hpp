@@ -10,7 +10,31 @@
 
 
 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
  		 
  		 
  		 
@@ -71,30 +95,6 @@
  		 
  		 
 	
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
- 		 
- 		 
 
 
  		 
@@ -226,9 +226,29 @@
 
 #include <android_net_http_SslCertificate.hpp>
 
-#include <java_lang_String.hpp>
+#include <android_view_MotionEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_graphics_Rect.hpp>
+
+#include <android_view_KeyEvent.hpp>
 
 #include <android_os_Bundle.hpp>
+
+#include <android_view_inputmethod_EditorInfo.hpp>
+
+#include <android_view_inputmethod_InputConnection.hpp>
+
+#include <android_view_ViewGroup_LayoutParams.hpp>
+
+#include <android_graphics_Paint.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <android_webkit_WebBackForwardList.hpp>
 
@@ -258,26 +278,6 @@
 
 #include <android_webkit_WebSettings.hpp>
 
-#include <android_view_View.hpp>
-
-#include <android_view_ViewGroup_LayoutParams.hpp>
-
-#include <android_view_MotionEvent.hpp>
-
-#include <android_view_KeyEvent.hpp>
-
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-
-#include <android_view_inputmethod_EditorInfo.hpp>
-
-#include <android_view_inputmethod_InputConnection.hpp>
-
-#include <android_graphics_Rect.hpp>
-
-#include <android_graphics_Paint.hpp>
-
 #include <android_content_Context.hpp>
 
 #include <android_util_AttributeSet.hpp>
@@ -305,9 +305,29 @@ namespace AndroidCXX {
 
 class android_net_http_SslCertificate;
 
-class java_lang_String;
+class android_view_MotionEvent;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_view_View;
+
+class android_graphics_Rect;
+
+class android_view_KeyEvent;
 
 class android_os_Bundle;
+
+class android_view_inputmethod_EditorInfo;
+
+class android_view_inputmethod_InputConnection;
+
+class android_view_ViewGroup_LayoutParams;
+
+class android_graphics_Paint;
+
+class java_lang_String;
 
 class android_webkit_WebBackForwardList;
 
@@ -337,26 +357,6 @@ class java_lang_Object;
 
 class android_webkit_WebSettings;
 
-class android_view_View;
-
-class android_view_ViewGroup_LayoutParams;
-
-class android_view_MotionEvent;
-
-class android_view_KeyEvent;
-
-class android_view_accessibility_AccessibilityNodeInfo;
-
-class android_view_accessibility_AccessibilityEvent;
-
-class android_view_inputmethod_EditorInfo;
-
-class android_view_inputmethod_InputConnection;
-
-class android_graphics_Rect;
-
-class android_graphics_Paint;
-
 class android_content_Context;
 
 class android_util_AttributeSet;
@@ -366,10 +366,10 @@ class android_webkit_WebView : public android_view_ViewGroup_OnHierarchyChangeLi
 public:
 
 	// Public ConstrucXXX
+	android_webkit_WebView(AndroidCXX::android_content_Context const& arg0);
+	android_webkit_WebView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_webkit_WebView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,bool const& arg3);
 	android_webkit_WebView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_webkit_WebView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
-	android_webkit_WebView(AndroidCXX::android_content_Context const& arg0);
 	android_webkit_WebView(const android_webkit_WebView& cc);
 	android_webkit_WebView(Proxy proxy);
 	Proxy proxy() const;	
@@ -380,9 +380,37 @@ public:
 	virtual void  freeMemory() ;
 	virtual AndroidCXX::android_net_http_SslCertificate * getCertificate() ;
 	virtual void  clearCache(bool const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getUrl() ;
+	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual bool  shouldDelayChildPressedState() ;
+	virtual bool  requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) ;
+	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
+	virtual bool  requestFocus(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
+	virtual bool  performLongClick() ;
+	virtual bool  performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual void  onWindowFocusChanged(bool const& arg0) ;
+	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
+	virtual bool  onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
+	virtual bool  onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
+	virtual AndroidCXX::android_view_inputmethod_InputConnection * onCreateInputConnection(AndroidCXX::android_view_inputmethod_EditorInfo const& arg0) ;
+	virtual bool  onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual bool  onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual bool  onHoverEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual void  setLayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0) ;
+	virtual void  computeScroll() ;
+	virtual void  setScrollBarStyle(int const& arg0) ;
+	virtual void  setLayerType(int const& arg0,AndroidCXX::android_graphics_Paint const& arg1) ;
+	virtual void  setBackgroundColor(int const& arg0) ;
+	virtual void  setOverScrollMode(int const& arg0) ;
+	virtual void  onGlobalFocusChanged(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;
+	virtual AndroidCXX::java_lang_String * getTitle() ;
+	virtual void  onChildViewAdded(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;
+	virtual void  onChildViewRemoved(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;
 	virtual void  onResume() ;
 	virtual void  onPause() ;
+	virtual void  stopLoading() ;
+	virtual int  getProgress() ;
 	virtual void  setHorizontalScrollbarOverlay(bool const& arg0) ;
 	virtual void  setVerticalScrollbarOverlay(bool const& arg0) ;
 	virtual bool  overlayHorizontalScrollbar() ;
@@ -401,7 +429,6 @@ public:
 	virtual void  loadDataWithBaseURL(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::java_lang_String const& arg4) ;
 	virtual void  saveWebArchive(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  saveWebArchive(AndroidCXX::java_lang_String const& arg0,bool const& arg1,AndroidCXX::android_webkit_ValueCallback const& arg2) ;
-	virtual void  stopLoading() ;
 	virtual void  reload() ;
 	virtual bool  canGoBack() ;
 	virtual void  goBack() ;
@@ -420,10 +447,9 @@ public:
 	virtual AndroidCXX::android_webkit_WebView_HitTestResult * getHitTestResult() ;
 	virtual void  requestFocusNodeHref(AndroidCXX::android_os_Message const& arg0) ;
 	virtual void  requestImageRef(AndroidCXX::android_os_Message const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getUrl() ;
 	virtual AndroidCXX::java_lang_String * getOriginalUrl() ;
-	virtual AndroidCXX::java_lang_String * getTitle() ;
 	virtual AndroidCXX::android_graphics_Bitmap * getFavicon() ;
-	virtual int  getProgress() ;
 	virtual int  getContentHeight() ;
 	virtual void  pauseTimers() ;
 	virtual void  resumeTimers() ;
@@ -446,38 +472,12 @@ public:
 	virtual void  addJavascriptInterface(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual void  removeJavascriptInterface(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_webkit_WebSettings * getSettings() ;
-	virtual void  onChildViewAdded(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;
-	virtual void  onChildViewRemoved(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;
-	virtual void  onGlobalFocusChanged(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;
 	virtual void  setMapTrackballToArrowKeys(bool const& arg0) ;
 	virtual void  flingScroll(int const& arg0,int const& arg1) ;
 	virtual bool  canZoomIn() ;
 	virtual bool  canZoomOut() ;
 	virtual bool  zoomIn() ;
 	virtual bool  zoomOut() ;
-	virtual void  setLayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0) ;
-	virtual void  setOverScrollMode(int const& arg0) ;
-	virtual void  setScrollBarStyle(int const& arg0) ;
-	virtual void  computeScroll() ;
-	virtual bool  onHoverEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual bool  onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual bool  onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
-	virtual bool  onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
-	virtual bool  onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
-	virtual bool  shouldDelayChildPressedState() ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
-	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual bool  performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
-	virtual bool  performLongClick() ;
-	virtual AndroidCXX::android_view_inputmethod_InputConnection * onCreateInputConnection(AndroidCXX::android_view_inputmethod_EditorInfo const& arg0) ;
-	virtual void  onWindowFocusChanged(bool const& arg0) ;
-	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
-	virtual bool  requestFocus(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
-	virtual bool  requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) ;
-	virtual void  setBackgroundColor(int const& arg0) ;
-	virtual void  setLayerType(int const& arg0,AndroidCXX::android_graphics_Paint const& arg1) ;
 
 protected:
 

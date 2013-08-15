@@ -31,15 +31,15 @@
  		 
  		 
 	
- 		 
+	
+	
+	
  		 
  		 
 	
  		 
  		 
-	
-	
-	
+ 		 
 	
  		 
  	
@@ -110,9 +110,9 @@
 
 #include <android_os_Parcel.hpp>
 
-#include <android_os_Bundle.hpp>
-
 #include <android_os_UserHandle.hpp>
+
+#include <android_os_Bundle.hpp>
 
 #include <android_content_IntentSender.hpp>
 
@@ -150,9 +150,9 @@ class android_os_Handler;
 
 class android_os_Parcel;
 
-class android_os_Bundle;
-
 class android_os_UserHandle;
+
+class android_os_Bundle;
 
 class android_content_IntentSender;
 
@@ -171,22 +171,22 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual int  hashCode() ;
 	virtual void  send(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,AndroidCXX::android_app_PendingIntent_OnFinished const& arg3,AndroidCXX::android_os_Handler const& arg4) ;
+	virtual void  send() ;
 	virtual void  send(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2) ;
 	virtual void  send(int const& arg0,AndroidCXX::android_app_PendingIntent_OnFinished const& arg1,AndroidCXX::android_os_Handler const& arg2) ;
 	virtual void  send(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,AndroidCXX::android_app_PendingIntent_OnFinished const& arg3,AndroidCXX::android_os_Handler const& arg4,AndroidCXX::java_lang_String const& arg5) ;
-	virtual void  send() ;
 	virtual void  send(int const& arg0) ;
 	static AndroidCXX::android_app_PendingIntent * getService(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3) ;
+	virtual void  cancel() ;
 	virtual int  describeContents() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	static AndroidCXX::android_app_PendingIntent * getActivity(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3) ;
-	static AndroidCXX::android_app_PendingIntent * getActivity(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3,AndroidCXX::android_os_Bundle const& arg4) ;
-	virtual void  cancel() ;
 	static AndroidCXX::android_app_PendingIntent * getBroadcast(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3) ;
 	virtual AndroidCXX::java_lang_String * getTargetPackage() ;
 	virtual AndroidCXX::java_lang_String * getCreatorPackage() ;
 	virtual int  getCreatorUid() ;
 	virtual AndroidCXX::android_os_UserHandle * getCreatorUserHandle() ;
+	static AndroidCXX::android_app_PendingIntent * getActivity(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3) ;
+	static AndroidCXX::android_app_PendingIntent * getActivity(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3,AndroidCXX::android_os_Bundle const& arg4) ;
 	static AndroidCXX::android_app_PendingIntent * getActivities(AndroidCXX::android_content_Context const& arg0,int const& arg1,std::vector<android_content_Intent> const& arg2,int const& arg3,AndroidCXX::android_os_Bundle const& arg4) ;
 	static AndroidCXX::android_app_PendingIntent * getActivities(AndroidCXX::android_content_Context const& arg0,int const& arg1,std::vector<android_content_Intent> const& arg2,int const& arg3) ;
 	virtual AndroidCXX::android_content_IntentSender * getIntentSender() ;

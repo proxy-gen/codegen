@@ -12,23 +12,21 @@
  		 
  		 
  		 
- 	
-	
- 		 
-	
- 		 
- 		 
- 		 
- 		 
-	
-	
-	
-	
-	
-	
 	
  	
+	
  		 
+ 		 
+ 		 
+ 		 
+	
+ 	
+ 	
+ 		 
+ 		 
+	
+	
+	
 	
 	
  	
@@ -37,23 +35,25 @@
 	
  	
  		 
+	
+	
+	
+	
+	
+	
+	
+ 		 
+	
+	
+	
+ 		 
+	
+ 		 
  	
 	
-	
-	
-	
-	
- 		 
-	
-	
-	
- 		 
-	
- 		 
- 	
-	
  		 
  		 
+	
 	
 	
 	
@@ -131,21 +131,21 @@
 //
 
 
-#include <java_lang_String.hpp>
-
 #include <android_util_TypedValue.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <java_lang_Object.hpp>
 
-#include <java_lang_CharSequence.hpp>
-
 #include <android_content_res_XmlResourceParser.hpp>
 
-#include <android_graphics_drawable_Drawable.hpp>
+#include <java_lang_CharSequence.hpp>
 
 #include <android_content_res_AssetManager.hpp>
 
 #include <android_content_res_TypedArray.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
 
 #include <android_graphics_Movie.hpp>
 
@@ -182,22 +182,22 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 class android_util_TypedValue;
+
+class java_lang_String;
 
 class java_lang_Object;
 
-class java_lang_CharSequence;
-
 class android_content_res_XmlResourceParser;
 
-class android_graphics_drawable_Drawable;
+class java_lang_CharSequence;
 
 class android_content_res_AssetManager;
 
 
 class android_content_res_TypedArray;
+
+class android_graphics_drawable_Drawable;
 
 class android_graphics_Movie;
 
@@ -230,35 +230,34 @@ public:
 	virtual ~android_content_res_Resources();
 	// Functions
 	virtual bool  getBoolean(int const& arg0) ;
-	virtual void  getValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2) ;
 	virtual void  getValue(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2) ;
+	virtual void  getValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2) ;
 	virtual int  getInteger(int const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getString(int const& arg0,std::vector<java_lang_Object> const& arg1) ;
 	virtual AndroidCXX::java_lang_String * getString(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getString(int const& arg0,std::vector<java_lang_Object> const& arg1) ;
 	virtual int  getIdentifier(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) ;
+	virtual AndroidCXX::android_content_res_XmlResourceParser * getAnimation(int const& arg0) ;
+	virtual std::vector<int>  getIntArray(int const& arg0) ;
+	virtual std::vector<java_lang_String>  getStringArray(int const& arg0) ;
 	virtual AndroidCXX::java_lang_CharSequence * getText(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) ;
 	virtual AndroidCXX::java_lang_CharSequence * getText(int const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getResourceName(int const& arg0) ;
-	virtual AndroidCXX::android_content_res_XmlResourceParser * getAnimation(int const& arg0) ;
-	virtual AndroidCXX::android_content_res_XmlResourceParser * getLayout(int const& arg0) ;
-	virtual AndroidCXX::android_graphics_drawable_Drawable * getDrawable(int const& arg0) ;
 	virtual AndroidCXX::android_content_res_AssetManager * getAssets() ;
-	virtual std::vector<java_lang_String>  getStringArray(int const& arg0) ;
 	static AndroidCXX::android_content_res_Resources * getSystem() ;
 	virtual AndroidCXX::java_lang_CharSequence * getQuantityText(int const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_String * getQuantityString(int const& arg0,int const& arg1,std::vector<java_lang_Object> const& arg2) ;
 	virtual AndroidCXX::java_lang_String * getQuantityString(int const& arg0,int const& arg1) ;
 	virtual std::vector<java_lang_CharSequence>  getTextArray(int const& arg0) ;
-	virtual std::vector<int>  getIntArray(int const& arg0) ;
 	virtual AndroidCXX::android_content_res_TypedArray * obtainTypedArray(int const& arg0) ;
 	virtual float  getDimension(int const& arg0) ;
 	virtual int  getDimensionPixelOffset(int const& arg0) ;
 	virtual int  getDimensionPixelSize(int const& arg0) ;
 	virtual float  getFraction(int const& arg0,int const& arg1,int const& arg2) ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getDrawable(int const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getDrawableForDensity(int const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_graphics_Movie * getMovie(int const& arg0) ;
 	virtual int  getColor(int const& arg0) ;
 	virtual AndroidCXX::android_content_res_ColorStateList * getColorStateList(int const& arg0) ;
+	virtual AndroidCXX::android_content_res_XmlResourceParser * getLayout(int const& arg0) ;
 	virtual AndroidCXX::android_content_res_XmlResourceParser * getXml(int const& arg0) ;
 	virtual AndroidCXX::java_io_InputStream * openRawResource(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1) ;
 	virtual AndroidCXX::java_io_InputStream * openRawResource(int const& arg0) ;
@@ -269,6 +268,7 @@ public:
 	virtual void  updateConfiguration(AndroidCXX::android_content_res_Configuration const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) ;
 	virtual AndroidCXX::android_util_DisplayMetrics * getDisplayMetrics() ;
 	virtual AndroidCXX::android_content_res_Configuration * getConfiguration() ;
+	virtual AndroidCXX::java_lang_String * getResourceName(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getResourcePackageName(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getResourceTypeName(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getResourceEntryName(int const& arg0) ;

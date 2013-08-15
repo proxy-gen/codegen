@@ -51,9 +51,9 @@
 
 #include <java_lang_String.hpp>
 
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
 #include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_widget_Chronometer_OnChronometerTickListener.hpp>
 
@@ -82,9 +82,9 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_view_accessibility_AccessibilityNodeInfo;
-
 class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_widget_Chronometer_OnChronometerTickListener;
 
@@ -109,11 +109,11 @@ public:
 	virtual void  start() ;
 	virtual void  stop() ;
 	virtual AndroidCXX::java_lang_String * getFormat() ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  setFormat(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setBase(long const& arg0) ;
 	virtual long  getBase() ;
-	virtual void  setFormat(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setOnChronometerTickListener(AndroidCXX::android_widget_Chronometer_OnChronometerTickListener const& arg0) ;
 	virtual AndroidCXX::android_widget_Chronometer_OnChronometerTickListener * getOnChronometerTickListener() ;
 

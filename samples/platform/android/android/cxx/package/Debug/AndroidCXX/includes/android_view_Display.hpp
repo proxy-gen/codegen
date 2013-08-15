@@ -99,12 +99,12 @@ public:
 	virtual AndroidCXX::java_lang_String * getName() ;
 	virtual void  getSize(AndroidCXX::android_graphics_Point const& arg0) ;
 	virtual bool  isValid() ;
+	virtual int  getOrientation() ;
 	virtual int  getWidth() ;
 	virtual int  getHeight() ;
 	virtual int  getRotation() ;
-	virtual int  getOrientation() ;
-	virtual int  getFlags() ;
 	virtual int  getDisplayId() ;
+	virtual int  getFlags() ;
 	virtual void  getRectSize(AndroidCXX::android_graphics_Rect const& arg0) ;
 	virtual void  getCurrentSizeRange(AndroidCXX::android_graphics_Point const& arg0,AndroidCXX::android_graphics_Point const& arg1) ;
 	virtual int  getPixelFormat() ;

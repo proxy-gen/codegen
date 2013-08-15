@@ -66,8 +66,8 @@ public:
 	// Functions
 	virtual void  onAnimationStart(AndroidCXX::android_animation_Animator const& arg0) ;
 	virtual void  onAnimationEnd(AndroidCXX::android_animation_Animator const& arg0) ;
-	virtual void  onAnimationRepeat(AndroidCXX::android_animation_Animator const& arg0) ;
 	virtual void  onAnimationCancel(AndroidCXX::android_animation_Animator const& arg0) ;
+	virtual void  onAnimationRepeat(AndroidCXX::android_animation_Animator const& arg0) ;
 
 protected:
 	android_animation_Animator_AnimatorListener();

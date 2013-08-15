@@ -9,11 +9,11 @@
 
 
 
+ 		 
+ 		 
+ 		 
+ 		 
 	
- 		 
- 		 
- 		 
- 		 
 	
  		 
  		 
@@ -108,13 +108,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_CharSequence;
-
 class android_graphics_Canvas;
 
 class android_graphics_Path;
 
 class android_graphics_Paint;
+
+class java_lang_CharSequence;
 
 class android_text_TextPaint;
 
@@ -133,11 +133,11 @@ public:
 	// Default Destructor
 	virtual ~android_text_Layout();
 	// Functions
-	virtual AndroidCXX::java_lang_CharSequence * getText() ;
 	virtual int  getWidth() ;
 	virtual int  getHeight() ;
 	virtual void  draw(AndroidCXX::android_graphics_Canvas const& arg0,AndroidCXX::android_graphics_Path const& arg1,AndroidCXX::android_graphics_Paint const& arg2,int const& arg3) ;
 	virtual void  draw(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual AndroidCXX::java_lang_CharSequence * getText() ;
 	virtual AndroidCXX::android_text_TextPaint * getPaint() ;
 	virtual int  getLineCount() ;
 	virtual int  getLineBounds(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;

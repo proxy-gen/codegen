@@ -322,9 +322,9 @@ public:
 	virtual bool  isHardwareAccelerated() ;
 	virtual bool  getClipBounds(AndroidCXX::android_graphics_Rect const& arg0) ;
 	virtual AndroidCXX::android_graphics_Rect * getClipBounds() ;
-	virtual void  setBitmap(AndroidCXX::android_graphics_Bitmap const& arg0) ;
 	virtual int  getDensity() ;
 	virtual void  setDensity(int const& arg0) ;
+	virtual void  setBitmap(AndroidCXX::android_graphics_Bitmap const& arg0) ;
 	virtual int  getMaximumBitmapWidth() ;
 	virtual int  getMaximumBitmapHeight() ;
 	virtual int  saveLayer(AndroidCXX::android_graphics_RectF const& arg0,AndroidCXX::android_graphics_Paint const& arg1,int const& arg2) ;

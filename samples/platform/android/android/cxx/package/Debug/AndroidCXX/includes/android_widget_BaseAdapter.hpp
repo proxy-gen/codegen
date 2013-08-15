@@ -83,13 +83,13 @@ public:
 	virtual bool  isEnabled(int const& arg0) ;
 	virtual void  registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
 	virtual void  unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
+	virtual AndroidCXX::android_view_View * getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
 	virtual bool  hasStableIds() ;
 	virtual int  getItemViewType(int const& arg0) ;
 	virtual int  getViewTypeCount() ;
-	virtual bool  areAllItemsEnabled() ;
-	virtual AndroidCXX::android_view_View * getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
-	virtual void  notifyDataSetChanged() ;
 	virtual void  notifyDataSetInvalidated() ;
+	virtual void  notifyDataSetChanged() ;
+	virtual bool  areAllItemsEnabled() ;
 
 protected:
 	android_widget_BaseAdapter();

@@ -14,9 +14,21 @@
  		 
  		 
  		 
+	
  		 
  		 
  		 
+	
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+	
 	
  		 
 	
@@ -25,24 +37,12 @@
 	
  		 
  		 
-	
-	
- 		 
-	
- 		 
- 		 
-	
- 		 
  		 
  		 
  		 
 	
  		 
  		 
- 		 
- 		 
- 		 
-	
  		 
  		 
 	
@@ -140,17 +140,17 @@ class org_xmlpull_v1_XmlPullParser;
 
 class android_util_AttributeSet;
 
+class android_graphics_Rect;
+
 class android_graphics_Canvas;
 
-class android_graphics_ColorFilter;
-
-
-class android_graphics_Rect;
 
 class android_graphics_drawable_Drawable_Callback;
 
 class java_lang_Runnable;
 
+
+class android_graphics_ColorFilter;
 
 class android_graphics_Region;
 
@@ -177,34 +177,35 @@ public:
 	virtual std::vector<int>  getState() ;
 	virtual bool  setState(std::vector<int> const& arg0) ;
 	virtual void  inflate(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1,AndroidCXX::android_util_AttributeSet const& arg2) ;
-	virtual bool  isVisible() ;
+	virtual AndroidCXX::android_graphics_Rect * getBounds() ;
 	virtual void  setAlpha(int const& arg0) ;
 	virtual void  draw(AndroidCXX::android_graphics_Canvas const& arg0) ;
 	virtual int  getMinimumHeight() ;
 	virtual int  getMinimumWidth() ;
-	virtual void  setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0) ;
-	virtual void  setColorFilter(int const& arg0,android_graphics_PorterDuff_Mode::android_graphics_PorterDuff_Mode const& arg1) ;
-	virtual void  clearColorFilter() ;
-	virtual bool  setVisible(bool const& arg0,bool const& arg1) ;
-	virtual AndroidCXX::android_graphics_Rect * getBounds() ;
-	virtual void  setDither(bool const& arg0) ;
-	virtual void  setFilterBitmap(bool const& arg0) ;
+	static AndroidCXX::android_graphics_drawable_Drawable * createFromXml(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1) ;
+	virtual bool  isStateful() ;
 	virtual void  setBounds(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual void  setBounds(AndroidCXX::android_graphics_Rect const& arg0) ;
-	virtual AndroidCXX::android_graphics_Rect * copyBounds() ;
 	virtual void  copyBounds(AndroidCXX::android_graphics_Rect const& arg0) ;
+	virtual AndroidCXX::android_graphics_Rect * copyBounds() ;
 	virtual void  setChangingConfigurations(int const& arg0) ;
 	virtual int  getChangingConfigurations() ;
+	virtual void  setDither(bool const& arg0) ;
+	virtual void  setFilterBitmap(bool const& arg0) ;
 	virtual void  setCallback(AndroidCXX::android_graphics_drawable_Drawable_Callback const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable_Callback * getCallback() ;
 	virtual void  invalidateSelf() ;
 	virtual void  scheduleSelf(AndroidCXX::java_lang_Runnable const& arg0,long const& arg1) ;
 	virtual void  unscheduleSelf(AndroidCXX::java_lang_Runnable const& arg0) ;
-	virtual bool  isStateful() ;
+	virtual void  setColorFilter(int const& arg0,android_graphics_PorterDuff_Mode::android_graphics_PorterDuff_Mode const& arg1) ;
+	virtual void  setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0) ;
+	virtual void  clearColorFilter() ;
 	virtual void  jumpToCurrentState() ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getCurrent() ;
 	virtual bool  setLevel(int const& arg0) ;
 	virtual int  getLevel() ;
+	virtual bool  setVisible(bool const& arg0,bool const& arg1) ;
+	virtual bool  isVisible() ;
 	virtual int  getOpacity() ;
 	static int  resolveOpacity(int const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_graphics_Region * getTransparentRegion() ;
@@ -213,9 +214,8 @@ public:
 	virtual bool  getPadding(AndroidCXX::android_graphics_Rect const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * mutate() ;
 	static AndroidCXX::android_graphics_drawable_Drawable * createFromStream(AndroidCXX::java_io_InputStream const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	static AndroidCXX::android_graphics_drawable_Drawable * createFromResourceStream(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::android_util_TypedValue const& arg1,AndroidCXX::java_io_InputStream const& arg2,AndroidCXX::java_lang_String const& arg3) ;
 	static AndroidCXX::android_graphics_drawable_Drawable * createFromResourceStream(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::android_util_TypedValue const& arg1,AndroidCXX::java_io_InputStream const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::android_graphics_BitmapFactory_Options const& arg4) ;
-	static AndroidCXX::android_graphics_drawable_Drawable * createFromXml(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1) ;
+	static AndroidCXX::android_graphics_drawable_Drawable * createFromResourceStream(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::android_util_TypedValue const& arg1,AndroidCXX::java_io_InputStream const& arg2,AndroidCXX::java_lang_String const& arg3) ;
 	static AndroidCXX::android_graphics_drawable_Drawable * createFromXmlInner(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1,AndroidCXX::android_util_AttributeSet const& arg2) ;
 	static AndroidCXX::android_graphics_drawable_Drawable * createFromPath(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable_ConstantState * getConstantState() ;

@@ -14,8 +14,8 @@
 	
  		 
  		 
-	
  		 
+	
 
 
  		 
@@ -75,8 +75,8 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-
 class android_os_Parcel;
+
 
 class java_lang_CharSequence;
 
@@ -100,11 +100,11 @@ public:
 	// Functions
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual AndroidCXX::java_lang_String * debug(AndroidCXX::java_lang_String const& arg0) ;
-	virtual int  copyFrom(AndroidCXX::android_view_WindowManager_LayoutParams const& arg0) ;
 	virtual int  describeContents() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual AndroidCXX::java_lang_CharSequence * getTitle() ;
+	virtual int  copyFrom(AndroidCXX::android_view_WindowManager_LayoutParams const& arg0) ;
 	virtual void  setTitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual AndroidCXX::java_lang_CharSequence * getTitle() ;
 	static bool  mayUseInputMethod(int const& arg0) ;
 
 protected:

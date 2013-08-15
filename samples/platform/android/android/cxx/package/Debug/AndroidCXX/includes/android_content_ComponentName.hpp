@@ -18,9 +18,9 @@
  		 
  		 
  		 
-	
-	
  		 
+	
+	
 	
  		 
 	
@@ -140,10 +140,10 @@ public:
 	virtual int  describeContents() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 	static void  writeToParcel(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_Parcel const& arg1) ;
+	static AndroidCXX::android_content_ComponentName * readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toShortString() ;
 	virtual AndroidCXX::java_lang_String * flattenToString() ;
 	static AndroidCXX::android_content_ComponentName * unflattenFromString(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::android_content_ComponentName * readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getShortClassName() ;
 	virtual AndroidCXX::java_lang_String * flattenToShortString() ;
 

@@ -17,11 +17,11 @@
  		 
 	
  		 
- 	
 	
  	
 	
  		 
+ 	
 	
  		 
  	
@@ -117,8 +117,6 @@ public:
 	virtual AndroidCXX::java_lang_String * getHostName() ;
 	virtual AndroidCXX::java_lang_String * getHostAddress() ;
 	static AndroidCXX::java_net_InetAddress * getByName(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::java_net_InetAddress * getByAddress(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1) ;
-	static AndroidCXX::java_net_InetAddress * getByAddress(std::vector<byte> const& arg0) ;
 	virtual bool  isMulticastAddress() ;
 	virtual bool  isAnyLocalAddress() ;
 	virtual bool  isLoopbackAddress() ;
@@ -129,9 +127,11 @@ public:
 	virtual bool  isMCLinkLocal() ;
 	virtual bool  isMCSiteLocal() ;
 	virtual bool  isMCOrgLocal() ;
-	virtual bool  isReachable(AndroidCXX::java_net_NetworkInterface const& arg0,int const& arg1,int const& arg2) ;
 	virtual bool  isReachable(int const& arg0) ;
+	virtual bool  isReachable(AndroidCXX::java_net_NetworkInterface const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_lang_String * getCanonicalHostName() ;
+	static AndroidCXX::java_net_InetAddress * getByAddress(std::vector<byte> const& arg0) ;
+	static AndroidCXX::java_net_InetAddress * getByAddress(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1) ;
 	static std::vector<java_net_InetAddress>  getAllByName(AndroidCXX::java_lang_String const& arg0) ;
 	static AndroidCXX::java_net_InetAddress * getLocalHost() ;
 

@@ -61,9 +61,9 @@
 
 #include <android_widget_DatePicker_OnDateChangedListener.hpp>
 
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
 #include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_widget_CalendarView.hpp>
 
@@ -92,9 +92,9 @@ namespace AndroidCXX {
 
 class android_widget_DatePicker_OnDateChangedListener;
 
-class android_view_accessibility_AccessibilityNodeInfo;
-
 class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_widget_CalendarView;
 
@@ -120,11 +120,11 @@ public:
 	virtual int  getYear() ;
 	virtual int  getMonth() ;
 	virtual int  getDayOfMonth() ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual bool  isEnabled() ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual bool  dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual bool  isEnabled() ;
 	virtual void  setEnabled(bool const& arg0) ;
 	virtual long  getMinDate() ;
 	virtual void  setMinDate(long const& arg0) ;

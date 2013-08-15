@@ -13,17 +13,17 @@
  		 
  		 
 	
+	
+	
+ 	
+ 	
+	
+ 		 
  	
  	
 	
  		 
  		 
- 	
- 	
-	
- 		 
-	
-	
  		 
 	
  		 
@@ -190,40 +190,41 @@ public:
 	virtual void  transform(AndroidCXX::android_graphics_Matrix const& arg0) ;
 	virtual float  getSize() ;
 	virtual float  getSize(int const& arg0) ;
-	virtual float  getY() ;
 	virtual float  getY(int const& arg0) ;
-	virtual float  getX() ;
+	virtual float  getY() ;
 	virtual float  getX(int const& arg0) ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,int const& arg3,float const& arg4,float const& arg5,float const& arg6,float const& arg7,int const& arg8,float const& arg9,float const& arg10,int const& arg11,int const& arg12) ;
-	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,int const& arg3,std::vector<android_view_MotionEvent_PointerProperties> const& arg4,std::vector<android_view_MotionEvent_PointerCoords> const& arg5,int const& arg6,int const& arg7,float const& arg8,float const& arg9,int const& arg10,int const& arg11,int const& arg12,int const& arg13) ;
-	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,int const& arg3,std::vector<int> const& arg4,std::vector<android_view_MotionEvent_PointerCoords> const& arg5,int const& arg6,float const& arg7,float const& arg8,int const& arg9,int const& arg10,int const& arg11,int const& arg12) ;
-	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,float const& arg3,float const& arg4,float const& arg5,float const& arg6,int const& arg7,float const& arg8,float const& arg9,int const& arg10,int const& arg11) ;
-	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,float const& arg3,float const& arg4,int const& arg5) ;
-	static AndroidCXX::android_view_MotionEvent * obtain(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual void  recycle() ;
+	virtual float  getX() ;
 	virtual float  getOrientation(int const& arg0) ;
 	virtual float  getOrientation() ;
+	virtual int  getAction() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,float const& arg3,float const& arg4,int const& arg5) ;
+	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,int const& arg3,float const& arg4,float const& arg5,float const& arg6,float const& arg7,int const& arg8,float const& arg9,float const& arg10,int const& arg11,int const& arg12) ;
+	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,float const& arg3,float const& arg4,float const& arg5,float const& arg6,int const& arg7,float const& arg8,float const& arg9,int const& arg10,int const& arg11) ;
+	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,int const& arg3,std::vector<int> const& arg4,std::vector<android_view_MotionEvent_PointerCoords> const& arg5,int const& arg6,float const& arg7,float const& arg8,int const& arg9,int const& arg10,int const& arg11,int const& arg12) ;
+	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,int const& arg3,std::vector<android_view_MotionEvent_PointerProperties> const& arg4,std::vector<android_view_MotionEvent_PointerCoords> const& arg5,int const& arg6,int const& arg7,float const& arg8,float const& arg9,int const& arg10,int const& arg11,int const& arg12,int const& arg13) ;
+	static AndroidCXX::android_view_MotionEvent * obtain(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual void  recycle() ;
+	virtual int  getFlags() ;
+	virtual void  setAction(int const& arg0) ;
 	static AndroidCXX::android_view_MotionEvent * obtainNoHistory(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual int  getDeviceId() ;
 	virtual int  getSource() ;
 	virtual void  setSource(int const& arg0) ;
-	virtual int  getAction() ;
 	virtual int  getActionMasked() ;
 	virtual int  getActionIndex() ;
-	virtual int  getFlags() ;
 	virtual long  getDownTime() ;
 	virtual long  getEventTime() ;
 	virtual float  getPressure() ;
 	virtual float  getPressure(int const& arg0) ;
-	virtual float  getTouchMajor(int const& arg0) ;
 	virtual float  getTouchMajor() ;
+	virtual float  getTouchMajor(int const& arg0) ;
 	virtual float  getTouchMinor() ;
 	virtual float  getTouchMinor(int const& arg0) ;
-	virtual float  getToolMajor(int const& arg0) ;
 	virtual float  getToolMajor() ;
-	virtual float  getToolMinor(int const& arg0) ;
+	virtual float  getToolMajor(int const& arg0) ;
 	virtual float  getToolMinor() ;
+	virtual float  getToolMinor(int const& arg0) ;
 	virtual float  getAxisValue(int const& arg0,int const& arg1) ;
 	virtual float  getAxisValue(int const& arg0) ;
 	virtual int  getPointerCount() ;
@@ -242,28 +243,27 @@ public:
 	virtual long  getHistoricalEventTime(int const& arg0) ;
 	virtual float  getHistoricalX(int const& arg0) ;
 	virtual float  getHistoricalX(int const& arg0,int const& arg1) ;
-	virtual float  getHistoricalY(int const& arg0) ;
 	virtual float  getHistoricalY(int const& arg0,int const& arg1) ;
+	virtual float  getHistoricalY(int const& arg0) ;
 	virtual float  getHistoricalPressure(int const& arg0) ;
 	virtual float  getHistoricalPressure(int const& arg0,int const& arg1) ;
-	virtual float  getHistoricalSize(int const& arg0,int const& arg1) ;
 	virtual float  getHistoricalSize(int const& arg0) ;
+	virtual float  getHistoricalSize(int const& arg0,int const& arg1) ;
 	virtual float  getHistoricalTouchMajor(int const& arg0) ;
 	virtual float  getHistoricalTouchMajor(int const& arg0,int const& arg1) ;
 	virtual float  getHistoricalTouchMinor(int const& arg0,int const& arg1) ;
 	virtual float  getHistoricalTouchMinor(int const& arg0) ;
-	virtual float  getHistoricalToolMajor(int const& arg0) ;
 	virtual float  getHistoricalToolMajor(int const& arg0,int const& arg1) ;
-	virtual float  getHistoricalToolMinor(int const& arg0) ;
+	virtual float  getHistoricalToolMajor(int const& arg0) ;
 	virtual float  getHistoricalToolMinor(int const& arg0,int const& arg1) ;
+	virtual float  getHistoricalToolMinor(int const& arg0) ;
 	virtual float  getHistoricalOrientation(int const& arg0,int const& arg1) ;
 	virtual float  getHistoricalOrientation(int const& arg0) ;
-	virtual float  getHistoricalAxisValue(int const& arg0,int const& arg1,int const& arg2) ;
 	virtual float  getHistoricalAxisValue(int const& arg0,int const& arg1) ;
+	virtual float  getHistoricalAxisValue(int const& arg0,int const& arg1,int const& arg2) ;
 	virtual void  getHistoricalPointerCoords(int const& arg0,int const& arg1,AndroidCXX::android_view_MotionEvent_PointerCoords const& arg2) ;
 	virtual int  getEdgeFlags() ;
 	virtual void  setEdgeFlags(int const& arg0) ;
-	virtual void  setAction(int const& arg0) ;
 	virtual void  offsetLocation(float const& arg0,float const& arg1) ;
 	virtual void  setLocation(float const& arg0,float const& arg1) ;
 	virtual void  addBatch(long const& arg0,std::vector<android_view_MotionEvent_PointerCoords> const& arg1,int const& arg2) ;

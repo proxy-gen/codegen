@@ -16,11 +16,11 @@
  		 
  		 
  		 
- 		 
- 		 
 	
  		 
 	
+ 		 
+ 		 
  		 
  		 
  		 
@@ -98,11 +98,11 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_graphics_Rect;
-
 class android_view_ActionMode_Callback;
 
 class android_view_ActionMode;
+
+class android_graphics_Rect;
 
 class android_view_accessibility_AccessibilityEvent;
 
@@ -121,12 +121,12 @@ public:
 	virtual ~android_view_ViewParent();
 	// Functions
 	virtual AndroidCXX::android_view_ViewParent * getParent() ;
-	virtual bool  requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) ;
 	virtual void  requestChildFocus(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;
 	virtual void  focusableViewAvailable(AndroidCXX::android_view_View const& arg0) ;
 	virtual bool  showContextMenuForChild(AndroidCXX::android_view_View const& arg0) ;
 	virtual AndroidCXX::android_view_ActionMode * startActionModeForChild(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ActionMode_Callback const& arg1) ;
 	virtual AndroidCXX::android_view_View * focusSearch(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
+	virtual bool  requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) ;
 	virtual bool  requestSendAccessibilityEvent(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1) ;
 	virtual void  clearChildFocus(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  recomputeViewAttributes(AndroidCXX::android_view_View const& arg0) ;

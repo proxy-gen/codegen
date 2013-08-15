@@ -78,7 +78,6 @@ public:
 	// Default Destructor
 	virtual ~android_content_BroadcastReceiver_PendingResult();
 	// Functions
-	virtual void  finish() ;
 	virtual void  setResultCode(int const& arg0) ;
 	virtual int  getResultCode() ;
 	virtual void  setResultData(AndroidCXX::java_lang_String const& arg0) ;
@@ -89,6 +88,7 @@ public:
 	virtual bool  getAbortBroadcast() ;
 	virtual void  abortBroadcast() ;
 	virtual void  clearAbortBroadcast() ;
+	virtual void  finish() ;
 
 protected:
 

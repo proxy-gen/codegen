@@ -11,9 +11,9 @@
 
 	
  		 
+ 	
+ 	
  		 
- 	
- 	
  	
  	
  		 
@@ -99,14 +99,14 @@ public:
 	virtual char  getNumber(int const& arg0) ;
 	virtual int  describeContents() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	static int  getDeadChar(int const& arg0,int const& arg1) ;
-	virtual char  getDisplayLabel(int const& arg0) ;
-	virtual bool  getKeyData(int const& arg0,AndroidCXX::android_view_KeyCharacterMap_KeyData const& arg1) ;
-	virtual char  getMatch(int const& arg0,std::vector<char> const& arg1) ;
-	virtual char  getMatch(int const& arg0,std::vector<char> const& arg1,int const& arg2) ;
-	virtual bool  isPrintingKey(int const& arg0) ;
 	virtual int  getKeyboardType() ;
+	virtual char  getMatch(int const& arg0,std::vector<char> const& arg1,int const& arg2) ;
+	virtual char  getMatch(int const& arg0,std::vector<char> const& arg1) ;
+	virtual char  getDisplayLabel(int const& arg0) ;
+	static int  getDeadChar(int const& arg0,int const& arg1) ;
+	virtual bool  getKeyData(int const& arg0,AndroidCXX::android_view_KeyCharacterMap_KeyData const& arg1) ;
 	virtual std::vector<android_view_KeyEvent>  getEvents(std::vector<char> const& arg0) ;
+	virtual bool  isPrintingKey(int const& arg0) ;
 	virtual int  getModifierBehavior() ;
 	static bool  deviceHasKey(int const& arg0) ;
 	static std::vector<bool>  deviceHasKeys(std::vector<int> const& arg0) ;

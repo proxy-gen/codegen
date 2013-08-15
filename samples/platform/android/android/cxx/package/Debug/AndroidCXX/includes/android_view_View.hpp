@@ -21,32 +21,6 @@
 	
  		 
  		 
- 	
- 		 
-	
- 		 
- 		 
-	
- 		 
- 		 
- 		 
- 		 
- 	
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
-	
- 		 
  		 
  		 
 	
@@ -70,19 +44,23 @@
  		 
  		 
  		 
+ 		 
+ 		 
  	
  		 
  		 
-	
-	
  		 
 	
+	
+ 		 
+	
  		 
  		 
  		 
  		 
  		 
 	
+ 		 
  		 
  		 
  		 
@@ -109,16 +87,6 @@
 	
  	
  		 
-	
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
-	
  		 
 	
  		 
@@ -127,13 +95,43 @@
  		 
  		 
  		 
+ 		 
+ 		 
+ 		 
+ 		 
 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
  		 
  		 
  		 
 	
 	
 	
+	
+ 		 
+ 	
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
  		 
 	
 	
@@ -154,11 +152,13 @@
 	
  	
  	
+	
  		 
 	
  		 
  		 
 	
+ 		 
  		 
  		 
  		 
@@ -571,43 +571,21 @@
 
 #include <android_graphics_Rect.hpp>
 
-#include <android_util_SparseArray.hpp>
-
-#include <android_os_Parcelable.hpp>
-
-#include <android_os_IBinder.hpp>
-
-#include <android_view_View_OnCreateContextMenuListener.hpp>
-
-#include <android_content_res_Configuration.hpp>
-
-#include <android_view_animation_Animation.hpp>
-
-#include <java_lang_Runnable.hpp>
-
-#include <android_view_ViewGroup_LayoutParams.hpp>
-
 #include <android_view_MotionEvent.hpp>
-
-#include <android_view_KeyEvent.hpp>
-
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
-#include <android_os_Bundle.hpp>
-
-#include <android_view_inputmethod_EditorInfo.hpp>
-
-#include <android_view_inputmethod_InputConnection.hpp>
-
-#include <android_graphics_Paint.hpp>
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <java_util_ArrayList.hpp>
 
 #include <java_lang_CharSequence.hpp>
 
+#include <android_content_res_Configuration.hpp>
+
 #include <android_view_DragEvent.hpp>
+
+#include <android_view_KeyEvent.hpp>
 
 #include <android_view_ViewOverlay.hpp>
 
@@ -624,6 +602,8 @@
 #include <android_view_View_OnClickListener.hpp>
 
 #include <android_view_View_OnLongClickListener.hpp>
+
+#include <android_view_View_OnCreateContextMenuListener.hpp>
 
 #include <android_view_ActionMode_Callback.hpp>
 
@@ -643,7 +623,13 @@
 
 #include <android_view_accessibility_AccessibilityNodeProvider.hpp>
 
+#include <android_os_Bundle.hpp>
+
 #include <android_view_KeyEvent_DispatcherState.hpp>
+
+#include <android_view_inputmethod_EditorInfo.hpp>
+
+#include <android_view_inputmethod_InputConnection.hpp>
 
 #include <android_view_TouchDelegate.hpp>
 
@@ -651,9 +637,21 @@
 
 #include <android_graphics_Point.hpp>
 
+#include <android_view_ViewGroup_LayoutParams.hpp>
+
+#include <java_lang_Runnable.hpp>
+
+#include <android_os_IBinder.hpp>
+
 #include <android_view_WindowId.hpp>
 
 #include <android_view_Display.hpp>
+
+#include <android_util_SparseArray.hpp>
+
+#include <android_os_Parcelable.hpp>
+
+#include <android_graphics_Paint.hpp>
 
 #include <android_graphics_Bitmap.hpp>
 
@@ -662,6 +660,8 @@
 #include <android_graphics_drawable_Drawable.hpp>
 
 #include <android_view_ViewTreeObserver.hpp>
+
+#include <android_view_animation_Animation.hpp>
 
 #include <android_view_View_OnSystemUiVisibilityChangeListener.hpp>
 
@@ -711,43 +711,21 @@ class java_lang_Object;
 
 class android_graphics_Rect;
 
-class android_util_SparseArray;
-
-class android_os_Parcelable;
-
-class android_os_IBinder;
-
-class android_view_View_OnCreateContextMenuListener;
-
-class android_content_res_Configuration;
-
-class android_view_animation_Animation;
-
-class java_lang_Runnable;
-
-class android_view_ViewGroup_LayoutParams;
-
 class android_view_MotionEvent;
-
-class android_view_KeyEvent;
-
-class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_view_accessibility_AccessibilityEvent;
 
-class android_os_Bundle;
-
-class android_view_inputmethod_EditorInfo;
-
-class android_view_inputmethod_InputConnection;
-
-class android_graphics_Paint;
+class android_view_accessibility_AccessibilityNodeInfo;
 
 class java_util_ArrayList;
 
 class java_lang_CharSequence;
 
+class android_content_res_Configuration;
+
 class android_view_DragEvent;
+
+class android_view_KeyEvent;
 
 class android_view_ViewOverlay;
 
@@ -764,6 +742,8 @@ class android_view_View_OnAttachStateChangeListener;
 class android_view_View_OnClickListener;
 
 class android_view_View_OnLongClickListener;
+
+class android_view_View_OnCreateContextMenuListener;
 
 class android_view_ActionMode_Callback;
 
@@ -783,7 +763,13 @@ class android_view_View_AccessibilityDelegate;
 
 class android_view_accessibility_AccessibilityNodeProvider;
 
+class android_os_Bundle;
+
 class android_view_KeyEvent_DispatcherState;
+
+class android_view_inputmethod_EditorInfo;
+
+class android_view_inputmethod_InputConnection;
 
 class android_view_TouchDelegate;
 
@@ -791,9 +777,21 @@ class android_graphics_Matrix;
 
 class android_graphics_Point;
 
+class android_view_ViewGroup_LayoutParams;
+
+class java_lang_Runnable;
+
+class android_os_IBinder;
+
 class android_view_WindowId;
 
 class android_view_Display;
+
+class android_util_SparseArray;
+
+class android_os_Parcelable;
+
+class android_graphics_Paint;
 
 class android_graphics_Bitmap;
 
@@ -802,6 +800,8 @@ class android_graphics_Canvas;
 class android_graphics_drawable_Drawable;
 
 class android_view_ViewTreeObserver;
+
+class android_view_animation_Animation;
 
 class android_view_View_OnSystemUiVisibilityChangeListener;
 
@@ -816,8 +816,8 @@ class android_view_View : public android_graphics_drawable_Drawable_Callback,pub
 public:
 
 	// Public ConstrucXXX
-	android_view_View(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_view_View(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_view_View(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_view_View(AndroidCXX::android_content_Context const& arg0);
 	android_view_View(const android_view_View& cc);
 	android_view_View(Proxy proxy);
@@ -835,69 +835,42 @@ public:
 	static AndroidCXX::android_view_View * inflate(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
 	virtual AndroidCXX::java_lang_Object * getTag() ;
 	virtual AndroidCXX::java_lang_Object * getTag(int const& arg0) ;
+	virtual void  invalidate(AndroidCXX::android_graphics_Rect const& arg0) ;
 	virtual void  invalidate(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual void  invalidate() ;
-	virtual void  invalidate(AndroidCXX::android_graphics_Rect const& arg0) ;
 	virtual float  getY() ;
 	virtual float  getX() ;
-	virtual bool  isInLayout() ;
-	virtual void  restoreHierarchyState(AndroidCXX::android_util_SparseArray const& arg0) ;
-	virtual AndroidCXX::android_os_IBinder * getWindowToken() ;
-	virtual int  getVisibility() ;
-	virtual void  setOnCreateContextMenuListener(AndroidCXX::android_view_View_OnCreateContextMenuListener const& arg0) ;
-	virtual void  dispatchConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0) ;
-	virtual AndroidCXX::android_view_View * findViewById(int const& arg0) ;
-	virtual void  setVisibility(int const& arg0) ;
-	virtual void  startAnimation(AndroidCXX::android_view_animation_Animation const& arg0) ;
-	virtual void  clearAnimation() ;
-	virtual bool  removeCallbacks(AndroidCXX::java_lang_Runnable const& arg0) ;
-	virtual bool  post(AndroidCXX::java_lang_Runnable const& arg0) ;
-	virtual void  saveHierarchyState(AndroidCXX::android_util_SparseArray const& arg0) ;
-	virtual void  setLayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0) ;
-	virtual void  setOverScrollMode(int const& arg0) ;
-	virtual void  setScrollBarStyle(int const& arg0) ;
-	virtual void  computeScroll() ;
-	virtual bool  onHoverEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual bool  onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual bool  onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
-	virtual bool  onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
-	virtual bool  onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual bool  isEnabled() ;
+	virtual bool  hasFocus() ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual bool  performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
-	virtual bool  performLongClick() ;
-	virtual AndroidCXX::android_view_inputmethod_InputConnection * onCreateInputConnection(AndroidCXX::android_view_inputmethod_EditorInfo const& arg0) ;
-	virtual void  onWindowFocusChanged(bool const& arg0) ;
-	virtual bool  hasWindowFocus() ;
-	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
-	virtual bool  requestFocus(int const& arg0) ;
-	virtual bool  requestFocus(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
-	virtual bool  requestFocus() ;
-	virtual void  setBackgroundColor(int const& arg0) ;
-	virtual void  setLayerType(int const& arg0,AndroidCXX::android_graphics_Paint const& arg1) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual int  getBaseline() ;
 	virtual AndroidCXX::android_view_View * focusSearch(int const& arg0) ;
 	virtual bool  dispatchUnhandledMove(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
 	virtual void  clearFocus() ;
-	virtual bool  hasFocus() ;
 	virtual AndroidCXX::android_view_View * findFocus() ;
 	virtual bool  hasFocusable() ;
-	virtual void  addFocusables(AndroidCXX::java_util_ArrayList const& arg0,int const& arg1) ;
 	virtual void  addFocusables(AndroidCXX::java_util_ArrayList const& arg0,int const& arg1,int const& arg2) ;
+	virtual void  addFocusables(AndroidCXX::java_util_ArrayList const& arg0,int const& arg1) ;
 	virtual void  findViewsWithText(AndroidCXX::java_util_ArrayList const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2) ;
 	virtual void  dispatchWindowFocusChanged(bool const& arg0) ;
 	virtual void  addTouchables(AndroidCXX::java_util_ArrayList const& arg0) ;
 	virtual void  dispatchDisplayHint(int const& arg0) ;
 	virtual void  dispatchWindowVisibilityChanged(int const& arg0) ;
+	virtual void  dispatchConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0) ;
 	virtual bool  dispatchDragEvent(AndroidCXX::android_view_DragEvent const& arg0) ;
 	virtual void  dispatchWindowSystemUiVisiblityChanged(int const& arg0) ;
 	virtual void  dispatchSystemUiVisibilityChanged(int const& arg0) ;
 	virtual bool  dispatchKeyEventPreIme(AndroidCXX::android_view_KeyEvent const& arg0) ;
+	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual bool  dispatchKeyShortcutEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual bool  dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual void  addChildrenForAccessibility(AndroidCXX::java_util_ArrayList const& arg0) ;
 	virtual bool  dispatchTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual bool  requestFocus(int const& arg0) ;
+	virtual bool  requestFocus() ;
+	virtual bool  requestFocus(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
 	virtual AndroidCXX::android_view_ViewOverlay * getOverlay() ;
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * animate() ;
 	virtual void  layout(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
@@ -922,8 +895,10 @@ public:
 	virtual void  setOnClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0) ;
 	virtual bool  hasOnClickListeners() ;
 	virtual void  setOnLongClickListener(AndroidCXX::android_view_View_OnLongClickListener const& arg0) ;
+	virtual void  setOnCreateContextMenuListener(AndroidCXX::android_view_View_OnCreateContextMenuListener const& arg0) ;
 	virtual bool  performClick() ;
 	virtual bool  callOnClick() ;
+	virtual bool  performLongClick() ;
 	virtual bool  showContextMenu() ;
 	virtual AndroidCXX::android_view_ActionMode * startActionMode(AndroidCXX::android_view_ActionMode_Callback const& arg0) ;
 	virtual void  setOnKeyListener(AndroidCXX::android_view_View_OnKeyListener const& arg0) ;
@@ -931,8 +906,8 @@ public:
 	virtual void  setOnGenericMotionListener(AndroidCXX::android_view_View_OnGenericMotionListener const& arg0) ;
 	virtual void  setOnHoverListener(AndroidCXX::android_view_View_OnHoverListener const& arg0) ;
 	virtual void  setOnDragListener(AndroidCXX::android_view_View_OnDragListener const& arg0) ;
-	virtual bool  requestRectangleOnScreen(AndroidCXX::android_graphics_Rect const& arg0,bool const& arg1) ;
 	virtual bool  requestRectangleOnScreen(AndroidCXX::android_graphics_Rect const& arg0) ;
+	virtual bool  requestRectangleOnScreen(AndroidCXX::android_graphics_Rect const& arg0,bool const& arg1) ;
 	virtual void  sendAccessibilityEvent(int const& arg0) ;
 	virtual void  announceForAccessibility(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  sendAccessibilityEventUnchecked(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
@@ -965,7 +940,8 @@ public:
 	virtual bool  isShown() ;
 	virtual void  setFitsSystemWindows(bool const& arg0) ;
 	virtual bool  getFitsSystemWindows() ;
-	virtual bool  isEnabled() ;
+	virtual int  getVisibility() ;
+	virtual void  setVisibility(int const& arg0) ;
 	virtual void  setEnabled(bool const& arg0) ;
 	virtual void  setFocusable(bool const& arg0) ;
 	virtual void  setFocusableInTouchMode(bool const& arg0) ;
@@ -1000,19 +976,29 @@ public:
 	virtual bool  requestFocusFromTouch() ;
 	virtual int  getImportantForAccessibility() ;
 	virtual void  setImportantForAccessibility(int const& arg0) ;
+	virtual bool  performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
 	virtual void  onStartTemporaryDetach() ;
 	virtual void  onFinishTemporaryDetach() ;
 	virtual AndroidCXX::android_view_KeyEvent_DispatcherState * getKeyDispatcherState() ;
 	virtual bool  onFilterTouchEventForSecurity(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual bool  dispatchGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual void  onWindowFocusChanged(bool const& arg0) ;
+	virtual bool  hasWindowFocus() ;
 	virtual int  getWindowVisibility() ;
 	virtual void  getWindowVisibleDisplayFrame(AndroidCXX::android_graphics_Rect const& arg0) ;
 	virtual bool  isInTouchMode() ;
 	virtual bool  onKeyPreIme(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
+	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
 	virtual bool  onKeyLongPress(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
+	virtual bool  onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
+	virtual bool  onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
 	virtual bool  onKeyShortcut(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
 	virtual bool  onCheckIsTextEditor() ;
+	virtual AndroidCXX::android_view_inputmethod_InputConnection * onCreateInputConnection(AndroidCXX::android_view_inputmethod_EditorInfo const& arg0) ;
 	virtual bool  checkInputConnectionProxy(AndroidCXX::android_view_View const& arg0) ;
+	virtual bool  onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual bool  onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual bool  onHoverEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual bool  isHovered() ;
 	virtual void  setHovered(bool const& arg0) ;
 	virtual void  onHoverChanged(bool const& arg0) ;
@@ -1069,23 +1055,27 @@ public:
 	virtual void  setTranslationY(float const& arg0) ;
 	virtual void  getHitRect(AndroidCXX::android_graphics_Rect const& arg0) ;
 	virtual void  getFocusedRect(AndroidCXX::android_graphics_Rect const& arg0) ;
-	virtual bool  getGlobalVisibleRect(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_graphics_Point const& arg1) ;
 	virtual bool  getGlobalVisibleRect(AndroidCXX::android_graphics_Rect const& arg0) ;
+	virtual bool  getGlobalVisibleRect(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_graphics_Point const& arg1) ;
 	virtual bool  getLocalVisibleRect(AndroidCXX::android_graphics_Rect const& arg0) ;
 	virtual void  offsetTopAndBottom(int const& arg0) ;
 	virtual void  offsetLeftAndRight(int const& arg0) ;
 	virtual AndroidCXX::android_view_ViewGroup_LayoutParams * getLayoutParams() ;
+	virtual void  setLayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0) ;
 	virtual void  scrollTo(int const& arg0,int const& arg1) ;
 	virtual void  scrollBy(int const& arg0,int const& arg1) ;
+	virtual bool  post(AndroidCXX::java_lang_Runnable const& arg0) ;
 	virtual bool  postDelayed(AndroidCXX::java_lang_Runnable const& arg0,long const& arg1) ;
 	virtual void  postOnAnimation(AndroidCXX::java_lang_Runnable const& arg0) ;
 	virtual void  postOnAnimationDelayed(AndroidCXX::java_lang_Runnable const& arg0,long const& arg1) ;
-	virtual void  postInvalidate(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual bool  removeCallbacks(AndroidCXX::java_lang_Runnable const& arg0) ;
 	virtual void  postInvalidate() ;
-	virtual void  postInvalidateDelayed(long const& arg0) ;
+	virtual void  postInvalidate(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual void  postInvalidateDelayed(long const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) ;
-	virtual void  postInvalidateOnAnimation(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  postInvalidateDelayed(long const& arg0) ;
 	virtual void  postInvalidateOnAnimation() ;
+	virtual void  postInvalidateOnAnimation(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  computeScroll() ;
 	virtual bool  isHorizontalFadingEdgeEnabled() ;
 	virtual void  setHorizontalFadingEdgeEnabled(bool const& arg0) ;
 	virtual bool  isVerticalFadingEdgeEnabled() ;
@@ -1102,29 +1092,34 @@ public:
 	virtual void  setScrollBarFadeDuration(int const& arg0) ;
 	virtual int  getScrollBarSize() ;
 	virtual void  setScrollBarSize(int const& arg0) ;
+	virtual void  setScrollBarStyle(int const& arg0) ;
 	virtual int  getScrollBarStyle() ;
 	virtual bool  canScrollHorizontally(int const& arg0) ;
 	virtual bool  canScrollVertically(int const& arg0) ;
 	virtual void  onScreenStateChanged(int const& arg0) ;
 	virtual void  onRtlPropertiesChanged(int const& arg0) ;
+	virtual AndroidCXX::android_os_IBinder * getWindowToken() ;
 	virtual AndroidCXX::android_view_WindowId * getWindowId() ;
 	virtual AndroidCXX::android_os_IBinder * getApplicationWindowToken() ;
 	virtual AndroidCXX::android_view_Display * getDisplay() ;
+	virtual void  saveHierarchyState(AndroidCXX::android_util_SparseArray const& arg0) ;
+	virtual void  restoreHierarchyState(AndroidCXX::android_util_SparseArray const& arg0) ;
 	virtual long  getDrawingTime() ;
 	virtual void  setDuplicateParentStateEnabled(bool const& arg0) ;
 	virtual bool  isDuplicateParentStateEnabled() ;
+	virtual void  setLayerType(int const& arg0,AndroidCXX::android_graphics_Paint const& arg1) ;
 	virtual void  setLayerPaint(AndroidCXX::android_graphics_Paint const& arg0) ;
 	virtual int  getLayerType() ;
 	virtual void  buildLayer() ;
 	virtual void  setDrawingCacheEnabled(bool const& arg0) ;
 	virtual bool  isDrawingCacheEnabled() ;
-	virtual AndroidCXX::android_graphics_Bitmap * getDrawingCache(bool const& arg0) ;
 	virtual AndroidCXX::android_graphics_Bitmap * getDrawingCache() ;
+	virtual AndroidCXX::android_graphics_Bitmap * getDrawingCache(bool const& arg0) ;
 	virtual void  destroyDrawingCache() ;
 	virtual void  setDrawingCacheBackgroundColor(int const& arg0) ;
 	virtual int  getDrawingCacheBackgroundColor() ;
-	virtual void  buildDrawingCache() ;
 	virtual void  buildDrawingCache(bool const& arg0) ;
+	virtual void  buildDrawingCache() ;
 	virtual bool  isInEditMode() ;
 	virtual bool  isHardwareAccelerated() ;
 	virtual void  setClipBounds(AndroidCXX::android_graphics_Rect const& arg0) ;
@@ -1137,6 +1132,7 @@ public:
 	virtual void  unscheduleDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  refreshDrawableState() ;
 	virtual std::vector<int>  getDrawableState() ;
+	virtual void  setBackgroundColor(int const& arg0) ;
 	virtual void  setBackgroundResource(int const& arg0) ;
 	virtual void  setBackground(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
@@ -1158,11 +1154,12 @@ public:
 	virtual AndroidCXX::android_view_View * getRootView() ;
 	virtual void  getLocationOnScreen(std::vector<int> const& arg0) ;
 	virtual void  getLocationInWindow(std::vector<int> const& arg0) ;
+	virtual AndroidCXX::android_view_View * findViewById(int const& arg0) ;
 	virtual AndroidCXX::android_view_View * findViewWithTag(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual void  setId(int const& arg0) ;
 	virtual void  setTag(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual void  setTag(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual int  getBaseline() ;
+	virtual bool  isInLayout() ;
 	virtual void  forceLayout() ;
 	virtual void  measure(int const& arg0,int const& arg1) ;
 	static int  combineMeasuredStates(int const& arg0,int const& arg1) ;
@@ -1174,10 +1171,12 @@ public:
 	virtual int  getMinimumWidth() ;
 	virtual void  setMinimumWidth(int const& arg0) ;
 	virtual AndroidCXX::android_view_animation_Animation * getAnimation() ;
+	virtual void  startAnimation(AndroidCXX::android_view_animation_Animation const& arg0) ;
+	virtual void  clearAnimation() ;
 	virtual void  setAnimation(AndroidCXX::android_view_animation_Animation const& arg0) ;
 	virtual void  playSoundEffect(int const& arg0) ;
-	virtual bool  performHapticFeedback(int const& arg0) ;
 	virtual bool  performHapticFeedback(int const& arg0,int const& arg1) ;
+	virtual bool  performHapticFeedback(int const& arg0) ;
 	virtual void  setSystemUiVisibility(int const& arg0) ;
 	virtual int  getSystemUiVisibility() ;
 	virtual int  getWindowSystemUiVisibility() ;
@@ -1186,6 +1185,7 @@ public:
 	virtual bool  startDrag(AndroidCXX::android_content_ClipData const& arg0,AndroidCXX::android_view_View_DragShadowBuilder const& arg1,AndroidCXX::java_lang_Object const& arg2,int const& arg3) ;
 	virtual bool  onDragEvent(AndroidCXX::android_view_DragEvent const& arg0) ;
 	virtual int  getOverScrollMode() ;
+	virtual void  setOverScrollMode(int const& arg0) ;
 	virtual void  setTextDirection(int const& arg0) ;
 	virtual int  getTextDirection() ;
 	virtual void  setTextAlignment(int const& arg0) ;

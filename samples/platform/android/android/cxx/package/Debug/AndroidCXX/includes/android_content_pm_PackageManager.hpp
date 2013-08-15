@@ -17,13 +17,13 @@
  		 
 	
  		 
- 		 
 	
  		 
 	
  		 
  		 
 	
+ 		 
  		 
 	
  	
@@ -278,13 +278,13 @@ class android_content_pm_ApplicationInfo;
 
 class java_lang_CharSequence;
 
-class android_graphics_drawable_Drawable;
-
-class android_content_res_XmlResourceParser;
-
 class android_content_Intent;
 
 class android_content_pm_ResolveInfo;
+
+class android_graphics_drawable_Drawable;
+
+class android_content_res_XmlResourceParser;
 
 class android_content_pm_PermissionInfo;
 
@@ -321,10 +321,10 @@ public:
 	virtual int  checkPermission(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual AndroidCXX::android_content_pm_PackageInfo * getPackageInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_CharSequence * getText(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2) ;
-	virtual AndroidCXX::android_graphics_drawable_Drawable * getDrawable(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2) ;
 	virtual AndroidCXX::android_content_pm_ApplicationInfo * getApplicationInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
-	virtual AndroidCXX::android_content_res_XmlResourceParser * getXml(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2) ;
 	virtual AndroidCXX::android_content_pm_ResolveInfo * resolveActivity(AndroidCXX::android_content_Intent const& arg0,int const& arg1) ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getDrawable(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2) ;
+	virtual AndroidCXX::android_content_res_XmlResourceParser * getXml(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2) ;
 	virtual std::vector<java_lang_String>  currentToCanonicalPackageNames(std::vector<java_lang_String> const& arg0) ;
 	virtual std::vector<java_lang_String>  canonicalToCurrentPackageNames(std::vector<java_lang_String> const& arg0) ;
 	virtual AndroidCXX::android_content_Intent * getLaunchIntentForPackage(AndroidCXX::java_lang_String const& arg0) ;
@@ -342,8 +342,8 @@ public:
 	virtual bool  addPermission(AndroidCXX::android_content_pm_PermissionInfo const& arg0) ;
 	virtual bool  addPermissionAsync(AndroidCXX::android_content_pm_PermissionInfo const& arg0) ;
 	virtual void  removePermission(AndroidCXX::java_lang_String const& arg0) ;
-	virtual int  checkSignatures(int const& arg0,int const& arg1) ;
 	virtual int  checkSignatures(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual int  checkSignatures(int const& arg0,int const& arg1) ;
 	virtual std::vector<java_lang_String>  getPackagesForUid(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getNameForUid(int const& arg0) ;
 	virtual AndroidCXX::java_util_List * getInstalledApplications(int const& arg0) ;

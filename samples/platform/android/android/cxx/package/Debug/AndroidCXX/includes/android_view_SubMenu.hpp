@@ -15,8 +15,8 @@
 	
  		 
 	
-	
  		 
+	
 	
 	
  		 
@@ -65,14 +65,14 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_MenuItem;
 
 class java_lang_CharSequence;
-
 
 class android_graphics_drawable_Drawable;
 
 class android_view_View;
+
+class android_view_MenuItem;
 
 class android_view_SubMenu : public android_view_Menu
 {
@@ -84,13 +84,13 @@ public:
 	// Default Destructor
 	virtual ~android_view_SubMenu();
 	// Functions
-	virtual AndroidCXX::android_view_MenuItem * getItem() ;
-	virtual AndroidCXX::android_view_SubMenu * setHeaderTitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::android_view_SubMenu * setHeaderTitle(int const& arg0) ;
-	virtual AndroidCXX::android_view_SubMenu * setHeaderIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual AndroidCXX::android_view_SubMenu * setHeaderTitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::android_view_SubMenu * setHeaderIcon(int const& arg0) ;
+	virtual AndroidCXX::android_view_SubMenu * setHeaderIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual AndroidCXX::android_view_SubMenu * setHeaderView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  clearHeader() ;
+	virtual AndroidCXX::android_view_MenuItem * getItem() ;
 	virtual AndroidCXX::android_view_SubMenu * setIcon(int const& arg0) ;
 	virtual AndroidCXX::android_view_SubMenu * setIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 

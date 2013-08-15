@@ -120,11 +120,9 @@ public:
 	virtual AndroidCXX::android_content_Context * getContext() ;
 	virtual int  getId() ;
 	virtual void  reset() ;
-	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3) ;
-	virtual void  abandon() ;
-	virtual void  stopLoading() ;
-	virtual void  onContentChanged() ;
 	virtual bool  isStarted() ;
+	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3) ;
+	virtual void  onContentChanged() ;
 	virtual void  deliverResult(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual void  registerListener(int const& arg0,AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener const& arg1) ;
 	virtual void  unregisterListener(AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener const& arg0) ;
@@ -132,6 +130,8 @@ public:
 	virtual bool  isReset() ;
 	virtual void  startLoading() ;
 	virtual void  forceLoad() ;
+	virtual void  stopLoading() ;
+	virtual void  abandon() ;
 	virtual bool  takeContentChanged() ;
 	virtual void  commitContentChanged() ;
 	virtual void  rollbackContentChanged() ;

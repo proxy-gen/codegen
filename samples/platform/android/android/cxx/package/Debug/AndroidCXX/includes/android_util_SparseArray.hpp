@@ -99,12 +99,12 @@ public:
 	virtual int  size() ;
 	virtual void  remove(int const& arg0) ;
 	virtual void  _delete(int const& arg0) ;
-	virtual int  indexOfKey(int const& arg0) ;
-	virtual AndroidCXX::java_lang_Object * valueAt(int const& arg0) ;
-	virtual void  removeAt(int const& arg0) ;
 	virtual int  keyAt(int const& arg0) ;
-	virtual void  setValueAt(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual AndroidCXX::java_lang_Object * valueAt(int const& arg0) ;
+	virtual int  indexOfKey(int const& arg0) ;
 	virtual int  indexOfValue(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  removeAt(int const& arg0) ;
+	virtual void  setValueAt(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 
 protected:
 

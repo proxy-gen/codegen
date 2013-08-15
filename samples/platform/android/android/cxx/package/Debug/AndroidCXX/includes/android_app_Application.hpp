@@ -91,12 +91,12 @@ public:
 	// Default Destructor
 	virtual ~android_app_Application();
 	// Functions
-	virtual void  onCreate() ;
 	virtual void  onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0) ;
-	virtual void  onLowMemory() ;
-	virtual void  onTrimMemory(int const& arg0) ;
 	virtual void  registerComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks const& arg0) ;
 	virtual void  unregisterComponentCallbacks(AndroidCXX::android_content_ComponentCallbacks const& arg0) ;
+	virtual void  onCreate() ;
+	virtual void  onLowMemory() ;
+	virtual void  onTrimMemory(int const& arg0) ;
 	virtual void  onTerminate() ;
 	virtual void  registerActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks const& arg0) ;
 	virtual void  unregisterActivityLifecycleCallbacks(AndroidCXX::android_app_Application_ActivityLifecycleCallbacks const& arg0) ;

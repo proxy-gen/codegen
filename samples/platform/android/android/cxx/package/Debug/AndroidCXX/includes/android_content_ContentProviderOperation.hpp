@@ -11,19 +11,19 @@
 
 	
  		 
+	
+ 		 
+	
+ 		 
+	
+ 		 
+	
+ 		 
+	
  		 
  	
 	
  		 
-	
- 		 
-	
- 		 
-	
- 		 
-	
- 		 
-	
  	
 	
  		 
@@ -65,13 +65,13 @@
 
 #include <android_os_Parcel.hpp>
 
-#include <android_content_ContentProvider.hpp>
-
-#include <android_content_ContentProviderResult.hpp>
-
 #include <android_net_Uri.hpp>
 
 #include <android_content_ContentProviderOperation_Builder.hpp>
+
+#include <android_content_ContentProvider.hpp>
+
+#include <android_content_ContentProviderResult.hpp>
 
 #include <android_content_ContentValues.hpp>
 
@@ -98,13 +98,13 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_content_ContentProvider;
-
-class android_content_ContentProviderResult;
-
 class android_net_Uri;
 
 class android_content_ContentProviderOperation_Builder;
+
+class android_content_ContentProvider;
+
+class android_content_ContentProviderResult;
 
 class android_content_ContentValues;
 
@@ -122,7 +122,6 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual int  describeContents() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual AndroidCXX::android_content_ContentProviderResult * apply(AndroidCXX::android_content_ContentProvider const& arg0,std::vector<android_content_ContentProviderResult> const& arg1,int const& arg2) ;
 	virtual AndroidCXX::android_net_Uri * getUri() ;
 	static AndroidCXX::android_content_ContentProviderOperation_Builder * newInsert(AndroidCXX::android_net_Uri const& arg0) ;
 	static AndroidCXX::android_content_ContentProviderOperation_Builder * newUpdate(AndroidCXX::android_net_Uri const& arg0) ;
@@ -131,6 +130,7 @@ public:
 	virtual bool  isYieldAllowed() ;
 	virtual bool  isWriteOperation() ;
 	virtual bool  isReadOperation() ;
+	virtual AndroidCXX::android_content_ContentProviderResult * apply(AndroidCXX::android_content_ContentProvider const& arg0,std::vector<android_content_ContentProviderResult> const& arg1,int const& arg2) ;
 	virtual AndroidCXX::android_content_ContentValues * resolveValueBackReferences(std::vector<android_content_ContentProviderResult> const& arg0,int const& arg1) ;
 	virtual std::vector<java_lang_String>  resolveSelectionArgsBackReferences(std::vector<android_content_ContentProviderResult> const& arg0,int const& arg1) ;
 

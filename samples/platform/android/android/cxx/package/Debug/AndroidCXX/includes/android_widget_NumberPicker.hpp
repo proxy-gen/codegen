@@ -80,9 +80,9 @@
 
 #include <android_view_accessibility_AccessibilityNodeProvider.hpp>
 
-#include <android_widget_NumberPicker_OnScrollListener.hpp>
-
 #include <android_widget_NumberPicker_OnValueChangeListener.hpp>
+
+#include <android_widget_NumberPicker_OnScrollListener.hpp>
 
 #include <android_widget_NumberPicker_Formatter.hpp>
 
@@ -119,9 +119,9 @@ class android_view_KeyEvent;
 
 class android_view_accessibility_AccessibilityNodeProvider;
 
-class android_widget_NumberPicker_OnScrollListener;
-
 class android_widget_NumberPicker_OnValueChangeListener;
+
+class android_widget_NumberPicker_OnScrollListener;
 
 class android_widget_NumberPicker_Formatter;
 
@@ -147,7 +147,6 @@ public:
 	// Functions
 	virtual int  getValue() ;
 	virtual void  setValue(int const& arg0) ;
-	virtual void  computeScroll() ;
 	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
@@ -157,9 +156,10 @@ public:
 	virtual AndroidCXX::android_view_accessibility_AccessibilityNodeProvider * getAccessibilityNodeProvider() ;
 	virtual void  setEnabled(bool const& arg0) ;
 	virtual void  scrollBy(int const& arg0,int const& arg1) ;
+	virtual void  computeScroll() ;
 	virtual int  getSolidColor() ;
-	virtual void  setOnScrollListener(AndroidCXX::android_widget_NumberPicker_OnScrollListener const& arg0) ;
 	virtual void  setOnValueChangedListener(AndroidCXX::android_widget_NumberPicker_OnValueChangeListener const& arg0) ;
+	virtual void  setOnScrollListener(AndroidCXX::android_widget_NumberPicker_OnScrollListener const& arg0) ;
 	virtual void  setFormatter(AndroidCXX::android_widget_NumberPicker_Formatter const& arg0) ;
 	virtual bool  getWrapSelectorWheel() ;
 	virtual void  setWrapSelectorWheel(bool const& arg0) ;

@@ -118,18 +118,18 @@ public:
 	virtual AndroidCXX::java_net_Socket * accept() ;
 	virtual AndroidCXX::java_nio_channels_ServerSocketChannel * getChannel() ;
 	virtual bool  isClosed() ;
-	virtual void  bind(AndroidCXX::java_net_SocketAddress const& arg0,int const& arg1) ;
 	virtual void  bind(AndroidCXX::java_net_SocketAddress const& arg0) ;
+	virtual void  bind(AndroidCXX::java_net_SocketAddress const& arg0,int const& arg1) ;
+	virtual bool  isBound() ;
 	virtual AndroidCXX::java_net_InetAddress * getInetAddress() ;
-	virtual int  getLocalPort() ;
 	virtual AndroidCXX::java_net_SocketAddress * getLocalSocketAddress() ;
+	virtual int  getLocalPort() ;
 	virtual void  setSoTimeout(int const& arg0) ;
 	virtual int  getSoTimeout() ;
 	virtual void  setReceiveBufferSize(int const& arg0) ;
 	virtual int  getReceiveBufferSize() ;
 	virtual void  setReuseAddress(bool const& arg0) ;
 	virtual bool  getReuseAddress() ;
-	virtual bool  isBound() ;
 	virtual void  setPerformancePreferences(int const& arg0,int const& arg1,int const& arg2) ;
 	static void  setSocketFactory(AndroidCXX::java_net_SocketImplFactory const& arg0) ;
 

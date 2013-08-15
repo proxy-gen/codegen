@@ -74,8 +74,8 @@ public:
 	// Functions
 	virtual void  setSize(int const& arg0,int const& arg1) ;
 	virtual bool  draw(AndroidCXX::android_graphics_Canvas const& arg0) ;
-	virtual bool  isFinished() ;
 	virtual void  finish() ;
+	virtual bool  isFinished() ;
 	virtual void  onPull(float const& arg0) ;
 	virtual void  onRelease() ;
 	virtual void  onAbsorb(int const& arg0) ;

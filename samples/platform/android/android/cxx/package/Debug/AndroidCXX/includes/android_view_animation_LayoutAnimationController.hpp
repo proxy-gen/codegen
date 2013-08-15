@@ -9,9 +9,9 @@
 
 
 
- 		 
- 		 
 	
+ 		 
+ 		 
  		 
  		 
 	
@@ -54,11 +54,11 @@
 //
 
 
-#include <android_view_animation_Interpolator.hpp>
+#include <android_view_animation_Animation.hpp>
 
 #include <android_content_Context.hpp>
 
-#include <android_view_animation_Animation.hpp>
+#include <android_view_animation_Interpolator.hpp>
 
 #include <android_view_View.hpp>
 
@@ -81,11 +81,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_animation_Interpolator;
+class android_view_animation_Animation;
 
 class android_content_Context;
 
-class android_view_animation_Animation;
+class android_view_animation_Interpolator;
 
 class android_view_View;
 
@@ -106,11 +106,11 @@ public:
 	virtual ~android_view_animation_LayoutAnimationController();
 	// Functions
 	virtual void  start() ;
+	virtual AndroidCXX::android_view_animation_Animation * getAnimation() ;
+	virtual void  setAnimation(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
+	virtual void  setAnimation(AndroidCXX::android_view_animation_Animation const& arg0) ;
 	virtual void  setInterpolator(AndroidCXX::android_view_animation_Interpolator const& arg0) ;
 	virtual void  setInterpolator(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
-	virtual AndroidCXX::android_view_animation_Animation * getAnimation() ;
-	virtual void  setAnimation(AndroidCXX::android_view_animation_Animation const& arg0) ;
-	virtual void  setAnimation(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_view_animation_Interpolator * getInterpolator() ;
 	virtual int  getOrder() ;
 	virtual void  setOrder(int const& arg0) ;

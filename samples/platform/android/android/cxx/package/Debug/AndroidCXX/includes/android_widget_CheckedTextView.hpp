@@ -46,9 +46,9 @@
 //
 
 
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
 #include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_graphics_drawable_Drawable.hpp>
 
@@ -75,9 +75,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_accessibility_AccessibilityNodeInfo;
-
 class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_graphics_drawable_Drawable;
 
@@ -90,17 +90,17 @@ class android_widget_CheckedTextView : public android_widget_Checkable
 public:
 
 	// Public ConstrucXXX
-	android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0);
 	android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0);
 	android_widget_CheckedTextView(const android_widget_CheckedTextView& cc);
 	android_widget_CheckedTextView(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CheckedTextView();
 	// Functions
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onRtlPropertiesChanged(int const& arg0) ;
 	virtual void  setChecked(bool const& arg0) ;
 	virtual bool  isChecked() ;

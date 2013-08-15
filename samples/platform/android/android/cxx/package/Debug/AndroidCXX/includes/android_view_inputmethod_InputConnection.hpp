@@ -103,9 +103,6 @@ public:
 	// Default Destructor
 	virtual ~android_view_inputmethod_InputConnection();
 	// Functions
-	virtual bool  setSelection(int const& arg0,int const& arg1) ;
-	virtual bool  beginBatchEdit() ;
-	virtual bool  endBatchEdit() ;
 	virtual AndroidCXX::java_lang_CharSequence * getTextBeforeCursor(int const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_CharSequence * getTextAfterCursor(int const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_CharSequence * getSelectedText(int const& arg0) ;
@@ -118,8 +115,11 @@ public:
 	virtual bool  commitText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) ;
 	virtual bool  commitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo const& arg0) ;
 	virtual bool  commitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo const& arg0) ;
+	virtual bool  setSelection(int const& arg0,int const& arg1) ;
 	virtual bool  performEditorAction(int const& arg0) ;
 	virtual bool  performContextMenuAction(int const& arg0) ;
+	virtual bool  beginBatchEdit() ;
+	virtual bool  endBatchEdit() ;
 	virtual bool  sendKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual bool  clearMetaKeyStates(int const& arg0) ;
 	virtual bool  reportFullscreenMode(bool const& arg0) ;

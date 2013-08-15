@@ -14,13 +14,13 @@
 	
  		 
 	
+ 		 
+	
 	
  	
  		 
-	
  		 
 	
- 		 
  		 
  		 
 	
@@ -145,32 +145,32 @@ public:
 	// Functions
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual AndroidCXX::java_lang_CharSequence * getClassName() ;
-	static AndroidCXX::android_view_accessibility_AccessibilityRecord * obtain() ;
-	static AndroidCXX::android_view_accessibility_AccessibilityRecord * obtain(AndroidCXX::android_view_accessibility_AccessibilityRecord const& arg0) ;
-	virtual void  recycle() ;
-	virtual AndroidCXX::java_util_List * getText() ;
+	virtual bool  isEnabled() ;
 	virtual AndroidCXX::java_lang_CharSequence * getContentDescription() ;
 	virtual void  setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0) ;
-	virtual bool  isEnabled() ;
 	virtual void  setEnabled(bool const& arg0) ;
 	virtual void  setScrollX(int const& arg0) ;
 	virtual void  setScrollY(int const& arg0) ;
 	virtual int  getScrollX() ;
 	virtual int  getScrollY() ;
 	virtual int  getWindowId() ;
+	static AndroidCXX::android_view_accessibility_AccessibilityRecord * obtain() ;
+	static AndroidCXX::android_view_accessibility_AccessibilityRecord * obtain(AndroidCXX::android_view_accessibility_AccessibilityRecord const& arg0) ;
+	virtual void  recycle() ;
+	virtual int  getItemCount() ;
+	virtual AndroidCXX::java_util_List * getText() ;
+	virtual void  setClassName(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * getSource() ;
+	virtual void  setSource(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
+	virtual void  setSource(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  setChecked(bool const& arg0) ;
 	virtual bool  isChecked() ;
-	virtual AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * getSource() ;
-	virtual void  setSource(AndroidCXX::android_view_View const& arg0) ;
-	virtual void  setSource(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
 	virtual bool  isPassword() ;
 	virtual void  setPassword(bool const& arg0) ;
-	virtual bool  isScrollable() ;
-	virtual void  setScrollable(bool const& arg0) ;
-	virtual void  setClassName(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual bool  isFullScreen() ;
 	virtual void  setFullScreen(bool const& arg0) ;
-	virtual int  getItemCount() ;
+	virtual bool  isScrollable() ;
+	virtual void  setScrollable(bool const& arg0) ;
 	virtual void  setItemCount(int const& arg0) ;
 	virtual int  getCurrentItemIndex() ;
 	virtual void  setCurrentItemIndex(int const& arg0) ;

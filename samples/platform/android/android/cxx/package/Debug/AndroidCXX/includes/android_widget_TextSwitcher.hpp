@@ -43,13 +43,13 @@
 
 #include <java_lang_CharSequence.hpp>
 
-#include <android_view_View.hpp>
-
-#include <android_view_ViewGroup_LayoutParams.hpp>
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
-#include <android_view_accessibility_AccessibilityEvent.hpp>
+#include <android_view_View.hpp>
+
+#include <android_view_ViewGroup_LayoutParams.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -76,13 +76,13 @@ namespace AndroidCXX {
 
 class java_lang_CharSequence;
 
-class android_view_View;
-
-class android_view_ViewGroup_LayoutParams;
+class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
-class android_view_accessibility_AccessibilityEvent;
+class android_view_View;
+
+class android_view_ViewGroup_LayoutParams;
 
 class android_content_Context;
 
@@ -102,9 +102,9 @@ public:
 	virtual ~android_widget_TextSwitcher();
 	// Functions
 	virtual void  setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
-	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
 	virtual void  setCurrentText(AndroidCXX::java_lang_CharSequence const& arg0) ;
 
 protected:

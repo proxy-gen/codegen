@@ -104,9 +104,9 @@ public:
 	virtual void  close() ;
 	virtual int  describeContents() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual long  getStartOffset() ;
 	virtual AndroidCXX::java_io_FileDescriptor * getFileDescriptor() ;
 	virtual AndroidCXX::android_os_ParcelFileDescriptor * getParcelFileDescriptor() ;
+	virtual long  getStartOffset() ;
 	virtual long  getDeclaredLength() ;
 	virtual AndroidCXX::java_io_FileInputStream * createInputStream() ;
 	virtual AndroidCXX::java_io_FileOutputStream * createOutputStream() ;

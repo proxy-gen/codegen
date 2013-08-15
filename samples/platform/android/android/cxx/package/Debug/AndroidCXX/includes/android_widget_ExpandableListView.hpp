@@ -9,15 +9,15 @@
 
 
 
+ 		 
+ 		 
+	
+ 		 
 	
  		 
  		 
  		 
  		 
- 		 
- 		 
- 		 
-	
  		 
 	
  		 
@@ -87,19 +87,19 @@
 //
 
 
-#include <android_os_Parcelable.hpp>
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-
-#include <android_widget_ExpandableListAdapter.hpp>
+#include <android_os_Parcelable.hpp>
 
 #include <android_widget_ListAdapter.hpp>
 
-#include <android_view_View.hpp>
+#include <android_widget_ExpandableListAdapter.hpp>
 
 #include <android_widget_AdapterView_OnItemClickListener.hpp>
+
+#include <android_view_View.hpp>
 
 #include <android_graphics_drawable_Drawable.hpp>
 
@@ -134,19 +134,19 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_Parcelable;
+class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
-class android_view_accessibility_AccessibilityEvent;
-
-class android_widget_ExpandableListAdapter;
+class android_os_Parcelable;
 
 class android_widget_ListAdapter;
 
-class android_view_View;
+class android_widget_ExpandableListAdapter;
 
 class android_widget_AdapterView_OnItemClickListener;
+
+class android_view_View;
 
 class android_graphics_drawable_Drawable;
 
@@ -176,16 +176,16 @@ public:
 	// Default Destructor
 	virtual ~android_widget_ExpandableListView();
 	// Functions
-	virtual AndroidCXX::android_os_Parcelable * onSaveInstanceState() ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onRtlPropertiesChanged(int const& arg0) ;
+	virtual AndroidCXX::android_os_Parcelable * onSaveInstanceState() ;
 	virtual void  onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0) ;
+	virtual AndroidCXX::android_widget_ListAdapter * getAdapter() ;
 	virtual void  setAdapter(AndroidCXX::android_widget_ExpandableListAdapter const& arg0) ;
 	virtual void  setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0) ;
-	virtual bool  performItemClick(AndroidCXX::android_view_View const& arg0,int const& arg1,long const& arg2) ;
 	virtual void  setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0) ;
-	virtual AndroidCXX::android_widget_ListAdapter * getAdapter() ;
+	virtual bool  performItemClick(AndroidCXX::android_view_View const& arg0,int const& arg1,long const& arg2) ;
 	virtual void  setChildDivider(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual AndroidCXX::android_widget_ExpandableListAdapter * getExpandableListAdapter() ;
 	virtual bool  expandGroup(int const& arg0) ;

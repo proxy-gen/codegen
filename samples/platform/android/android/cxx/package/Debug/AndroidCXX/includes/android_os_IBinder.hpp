@@ -9,12 +9,12 @@
 
 
 
+	
+ 		 
+	
  		 
  	
  		 
-	
- 		 
-	
  		 
  	
  		 
@@ -66,11 +66,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_io_FileDescriptor;
-
 class java_lang_String;
 
 class android_os_IInterface;
+
+class java_io_FileDescriptor;
 
 class android_os_Parcel;
 
@@ -86,11 +86,11 @@ public:
 	// Default Destructor
 	virtual ~android_os_IBinder();
 	// Functions
-	virtual void  dump(AndroidCXX::java_io_FileDescriptor const& arg0,std::vector<java_lang_String> const& arg1) ;
 	virtual AndroidCXX::java_lang_String * getInterfaceDescriptor() ;
 	virtual bool  pingBinder() ;
 	virtual bool  isBinderAlive() ;
 	virtual AndroidCXX::android_os_IInterface * queryLocalInterface(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  dump(AndroidCXX::java_io_FileDescriptor const& arg0,std::vector<java_lang_String> const& arg1) ;
 	virtual void  dumpAsync(AndroidCXX::java_io_FileDescriptor const& arg0,std::vector<java_lang_String> const& arg1) ;
 	virtual bool  transact(int const& arg0,AndroidCXX::android_os_Parcel const& arg1,AndroidCXX::android_os_Parcel const& arg2,int const& arg3) ;
 	virtual void  linkToDeath(AndroidCXX::android_os_IBinder_DeathRecipient const& arg0,int const& arg1) ;

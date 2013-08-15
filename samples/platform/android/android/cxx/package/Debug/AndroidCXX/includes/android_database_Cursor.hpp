@@ -15,12 +15,12 @@
  		 
  		 
  		 
- 		 
- 		 
 	
  	
  		 
  	
+ 		 
+ 		 
  		 
  		 
  		 
@@ -104,11 +104,11 @@ class java_lang_String;
 
 class android_os_Bundle;
 
-class android_database_DataSetObserver;
-
 class android_database_ContentObserver;
 
 class android_database_CharArrayBuffer;
+
+class android_database_DataSetObserver;
 
 class android_content_ContentResolver;
 
@@ -135,14 +135,10 @@ public:
 	virtual bool  isFirst() ;
 	virtual bool  isClosed() ;
 	virtual int  getPosition() ;
-	virtual bool  isNull(int const& arg0) ;
 	virtual AndroidCXX::android_os_Bundle * getExtras() ;
-	virtual int  getCount() ;
-	virtual void  registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
-	virtual void  unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
-	virtual int  getColumnCount() ;
 	virtual void  registerContentObserver(AndroidCXX::android_database_ContentObserver const& arg0) ;
 	virtual void  unregisterContentObserver(AndroidCXX::android_database_ContentObserver const& arg0) ;
+	virtual int  getCount() ;
 	virtual bool  move(int const& arg0) ;
 	virtual bool  moveToPosition(int const& arg0) ;
 	virtual bool  moveToFirst() ;
@@ -156,10 +152,14 @@ public:
 	virtual int  getColumnIndexOrThrow(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getColumnName(int const& arg0) ;
 	virtual std::vector<java_lang_String>  getColumnNames() ;
+	virtual int  getColumnCount() ;
 	virtual std::vector<byte>  getBlob(int const& arg0) ;
 	virtual void  copyStringToBuffer(int const& arg0,AndroidCXX::android_database_CharArrayBuffer const& arg1) ;
+	virtual bool  isNull(int const& arg0) ;
 	virtual void  deactivate() ;
 	virtual bool  requery() ;
+	virtual void  registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
+	virtual void  unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
 	virtual void  setNotificationUri(AndroidCXX::android_content_ContentResolver const& arg0,AndroidCXX::android_net_Uri const& arg1) ;
 	virtual bool  getWantsAllOnMoveCalls() ;
 	virtual AndroidCXX::android_os_Bundle * respond(AndroidCXX::android_os_Bundle const& arg0) ;

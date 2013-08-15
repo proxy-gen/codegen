@@ -42,12 +42,6 @@
 	
  		 
  		 
-	
- 		 
- 		 
-	
- 		 
- 		 
  		 
  		 
  		 
@@ -65,6 +59,12 @@
 	
  		 
 	
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
  		 
 	
  		 
@@ -218,24 +218,24 @@ public:
 	static AndroidCXX::java_lang_String * quote(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getString(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  has(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::org_json_JSONObject * putOpt(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
-	virtual AndroidCXX::org_json_JSONObject * accumulate(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual bool  isNull(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_Object * opt(AndroidCXX::java_lang_String const& arg0) ;
-	virtual bool  optBoolean(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  optBoolean(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
-	virtual double  optDouble(AndroidCXX::java_lang_String const& arg0) ;
+	virtual bool  optBoolean(AndroidCXX::java_lang_String const& arg0) ;
 	virtual double  optDouble(AndroidCXX::java_lang_String const& arg0,double const& arg1) ;
+	virtual double  optDouble(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  optInt(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  optInt(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
-	virtual long  optLong(AndroidCXX::java_lang_String const& arg0,long const& arg1) ;
 	virtual long  optLong(AndroidCXX::java_lang_String const& arg0) ;
+	virtual long  optLong(AndroidCXX::java_lang_String const& arg0,long const& arg1) ;
 	virtual AndroidCXX::java_lang_String * optString(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * optString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual AndroidCXX::org_json_JSONArray * getJSONArray(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::org_json_JSONArray * optJSONArray(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::org_json_JSONObject * getJSONObject(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::org_json_JSONObject * optJSONObject(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::org_json_JSONObject * putOpt(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual AndroidCXX::org_json_JSONObject * accumulate(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual AndroidCXX::org_json_JSONArray * toJSONArray(AndroidCXX::org_json_JSONArray const& arg0) ;
 	static AndroidCXX::java_lang_String * numberToString(AndroidCXX::java_lang_Number const& arg0) ;
 

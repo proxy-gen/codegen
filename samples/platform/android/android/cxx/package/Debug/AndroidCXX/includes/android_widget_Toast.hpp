@@ -96,12 +96,12 @@ public:
 	// Functions
 	virtual void  setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setText(int const& arg0) ;
-	virtual AndroidCXX::android_view_View * getView() ;
 	virtual void  show() ;
-	virtual void  setDuration(int const& arg0) ;
-	virtual void  cancel() ;
-	virtual int  getDuration() ;
 	virtual void  setGravity(int const& arg0,int const& arg1,int const& arg2) ;
+	virtual void  setDuration(int const& arg0) ;
+	virtual int  getDuration() ;
+	virtual void  cancel() ;
+	virtual AndroidCXX::android_view_View * getView() ;
 	virtual int  getGravity() ;
 	virtual void  setView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  setMargin(float const& arg0,float const& arg1) ;

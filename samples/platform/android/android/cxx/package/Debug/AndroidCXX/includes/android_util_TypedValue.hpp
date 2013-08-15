@@ -75,8 +75,8 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_util_DisplayMetrics;
 
+class android_util_DisplayMetrics;
 
 class java_lang_CharSequence;
 
@@ -94,9 +94,9 @@ public:
 	// Functions
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual float  getFloat() ;
+	virtual void  setTo(AndroidCXX::android_util_TypedValue const& arg0) ;
 	virtual float  getDimension(AndroidCXX::android_util_DisplayMetrics const& arg0) ;
 	virtual float  getFraction(float const& arg0,float const& arg1) ;
-	virtual void  setTo(AndroidCXX::android_util_TypedValue const& arg0) ;
 	static float  complexToFloat(int const& arg0) ;
 	static float  complexToDimension(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) ;
 	static int  complexToDimensionPixelOffset(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) ;

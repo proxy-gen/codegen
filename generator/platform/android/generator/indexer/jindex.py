@@ -723,8 +723,12 @@ class TranslationUnit(JavaObject):
 		c_types_classes_count = len(classes)
 		config_data_stack = list()
 		config_data_stack.append(config_data)
+		classes_config = config_data["classes"]
+		config_data["classes"] = list()
 		TranslationUnit_classes_visit(c_types_packages, c_types_packages_count, c_types_classes, c_types_classes_count, TranslationUnit_classes_visit_callback(visitor), config_data_stack)
-	
+		#migrate tags from old config to new config
+		TranslationUnit._migrate_tags_in_class_hierarchy(config_data["classes"],classes_config)
+
 	@classmethod
 	def from_source(cls, res, index):
 		ptr = TranslationUnit_parse(index, res)
@@ -859,42 +863,6 @@ class TranslationUnit(JavaObject):
 			pass
 		if callback_type == CallbackType.EXIT:
 			config_data_stack.pop()
-
-	@classmethod
-	def _find_or_create_class_config_data(cls, classes, class_name, class_attributes):
-		the_clazz = None
-		for clazz in classes:
-			if clazz["name"] == class_name:
-				the_clazz = clazz
-				break
-		if not the_clazz:
-			the_clazz = dict()
-			classes.append(the_clazz)
-		the_clazz["name"] = class_name
-		the_clazz["constructors"] = the_clazz.get("constructors", list())
-		the_clazz["functions"] = the_clazz.get("functions", list())
-		the_clazz["fields"] = the_clazz.get("fields", list())
-		extends = []
-		implements = []
-		for idx in range(class_attributes._count):
-			key = class_attributes.get_key(idx)
-			value = class_attributes.get_value(idx)
-			item = dict()
-			item['name'] = value
-			if key == "extends":
-				extends.append(item)
-			elif key == "implements":
-				implements.append(item)
-		if class_name != JAVA_OBJECT:
-			if JAVA_OBJECT not in extends:
-				item = dict()
-				item['name'] = JAVA_OBJECT
-				extends.append(item)
-		if len(extends) > 0:
-			the_clazz["extends"] = extends
-		if len(implements) > 0:
-			the_clazz["implements"] = implements
-		return the_clazz
 
 #   Special Class Tags
 #		_enum 											Tag to indicate class should be enumerated
@@ -1060,6 +1028,36 @@ class TranslationUnit(JavaObject):
 				del field["tags"]
 
 	@classmethod
+	def _find_or_create_class_config_data(cls, classes, class_name, class_attributes):
+		the_clazz = dict()
+		classes.append(the_clazz)
+		the_clazz["name"] = class_name
+		the_clazz["constructors"] = the_clazz.get("constructors", list())
+		the_clazz["functions"] = the_clazz.get("functions", list())
+		the_clazz["fields"] = the_clazz.get("fields", list())
+		extends = []
+		implements = []
+		for idx in range(class_attributes._count):
+			key = class_attributes.get_key(idx)
+			value = class_attributes.get_value(idx)
+			item = dict()
+			item['name'] = value
+			if key == "extends":
+				extends.append(item)
+			elif key == "implements":
+				implements.append(item)
+		if class_name != JAVA_OBJECT:
+			if JAVA_OBJECT not in extends:
+				item = dict()
+				item['name'] = JAVA_OBJECT
+				extends.append(item)
+		if len(extends) > 0:
+			the_clazz["extends"] = extends
+		if len(implements) > 0:
+			the_clazz["implements"] = implements
+		return the_clazz
+
+	@classmethod
 	def _find_or_create_constructor_config_data(cls, constructors, constructor_name):
 		the_constructor = dict()
 		constructors.append(the_constructor)
@@ -1078,27 +1076,15 @@ class TranslationUnit(JavaObject):
 
 	@classmethod
 	def _find_or_create_field_config_data(cls, fields, field_name):
-		the_field = None
-		for field in fields:
-			if field["name"] == field_name:
-				the_field = field
-				break
-		if not the_field:
-			the_field = dict()
-			fields.append(the_field)
+		the_field = dict()
+		fields.append(the_field)
 		the_field["name"] = field_name
 		return the_field
 
 	@classmethod
 	def _find_or_create_return_config_data(cls, returns, return_type_hierarchy):
-		the_return_type_hierarchy = None
-		for a_return_type_hierarchy in returns:
-			if type_hierarchy_matches(a_return_type_hierarchy, return_type_hierarchy):
-				the_return_type_hierarchy = a_return_type_hierarchy
-				break
-		if not the_return_type_hierarchy:
-			the_return_type_hierarchy = return_type_hierarchy
-			returns.append(the_return_type_hierarchy)
+		the_return_type_hierarchy = return_type_hierarchy
+		returns.append(the_return_type_hierarchy)
 		return the_return_type_hierarchy
 
 	@classmethod
@@ -1109,12 +1095,8 @@ class TranslationUnit(JavaObject):
 
 	@classmethod
 	def _find_or_create_field_type_config_data(cls, field, field_type_hierarchy):
-		the_field_type_hierarchy = None
-		if "type" in field:
-			the_field_type_hierarchy = field["type"]
-		if not the_field_type_hierarchy:
-			the_field_type_hierarchy = field_type_hierarchy
-			field["type"] = the_field_type_hierarchy
+		the_field_type_hierarchy = field_type_hierarchy
+		field["type"] = the_field_type_hierarchy
 		return the_field_type_hierarchy
 
 	@classmethod
@@ -1147,6 +1129,55 @@ class TranslationUnit(JavaObject):
 				structure["children"].append(child_structure)
 		return structure
 
+	@classmethod
+	def _migrate_tags_in_class_hierarchy(cls, new_class_hierarchy,old_class_hierarchy):
+		new_signatures = TranslationUnit._build_signatures_in_class_hierarchy(new_class_hierarchy)
+		old_signatures = TranslationUnit._build_signatures_in_class_hierarchy(old_class_hierarchy)
+		for new_signature_key in new_signatures:
+			if new_signature_key in old_signatures:
+				TranslationUnit._migrate_tag(new_signatures[new_signature_key], old_signatures[new_signature_key])
+
+	@classmethod
+	def _migrate_tag(cls, new_tags, old_tags):
+		if '_no_proxy' in old_tags and '_no_proxy' not in new_tags:
+			if '_proxy' in new_tags:
+				new_tags.remove('_proxy')
+			new_tags.append('_no_proxy')
+		if '_callback' in old_tags and '_callback' not in new_tags:
+			if '_no_callback' in new_tags:
+				new_tags.remove('_no_callback')
+			new_tags.append('_callback')
+
+	@classmethod
+	def _build_signatures_in_class_hierarchy(cls, classes):
+		signatures = dict()
+		for clazz in classes:
+			signature = "_C_" + clazz['name']
+			signatures[signature] = clazz['tags']
+			for field in clazz['fields']:
+				signature = "_F_" + field['name']
+				signatures[signature] = field['tags']
+			for constructor in clazz['constructors']:
+				signature = "_O_" + constructor['name']
+				for param in constructor['params']:
+					signature = signature + "_P_" + TranslationUnit._build_type_signature(param)
+				signatures[signature] = constructor['tags']
+			for function in clazz['functions']:
+				signature = "_F_" + function['name']
+				for param in function['params']:
+					signature = signature + "_P_" + TranslationUnit._build_type_signature(param)
+				for retrn in function['returns']:
+					signature = signature + "_R_" + TranslationUnit._build_type_signature(retrn)
+				signatures[signature] = function['tags']
+		return signatures
+
+	@classmethod
+	def _build_type_signature(cls, type_):
+		signature = "_T_" + type_['type']
+		if 'children' in type_:
+			for child_type in type_['children']:
+				signature = TranslationUnit._build_type_signature(child_type)
+		return signature
 
 class DummyType(Type):
 

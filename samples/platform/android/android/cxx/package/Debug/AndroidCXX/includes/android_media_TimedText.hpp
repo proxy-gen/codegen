@@ -29,9 +29,9 @@
 //
 
 
-#include <java_lang_String.hpp>
-
 #include <android_graphics_Rect.hpp>
+
+#include <java_lang_String.hpp>
 
 
 #include <vector>
@@ -50,9 +50,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 class android_graphics_Rect;
+
+class java_lang_String;
 
 class android_media_TimedText 
 {
@@ -65,8 +65,8 @@ public:
 	// Default Destructor
 	virtual ~android_media_TimedText();
 	// Functions
-	virtual AndroidCXX::java_lang_String * getText() ;
 	virtual AndroidCXX::android_graphics_Rect * getBounds() ;
+	virtual AndroidCXX::java_lang_String * getText() ;
 
 protected:
 

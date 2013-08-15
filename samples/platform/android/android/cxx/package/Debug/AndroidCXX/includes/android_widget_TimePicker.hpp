@@ -57,9 +57,9 @@
 //
 
 
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
 #include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_widget_TimePicker_OnTimeChangedListener.hpp>
 
@@ -90,9 +90,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_accessibility_AccessibilityNodeInfo;
-
 class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_widget_TimePicker_OnTimeChangedListener;
 
@@ -118,13 +118,13 @@ public:
 	// Default Destructor
 	virtual ~android_widget_TimePicker();
 	// Functions
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual bool  isEnabled() ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual int  getBaseline() ;
 	virtual bool  dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual bool  isEnabled() ;
 	virtual void  setEnabled(bool const& arg0) ;
-	virtual int  getBaseline() ;
 	virtual void  setOnTimeChangedListener(AndroidCXX::android_widget_TimePicker_OnTimeChangedListener const& arg0) ;
 	virtual AndroidCXX::java_lang_Integer * getCurrentHour() ;
 	virtual void  setCurrentHour(AndroidCXX::java_lang_Integer const& arg0) ;

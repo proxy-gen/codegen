@@ -90,8 +90,8 @@ public:
 	virtual int  getPosition() ;
 	virtual int  describeContents() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual AndroidCXX::java_lang_CharSequence * getText() ;
 	virtual AndroidCXX::java_lang_CharSequence * getLabel() ;
+	virtual AndroidCXX::java_lang_CharSequence * getText() ;
 
 protected:
 

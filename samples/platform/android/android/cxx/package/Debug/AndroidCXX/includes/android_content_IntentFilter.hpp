@@ -23,10 +23,10 @@
  		 
  		 
  		 
- 		 
- 		 
- 		 
 	
+ 		 
+ 		 
+ 		 
  		 
  		 
  		 
@@ -152,9 +152,9 @@
 
 #include <android_content_Intent.hpp>
 
-#include <android_util_Printer.hpp>
-
 #include <android_os_Parcel.hpp>
+
+#include <android_util_Printer.hpp>
 
 #include <java_util_Iterator.hpp>
 
@@ -196,9 +196,9 @@ class android_content_ContentResolver;
 
 class android_content_Intent;
 
-class android_util_Printer;
-
 class android_os_Parcel;
+
+class android_util_Printer;
 
 class java_util_Iterator;
 
@@ -229,13 +229,13 @@ public:
 	static AndroidCXX::android_content_IntentFilter * create(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual int  match(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_net_Uri const& arg3,AndroidCXX::java_util_Set const& arg4,AndroidCXX::java_lang_String const& arg5) ;
 	virtual int  match(AndroidCXX::android_content_ContentResolver const& arg0,AndroidCXX::android_content_Intent const& arg1,bool const& arg2,AndroidCXX::java_lang_String const& arg3) ;
-	virtual void  dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual AndroidCXX::java_lang_String * getAction(int const& arg0) ;
 	virtual int  describeContents() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual AndroidCXX::java_lang_String * getAction(int const& arg0) ;
-	virtual void  addAction(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual bool  hasCategory(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  addCategory(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  addAction(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  countActions() ;
 	virtual bool  hasAction(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  matchAction(AndroidCXX::java_lang_String const& arg0) ;

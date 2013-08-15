@@ -13,11 +13,11 @@
  		 
  		 
  		 
- 		 
- 		 
- 		 
- 		 
 	
+ 		 
+ 		 
+ 		 
+ 		 
  		 
  		 
  		 
@@ -75,19 +75,19 @@
 
 #include <android_view_MotionEvent.hpp>
 
-#include <android_view_KeyEvent.hpp>
-
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
-#include <android_os_Bundle.hpp>
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_util_AttributeSet.hpp>
 
 #include <android_view_ViewGroup_LayoutParams.hpp>
 
 #include <android_view_View.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <android_os_Bundle.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -112,19 +112,19 @@ namespace AndroidCXX {
 
 class android_view_MotionEvent;
 
-class android_view_KeyEvent;
-
-class android_view_accessibility_AccessibilityNodeInfo;
-
 class android_view_accessibility_AccessibilityEvent;
 
-class android_os_Bundle;
+class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_util_AttributeSet;
 
 class android_view_ViewGroup_LayoutParams;
 
 class android_view_View;
+
+class android_view_KeyEvent;
+
+class android_os_Bundle;
 
 class android_content_Context;
 
@@ -143,18 +143,18 @@ public:
 	virtual ~android_widget_Gallery();
 	// Functions
 	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
-	virtual bool  onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual bool  performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
-	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  setGravity(int const& arg0) ;
 	virtual AndroidCXX::android_view_ViewGroup_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
 	virtual bool  showContextMenuForChild(AndroidCXX::android_view_View const& arg0) ;
+	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual void  dispatchSetSelected(bool const& arg0) ;
 	virtual bool  showContextMenu() ;
+	virtual bool  performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
+	virtual bool  onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
 	virtual bool  onScroll(AndroidCXX::android_view_MotionEvent const& arg0,AndroidCXX::android_view_MotionEvent const& arg1,float const& arg2,float const& arg3) ;
-	virtual void  setGravity(int const& arg0) ;
 	virtual void  setCallbackDuringFling(bool const& arg0) ;
 	virtual void  setAnimationDuration(int const& arg0) ;
 	virtual void  setSpacing(int const& arg0) ;

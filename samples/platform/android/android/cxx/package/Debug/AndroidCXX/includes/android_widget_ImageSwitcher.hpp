@@ -39,9 +39,9 @@
 //
 
 
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
 #include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_net_Uri.hpp>
 
@@ -70,9 +70,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_accessibility_AccessibilityNodeInfo;
-
 class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_net_Uri;
 
@@ -95,8 +95,8 @@ public:
 	// Default Destructor
 	virtual ~android_widget_ImageSwitcher();
 	// Functions
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  setImageResource(int const& arg0) ;
 	virtual void  setImageURI(AndroidCXX::android_net_Uri const& arg0) ;
 	virtual void  setImageDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;

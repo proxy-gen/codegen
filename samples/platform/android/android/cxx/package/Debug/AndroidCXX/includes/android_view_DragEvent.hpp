@@ -10,10 +10,10 @@
 
 
 	
+	
+	
+	
  		 
-	
-	
-	
 
 
 
@@ -42,13 +42,13 @@
 
 #include <java_lang_String.hpp>
 
-#include <android_os_Parcel.hpp>
-
 #include <android_content_ClipData.hpp>
 
 #include <android_content_ClipDescription.hpp>
 
 #include <java_lang_Object.hpp>
+
+#include <android_os_Parcel.hpp>
 
 
 #include <android_os_Parcelable.hpp>
@@ -71,13 +71,13 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_os_Parcel;
-
 class android_content_ClipData;
 
 class android_content_ClipDescription;
 
 class java_lang_Object;
+
+class android_os_Parcel;
 
 class android_view_DragEvent : public android_os_Parcelable
 {
@@ -93,13 +93,13 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual float  getY() ;
 	virtual float  getX() ;
-	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual bool  getResult() ;
 	virtual int  getAction() ;
 	virtual AndroidCXX::android_content_ClipData * getClipData() ;
 	virtual AndroidCXX::android_content_ClipDescription * getClipDescription() ;
 	virtual AndroidCXX::java_lang_Object * getLocalState() ;
+	virtual bool  getResult() ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

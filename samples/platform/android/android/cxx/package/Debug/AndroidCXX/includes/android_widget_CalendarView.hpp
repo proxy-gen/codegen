@@ -73,9 +73,9 @@
 //
 
 
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
 #include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_graphics_drawable_Drawable.hpp>
 
@@ -104,9 +104,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_accessibility_AccessibilityNodeInfo;
-
 class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_graphics_drawable_Drawable;
 
@@ -133,9 +133,9 @@ public:
 	virtual long  getDate() ;
 	virtual void  setDate(long const& arg0,bool const& arg1,bool const& arg2) ;
 	virtual void  setDate(long const& arg0) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
-	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual bool  isEnabled() ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  setEnabled(bool const& arg0) ;
 	virtual void  setShownWeekCount(int const& arg0) ;
 	virtual int  getShownWeekCount() ;

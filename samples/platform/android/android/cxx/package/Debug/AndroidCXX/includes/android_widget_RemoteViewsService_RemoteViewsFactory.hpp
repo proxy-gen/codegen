@@ -68,9 +68,9 @@ public:
 	virtual ~android_widget_RemoteViewsService_RemoteViewsFactory();
 	// Functions
 	virtual void  onCreate() ;
-	virtual void  onDestroy() ;
 	virtual int  getCount() ;
 	virtual long  getItemId(int const& arg0) ;
+	virtual void  onDestroy() ;
 	virtual bool  hasStableIds() ;
 	virtual int  getViewTypeCount() ;
 	virtual void  onDataSetChanged() ;

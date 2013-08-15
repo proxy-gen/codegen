@@ -10,19 +10,6 @@
 
 
  		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
 	
  		 
  		 
@@ -33,6 +20,8 @@
 	
  		 
 	
+ 		 
+ 		 
  		 
  		 
  		 
@@ -58,12 +47,23 @@
  		 
  		 
  		 
+ 		 
+ 		 
  	
  		 
  		 
  		 
  		 
+ 		 
 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
  		 
  		 
  		 
@@ -236,21 +236,17 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_content_res_Configuration;
-
-class android_view_View;
+class android_util_AttributeSet;
 
 class android_view_ViewGroup_LayoutParams;
 
-class android_view_KeyEvent;
-
-class android_graphics_Rect;
-
-class android_util_AttributeSet;
+class android_view_View;
 
 class android_view_ActionMode_Callback;
 
 class android_view_ActionMode;
+
+class android_graphics_Rect;
 
 class android_view_accessibility_AccessibilityEvent;
 
@@ -258,7 +254,11 @@ class java_util_ArrayList;
 
 class java_lang_CharSequence;
 
+class android_content_res_Configuration;
+
 class android_view_DragEvent;
+
+class android_view_KeyEvent;
 
 class android_view_MotionEvent;
 
@@ -289,17 +289,8 @@ public:
 	// Default Destructor
 	virtual ~android_view_ViewGroup();
 	// Functions
-	virtual void  dispatchConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0) ;
-	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
-	virtual void  addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) ;
-	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2) ;
-	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
-	virtual void  addView(AndroidCXX::android_view_View const& arg0) ;
-	virtual void  removeView(AndroidCXX::android_view_View const& arg0) ;
+	virtual bool  hasFocus() ;
 	virtual bool  shouldDelayChildPressedState() ;
-	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
-	virtual bool  requestFocus(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
-	virtual bool  requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) ;
 	virtual AndroidCXX::android_view_ViewGroup_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
 	virtual int  getDescendantFocusability() ;
 	virtual void  setDescendantFocusability(int const& arg0) ;
@@ -308,13 +299,13 @@ public:
 	virtual bool  showContextMenuForChild(AndroidCXX::android_view_View const& arg0) ;
 	virtual AndroidCXX::android_view_ActionMode * startActionModeForChild(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ActionMode_Callback const& arg1) ;
 	virtual AndroidCXX::android_view_View * focusSearch(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
+	virtual bool  requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) ;
 	virtual bool  requestSendAccessibilityEvent(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1) ;
 	virtual bool  onRequestSendAccessibilityEvent(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1) ;
 	virtual bool  dispatchUnhandledMove(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
 	virtual void  clearChildFocus(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  clearFocus() ;
 	virtual AndroidCXX::android_view_View * getFocusedChild() ;
-	virtual bool  hasFocus() ;
 	virtual AndroidCXX::android_view_View * findFocus() ;
 	virtual bool  hasFocusable() ;
 	virtual void  addFocusables(AndroidCXX::java_util_ArrayList const& arg0,int const& arg1,int const& arg2) ;
@@ -323,12 +314,14 @@ public:
 	virtual void  addTouchables(AndroidCXX::java_util_ArrayList const& arg0) ;
 	virtual void  dispatchDisplayHint(int const& arg0) ;
 	virtual void  dispatchWindowVisibilityChanged(int const& arg0) ;
+	virtual void  dispatchConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0) ;
 	virtual void  recomputeViewAttributes(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  bringChildToFront(AndroidCXX::android_view_View const& arg0) ;
 	virtual bool  dispatchDragEvent(AndroidCXX::android_view_DragEvent const& arg0) ;
 	virtual void  dispatchWindowSystemUiVisiblityChanged(int const& arg0) ;
 	virtual void  dispatchSystemUiVisibilityChanged(int const& arg0) ;
 	virtual bool  dispatchKeyEventPreIme(AndroidCXX::android_view_KeyEvent const& arg0) ;
+	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual bool  dispatchKeyShortcutEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual bool  dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual void  addChildrenForAccessibility(AndroidCXX::java_util_ArrayList const& arg0) ;
@@ -338,14 +331,21 @@ public:
 	virtual bool  isMotionEventSplittingEnabled() ;
 	virtual void  requestDisallowInterceptTouchEvent(bool const& arg0) ;
 	virtual bool  onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual bool  requestFocus(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
 	virtual AndroidCXX::android_view_ViewGroupOverlay * getOverlay() ;
 	virtual bool  getClipChildren() ;
 	virtual void  setClipChildren(bool const& arg0) ;
 	virtual void  setClipToPadding(bool const& arg0) ;
 	virtual void  dispatchSetSelected(bool const& arg0) ;
 	virtual void  dispatchSetActivated(bool const& arg0) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2) ;
 	virtual void  updateViewLayout(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) ;
 	virtual void  setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0) ;
+	virtual void  removeView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  removeViewInLayout(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  removeViewsInLayout(int const& arg0,int const& arg1) ;
 	virtual void  removeViewAt(int const& arg0) ;

@@ -111,17 +111,17 @@ public:
 	// Default Destructor
 	virtual ~android_view_Window_Callback();
 	// Functions
-	virtual void  onAttachedToWindow() ;
-	virtual void  onDetachedFromWindow() ;
-	virtual void  onWindowFocusChanged(bool const& arg0) ;
 	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual bool  dispatchKeyShortcutEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual bool  dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual bool  dispatchTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual bool  dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual bool  dispatchGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual void  onContentChanged() ;
+	virtual void  onWindowFocusChanged(bool const& arg0) ;
+	virtual void  onAttachedToWindow() ;
+	virtual void  onDetachedFromWindow() ;
 	virtual void  onWindowAttributesChanged(AndroidCXX::android_view_WindowManager_LayoutParams const& arg0) ;
+	virtual void  onContentChanged() ;
 	virtual AndroidCXX::android_view_View * onCreatePanelView(int const& arg0) ;
 	virtual bool  onCreatePanelMenu(int const& arg0,AndroidCXX::android_view_Menu const& arg1) ;
 	virtual bool  onPreparePanel(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_Menu const& arg2) ;

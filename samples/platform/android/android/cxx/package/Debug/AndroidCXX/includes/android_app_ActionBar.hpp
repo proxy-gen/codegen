@@ -9,12 +9,9 @@
 
 
 
+ 		 
+ 		 
 	
- 		 
- 		 
- 		 
- 		 
- 		 
  		 
  		 
  		 
@@ -22,6 +19,9 @@
  		 
 	
 	
+ 		 
+ 		 
+ 		 
  		 
  		 
  		 
@@ -127,15 +127,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_CharSequence;
-
 class android_graphics_drawable_Drawable;
 
-class android_app_ActionBar_Tab;
+class java_lang_CharSequence;
 
 class android_view_View;
 
 class android_app_ActionBar_LayoutParams;
+
+class android_app_ActionBar_Tab;
 
 class android_widget_SpinnerAdapter;
 
@@ -156,29 +156,29 @@ public:
 	virtual ~android_app_ActionBar();
 	// Functions
 	virtual void  show() ;
-	virtual AndroidCXX::java_lang_CharSequence * getTitle() ;
+	virtual void  hide() ;
 	virtual int  getHeight() ;
 	virtual void  setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
-	virtual bool  isShowing() ;
-	virtual void  hide() ;
-	virtual void  addTab(AndroidCXX::android_app_ActionBar_Tab const& arg0,bool const& arg1) ;
-	virtual void  addTab(AndroidCXX::android_app_ActionBar_Tab const& arg0) ;
-	virtual void  addTab(AndroidCXX::android_app_ActionBar_Tab const& arg0,int const& arg1,bool const& arg2) ;
-	virtual void  addTab(AndroidCXX::android_app_ActionBar_Tab const& arg0,int const& arg1) ;
-	virtual int  getTabCount() ;
-	virtual void  setTitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setTitle(int const& arg0) ;
-	virtual void  setSubtitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
-	virtual void  setSubtitle(int const& arg0) ;
-	virtual void  setCustomView(int const& arg0) ;
-	virtual void  setCustomView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_app_ActionBar_LayoutParams const& arg1) ;
-	virtual void  setCustomView(AndroidCXX::android_view_View const& arg0) ;
-	virtual AndroidCXX::java_lang_CharSequence * getSubtitle() ;
-	virtual AndroidCXX::android_view_View * getCustomView() ;
+	virtual void  setTitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual AndroidCXX::java_lang_CharSequence * getTitle() ;
 	virtual void  setIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setIcon(int const& arg0) ;
-	virtual void  setLogo(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  setSubtitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  setSubtitle(int const& arg0) ;
+	virtual void  setCustomView(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  setCustomView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_app_ActionBar_LayoutParams const& arg1) ;
+	virtual void  setCustomView(int const& arg0) ;
+	virtual AndroidCXX::java_lang_CharSequence * getSubtitle() ;
+	virtual AndroidCXX::android_view_View * getCustomView() ;
+	virtual bool  isShowing() ;
+	virtual int  getTabCount() ;
+	virtual void  addTab(AndroidCXX::android_app_ActionBar_Tab const& arg0,int const& arg1) ;
+	virtual void  addTab(AndroidCXX::android_app_ActionBar_Tab const& arg0) ;
+	virtual void  addTab(AndroidCXX::android_app_ActionBar_Tab const& arg0,bool const& arg1) ;
+	virtual void  addTab(AndroidCXX::android_app_ActionBar_Tab const& arg0,int const& arg1,bool const& arg2) ;
 	virtual void  setLogo(int const& arg0) ;
+	virtual void  setLogo(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setListNavigationCallbacks(AndroidCXX::android_widget_SpinnerAdapter const& arg0,AndroidCXX::android_app_ActionBar_OnNavigationListener const& arg1) ;
 	virtual void  setSelectedNavigationItem(int const& arg0) ;
 	virtual int  getSelectedNavigationIndex() ;

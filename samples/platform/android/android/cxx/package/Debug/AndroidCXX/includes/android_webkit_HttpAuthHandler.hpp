@@ -64,8 +64,8 @@ public:
 	// Default Destructor
 	virtual ~android_webkit_HttpAuthHandler();
 	// Functions
-	virtual void  proceed(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual void  cancel() ;
+	virtual void  proceed(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual bool  useHttpAuthUsernamePassword() ;
 
 protected:

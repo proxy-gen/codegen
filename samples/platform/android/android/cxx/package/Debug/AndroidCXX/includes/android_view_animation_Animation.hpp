@@ -11,8 +11,8 @@
 
  		 
  		 
- 		 
 	
+ 		 
  		 
  		 
 
@@ -118,14 +118,14 @@ public:
 	virtual void  start() ;
 	virtual void  reset() ;
 	virtual void  initialize(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  setBackgroundColor(int const& arg0) ;
+	virtual void  setDuration(long const& arg0) ;
+	virtual long  getDuration() ;
 	virtual void  setInterpolator(AndroidCXX::android_view_animation_Interpolator const& arg0) ;
 	virtual void  setInterpolator(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
-	virtual void  setDuration(long const& arg0) ;
-	virtual void  setAnimationListener(AndroidCXX::android_view_animation_Animation_AnimationListener const& arg0) ;
-	virtual void  setBackgroundColor(int const& arg0) ;
-	virtual void  cancel() ;
-	virtual long  getDuration() ;
 	virtual AndroidCXX::android_view_animation_Interpolator * getInterpolator() ;
+	virtual void  cancel() ;
+	virtual long  getStartOffset() ;
 	virtual bool  isInitialized() ;
 	virtual void  setStartOffset(long const& arg0) ;
 	virtual void  restrictDuration(long const& arg0) ;
@@ -141,7 +141,6 @@ public:
 	virtual void  setZAdjustment(int const& arg0) ;
 	virtual void  setDetachWallpaper(bool const& arg0) ;
 	virtual long  getStartTime() ;
-	virtual long  getStartOffset() ;
 	virtual int  getRepeatMode() ;
 	virtual int  getRepeatCount() ;
 	virtual bool  getFillBefore() ;
@@ -151,9 +150,10 @@ public:
 	virtual bool  getDetachWallpaper() ;
 	virtual bool  willChangeTransformationMatrix() ;
 	virtual bool  willChangeBounds() ;
+	virtual void  setAnimationListener(AndroidCXX::android_view_animation_Animation_AnimationListener const& arg0) ;
 	virtual long  computeDurationHint() ;
-	virtual bool  getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1) ;
 	virtual bool  getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1,float const& arg2) ;
+	virtual bool  getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1) ;
 	virtual bool  hasStarted() ;
 	virtual bool  hasEnded() ;
 

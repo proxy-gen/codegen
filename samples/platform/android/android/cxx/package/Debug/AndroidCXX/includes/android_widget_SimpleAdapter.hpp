@@ -138,18 +138,18 @@ public:
 	// Default Destructor
 	virtual ~android_widget_SimpleAdapter();
 	// Functions
-	virtual AndroidCXX::android_view_View * getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
 	virtual int  getCount() ;
+	virtual AndroidCXX::android_view_View * getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
 	virtual AndroidCXX::java_lang_Object * getItem(int const& arg0) ;
 	virtual long  getItemId(int const& arg0) ;
 	virtual AndroidCXX::android_widget_Filter * getFilter() ;
 	virtual AndroidCXX::android_view_View * getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
-	virtual void  setDropDownViewResource(int const& arg0) ;
 	virtual AndroidCXX::android_widget_SimpleAdapter_ViewBinder * getViewBinder() ;
 	virtual void  setViewBinder(AndroidCXX::android_widget_SimpleAdapter_ViewBinder const& arg0) ;
 	virtual void  setViewImage(AndroidCXX::android_widget_ImageView const& arg0,int const& arg1) ;
 	virtual void  setViewImage(AndroidCXX::android_widget_ImageView const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual void  setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  setDropDownViewResource(int const& arg0) ;
 
 protected:
 

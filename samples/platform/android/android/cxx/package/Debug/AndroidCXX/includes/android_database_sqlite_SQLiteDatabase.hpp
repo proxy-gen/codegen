@@ -358,13 +358,13 @@ public:
 	virtual int  getVersion() ;
 	virtual void  setVersion(int const& arg0) ;
 	virtual void  setLocale(AndroidCXX::java_util_Locale const& arg0) ;
-	virtual void  beginTransaction() ;
 	static AndroidCXX::android_database_sqlite_SQLiteDatabase * openOrCreateDatabase(AndroidCXX::java_io_File const& arg0,AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg1) ;
 	static AndroidCXX::android_database_sqlite_SQLiteDatabase * openOrCreateDatabase(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg1) ;
 	static AndroidCXX::android_database_sqlite_SQLiteDatabase * openOrCreateDatabase(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg1,AndroidCXX::android_database_DatabaseErrorHandler const& arg2) ;
 	static bool  deleteDatabase(AndroidCXX::java_io_File const& arg0) ;
 	static int  releaseMemory() ;
 	virtual void  setLockingEnabled(bool const& arg0) ;
+	virtual void  beginTransaction() ;
 	virtual void  beginTransactionNonExclusive() ;
 	virtual void  beginTransactionWithListener(AndroidCXX::android_database_sqlite_SQLiteTransactionListener const& arg0) ;
 	virtual void  beginTransactionWithListenerNonExclusive(AndroidCXX::android_database_sqlite_SQLiteTransactionListener const& arg0) ;

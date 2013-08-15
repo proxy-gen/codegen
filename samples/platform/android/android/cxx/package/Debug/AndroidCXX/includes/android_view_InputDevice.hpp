@@ -14,8 +14,8 @@
 	
  		 
 	
-	
  	
+	
 	
 	
 	
@@ -115,14 +115,14 @@ public:
 	virtual int  getId() ;
 	virtual int  describeContents() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	static AndroidCXX::android_view_InputDevice * getDevice(int const& arg0) ;
-	virtual AndroidCXX::android_view_KeyCharacterMap * getKeyCharacterMap() ;
 	virtual bool  isVirtual() ;
+	static AndroidCXX::android_view_InputDevice * getDevice(int const& arg0) ;
 	static std::vector<int>  getDeviceIds() ;
 	virtual int  getSources() ;
 	virtual int  getKeyboardType() ;
-	virtual AndroidCXX::android_view_InputDevice_MotionRange * getMotionRange(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::android_view_KeyCharacterMap * getKeyCharacterMap() ;
 	virtual AndroidCXX::android_view_InputDevice_MotionRange * getMotionRange(int const& arg0) ;
+	virtual AndroidCXX::android_view_InputDevice_MotionRange * getMotionRange(int const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_util_List * getMotionRanges() ;
 	virtual AndroidCXX::android_os_Vibrator * getVibrator() ;
 

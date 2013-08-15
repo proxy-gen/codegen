@@ -17,15 +17,6 @@
  		 
 	
  		 
- 		 
- 		 
-	
- 		 
-	
- 		 
-	
-	
-	
 	
 	
 	
@@ -33,21 +24,30 @@
 	
  		 
  		 
+ 		 
+ 		 
+	
+	
+ 		 
+	
+ 		 
+	
 	
  		 
  		 
  		 
  		 
- 		 
- 		 
 	
- 	
+ 		 
+ 		 
  		 
  		 
 	
  	
  		 
  		 
+	
+ 	
  		 
  		 
  		 
@@ -228,15 +228,7 @@ public:
 	virtual AndroidCXX::java_lang_CharSequence * getPackageName() ;
 	virtual void  setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual bool  refresh() ;
-	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	static AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * obtain(AndroidCXX::android_view_View const& arg0) ;
-	static AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * obtain(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
-	static AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * obtain(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
-	static AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * obtain() ;
-	virtual void  recycle() ;
-	virtual AndroidCXX::java_lang_CharSequence * getText() ;
-	virtual bool  isVisibleToUser() ;
+	virtual bool  isEnabled() ;
 	virtual AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * focusSearch(int const& arg0) ;
 	virtual AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * findFocus(int const& arg0) ;
 	virtual int  getChildCount() ;
@@ -246,7 +238,6 @@ public:
 	virtual void  setLabelFor(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
 	virtual void  setLabelFor(AndroidCXX::android_view_View const& arg0) ;
 	virtual bool  isFocused() ;
-	virtual bool  isEnabled() ;
 	virtual void  setEnabled(bool const& arg0) ;
 	virtual void  setFocusable(bool const& arg0) ;
 	virtual bool  isClickable() ;
@@ -257,14 +248,30 @@ public:
 	virtual int  getWindowId() ;
 	virtual void  setSelected(bool const& arg0) ;
 	virtual bool  isSelected() ;
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	static AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * obtain(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	static AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * obtain() ;
+	static AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * obtain(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
+	static AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * obtain(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  recycle() ;
+	virtual AndroidCXX::java_lang_CharSequence * getText() ;
+	virtual void  setClassName(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  addAction(int const& arg0) ;
+	virtual void  setSource(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
+	virtual void  setSource(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  setCheckable(bool const& arg0) ;
+	virtual bool  isCheckable() ;
 	virtual void  setChecked(bool const& arg0) ;
 	virtual bool  isChecked() ;
+	virtual void  setPackageName(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual bool  isPassword() ;
+	virtual void  setPassword(bool const& arg0) ;
+	virtual bool  isScrollable() ;
+	virtual void  setScrollable(bool const& arg0) ;
 	virtual AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * getChild(int const& arg0) ;
-	virtual void  setSource(AndroidCXX::android_view_View const& arg0) ;
-	virtual void  setSource(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
-	virtual void  addChild(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  addChild(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
-	virtual void  addAction(int const& arg0) ;
+	virtual void  addChild(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  setMovementGranularities(int const& arg0) ;
 	virtual int  getMovementGranularities() ;
 	virtual bool  performAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
@@ -275,20 +282,13 @@ public:
 	virtual void  setBoundsInParent(AndroidCXX::android_graphics_Rect const& arg0) ;
 	virtual void  getBoundsInScreen(AndroidCXX::android_graphics_Rect const& arg0) ;
 	virtual void  setBoundsInScreen(AndroidCXX::android_graphics_Rect const& arg0) ;
-	virtual bool  isCheckable() ;
-	virtual void  setCheckable(bool const& arg0) ;
 	virtual void  setFocused(bool const& arg0) ;
+	virtual bool  isVisibleToUser() ;
 	virtual void  setVisibleToUser(bool const& arg0) ;
 	virtual bool  isAccessibilityFocused() ;
 	virtual void  setAccessibilityFocused(bool const& arg0) ;
-	virtual bool  isPassword() ;
-	virtual void  setPassword(bool const& arg0) ;
-	virtual bool  isScrollable() ;
-	virtual void  setScrollable(bool const& arg0) ;
 	virtual bool  isEditable() ;
 	virtual void  setEditable(bool const& arg0) ;
-	virtual void  setPackageName(AndroidCXX::java_lang_CharSequence const& arg0) ;
-	virtual void  setClassName(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setLabeledBy(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  setLabeledBy(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * getLabeledBy() ;
