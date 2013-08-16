@@ -80,8 +80,8 @@ class android_widget_ViewFlipper : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_ViewFlipper(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_ViewFlipper(AndroidCXX::android_content_Context const& arg0);
+	android_widget_ViewFlipper(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_ViewFlipper(const android_widget_ViewFlipper& cc);
 	android_widget_ViewFlipper(Proxy proxy);
 	Proxy proxy() const;	

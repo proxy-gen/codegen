@@ -15,10 +15,6 @@
  		 
  		 
  	
-	
- 		 
- 		 
- 	
  	
 	
  		 
@@ -34,6 +30,10 @@
 	
  		 
  		 
+ 		 
+ 		 
+ 	
+	
  		 
  		 
  	
@@ -163,10 +163,10 @@ public:
 	virtual AndroidCXX::android_animation_ObjectAnimator * clone() ;
 	virtual AndroidCXX::java_lang_String * getPropertyName() ;
 	virtual AndroidCXX::java_lang_Object * getTarget() ;
-	static AndroidCXX::android_animation_ObjectAnimator * ofFloat(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<float> const& arg2) ;
 	static AndroidCXX::android_animation_ObjectAnimator * ofFloat(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,std::vector<float> const& arg2) ;
-	static AndroidCXX::android_animation_ObjectAnimator * ofInt(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<int> const& arg2) ;
+	static AndroidCXX::android_animation_ObjectAnimator * ofFloat(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<float> const& arg2) ;
 	static AndroidCXX::android_animation_ObjectAnimator * ofInt(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,std::vector<int> const& arg2) ;
+	static AndroidCXX::android_animation_ObjectAnimator * ofInt(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<int> const& arg2) ;
 	static AndroidCXX::android_animation_ObjectAnimator * ofObject(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::android_util_Property const& arg1,AndroidCXX::android_animation_TypeEvaluator const& arg2,std::vector<java_lang_Object> const& arg3) ;
 	static AndroidCXX::android_animation_ObjectAnimator * ofObject(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_animation_TypeEvaluator const& arg2,std::vector<java_lang_Object> const& arg3) ;
 	static AndroidCXX::android_animation_ObjectAnimator * ofPropertyValuesHolder(AndroidCXX::java_lang_Object const& arg0,std::vector<android_animation_PropertyValuesHolder> const& arg1) ;
@@ -175,8 +175,8 @@ public:
 	virtual void  setFloatValues(std::vector<float> const& arg0) ;
 	virtual void  setIntValues(std::vector<int> const& arg0) ;
 	virtual void  setObjectValues(std::vector<java_lang_Object> const& arg0) ;
-	virtual void  setProperty(AndroidCXX::android_util_Property const& arg0) ;
 	virtual void  setPropertyName(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setProperty(AndroidCXX::android_util_Property const& arg0) ;
 	virtual void  setTarget(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual void  setupEndValues() ;
 	virtual void  setupStartValues() ;

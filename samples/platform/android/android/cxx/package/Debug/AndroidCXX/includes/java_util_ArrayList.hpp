@@ -10,12 +10,12 @@
 
 
  		 
- 		 
- 		 
  	
  		 
  		 
  	
+ 		 
+ 		 
  		 
 	
  		 
@@ -73,9 +73,9 @@
 //
 
 
-#include <java_lang_Object.hpp>
-
 #include <java_util_Collection.hpp>
+
+#include <java_lang_Object.hpp>
 
 
 #include <java_io_Serializable.hpp>
@@ -102,9 +102,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
-
 class java_util_Collection;
+
+class java_lang_Object;
 
 class java_util_ArrayList : public java_io_Serializable,public java_lang_Cloneable,public java_util_List,public java_util_RandomAccess
 {
@@ -112,18 +112,18 @@ public:
 
 	// Public ConstrucXXX
 	java_util_ArrayList();
-	java_util_ArrayList(AndroidCXX::java_util_Collection const& arg0);
 	java_util_ArrayList(int const& arg0);
+	java_util_ArrayList(AndroidCXX::java_util_Collection const& arg0);
 	java_util_ArrayList(const java_util_ArrayList& cc);
 	java_util_ArrayList(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_util_ArrayList();
 	// Functions
+	virtual bool  addAll(int const& arg0,AndroidCXX::java_util_Collection const& arg1) ;
+	virtual bool  addAll(AndroidCXX::java_util_Collection const& arg0) ;
 	virtual void  add(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual bool  add(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual bool  addAll(AndroidCXX::java_util_Collection const& arg0) ;
-	virtual bool  addAll(int const& arg0,AndroidCXX::java_util_Collection const& arg1) ;
 	virtual void  clear() ;
 	virtual AndroidCXX::java_lang_Object * clone() ;
 	virtual bool  contains(AndroidCXX::java_lang_Object const& arg0) ;

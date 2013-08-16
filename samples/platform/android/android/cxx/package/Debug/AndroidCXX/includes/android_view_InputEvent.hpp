@@ -64,8 +64,8 @@ public:
 	virtual ~android_view_InputEvent();
 	// Functions
 	virtual int  describeContents() ;
-	virtual AndroidCXX::android_view_InputDevice * getDevice() ;
 	virtual int  getDeviceId() ;
+	virtual AndroidCXX::android_view_InputDevice * getDevice() ;
 	virtual long  getEventTime() ;
 	virtual int  getSource() ;
 	virtual bool  isFromSource(int const& arg0) ;

@@ -94,8 +94,8 @@ class android_widget_ViewSwitcher : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_ViewSwitcher(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_ViewSwitcher(AndroidCXX::android_content_Context const& arg0);
+	android_widget_ViewSwitcher(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_ViewSwitcher(const android_widget_ViewSwitcher& cc);
 	android_widget_ViewSwitcher(Proxy proxy);
 	Proxy proxy() const;	

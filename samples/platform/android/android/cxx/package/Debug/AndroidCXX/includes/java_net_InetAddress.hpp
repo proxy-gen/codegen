@@ -14,9 +14,9 @@
  		 
  	
  		 
- 		 
  	
 	
+ 		 
  	
 	
  		 
@@ -113,8 +113,8 @@ public:
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual std::vector<byte>  getAddress() ;
 	static std::vector<java_net_InetAddress>  getAllByName(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::java_net_InetAddress * getByAddress(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1) ;
 	static AndroidCXX::java_net_InetAddress * getByAddress(std::vector<byte> const& arg0) ;
+	static AndroidCXX::java_net_InetAddress * getByAddress(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1) ;
 	static AndroidCXX::java_net_InetAddress * getByName(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getCanonicalHostName() ;
 	virtual AndroidCXX::java_lang_String * getHostAddress() ;
@@ -130,8 +130,8 @@ public:
 	virtual bool  isMCOrgLocal() ;
 	virtual bool  isMCSiteLocal() ;
 	virtual bool  isMulticastAddress() ;
-	virtual bool  isReachable(AndroidCXX::java_net_NetworkInterface const& arg0,int const& arg1,int const& arg2) ;
 	virtual bool  isReachable(int const& arg0) ;
+	virtual bool  isReachable(AndroidCXX::java_net_NetworkInterface const& arg0,int const& arg1,int const& arg2) ;
 	virtual bool  isSiteLocalAddress() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 

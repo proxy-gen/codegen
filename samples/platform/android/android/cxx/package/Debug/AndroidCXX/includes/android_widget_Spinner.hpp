@@ -139,9 +139,9 @@ public:
 	// Public ConstrucXXX
 	android_widget_Spinner(AndroidCXX::android_content_Context const& arg0);
 	android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,int const& arg1);
 	android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,int const& arg3);
+	android_widget_Spinner(AndroidCXX::android_content_Context const& arg0,int const& arg1);
 	android_widget_Spinner(const android_widget_Spinner& cc);
 	android_widget_Spinner(Proxy proxy);
 	Proxy proxy() const;	
@@ -170,8 +170,8 @@ public:
 	virtual void  setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0) ;
 	virtual void  setPopupBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setPopupBackgroundResource(int const& arg0) ;
-	virtual void  setPrompt(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setPromptId(int const& arg0) ;
+	virtual void  setPrompt(AndroidCXX::java_lang_CharSequence const& arg0) ;
 
 protected:
 

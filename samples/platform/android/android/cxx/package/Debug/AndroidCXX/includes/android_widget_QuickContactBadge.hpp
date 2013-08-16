@@ -121,8 +121,8 @@ public:
 	// Default Destructor
 	virtual ~android_widget_QuickContactBadge();
 	// Functions
-	virtual void  assignContactFromEmail(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
 	virtual void  assignContactFromEmail(AndroidCXX::java_lang_String const& arg0,bool const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
+	virtual void  assignContactFromEmail(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
 	virtual void  assignContactFromPhone(AndroidCXX::java_lang_String const& arg0,bool const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
 	virtual void  assignContactFromPhone(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
 	virtual void  assignContactUri(AndroidCXX::android_net_Uri const& arg0) ;

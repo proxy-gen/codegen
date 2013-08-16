@@ -9,18 +9,18 @@
 
 
 
-	
-	
- 		 
-	
- 		 
-	
  		 
  	
  		 
  	
  		 
  		 
+	
+ 		 
+	
+	
+ 		 
+	
 	
  		 
 	
@@ -90,13 +90,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_MenuItem;
-
-class java_lang_CharSequence;
-
 class android_content_ComponentName;
 
 class android_content_Intent;
+
+class android_view_MenuItem;
+
+class java_lang_CharSequence;
 
 class android_view_SubMenu;
 
@@ -112,11 +112,11 @@ public:
 	// Default Destructor
 	virtual ~android_view_Menu();
 	// Functions
-	virtual AndroidCXX::android_view_MenuItem * add(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
-	virtual AndroidCXX::android_view_MenuItem * add(int const& arg0) ;
-	virtual AndroidCXX::android_view_MenuItem * add(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_lang_CharSequence const& arg3) ;
-	virtual AndroidCXX::android_view_MenuItem * add(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual int  addIntentOptions(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_content_ComponentName const& arg3,std::vector<android_content_Intent> const& arg4,AndroidCXX::android_content_Intent const& arg5,int const& arg6,std::vector<android_view_MenuItem> const& arg7) ;
+	virtual AndroidCXX::android_view_MenuItem * add(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual AndroidCXX::android_view_MenuItem * add(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_lang_CharSequence const& arg3) ;
+	virtual AndroidCXX::android_view_MenuItem * add(int const& arg0) ;
+	virtual AndroidCXX::android_view_MenuItem * add(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::android_view_SubMenu * addSubMenu(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual AndroidCXX::android_view_SubMenu * addSubMenu(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_lang_CharSequence const& arg3) ;
 	virtual AndroidCXX::android_view_SubMenu * addSubMenu(int const& arg0) ;

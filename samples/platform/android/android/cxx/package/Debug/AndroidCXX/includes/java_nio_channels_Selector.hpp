@@ -83,9 +83,9 @@ public:
 	virtual AndroidCXX::java_util_Set * keys() ;
 	static AndroidCXX::java_nio_channels_Selector * open() ;
 	virtual AndroidCXX::java_nio_channels_spi_SelectorProvider * provider() ;
+	virtual int  selectNow() ;
 	virtual int  select(long const& arg0) ;
 	virtual int  select() ;
-	virtual int  selectNow() ;
 	virtual AndroidCXX::java_util_Set * selectedKeys() ;
 	virtual AndroidCXX::java_nio_channels_Selector * wakeup() ;
 

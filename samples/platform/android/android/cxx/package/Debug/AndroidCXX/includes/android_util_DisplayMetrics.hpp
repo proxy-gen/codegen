@@ -57,8 +57,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
+class java_lang_Object;
 
 class java_lang_String;
 
@@ -74,11 +74,11 @@ public:
 	// Default Destructor
 	virtual ~android_util_DisplayMetrics();
 	// Functions
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual bool  equals(AndroidCXX::android_util_DisplayMetrics const& arg0) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual int  hashCode() ;
-	virtual void  setTo(AndroidCXX::android_util_DisplayMetrics const& arg0) ;
 	virtual void  setToDefaults() ;
+	virtual void  setTo(AndroidCXX::android_util_DisplayMetrics const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:

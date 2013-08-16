@@ -21,13 +21,13 @@
  	
 	
 	
+ 	
+	
+ 	
+	
+	
+	
  		 
-	
-	
-	
- 	
-	
- 	
 	
 	
 	
@@ -113,26 +113,26 @@ public:
 	virtual ~java_nio_IntBuffer();
 	// Functions
 	static AndroidCXX::java_nio_IntBuffer * allocate(int const& arg0) ;
-	virtual std::vector<int>  array() ;
 	virtual int  arrayOffset() ;
+	virtual std::vector<int>  array() ;
 	virtual AndroidCXX::java_nio_IntBuffer * asReadOnlyBuffer() ;
 	virtual AndroidCXX::java_nio_IntBuffer * compact() ;
 	virtual int  compareTo(AndroidCXX::java_nio_IntBuffer const& arg0) ;
 	virtual AndroidCXX::java_nio_IntBuffer * duplicate() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual int  get() ;
-	virtual AndroidCXX::java_nio_IntBuffer * get(std::vector<int> const& arg0) ;
 	virtual AndroidCXX::java_nio_IntBuffer * get(std::vector<int> const& arg0,int const& arg1,int const& arg2) ;
+	virtual AndroidCXX::java_nio_IntBuffer * get(std::vector<int> const& arg0) ;
 	virtual int  get(int const& arg0) ;
+	virtual int  get() ;
 	virtual bool  hasArray() ;
 	virtual int  hashCode() ;
 	virtual bool  isDirect() ;
 	virtual AndroidCXX::java_nio_ByteOrder * order() ;
-	virtual AndroidCXX::java_nio_IntBuffer * put(AndroidCXX::java_nio_IntBuffer const& arg0) ;
-	virtual AndroidCXX::java_nio_IntBuffer * put(int const& arg0) ;
-	virtual AndroidCXX::java_nio_IntBuffer * put(int const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_nio_IntBuffer * put(std::vector<int> const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_nio_IntBuffer * put(std::vector<int> const& arg0) ;
+	virtual AndroidCXX::java_nio_IntBuffer * put(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::java_nio_IntBuffer * put(int const& arg0) ;
+	virtual AndroidCXX::java_nio_IntBuffer * put(AndroidCXX::java_nio_IntBuffer const& arg0) ;
 	virtual AndroidCXX::java_nio_IntBuffer * slice() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 	static AndroidCXX::java_nio_IntBuffer * wrap(std::vector<int> const& arg0,int const& arg1,int const& arg2) ;

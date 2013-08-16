@@ -84,8 +84,8 @@ public:
 	virtual float  getAlpha() ;
 	virtual AndroidCXX::android_graphics_Matrix * getMatrix() ;
 	virtual int  getTransformationType() ;
-	virtual void  set(AndroidCXX::android_view_animation_Transformation const& arg0) ;
 	virtual void  setAlpha(float const& arg0) ;
+	virtual void  set(AndroidCXX::android_view_animation_Transformation const& arg0) ;
 	virtual void  setTransformationType(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toShortString() ;
 	virtual AndroidCXX::java_lang_String * toString() ;

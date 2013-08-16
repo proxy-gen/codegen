@@ -105,8 +105,8 @@ class java_lang_ThreadGroup : public java_lang_Thread_UncaughtExceptionHandler
 public:
 
 	// Public ConstrucXXX
-	java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1);
 	java_lang_ThreadGroup(AndroidCXX::java_lang_String const& arg0);
+	java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1);
 	java_lang_ThreadGroup(const java_lang_ThreadGroup& cc);
 	java_lang_ThreadGroup(Proxy proxy);
 	Proxy proxy() const;	
@@ -118,8 +118,8 @@ public:
 	virtual bool  allowThreadSuspension(bool const& arg0) ;
 	virtual void  checkAccess() ;
 	virtual void  destroy() ;
-	virtual int  enumerate(std::vector<java_lang_ThreadGroup> const& arg0) ;
 	virtual int  enumerate(std::vector<java_lang_ThreadGroup> const& arg0,bool const& arg1) ;
+	virtual int  enumerate(std::vector<java_lang_ThreadGroup> const& arg0) ;
 	virtual int  enumerate(std::vector<java_lang_Thread> const& arg0,bool const& arg1) ;
 	virtual int  enumerate(std::vector<java_lang_Thread> const& arg0) ;
 	virtual int  getMaxPriority() ;

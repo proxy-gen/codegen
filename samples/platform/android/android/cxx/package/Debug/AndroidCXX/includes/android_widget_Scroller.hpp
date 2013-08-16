@@ -83,9 +83,9 @@ class android_widget_Scroller
 public:
 
 	// Public ConstrucXXX
-	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,bool const& arg2);
 	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0);
 	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1);
+	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,bool const& arg2);
 	android_widget_Scroller(const android_widget_Scroller& cc);
 	android_widget_Scroller(Proxy proxy);
 	Proxy proxy() const;	
@@ -109,8 +109,8 @@ public:
 	virtual void  setFinalX(int const& arg0) ;
 	virtual void  setFinalY(int const& arg0) ;
 	virtual void  setFriction(float const& arg0) ;
-	virtual void  startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual void  startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) ;
+	virtual void  startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual int  timePassed() ;
 
 protected:

@@ -21,13 +21,13 @@
  	
 	
 	
+ 	
+	
+ 	
+	
+	
  		 
 	
-	
-	
- 	
-	
- 	
 	
 	
 	
@@ -113,26 +113,26 @@ public:
 	virtual ~java_nio_LongBuffer();
 	// Functions
 	static AndroidCXX::java_nio_LongBuffer * allocate(int const& arg0) ;
-	virtual std::vector<long>  array() ;
 	virtual int  arrayOffset() ;
+	virtual std::vector<long>  array() ;
 	virtual AndroidCXX::java_nio_LongBuffer * asReadOnlyBuffer() ;
 	virtual AndroidCXX::java_nio_LongBuffer * compact() ;
 	virtual int  compareTo(AndroidCXX::java_nio_LongBuffer const& arg0) ;
 	virtual AndroidCXX::java_nio_LongBuffer * duplicate() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual long  get() ;
-	virtual AndroidCXX::java_nio_LongBuffer * get(std::vector<long> const& arg0) ;
 	virtual AndroidCXX::java_nio_LongBuffer * get(std::vector<long> const& arg0,int const& arg1,int const& arg2) ;
+	virtual AndroidCXX::java_nio_LongBuffer * get(std::vector<long> const& arg0) ;
 	virtual long  get(int const& arg0) ;
+	virtual long  get() ;
 	virtual bool  hasArray() ;
 	virtual int  hashCode() ;
 	virtual bool  isDirect() ;
 	virtual AndroidCXX::java_nio_ByteOrder * order() ;
-	virtual AndroidCXX::java_nio_LongBuffer * put(AndroidCXX::java_nio_LongBuffer const& arg0) ;
-	virtual AndroidCXX::java_nio_LongBuffer * put(long const& arg0) ;
-	virtual AndroidCXX::java_nio_LongBuffer * put(int const& arg0,long const& arg1) ;
 	virtual AndroidCXX::java_nio_LongBuffer * put(std::vector<long> const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_nio_LongBuffer * put(std::vector<long> const& arg0) ;
+	virtual AndroidCXX::java_nio_LongBuffer * put(int const& arg0,long const& arg1) ;
+	virtual AndroidCXX::java_nio_LongBuffer * put(AndroidCXX::java_nio_LongBuffer const& arg0) ;
+	virtual AndroidCXX::java_nio_LongBuffer * put(long const& arg0) ;
 	virtual AndroidCXX::java_nio_LongBuffer * slice() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 	static AndroidCXX::java_nio_LongBuffer * wrap(std::vector<long> const& arg0,int const& arg1,int const& arg2) ;

@@ -21,8 +21,8 @@
  		 
 	
 	
-	
  		 
+	
 	
  		 
 	
@@ -127,10 +127,10 @@ public:
 	virtual bool  contains(AndroidCXX::java_nio_charset_Charset const& arg0) ;
 	virtual AndroidCXX::java_nio_CharBuffer * decode(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
 	static AndroidCXX::java_nio_charset_Charset * defaultCharset() ;
-	virtual AndroidCXX::java_lang_String * displayName() ;
 	virtual AndroidCXX::java_lang_String * displayName(AndroidCXX::java_util_Locale const& arg0) ;
-	virtual AndroidCXX::java_nio_ByteBuffer * encode(AndroidCXX::java_nio_CharBuffer const& arg0) ;
+	virtual AndroidCXX::java_lang_String * displayName() ;
 	virtual AndroidCXX::java_nio_ByteBuffer * encode(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_nio_ByteBuffer * encode(AndroidCXX::java_nio_CharBuffer const& arg0) ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	static AndroidCXX::java_nio_charset_Charset * forName(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  hashCode() ;

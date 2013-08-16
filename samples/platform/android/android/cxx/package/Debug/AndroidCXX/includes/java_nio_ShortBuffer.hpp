@@ -21,13 +21,13 @@
  	
 	
 	
+ 	
+	
+ 	
+	
+	
  		 
 	
-	
-	
- 	
-	
- 	
 	
 	
 	
@@ -113,26 +113,26 @@ public:
 	virtual ~java_nio_ShortBuffer();
 	// Functions
 	static AndroidCXX::java_nio_ShortBuffer * allocate(int const& arg0) ;
-	virtual std::vector<short>  array() ;
 	virtual int  arrayOffset() ;
+	virtual std::vector<short>  array() ;
 	virtual AndroidCXX::java_nio_ShortBuffer * asReadOnlyBuffer() ;
 	virtual AndroidCXX::java_nio_ShortBuffer * compact() ;
 	virtual int  compareTo(AndroidCXX::java_nio_ShortBuffer const& arg0) ;
 	virtual AndroidCXX::java_nio_ShortBuffer * duplicate() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual short  get() ;
-	virtual AndroidCXX::java_nio_ShortBuffer * get(std::vector<short> const& arg0) ;
 	virtual AndroidCXX::java_nio_ShortBuffer * get(std::vector<short> const& arg0,int const& arg1,int const& arg2) ;
+	virtual AndroidCXX::java_nio_ShortBuffer * get(std::vector<short> const& arg0) ;
 	virtual short  get(int const& arg0) ;
+	virtual short  get() ;
 	virtual bool  hasArray() ;
 	virtual int  hashCode() ;
 	virtual bool  isDirect() ;
 	virtual AndroidCXX::java_nio_ByteOrder * order() ;
-	virtual AndroidCXX::java_nio_ShortBuffer * put(AndroidCXX::java_nio_ShortBuffer const& arg0) ;
-	virtual AndroidCXX::java_nio_ShortBuffer * put(short const& arg0) ;
-	virtual AndroidCXX::java_nio_ShortBuffer * put(int const& arg0,short const& arg1) ;
 	virtual AndroidCXX::java_nio_ShortBuffer * put(std::vector<short> const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_nio_ShortBuffer * put(std::vector<short> const& arg0) ;
+	virtual AndroidCXX::java_nio_ShortBuffer * put(int const& arg0,short const& arg1) ;
+	virtual AndroidCXX::java_nio_ShortBuffer * put(AndroidCXX::java_nio_ShortBuffer const& arg0) ;
+	virtual AndroidCXX::java_nio_ShortBuffer * put(short const& arg0) ;
 	virtual AndroidCXX::java_nio_ShortBuffer * slice() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 	static AndroidCXX::java_nio_ShortBuffer * wrap(std::vector<short> const& arg0,int const& arg1,int const& arg2) ;

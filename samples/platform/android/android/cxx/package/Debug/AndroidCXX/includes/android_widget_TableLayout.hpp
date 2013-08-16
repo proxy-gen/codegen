@@ -116,18 +116,18 @@ class android_widget_TableLayout : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_TableLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_TableLayout(AndroidCXX::android_content_Context const& arg0);
+	android_widget_TableLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_TableLayout(const android_widget_TableLayout& cc);
 	android_widget_TableLayout(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TableLayout();
 	// Functions
-	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
-	virtual void  addView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) ;
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0) ;
 	virtual AndroidCXX::android_widget_TableLayout_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
 	virtual bool  isColumnCollapsed(int const& arg0) ;
 	virtual bool  isColumnShrinkable(int const& arg0) ;

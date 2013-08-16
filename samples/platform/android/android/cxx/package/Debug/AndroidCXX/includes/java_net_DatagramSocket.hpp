@@ -116,8 +116,8 @@ public:
 	// Public ConstrucXXX
 	java_net_DatagramSocket();
 	java_net_DatagramSocket(int const& arg0);
-	java_net_DatagramSocket(AndroidCXX::java_net_SocketAddress const& arg0);
 	java_net_DatagramSocket(int const& arg0,AndroidCXX::java_net_InetAddress const& arg1);
+	java_net_DatagramSocket(AndroidCXX::java_net_SocketAddress const& arg0);
 	java_net_DatagramSocket(const java_net_DatagramSocket& cc);
 	java_net_DatagramSocket(Proxy proxy);
 	Proxy proxy() const;	
@@ -126,8 +126,8 @@ public:
 	// Functions
 	virtual void  bind(AndroidCXX::java_net_SocketAddress const& arg0) ;
 	virtual void  close() ;
-	virtual void  connect(AndroidCXX::java_net_SocketAddress const& arg0) ;
 	virtual void  connect(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1) ;
+	virtual void  connect(AndroidCXX::java_net_SocketAddress const& arg0) ;
 	virtual void  disconnect() ;
 	virtual bool  getBroadcast() ;
 	virtual AndroidCXX::java_nio_channels_DatagramChannel * getChannel() ;

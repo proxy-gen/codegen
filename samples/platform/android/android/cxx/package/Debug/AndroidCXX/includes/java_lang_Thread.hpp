@@ -174,13 +174,13 @@ public:
 
 	// Public ConstrucXXX
 	java_lang_Thread();
-	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1,AndroidCXX::java_lang_String const& arg2);
-	java_lang_Thread(AndroidCXX::java_lang_String const& arg0);
 	java_lang_Thread(AndroidCXX::java_lang_Runnable const& arg0);
 	java_lang_Thread(AndroidCXX::java_lang_Runnable const& arg0,AndroidCXX::java_lang_String const& arg1);
-	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1);
+	java_lang_Thread(AndroidCXX::java_lang_String const& arg0);
 	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1);
+	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1,AndroidCXX::java_lang_String const& arg2);
 	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1,AndroidCXX::java_lang_String const& arg2,long const& arg3);
+	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1);
 	java_lang_Thread(const java_lang_Thread& cc);
 	java_lang_Thread(Proxy proxy);
 	Proxy proxy() const;	
@@ -210,9 +210,9 @@ public:
 	virtual bool  isAlive() ;
 	virtual bool  isDaemon() ;
 	virtual bool  isInterrupted() ;
-	virtual void  join() ;
 	virtual void  join(long const& arg0,int const& arg1) ;
 	virtual void  join(long const& arg0) ;
+	virtual void  join() ;
 	virtual void  resume() ;
 	virtual void  run() ;
 	virtual void  setContextClassLoader(AndroidCXX::java_lang_ClassLoader const& arg0) ;
@@ -221,11 +221,11 @@ public:
 	virtual void  setName(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setPriority(int const& arg0) ;
 	virtual void  setUncaughtExceptionHandler(AndroidCXX::java_lang_Thread_UncaughtExceptionHandler const& arg0) ;
-	static void  sleep(long const& arg0) ;
 	static void  sleep(long const& arg0,int const& arg1) ;
+	static void  sleep(long const& arg0) ;
 	virtual void  start() ;
-	virtual void  stop() ;
 	virtual void  stop(AndroidCXX::java_lang_Throwable const& arg0) ;
+	virtual void  stop() ;
 	virtual void  suspend() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 	static void  yield() ;

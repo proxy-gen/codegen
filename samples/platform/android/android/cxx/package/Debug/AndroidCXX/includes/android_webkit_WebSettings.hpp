@@ -194,8 +194,8 @@ public:
 	// Functions
 	virtual bool  enableSmoothTransition() ;
 	virtual bool  getAllowContentAccess() ;
-	virtual bool  getAllowFileAccess() ;
 	virtual bool  getAllowFileAccessFromFileURLs() ;
+	virtual bool  getAllowFileAccess() ;
 	virtual bool  getAllowUniversalAccessFromFileURLs() ;
 	virtual bool  getBlockNetworkImage() ;
 	virtual bool  getBlockNetworkLoads() ;
@@ -233,8 +233,8 @@ public:
 	virtual bool  getUseWideViewPort() ;
 	virtual AndroidCXX::java_lang_String * getUserAgentString() ;
 	virtual void  setAllowContentAccess(bool const& arg0) ;
-	virtual void  setAllowFileAccess(bool const& arg0) ;
 	virtual void  setAllowFileAccessFromFileURLs(bool const& arg0) ;
+	virtual void  setAllowFileAccess(bool const& arg0) ;
 	virtual void  setAllowUniversalAccessFromFileURLs(bool const& arg0) ;
 	virtual void  setAppCacheEnabled(bool const& arg0) ;
 	virtual void  setAppCacheMaxSize(long const& arg0) ;

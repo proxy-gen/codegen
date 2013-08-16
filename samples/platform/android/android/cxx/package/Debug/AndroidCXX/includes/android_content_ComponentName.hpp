@@ -30,8 +30,8 @@
 
  		 
  		 
- 		 
  	
+ 		 
  		 
  		 
  		 
@@ -120,9 +120,9 @@ class android_content_ComponentName : public android_os_Parcelable,public java_l
 public:
 
 	// Public ConstrucXXX
-	android_content_ComponentName(AndroidCXX::android_os_Parcel const& arg0);
 	android_content_ComponentName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1);
 	android_content_ComponentName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
+	android_content_ComponentName(AndroidCXX::android_os_Parcel const& arg0);
 	android_content_ComponentName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
 	android_content_ComponentName(const android_content_ComponentName& cc);
 	android_content_ComponentName(Proxy proxy);
@@ -144,8 +144,8 @@ public:
 	virtual AndroidCXX::java_lang_String * toShortString() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 	static AndroidCXX::android_content_ComponentName * unflattenFromString(AndroidCXX::java_lang_String const& arg0) ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 	static void  writeToParcel(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_Parcel const& arg1) ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

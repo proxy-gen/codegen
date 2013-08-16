@@ -87,8 +87,8 @@ class android_widget_ImageSwitcher : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_ImageSwitcher(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_ImageSwitcher(AndroidCXX::android_content_Context const& arg0);
+	android_widget_ImageSwitcher(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_ImageSwitcher(const android_widget_ImageSwitcher& cc);
 	android_widget_ImageSwitcher(Proxy proxy);
 	Proxy proxy() const;	

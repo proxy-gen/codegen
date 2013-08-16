@@ -344,10 +344,10 @@ public:
 	virtual void  setVerticalScrollbarPosition(int const& arg0) ;
 	virtual bool  showContextMenuForChild(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  smoothScrollBy(int const& arg0,int const& arg1) ;
-	virtual void  smoothScrollToPosition(int const& arg0) ;
-	virtual void  smoothScrollToPosition(int const& arg0,int const& arg1) ;
 	virtual void  smoothScrollToPositionFromTop(int const& arg0,int const& arg1,int const& arg2) ;
 	virtual void  smoothScrollToPositionFromTop(int const& arg0,int const& arg1) ;
+	virtual void  smoothScrollToPosition(int const& arg0,int const& arg1) ;
+	virtual void  smoothScrollToPosition(int const& arg0) ;
 	virtual bool  verifyDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 
 protected:

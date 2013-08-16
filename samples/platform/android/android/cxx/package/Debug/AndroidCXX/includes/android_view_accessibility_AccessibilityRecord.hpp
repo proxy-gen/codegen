@@ -17,8 +17,8 @@
 	
  	
  		 
-	
  		 
+	
 	
  		 
  		 
@@ -165,8 +165,8 @@ public:
 	virtual bool  isFullScreen() ;
 	virtual bool  isPassword() ;
 	virtual bool  isScrollable() ;
-	static AndroidCXX::android_view_accessibility_AccessibilityRecord * obtain() ;
 	static AndroidCXX::android_view_accessibility_AccessibilityRecord * obtain(AndroidCXX::android_view_accessibility_AccessibilityRecord const& arg0) ;
+	static AndroidCXX::android_view_accessibility_AccessibilityRecord * obtain() ;
 	virtual void  recycle() ;
 	virtual void  setAddedCount(int const& arg0) ;
 	virtual void  setBeforeText(AndroidCXX::java_lang_CharSequence const& arg0) ;
@@ -186,8 +186,8 @@ public:
 	virtual void  setScrollX(int const& arg0) ;
 	virtual void  setScrollY(int const& arg0) ;
 	virtual void  setScrollable(bool const& arg0) ;
-	virtual void  setSource(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  setSource(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
+	virtual void  setSource(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  setToIndex(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 

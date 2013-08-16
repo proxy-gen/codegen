@@ -130,8 +130,8 @@ public:
 	virtual int  hashCode() ;
 	virtual bool  isAnnotationPresent(AndroidCXX::java_lang_Class const& arg0) ;
 	virtual bool  isCompatibleWith(AndroidCXX::java_lang_String const& arg0) ;
-	virtual bool  isSealed() ;
 	virtual bool  isSealed(AndroidCXX::java_net_URL const& arg0) ;
+	virtual bool  isSealed() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:

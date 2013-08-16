@@ -162,8 +162,8 @@ public:
 	virtual void  setGravity(int const& arg0) ;
 	virtual void  setSpacing(int const& arg0) ;
 	virtual void  setUnselectedAlpha(float const& arg0) ;
-	virtual bool  showContextMenu() ;
 	virtual bool  showContextMenuForChild(AndroidCXX::android_view_View const& arg0) ;
+	virtual bool  showContextMenu() ;
 
 protected:
 

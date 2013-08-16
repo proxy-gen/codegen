@@ -136,15 +136,15 @@ public:
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  removeAllViews() ;
-	virtual void  removeView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  removeViewAt(int const& arg0) ;
 	virtual void  removeViewInLayout(AndroidCXX::android_view_View const& arg0) ;
-	virtual void  removeViews(int const& arg0,int const& arg1) ;
+	virtual void  removeView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  removeViewsInLayout(int const& arg0,int const& arg1) ;
+	virtual void  removeViews(int const& arg0,int const& arg1) ;
 	virtual void  setAnimateFirstView(bool const& arg0) ;
 	virtual void  setDisplayedChild(int const& arg0) ;
-	virtual void  setInAnimation(AndroidCXX::android_view_animation_Animation const& arg0) ;
 	virtual void  setInAnimation(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
+	virtual void  setInAnimation(AndroidCXX::android_view_animation_Animation const& arg0) ;
 	virtual void  setOutAnimation(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
 	virtual void  setOutAnimation(AndroidCXX::android_view_animation_Animation const& arg0) ;
 	virtual void  showNext() ;

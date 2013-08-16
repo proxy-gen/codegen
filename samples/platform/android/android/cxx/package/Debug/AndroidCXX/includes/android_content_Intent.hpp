@@ -119,22 +119,6 @@
 	
  		 
  		 
- 		 
-	
- 		 
- 		 
-	
- 		 
- 	
-	
- 		 
- 		 
- 		 
-	
- 		 
- 	
-	
- 		 
  	
 	
  		 
@@ -164,6 +148,16 @@
 	
  		 
  		 
+ 	
+	
+ 		 
+ 		 
+ 	
+	
+ 		 
+ 		 
+	
+ 		 
  		 
 	
  		 
@@ -179,8 +173,14 @@
  		 
 	
  		 
+ 		 
 	
  		 
+ 		 
+	
+ 		 
+ 		 
+	
  		 
 	
  		 
@@ -225,6 +225,12 @@
 	
  		 
  		 
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
  	
 	
  		 
@@ -232,19 +238,13 @@
  		 
 	
  		 
- 		 
 	
  		 
  		 
 	
  		 
-	
  		 
 	
- 		 
- 		 
-	
- 		 
  		 
 	
  		 
@@ -265,17 +265,17 @@
 
  		 
  		 
- 		 
- 		 
  	
  		 
  		 
  		 
  		 
  		 
+ 		 
+ 		 
+ 		 
+ 		 
  	
- 		 
- 		 
  		 
 
 
@@ -457,9 +457,9 @@
 
 #include <android_content_pm_ActivityInfo.hpp>
 
-#include <android_content_Context.hpp>
-
 #include <android_content_ContentResolver.hpp>
+
+#include <android_content_Context.hpp>
 
 #include <java_lang_Class.hpp>
 
@@ -522,9 +522,9 @@ class android_content_pm_PackageManager;
 
 class android_content_pm_ActivityInfo;
 
-class android_content_Context;
-
 class android_content_ContentResolver;
+
+class android_content_Context;
 
 class java_lang_Class;
 
@@ -536,11 +536,11 @@ public:
 
 	// Public ConstrucXXX
 	android_content_Intent();
-	android_content_Intent(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::android_content_Context const& arg2,AndroidCXX::java_lang_Class const& arg3);
-	android_content_Intent(AndroidCXX::java_lang_String const& arg0);
-	android_content_Intent(AndroidCXX::android_content_Intent const& arg0);
 	android_content_Intent(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1);
+	android_content_Intent(AndroidCXX::android_content_Intent const& arg0);
+	android_content_Intent(AndroidCXX::java_lang_String const& arg0);
 	android_content_Intent(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_net_Uri const& arg1);
+	android_content_Intent(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::android_content_Context const& arg2,AndroidCXX::java_lang_Class const& arg3);
 	android_content_Intent(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
@@ -548,8 +548,8 @@ public:
 	// Functions
 	virtual AndroidCXX::android_content_Intent * addCategory(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_content_Intent * addFlags(int const& arg0) ;
-	virtual AndroidCXX::java_lang_Object * clone() ;
 	virtual AndroidCXX::android_content_Intent * cloneFilter() ;
+	virtual AndroidCXX::java_lang_Object * clone() ;
 	static AndroidCXX::android_content_Intent * createChooser(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) ;
 	virtual int  describeContents() ;
 	virtual int  fillIn(AndroidCXX::android_content_Intent const& arg0,int const& arg1) ;
@@ -580,8 +580,8 @@ public:
 	virtual std::vector<int>  getIntArrayExtra(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  getIntExtra(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_util_ArrayList * getIntegerArrayListExtra(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::android_content_Intent * getIntent(AndroidCXX::java_lang_String const& arg0) ;
 	static AndroidCXX::android_content_Intent * getIntentOld(AndroidCXX::java_lang_String const& arg0) ;
+	static AndroidCXX::android_content_Intent * getIntent(AndroidCXX::java_lang_String const& arg0) ;
 	virtual std::vector<long>  getLongArrayExtra(AndroidCXX::java_lang_String const& arg0) ;
 	virtual long  getLongExtra(AndroidCXX::java_lang_String const& arg0,long const& arg1) ;
 	virtual AndroidCXX::java_lang_String * getPackage() ;
@@ -608,62 +608,62 @@ public:
 	static AndroidCXX::android_content_Intent * parseIntent(AndroidCXX::android_content_res_Resources const& arg0,AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg1,AndroidCXX::android_util_AttributeSet const& arg2) ;
 	static AndroidCXX::android_content_Intent * parseUri(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putCharSequenceArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Parcelable const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<android_os_Parcelable> const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_Serializable const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<bool> const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<short> const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<char> const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<double> const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<int> const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<long> const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<double> const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_String> const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<android_os_Parcelable> const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_CharSequence> const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_String> const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<short> const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Parcelable const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,byte const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,char const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,short const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,long const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,float const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,double const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,float const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_Serializable const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtras(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,long const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,short const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtras(AndroidCXX::android_content_Intent const& arg0) ;
+	virtual AndroidCXX::android_content_Intent * putExtras(AndroidCXX::android_os_Bundle const& arg0) ;
 	virtual AndroidCXX::android_content_Intent * putIntegerArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putParcelableArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putStringArrayListExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) ;
 	virtual void  readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
 	virtual void  removeCategory(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  removeExtra(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::android_content_Intent * replaceExtras(AndroidCXX::android_os_Bundle const& arg0) ;
 	virtual AndroidCXX::android_content_Intent * replaceExtras(AndroidCXX::android_content_Intent const& arg0) ;
-	virtual AndroidCXX::android_content_ComponentName * resolveActivity(AndroidCXX::android_content_pm_PackageManager const& arg0) ;
+	virtual AndroidCXX::android_content_Intent * replaceExtras(AndroidCXX::android_os_Bundle const& arg0) ;
 	virtual AndroidCXX::android_content_pm_ActivityInfo * resolveActivityInfo(AndroidCXX::android_content_pm_PackageManager const& arg0,int const& arg1) ;
-	virtual AndroidCXX::java_lang_String * resolveType(AndroidCXX::android_content_Context const& arg0) ;
-	virtual AndroidCXX::java_lang_String * resolveType(AndroidCXX::android_content_ContentResolver const& arg0) ;
+	virtual AndroidCXX::android_content_ComponentName * resolveActivity(AndroidCXX::android_content_pm_PackageManager const& arg0) ;
 	virtual AndroidCXX::java_lang_String * resolveTypeIfNeeded(AndroidCXX::android_content_ContentResolver const& arg0) ;
+	virtual AndroidCXX::java_lang_String * resolveType(AndroidCXX::android_content_ContentResolver const& arg0) ;
+	virtual AndroidCXX::java_lang_String * resolveType(AndroidCXX::android_content_Context const& arg0) ;
 	virtual AndroidCXX::android_content_Intent * setAction(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::android_content_Intent * setClass(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * setClassName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * setClassName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * setClassName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * setClass(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1) ;
 	virtual void  setClipData(AndroidCXX::android_content_ClipData const& arg0) ;
 	virtual AndroidCXX::android_content_Intent * setComponent(AndroidCXX::android_content_ComponentName const& arg0) ;
-	virtual AndroidCXX::android_content_Intent * setData(AndroidCXX::android_net_Uri const& arg0) ;
 	virtual AndroidCXX::android_content_Intent * setDataAndNormalize(AndroidCXX::android_net_Uri const& arg0) ;
-	virtual AndroidCXX::android_content_Intent * setDataAndType(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * setDataAndTypeAndNormalize(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * setDataAndType(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * setData(AndroidCXX::android_net_Uri const& arg0) ;
 	virtual void  setExtrasClassLoader(AndroidCXX::java_lang_ClassLoader const& arg0) ;
 	virtual AndroidCXX::android_content_Intent * setFlags(int const& arg0) ;
 	virtual AndroidCXX::android_content_Intent * setPackage(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setSelector(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual void  setSourceBounds(AndroidCXX::android_graphics_Rect const& arg0) ;
-	virtual AndroidCXX::android_content_Intent * setType(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_content_Intent * setTypeAndNormalize(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::android_content_Intent * setType(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual AndroidCXX::java_lang_String * toURI() ;
 	virtual AndroidCXX::java_lang_String * toUri(int const& arg0) ;

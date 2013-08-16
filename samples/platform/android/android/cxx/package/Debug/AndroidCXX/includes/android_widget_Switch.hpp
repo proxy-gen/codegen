@@ -160,8 +160,8 @@ public:
 	virtual void  setSwitchMinWidth(int const& arg0) ;
 	virtual void  setSwitchPadding(int const& arg0) ;
 	virtual void  setSwitchTextAppearance(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
-	virtual void  setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0) ;
 	virtual void  setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1) ;
+	virtual void  setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0) ;
 	virtual void  setTextOff(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setTextOn(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setThumbDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;

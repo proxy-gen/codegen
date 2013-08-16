@@ -12,8 +12,8 @@
  		 
  		 
  		 
-	
  		 
+	
  		 
  		 
 	
@@ -29,13 +29,13 @@
  		 
  	
  		 
- 	
- 		 
  		 
  	
  		 
  	
  		 
+ 		 
+ 	
  		 
  	
  		 
@@ -124,9 +124,9 @@
 
 #include <java_lang_Object.hpp>
 
-#include <java_io_FilenameFilter.hpp>
-
 #include <java_io_FileFilter.hpp>
+
+#include <java_io_FilenameFilter.hpp>
 
 #include <java_net_URI.hpp>
 
@@ -158,9 +158,9 @@ class java_lang_String;
 
 class java_lang_Object;
 
-class java_io_FilenameFilter;
-
 class java_io_FileFilter;
+
+class java_io_FilenameFilter;
 
 class java_net_URI;
 
@@ -173,8 +173,8 @@ public:
 	// Public ConstrucXXX
 	java_io_File(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1);
 	java_io_File(AndroidCXX::java_lang_String const& arg0);
-	java_io_File(AndroidCXX::java_net_URI const& arg0);
 	java_io_File(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	java_io_File(AndroidCXX::java_net_URI const& arg0);
 	java_io_File(const java_io_File& cc);
 	java_io_File(Proxy proxy);
 	Proxy proxy() const;	
@@ -186,10 +186,10 @@ public:
 	virtual bool  canWrite() ;
 	virtual int  compareTo(AndroidCXX::java_io_File const& arg0) ;
 	virtual bool  createNewFile() ;
-	static AndroidCXX::java_io_File * createTempFile(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	static AndroidCXX::java_io_File * createTempFile(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_io_File const& arg2) ;
-	virtual bool  _delete() ;
+	static AndroidCXX::java_io_File * createTempFile(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual void  deleteOnExit() ;
+	virtual bool  _delete() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual bool  exists() ;
 	virtual AndroidCXX::java_io_File * getAbsoluteFile() ;
@@ -198,8 +198,8 @@ public:
 	virtual AndroidCXX::java_lang_String * getCanonicalPath() ;
 	virtual long  getFreeSpace() ;
 	virtual AndroidCXX::java_lang_String * getName() ;
-	virtual AndroidCXX::java_lang_String * getParent() ;
 	virtual AndroidCXX::java_io_File * getParentFile() ;
+	virtual AndroidCXX::java_lang_String * getParent() ;
 	virtual AndroidCXX::java_lang_String * getPath() ;
 	virtual long  getTotalSpace() ;
 	virtual long  getUsableSpace() ;
@@ -210,11 +210,11 @@ public:
 	virtual bool  isHidden() ;
 	virtual long  lastModified() ;
 	virtual long  length() ;
+	virtual std::vector<java_io_File>  listFiles(AndroidCXX::java_io_FileFilter const& arg0) ;
+	virtual std::vector<java_io_File>  listFiles(AndroidCXX::java_io_FilenameFilter const& arg0) ;
+	virtual std::vector<java_io_File>  listFiles() ;
 	virtual std::vector<java_lang_String>  list(AndroidCXX::java_io_FilenameFilter const& arg0) ;
 	virtual std::vector<java_lang_String>  list() ;
-	virtual std::vector<java_io_File>  listFiles(AndroidCXX::java_io_FileFilter const& arg0) ;
-	virtual std::vector<java_io_File>  listFiles() ;
-	virtual std::vector<java_io_File>  listFiles(AndroidCXX::java_io_FilenameFilter const& arg0) ;
 	static std::vector<java_io_File>  listRoots() ;
 	virtual bool  mkdir() ;
 	virtual bool  mkdirs() ;

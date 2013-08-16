@@ -52,9 +52,9 @@
 
 #include <android_util_DisplayMetrics.hpp>
 
-#include <java_lang_CharSequence.hpp>
-
 #include <java_lang_String.hpp>
+
+#include <java_lang_CharSequence.hpp>
 
 
 #include <vector>
@@ -75,9 +75,9 @@ namespace AndroidCXX {
 
 class android_util_DisplayMetrics;
 
-class java_lang_CharSequence;
-
 class java_lang_String;
+
+class java_lang_CharSequence;
 
 
 class android_util_TypedValue 
@@ -93,10 +93,10 @@ public:
 	virtual ~android_util_TypedValue();
 	// Functions
 	static float  applyDimension(int const& arg0,float const& arg1,AndroidCXX::android_util_DisplayMetrics const& arg2) ;
-	virtual AndroidCXX::java_lang_CharSequence * coerceToString() ;
 	static AndroidCXX::java_lang_String * coerceToString(int const& arg0,int const& arg1) ;
-	static float  complexToDimension(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) ;
+	virtual AndroidCXX::java_lang_CharSequence * coerceToString() ;
 	static float  complexToDimensionNoisy(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) ;
+	static float  complexToDimension(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) ;
 	static int  complexToDimensionPixelOffset(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) ;
 	static int  complexToDimensionPixelSize(int const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) ;
 	static float  complexToFloat(int const& arg0) ;

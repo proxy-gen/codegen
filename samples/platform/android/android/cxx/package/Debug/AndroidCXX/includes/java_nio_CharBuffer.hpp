@@ -10,23 +10,6 @@
 
 
 	
- 		 
-	
-	
- 		 
-	
- 	
-	
-	
- 		 
-	
- 		 
- 	
-	
- 	
-	
-	
-	
 	
  		 
 	
@@ -34,7 +17,24 @@
 	
  	
 	
+	
+ 		 
+	
+ 		 
  	
+	
+ 	
+	
+	
+ 	
+	
+ 	
+	
+	
+	
+ 		 
+	
+ 		 
 	
  		 
 	
@@ -42,11 +42,11 @@
 	
 	
 	
+ 	
+	
+ 	
+	
  		 
-	
- 	
-	
- 	
 	
  		 
 	
@@ -146,40 +146,40 @@ public:
 	virtual ~java_nio_CharBuffer();
 	// Functions
 	static AndroidCXX::java_nio_CharBuffer * allocate(int const& arg0) ;
-	virtual AndroidCXX::java_nio_CharBuffer * append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_nio_CharBuffer * append(char const& arg0) ;
+	virtual AndroidCXX::java_nio_CharBuffer * append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_nio_CharBuffer * append(AndroidCXX::java_lang_CharSequence const& arg0) ;
-	virtual std::vector<char>  array() ;
 	virtual int  arrayOffset() ;
+	virtual std::vector<char>  array() ;
 	virtual AndroidCXX::java_nio_CharBuffer * asReadOnlyBuffer() ;
 	virtual char  charAt(int const& arg0) ;
 	virtual AndroidCXX::java_nio_CharBuffer * compact() ;
 	virtual int  compareTo(AndroidCXX::java_nio_CharBuffer const& arg0) ;
 	virtual AndroidCXX::java_nio_CharBuffer * duplicate() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_nio_CharBuffer * get(std::vector<char> const& arg0) ;
 	virtual AndroidCXX::java_nio_CharBuffer * get(std::vector<char> const& arg0,int const& arg1,int const& arg2) ;
-	virtual char  get() ;
+	virtual AndroidCXX::java_nio_CharBuffer * get(std::vector<char> const& arg0) ;
 	virtual char  get(int const& arg0) ;
+	virtual char  get() ;
 	virtual bool  hasArray() ;
 	virtual int  hashCode() ;
 	virtual bool  isDirect() ;
 	virtual int  length() ;
 	virtual AndroidCXX::java_nio_ByteOrder * order() ;
-	virtual AndroidCXX::java_nio_CharBuffer * put(int const& arg0,char const& arg1) ;
-	virtual AndroidCXX::java_nio_CharBuffer * put(char const& arg0) ;
-	virtual AndroidCXX::java_nio_CharBuffer * put(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_nio_CharBuffer * put(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) ;
-	virtual AndroidCXX::java_nio_CharBuffer * put(std::vector<char> const& arg0) ;
 	virtual AndroidCXX::java_nio_CharBuffer * put(std::vector<char> const& arg0,int const& arg1,int const& arg2) ;
+	virtual AndroidCXX::java_nio_CharBuffer * put(std::vector<char> const& arg0) ;
+	virtual AndroidCXX::java_nio_CharBuffer * put(char const& arg0) ;
+	virtual AndroidCXX::java_nio_CharBuffer * put(int const& arg0,char const& arg1) ;
+	virtual AndroidCXX::java_nio_CharBuffer * put(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) ;
+	virtual AndroidCXX::java_nio_CharBuffer * put(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_nio_CharBuffer * put(AndroidCXX::java_nio_CharBuffer const& arg0) ;
 	virtual int  read(AndroidCXX::java_nio_CharBuffer const& arg0) ;
 	virtual AndroidCXX::java_nio_CharBuffer * slice() ;
 	virtual AndroidCXX::java_lang_CharSequence * subSequence(int const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
-	static AndroidCXX::java_nio_CharBuffer * wrap(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) ;
 	static AndroidCXX::java_nio_CharBuffer * wrap(std::vector<char> const& arg0,int const& arg1,int const& arg2) ;
 	static AndroidCXX::java_nio_CharBuffer * wrap(std::vector<char> const& arg0) ;
+	static AndroidCXX::java_nio_CharBuffer * wrap(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) ;
 	static AndroidCXX::java_nio_CharBuffer * wrap(AndroidCXX::java_lang_CharSequence const& arg0) ;
 
 protected:

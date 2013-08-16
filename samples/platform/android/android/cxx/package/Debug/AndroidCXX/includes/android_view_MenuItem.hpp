@@ -162,8 +162,8 @@ public:
 	virtual char  getNumericShortcut() ;
 	virtual int  getOrder() ;
 	virtual AndroidCXX::android_view_SubMenu * getSubMenu() ;
-	virtual AndroidCXX::java_lang_CharSequence * getTitle() ;
 	virtual AndroidCXX::java_lang_CharSequence * getTitleCondensed() ;
+	virtual AndroidCXX::java_lang_CharSequence * getTitle() ;
 	virtual bool  hasSubMenu() ;
 	virtual bool  isActionViewExpanded() ;
 	virtual bool  isCheckable() ;
@@ -184,11 +184,11 @@ public:
 	virtual AndroidCXX::android_view_MenuItem * setOnActionExpandListener(AndroidCXX::android_view_MenuItem_OnActionExpandListener const& arg0) ;
 	virtual AndroidCXX::android_view_MenuItem * setOnMenuItemClickListener(AndroidCXX::android_view_MenuItem_OnMenuItemClickListener const& arg0) ;
 	virtual AndroidCXX::android_view_MenuItem * setShortcut(char const& arg0,char const& arg1) ;
-	virtual void  setShowAsAction(int const& arg0) ;
 	virtual AndroidCXX::android_view_MenuItem * setShowAsActionFlags(int const& arg0) ;
-	virtual AndroidCXX::android_view_MenuItem * setTitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
-	virtual AndroidCXX::android_view_MenuItem * setTitle(int const& arg0) ;
+	virtual void  setShowAsAction(int const& arg0) ;
 	virtual AndroidCXX::android_view_MenuItem * setTitleCondensed(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual AndroidCXX::android_view_MenuItem * setTitle(int const& arg0) ;
+	virtual AndroidCXX::android_view_MenuItem * setTitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::android_view_MenuItem * setVisible(bool const& arg0) ;
 
 protected:

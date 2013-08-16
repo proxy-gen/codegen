@@ -129,8 +129,8 @@ public:
 	virtual void  deactivate() ;
 	virtual std::vector<byte>  getBlob(int const& arg0) ;
 	virtual int  getColumnCount() ;
-	virtual int  getColumnIndex(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  getColumnIndexOrThrow(AndroidCXX::java_lang_String const& arg0) ;
+	virtual int  getColumnIndex(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getColumnName(int const& arg0) ;
 	virtual std::vector<java_lang_String>  getColumnNames() ;
 	virtual int  getCount() ;

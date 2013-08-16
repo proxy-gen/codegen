@@ -99,15 +99,15 @@ public:
 	virtual void  onDestroy() ;
 	virtual void  onLowMemory() ;
 	virtual void  onRebind(AndroidCXX::android_content_Intent const& arg0) ;
-	virtual void  onStart(AndroidCXX::android_content_Intent const& arg0,int const& arg1) ;
 	virtual int  onStartCommand(AndroidCXX::android_content_Intent const& arg0,int const& arg1,int const& arg2) ;
+	virtual void  onStart(AndroidCXX::android_content_Intent const& arg0,int const& arg1) ;
 	virtual void  onTaskRemoved(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual void  onTrimMemory(int const& arg0) ;
 	virtual bool  onUnbind(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual void  startForeground(int const& arg0,AndroidCXX::android_app_Notification const& arg1) ;
 	virtual void  stopForeground(bool const& arg0) ;
-	virtual void  stopSelf() ;
 	virtual void  stopSelf(int const& arg0) ;
+	virtual void  stopSelf() ;
 	virtual bool  stopSelfResult(int const& arg0) ;
 
 protected:

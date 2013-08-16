@@ -9,8 +9,8 @@
 
 
 
-	
  		 
+	
 	
 
 
@@ -49,9 +49,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_graphics_drawable_Drawable;
-
 class android_content_res_Resources;
+
+class android_graphics_drawable_Drawable;
 
 class android_graphics_drawable_Drawable_ConstantState 
 {
@@ -64,8 +64,8 @@ public:
 	virtual ~android_graphics_drawable_Drawable_ConstantState();
 	// Functions
 	virtual int  getChangingConfigurations() ;
-	virtual AndroidCXX::android_graphics_drawable_Drawable * newDrawable() ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * newDrawable(AndroidCXX::android_content_res_Resources const& arg0) ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * newDrawable() ;
 
 protected:
 	android_graphics_drawable_Drawable_ConstantState();

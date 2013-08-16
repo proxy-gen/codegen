@@ -11,16 +11,16 @@
 
 	
 	
+	
  		 
  	
 	
  		 
-	
- 		 
  		 
 	
  		 
 	
+ 		 
  		 
 	
  		 
@@ -55,9 +55,9 @@
 
 #include <java_lang_String.hpp>
 
-#include <java_lang_Object.hpp>
-
 #include <android_content_ContentValues.hpp>
+
+#include <java_lang_Object.hpp>
 
 
 #include <vector>
@@ -81,9 +81,9 @@ class android_content_ContentProviderOperation;
 
 class java_lang_String;
 
-class java_lang_Object;
-
 class android_content_ContentValues;
+
+class java_lang_Object;
 
 class android_content_ContentProviderOperation_Builder 
 {
@@ -98,11 +98,11 @@ public:
 	// Functions
 	virtual AndroidCXX::android_content_ContentProviderOperation * build() ;
 	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withExpectedCount(int const& arg0) ;
-	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withSelection(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_String> const& arg1) ;
 	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withSelectionBackReference(int const& arg0,int const& arg1) ;
-	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withSelection(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_String> const& arg1) ;
 	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withValueBackReference(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withValueBackReferences(AndroidCXX::android_content_ContentValues const& arg0) ;
+	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withValues(AndroidCXX::android_content_ContentValues const& arg0) ;
 	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withYieldAllowed(bool const& arg0) ;
 

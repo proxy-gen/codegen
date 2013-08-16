@@ -13,8 +13,8 @@
 	
  	
  		 
- 	
  		 
+ 	
  	
 	
  	
@@ -86,8 +86,8 @@ public:
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_util_List * getCertificates() ;
-	virtual std::vector<byte>  getEncoded() ;
 	virtual std::vector<byte>  getEncoded(AndroidCXX::java_lang_String const& arg0) ;
+	virtual std::vector<byte>  getEncoded() ;
 	virtual AndroidCXX::java_util_Iterator * getEncodings() ;
 	virtual AndroidCXX::java_lang_String * getType() ;
 	virtual int  hashCode() ;

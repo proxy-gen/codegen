@@ -163,8 +163,8 @@ public:
 	// Functions
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) ;
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
-	virtual void  addView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0) ;
 	virtual bool  arrowScroll(int const& arg0) ;
 	virtual void  computeScroll() ;
 	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;

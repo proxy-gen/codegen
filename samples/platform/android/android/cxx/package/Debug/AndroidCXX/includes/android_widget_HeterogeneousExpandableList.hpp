@@ -58,10 +58,10 @@ public:
 	// Default Destructor
 	virtual ~android_widget_HeterogeneousExpandableList();
 	// Functions
-	virtual int  getChildType(int const& arg0,int const& arg1) ;
 	virtual int  getChildTypeCount() ;
-	virtual int  getGroupType(int const& arg0) ;
+	virtual int  getChildType(int const& arg0,int const& arg1) ;
 	virtual int  getGroupTypeCount() ;
+	virtual int  getGroupType(int const& arg0) ;
 
 protected:
 	android_widget_HeterogeneousExpandableList();

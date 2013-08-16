@@ -71,9 +71,9 @@ public:
 	// Functions
 	virtual void  close() ;
 	virtual void  flush() ;
-	virtual void  write(int const& arg0) ;
-	virtual void  write(std::vector<byte> const& arg0) ;
 	virtual void  write(std::vector<byte> const& arg0,int const& arg1,int const& arg2) ;
+	virtual void  write(std::vector<byte> const& arg0) ;
+	virtual void  write(int const& arg0) ;
 
 protected:
 

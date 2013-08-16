@@ -77,8 +77,8 @@ class android_view_inputmethod_CompletionInfo : public android_os_Parcelable
 public:
 
 	// Public ConstrucXXX
-	android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,AndroidCXX::java_lang_CharSequence const& arg3);
 	android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2);
+	android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,AndroidCXX::java_lang_CharSequence const& arg3);
 	android_view_inputmethod_CompletionInfo(const android_view_inputmethod_CompletionInfo& cc);
 	android_view_inputmethod_CompletionInfo(Proxy proxy);
 	Proxy proxy() const;	

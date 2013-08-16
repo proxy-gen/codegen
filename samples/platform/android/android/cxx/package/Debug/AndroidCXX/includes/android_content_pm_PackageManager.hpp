@@ -278,9 +278,9 @@ class android_content_IntentFilter;
 
 class android_content_ComponentName;
 
-class android_content_Intent;
-
 class android_graphics_drawable_Drawable;
+
+class android_content_Intent;
 
 class android_content_pm_ActivityInfo;
 
@@ -319,8 +319,8 @@ public:
 	virtual ~android_content_pm_PackageManager();
 	// Functions
 	virtual void  addPackageToPreferred(AndroidCXX::java_lang_String const& arg0) ;
-	virtual bool  addPermission(AndroidCXX::android_content_pm_PermissionInfo const& arg0) ;
 	virtual bool  addPermissionAsync(AndroidCXX::android_content_pm_PermissionInfo const& arg0) ;
+	virtual bool  addPermission(AndroidCXX::android_content_pm_PermissionInfo const& arg0) ;
 	virtual void  addPreferredActivity(AndroidCXX::android_content_IntentFilter const& arg0,int const& arg1,std::vector<android_content_ComponentName> const& arg2,AndroidCXX::android_content_ComponentName const& arg3) ;
 	virtual std::vector<java_lang_String>  canonicalToCurrentPackageNames(std::vector<java_lang_String> const& arg0) ;
 	virtual int  checkPermission(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
@@ -329,19 +329,19 @@ public:
 	virtual void  clearPackagePreferredActivities(AndroidCXX::java_lang_String const& arg0) ;
 	virtual std::vector<java_lang_String>  currentToCanonicalPackageNames(std::vector<java_lang_String> const& arg0) ;
 	virtual void  extendVerificationTimeout(int const& arg0,int const& arg1,long const& arg2) ;
-	virtual AndroidCXX::android_graphics_drawable_Drawable * getActivityIcon(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getActivityIcon(AndroidCXX::android_content_ComponentName const& arg0) ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getActivityIcon(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual AndroidCXX::android_content_pm_ActivityInfo * getActivityInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1) ;
-	virtual AndroidCXX::android_graphics_drawable_Drawable * getActivityLogo(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getActivityLogo(AndroidCXX::android_content_ComponentName const& arg0) ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getActivityLogo(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual AndroidCXX::java_util_List * getAllPermissionGroups(int const& arg0) ;
 	virtual int  getApplicationEnabledSetting(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getApplicationIcon(AndroidCXX::android_content_pm_ApplicationInfo const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getApplicationIcon(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_content_pm_ApplicationInfo * getApplicationInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_CharSequence * getApplicationLabel(AndroidCXX::android_content_pm_ApplicationInfo const& arg0) ;
-	virtual AndroidCXX::android_graphics_drawable_Drawable * getApplicationLogo(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getApplicationLogo(AndroidCXX::android_content_pm_ApplicationInfo const& arg0) ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getApplicationLogo(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  getComponentEnabledSetting(AndroidCXX::android_content_ComponentName const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getDefaultActivityIcon() ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getDrawable(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2) ;

@@ -165,8 +165,8 @@ public:
 	virtual int  getImeOptions() ;
 	virtual int  getInputType() ;
 	virtual int  getMaxWidth() ;
-	virtual AndroidCXX::java_lang_CharSequence * getQuery() ;
 	virtual AndroidCXX::java_lang_CharSequence * getQueryHint() ;
+	virtual AndroidCXX::java_lang_CharSequence * getQuery() ;
 	virtual AndroidCXX::android_widget_CursorAdapter * getSuggestionsAdapter() ;
 	virtual bool  isIconfiedByDefault() ;
 	virtual bool  isIconified() ;
@@ -179,8 +179,8 @@ public:
 	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
 	virtual void  onRtlPropertiesChanged(int const& arg0) ;
 	virtual void  onWindowFocusChanged(bool const& arg0) ;
-	virtual void  setIconified(bool const& arg0) ;
 	virtual void  setIconifiedByDefault(bool const& arg0) ;
+	virtual void  setIconified(bool const& arg0) ;
 	virtual void  setImeOptions(int const& arg0) ;
 	virtual void  setInputType(int const& arg0) ;
 	virtual void  setMaxWidth(int const& arg0) ;
@@ -189,8 +189,8 @@ public:
 	virtual void  setOnQueryTextListener(AndroidCXX::android_widget_SearchView_OnQueryTextListener const& arg0) ;
 	virtual void  setOnSearchClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0) ;
 	virtual void  setOnSuggestionListener(AndroidCXX::android_widget_SearchView_OnSuggestionListener const& arg0) ;
-	virtual void  setQuery(AndroidCXX::java_lang_CharSequence const& arg0,bool const& arg1) ;
 	virtual void  setQueryHint(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  setQuery(AndroidCXX::java_lang_CharSequence const& arg0,bool const& arg1) ;
 	virtual void  setQueryRefinementEnabled(bool const& arg0) ;
 	virtual void  setSearchableInfo(AndroidCXX::android_app_SearchableInfo const& arg0) ;
 	virtual void  setSubmitButtonEnabled(bool const& arg0) ;

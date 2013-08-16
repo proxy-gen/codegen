@@ -97,9 +97,9 @@ class android_widget_Chronometer : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_Chronometer(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_Chronometer(AndroidCXX::android_content_Context const& arg0);
 	android_widget_Chronometer(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_Chronometer(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_Chronometer(const android_widget_Chronometer& cc);
 	android_widget_Chronometer(Proxy proxy);
 	Proxy proxy() const;	

@@ -75,12 +75,12 @@ public:
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_lang_Class * getClass() ;
 	virtual int  hashCode() ;
-	virtual void  notify() ;
 	virtual void  notifyAll() ;
+	virtual void  notify() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual void  wait() ;
-	virtual void  wait(long const& arg0) ;
 	virtual void  wait(long const& arg0,int const& arg1) ;
+	virtual void  wait(long const& arg0) ;
+	virtual void  wait() ;
 
 protected:
 	java_lang_Object();

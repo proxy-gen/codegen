@@ -21,9 +21,9 @@
  		 
  		 
  		 
- 		 
- 		 
  	
+ 		 
+ 		 
  		 
  		 
  		 
@@ -139,13 +139,13 @@ public:
 	virtual void  addArc(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2) ;
 	virtual void  addCircle(float const& arg0,float const& arg1,float const& arg2,android_graphics_Path_Direction::android_graphics_Path_Direction const& arg3) ;
 	virtual void  addOval(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Path_Direction::android_graphics_Path_Direction const& arg1) ;
-	virtual void  addPath(AndroidCXX::android_graphics_Path const& arg0) ;
 	virtual void  addPath(AndroidCXX::android_graphics_Path const& arg0,AndroidCXX::android_graphics_Matrix const& arg1) ;
 	virtual void  addPath(AndroidCXX::android_graphics_Path const& arg0,float const& arg1,float const& arg2) ;
-	virtual void  addRect(float const& arg0,float const& arg1,float const& arg2,float const& arg3,android_graphics_Path_Direction::android_graphics_Path_Direction const& arg4) ;
+	virtual void  addPath(AndroidCXX::android_graphics_Path const& arg0) ;
 	virtual void  addRect(AndroidCXX::android_graphics_RectF const& arg0,android_graphics_Path_Direction::android_graphics_Path_Direction const& arg1) ;
-	virtual void  addRoundRect(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2,android_graphics_Path_Direction::android_graphics_Path_Direction const& arg3) ;
+	virtual void  addRect(float const& arg0,float const& arg1,float const& arg2,float const& arg3,android_graphics_Path_Direction::android_graphics_Path_Direction const& arg4) ;
 	virtual void  addRoundRect(AndroidCXX::android_graphics_RectF const& arg0,std::vector<float> const& arg1,android_graphics_Path_Direction::android_graphics_Path_Direction const& arg2) ;
+	virtual void  addRoundRect(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2,android_graphics_Path_Direction::android_graphics_Path_Direction const& arg3) ;
 	virtual void  arcTo(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2,bool const& arg3) ;
 	virtual void  arcTo(AndroidCXX::android_graphics_RectF const& arg0,float const& arg1,float const& arg2) ;
 	virtual void  close() ;
@@ -167,9 +167,9 @@ public:
 	virtual void  rQuadTo(float const& arg0,float const& arg1,float const& arg2,float const& arg3) ;
 	virtual void  reset() ;
 	virtual void  rewind() ;
-	virtual void  set(AndroidCXX::android_graphics_Path const& arg0) ;
 	virtual void  setFillType(android_graphics_Path_FillType::android_graphics_Path_FillType const& arg0) ;
 	virtual void  setLastPoint(float const& arg0,float const& arg1) ;
+	virtual void  set(AndroidCXX::android_graphics_Path const& arg0) ;
 	virtual void  toggleInverseFillType() ;
 	virtual void  transform(AndroidCXX::android_graphics_Matrix const& arg0,AndroidCXX::android_graphics_Path const& arg1) ;
 	virtual void  transform(AndroidCXX::android_graphics_Matrix const& arg0) ;

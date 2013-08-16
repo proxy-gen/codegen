@@ -40,12 +40,12 @@
 	
 	
 	
-	
+ 		 
+ 		 
  		 
  		 
 	
- 		 
- 		 
+	
 	
 	
 	
@@ -111,12 +111,12 @@
  		 
  		 
  		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
  	
- 		 
- 		 
- 		 
- 		 
- 		 
  		 
  		 
  		 
@@ -548,9 +548,9 @@ class android_widget_TextView : public android_view_ViewTreeObserver_OnPreDrawLi
 public:
 
 	// Public ConstrucXXX
-	android_widget_TextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_TextView(AndroidCXX::android_content_Context const& arg0);
 	android_widget_TextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_TextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_TextView(const android_widget_TextView& cc);
 	android_widget_TextView(Proxy proxy);
 	Proxy proxy() const;	
@@ -558,8 +558,8 @@ public:
 	virtual ~android_widget_TextView();
 	// Functions
 	virtual void  addTextChangedListener(AndroidCXX::android_text_TextWatcher const& arg0) ;
-	virtual void  append(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) ;
+	virtual void  append(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  beginBatchEdit() ;
 	virtual bool  bringPointIntoView(int const& arg0) ;
 	virtual void  cancelLongPress() ;
@@ -622,8 +622,8 @@ public:
 	virtual int  getMinWidth() ;
 	virtual AndroidCXX::android_text_method_MovementMethod * getMovementMethod() ;
 	virtual int  getOffsetForPosition(float const& arg0,float const& arg1) ;
-	virtual AndroidCXX::android_text_TextPaint * getPaint() ;
 	virtual int  getPaintFlags() ;
+	virtual AndroidCXX::android_text_TextPaint * getPaint() ;
 	virtual AndroidCXX::java_lang_String * getPrivateImeOptions() ;
 	virtual int  getSelectionEnd() ;
 	virtual int  getSelectionStart() ;
@@ -631,11 +631,11 @@ public:
 	virtual float  getShadowDx() ;
 	virtual float  getShadowDy() ;
 	virtual float  getShadowRadius() ;
-	virtual AndroidCXX::java_lang_CharSequence * getText() ;
 	static int  getTextColor(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_res_TypedArray const& arg1,int const& arg2) ;
-	virtual AndroidCXX::android_content_res_ColorStateList * getTextColors() ;
 	static AndroidCXX::android_content_res_ColorStateList * getTextColors(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_res_TypedArray const& arg1) ;
+	virtual AndroidCXX::android_content_res_ColorStateList * getTextColors() ;
 	virtual AndroidCXX::java_util_Locale * getTextLocale() ;
+	virtual AndroidCXX::java_lang_CharSequence * getText() ;
 	virtual float  getTextScaleX() ;
 	virtual float  getTextSize() ;
 	virtual int  getTotalPaddingBottom() ;
@@ -697,16 +697,16 @@ public:
 	virtual void  setCompoundDrawablesRelative(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3) ;
 	virtual void  setCompoundDrawablesRelativeWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3) ;
 	virtual void  setCompoundDrawablesRelativeWithIntrinsicBounds(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
-	virtual void  setCompoundDrawablesWithIntrinsicBounds(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual void  setCompoundDrawablesWithIntrinsicBounds(AndroidCXX::android_graphics_drawable_Drawable const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1,AndroidCXX::android_graphics_drawable_Drawable const& arg2,AndroidCXX::android_graphics_drawable_Drawable const& arg3) ;
+	virtual void  setCompoundDrawablesWithIntrinsicBounds(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual void  setCursorVisible(bool const& arg0) ;
 	virtual void  setCustomSelectionActionModeCallback(AndroidCXX::android_view_ActionMode_Callback const& arg0) ;
 	virtual void  setEditableFactory(AndroidCXX::android_text_Editable_Factory const& arg0) ;
 	virtual void  setEllipsize(android_text_TextUtils_TruncateAt::android_text_TextUtils_TruncateAt const& arg0) ;
 	virtual void  setEms(int const& arg0) ;
 	virtual void  setEnabled(bool const& arg0) ;
-	virtual void  setError(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setError(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1) ;
+	virtual void  setError(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setExtractedText(AndroidCXX::android_view_inputmethod_ExtractedText const& arg0) ;
 	virtual void  setFilters(std::vector<android_text_InputFilter> const& arg0) ;
 	virtual void  setFreezesText(bool const& arg0) ;
@@ -726,8 +726,8 @@ public:
 	virtual void  setKeyListener(AndroidCXX::android_text_method_KeyListener const& arg0) ;
 	virtual void  setLineSpacing(float const& arg0,float const& arg1) ;
 	virtual void  setLines(int const& arg0) ;
-	virtual void  setLinkTextColor(int const& arg0) ;
 	virtual void  setLinkTextColor(AndroidCXX::android_content_res_ColorStateList const& arg0) ;
+	virtual void  setLinkTextColor(int const& arg0) ;
 	virtual void  setLinksClickable(bool const& arg0) ;
 	virtual void  setMarqueeRepeatLimit(int const& arg0) ;
 	virtual void  setMaxEms(int const& arg0) ;
@@ -749,27 +749,27 @@ public:
 	virtual void  setSelectAllOnFocus(bool const& arg0) ;
 	virtual void  setSelected(bool const& arg0) ;
 	virtual void  setShadowLayer(float const& arg0,float const& arg1,float const& arg2,int const& arg3) ;
-	virtual void  setSingleLine() ;
 	virtual void  setSingleLine(bool const& arg0) ;
+	virtual void  setSingleLine() ;
 	virtual void  setSpannableFactory(AndroidCXX::android_text_Spannable_Factory const& arg0) ;
-	virtual void  setText(int const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1) ;
-	virtual void  setText(int const& arg0) ;
-	virtual void  setText(std::vector<char> const& arg0,int const& arg1,int const& arg2) ;
-	virtual void  setText(AndroidCXX::java_lang_CharSequence const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1) ;
-	virtual void  setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setTextAppearance(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
 	virtual void  setTextColor(AndroidCXX::android_content_res_ColorStateList const& arg0) ;
 	virtual void  setTextColor(int const& arg0) ;
 	virtual void  setTextIsSelectable(bool const& arg0) ;
-	virtual void  setTextKeepState(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setTextKeepState(AndroidCXX::java_lang_CharSequence const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1) ;
+	virtual void  setTextKeepState(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setTextLocale(AndroidCXX::java_util_Locale const& arg0) ;
+	virtual void  setText(std::vector<char> const& arg0,int const& arg1,int const& arg2) ;
+	virtual void  setText(int const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1) ;
+	virtual void  setText(int const& arg0) ;
+	virtual void  setText(AndroidCXX::java_lang_CharSequence const& arg0,android_widget_TextView_BufferType::android_widget_TextView_BufferType const& arg1) ;
+	virtual void  setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setTextScaleX(float const& arg0) ;
-	virtual void  setTextSize(int const& arg0,float const& arg1) ;
 	virtual void  setTextSize(float const& arg0) ;
+	virtual void  setTextSize(int const& arg0,float const& arg1) ;
 	virtual void  setTransformationMethod(AndroidCXX::android_text_method_TransformationMethod const& arg0) ;
-	virtual void  setTypeface(AndroidCXX::android_graphics_Typeface const& arg0) ;
 	virtual void  setTypeface(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1) ;
+	virtual void  setTypeface(AndroidCXX::android_graphics_Typeface const& arg0) ;
 	virtual void  setWidth(int const& arg0) ;
 
 protected:

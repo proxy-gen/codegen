@@ -14,10 +14,10 @@
 	
  		 
  		 
-	
  		 
 	
  		 
+	
  		 
 	
  		 
@@ -134,9 +134,9 @@ public:
 	virtual double  doubleValue() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual float  floatValue() ;
-	static AndroidCXX::java_lang_Long * getLong(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::java_lang_Long * getLong(AndroidCXX::java_lang_String const& arg0,long const& arg1) ;
 	static AndroidCXX::java_lang_Long * getLong(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Long const& arg1) ;
+	static AndroidCXX::java_lang_Long * getLong(AndroidCXX::java_lang_String const& arg0,long const& arg1) ;
+	static AndroidCXX::java_lang_Long * getLong(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  hashCode() ;
 	static long  highestOneBit(long const& arg0) ;
 	virtual int  intValue() ;
@@ -146,8 +146,8 @@ public:
 	static int  numberOfTrailingZeros(long const& arg0) ;
 	static long  parseLong(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	static long  parseLong(AndroidCXX::java_lang_String const& arg0) ;
-	static long  reverse(long const& arg0) ;
 	static long  reverseBytes(long const& arg0) ;
+	static long  reverse(long const& arg0) ;
 	static long  rotateLeft(long const& arg0,int const& arg1) ;
 	static long  rotateRight(long const& arg0,int const& arg1) ;
 	virtual short  shortValue() ;
@@ -155,11 +155,11 @@ public:
 	static AndroidCXX::java_lang_String * toBinaryString(long const& arg0) ;
 	static AndroidCXX::java_lang_String * toHexString(long const& arg0) ;
 	static AndroidCXX::java_lang_String * toOctalString(long const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	static AndroidCXX::java_lang_String * toString(long const& arg0) ;
 	static AndroidCXX::java_lang_String * toString(long const& arg0,int const& arg1) ;
-	static AndroidCXX::java_lang_Long * valueOf(AndroidCXX::java_lang_String const& arg0) ;
+	static AndroidCXX::java_lang_String * toString(long const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 	static AndroidCXX::java_lang_Long * valueOf(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	static AndroidCXX::java_lang_Long * valueOf(AndroidCXX::java_lang_String const& arg0) ;
 	static AndroidCXX::java_lang_Long * valueOf(long const& arg0) ;
 
 protected:

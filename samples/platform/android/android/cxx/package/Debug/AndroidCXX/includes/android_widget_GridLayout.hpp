@@ -15,9 +15,9 @@
  		 
  		 
 	
-	
-	
  		 
+	
+	
 	
 
 
@@ -145,9 +145,9 @@ public:
 	virtual void  setRowOrderPreserved(bool const& arg0) ;
 	virtual void  setUseDefaultMargins(bool const& arg0) ;
 	static AndroidCXX::android_widget_GridLayout_Spec * spec(int const& arg0,AndroidCXX::android_widget_GridLayout_Alignment const& arg1) ;
+	static AndroidCXX::android_widget_GridLayout_Spec * spec(int const& arg0,int const& arg1,AndroidCXX::android_widget_GridLayout_Alignment const& arg2) ;
 	static AndroidCXX::android_widget_GridLayout_Spec * spec(int const& arg0,int const& arg1) ;
 	static AndroidCXX::android_widget_GridLayout_Spec * spec(int const& arg0) ;
-	static AndroidCXX::android_widget_GridLayout_Spec * spec(int const& arg0,int const& arg1,AndroidCXX::android_widget_GridLayout_Alignment const& arg2) ;
 
 protected:
 

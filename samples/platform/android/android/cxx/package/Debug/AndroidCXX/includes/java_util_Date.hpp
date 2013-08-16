@@ -106,11 +106,11 @@ public:
 
 	// Public ConstrucXXX
 	java_util_Date();
-	java_util_Date(AndroidCXX::java_lang_String const& arg0);
-	java_util_Date(long const& arg0);
 	java_util_Date(int const& arg0,int const& arg1,int const& arg2);
 	java_util_Date(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4);
 	java_util_Date(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5);
+	java_util_Date(AndroidCXX::java_lang_String const& arg0);
+	java_util_Date(long const& arg0);
 	java_util_Date(const java_util_Date& cc);
 	java_util_Date(Proxy proxy);
 	Proxy proxy() const;	

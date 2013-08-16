@@ -74,8 +74,8 @@ public:
 	virtual double  nextDouble() ;
 	virtual float  nextFloat() ;
 	virtual double  nextGaussian() ;
-	virtual int  nextInt() ;
 	virtual int  nextInt(int const& arg0) ;
+	virtual int  nextInt() ;
 	virtual long  nextLong() ;
 	virtual void  setSeed(long const& arg0) ;
 

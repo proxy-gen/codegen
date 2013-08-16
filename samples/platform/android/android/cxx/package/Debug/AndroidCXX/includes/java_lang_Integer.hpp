@@ -14,15 +14,16 @@
 	
  		 
  		 
- 		 
-	
- 		 
-	
- 		 
 	
  		 
  		 
 	
+ 		 
+	
+ 		 
+ 		 
+	
+	
 	
 	
 	
@@ -31,7 +32,6 @@
  		 
 	
  		 
-	
 	
 
 
@@ -119,8 +119,8 @@ class java_lang_Integer : public java_lang_Comparable
 public:
 
 	// Public ConstrucXXX
-	java_lang_Integer(AndroidCXX::java_lang_String const& arg0);
 	java_lang_Integer(int const& arg0);
+	java_lang_Integer(AndroidCXX::java_lang_String const& arg0);
 	java_lang_Integer(const java_lang_Integer& cc);
 	java_lang_Integer(Proxy proxy);
 	Proxy proxy() const;	
@@ -134,9 +134,9 @@ public:
 	virtual double  doubleValue() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual float  floatValue() ;
+	static AndroidCXX::java_lang_Integer * getInteger(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	static AndroidCXX::java_lang_Integer * getInteger(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Integer const& arg1) ;
 	static AndroidCXX::java_lang_Integer * getInteger(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::java_lang_Integer * getInteger(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual int  hashCode() ;
 	static int  highestOneBit(int const& arg0) ;
 	virtual int  intValue() ;
@@ -144,10 +144,10 @@ public:
 	static int  lowestOneBit(int const& arg0) ;
 	static int  numberOfLeadingZeros(int const& arg0) ;
 	static int  numberOfTrailingZeros(int const& arg0) ;
-	static int  parseInt(AndroidCXX::java_lang_String const& arg0) ;
 	static int  parseInt(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
-	static int  reverse(int const& arg0) ;
+	static int  parseInt(AndroidCXX::java_lang_String const& arg0) ;
 	static int  reverseBytes(int const& arg0) ;
+	static int  reverse(int const& arg0) ;
 	static int  rotateLeft(int const& arg0,int const& arg1) ;
 	static int  rotateRight(int const& arg0,int const& arg1) ;
 	virtual short  shortValue() ;
@@ -158,9 +158,9 @@ public:
 	static AndroidCXX::java_lang_String * toString(int const& arg0,int const& arg1) ;
 	static AndroidCXX::java_lang_String * toString(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
+	static AndroidCXX::java_lang_Integer * valueOf(int const& arg0) ;
 	static AndroidCXX::java_lang_Integer * valueOf(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	static AndroidCXX::java_lang_Integer * valueOf(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::java_lang_Integer * valueOf(int const& arg0) ;
 
 protected:
 

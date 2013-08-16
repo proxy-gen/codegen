@@ -76,12 +76,12 @@ public:
 	virtual ~android_widget_BaseExpandableListAdapter();
 	// Functions
 	virtual bool  areAllItemsEnabled() ;
-	virtual int  getChildType(int const& arg0,int const& arg1) ;
 	virtual int  getChildTypeCount() ;
+	virtual int  getChildType(int const& arg0,int const& arg1) ;
 	virtual long  getCombinedChildId(long const& arg0,long const& arg1) ;
 	virtual long  getCombinedGroupId(long const& arg0) ;
-	virtual int  getGroupType(int const& arg0) ;
 	virtual int  getGroupTypeCount() ;
+	virtual int  getGroupType(int const& arg0) ;
 	virtual bool  isEmpty() ;
 	virtual void  notifyDataSetChanged() ;
 	virtual void  notifyDataSetInvalidated() ;

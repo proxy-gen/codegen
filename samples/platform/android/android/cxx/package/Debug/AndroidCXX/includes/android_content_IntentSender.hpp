@@ -128,8 +128,8 @@ public:
 	virtual AndroidCXX::java_lang_String * getTargetPackage() ;
 	virtual int  hashCode() ;
 	static AndroidCXX::android_content_IntentSender * readIntentSenderOrNullFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
-	virtual void  sendIntent(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,AndroidCXX::android_content_IntentSender_OnFinished const& arg3,AndroidCXX::android_os_Handler const& arg4) ;
 	virtual void  sendIntent(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,AndroidCXX::android_content_IntentSender_OnFinished const& arg3,AndroidCXX::android_os_Handler const& arg4,AndroidCXX::java_lang_String const& arg5) ;
+	virtual void  sendIntent(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,AndroidCXX::android_content_IntentSender_OnFinished const& arg3,AndroidCXX::android_os_Handler const& arg4) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 	static void  writeIntentSenderOrNullToParcel(AndroidCXX::android_content_IntentSender const& arg0,AndroidCXX::android_os_Parcel const& arg1) ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;

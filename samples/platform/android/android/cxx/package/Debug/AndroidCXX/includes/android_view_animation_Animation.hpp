@@ -127,8 +127,8 @@ public:
 	virtual int  getRepeatMode() ;
 	virtual long  getStartOffset() ;
 	virtual long  getStartTime() ;
-	virtual bool  getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1) ;
 	virtual bool  getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1,float const& arg2) ;
+	virtual bool  getTransformation(long const& arg0,AndroidCXX::android_view_animation_Transformation const& arg1) ;
 	virtual int  getZAdjustment() ;
 	virtual bool  hasEnded() ;
 	virtual bool  hasStarted() ;
@@ -145,15 +145,15 @@ public:
 	virtual void  setFillAfter(bool const& arg0) ;
 	virtual void  setFillBefore(bool const& arg0) ;
 	virtual void  setFillEnabled(bool const& arg0) ;
-	virtual void  setInterpolator(AndroidCXX::android_view_animation_Interpolator const& arg0) ;
 	virtual void  setInterpolator(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
+	virtual void  setInterpolator(AndroidCXX::android_view_animation_Interpolator const& arg0) ;
 	virtual void  setRepeatCount(int const& arg0) ;
 	virtual void  setRepeatMode(int const& arg0) ;
 	virtual void  setStartOffset(long const& arg0) ;
 	virtual void  setStartTime(long const& arg0) ;
 	virtual void  setZAdjustment(int const& arg0) ;
-	virtual void  start() ;
 	virtual void  startNow() ;
+	virtual void  start() ;
 	virtual bool  willChangeBounds() ;
 	virtual bool  willChangeTransformationMatrix() ;
 

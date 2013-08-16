@@ -152,19 +152,19 @@ class android_widget_ScrollView : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_ScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_ScrollView(AndroidCXX::android_content_Context const& arg0);
 	android_widget_ScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_ScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_ScrollView(const android_widget_ScrollView& cc);
 	android_widget_ScrollView(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ScrollView();
 	// Functions
-	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
-	virtual void  addView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) ;
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0) ;
 	virtual bool  arrowScroll(int const& arg0) ;
 	virtual void  computeScroll() ;
 	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;

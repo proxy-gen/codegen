@@ -105,8 +105,8 @@ public:
 	virtual int  pointToPosition(int const& arg0,int const& arg1) ;
 	virtual void  requestLayout() ;
 	virtual void  setAdapter(AndroidCXX::android_widget_SpinnerAdapter const& arg0) ;
-	virtual void  setSelection(int const& arg0) ;
 	virtual void  setSelection(int const& arg0,bool const& arg1) ;
+	virtual void  setSelection(int const& arg0) ;
 
 protected:
 	android_widget_AbsSpinner();

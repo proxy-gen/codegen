@@ -82,8 +82,8 @@ public:
 	virtual AndroidCXX::java_lang_String * getType() ;
 	virtual int  hashCode() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual void  verify(AndroidCXX::java_security_PublicKey const& arg0) ;
 	virtual void  verify(AndroidCXX::java_security_PublicKey const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  verify(AndroidCXX::java_security_PublicKey const& arg0) ;
 
 protected:
 	java_security_cert_Certificate();

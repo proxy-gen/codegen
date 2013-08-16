@@ -122,9 +122,9 @@ class android_widget_ProgressBar : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_ProgressBar(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_ProgressBar(AndroidCXX::android_content_Context const& arg0);
 	android_widget_ProgressBar(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_ProgressBar(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_ProgressBar(const android_widget_ProgressBar& cc);
 	android_widget_ProgressBar(Proxy proxy);
 	Proxy proxy() const;	
@@ -134,8 +134,8 @@ public:
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getIndeterminateDrawable() ;
 	virtual AndroidCXX::android_view_animation_Interpolator * getInterpolator() ;
 	virtual int  getMax() ;
-	virtual int  getProgress() ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getProgressDrawable() ;
+	virtual int  getProgress() ;
 	virtual int  getSecondaryProgress() ;
 	virtual void  incrementProgressBy(int const& arg0) ;
 	virtual void  incrementSecondaryProgressBy(int const& arg0) ;
@@ -147,13 +147,13 @@ public:
 	virtual void  onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0) ;
 	virtual AndroidCXX::android_os_Parcelable * onSaveInstanceState() ;
 	virtual void  postInvalidate() ;
-	virtual void  setIndeterminate(bool const& arg0) ;
 	virtual void  setIndeterminateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  setIndeterminate(bool const& arg0) ;
 	virtual void  setInterpolator(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
 	virtual void  setInterpolator(AndroidCXX::android_view_animation_Interpolator const& arg0) ;
 	virtual void  setMax(int const& arg0) ;
-	virtual void  setProgress(int const& arg0) ;
 	virtual void  setProgressDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  setProgress(int const& arg0) ;
 	virtual void  setSecondaryProgress(int const& arg0) ;
 	virtual void  setVisibility(int const& arg0) ;
 

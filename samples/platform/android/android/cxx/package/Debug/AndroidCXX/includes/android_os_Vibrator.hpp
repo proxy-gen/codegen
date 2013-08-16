@@ -59,8 +59,8 @@ public:
 	// Functions
 	virtual void  cancel() ;
 	virtual bool  hasVibrator() ;
-	virtual void  vibrate(long const& arg0) ;
 	virtual void  vibrate(std::vector<long> const& arg0,int const& arg1) ;
+	virtual void  vibrate(long const& arg0) ;
 
 protected:
 	android_os_Vibrator();

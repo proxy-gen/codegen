@@ -152,12 +152,12 @@ class java_net_URL : public java_io_Serializable
 public:
 
 	// Public ConstrucXXX
-	java_net_URL(AndroidCXX::java_net_URL const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_net_URLStreamHandler const& arg2);
 	java_net_URL(AndroidCXX::java_lang_String const& arg0);
-	java_net_URL(AndroidCXX::java_net_URL const& arg0,AndroidCXX::java_lang_String const& arg1);
-	java_net_URL(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
 	java_net_URL(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,AndroidCXX::java_lang_String const& arg3);
 	java_net_URL(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::java_net_URLStreamHandler const& arg4);
+	java_net_URL(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
+	java_net_URL(AndroidCXX::java_net_URL const& arg0,AndroidCXX::java_lang_String const& arg1);
+	java_net_URL(AndroidCXX::java_net_URL const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_net_URLStreamHandler const& arg2);
 	java_net_URL(const java_net_URL& cc);
 	java_net_URL(Proxy proxy);
 	Proxy proxy() const;	

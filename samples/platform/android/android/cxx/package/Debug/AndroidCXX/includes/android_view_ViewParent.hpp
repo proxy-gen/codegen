@@ -21,11 +21,11 @@
  		 
 	
 	
- 		 
- 		 
  	
  		 
 	
+ 		 
+ 		 
  		 
  		 
  		 
@@ -127,10 +127,10 @@ public:
 	virtual AndroidCXX::android_view_View * focusSearch(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
 	virtual void  focusableViewAvailable(AndroidCXX::android_view_View const& arg0) ;
 	virtual bool  getChildVisibleRect(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,AndroidCXX::android_graphics_Point const& arg2) ;
-	virtual AndroidCXX::android_view_ViewParent * getParent() ;
 	virtual AndroidCXX::android_view_ViewParent * getParentForAccessibility() ;
-	virtual void  invalidateChild(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
+	virtual AndroidCXX::android_view_ViewParent * getParent() ;
 	virtual AndroidCXX::android_view_ViewParent * invalidateChildInParent(std::vector<int> const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
+	virtual void  invalidateChild(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
 	virtual bool  isLayoutRequested() ;
 	virtual void  recomputeViewAttributes(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  requestChildFocus(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;

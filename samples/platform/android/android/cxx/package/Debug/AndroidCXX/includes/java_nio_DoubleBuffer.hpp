@@ -21,13 +21,13 @@
  	
 	
 	
+ 	
+	
+ 	
+	
+	
+	
  		 
-	
-	
-	
- 	
-	
- 	
 	
 	
 	
@@ -113,26 +113,26 @@ public:
 	virtual ~java_nio_DoubleBuffer();
 	// Functions
 	static AndroidCXX::java_nio_DoubleBuffer * allocate(int const& arg0) ;
-	virtual std::vector<double>  array() ;
 	virtual int  arrayOffset() ;
+	virtual std::vector<double>  array() ;
 	virtual AndroidCXX::java_nio_DoubleBuffer * asReadOnlyBuffer() ;
 	virtual AndroidCXX::java_nio_DoubleBuffer * compact() ;
 	virtual int  compareTo(AndroidCXX::java_nio_DoubleBuffer const& arg0) ;
 	virtual AndroidCXX::java_nio_DoubleBuffer * duplicate() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual double  get() ;
-	virtual AndroidCXX::java_nio_DoubleBuffer * get(std::vector<double> const& arg0) ;
 	virtual AndroidCXX::java_nio_DoubleBuffer * get(std::vector<double> const& arg0,int const& arg1,int const& arg2) ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * get(std::vector<double> const& arg0) ;
 	virtual double  get(int const& arg0) ;
+	virtual double  get() ;
 	virtual bool  hasArray() ;
 	virtual int  hashCode() ;
 	virtual bool  isDirect() ;
 	virtual AndroidCXX::java_nio_ByteOrder * order() ;
-	virtual AndroidCXX::java_nio_DoubleBuffer * put(AndroidCXX::java_nio_DoubleBuffer const& arg0) ;
-	virtual AndroidCXX::java_nio_DoubleBuffer * put(double const& arg0) ;
-	virtual AndroidCXX::java_nio_DoubleBuffer * put(int const& arg0,double const& arg1) ;
 	virtual AndroidCXX::java_nio_DoubleBuffer * put(std::vector<double> const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_nio_DoubleBuffer * put(std::vector<double> const& arg0) ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * put(double const& arg0) ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * put(int const& arg0,double const& arg1) ;
+	virtual AndroidCXX::java_nio_DoubleBuffer * put(AndroidCXX::java_nio_DoubleBuffer const& arg0) ;
 	virtual AndroidCXX::java_nio_DoubleBuffer * slice() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 	static AndroidCXX::java_nio_DoubleBuffer * wrap(std::vector<double> const& arg0,int const& arg1,int const& arg2) ;

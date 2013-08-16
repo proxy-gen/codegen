@@ -167,8 +167,8 @@ class android_view_KeyEvent : public android_os_Parcelable
 public:
 
 	// Public ConstrucXXX
-	android_view_KeyEvent(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2);
 	android_view_KeyEvent(AndroidCXX::android_view_KeyEvent const& arg0);
+	android_view_KeyEvent(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2);
 	android_view_KeyEvent(int const& arg0,int const& arg1);
 	android_view_KeyEvent(long const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,int const& arg3);
 	android_view_KeyEvent(long const& arg0,long const& arg1,int const& arg2,int const& arg3,int const& arg4);
@@ -183,8 +183,8 @@ public:
 	// Functions
 	static AndroidCXX::android_view_KeyEvent * changeAction(AndroidCXX::android_view_KeyEvent const& arg0,int const& arg1) ;
 	static AndroidCXX::android_view_KeyEvent * changeFlags(AndroidCXX::android_view_KeyEvent const& arg0,int const& arg1) ;
-	static AndroidCXX::android_view_KeyEvent * changeTimeRepeat(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2) ;
 	static AndroidCXX::android_view_KeyEvent * changeTimeRepeat(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2,int const& arg3) ;
+	static AndroidCXX::android_view_KeyEvent * changeTimeRepeat(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2) ;
 	virtual bool  dispatch(AndroidCXX::android_view_KeyEvent_Callback const& arg0,AndroidCXX::android_view_KeyEvent_DispatcherState const& arg1,AndroidCXX::java_lang_Object const& arg2) ;
 	virtual bool  dispatch(AndroidCXX::android_view_KeyEvent_Callback const& arg0) ;
 	virtual int  getAction() ;
@@ -208,8 +208,8 @@ public:
 	virtual int  getRepeatCount() ;
 	virtual int  getScanCode() ;
 	virtual int  getSource() ;
-	virtual int  getUnicodeChar() ;
 	virtual int  getUnicodeChar(int const& arg0) ;
+	virtual int  getUnicodeChar() ;
 	virtual bool  hasModifiers(int const& arg0) ;
 	virtual bool  hasNoModifiers() ;
 	virtual bool  isAltPressed() ;

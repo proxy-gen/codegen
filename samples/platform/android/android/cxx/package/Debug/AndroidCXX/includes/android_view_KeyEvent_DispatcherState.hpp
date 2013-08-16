@@ -78,8 +78,8 @@ public:
 	virtual void  handleUpEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual bool  isTracking(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual void  performedLongPress(AndroidCXX::android_view_KeyEvent const& arg0) ;
-	virtual void  reset() ;
 	virtual void  reset(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  reset() ;
 	virtual void  startTracking(AndroidCXX::android_view_KeyEvent const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 
 protected:

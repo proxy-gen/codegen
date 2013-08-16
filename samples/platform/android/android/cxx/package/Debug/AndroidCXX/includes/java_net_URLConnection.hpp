@@ -11,19 +11,19 @@
 
  		 
  		 
+	
  	
 	
  		 
 	
 	
-	
  		 
 	
 	
  		 
-	
-	
  		 
+	
+	
  		 
 	
 	
@@ -173,10 +173,10 @@ public:
 	virtual void  connect() ;
 	virtual bool  getAllowUserInteraction() ;
 	virtual int  getConnectTimeout() ;
-	virtual AndroidCXX::java_lang_Object * getContent(std::vector<java_lang_Class> const& arg0) ;
-	virtual AndroidCXX::java_lang_Object * getContent() ;
 	virtual AndroidCXX::java_lang_String * getContentEncoding() ;
 	virtual int  getContentLength() ;
+	virtual AndroidCXX::java_lang_Object * getContent(std::vector<java_lang_Class> const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * getContent() ;
 	virtual AndroidCXX::java_lang_String * getContentType() ;
 	virtual long  getDate() ;
 	static bool  getDefaultAllowUserInteraction() ;
@@ -186,11 +186,11 @@ public:
 	virtual bool  getDoOutput() ;
 	virtual long  getExpiration() ;
 	static AndroidCXX::java_net_FileNameMap * getFileNameMap() ;
-	virtual AndroidCXX::java_lang_String * getHeaderField(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getHeaderField(int const& arg0) ;
 	virtual long  getHeaderFieldDate(AndroidCXX::java_lang_String const& arg0,long const& arg1) ;
 	virtual int  getHeaderFieldInt(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_String * getHeaderFieldKey(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getHeaderField(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getHeaderField(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_util_Map * getHeaderFields() ;
 	virtual long  getIfModifiedSince() ;
 	virtual AndroidCXX::java_io_InputStream * getInputStream() ;

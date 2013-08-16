@@ -82,8 +82,8 @@ public:
 	virtual AndroidCXX::java_lang_Object * attachment() ;
 	virtual void  cancel() ;
 	virtual AndroidCXX::java_nio_channels_SelectableChannel * channel() ;
-	virtual int  interestOps() ;
 	virtual AndroidCXX::java_nio_channels_SelectionKey * interestOps(int const& arg0) ;
+	virtual int  interestOps() ;
 	virtual bool  isAcceptable() ;
 	virtual bool  isConnectable() ;
 	virtual bool  isReadable() ;

@@ -72,10 +72,10 @@ public:
 	virtual void  add(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual bool  hasNext() ;
 	virtual bool  hasPrevious() ;
-	virtual AndroidCXX::java_lang_Object * next() ;
 	virtual int  nextIndex() ;
-	virtual AndroidCXX::java_lang_Object * previous() ;
+	virtual AndroidCXX::java_lang_Object * next() ;
 	virtual int  previousIndex() ;
+	virtual AndroidCXX::java_lang_Object * previous() ;
 	virtual void  remove() ;
 	virtual void  set(AndroidCXX::java_lang_Object const& arg0) ;
 

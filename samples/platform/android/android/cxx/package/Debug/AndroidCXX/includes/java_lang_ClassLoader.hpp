@@ -82,9 +82,9 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_net_URL;
-
 class java_io_InputStream;
+
+class java_net_URL;
 
 class java_util_Enumeration;
 
@@ -104,12 +104,12 @@ public:
 	// Functions
 	virtual void  clearAssertionStatus() ;
 	virtual AndroidCXX::java_lang_ClassLoader * getParent() ;
-	virtual AndroidCXX::java_net_URL * getResource(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_io_InputStream * getResourceAsStream(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_net_URL * getResource(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_util_Enumeration * getResources(AndroidCXX::java_lang_String const& arg0) ;
 	static AndroidCXX::java_lang_ClassLoader * getSystemClassLoader() ;
-	static AndroidCXX::java_net_URL * getSystemResource(AndroidCXX::java_lang_String const& arg0) ;
 	static AndroidCXX::java_io_InputStream * getSystemResourceAsStream(AndroidCXX::java_lang_String const& arg0) ;
+	static AndroidCXX::java_net_URL * getSystemResource(AndroidCXX::java_lang_String const& arg0) ;
 	static AndroidCXX::java_util_Enumeration * getSystemResources(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_Class * loadClass(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setClassAssertionStatus(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;

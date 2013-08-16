@@ -73,9 +73,9 @@ class java_math_MathContext : public java_io_Serializable
 public:
 
 	// Public ConstrucXXX
-	java_math_MathContext(AndroidCXX::java_lang_String const& arg0);
 	java_math_MathContext(int const& arg0);
 	java_math_MathContext(int const& arg0,java_math_RoundingMode::java_math_RoundingMode const& arg1);
+	java_math_MathContext(AndroidCXX::java_lang_String const& arg0);
 	java_math_MathContext(const java_math_MathContext& cc);
 	java_math_MathContext(Proxy proxy);
 	Proxy proxy() const;	

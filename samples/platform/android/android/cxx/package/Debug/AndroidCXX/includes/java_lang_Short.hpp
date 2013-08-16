@@ -17,10 +17,10 @@
  		 
 	
 	
-	
  		 
 	
  		 
+	
 	
 
 
@@ -115,9 +115,9 @@ public:
 	virtual short  shortValue() ;
 	static AndroidCXX::java_lang_String * toString(short const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
-	static AndroidCXX::java_lang_Short * valueOf(short const& arg0) ;
-	static AndroidCXX::java_lang_Short * valueOf(AndroidCXX::java_lang_String const& arg0) ;
 	static AndroidCXX::java_lang_Short * valueOf(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	static AndroidCXX::java_lang_Short * valueOf(AndroidCXX::java_lang_String const& arg0) ;
+	static AndroidCXX::java_lang_Short * valueOf(short const& arg0) ;
 
 protected:
 

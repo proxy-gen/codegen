@@ -65,9 +65,9 @@ class android_widget_AnalogClock : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0);
 	android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_AnalogClock(const android_widget_AnalogClock& cc);
 	android_widget_AnalogClock(Proxy proxy);
 	Proxy proxy() const;	

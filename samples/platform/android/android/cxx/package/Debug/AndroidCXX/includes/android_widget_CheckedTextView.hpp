@@ -90,9 +90,9 @@ class android_widget_CheckedTextView : public android_widget_Checkable
 public:
 
 	// Public ConstrucXXX
-	android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0);
 	android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_CheckedTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_CheckedTextView(const android_widget_CheckedTextView& cc);
 	android_widget_CheckedTextView(Proxy proxy);
 	Proxy proxy() const;	

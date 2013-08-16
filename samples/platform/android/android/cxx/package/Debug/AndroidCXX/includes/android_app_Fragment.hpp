@@ -42,8 +42,8 @@
  		 
  		 
  		 
- 		 
 	
+ 		 
  		 
  		 
  		 
@@ -330,13 +330,13 @@ public:
 	virtual void  onAttach(AndroidCXX::android_app_Activity const& arg0) ;
 	virtual void  onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0) ;
 	virtual bool  onContextItemSelected(AndroidCXX::android_view_MenuItem const& arg0) ;
-	virtual void  onCreate(AndroidCXX::android_os_Bundle const& arg0) ;
 	virtual AndroidCXX::android_animation_Animator * onCreateAnimator(int const& arg0,bool const& arg1,int const& arg2) ;
 	virtual void  onCreateContextMenu(AndroidCXX::android_view_ContextMenu const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ContextMenu_ContextMenuInfo const& arg2) ;
 	virtual void  onCreateOptionsMenu(AndroidCXX::android_view_Menu const& arg0,AndroidCXX::android_view_MenuInflater const& arg1) ;
+	virtual void  onCreate(AndroidCXX::android_os_Bundle const& arg0) ;
 	virtual AndroidCXX::android_view_View * onCreateView(AndroidCXX::android_view_LayoutInflater const& arg0,AndroidCXX::android_view_ViewGroup const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
-	virtual void  onDestroy() ;
 	virtual void  onDestroyOptionsMenu() ;
+	virtual void  onDestroy() ;
 	virtual void  onDestroyView() ;
 	virtual void  onDetach() ;
 	virtual void  onHiddenChanged(bool const& arg0) ;
@@ -362,10 +362,10 @@ public:
 	virtual void  setRetainInstance(bool const& arg0) ;
 	virtual void  setTargetFragment(AndroidCXX::android_app_Fragment const& arg0,int const& arg1) ;
 	virtual void  setUserVisibleHint(bool const& arg0) ;
-	virtual void  startActivity(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
-	virtual void  startActivity(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual void  startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
 	virtual void  startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1) ;
+	virtual void  startActivity(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual void  startActivity(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual void  unregisterForContextMenu(AndroidCXX::android_view_View const& arg0) ;
 

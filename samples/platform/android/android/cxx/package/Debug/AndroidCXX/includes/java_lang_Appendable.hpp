@@ -9,10 +9,10 @@
 
 
 
- 		 
 	
  		 
 	
+ 		 
 	
 
 
@@ -52,8 +52,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_CharSequence;
 
+class java_lang_CharSequence;
 
 class java_lang_Appendable : public java_lang_Object
 {
@@ -65,9 +65,9 @@ public:
 	// Default Destructor
 	virtual ~java_lang_Appendable();
 	// Functions
-	virtual AndroidCXX::java_lang_Appendable * append(AndroidCXX::java_lang_CharSequence const& arg0) ;
-	virtual AndroidCXX::java_lang_Appendable * append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_lang_Appendable * append(char const& arg0) ;
+	virtual AndroidCXX::java_lang_Appendable * append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) ;
+	virtual AndroidCXX::java_lang_Appendable * append(AndroidCXX::java_lang_CharSequence const& arg0) ;
 
 protected:
 	java_lang_Appendable();

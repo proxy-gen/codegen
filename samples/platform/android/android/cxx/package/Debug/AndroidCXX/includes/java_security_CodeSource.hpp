@@ -93,8 +93,8 @@ class java_security_CodeSource : public java_io_Serializable
 public:
 
 	// Public ConstrucXXX
-	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<java_security_cert_Certificate> const& arg1);
 	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<java_security_CodeSigner> const& arg1);
+	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<java_security_cert_Certificate> const& arg1);
 	java_security_CodeSource(const java_security_CodeSource& cc);
 	java_security_CodeSource(Proxy proxy);
 	Proxy proxy() const;	

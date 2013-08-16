@@ -66,8 +66,8 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_util_Locale;
 
+class java_util_Locale;
 
 class java_util_Currency : public java_io_Serializable
 {
@@ -82,8 +82,8 @@ public:
 	// Functions
 	virtual AndroidCXX::java_lang_String * getCurrencyCode() ;
 	virtual int  getDefaultFractionDigits() ;
-	static AndroidCXX::java_util_Currency * getInstance(AndroidCXX::java_util_Locale const& arg0) ;
 	static AndroidCXX::java_util_Currency * getInstance(AndroidCXX::java_lang_String const& arg0) ;
+	static AndroidCXX::java_util_Currency * getInstance(AndroidCXX::java_util_Locale const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getSymbol(AndroidCXX::java_util_Locale const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getSymbol() ;
 	virtual AndroidCXX::java_lang_String * toString() ;

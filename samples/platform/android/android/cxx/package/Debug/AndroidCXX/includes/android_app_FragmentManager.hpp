@@ -126,12 +126,12 @@ public:
 	virtual AndroidCXX::android_app_Fragment * getFragment(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual void  invalidateOptionsMenu() ;
 	virtual bool  isDestroyed() ;
+	virtual bool  popBackStackImmediate(int const& arg0,int const& arg1) ;
+	virtual bool  popBackStackImmediate(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	virtual bool  popBackStackImmediate() ;
 	virtual void  popBackStack(int const& arg0,int const& arg1) ;
 	virtual void  popBackStack(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual void  popBackStack() ;
-	virtual bool  popBackStackImmediate() ;
-	virtual bool  popBackStackImmediate(int const& arg0,int const& arg1) ;
-	virtual bool  popBackStackImmediate(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual void  putFragment(AndroidCXX::android_os_Bundle const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_app_Fragment const& arg2) ;
 	virtual void  removeOnBackStackChangedListener(AndroidCXX::android_app_FragmentManager_OnBackStackChangedListener const& arg0) ;
 	virtual AndroidCXX::android_app_Fragment_SavedState * saveFragmentInstanceState(AndroidCXX::android_app_Fragment const& arg0) ;

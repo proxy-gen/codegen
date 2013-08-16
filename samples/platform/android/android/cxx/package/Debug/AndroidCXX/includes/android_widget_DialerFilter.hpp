@@ -102,8 +102,8 @@ class android_widget_DialerFilter : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_DialerFilter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_DialerFilter(AndroidCXX::android_content_Context const& arg0);
+	android_widget_DialerFilter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_DialerFilter(const android_widget_DialerFilter& cc);
 	android_widget_DialerFilter(Proxy proxy);
 	Proxy proxy() const;	

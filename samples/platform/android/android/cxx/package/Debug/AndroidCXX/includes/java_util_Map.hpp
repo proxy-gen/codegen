@@ -24,12 +24,12 @@
  	
  		 
  		 
- 		 
-	
- 		 
  	
  		 
  		 
+ 		 
+ 		 
+	
  		 
 	
 	
@@ -111,8 +111,8 @@ public:
 	virtual int  hashCode() ;
 	virtual bool  isEmpty() ;
 	virtual AndroidCXX::java_util_Set * keySet() ;
-	virtual AndroidCXX::java_lang_Object * put(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual void  putAll(AndroidCXX::java_util_Map const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * put(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual AndroidCXX::java_lang_Object * remove(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual int  size() ;
 	virtual AndroidCXX::java_util_Collection * values() ;

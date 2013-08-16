@@ -163,10 +163,10 @@ class android_widget_ListPopupWindow
 public:
 
 	// Public ConstrucXXX
-	android_widget_ListPopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,int const& arg3);
 	android_widget_ListPopupWindow(AndroidCXX::android_content_Context const& arg0);
 	android_widget_ListPopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_ListPopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_ListPopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,int const& arg3);
 	android_widget_ListPopupWindow(const android_widget_ListPopupWindow& cc);
 	android_widget_ListPopupWindow(Proxy proxy);
 	Proxy proxy() const;	
@@ -183,9 +183,9 @@ public:
 	virtual int  getInputMethodMode() ;
 	virtual AndroidCXX::android_widget_ListView * getListView() ;
 	virtual int  getPromptPosition() ;
-	virtual AndroidCXX::java_lang_Object * getSelectedItem() ;
 	virtual long  getSelectedItemId() ;
 	virtual int  getSelectedItemPosition() ;
+	virtual AndroidCXX::java_lang_Object * getSelectedItem() ;
 	virtual AndroidCXX::android_view_View * getSelectedView() ;
 	virtual int  getSoftInputMode() ;
 	virtual int  getVerticalOffset() ;

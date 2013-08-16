@@ -14,10 +14,6 @@
  		 
 	
  		 
-	
- 		 
-	
- 		 
  	
  		 
 	
@@ -31,25 +27,29 @@
 	
  		 
 	
+ 		 
+	
+ 		 
+	
 	
  	
  		 
  		 
  		 
  		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
  	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
  		 
  		 
  		 
@@ -200,29 +200,29 @@ public:
 	virtual bool  containsKey(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  describeContents() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_Object * get(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_Boolean * getAsBoolean(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_lang_Byte * getAsByte(AndroidCXX::java_lang_String const& arg0) ;
 	virtual std::vector<byte>  getAsByteArray(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_Byte * getAsByte(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_Double * getAsDouble(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_Float * getAsFloat(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_Integer * getAsInteger(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_Long * getAsLong(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_Short * getAsShort(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getAsString(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * get(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  hashCode() ;
 	virtual AndroidCXX::java_util_Set * keySet() ;
-	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Byte const& arg1) ;
-	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Short const& arg1) ;
-	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Integer const& arg1) ;
-	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Long const& arg1) ;
-	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Float const& arg1) ;
-	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Double const& arg1) ;
-	virtual void  put(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1) ;
-	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Boolean const& arg1) ;
 	virtual void  putAll(AndroidCXX::android_content_ContentValues const& arg0) ;
 	virtual void  putNull(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  put(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1) ;
+	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Boolean const& arg1) ;
+	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Byte const& arg1) ;
+	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Double const& arg1) ;
+	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Float const& arg1) ;
+	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Integer const& arg1) ;
+	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Long const& arg1) ;
+	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Short const& arg1) ;
+	virtual void  put(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual void  remove(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  size() ;
 	virtual AndroidCXX::java_lang_String * toString() ;

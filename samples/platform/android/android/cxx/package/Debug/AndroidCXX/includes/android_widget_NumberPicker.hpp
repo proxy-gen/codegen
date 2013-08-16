@@ -136,9 +136,9 @@ class android_widget_NumberPicker : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0);
 	android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_NumberPicker(const android_widget_NumberPicker& cc);
 	android_widget_NumberPicker(Proxy proxy);
 	Proxy proxy() const;	

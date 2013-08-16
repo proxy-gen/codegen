@@ -167,9 +167,9 @@ class android_widget_ExpandableListView : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_ExpandableListView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_ExpandableListView(AndroidCXX::android_content_Context const& arg0);
 	android_widget_ExpandableListView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_ExpandableListView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_ExpandableListView(const android_widget_ExpandableListView& cc);
 	android_widget_ExpandableListView(Proxy proxy);
 	Proxy proxy() const;	
@@ -177,8 +177,8 @@ public:
 	virtual ~android_widget_ExpandableListView();
 	// Functions
 	virtual bool  collapseGroup(int const& arg0) ;
-	virtual bool  expandGroup(int const& arg0) ;
 	virtual bool  expandGroup(int const& arg0,bool const& arg1) ;
+	virtual bool  expandGroup(int const& arg0) ;
 	virtual AndroidCXX::android_widget_ListAdapter * getAdapter() ;
 	virtual AndroidCXX::android_widget_ExpandableListAdapter * getExpandableListAdapter() ;
 	virtual long  getExpandableListPosition(int const& arg0) ;
@@ -200,9 +200,9 @@ public:
 	virtual void  setAdapter(AndroidCXX::android_widget_ExpandableListAdapter const& arg0) ;
 	virtual void  setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0) ;
 	virtual void  setChildDivider(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
-	virtual void  setChildIndicator(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setChildIndicatorBounds(int const& arg0,int const& arg1) ;
 	virtual void  setChildIndicatorBoundsRelative(int const& arg0,int const& arg1) ;
+	virtual void  setChildIndicator(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setGroupIndicator(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setIndicatorBounds(int const& arg0,int const& arg1) ;
 	virtual void  setIndicatorBoundsRelative(int const& arg0,int const& arg1) ;

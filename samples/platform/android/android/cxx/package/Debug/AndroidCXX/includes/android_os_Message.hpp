@@ -14,10 +14,6 @@
 	
 	
  		 
-	
- 		 
- 		 
-	
  		 
 	
  		 
@@ -28,6 +24,10 @@
  		 
 	
  		 
+ 		 
+	
+ 		 
+	
  		 
 	
 	
@@ -136,13 +136,13 @@ public:
 	virtual AndroidCXX::android_os_Bundle * getData() ;
 	virtual AndroidCXX::android_os_Handler * getTarget() ;
 	virtual long  getWhen() ;
-	static AndroidCXX::android_os_Message * obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	static AndroidCXX::android_os_Message * obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_Object const& arg4) ;
-	static AndroidCXX::android_os_Message * obtain(AndroidCXX::android_os_Message const& arg0) ;
-	static AndroidCXX::android_os_Message * obtain(AndroidCXX::android_os_Handler const& arg0) ;
-	static AndroidCXX::android_os_Message * obtain(AndroidCXX::android_os_Handler const& arg0,AndroidCXX::java_lang_Runnable const& arg1) ;
-	static AndroidCXX::android_os_Message * obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1) ;
+	static AndroidCXX::android_os_Message * obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	static AndroidCXX::android_os_Message * obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1,AndroidCXX::java_lang_Object const& arg2) ;
+	static AndroidCXX::android_os_Message * obtain(AndroidCXX::android_os_Handler const& arg0,int const& arg1) ;
+	static AndroidCXX::android_os_Message * obtain(AndroidCXX::android_os_Handler const& arg0,AndroidCXX::java_lang_Runnable const& arg1) ;
+	static AndroidCXX::android_os_Message * obtain(AndroidCXX::android_os_Handler const& arg0) ;
+	static AndroidCXX::android_os_Message * obtain(AndroidCXX::android_os_Message const& arg0) ;
 	static AndroidCXX::android_os_Message * obtain() ;
 	virtual AndroidCXX::android_os_Bundle * peekData() ;
 	virtual void  recycle() ;

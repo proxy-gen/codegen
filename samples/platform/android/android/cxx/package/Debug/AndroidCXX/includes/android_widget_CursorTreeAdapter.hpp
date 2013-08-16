@@ -100,9 +100,9 @@ class android_view_View;
 
 class android_view_ViewGroup;
 
-class android_widget_Filter;
-
 class android_widget_FilterQueryProvider;
+
+class android_widget_Filter;
 
 class java_lang_CharSequence;
 
@@ -120,16 +120,16 @@ public:
 	// Functions
 	virtual void  changeCursor(AndroidCXX::android_database_Cursor const& arg0) ;
 	virtual AndroidCXX::java_lang_String * convertToString(AndroidCXX::android_database_Cursor const& arg0) ;
-	virtual AndroidCXX::android_database_Cursor * getChild(int const& arg0,int const& arg1) ;
 	virtual long  getChildId(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::android_database_Cursor * getChild(int const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_view_View * getChildView(int const& arg0,int const& arg1,bool const& arg2,AndroidCXX::android_view_View const& arg3,AndroidCXX::android_view_ViewGroup const& arg4) ;
 	virtual int  getChildrenCount(int const& arg0) ;
 	virtual AndroidCXX::android_database_Cursor * getCursor() ;
-	virtual AndroidCXX::android_widget_Filter * getFilter() ;
 	virtual AndroidCXX::android_widget_FilterQueryProvider * getFilterQueryProvider() ;
-	virtual AndroidCXX::android_database_Cursor * getGroup(int const& arg0) ;
+	virtual AndroidCXX::android_widget_Filter * getFilter() ;
 	virtual int  getGroupCount() ;
 	virtual long  getGroupId(int const& arg0) ;
+	virtual AndroidCXX::android_database_Cursor * getGroup(int const& arg0) ;
 	virtual AndroidCXX::android_view_View * getGroupView(int const& arg0,bool const& arg1,AndroidCXX::android_view_View const& arg2,AndroidCXX::android_view_ViewGroup const& arg3) ;
 	virtual bool  hasStableIds() ;
 	virtual bool  isChildSelectable(int const& arg0,int const& arg1) ;

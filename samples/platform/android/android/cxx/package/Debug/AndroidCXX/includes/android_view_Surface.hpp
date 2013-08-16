@@ -100,8 +100,8 @@ public:
 	virtual void  readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
 	virtual void  release() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual void  unlockCanvas(AndroidCXX::android_graphics_Canvas const& arg0) ;
 	virtual void  unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual void  unlockCanvas(AndroidCXX::android_graphics_Canvas const& arg0) ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:

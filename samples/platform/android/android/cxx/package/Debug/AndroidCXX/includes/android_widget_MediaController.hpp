@@ -115,8 +115,8 @@ class android_widget_MediaController : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_MediaController(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_MediaController(AndroidCXX::android_content_Context const& arg0);
+	android_widget_MediaController(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_MediaController(AndroidCXX::android_content_Context const& arg0,bool const& arg1);
 	android_widget_MediaController(const android_widget_MediaController& cc);
 	android_widget_MediaController(Proxy proxy);
@@ -136,8 +136,8 @@ public:
 	virtual void  setEnabled(bool const& arg0) ;
 	virtual void  setMediaPlayer(AndroidCXX::android_widget_MediaController_MediaPlayerControl const& arg0) ;
 	virtual void  setPrevNextListeners(AndroidCXX::android_view_View_OnClickListener const& arg0,AndroidCXX::android_view_View_OnClickListener const& arg1) ;
-	virtual void  show() ;
 	virtual void  show(int const& arg0) ;
+	virtual void  show() ;
 
 protected:
 

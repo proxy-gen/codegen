@@ -157,9 +157,9 @@ public:
 	// Functions
 	virtual void  addOnMenuVisibilityListener(AndroidCXX::android_app_ActionBar_OnMenuVisibilityListener const& arg0) ;
 	virtual void  addTab(AndroidCXX::android_app_ActionBar_Tab const& arg0,bool const& arg1) ;
-	virtual void  addTab(AndroidCXX::android_app_ActionBar_Tab const& arg0) ;
 	virtual void  addTab(AndroidCXX::android_app_ActionBar_Tab const& arg0,int const& arg1,bool const& arg2) ;
 	virtual void  addTab(AndroidCXX::android_app_ActionBar_Tab const& arg0,int const& arg1) ;
+	virtual void  addTab(AndroidCXX::android_app_ActionBar_Tab const& arg0) ;
 	virtual AndroidCXX::android_view_View * getCustomView() ;
 	virtual int  getDisplayOptions() ;
 	virtual int  getHeight() ;
@@ -177,22 +177,22 @@ public:
 	virtual AndroidCXX::android_app_ActionBar_Tab * newTab() ;
 	virtual void  removeAllTabs() ;
 	virtual void  removeOnMenuVisibilityListener(AndroidCXX::android_app_ActionBar_OnMenuVisibilityListener const& arg0) ;
-	virtual void  removeTab(AndroidCXX::android_app_ActionBar_Tab const& arg0) ;
 	virtual void  removeTabAt(int const& arg0) ;
+	virtual void  removeTab(AndroidCXX::android_app_ActionBar_Tab const& arg0) ;
 	virtual void  selectTab(AndroidCXX::android_app_ActionBar_Tab const& arg0) ;
 	virtual void  setBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
-	virtual void  setCustomView(int const& arg0) ;
 	virtual void  setCustomView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_app_ActionBar_LayoutParams const& arg1) ;
 	virtual void  setCustomView(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  setCustomView(int const& arg0) ;
 	virtual void  setDisplayHomeAsUpEnabled(bool const& arg0) ;
-	virtual void  setDisplayOptions(int const& arg0) ;
 	virtual void  setDisplayOptions(int const& arg0,int const& arg1) ;
+	virtual void  setDisplayOptions(int const& arg0) ;
 	virtual void  setDisplayShowCustomEnabled(bool const& arg0) ;
 	virtual void  setDisplayShowHomeEnabled(bool const& arg0) ;
 	virtual void  setDisplayShowTitleEnabled(bool const& arg0) ;
 	virtual void  setDisplayUseLogoEnabled(bool const& arg0) ;
-	virtual void  setHomeActionContentDescription(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setHomeActionContentDescription(int const& arg0) ;
+	virtual void  setHomeActionContentDescription(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setHomeAsUpIndicator(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setHomeAsUpIndicator(int const& arg0) ;
 	virtual void  setHomeButtonEnabled(bool const& arg0) ;
@@ -205,10 +205,10 @@ public:
 	virtual void  setSelectedNavigationItem(int const& arg0) ;
 	virtual void  setSplitBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setStackedBackgroundDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
-	virtual void  setSubtitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setSubtitle(int const& arg0) ;
-	virtual void  setTitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  setSubtitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setTitle(int const& arg0) ;
+	virtual void  setTitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  show() ;
 
 protected:

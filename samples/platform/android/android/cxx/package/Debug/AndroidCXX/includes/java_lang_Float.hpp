@@ -15,8 +15,8 @@
 	
 	
 	
- 		 
 	
+ 		 
 	
 
 
@@ -95,8 +95,8 @@ public:
 
 	// Public ConstrucXXX
 	java_lang_Float(double const& arg0);
-	java_lang_Float(AndroidCXX::java_lang_String const& arg0);
 	java_lang_Float(float const& arg0);
+	java_lang_Float(AndroidCXX::java_lang_String const& arg0);
 	java_lang_Float(const java_lang_Float& cc);
 	java_lang_Float(Proxy proxy);
 	Proxy proxy() const;	
@@ -114,8 +114,8 @@ public:
 	virtual int  hashCode() ;
 	static float  intBitsToFloat(int const& arg0) ;
 	virtual int  intValue() ;
-	virtual bool  isInfinite() ;
 	static bool  isInfinite(float const& arg0) ;
+	virtual bool  isInfinite() ;
 	static bool  isNaN(float const& arg0) ;
 	virtual bool  isNaN() ;
 	virtual long  longValue() ;
@@ -124,8 +124,8 @@ public:
 	static AndroidCXX::java_lang_String * toHexString(float const& arg0) ;
 	static AndroidCXX::java_lang_String * toString(float const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
-	static AndroidCXX::java_lang_Float * valueOf(AndroidCXX::java_lang_String const& arg0) ;
 	static AndroidCXX::java_lang_Float * valueOf(float const& arg0) ;
+	static AndroidCXX::java_lang_Float * valueOf(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
 

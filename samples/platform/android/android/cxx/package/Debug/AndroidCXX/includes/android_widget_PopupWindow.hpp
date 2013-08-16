@@ -147,13 +147,13 @@ public:
 	// Public ConstrucXXX
 	android_widget_PopupWindow();
 	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0);
-	android_widget_PopupWindow(AndroidCXX::android_view_View const& arg0);
-	android_widget_PopupWindow(int const& arg0,int const& arg1);
 	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_PopupWindow(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2);
 	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,int const& arg3);
+	android_widget_PopupWindow(AndroidCXX::android_view_View const& arg0);
+	android_widget_PopupWindow(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2);
 	android_widget_PopupWindow(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2,bool const& arg3);
+	android_widget_PopupWindow(int const& arg0,int const& arg1);
 	android_widget_PopupWindow(const android_widget_PopupWindow& cc);
 	android_widget_PopupWindow(Proxy proxy);
 	Proxy proxy() const;	
@@ -193,15 +193,15 @@ public:
 	virtual void  setTouchable(bool const& arg0) ;
 	virtual void  setWidth(int const& arg0) ;
 	virtual void  setWindowLayoutMode(int const& arg0,int const& arg1) ;
-	virtual void  showAsDropDown(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  showAsDropDown(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2) ;
+	virtual void  showAsDropDown(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  showAtLocation(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
-	virtual void  update(int const& arg0,int const& arg1) ;
-	virtual void  update() ;
 	virtual void  update(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) ;
 	virtual void  update(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2) ;
 	virtual void  update(int const& arg0,int const& arg1,int const& arg2,int const& arg3,bool const& arg4) ;
 	virtual void  update(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  update(int const& arg0,int const& arg1) ;
+	virtual void  update() ;
 
 protected:
 

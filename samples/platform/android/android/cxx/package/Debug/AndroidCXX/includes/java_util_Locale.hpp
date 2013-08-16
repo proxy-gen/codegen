@@ -24,8 +24,8 @@
  		 
 	
 	
-	
  		 
+	
 	
 	
 	
@@ -139,8 +139,8 @@ public:
 	virtual AndroidCXX::java_lang_String * getDisplayLanguage() ;
 	virtual AndroidCXX::java_lang_String * getDisplayName(AndroidCXX::java_util_Locale const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getDisplayName() ;
-	virtual AndroidCXX::java_lang_String * getDisplayVariant() ;
 	virtual AndroidCXX::java_lang_String * getDisplayVariant(AndroidCXX::java_util_Locale const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getDisplayVariant() ;
 	virtual AndroidCXX::java_lang_String * getISO3Country() ;
 	virtual AndroidCXX::java_lang_String * getISO3Language() ;
 	static std::vector<java_lang_String>  getISOCountries() ;

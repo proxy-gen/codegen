@@ -42,9 +42,9 @@
  		 
  		 
 	
- 		 
-	
  	
+	
+ 		 
 	
 
 
@@ -149,8 +149,8 @@ public:
 	virtual void  setProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual void  startDocument(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Boolean const& arg1) ;
 	virtual AndroidCXX::org_xmlpull_v1_XmlSerializer * startTag(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual AndroidCXX::org_xmlpull_v1_XmlSerializer * text(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::org_xmlpull_v1_XmlSerializer * text(std::vector<char> const& arg0,int const& arg1,int const& arg2) ;
+	virtual AndroidCXX::org_xmlpull_v1_XmlSerializer * text(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
 	org_xmlpull_v1_XmlSerializer();

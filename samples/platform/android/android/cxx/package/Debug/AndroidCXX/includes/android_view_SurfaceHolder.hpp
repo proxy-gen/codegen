@@ -12,8 +12,8 @@
  		 
 	
 	
-	
  		 
+	
 	
  		 
  		 
@@ -67,9 +67,9 @@ namespace AndroidCXX {
 
 class android_view_SurfaceHolder_Callback;
 
-class android_view_Surface;
-
 class android_graphics_Rect;
+
+class android_view_Surface;
 
 class android_graphics_Canvas;
 
@@ -84,11 +84,11 @@ public:
 	virtual ~android_view_SurfaceHolder();
 	// Functions
 	virtual void  addCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0) ;
-	virtual AndroidCXX::android_view_Surface * getSurface() ;
 	virtual AndroidCXX::android_graphics_Rect * getSurfaceFrame() ;
+	virtual AndroidCXX::android_view_Surface * getSurface() ;
 	virtual bool  isCreating() ;
-	virtual AndroidCXX::android_graphics_Canvas * lockCanvas() ;
 	virtual AndroidCXX::android_graphics_Canvas * lockCanvas(AndroidCXX::android_graphics_Rect const& arg0) ;
+	virtual AndroidCXX::android_graphics_Canvas * lockCanvas() ;
 	virtual void  removeCallback(AndroidCXX::android_view_SurfaceHolder_Callback const& arg0) ;
 	virtual void  setFixedSize(int const& arg0,int const& arg1) ;
 	virtual void  setFormat(int const& arg0) ;

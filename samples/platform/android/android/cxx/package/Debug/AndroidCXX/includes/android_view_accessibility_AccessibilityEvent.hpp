@@ -14,9 +14,9 @@
 	
 	
  		 
-	
-	
  		 
+	
+	
 	
  		 
 	
@@ -114,12 +114,12 @@ public:
 	virtual int  getEventType() ;
 	virtual int  getMovementGranularity() ;
 	virtual AndroidCXX::java_lang_CharSequence * getPackageName() ;
-	virtual AndroidCXX::android_view_accessibility_AccessibilityRecord * getRecord(int const& arg0) ;
 	virtual int  getRecordCount() ;
+	virtual AndroidCXX::android_view_accessibility_AccessibilityRecord * getRecord(int const& arg0) ;
 	virtual void  initFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
+	static AndroidCXX::android_view_accessibility_AccessibilityEvent * obtain(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	static AndroidCXX::android_view_accessibility_AccessibilityEvent * obtain(int const& arg0) ;
 	static AndroidCXX::android_view_accessibility_AccessibilityEvent * obtain() ;
-	static AndroidCXX::android_view_accessibility_AccessibilityEvent * obtain(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  recycle() ;
 	virtual void  setAction(int const& arg0) ;
 	virtual void  setEventTime(long const& arg0) ;

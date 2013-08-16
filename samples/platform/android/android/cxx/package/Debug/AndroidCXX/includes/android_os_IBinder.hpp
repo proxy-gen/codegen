@@ -86,8 +86,8 @@ public:
 	// Default Destructor
 	virtual ~android_os_IBinder();
 	// Functions
-	virtual void  dump(AndroidCXX::java_io_FileDescriptor const& arg0,std::vector<java_lang_String> const& arg1) ;
 	virtual void  dumpAsync(AndroidCXX::java_io_FileDescriptor const& arg0,std::vector<java_lang_String> const& arg1) ;
+	virtual void  dump(AndroidCXX::java_io_FileDescriptor const& arg0,std::vector<java_lang_String> const& arg1) ;
 	virtual AndroidCXX::java_lang_String * getInterfaceDescriptor() ;
 	virtual bool  isBinderAlive() ;
 	virtual void  linkToDeath(AndroidCXX::android_os_IBinder_DeathRecipient const& arg0,int const& arg1) ;

@@ -39,9 +39,9 @@
 //
 
 
-#include <android_view_Menu.hpp>
-
 #include <android_view_MenuInflater.hpp>
+
+#include <android_view_Menu.hpp>
 
 #include <android_widget_PopupMenu_OnDismissListener.hpp>
 
@@ -68,9 +68,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_Menu;
-
 class android_view_MenuInflater;
+
+class android_view_Menu;
 
 class android_widget_PopupMenu_OnDismissListener;
 
@@ -93,8 +93,8 @@ public:
 	virtual ~android_widget_PopupMenu();
 	// Functions
 	virtual void  dismiss() ;
-	virtual AndroidCXX::android_view_Menu * getMenu() ;
 	virtual AndroidCXX::android_view_MenuInflater * getMenuInflater() ;
+	virtual AndroidCXX::android_view_Menu * getMenu() ;
 	virtual void  inflate(int const& arg0) ;
 	virtual void  setOnDismissListener(AndroidCXX::android_widget_PopupMenu_OnDismissListener const& arg0) ;
 	virtual void  setOnMenuItemClickListener(AndroidCXX::android_widget_PopupMenu_OnMenuItemClickListener const& arg0) ;

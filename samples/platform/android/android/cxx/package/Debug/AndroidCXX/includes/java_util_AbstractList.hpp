@@ -10,9 +10,9 @@
 
 
  		 
- 		 
- 		 
  	
+ 		 
+ 		 
  		 
  		 
 	
@@ -83,9 +83,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
-
 class java_util_Collection;
+
+class java_lang_Object;
 
 class java_util_Iterator;
 
@@ -102,9 +102,9 @@ public:
 	// Default Destructor
 	virtual ~java_util_AbstractList();
 	// Functions
-	virtual bool  add(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual void  add(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual bool  addAll(int const& arg0,AndroidCXX::java_util_Collection const& arg1) ;
+	virtual void  add(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual bool  add(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual void  clear() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_lang_Object * get(int const& arg0) ;

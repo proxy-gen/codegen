@@ -11,8 +11,8 @@
 
 	
 	
- 		 
 	
+ 		 
 	
 	
  		 
@@ -96,13 +96,13 @@ public:
 	virtual void  back() ;
 	static int  dehexchar(char const& arg0) ;
 	virtual bool  more() ;
-	virtual char  next(char const& arg0) ;
-	virtual char  next() ;
-	virtual AndroidCXX::java_lang_String * next(int const& arg0) ;
 	virtual char  nextClean() ;
+	virtual char  next(char const& arg0) ;
+	virtual AndroidCXX::java_lang_String * next(int const& arg0) ;
+	virtual char  next() ;
 	virtual AndroidCXX::java_lang_String * nextString(char const& arg0) ;
-	virtual AndroidCXX::java_lang_String * nextTo(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * nextTo(char const& arg0) ;
+	virtual AndroidCXX::java_lang_String * nextTo(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_Object * nextValue() ;
 	virtual void  skipPast(AndroidCXX::java_lang_String const& arg0) ;
 	virtual char  skipTo(char const& arg0) ;

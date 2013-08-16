@@ -71,9 +71,9 @@ class android_content_ContentProviderResult : public android_os_Parcelable
 public:
 
 	// Public ConstrucXXX
+	android_content_ContentProviderResult(AndroidCXX::android_net_Uri const& arg0);
 	android_content_ContentProviderResult(AndroidCXX::android_os_Parcel const& arg0);
 	android_content_ContentProviderResult(int const& arg0);
-	android_content_ContentProviderResult(AndroidCXX::android_net_Uri const& arg0);
 	android_content_ContentProviderResult(const android_content_ContentProviderResult& cc);
 	android_content_ContentProviderResult(Proxy proxy);
 	Proxy proxy() const;	

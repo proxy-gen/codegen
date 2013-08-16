@@ -72,9 +72,9 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_view_Menu;
-
 class android_view_MenuInflater;
+
+class android_view_Menu;
 
 class java_lang_CharSequence;
 
@@ -92,21 +92,21 @@ public:
 	// Functions
 	virtual void  finish() ;
 	virtual AndroidCXX::android_view_View * getCustomView() ;
-	virtual AndroidCXX::android_view_Menu * getMenu() ;
 	virtual AndroidCXX::android_view_MenuInflater * getMenuInflater() ;
+	virtual AndroidCXX::android_view_Menu * getMenu() ;
 	virtual AndroidCXX::java_lang_CharSequence * getSubtitle() ;
 	virtual AndroidCXX::java_lang_Object * getTag() ;
-	virtual AndroidCXX::java_lang_CharSequence * getTitle() ;
 	virtual bool  getTitleOptionalHint() ;
+	virtual AndroidCXX::java_lang_CharSequence * getTitle() ;
 	virtual void  invalidate() ;
 	virtual bool  isTitleOptional() ;
 	virtual void  setCustomView(AndroidCXX::android_view_View const& arg0) ;
-	virtual void  setSubtitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setSubtitle(int const& arg0) ;
+	virtual void  setSubtitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setTag(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  setTitleOptionalHint(bool const& arg0) ;
 	virtual void  setTitle(int const& arg0) ;
 	virtual void  setTitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
-	virtual void  setTitleOptionalHint(bool const& arg0) ;
 
 protected:
 	android_view_ActionMode();

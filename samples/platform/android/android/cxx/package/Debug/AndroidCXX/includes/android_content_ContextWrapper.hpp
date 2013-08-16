@@ -94,9 +94,9 @@
 	
  		 
  		 
+ 		 
+ 		 
 	
- 		 
- 		 
  		 
  		 
 	
@@ -145,8 +145,8 @@
  		 
  	
  		 
- 	
  		 
+ 	
  		 
  		 
  		 
@@ -434,8 +434,8 @@ public:
 	virtual int  checkCallingPermission(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  checkCallingUriPermission(AndroidCXX::android_net_Uri const& arg0,int const& arg1) ;
 	virtual int  checkPermission(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) ;
-	virtual int  checkUriPermission(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3,int const& arg4,int const& arg5) ;
 	virtual int  checkUriPermission(AndroidCXX::android_net_Uri const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual int  checkUriPermission(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3,int const& arg4,int const& arg5) ;
 	virtual void  clearWallpaper() ;
 	virtual AndroidCXX::android_content_Context * createConfigurationContext(AndroidCXX::android_content_res_Configuration const& arg0) ;
 	virtual AndroidCXX::android_content_Context * createDisplayContext(AndroidCXX::android_view_Display const& arg0) ;
@@ -474,9 +474,9 @@ public:
 	virtual AndroidCXX::android_content_SharedPreferences * getSharedPreferences(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_Object * getSystemService(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_content_res_Resources_Theme * getTheme() ;
-	virtual AndroidCXX::android_graphics_drawable_Drawable * getWallpaper() ;
 	virtual int  getWallpaperDesiredMinimumHeight() ;
 	virtual int  getWallpaperDesiredMinimumWidth() ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getWallpaper() ;
 	virtual void  grantUriPermission(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_net_Uri const& arg1,int const& arg2) ;
 	virtual bool  isRestricted() ;
 	virtual AndroidCXX::java_io_FileInputStream * openFileInput(AndroidCXX::java_lang_String const& arg0) ;
@@ -484,32 +484,32 @@ public:
 	virtual AndroidCXX::android_database_sqlite_SQLiteDatabase * openOrCreateDatabase(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg2,AndroidCXX::android_database_DatabaseErrorHandler const& arg3) ;
 	virtual AndroidCXX::android_database_sqlite_SQLiteDatabase * openOrCreateDatabase(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg2) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * peekWallpaper() ;
-	virtual AndroidCXX::android_content_Intent * registerReceiver(AndroidCXX::android_content_BroadcastReceiver const& arg0,AndroidCXX::android_content_IntentFilter const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * registerReceiver(AndroidCXX::android_content_BroadcastReceiver const& arg0,AndroidCXX::android_content_IntentFilter const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Handler const& arg3) ;
-	virtual void  removeStickyBroadcast(AndroidCXX::android_content_Intent const& arg0) ;
+	virtual AndroidCXX::android_content_Intent * registerReceiver(AndroidCXX::android_content_BroadcastReceiver const& arg0,AndroidCXX::android_content_IntentFilter const& arg1) ;
 	virtual void  removeStickyBroadcastAsUser(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_os_UserHandle const& arg1) ;
+	virtual void  removeStickyBroadcast(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual void  revokeUriPermission(AndroidCXX::android_net_Uri const& arg0,int const& arg1) ;
-	virtual void  sendBroadcast(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual void  sendBroadcast(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual void  sendBroadcastAsUser(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_os_UserHandle const& arg1,AndroidCXX::java_lang_String const& arg2) ;
 	virtual void  sendBroadcastAsUser(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_os_UserHandle const& arg1) ;
-	virtual void  sendOrderedBroadcast(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual void  sendOrderedBroadcast(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_content_BroadcastReceiver const& arg2,AndroidCXX::android_os_Handler const& arg3,int const& arg4,AndroidCXX::java_lang_String const& arg5,AndroidCXX::android_os_Bundle const& arg6) ;
+	virtual void  sendBroadcast(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  sendBroadcast(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual void  sendOrderedBroadcastAsUser(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_os_UserHandle const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_content_BroadcastReceiver const& arg3,AndroidCXX::android_os_Handler const& arg4,int const& arg5,AndroidCXX::java_lang_String const& arg6,AndroidCXX::android_os_Bundle const& arg7) ;
-	virtual void  sendStickyBroadcast(AndroidCXX::android_content_Intent const& arg0) ;
+	virtual void  sendOrderedBroadcast(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_content_BroadcastReceiver const& arg2,AndroidCXX::android_os_Handler const& arg3,int const& arg4,AndroidCXX::java_lang_String const& arg5,AndroidCXX::android_os_Bundle const& arg6) ;
+	virtual void  sendOrderedBroadcast(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual void  sendStickyBroadcastAsUser(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_os_UserHandle const& arg1) ;
-	virtual void  sendStickyOrderedBroadcast(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_content_BroadcastReceiver const& arg1,AndroidCXX::android_os_Handler const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,AndroidCXX::android_os_Bundle const& arg5) ;
+	virtual void  sendStickyBroadcast(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual void  sendStickyOrderedBroadcastAsUser(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_os_UserHandle const& arg1,AndroidCXX::android_content_BroadcastReceiver const& arg2,AndroidCXX::android_os_Handler const& arg3,int const& arg4,AndroidCXX::java_lang_String const& arg5,AndroidCXX::android_os_Bundle const& arg6) ;
+	virtual void  sendStickyOrderedBroadcast(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_content_BroadcastReceiver const& arg1,AndroidCXX::android_os_Handler const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,AndroidCXX::android_os_Bundle const& arg5) ;
 	virtual void  setTheme(int const& arg0) ;
 	virtual void  setWallpaper(AndroidCXX::android_graphics_Bitmap const& arg0) ;
 	virtual void  setWallpaper(AndroidCXX::java_io_InputStream const& arg0) ;
-	virtual void  startActivities(std::vector<android_content_Intent> const& arg0) ;
 	virtual void  startActivities(std::vector<android_content_Intent> const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual void  startActivities(std::vector<android_content_Intent> const& arg0) ;
 	virtual void  startActivity(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
 	virtual void  startActivity(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual bool  startInstrumentation(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
-	virtual void  startIntentSender(AndroidCXX::android_content_IntentSender const& arg0,AndroidCXX::android_content_Intent const& arg1,int const& arg2,int const& arg3,int const& arg4) ;
 	virtual void  startIntentSender(AndroidCXX::android_content_IntentSender const& arg0,AndroidCXX::android_content_Intent const& arg1,int const& arg2,int const& arg3,int const& arg4,AndroidCXX::android_os_Bundle const& arg5) ;
+	virtual void  startIntentSender(AndroidCXX::android_content_IntentSender const& arg0,AndroidCXX::android_content_Intent const& arg1,int const& arg2,int const& arg3,int const& arg4) ;
 	virtual AndroidCXX::android_content_ComponentName * startService(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual bool  stopService(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual void  unbindService(AndroidCXX::android_content_ServiceConnection const& arg0) ;

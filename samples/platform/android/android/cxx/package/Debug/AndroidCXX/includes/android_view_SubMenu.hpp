@@ -13,13 +13,13 @@
  		 
 	
 	
- 		 
-	
 	
  		 
 	
+ 		 
 	
  		 
+	
 	
 
 
@@ -88,11 +88,11 @@ public:
 	virtual AndroidCXX::android_view_MenuItem * getItem() ;
 	virtual AndroidCXX::android_view_SubMenu * setHeaderIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual AndroidCXX::android_view_SubMenu * setHeaderIcon(int const& arg0) ;
-	virtual AndroidCXX::android_view_SubMenu * setHeaderTitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::android_view_SubMenu * setHeaderTitle(int const& arg0) ;
+	virtual AndroidCXX::android_view_SubMenu * setHeaderTitle(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::android_view_SubMenu * setHeaderView(AndroidCXX::android_view_View const& arg0) ;
-	virtual AndroidCXX::android_view_SubMenu * setIcon(int const& arg0) ;
 	virtual AndroidCXX::android_view_SubMenu * setIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual AndroidCXX::android_view_SubMenu * setIcon(int const& arg0) ;
 
 protected:
 	android_view_SubMenu();

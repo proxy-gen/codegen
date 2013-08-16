@@ -151,13 +151,13 @@ public:
 
 	// Public ConstrucXXX
 	java_net_Socket();
-	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1,bool const& arg2);
-	java_net_Socket(AndroidCXX::java_net_Proxy const& arg0);
-	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1);
 	java_net_Socket(AndroidCXX::java_lang_String const& arg0,int const& arg1);
 	java_net_Socket(AndroidCXX::java_lang_String const& arg0,int const& arg1,bool const& arg2);
-	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2,int const& arg3);
 	java_net_Socket(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2,int const& arg3);
+	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1);
+	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1,bool const& arg2);
+	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2,int const& arg3);
+	java_net_Socket(AndroidCXX::java_net_Proxy const& arg0);
 	java_net_Socket(const java_net_Socket& cc);
 	java_net_Socket(Proxy proxy);
 	Proxy proxy() const;	
@@ -166,8 +166,8 @@ public:
 	// Functions
 	virtual void  bind(AndroidCXX::java_net_SocketAddress const& arg0) ;
 	virtual void  close() ;
-	virtual void  connect(AndroidCXX::java_net_SocketAddress const& arg0) ;
 	virtual void  connect(AndroidCXX::java_net_SocketAddress const& arg0,int const& arg1) ;
+	virtual void  connect(AndroidCXX::java_net_SocketAddress const& arg0) ;
 	virtual AndroidCXX::java_nio_channels_SocketChannel * getChannel() ;
 	virtual AndroidCXX::java_net_InetAddress * getInetAddress() ;
 	virtual AndroidCXX::java_io_InputStream * getInputStream() ;

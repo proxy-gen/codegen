@@ -53,19 +53,19 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-
 class android_content_Context;
 
 class android_util_AttributeSet;
+
 
 class android_view_ViewGroup_LayoutParams 
 {
 public:
 
 	// Public ConstrucXXX
+	android_view_ViewGroup_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_view_ViewGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
 	android_view_ViewGroup_LayoutParams(int const& arg0,int const& arg1);
-	android_view_ViewGroup_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_view_ViewGroup_LayoutParams(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor

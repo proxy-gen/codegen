@@ -23,8 +23,8 @@
  		 
 	
  		 
-	
  		 
+	
  		 
 	
  	
@@ -214,13 +214,13 @@ public:
 	virtual ~android_media_MediaPlayer();
 	// Functions
 	virtual void  addTimedTextSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::java_lang_String const& arg2) ;
-	virtual void  addTimedTextSource(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual void  addTimedTextSource(AndroidCXX::java_io_FileDescriptor const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual void  addTimedTextSource(AndroidCXX::java_io_FileDescriptor const& arg0,long const& arg1,long const& arg2,AndroidCXX::java_lang_String const& arg3) ;
+	virtual void  addTimedTextSource(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual void  attachAuxEffect(int const& arg0) ;
 	static AndroidCXX::android_media_MediaPlayer * create(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::android_view_SurfaceHolder const& arg2) ;
-	static AndroidCXX::android_media_MediaPlayer * create(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
 	static AndroidCXX::android_media_MediaPlayer * create(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1) ;
+	static AndroidCXX::android_media_MediaPlayer * create(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
 	virtual void  deselectTrack(int const& arg0) ;
 	virtual int  getAudioSessionId() ;
 	virtual int  getCurrentPosition() ;
@@ -231,8 +231,8 @@ public:
 	virtual bool  isLooping() ;
 	virtual bool  isPlaying() ;
 	virtual void  pause() ;
-	virtual void  prepare() ;
 	virtual void  prepareAsync() ;
+	virtual void  prepare() ;
 	virtual void  release() ;
 	virtual void  reset() ;
 	virtual void  seekTo(int const& arg0) ;
@@ -241,10 +241,10 @@ public:
 	virtual void  setAudioStreamType(int const& arg0) ;
 	virtual void  setAuxEffectSendLevel(float const& arg0) ;
 	virtual void  setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::java_util_Map const& arg2) ;
-	virtual void  setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0) ;
 	virtual void  setDataSource(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_net_Uri const& arg1) ;
-	virtual void  setDataSource(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0,long const& arg1,long const& arg2) ;
+	virtual void  setDataSource(AndroidCXX::java_io_FileDescriptor const& arg0) ;
+	virtual void  setDataSource(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setDisplay(AndroidCXX::android_view_SurfaceHolder const& arg0) ;
 	virtual void  setLooping(bool const& arg0) ;
 	virtual void  setNextMediaPlayer(AndroidCXX::android_media_MediaPlayer const& arg0) ;

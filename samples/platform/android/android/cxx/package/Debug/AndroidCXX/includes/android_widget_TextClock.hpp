@@ -86,9 +86,9 @@ class android_widget_TextClock : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0);
 	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_TextClock(const android_widget_TextClock& cc);
 	android_widget_TextClock(Proxy proxy);
 	Proxy proxy() const;	

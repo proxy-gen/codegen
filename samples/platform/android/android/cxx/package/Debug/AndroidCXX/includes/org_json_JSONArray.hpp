@@ -22,16 +22,16 @@
  		 
 	
 	
+	
+	
+	
+	
+	
  		 
 	
 	
 	
-	
  		 
-	
-	
-	
-	
 	
 	
  		 
@@ -144,8 +144,8 @@ public:
 
 	// Public ConstrucXXX
 	org_json_JSONArray();
-	org_json_JSONArray(AndroidCXX::java_util_Collection const& arg0);
 	org_json_JSONArray(AndroidCXX::java_lang_String const& arg0);
+	org_json_JSONArray(AndroidCXX::java_util_Collection const& arg0);
 	org_json_JSONArray(AndroidCXX::org_json_JSONTokener const& arg0);
 	org_json_JSONArray(const org_json_JSONArray& cc);
 	org_json_JSONArray(Proxy proxy);
@@ -154,44 +154,44 @@ public:
 	virtual ~org_json_JSONArray();
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_Object * get(int const& arg0) ;
 	virtual bool  getBoolean(int const& arg0) ;
 	virtual double  getDouble(int const& arg0) ;
 	virtual int  getInt(int const& arg0) ;
 	virtual AndroidCXX::org_json_JSONArray * getJSONArray(int const& arg0) ;
 	virtual AndroidCXX::org_json_JSONObject * getJSONObject(int const& arg0) ;
 	virtual long  getLong(int const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * get(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getString(int const& arg0) ;
 	virtual int  hashCode() ;
 	virtual bool  isNull(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * join(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  length() ;
-	virtual AndroidCXX::java_lang_Object * opt(int const& arg0) ;
 	virtual bool  optBoolean(int const& arg0,bool const& arg1) ;
 	virtual bool  optBoolean(int const& arg0) ;
 	virtual double  optDouble(int const& arg0,double const& arg1) ;
 	virtual double  optDouble(int const& arg0) ;
-	virtual int  optInt(int const& arg0) ;
 	virtual int  optInt(int const& arg0,int const& arg1) ;
+	virtual int  optInt(int const& arg0) ;
 	virtual AndroidCXX::org_json_JSONArray * optJSONArray(int const& arg0) ;
 	virtual AndroidCXX::org_json_JSONObject * optJSONObject(int const& arg0) ;
 	virtual long  optLong(int const& arg0,long const& arg1) ;
 	virtual long  optLong(int const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * opt(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * optString(int const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual AndroidCXX::java_lang_String * optString(int const& arg0) ;
-	virtual AndroidCXX::org_json_JSONArray * put(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::org_json_JSONArray * put(int const& arg0,bool const& arg1) ;
-	virtual AndroidCXX::org_json_JSONArray * put(int const& arg0,int const& arg1) ;
-	virtual AndroidCXX::org_json_JSONArray * put(int const& arg0,long const& arg1) ;
-	virtual AndroidCXX::org_json_JSONArray * put(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
-	virtual AndroidCXX::org_json_JSONArray * put(int const& arg0,double const& arg1) ;
 	virtual AndroidCXX::org_json_JSONArray * put(bool const& arg0) ;
 	virtual AndroidCXX::org_json_JSONArray * put(double const& arg0) ;
+	virtual AndroidCXX::org_json_JSONArray * put(int const& arg0,bool const& arg1) ;
+	virtual AndroidCXX::org_json_JSONArray * put(int const& arg0,double const& arg1) ;
+	virtual AndroidCXX::org_json_JSONArray * put(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::org_json_JSONArray * put(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual AndroidCXX::org_json_JSONArray * put(int const& arg0,long const& arg1) ;
 	virtual AndroidCXX::org_json_JSONArray * put(int const& arg0) ;
+	virtual AndroidCXX::org_json_JSONArray * put(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::org_json_JSONArray * put(long const& arg0) ;
 	virtual AndroidCXX::org_json_JSONObject * toJSONObject(AndroidCXX::org_json_JSONArray const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual AndroidCXX::java_lang_String * toString(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 

@@ -151,8 +151,8 @@ public:
 	// Functions
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) ;
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
-	virtual void  addView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0) ;
 	virtual bool  dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual AndroidCXX::android_widget_Adapter * getAdapter() ;
 	virtual int  getCount() ;
@@ -165,21 +165,21 @@ public:
 	virtual AndroidCXX::android_widget_AdapterView_OnItemLongClickListener * getOnItemLongClickListener() ;
 	virtual AndroidCXX::android_widget_AdapterView_OnItemSelectedListener * getOnItemSelectedListener() ;
 	virtual int  getPositionForView(AndroidCXX::android_view_View const& arg0) ;
-	virtual AndroidCXX::java_lang_Object * getSelectedItem() ;
 	virtual long  getSelectedItemId() ;
 	virtual int  getSelectedItemPosition() ;
+	virtual AndroidCXX::java_lang_Object * getSelectedItem() ;
 	virtual AndroidCXX::android_view_View * getSelectedView() ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual bool  onRequestSendAccessibilityEvent(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1) ;
 	virtual bool  performItemClick(AndroidCXX::android_view_View const& arg0,int const& arg1,long const& arg2) ;
 	virtual void  removeAllViews() ;
-	virtual void  removeView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  removeViewAt(int const& arg0) ;
+	virtual void  removeView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  setAdapter(AndroidCXX::android_widget_Adapter const& arg0) ;
 	virtual void  setEmptyView(AndroidCXX::android_view_View const& arg0) ;
-	virtual void  setFocusable(bool const& arg0) ;
 	virtual void  setFocusableInTouchMode(bool const& arg0) ;
+	virtual void  setFocusable(bool const& arg0) ;
 	virtual void  setOnClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0) ;
 	virtual void  setOnItemClickListener(AndroidCXX::android_widget_AdapterView_OnItemClickListener const& arg0) ;
 	virtual void  setOnItemLongClickListener(AndroidCXX::android_widget_AdapterView_OnItemLongClickListener const& arg0) ;

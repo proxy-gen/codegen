@@ -10,8 +10,8 @@
 
 
 	
-	
  	
+	
 	
 	
 	
@@ -111,8 +111,8 @@ public:
 	// Functions
 	virtual int  describeContents() ;
 	virtual AndroidCXX::java_lang_String * getDescriptor() ;
-	static AndroidCXX::android_view_InputDevice * getDevice(int const& arg0) ;
 	static std::vector<int>  getDeviceIds() ;
+	static AndroidCXX::android_view_InputDevice * getDevice(int const& arg0) ;
 	virtual int  getId() ;
 	virtual AndroidCXX::android_view_KeyCharacterMap * getKeyCharacterMap() ;
 	virtual int  getKeyboardType() ;

@@ -728,6 +728,15 @@ class TranslationUnit(JavaObject):
 		TranslationUnit_classes_visit(c_types_packages, c_types_packages_count, c_types_classes, c_types_classes_count, TranslationUnit_classes_visit_callback(visitor), config_data_stack)
 		#migrate tags from old config to new config
 		TranslationUnit._migrate_tags_in_class_hierarchy(config_data["classes"],classes_config)
+		#sort config
+		config_data["classes"] = sorted(config_data["classes"],key=lambda clazz: TranslationUnit._build_class_signature(clazz))
+		for class_config_data in config_data["classes"]:
+			if "fields" in class_config_data:
+				class_config_data["fields"] = sorted(class_config_data["fields"],key=lambda field: TranslationUnit._build_field_signature(field))
+			if "constructors" in class_config_data:
+				class_config_data["constructors"] = sorted(class_config_data["constructors"],key=lambda constructor: TranslationUnit._build_constructor_signature(constructor))
+			if "functions" in class_config_data:
+				class_config_data["functions"] = sorted(class_config_data["functions"],key=lambda function: TranslationUnit._build_function_signature(function))
 
 	@classmethod
 	def from_source(cls, res, index):
@@ -768,9 +777,8 @@ class TranslationUnit(JavaObject):
 	def _process_class_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack):
 		logging.debug("_process_class_config_data " + name) 
 		if callback_type == CallbackType.ENTER:
-			parent_config_data = config_data_stack[0] # classes at the root
-			config_data = TranslationUnit._find_or_create_class_config_data(parent_config_data["classes"], name, str_attributes)
-			parent_config_data["classes"] = sorted(parent_config_data["classes"],key=lambda clazz: clazz['name'])
+			root_config_data = config_data_stack[0] # classes at the root
+			config_data = TranslationUnit._find_or_create_class_config_data(root_config_data["classes"], name, str_attributes)
 			config_data_stack.append(config_data)
 		if callback_type == CallbackType.PROCESS:
 			config_data = config_data_stack[len(config_data_stack)-1]
@@ -782,9 +790,8 @@ class TranslationUnit(JavaObject):
 	def _process_constructor_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack):
 		logging.debug("_process_constructor_config_data " + name) 
 		if callback_type == CallbackType.ENTER:
-			parent_config_data = config_data_stack[len(config_data_stack)-1]
-			config_data = TranslationUnit._find_or_create_constructor_config_data(parent_config_data["constructors"], name)
-			parent_config_data["constructors"] = sorted(parent_config_data["constructors"],key=lambda constructor: len(constructor['params']))
+			class_config_data = config_data_stack[len(config_data_stack)-1]
+			config_data = TranslationUnit._find_or_create_constructor_config_data(class_config_data["constructors"], name)
 			config_data_stack.append(config_data)
 		if callback_type == CallbackType.PROCESS:
 			class_config_data = config_data_stack[len(config_data_stack)-2]
@@ -797,9 +804,8 @@ class TranslationUnit(JavaObject):
 	def _process_function_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack):
 		logging.debug("_process_function_config_data " + name) 
 		if callback_type == CallbackType.ENTER:
-			parent_config_data = config_data_stack[len(config_data_stack)-1]
-			config_data = TranslationUnit._find_or_create_function_config_data(parent_config_data["functions"], name)
-			parent_config_data["functions"] = sorted(parent_config_data["functions"],key=lambda function: function['name'])
+			class_config_data = config_data_stack[len(config_data_stack)-1]
+			config_data = TranslationUnit._find_or_create_function_config_data(class_config_data["functions"], name)
 			config_data_stack.append(config_data)
 		if callback_type == CallbackType.PROCESS:
 			class_config_data = config_data_stack[len(config_data_stack)-2]
@@ -812,9 +818,8 @@ class TranslationUnit(JavaObject):
 	def _process_field_config_data(cls, callback_type, cursor_type, _type, modifiers, name, idx, type_id, str_attributes, config_data_stack):
 		logging.debug("_process_field_config_data " + name)
 		if callback_type == CallbackType.ENTER:
-			parent_config_data = config_data_stack[len(config_data_stack)-1]
-			config_data = TranslationUnit._find_or_create_field_config_data(parent_config_data["fields"], name)
-			parent_config_data["fields"] = sorted(parent_config_data["fields"],key=lambda field: field['name'])
+			class_config_data = config_data_stack[len(config_data_stack)-1]
+			config_data = TranslationUnit._find_or_create_field_config_data(class_config_data["fields"], name)
 			config_data_stack.append(config_data)
 		if callback_type == CallbackType.PROCESS:
 			class_config_data = config_data_stack[len(config_data_stack)-2]
@@ -1156,34 +1161,54 @@ class TranslationUnit(JavaObject):
 	def _build_signatures_in_class_hierarchy(cls, classes):
 		signatures = dict()
 		for clazz in classes:
-			signature = "_C_" + clazz['name']
-			signatures[signature] = clazz['tags'] if 'tags' in clazz else list()
+			signature = TranslationUnit._build_class_signature(clazz)
+			signatures[signature] = clazz['tags'] if 'tags' in clazz else list()		
 			if 'fields' in clazz:
 				for field in clazz['fields']:
-					signature = "_F_" + field['name']
+					signature = TranslationUnit._build_field_signature(field)
 					signatures[signature] = field['tags']
 			if 'constructors' in clazz:
 				for constructor in clazz['constructors']:
-					signature = "_O_" + constructor['name']
-					for param in constructor['params']:
-						signature = signature + "_P_" + TranslationUnit._build_type_signature(param)
+					signature = TranslationUnit._build_constructor_signature(constructor)
 					signatures[signature] = constructor['tags'] if 'tags' in constructor else list()
 			if 'functions' in clazz:
 				for function in clazz['functions']:
-					signature = "_F_" + function['name']
-					for param in function['params']:
-						signature = signature + "_P_" + TranslationUnit._build_type_signature(param)
-					for retrn in function['returns']:
-						signature = signature + "_R_" + TranslationUnit._build_type_signature(retrn)
-					signatures[signature] = function['tags'] if 'tags' in function else list()
+					signature = TranslationUnit._build_function_signature(function)
+					signatures[signature] = function['tags'] if 'tags' in function else list()					
 		return signatures
 
 	@classmethod
+	def _build_class_signature(cls, clazz):
+		signature = "C" + clazz['name']
+		return signature
+
+	@classmethod
+	def _build_field_signature(cls, field):
+		signature = "I" + field['name']
+		return signature
+
+	@classmethod
+	def _build_constructor_signature(cls, constructor):
+		signature = "O" + constructor['name']
+		for param in constructor['params']:
+			signature = signature + "P" + TranslationUnit._build_type_signature(param)
+		return signature
+
+	@classmethod
+	def _build_function_signature(cls, function):
+		signature = "F" + function['name']
+		for param in function['params']:
+			signature = signature + "P" + TranslationUnit._build_type_signature(param)
+		for retrn in function['returns']:
+			signature = signature + "R" + TranslationUnit._build_type_signature(retrn)
+		return signature
+
+	@classmethod
 	def _build_type_signature(cls, type_):
-		signature = "_T_" + type_['type']
+		signature = "T" + type_['type']
 		if 'children' in type_:
 			for child_type in type_['children']:
-				signature = TranslationUnit._build_type_signature(child_type)
+				signature = signature + TranslationUnit._build_type_signature(child_type)
 		return signature
 
 class DummyType(Type):

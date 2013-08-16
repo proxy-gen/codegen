@@ -10,11 +10,11 @@
 
 
  		 
-	
- 		 
  	
 	
  		 
+ 		 
+	
 
 
 
@@ -67,8 +67,8 @@ public:
 	// Default Destructor
 	virtual ~java_net_ContentHandler();
 	// Functions
-	virtual AndroidCXX::java_lang_Object * getContent(AndroidCXX::java_net_URLConnection const& arg0) ;
 	virtual AndroidCXX::java_lang_Object * getContent(AndroidCXX::java_net_URLConnection const& arg0,std::vector<java_lang_Class> const& arg1) ;
+	virtual AndroidCXX::java_lang_Object * getContent(AndroidCXX::java_net_URLConnection const& arg0) ;
 
 protected:
 	java_net_ContentHandler();

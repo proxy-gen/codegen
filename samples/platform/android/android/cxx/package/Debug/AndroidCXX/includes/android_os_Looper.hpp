@@ -96,8 +96,8 @@ public:
 	static void  loop() ;
 	static AndroidCXX::android_os_Looper * myLooper() ;
 	static AndroidCXX::android_os_MessageQueue * myQueue() ;
-	static void  prepare() ;
 	static void  prepareMainLooper() ;
+	static void  prepare() ;
 	virtual void  quit() ;
 	virtual void  quitSafely() ;
 	virtual void  setMessageLogging(AndroidCXX::android_util_Printer const& arg0) ;

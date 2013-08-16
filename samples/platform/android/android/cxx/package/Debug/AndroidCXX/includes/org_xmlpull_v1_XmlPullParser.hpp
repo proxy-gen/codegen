@@ -15,25 +15,25 @@
 	
 	
 	
- 		 
- 		 
-	
 	
  		 
-	
-	
+ 		 
 	
  		 
 	
 	
+ 		 
+	
+	
+	
 	
 	
 	
  		 
-	
 	
  	
  	
+	
 	
  		 
  		 
@@ -138,8 +138,8 @@ public:
 	virtual AndroidCXX::java_lang_String * getAttributeNamespace(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getAttributePrefix(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getAttributeType(int const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getAttributeValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual AndroidCXX::java_lang_String * getAttributeValue(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getAttributeValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual int  getColumnNumber() ;
 	virtual int  getDepth() ;
 	virtual int  getEventType() ;
@@ -147,16 +147,16 @@ public:
 	virtual AndroidCXX::java_lang_String * getInputEncoding() ;
 	virtual int  getLineNumber() ;
 	virtual AndroidCXX::java_lang_String * getName() ;
-	virtual AndroidCXX::java_lang_String * getNamespace() ;
-	virtual AndroidCXX::java_lang_String * getNamespace(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  getNamespaceCount(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getNamespace(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getNamespacePrefix(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getNamespace() ;
 	virtual AndroidCXX::java_lang_String * getNamespaceUri(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getPositionDescription() ;
 	virtual AndroidCXX::java_lang_String * getPrefix() ;
 	virtual AndroidCXX::java_lang_Object * getProperty(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getText() ;
 	virtual std::vector<char>  getTextCharacters(std::vector<int> const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getText() ;
 	virtual bool  isAttributeDefault(int const& arg0) ;
 	virtual bool  isEmptyElementTag() ;
 	virtual bool  isWhitespace() ;

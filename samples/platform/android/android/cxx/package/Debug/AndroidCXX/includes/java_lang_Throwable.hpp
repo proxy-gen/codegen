@@ -99,9 +99,9 @@ public:
 
 	// Public ConstrucXXX
 	java_lang_Throwable();
-	java_lang_Throwable(AndroidCXX::java_lang_Throwable const& arg0);
 	java_lang_Throwable(AndroidCXX::java_lang_String const& arg0);
 	java_lang_Throwable(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
+	java_lang_Throwable(AndroidCXX::java_lang_Throwable const& arg0);
 	java_lang_Throwable(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
@@ -114,8 +114,8 @@ public:
 	virtual std::vector<java_lang_StackTraceElement>  getStackTrace() ;
 	virtual AndroidCXX::java_lang_Throwable * initCause(AndroidCXX::java_lang_Throwable const& arg0) ;
 	virtual void  printStackTrace(AndroidCXX::java_io_PrintStream const& arg0) ;
-	virtual void  printStackTrace() ;
 	virtual void  printStackTrace(AndroidCXX::java_io_PrintWriter const& arg0) ;
+	virtual void  printStackTrace() ;
 	virtual void  setStackTrace(std::vector<java_lang_StackTraceElement> const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 

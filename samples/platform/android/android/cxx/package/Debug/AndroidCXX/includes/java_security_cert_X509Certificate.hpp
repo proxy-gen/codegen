@@ -121,8 +121,8 @@ public:
 	// Default Destructor
 	virtual ~java_security_cert_X509Certificate();
 	// Functions
-	virtual void  checkValidity() ;
 	virtual void  checkValidity(AndroidCXX::java_util_Date const& arg0) ;
+	virtual void  checkValidity() ;
 	virtual int  getBasicConstraints() ;
 	virtual AndroidCXX::java_util_List * getExtendedKeyUsage() ;
 	virtual AndroidCXX::java_util_Collection * getIssuerAlternativeNames() ;

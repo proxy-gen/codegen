@@ -142,13 +142,13 @@ public:
 	virtual void  removeAllViews() ;
 	virtual void  sendAccessibilityEventUnchecked(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  setCurrentTab(int const& arg0) ;
-	virtual void  setDividerDrawable(int const& arg0) ;
 	virtual void  setDividerDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  setDividerDrawable(int const& arg0) ;
 	virtual void  setEnabled(bool const& arg0) ;
 	virtual void  setLeftStripDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setLeftStripDrawable(int const& arg0) ;
-	virtual void  setRightStripDrawable(int const& arg0) ;
 	virtual void  setRightStripDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  setRightStripDrawable(int const& arg0) ;
 	virtual void  setStripEnabled(bool const& arg0) ;
 
 protected:

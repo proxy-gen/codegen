@@ -136,8 +136,8 @@ public:
 	virtual long  getStagger(int const& arg0) ;
 	virtual long  getStartDelay(int const& arg0) ;
 	virtual AndroidCXX::java_util_List * getTransitionListeners() ;
-	virtual void  hideChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1) ;
 	virtual void  hideChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2) ;
+	virtual void  hideChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1) ;
 	virtual bool  isChangingLayout() ;
 	virtual bool  isRunning() ;
 	virtual bool  isTransitionTypeEnabled(int const& arg0) ;
@@ -150,8 +150,8 @@ public:
 	virtual void  setInterpolator(int const& arg0,AndroidCXX::android_animation_TimeInterpolator const& arg1) ;
 	virtual void  setStagger(int const& arg0,long const& arg1) ;
 	virtual void  setStartDelay(int const& arg0,long const& arg1) ;
-	virtual void  showChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1) ;
 	virtual void  showChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1,int const& arg2) ;
+	virtual void  showChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1) ;
 
 protected:
 

@@ -21,8 +21,8 @@
  		 
  		 
  		 
-	
  		 
+	
  		 
  		 
 	
@@ -172,8 +172,8 @@ public:
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	static AndroidCXX::android_app_PendingIntent * getActivities(AndroidCXX::android_content_Context const& arg0,int const& arg1,std::vector<android_content_Intent> const& arg2,int const& arg3,AndroidCXX::android_os_Bundle const& arg4) ;
 	static AndroidCXX::android_app_PendingIntent * getActivities(AndroidCXX::android_content_Context const& arg0,int const& arg1,std::vector<android_content_Intent> const& arg2,int const& arg3) ;
-	static AndroidCXX::android_app_PendingIntent * getActivity(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3) ;
 	static AndroidCXX::android_app_PendingIntent * getActivity(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3,AndroidCXX::android_os_Bundle const& arg4) ;
+	static AndroidCXX::android_app_PendingIntent * getActivity(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3) ;
 	static AndroidCXX::android_app_PendingIntent * getBroadcast(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3) ;
 	virtual AndroidCXX::java_lang_String * getCreatorPackage() ;
 	virtual int  getCreatorUid() ;
@@ -183,12 +183,12 @@ public:
 	virtual AndroidCXX::java_lang_String * getTargetPackage() ;
 	virtual int  hashCode() ;
 	static AndroidCXX::android_app_PendingIntent * readPendingIntentOrNullFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
+	virtual void  send(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,AndroidCXX::android_app_PendingIntent_OnFinished const& arg3,AndroidCXX::android_os_Handler const& arg4,AndroidCXX::java_lang_String const& arg5) ;
 	virtual void  send(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,AndroidCXX::android_app_PendingIntent_OnFinished const& arg3,AndroidCXX::android_os_Handler const& arg4) ;
 	virtual void  send(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2) ;
 	virtual void  send(int const& arg0,AndroidCXX::android_app_PendingIntent_OnFinished const& arg1,AndroidCXX::android_os_Handler const& arg2) ;
-	virtual void  send(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,AndroidCXX::android_app_PendingIntent_OnFinished const& arg3,AndroidCXX::android_os_Handler const& arg4,AndroidCXX::java_lang_String const& arg5) ;
-	virtual void  send() ;
 	virtual void  send(int const& arg0) ;
+	virtual void  send() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 	static void  writePendingIntentOrNullToParcel(AndroidCXX::android_app_PendingIntent const& arg0,AndroidCXX::android_os_Parcel const& arg1) ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;

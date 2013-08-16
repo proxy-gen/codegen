@@ -9,55 +9,55 @@
 
 
 
- 		 
  	
- 		 
- 	
- 	
- 	
-	
- 		 
- 		 
-	
- 		 
-	
- 		 
-	
-	
-	
-	
-	
-	
-	
-	
- 		 
- 		 
- 	
- 		 
-	
- 		 
- 		 
- 	
- 		 
- 		 
  	
  		 
  	
  		 
  	
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ 	
+ 		 
+ 		 
+ 		 
+	
+ 	
+ 		 
+ 		 
+ 		 
  	
  	
-	
-	
- 		 
- 		 
  		 
  	
  		 
+ 	
+ 		 
+ 	
+	
+	
+ 	
+ 		 
+ 		 
+ 		 
  		 
 	
  		 
 	
+ 		 
  		 
 	
  		 
@@ -187,9 +187,9 @@
 
 #include <android_graphics_Path.hpp>
 
-#include <android_graphics_Paint_FontMetrics.hpp>
-
 #include <android_graphics_Paint_FontMetricsInt.hpp>
+
+#include <android_graphics_Paint_FontMetrics.hpp>
 
 #include <android_graphics_MaskFilter.hpp>
 
@@ -240,9 +240,9 @@ class android_graphics_ColorFilter;
 
 class android_graphics_Path;
 
-class android_graphics_Paint_FontMetrics;
-
 class android_graphics_Paint_FontMetricsInt;
+
+class android_graphics_Paint_FontMetrics;
 
 class android_graphics_MaskFilter;
 
@@ -279,20 +279,20 @@ public:
 	virtual ~android_graphics_Paint();
 	// Functions
 	virtual float  ascent() ;
+	virtual int  breakText(std::vector<char> const& arg0,int const& arg1,int const& arg2,float const& arg3,std::vector<float> const& arg4) ;
 	virtual int  breakText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,bool const& arg3,float const& arg4,std::vector<float> const& arg5) ;
 	virtual int  breakText(AndroidCXX::java_lang_String const& arg0,bool const& arg1,float const& arg2,std::vector<float> const& arg3) ;
-	virtual int  breakText(std::vector<char> const& arg0,int const& arg1,int const& arg2,float const& arg3,std::vector<float> const& arg4) ;
 	virtual void  clearShadowLayer() ;
 	virtual float  descent() ;
 	virtual int  getAlpha() ;
-	virtual int  getColor() ;
 	virtual AndroidCXX::android_graphics_ColorFilter * getColorFilter() ;
+	virtual int  getColor() ;
 	virtual bool  getFillPath(AndroidCXX::android_graphics_Path const& arg0,AndroidCXX::android_graphics_Path const& arg1) ;
 	virtual int  getFlags() ;
-	virtual AndroidCXX::android_graphics_Paint_FontMetrics * getFontMetrics() ;
-	virtual float  getFontMetrics(AndroidCXX::android_graphics_Paint_FontMetrics const& arg0) ;
-	virtual AndroidCXX::android_graphics_Paint_FontMetricsInt * getFontMetricsInt() ;
 	virtual int  getFontMetricsInt(AndroidCXX::android_graphics_Paint_FontMetricsInt const& arg0) ;
+	virtual AndroidCXX::android_graphics_Paint_FontMetricsInt * getFontMetricsInt() ;
+	virtual float  getFontMetrics(AndroidCXX::android_graphics_Paint_FontMetrics const& arg0) ;
+	virtual AndroidCXX::android_graphics_Paint_FontMetrics * getFontMetrics() ;
 	virtual float  getFontSpacing() ;
 	virtual int  getHinting() ;
 	virtual AndroidCXX::android_graphics_MaskFilter * getMaskFilter() ;
@@ -305,18 +305,18 @@ public:
 	virtual float  getStrokeWidth() ;
 	virtual android_graphics_Paint_Style::android_graphics_Paint_Style  getStyle() ;
 	virtual android_graphics_Paint_Align::android_graphics_Paint_Align  getTextAlign() ;
-	virtual void  getTextBounds(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Rect const& arg3) ;
 	virtual void  getTextBounds(std::vector<char> const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Rect const& arg3) ;
+	virtual void  getTextBounds(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_graphics_Rect const& arg3) ;
 	virtual AndroidCXX::java_util_Locale * getTextLocale() ;
-	virtual void  getTextPath(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Path const& arg5) ;
 	virtual void  getTextPath(std::vector<char> const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Path const& arg5) ;
+	virtual void  getTextPath(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,float const& arg3,float const& arg4,AndroidCXX::android_graphics_Path const& arg5) ;
 	virtual float  getTextScaleX() ;
 	virtual float  getTextSize() ;
 	virtual float  getTextSkewX() ;
-	virtual int  getTextWidths(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3) ;
-	virtual int  getTextWidths(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3) ;
-	virtual int  getTextWidths(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1) ;
 	virtual int  getTextWidths(std::vector<char> const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3) ;
+	virtual int  getTextWidths(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3) ;
+	virtual int  getTextWidths(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1) ;
+	virtual int  getTextWidths(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,std::vector<float> const& arg3) ;
 	virtual AndroidCXX::android_graphics_Typeface * getTypeface() ;
 	virtual AndroidCXX::android_graphics_Xfermode * getXfermode() ;
 	virtual bool  isAntiAlias() ;
@@ -327,17 +327,16 @@ public:
 	virtual bool  isStrikeThruText() ;
 	virtual bool  isSubpixelText() ;
 	virtual bool  isUnderlineText() ;
+	virtual float  measureText(std::vector<char> const& arg0,int const& arg1,int const& arg2) ;
+	virtual float  measureText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) ;
 	virtual float  measureText(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) ;
 	virtual float  measureText(AndroidCXX::java_lang_String const& arg0) ;
-	virtual float  measureText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) ;
-	virtual float  measureText(std::vector<char> const& arg0,int const& arg1,int const& arg2) ;
 	virtual void  reset() ;
-	virtual void  set(AndroidCXX::android_graphics_Paint const& arg0) ;
 	virtual void  setARGB(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual void  setAlpha(int const& arg0) ;
 	virtual void  setAntiAlias(bool const& arg0) ;
-	virtual void  setColor(int const& arg0) ;
 	virtual AndroidCXX::android_graphics_ColorFilter * setColorFilter(AndroidCXX::android_graphics_ColorFilter const& arg0) ;
+	virtual void  setColor(int const& arg0) ;
 	virtual void  setDither(bool const& arg0) ;
 	virtual void  setFakeBoldText(bool const& arg0) ;
 	virtual void  setFilterBitmap(bool const& arg0) ;
@@ -345,6 +344,7 @@ public:
 	virtual void  setHinting(int const& arg0) ;
 	virtual void  setLinearText(bool const& arg0) ;
 	virtual AndroidCXX::android_graphics_MaskFilter * setMaskFilter(AndroidCXX::android_graphics_MaskFilter const& arg0) ;
+	virtual void  set(AndroidCXX::android_graphics_Paint const& arg0) ;
 	virtual AndroidCXX::android_graphics_PathEffect * setPathEffect(AndroidCXX::android_graphics_PathEffect const& arg0) ;
 	virtual AndroidCXX::android_graphics_Rasterizer * setRasterizer(AndroidCXX::android_graphics_Rasterizer const& arg0) ;
 	virtual AndroidCXX::android_graphics_Shader * setShader(AndroidCXX::android_graphics_Shader const& arg0) ;

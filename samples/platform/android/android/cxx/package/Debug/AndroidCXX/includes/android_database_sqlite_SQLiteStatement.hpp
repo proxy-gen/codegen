@@ -73,8 +73,8 @@ public:
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteStatement();
 	// Functions
-	virtual void  execute() ;
 	virtual long  executeInsert() ;
+	virtual void  execute() ;
 	virtual int  executeUpdateDelete() ;
 	virtual AndroidCXX::android_os_ParcelFileDescriptor * simpleQueryForBlobFileDescriptor() ;
 	virtual long  simpleQueryForLong() ;

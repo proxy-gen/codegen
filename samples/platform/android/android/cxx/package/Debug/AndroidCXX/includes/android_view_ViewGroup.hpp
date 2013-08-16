@@ -58,11 +58,11 @@
 	
 	
  		 
- 		 
- 		 
  	
  		 
 	
+ 		 
+ 		 
  		 
  		 
  		 
@@ -260,9 +260,9 @@ class android_graphics_Rect;
 
 class android_graphics_Point;
 
-class android_view_animation_LayoutAnimationController;
-
 class android_view_animation_Animation_AnimationListener;
+
+class android_view_animation_LayoutAnimationController;
 
 class android_animation_LayoutTransition;
 
@@ -293,8 +293,8 @@ public:
 	virtual void  addFocusables(AndroidCXX::java_util_ArrayList const& arg0,int const& arg1,int const& arg2) ;
 	virtual bool  addStatesFromChildren() ;
 	virtual void  addTouchables(AndroidCXX::java_util_ArrayList const& arg0) ;
-	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2) ;
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
 	virtual void  addView(AndroidCXX::android_view_View const& arg0) ;
@@ -332,8 +332,8 @@ public:
 	virtual bool  getClipChildren() ;
 	virtual int  getDescendantFocusability() ;
 	virtual AndroidCXX::android_view_View * getFocusedChild() ;
-	virtual AndroidCXX::android_view_animation_LayoutAnimationController * getLayoutAnimation() ;
 	virtual AndroidCXX::android_view_animation_Animation_AnimationListener * getLayoutAnimationListener() ;
+	virtual AndroidCXX::android_view_animation_LayoutAnimationController * getLayoutAnimation() ;
 	virtual int  getLayoutMode() ;
 	virtual AndroidCXX::android_animation_LayoutTransition * getLayoutTransition() ;
 	virtual AndroidCXX::android_view_ViewGroupOverlay * getOverlay() ;
@@ -341,8 +341,8 @@ public:
 	virtual bool  hasFocus() ;
 	virtual bool  hasFocusable() ;
 	virtual int  indexOfChild(AndroidCXX::android_view_View const& arg0) ;
-	virtual void  invalidateChild(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
 	virtual AndroidCXX::android_view_ViewParent * invalidateChildInParent(std::vector<int> const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
+	virtual void  invalidateChild(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
 	virtual bool  isAlwaysDrawnWithCacheEnabled() ;
 	virtual bool  isAnimationCacheEnabled() ;
 	virtual bool  isMotionEventSplittingEnabled() ;
@@ -354,13 +354,13 @@ public:
 	virtual bool  onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual bool  onRequestSendAccessibilityEvent(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1) ;
 	virtual void  recomputeViewAttributes(AndroidCXX::android_view_View const& arg0) ;
-	virtual void  removeAllViews() ;
 	virtual void  removeAllViewsInLayout() ;
-	virtual void  removeView(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  removeAllViews() ;
 	virtual void  removeViewAt(int const& arg0) ;
 	virtual void  removeViewInLayout(AndroidCXX::android_view_View const& arg0) ;
-	virtual void  removeViews(int const& arg0,int const& arg1) ;
+	virtual void  removeView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  removeViewsInLayout(int const& arg0,int const& arg1) ;
+	virtual void  removeViews(int const& arg0,int const& arg1) ;
 	virtual void  requestChildFocus(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;
 	virtual bool  requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) ;
 	virtual void  requestDisallowInterceptTouchEvent(bool const& arg0) ;
@@ -374,8 +374,8 @@ public:
 	virtual void  setClipChildren(bool const& arg0) ;
 	virtual void  setClipToPadding(bool const& arg0) ;
 	virtual void  setDescendantFocusability(int const& arg0) ;
-	virtual void  setLayoutAnimation(AndroidCXX::android_view_animation_LayoutAnimationController const& arg0) ;
 	virtual void  setLayoutAnimationListener(AndroidCXX::android_view_animation_Animation_AnimationListener const& arg0) ;
+	virtual void  setLayoutAnimation(AndroidCXX::android_view_animation_LayoutAnimationController const& arg0) ;
 	virtual void  setLayoutMode(int const& arg0) ;
 	virtual void  setLayoutTransition(AndroidCXX::android_animation_LayoutTransition const& arg0) ;
 	virtual void  setMotionEventSplittingEnabled(bool const& arg0) ;

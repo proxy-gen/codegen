@@ -13,8 +13,8 @@
 	
  	
  		 
-	
  		 
+	
 	
  		 
  		 
@@ -94,14 +94,14 @@ public:
 	virtual void  clear() ;
 	virtual AndroidCXX::android_util_SparseArray * clone() ;
 	virtual void  _delete(int const& arg0) ;
-	virtual AndroidCXX::java_lang_Object * get(int const& arg0) ;
 	virtual AndroidCXX::java_lang_Object * get(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual AndroidCXX::java_lang_Object * get(int const& arg0) ;
 	virtual int  indexOfKey(int const& arg0) ;
 	virtual int  indexOfValue(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual int  keyAt(int const& arg0) ;
 	virtual void  put(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
-	virtual void  remove(int const& arg0) ;
 	virtual void  removeAt(int const& arg0) ;
+	virtual void  remove(int const& arg0) ;
 	virtual void  setValueAt(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual int  size() ;
 	virtual AndroidCXX::java_lang_Object * valueAt(int const& arg0) ;

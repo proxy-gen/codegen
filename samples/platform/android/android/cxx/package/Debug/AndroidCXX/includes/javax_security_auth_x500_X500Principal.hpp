@@ -17,8 +17,8 @@
 	
  		 
  		 
-	
  		 
+	
 	
 	
 
@@ -99,8 +99,8 @@ public:
 
 	// Public ConstrucXXX
 	javax_security_auth_x500_X500Principal(std::vector<byte> const& arg0);
-	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0);
 	javax_security_auth_x500_X500Principal(AndroidCXX::java_io_InputStream const& arg0);
+	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0);
 	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1);
 	javax_security_auth_x500_X500Principal(const javax_security_auth_x500_X500Principal& cc);
 	javax_security_auth_x500_X500Principal(Proxy proxy);
@@ -111,8 +111,8 @@ public:
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual std::vector<byte>  getEncoded() ;
 	virtual AndroidCXX::java_lang_String * getName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1) ;
-	virtual AndroidCXX::java_lang_String * getName() ;
 	virtual AndroidCXX::java_lang_String * getName(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getName() ;
 	virtual int  hashCode() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 

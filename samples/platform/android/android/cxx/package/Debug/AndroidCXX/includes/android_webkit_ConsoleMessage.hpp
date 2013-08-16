@@ -36,9 +36,9 @@
 //
 
 
-#include <java_lang_String.hpp>
-
 #include <android_webkit_ConsoleMessage_MessageLevel.hpp>
+
+#include <java_lang_String.hpp>
 
 
 #include <vector>
@@ -57,8 +57,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
 
+class java_lang_String;
 
 class android_webkit_ConsoleMessage 
 {
@@ -73,8 +73,8 @@ public:
 	virtual ~android_webkit_ConsoleMessage();
 	// Functions
 	virtual int  lineNumber() ;
-	virtual AndroidCXX::java_lang_String * message() ;
 	virtual android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel  messageLevel() ;
+	virtual AndroidCXX::java_lang_String * message() ;
 	virtual AndroidCXX::java_lang_String * sourceId() ;
 
 protected:

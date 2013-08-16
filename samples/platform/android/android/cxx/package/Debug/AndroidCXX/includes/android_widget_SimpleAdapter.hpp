@@ -14,9 +14,9 @@
 	
 	
 	
- 		 
- 		 
 	
+ 		 
+ 		 
 	
  		 
  		 
@@ -141,10 +141,10 @@ public:
 	virtual int  getCount() ;
 	virtual AndroidCXX::android_view_View * getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
 	virtual AndroidCXX::android_widget_Filter * getFilter() ;
-	virtual AndroidCXX::java_lang_Object * getItem(int const& arg0) ;
 	virtual long  getItemId(int const& arg0) ;
-	virtual AndroidCXX::android_view_View * getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
+	virtual AndroidCXX::java_lang_Object * getItem(int const& arg0) ;
 	virtual AndroidCXX::android_widget_SimpleAdapter_ViewBinder * getViewBinder() ;
+	virtual AndroidCXX::android_view_View * getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
 	virtual void  setDropDownViewResource(int const& arg0) ;
 	virtual void  setViewBinder(AndroidCXX::android_widget_SimpleAdapter_ViewBinder const& arg0) ;
 	virtual void  setViewImage(AndroidCXX::android_widget_ImageView const& arg0,int const& arg1) ;

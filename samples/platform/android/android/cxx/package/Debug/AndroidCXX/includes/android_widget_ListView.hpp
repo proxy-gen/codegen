@@ -172,15 +172,15 @@ public:
 	// Default Destructor
 	virtual ~android_widget_ListView();
 	// Functions
-	virtual void  addFooterView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  addFooterView(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_Object const& arg1,bool const& arg2) ;
+	virtual void  addFooterView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  addHeaderView(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_Object const& arg1,bool const& arg2) ;
 	virtual void  addHeaderView(AndroidCXX::android_view_View const& arg0) ;
 	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual AndroidCXX::android_widget_ListAdapter * getAdapter() ;
 	virtual std::vector<long>  getCheckItemIds() ;
-	virtual AndroidCXX::android_graphics_drawable_Drawable * getDivider() ;
 	virtual int  getDividerHeight() ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getDivider() ;
 	virtual int  getFooterViewsCount() ;
 	virtual int  getHeaderViewsCount() ;
 	virtual bool  getItemsCanFocus() ;
@@ -198,17 +198,17 @@ public:
 	virtual bool  requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) ;
 	virtual void  setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0) ;
 	virtual void  setCacheColorHint(int const& arg0) ;
-	virtual void  setDivider(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setDividerHeight(int const& arg0) ;
+	virtual void  setDivider(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setFooterDividersEnabled(bool const& arg0) ;
 	virtual void  setHeaderDividersEnabled(bool const& arg0) ;
 	virtual void  setItemsCanFocus(bool const& arg0) ;
 	virtual void  setOverscrollFooter(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setOverscrollHeader(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setRemoteViewsAdapter(AndroidCXX::android_content_Intent const& arg0) ;
-	virtual void  setSelection(int const& arg0) ;
 	virtual void  setSelectionAfterHeaderView() ;
 	virtual void  setSelectionFromTop(int const& arg0,int const& arg1) ;
+	virtual void  setSelection(int const& arg0) ;
 	virtual void  smoothScrollByOffset(int const& arg0) ;
 	virtual void  smoothScrollToPosition(int const& arg0) ;
 

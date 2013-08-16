@@ -19,10 +19,10 @@
 	
  		 
  		 
-	
- 		 
  	
  		 
+ 		 
+	
  		 
 	
  		 
@@ -63,12 +63,12 @@
 	
 
 
- 		 
- 		 
+ 	
  	
  		 
  		 
- 	
+ 		 
+ 		 
 
 
 
@@ -170,12 +170,12 @@ class java_math_BigInteger : public java_lang_Comparable
 public:
 
 	// Public ConstrucXXX
-	java_math_BigInteger(int const& arg0,int const& arg1,AndroidCXX::java_util_Random const& arg2);
-	java_math_BigInteger(AndroidCXX::java_lang_String const& arg0);
 	java_math_BigInteger(std::vector<byte> const& arg0);
-	java_math_BigInteger(int const& arg0,AndroidCXX::java_util_Random const& arg1);
-	java_math_BigInteger(AndroidCXX::java_lang_String const& arg0,int const& arg1);
 	java_math_BigInteger(int const& arg0,std::vector<byte> const& arg1);
+	java_math_BigInteger(int const& arg0,int const& arg1,AndroidCXX::java_util_Random const& arg2);
+	java_math_BigInteger(int const& arg0,AndroidCXX::java_util_Random const& arg1);
+	java_math_BigInteger(AndroidCXX::java_lang_String const& arg0);
+	java_math_BigInteger(AndroidCXX::java_lang_String const& arg0,int const& arg1);
 	java_math_BigInteger(const java_math_BigInteger& cc);
 	java_math_BigInteger(Proxy proxy);
 	Proxy proxy() const;	
@@ -184,14 +184,14 @@ public:
 	// Functions
 	virtual AndroidCXX::java_math_BigInteger * abs() ;
 	virtual AndroidCXX::java_math_BigInteger * add(AndroidCXX::java_math_BigInteger const& arg0) ;
-	virtual AndroidCXX::java_math_BigInteger * _and(AndroidCXX::java_math_BigInteger const& arg0) ;
 	virtual AndroidCXX::java_math_BigInteger * andNot(AndroidCXX::java_math_BigInteger const& arg0) ;
+	virtual AndroidCXX::java_math_BigInteger * _and(AndroidCXX::java_math_BigInteger const& arg0) ;
 	virtual int  bitCount() ;
 	virtual int  bitLength() ;
 	virtual AndroidCXX::java_math_BigInteger * clearBit(int const& arg0) ;
 	virtual int  compareTo(AndroidCXX::java_math_BigInteger const& arg0) ;
-	virtual AndroidCXX::java_math_BigInteger * divide(AndroidCXX::java_math_BigInteger const& arg0) ;
 	virtual std::vector<java_math_BigInteger>  divideAndRemainder(AndroidCXX::java_math_BigInteger const& arg0) ;
+	virtual AndroidCXX::java_math_BigInteger * divide(AndroidCXX::java_math_BigInteger const& arg0) ;
 	virtual double  doubleValue() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_math_BigInteger * flipBit(int const& arg0) ;
@@ -204,8 +204,8 @@ public:
 	virtual long  longValue() ;
 	virtual AndroidCXX::java_math_BigInteger * max(AndroidCXX::java_math_BigInteger const& arg0) ;
 	virtual AndroidCXX::java_math_BigInteger * min(AndroidCXX::java_math_BigInteger const& arg0) ;
-	virtual AndroidCXX::java_math_BigInteger * mod(AndroidCXX::java_math_BigInteger const& arg0) ;
 	virtual AndroidCXX::java_math_BigInteger * modInverse(AndroidCXX::java_math_BigInteger const& arg0) ;
+	virtual AndroidCXX::java_math_BigInteger * mod(AndroidCXX::java_math_BigInteger const& arg0) ;
 	virtual AndroidCXX::java_math_BigInteger * modPow(AndroidCXX::java_math_BigInteger const& arg0,AndroidCXX::java_math_BigInteger const& arg1) ;
 	virtual AndroidCXX::java_math_BigInteger * multiply(AndroidCXX::java_math_BigInteger const& arg0) ;
 	virtual AndroidCXX::java_math_BigInteger * negate() ;

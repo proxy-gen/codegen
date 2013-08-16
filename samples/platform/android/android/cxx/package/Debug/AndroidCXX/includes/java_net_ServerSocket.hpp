@@ -104,9 +104,9 @@ public:
 
 	// Public ConstrucXXX
 	java_net_ServerSocket();
-	java_net_ServerSocket(int const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2);
 	java_net_ServerSocket(int const& arg0);
 	java_net_ServerSocket(int const& arg0,int const& arg1);
+	java_net_ServerSocket(int const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2);
 	java_net_ServerSocket(const java_net_ServerSocket& cc);
 	java_net_ServerSocket(Proxy proxy);
 	Proxy proxy() const;	

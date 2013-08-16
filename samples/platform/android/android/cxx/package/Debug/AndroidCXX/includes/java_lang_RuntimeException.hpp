@@ -33,9 +33,9 @@
 //
 
 
-#include <java_lang_Throwable.hpp>
-
 #include <java_lang_String.hpp>
+
+#include <java_lang_Throwable.hpp>
 
 
 #include <java_lang_Object.hpp>
@@ -56,9 +56,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Throwable;
-
 class java_lang_String;
+
+class java_lang_Throwable;
 
 class java_lang_RuntimeException : public java_lang_Object
 {
@@ -66,9 +66,9 @@ public:
 
 	// Public ConstrucXXX
 	java_lang_RuntimeException();
-	java_lang_RuntimeException(AndroidCXX::java_lang_Throwable const& arg0);
 	java_lang_RuntimeException(AndroidCXX::java_lang_String const& arg0);
 	java_lang_RuntimeException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
+	java_lang_RuntimeException(AndroidCXX::java_lang_Throwable const& arg0);
 	java_lang_RuntimeException(const java_lang_RuntimeException& cc);
 	java_lang_RuntimeException(Proxy proxy);
 	Proxy proxy() const;	

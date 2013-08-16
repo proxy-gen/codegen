@@ -109,10 +109,10 @@ public:
 	virtual AndroidCXX::android_os_IBinder * peekService(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_Intent const& arg1) ;
 	virtual void  setDebugUnregister(bool const& arg0) ;
 	virtual void  setOrderedHint(bool const& arg0) ;
-	virtual void  setResult(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
 	virtual void  setResultCode(int const& arg0) ;
 	virtual void  setResultData(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setResultExtras(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual void  setResult(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
 
 protected:
 	android_content_BroadcastReceiver();

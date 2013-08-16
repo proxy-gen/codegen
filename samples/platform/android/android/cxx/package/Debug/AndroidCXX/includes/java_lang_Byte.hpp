@@ -17,10 +17,10 @@
  		 
 	
 	
- 		 
 	
  		 
 	
+ 		 
 	
 
 
@@ -91,8 +91,8 @@ class java_lang_Byte : public java_lang_Comparable
 public:
 
 	// Public ConstrucXXX
-	java_lang_Byte(AndroidCXX::java_lang_String const& arg0);
 	java_lang_Byte(byte const& arg0);
+	java_lang_Byte(AndroidCXX::java_lang_String const& arg0);
 	java_lang_Byte(const java_lang_Byte& cc);
 	java_lang_Byte(Proxy proxy);
 	Proxy proxy() const;	
@@ -108,14 +108,14 @@ public:
 	virtual int  hashCode() ;
 	virtual int  intValue() ;
 	virtual long  longValue() ;
-	static byte  parseByte(AndroidCXX::java_lang_String const& arg0) ;
 	static byte  parseByte(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	static byte  parseByte(AndroidCXX::java_lang_String const& arg0) ;
 	virtual short  shortValue() ;
 	static AndroidCXX::java_lang_String * toString(byte const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
-	static AndroidCXX::java_lang_Byte * valueOf(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::java_lang_Byte * valueOf(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	static AndroidCXX::java_lang_Byte * valueOf(byte const& arg0) ;
+	static AndroidCXX::java_lang_Byte * valueOf(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	static AndroidCXX::java_lang_Byte * valueOf(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
 

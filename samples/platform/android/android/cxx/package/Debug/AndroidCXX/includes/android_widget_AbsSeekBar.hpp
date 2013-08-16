@@ -100,8 +100,8 @@ public:
 	virtual ~android_widget_AbsSeekBar();
 	// Functions
 	virtual int  getKeyProgressIncrement() ;
-	virtual AndroidCXX::android_graphics_drawable_Drawable * getThumb() ;
 	virtual int  getThumbOffset() ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getThumb() ;
 	virtual void  jumpDrawablesToCurrentState() ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
@@ -111,8 +111,8 @@ public:
 	virtual bool  performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
 	virtual void  setKeyProgressIncrement(int const& arg0) ;
 	virtual void  setMax(int const& arg0) ;
-	virtual void  setThumb(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setThumbOffset(int const& arg0) ;
+	virtual void  setThumb(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 
 protected:
 	android_widget_AbsSeekBar();

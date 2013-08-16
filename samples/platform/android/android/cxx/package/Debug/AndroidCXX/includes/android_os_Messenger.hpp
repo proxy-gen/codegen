@@ -90,8 +90,8 @@ class android_os_Messenger : public android_os_Parcelable
 public:
 
 	// Public ConstrucXXX
-	android_os_Messenger(AndroidCXX::android_os_IBinder const& arg0);
 	android_os_Messenger(AndroidCXX::android_os_Handler const& arg0);
+	android_os_Messenger(AndroidCXX::android_os_IBinder const& arg0);
 	android_os_Messenger(const android_os_Messenger& cc);
 	android_os_Messenger(Proxy proxy);
 	Proxy proxy() const;	

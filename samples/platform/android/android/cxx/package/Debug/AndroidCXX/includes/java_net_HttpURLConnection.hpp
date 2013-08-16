@@ -10,8 +10,8 @@
 
 
 	
-	
  		 
+	
 	
 	
 	
@@ -88,9 +88,9 @@ public:
 	virtual void  disconnect() ;
 	virtual AndroidCXX::java_io_InputStream * getErrorStream() ;
 	static bool  getFollowRedirects() ;
-	virtual AndroidCXX::java_lang_String * getHeaderField(int const& arg0) ;
 	virtual long  getHeaderFieldDate(AndroidCXX::java_lang_String const& arg0,long const& arg1) ;
 	virtual AndroidCXX::java_lang_String * getHeaderFieldKey(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getHeaderField(int const& arg0) ;
 	virtual bool  getInstanceFollowRedirects() ;
 	virtual AndroidCXX::java_security_Permission * getPermission() ;
 	virtual AndroidCXX::java_lang_String * getRequestMethod() ;

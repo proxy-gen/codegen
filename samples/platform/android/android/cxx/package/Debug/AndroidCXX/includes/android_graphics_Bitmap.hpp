@@ -18,6 +18,20 @@
  	
  		 
 	
+ 	
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
+	
+ 		 
+ 	
+ 		 
+	
  		 
  	
  		 
@@ -25,27 +39,13 @@
  		 
  		 
 	
- 	
  		 
 	
  		 
- 	
- 		 
-	
- 		 
-	
- 		 
- 		 
-	
- 		 
-	
- 		 
-	
- 		 
-	
 	
  		 
  	
+	
 	
 	
  	
@@ -129,9 +129,9 @@
 
 #include <java_nio_Buffer.hpp>
 
-#include <android_util_DisplayMetrics.hpp>
-
 #include <android_graphics_Matrix.hpp>
+
+#include <android_util_DisplayMetrics.hpp>
 
 #include <android_graphics_Paint.hpp>
 
@@ -165,9 +165,9 @@ class java_io_OutputStream;
 
 class java_nio_Buffer;
 
-class android_util_DisplayMetrics;
-
 class android_graphics_Matrix;
+
+class android_util_DisplayMetrics;
 
 class android_graphics_Paint;
 
@@ -191,19 +191,19 @@ public:
 	virtual void  copyPixelsFromBuffer(AndroidCXX::java_nio_Buffer const& arg0) ;
 	virtual void  copyPixelsToBuffer(AndroidCXX::java_nio_Buffer const& arg0) ;
 	static AndroidCXX::android_graphics_Bitmap * createBitmap(std::vector<int> const& arg0,int const& arg1,int const& arg2,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg3) ;
-	static AndroidCXX::android_graphics_Bitmap * createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,std::vector<int> const& arg1,int const& arg2,int const& arg3,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg4) ;
-	static AndroidCXX::android_graphics_Bitmap * createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,int const& arg1,int const& arg2,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg3) ;
 	static AndroidCXX::android_graphics_Bitmap * createBitmap(std::vector<int> const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg5) ;
-	static AndroidCXX::android_graphics_Bitmap * createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,std::vector<int> const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg6) ;
-	static AndroidCXX::android_graphics_Bitmap * createBitmap(int const& arg0,int const& arg1,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg2) ;
 	static AndroidCXX::android_graphics_Bitmap * createBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,AndroidCXX::android_graphics_Matrix const& arg5,bool const& arg6) ;
 	static AndroidCXX::android_graphics_Bitmap * createBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) ;
 	static AndroidCXX::android_graphics_Bitmap * createBitmap(AndroidCXX::android_graphics_Bitmap const& arg0) ;
+	static AndroidCXX::android_graphics_Bitmap * createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,std::vector<int> const& arg1,int const& arg2,int const& arg3,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg4) ;
+	static AndroidCXX::android_graphics_Bitmap * createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,std::vector<int> const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg6) ;
+	static AndroidCXX::android_graphics_Bitmap * createBitmap(AndroidCXX::android_util_DisplayMetrics const& arg0,int const& arg1,int const& arg2,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg3) ;
+	static AndroidCXX::android_graphics_Bitmap * createBitmap(int const& arg0,int const& arg1,android_graphics_Bitmap_Config::android_graphics_Bitmap_Config const& arg2) ;
 	static AndroidCXX::android_graphics_Bitmap * createScaledBitmap(AndroidCXX::android_graphics_Bitmap const& arg0,int const& arg1,int const& arg2,bool const& arg3) ;
 	virtual int  describeContents() ;
 	virtual void  eraseColor(int const& arg0) ;
-	virtual AndroidCXX::android_graphics_Bitmap * extractAlpha() ;
 	virtual AndroidCXX::android_graphics_Bitmap * extractAlpha(AndroidCXX::android_graphics_Paint const& arg0,std::vector<int> const& arg1) ;
+	virtual AndroidCXX::android_graphics_Bitmap * extractAlpha() ;
 	virtual int  getByteCount() ;
 	virtual android_graphics_Bitmap_Config::android_graphics_Bitmap_Config  getConfig() ;
 	virtual int  getDensity() ;
@@ -216,9 +216,9 @@ public:
 	virtual int  getScaledHeight(AndroidCXX::android_graphics_Canvas const& arg0) ;
 	virtual int  getScaledHeight(AndroidCXX::android_util_DisplayMetrics const& arg0) ;
 	virtual int  getScaledHeight(int const& arg0) ;
-	virtual int  getScaledWidth(int const& arg0) ;
-	virtual int  getScaledWidth(AndroidCXX::android_util_DisplayMetrics const& arg0) ;
 	virtual int  getScaledWidth(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual int  getScaledWidth(AndroidCXX::android_util_DisplayMetrics const& arg0) ;
+	virtual int  getScaledWidth(int const& arg0) ;
 	virtual int  getWidth() ;
 	virtual bool  hasAlpha() ;
 	virtual bool  hasMipMap() ;

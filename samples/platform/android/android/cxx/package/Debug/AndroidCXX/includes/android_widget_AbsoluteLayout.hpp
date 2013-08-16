@@ -73,9 +73,9 @@ class android_widget_AbsoluteLayout : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_AbsoluteLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_AbsoluteLayout(AndroidCXX::android_content_Context const& arg0);
 	android_widget_AbsoluteLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_AbsoluteLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_AbsoluteLayout(const android_widget_AbsoluteLayout& cc);
 	android_widget_AbsoluteLayout(Proxy proxy);
 	Proxy proxy() const;	

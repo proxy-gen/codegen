@@ -32,11 +32,8 @@
 	
 	
  	
-	
  		 
-	
  	
- 		 
 	
  		 
 	
@@ -44,6 +41,9 @@
  	
  		 
  		 
+	
+	
+ 		 
  		 
  		 
  		 
@@ -53,8 +53,8 @@
  	
 	
 	
- 		 
 	
+ 		 
 	
 	
  		 
@@ -159,9 +159,9 @@
 
 #include <android_content_res_TypedArray.hpp>
 
-#include <java_io_InputStream.hpp>
-
 #include <android_content_res_AssetFileDescriptor.hpp>
+
+#include <java_io_InputStream.hpp>
 
 #include <android_os_Bundle.hpp>
 
@@ -211,9 +211,9 @@ class android_util_AttributeSet;
 
 class android_content_res_TypedArray;
 
-class java_io_InputStream;
-
 class android_content_res_AssetFileDescriptor;
+
+class java_io_InputStream;
 
 class android_os_Bundle;
 
@@ -241,8 +241,8 @@ public:
 	virtual int  getDimensionPixelOffset(int const& arg0) ;
 	virtual int  getDimensionPixelSize(int const& arg0) ;
 	virtual AndroidCXX::android_util_DisplayMetrics * getDisplayMetrics() ;
-	virtual AndroidCXX::android_graphics_drawable_Drawable * getDrawable(int const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getDrawableForDensity(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getDrawable(int const& arg0) ;
 	virtual float  getFraction(int const& arg0,int const& arg1,int const& arg2) ;
 	virtual int  getIdentifier(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) ;
 	virtual std::vector<int>  getIntArray(int const& arg0) ;
@@ -256,23 +256,23 @@ public:
 	virtual AndroidCXX::java_lang_String * getResourceName(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getResourcePackageName(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getResourceTypeName(int const& arg0) ;
+	virtual std::vector<java_lang_String>  getStringArray(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getString(int const& arg0,std::vector<java_lang_Object> const& arg1) ;
 	virtual AndroidCXX::java_lang_String * getString(int const& arg0) ;
-	virtual std::vector<java_lang_String>  getStringArray(int const& arg0) ;
 	static AndroidCXX::android_content_res_Resources * getSystem() ;
+	virtual std::vector<java_lang_CharSequence>  getTextArray(int const& arg0) ;
 	virtual AndroidCXX::java_lang_CharSequence * getText(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) ;
 	virtual AndroidCXX::java_lang_CharSequence * getText(int const& arg0) ;
-	virtual std::vector<java_lang_CharSequence>  getTextArray(int const& arg0) ;
-	virtual void  getValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2) ;
-	virtual void  getValue(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2) ;
 	virtual void  getValueForDensity(int const& arg0,int const& arg1,AndroidCXX::android_util_TypedValue const& arg2,bool const& arg3) ;
+	virtual void  getValue(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2) ;
+	virtual void  getValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_util_TypedValue const& arg1,bool const& arg2) ;
 	virtual AndroidCXX::android_content_res_XmlResourceParser * getXml(int const& arg0) ;
 	virtual AndroidCXX::android_content_res_Resources_Theme * newTheme() ;
 	virtual AndroidCXX::android_content_res_TypedArray * obtainAttributes(AndroidCXX::android_util_AttributeSet const& arg0,std::vector<int> const& arg1) ;
 	virtual AndroidCXX::android_content_res_TypedArray * obtainTypedArray(int const& arg0) ;
+	virtual AndroidCXX::android_content_res_AssetFileDescriptor * openRawResourceFd(int const& arg0) ;
 	virtual AndroidCXX::java_io_InputStream * openRawResource(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1) ;
 	virtual AndroidCXX::java_io_InputStream * openRawResource(int const& arg0) ;
-	virtual AndroidCXX::android_content_res_AssetFileDescriptor * openRawResourceFd(int const& arg0) ;
 	virtual void  parseBundleExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
 	virtual void  parseBundleExtras(AndroidCXX::android_content_res_XmlResourceParser const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
 	virtual void  updateConfiguration(AndroidCXX::android_content_res_Configuration const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) ;

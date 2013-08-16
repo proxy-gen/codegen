@@ -80,8 +80,8 @@ public:
 	// Default Destructor
 	virtual ~java_nio_Buffer();
 	// Functions
-	virtual AndroidCXX::java_lang_Object * array() ;
 	virtual int  arrayOffset() ;
+	virtual AndroidCXX::java_lang_Object * array() ;
 	virtual int  capacity() ;
 	virtual AndroidCXX::java_nio_Buffer * clear() ;
 	virtual AndroidCXX::java_nio_Buffer * flip() ;
@@ -89,8 +89,8 @@ public:
 	virtual bool  hasRemaining() ;
 	virtual bool  isDirect() ;
 	virtual bool  isReadOnly() ;
-	virtual int  limit() ;
 	virtual AndroidCXX::java_nio_Buffer * limit(int const& arg0) ;
+	virtual int  limit() ;
 	virtual AndroidCXX::java_nio_Buffer * mark() ;
 	virtual AndroidCXX::java_nio_Buffer * position(int const& arg0) ;
 	virtual int  position() ;

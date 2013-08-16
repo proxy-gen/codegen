@@ -138,8 +138,8 @@ public:
 	virtual android_text_Layout_Alignment::android_text_Layout_Alignment  getAlignment() ;
 	virtual int  getBottomPadding() ;
 	virtual void  getCursorPath(int const& arg0,AndroidCXX::android_graphics_Path const& arg1,AndroidCXX::java_lang_CharSequence const& arg2) ;
-	static float  getDesiredWidth(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_text_TextPaint const& arg3) ;
 	static float  getDesiredWidth(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_text_TextPaint const& arg1) ;
+	static float  getDesiredWidth(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_text_TextPaint const& arg3) ;
 	virtual int  getEllipsisCount(int const& arg0) ;
 	virtual int  getEllipsisStart(int const& arg0) ;
 	virtual int  getEllipsizedWidth() ;

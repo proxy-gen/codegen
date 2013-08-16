@@ -94,8 +94,8 @@ class android_widget_ZoomControls : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_ZoomControls(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_ZoomControls(AndroidCXX::android_content_Context const& arg0);
+	android_widget_ZoomControls(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_ZoomControls(const android_widget_ZoomControls& cc);
 	android_widget_ZoomControls(Proxy proxy);
 	Proxy proxy() const;	

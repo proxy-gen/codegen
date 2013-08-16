@@ -61,8 +61,8 @@ public:
 	// Functions
 	virtual void  acquireReference() ;
 	virtual void  close() ;
-	virtual void  releaseReference() ;
 	virtual void  releaseReferenceFromContainer() ;
+	virtual void  releaseReference() ;
 
 protected:
 	android_database_sqlite_SQLiteClosable();

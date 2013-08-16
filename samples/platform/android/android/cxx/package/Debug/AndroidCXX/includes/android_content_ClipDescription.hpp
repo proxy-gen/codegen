@@ -98,8 +98,8 @@ public:
 	virtual int  describeContents() ;
 	virtual std::vector<java_lang_String>  filterMimeTypes(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_CharSequence * getLabel() ;
-	virtual AndroidCXX::java_lang_String * getMimeType(int const& arg0) ;
 	virtual int  getMimeTypeCount() ;
+	virtual AndroidCXX::java_lang_String * getMimeType(int const& arg0) ;
 	virtual bool  hasMimeType(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;

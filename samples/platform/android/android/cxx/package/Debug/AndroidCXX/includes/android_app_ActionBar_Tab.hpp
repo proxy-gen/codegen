@@ -20,15 +20,15 @@
  		 
 	
 	
+ 		 
+	
 	
  		 
 	
  		 
 	
- 		 
 	
  		 
-	
 	
 
 
@@ -113,12 +113,12 @@ public:
 	virtual AndroidCXX::android_app_ActionBar_Tab * setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setCustomView(AndroidCXX::android_view_View const& arg0) ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setCustomView(int const& arg0) ;
-	virtual AndroidCXX::android_app_ActionBar_Tab * setIcon(int const& arg0) ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setIcon(int const& arg0) ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setTabListener(AndroidCXX::android_app_ActionBar_TabListener const& arg0) ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setTag(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::android_app_ActionBar_Tab * setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setText(int const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
 
 protected:
 	android_app_ActionBar_Tab();

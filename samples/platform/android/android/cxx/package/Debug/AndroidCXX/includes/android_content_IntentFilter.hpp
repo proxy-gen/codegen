@@ -44,22 +44,22 @@
  		 
  		 
  		 
- 		 
- 		 
- 		 
- 	
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
  	
 	
  		 
  		 
  		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
  		 
  		 
 	
@@ -255,12 +255,12 @@ public:
 	virtual bool  hasDataPath(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  hasDataScheme(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  hasDataType(AndroidCXX::java_lang_String const& arg0) ;
-	virtual int  match(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_net_Uri const& arg3,AndroidCXX::java_util_Set const& arg4,AndroidCXX::java_lang_String const& arg5) ;
-	virtual int  match(AndroidCXX::android_content_ContentResolver const& arg0,AndroidCXX::android_content_Intent const& arg1,bool const& arg2,AndroidCXX::java_lang_String const& arg3) ;
 	virtual bool  matchAction(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * matchCategories(AndroidCXX::java_util_Set const& arg0) ;
-	virtual int  matchData(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_net_Uri const& arg2) ;
 	virtual int  matchDataAuthority(AndroidCXX::android_net_Uri const& arg0) ;
+	virtual int  matchData(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_net_Uri const& arg2) ;
+	virtual int  match(AndroidCXX::android_content_ContentResolver const& arg0,AndroidCXX::android_content_Intent const& arg1,bool const& arg2,AndroidCXX::java_lang_String const& arg3) ;
+	virtual int  match(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_net_Uri const& arg3,AndroidCXX::java_util_Set const& arg4,AndroidCXX::java_lang_String const& arg5) ;
 	virtual AndroidCXX::java_util_Iterator * pathsIterator() ;
 	virtual void  readFromXml(AndroidCXX::org_xmlpull_v1_XmlPullParser const& arg0) ;
 	virtual AndroidCXX::java_util_Iterator * schemesIterator() ;

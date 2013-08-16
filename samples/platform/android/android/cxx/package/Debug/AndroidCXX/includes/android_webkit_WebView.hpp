@@ -40,8 +40,8 @@
  		 
  		 
  		 
- 		 
  	
+ 		 
  		 
  		 
  		 
@@ -79,8 +79,8 @@
 	
  		 
  		 
- 		 
  	
+ 		 
  		 
  		 
  		 
@@ -377,8 +377,8 @@ public:
 	virtual ~android_webkit_WebView();
 	// Functions
 	virtual void  addJavascriptInterface(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual bool  canGoBack() ;
 	virtual bool  canGoBackOrForward(int const& arg0) ;
+	virtual bool  canGoBack() ;
 	virtual bool  canGoForward() ;
 	virtual bool  canZoomIn() ;
 	virtual bool  canZoomOut() ;
@@ -395,8 +395,8 @@ public:
 	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual void  documentHasImages(AndroidCXX::android_os_Message const& arg0) ;
 	static AndroidCXX::java_lang_String * findAddress(AndroidCXX::java_lang_String const& arg0) ;
-	virtual int  findAll(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  findAllAsync(AndroidCXX::java_lang_String const& arg0) ;
+	virtual int  findAll(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  findNext(bool const& arg0) ;
 	virtual void  flingScroll(int const& arg0,int const& arg1) ;
 	virtual void  freeMemory() ;
@@ -411,15 +411,15 @@ public:
 	virtual AndroidCXX::android_webkit_WebSettings * getSettings() ;
 	virtual AndroidCXX::java_lang_String * getTitle() ;
 	virtual AndroidCXX::java_lang_String * getUrl() ;
-	virtual void  goBack() ;
 	virtual void  goBackOrForward(int const& arg0) ;
+	virtual void  goBack() ;
 	virtual void  goForward() ;
 	virtual void  invokeZoomPicker() ;
 	virtual bool  isPrivateBrowsingEnabled() ;
 	virtual void  loadData(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) ;
 	virtual void  loadDataWithBaseURL(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::java_lang_String const& arg4) ;
-	virtual void  loadUrl(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  loadUrl(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1) ;
+	virtual void  loadUrl(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  onChildViewAdded(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;
 	virtual void  onChildViewRemoved(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;
 	virtual AndroidCXX::android_view_inputmethod_InputConnection * onCreateInputConnection(AndroidCXX::android_view_inputmethod_EditorInfo const& arg0) ;
@@ -447,15 +447,15 @@ public:
 	virtual void  reload() ;
 	virtual void  removeJavascriptInterface(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) ;
-	virtual bool  requestFocus(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
 	virtual void  requestFocusNodeHref(AndroidCXX::android_os_Message const& arg0) ;
+	virtual bool  requestFocus(int const& arg0,AndroidCXX::android_graphics_Rect const& arg1) ;
 	virtual void  requestImageRef(AndroidCXX::android_os_Message const& arg0) ;
 	virtual AndroidCXX::android_webkit_WebBackForwardList * restoreState(AndroidCXX::android_os_Bundle const& arg0) ;
 	virtual void  resumeTimers() ;
 	virtual void  savePassword(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) ;
 	virtual AndroidCXX::android_webkit_WebBackForwardList * saveState(AndroidCXX::android_os_Bundle const& arg0) ;
-	virtual void  saveWebArchive(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  saveWebArchive(AndroidCXX::java_lang_String const& arg0,bool const& arg1,AndroidCXX::android_webkit_ValueCallback const& arg2) ;
+	virtual void  saveWebArchive(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setBackgroundColor(int const& arg0) ;
 	virtual void  setCertificate(AndroidCXX::android_net_http_SslCertificate const& arg0) ;
 	virtual void  setDownloadListener(AndroidCXX::android_webkit_DownloadListener const& arg0) ;

@@ -9,8 +9,8 @@
 
 
 
-	
  		 
+	
 	
  		 
  		 
@@ -58,9 +58,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_View;
-
 class android_view_MenuItem;
+
+class android_view_View;
 
 class android_view_SubMenu;
 
@@ -80,8 +80,8 @@ public:
 	// Functions
 	virtual bool  hasSubMenu() ;
 	virtual bool  isVisible() ;
-	virtual AndroidCXX::android_view_View * onCreateActionView() ;
 	virtual AndroidCXX::android_view_View * onCreateActionView(AndroidCXX::android_view_MenuItem const& arg0) ;
+	virtual AndroidCXX::android_view_View * onCreateActionView() ;
 	virtual bool  onPerformDefaultAction() ;
 	virtual void  onPrepareSubMenu(AndroidCXX::android_view_SubMenu const& arg0) ;
 	virtual bool  overridesItemVisibility() ;

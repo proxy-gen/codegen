@@ -77,8 +77,8 @@ public:
 	virtual void  clear() ;
 	virtual AndroidCXX::android_util_SparseBooleanArray * clone() ;
 	virtual void  _delete(int const& arg0) ;
-	virtual bool  get(int const& arg0) ;
 	virtual bool  get(int const& arg0,bool const& arg1) ;
+	virtual bool  get(int const& arg0) ;
 	virtual int  indexOfKey(int const& arg0) ;
 	virtual int  indexOfValue(bool const& arg0) ;
 	virtual int  keyAt(int const& arg0) ;

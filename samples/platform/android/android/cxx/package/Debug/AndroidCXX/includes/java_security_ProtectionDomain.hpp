@@ -21,9 +21,9 @@
  		 
  		 
  		 
+ 		 
+ 		 
  	
- 		 
- 		 
  		 
 
 
@@ -93,8 +93,8 @@ class java_security_ProtectionDomain
 public:
 
 	// Public ConstrucXXX
-	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1,AndroidCXX::java_lang_ClassLoader const& arg2,std::vector<java_security_Principal> const& arg3);
 	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1);
+	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1,AndroidCXX::java_lang_ClassLoader const& arg2,std::vector<java_security_Principal> const& arg3);
 	java_security_ProtectionDomain(const java_security_ProtectionDomain& cc);
 	java_security_ProtectionDomain(Proxy proxy);
 	Proxy proxy() const;	

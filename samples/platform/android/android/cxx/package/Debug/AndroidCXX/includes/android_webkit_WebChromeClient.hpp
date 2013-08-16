@@ -178,8 +178,8 @@ public:
 	virtual AndroidCXX::android_view_View * getVideoLoadingProgressView() ;
 	virtual void  getVisitedHistory(AndroidCXX::android_webkit_ValueCallback const& arg0) ;
 	virtual void  onCloseWindow(AndroidCXX::android_webkit_WebView const& arg0) ;
-	virtual void  onConsoleMessage(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2) ;
 	virtual bool  onConsoleMessage(AndroidCXX::android_webkit_ConsoleMessage const& arg0) ;
+	virtual void  onConsoleMessage(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2) ;
 	virtual bool  onCreateWindow(AndroidCXX::android_webkit_WebView const& arg0,bool const& arg1,bool const& arg2,AndroidCXX::android_os_Message const& arg3) ;
 	virtual void  onExceededDatabaseQuota(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,long const& arg2,long const& arg3,long const& arg4,AndroidCXX::android_webkit_WebStorage_QuotaUpdater const& arg5) ;
 	virtual void  onGeolocationPermissionsHidePrompt() ;

@@ -109,8 +109,8 @@ public:
 	virtual int  compareTo(AndroidCXX::android_content_res_Configuration const& arg0) ;
 	virtual int  describeContents() ;
 	virtual int  diff(AndroidCXX::android_content_res_Configuration const& arg0) ;
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual bool  equals(AndroidCXX::android_content_res_Configuration const& arg0) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual int  getLayoutDirection() ;
 	virtual int  hashCode() ;
 	virtual bool  isLayoutSizeAtLeast(int const& arg0) ;
@@ -118,8 +118,8 @@ public:
 	virtual void  readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
 	virtual void  setLayoutDirection(AndroidCXX::java_util_Locale const& arg0) ;
 	virtual void  setLocale(AndroidCXX::java_util_Locale const& arg0) ;
-	virtual void  setTo(AndroidCXX::android_content_res_Configuration const& arg0) ;
 	virtual void  setToDefaults() ;
+	virtual void  setTo(AndroidCXX::android_content_res_Configuration const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual int  updateFrom(AndroidCXX::android_content_res_Configuration const& arg0) ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;

@@ -11,8 +11,8 @@
 
 	
  		 
- 		 
 	
+ 		 
  		 
 	
  		 
@@ -79,8 +79,8 @@ class android_view_View;
 
 class android_content_Context;
 
-class java_lang_CharSequence;
 
+class java_lang_CharSequence;
 
 class android_widget_Toast 
 {
@@ -102,13 +102,13 @@ public:
 	virtual AndroidCXX::android_view_View * getView() ;
 	virtual int  getXOffset() ;
 	virtual int  getYOffset() ;
-	static AndroidCXX::android_widget_Toast * makeText(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2) ;
 	static AndroidCXX::android_widget_Toast * makeText(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2) ;
+	static AndroidCXX::android_widget_Toast * makeText(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2) ;
 	virtual void  setDuration(int const& arg0) ;
 	virtual void  setGravity(int const& arg0,int const& arg1,int const& arg2) ;
 	virtual void  setMargin(float const& arg0,float const& arg1) ;
-	virtual void  setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setText(int const& arg0) ;
+	virtual void  setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setView(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  show() ;
 

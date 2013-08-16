@@ -15,8 +15,8 @@
 	
 	
 	
- 		 
 	
+ 		 
 	
 
 
@@ -93,8 +93,8 @@ class java_lang_Double : public java_lang_Comparable
 public:
 
 	// Public ConstrucXXX
-	java_lang_Double(AndroidCXX::java_lang_String const& arg0);
 	java_lang_Double(double const& arg0);
+	java_lang_Double(AndroidCXX::java_lang_String const& arg0);
 	java_lang_Double(const java_lang_Double& cc);
 	java_lang_Double(Proxy proxy);
 	Proxy proxy() const;	
@@ -111,8 +111,8 @@ public:
 	virtual float  floatValue() ;
 	virtual int  hashCode() ;
 	virtual int  intValue() ;
-	virtual bool  isInfinite() ;
 	static bool  isInfinite(double const& arg0) ;
+	virtual bool  isInfinite() ;
 	static bool  isNaN(double const& arg0) ;
 	virtual bool  isNaN() ;
 	static double  longBitsToDouble(long const& arg0) ;
@@ -122,8 +122,8 @@ public:
 	static AndroidCXX::java_lang_String * toHexString(double const& arg0) ;
 	static AndroidCXX::java_lang_String * toString(double const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
-	static AndroidCXX::java_lang_Double * valueOf(AndroidCXX::java_lang_String const& arg0) ;
 	static AndroidCXX::java_lang_Double * valueOf(double const& arg0) ;
+	static AndroidCXX::java_lang_Double * valueOf(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
 

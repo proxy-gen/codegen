@@ -85,10 +85,10 @@ public:
 	virtual int  getResultCode() ;
 	virtual AndroidCXX::java_lang_String * getResultData() ;
 	virtual AndroidCXX::android_os_Bundle * getResultExtras(bool const& arg0) ;
-	virtual void  setResult(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
 	virtual void  setResultCode(int const& arg0) ;
 	virtual void  setResultData(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setResultExtras(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual void  setResult(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
 
 protected:
 

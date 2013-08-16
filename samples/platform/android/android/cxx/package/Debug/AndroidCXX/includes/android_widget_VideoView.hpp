@@ -148,9 +148,9 @@ class android_widget_VideoView : public android_widget_MediaController_MediaPlay
 public:
 
 	// Public ConstrucXXX
-	android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_VideoView(AndroidCXX::android_content_Context const& arg0);
 	android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_VideoView(const android_widget_VideoView& cc);
 	android_widget_VideoView(Proxy proxy);
 	Proxy proxy() const;	

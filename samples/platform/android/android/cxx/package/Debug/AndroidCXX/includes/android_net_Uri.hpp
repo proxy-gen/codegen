@@ -13,8 +13,8 @@
  		 
 	
  		 
-	
  		 
+	
  		 
 	
  		 
@@ -41,15 +41,15 @@
  	
  		 
 	
- 		 
-	
-	
  	
  		 
  		 
 	
+ 		 
+	
  	
  		 
+	
 	
 	
 	
@@ -156,8 +156,8 @@ public:
 	// Functions
 	virtual int  compareTo(AndroidCXX::android_net_Uri const& arg0) ;
 	static AndroidCXX::java_lang_String * decode(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::java_lang_String * encode(AndroidCXX::java_lang_String const& arg0) ;
 	static AndroidCXX::java_lang_String * encode(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	static AndroidCXX::java_lang_String * encode(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	static AndroidCXX::android_net_Uri * fromFile(AndroidCXX::java_io_File const& arg0) ;
 	static AndroidCXX::android_net_Uri * fromParts(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) ;
@@ -176,10 +176,10 @@ public:
 	virtual AndroidCXX::java_lang_String * getPath() ;
 	virtual AndroidCXX::java_util_List * getPathSegments() ;
 	virtual int  getPort() ;
-	virtual AndroidCXX::java_lang_String * getQuery() ;
-	virtual AndroidCXX::java_lang_String * getQueryParameter(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_util_Set * getQueryParameterNames() ;
+	virtual AndroidCXX::java_lang_String * getQueryParameter(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_util_List * getQueryParameters(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getQuery() ;
 	virtual AndroidCXX::java_lang_String * getScheme() ;
 	virtual AndroidCXX::java_lang_String * getSchemeSpecificPart() ;
 	virtual AndroidCXX::java_lang_String * getUserInfo() ;

@@ -159,11 +159,11 @@ public:
 	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  onTouchModeChanged(bool const& arg0) ;
 	virtual void  sendAccessibilityEvent(int const& arg0) ;
-	virtual void  setCurrentTab(int const& arg0) ;
 	virtual void  setCurrentTabByTag(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setCurrentTab(int const& arg0) ;
 	virtual void  setOnTabChangedListener(AndroidCXX::android_widget_TabHost_OnTabChangeListener const& arg0) ;
-	virtual void  setup() ;
 	virtual void  setup(AndroidCXX::android_app_LocalActivityManager const& arg0) ;
+	virtual void  setup() ;
 
 protected:
 
