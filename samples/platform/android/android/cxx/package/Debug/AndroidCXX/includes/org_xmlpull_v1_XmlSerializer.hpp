@@ -13,7 +13,32 @@
  		 
  		 
 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 	
+ 		 
+ 		 
+	
+	
+ 		 
+	
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
  		 
  		 
 	
@@ -21,31 +46,6 @@
 	
  	
 	
- 		 
- 		 
-	
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
-	
- 		 
- 		 
-	
- 		 
- 		 
- 		 
- 		 
- 		 
 
 
 
@@ -126,31 +126,31 @@ public:
 	// Default Destructor
 	virtual ~org_xmlpull_v1_XmlSerializer();
 	// Functions
-	virtual void  setProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
-	virtual AndroidCXX::java_lang_Object * getProperty(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getName() ;
-	virtual void  flush() ;
+	virtual AndroidCXX::org_xmlpull_v1_XmlSerializer * attribute(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) ;
+	virtual void  cdsect(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  comment(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getPrefix(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
-	virtual AndroidCXX::org_xmlpull_v1_XmlSerializer * text(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::org_xmlpull_v1_XmlSerializer * text(std::vector<char> const& arg0,int const& arg1,int const& arg2) ;
-	virtual void  setFeature(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
-	virtual bool  getFeature(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getNamespace() ;
+	virtual void  docdecl(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  endDocument() ;
+	virtual AndroidCXX::org_xmlpull_v1_XmlSerializer * endTag(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  entityRef(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  flush() ;
 	virtual int  getDepth() ;
+	virtual bool  getFeature(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+	virtual AndroidCXX::java_lang_String * getNamespace() ;
+	virtual AndroidCXX::java_lang_String * getPrefix(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
+	virtual AndroidCXX::java_lang_Object * getProperty(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  ignorableWhitespace(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  processingInstruction(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setFeature(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
 	virtual void  setOutput(AndroidCXX::java_io_OutputStream const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual void  setOutput(AndroidCXX::java_io_Writer const& arg0) ;
-	virtual void  startDocument(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Boolean const& arg1) ;
-	virtual void  endDocument() ;
 	virtual void  setPrefix(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  setProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual void  startDocument(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Boolean const& arg1) ;
 	virtual AndroidCXX::org_xmlpull_v1_XmlSerializer * startTag(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual AndroidCXX::org_xmlpull_v1_XmlSerializer * attribute(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) ;
-	virtual AndroidCXX::org_xmlpull_v1_XmlSerializer * endTag(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual void  cdsect(AndroidCXX::java_lang_String const& arg0) ;
-	virtual void  entityRef(AndroidCXX::java_lang_String const& arg0) ;
-	virtual void  processingInstruction(AndroidCXX::java_lang_String const& arg0) ;
-	virtual void  docdecl(AndroidCXX::java_lang_String const& arg0) ;
-	virtual void  ignorableWhitespace(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::org_xmlpull_v1_XmlSerializer * text(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::org_xmlpull_v1_XmlSerializer * text(std::vector<char> const& arg0,int const& arg1,int const& arg2) ;
 
 protected:
 	org_xmlpull_v1_XmlSerializer();

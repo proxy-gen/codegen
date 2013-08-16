@@ -9,10 +9,10 @@
 
 
 
- 		 
+	
  		 
 	
-	
+ 		 
  		 
 
 
@@ -82,12 +82,12 @@ public:
 	// Default Destructor
 	virtual ~android_graphics_Picture();
 	// Functions
-	virtual int  getWidth() ;
-	virtual int  getHeight() ;
-	virtual void  draw(AndroidCXX::android_graphics_Canvas const& arg0) ;
-	static AndroidCXX::android_graphics_Picture * createFromStream(AndroidCXX::java_io_InputStream const& arg0) ;
 	virtual AndroidCXX::android_graphics_Canvas * beginRecording(int const& arg0,int const& arg1) ;
+	static AndroidCXX::android_graphics_Picture * createFromStream(AndroidCXX::java_io_InputStream const& arg0) ;
+	virtual void  draw(AndroidCXX::android_graphics_Canvas const& arg0) ;
 	virtual void  endRecording() ;
+	virtual int  getHeight() ;
+	virtual int  getWidth() ;
 	virtual void  writeToStream(AndroidCXX::java_io_OutputStream const& arg0) ;
 
 protected:

@@ -10,9 +10,9 @@
 
 
 	
+	
+	
  		 
-	
-	
 
 
  		 
@@ -38,11 +38,11 @@
 //
 
 
+#include <java_lang_CharSequence.hpp>
+
 #include <java_lang_String.hpp>
 
 #include <android_os_Parcel.hpp>
-
-#include <java_lang_CharSequence.hpp>
 
 
 #include <android_os_Parcelable.hpp>
@@ -63,11 +63,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_lang_CharSequence;
+
 class java_lang_String;
 
 class android_os_Parcel;
-
-class java_lang_CharSequence;
 
 class android_view_inputmethod_CorrectionInfo : public android_os_Parcelable
 {
@@ -81,12 +81,12 @@ public:
 	// Default Destructor
 	virtual ~android_view_inputmethod_CorrectionInfo();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  getOffset() ;
 	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual AndroidCXX::java_lang_CharSequence * getOldText() ;
 	virtual AndroidCXX::java_lang_CharSequence * getNewText() ;
+	virtual int  getOffset() ;
+	virtual AndroidCXX::java_lang_CharSequence * getOldText() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

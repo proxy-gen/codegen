@@ -9,17 +9,17 @@
 
 
 
-	
+ 		 
  		 
 	
+ 	
  		 
+	
+	
  		 
  	
  		 
 	
- 		 
-	
- 	
  		 
 
 
@@ -66,12 +66,12 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
 
 class java_lang_Object;
 
-
 class java_lang_Class;
+
+class java_lang_String;
 
 class java_lang_Enum : public java_io_Serializable,public java_lang_Comparable
 {
@@ -83,14 +83,14 @@ public:
 	// Default Destructor
 	virtual ~java_lang_Enum();
 	// Functions
-	virtual AndroidCXX::java_lang_String * name() ;
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
 	virtual int  compareTo(AndroidCXX::java_lang_Enum const& arg0) ;
-	static AndroidCXX::java_lang_Enum * valueOf(AndroidCXX::java_lang_Class const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_lang_Class * getDeclaringClass() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * name() ;
 	virtual int  ordinal() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	static AndroidCXX::java_lang_Enum * valueOf(AndroidCXX::java_lang_Class const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 
 protected:
 	java_lang_Enum();

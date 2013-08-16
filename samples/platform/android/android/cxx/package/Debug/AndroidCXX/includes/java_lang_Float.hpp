@@ -10,14 +10,14 @@
 
 
  		 
-	
-	
  		 
  		 
 	
 	
 	
  		 
+	
+	
 
 
  		 
@@ -84,48 +84,48 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+
 class java_lang_Object;
 
 class java_lang_String;
-
 
 class java_lang_Float : public java_lang_Comparable
 {
 public:
 
 	// Public ConstrucXXX
-	java_lang_Float(float const& arg0);
-	java_lang_Float(AndroidCXX::java_lang_String const& arg0);
 	java_lang_Float(double const& arg0);
+	java_lang_Float(AndroidCXX::java_lang_String const& arg0);
+	java_lang_Float(float const& arg0);
 	java_lang_Float(const java_lang_Float& cc);
 	java_lang_Float(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Float();
 	// Functions
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	static AndroidCXX::java_lang_String * toString(float const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
-	static int  floatToRawIntBits(float const& arg0) ;
-	static int  floatToIntBits(float const& arg0) ;
-	static float  intBitsToFloat(int const& arg0) ;
-	virtual int  compareTo(AndroidCXX::java_lang_Float const& arg0) ;
 	virtual byte  byteValue() ;
-	virtual short  shortValue() ;
-	virtual int  intValue() ;
-	virtual long  longValue() ;
-	virtual float  floatValue() ;
-	virtual double  doubleValue() ;
-	static AndroidCXX::java_lang_Float * valueOf(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::java_lang_Float * valueOf(float const& arg0) ;
-	static AndroidCXX::java_lang_String * toHexString(float const& arg0) ;
 	static int  compare(float const& arg0,float const& arg1) ;
-	static bool  isNaN(float const& arg0) ;
-	virtual bool  isNaN() ;
-	static float  parseFloat(AndroidCXX::java_lang_String const& arg0) ;
+	virtual int  compareTo(AndroidCXX::java_lang_Float const& arg0) ;
+	virtual double  doubleValue() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	static int  floatToIntBits(float const& arg0) ;
+	static int  floatToRawIntBits(float const& arg0) ;
+	virtual float  floatValue() ;
+	virtual int  hashCode() ;
+	static float  intBitsToFloat(int const& arg0) ;
+	virtual int  intValue() ;
 	virtual bool  isInfinite() ;
 	static bool  isInfinite(float const& arg0) ;
+	static bool  isNaN(float const& arg0) ;
+	virtual bool  isNaN() ;
+	virtual long  longValue() ;
+	static float  parseFloat(AndroidCXX::java_lang_String const& arg0) ;
+	virtual short  shortValue() ;
+	static AndroidCXX::java_lang_String * toHexString(float const& arg0) ;
+	static AndroidCXX::java_lang_String * toString(float const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	static AndroidCXX::java_lang_Float * valueOf(AndroidCXX::java_lang_String const& arg0) ;
+	static AndroidCXX::java_lang_Float * valueOf(float const& arg0) ;
 
 protected:
 

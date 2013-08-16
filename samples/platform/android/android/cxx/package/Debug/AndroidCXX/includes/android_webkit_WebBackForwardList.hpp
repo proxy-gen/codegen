@@ -67,10 +67,10 @@ public:
 	// Default Destructor
 	virtual ~android_webkit_WebBackForwardList();
 	// Functions
-	virtual int  getSize() ;
-	virtual AndroidCXX::android_webkit_WebHistoryItem * getCurrentItem() ;
 	virtual int  getCurrentIndex() ;
+	virtual AndroidCXX::android_webkit_WebHistoryItem * getCurrentItem() ;
 	virtual AndroidCXX::android_webkit_WebHistoryItem * getItemAtIndex(int const& arg0) ;
+	virtual int  getSize() ;
 
 protected:
 

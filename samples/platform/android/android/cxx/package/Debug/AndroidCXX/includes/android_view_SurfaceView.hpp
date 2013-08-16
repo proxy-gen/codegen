@@ -43,9 +43,9 @@
 //
 
 
-#include <android_graphics_Region.hpp>
-
 #include <android_graphics_Canvas.hpp>
+
+#include <android_graphics_Region.hpp>
 
 #include <android_view_SurfaceHolder.hpp>
 
@@ -72,9 +72,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_graphics_Region;
-
 class android_graphics_Canvas;
+
+class android_graphics_Region;
 
 class android_view_SurfaceHolder;
 
@@ -96,13 +96,13 @@ public:
 	// Default Destructor
 	virtual ~android_view_SurfaceView();
 	// Functions
-	virtual bool  gatherTransparentRegion(AndroidCXX::android_graphics_Region const& arg0) ;
-	virtual void  setVisibility(int const& arg0) ;
 	virtual void  draw(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual bool  gatherTransparentRegion(AndroidCXX::android_graphics_Region const& arg0) ;
 	virtual AndroidCXX::android_view_SurfaceHolder * getHolder() ;
+	virtual void  setSecure(bool const& arg0) ;
+	virtual void  setVisibility(int const& arg0) ;
 	virtual void  setZOrderMediaOverlay(bool const& arg0) ;
 	virtual void  setZOrderOnTop(bool const& arg0) ;
-	virtual void  setSecure(bool const& arg0) ;
 
 protected:
 

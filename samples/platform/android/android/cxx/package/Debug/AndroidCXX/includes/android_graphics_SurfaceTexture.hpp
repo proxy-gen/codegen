@@ -9,8 +9,8 @@
 
 
 
- 		 
  	
+ 		 
 
 
 
@@ -69,14 +69,14 @@ public:
 	// Default Destructor
 	virtual ~android_graphics_SurfaceTexture();
 	// Functions
-	virtual void  release() ;
-	virtual long  getTimestamp() ;
-	virtual void  setOnFrameAvailableListener(AndroidCXX::android_graphics_SurfaceTexture_OnFrameAvailableListener const& arg0) ;
-	virtual void  setDefaultBufferSize(int const& arg0,int const& arg1) ;
-	virtual void  updateTexImage() ;
-	virtual void  detachFromGLContext() ;
 	virtual void  attachToGLContext(int const& arg0) ;
+	virtual void  detachFromGLContext() ;
+	virtual long  getTimestamp() ;
 	virtual void  getTransformMatrix(std::vector<float> const& arg0) ;
+	virtual void  release() ;
+	virtual void  setDefaultBufferSize(int const& arg0,int const& arg1) ;
+	virtual void  setOnFrameAvailableListener(AndroidCXX::android_graphics_SurfaceTexture_OnFrameAvailableListener const& arg0) ;
+	virtual void  updateTexImage() ;
 
 protected:
 

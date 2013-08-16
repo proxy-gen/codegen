@@ -11,9 +11,6 @@
 
 	
 	
-	
- 		 
-	
  	
 	
 	
@@ -22,6 +19,9 @@
  	
  		 
 	
+	
+	
+ 		 
 
 
 
@@ -56,8 +56,6 @@
 
 #include <java_lang_String.hpp>
 
-#include <android_os_Parcel.hpp>
-
 #include <android_view_KeyCharacterMap.hpp>
 
 #include <android_view_InputDevice_MotionRange.hpp>
@@ -65,6 +63,8 @@
 #include <java_util_List.hpp>
 
 #include <android_os_Vibrator.hpp>
+
+#include <android_os_Parcel.hpp>
 
 
 #include <android_os_Parcelable.hpp>
@@ -87,8 +87,6 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_os_Parcel;
-
 
 class android_view_KeyCharacterMap;
 
@@ -97,6 +95,8 @@ class android_view_InputDevice_MotionRange;
 class java_util_List;
 
 class android_os_Vibrator;
+
+class android_os_Parcel;
 
 class android_view_InputDevice : public android_os_Parcelable
 {
@@ -109,22 +109,22 @@ public:
 	// Default Destructor
 	virtual ~android_view_InputDevice();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual AndroidCXX::java_lang_String * getName() ;
-	virtual AndroidCXX::java_lang_String * getDescriptor() ;
-	virtual int  getId() ;
 	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual bool  isVirtual() ;
+	virtual AndroidCXX::java_lang_String * getDescriptor() ;
 	static AndroidCXX::android_view_InputDevice * getDevice(int const& arg0) ;
 	static std::vector<int>  getDeviceIds() ;
-	virtual int  getSources() ;
-	virtual int  getKeyboardType() ;
+	virtual int  getId() ;
 	virtual AndroidCXX::android_view_KeyCharacterMap * getKeyCharacterMap() ;
-	virtual AndroidCXX::android_view_InputDevice_MotionRange * getMotionRange(int const& arg0) ;
+	virtual int  getKeyboardType() ;
 	virtual AndroidCXX::android_view_InputDevice_MotionRange * getMotionRange(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::android_view_InputDevice_MotionRange * getMotionRange(int const& arg0) ;
 	virtual AndroidCXX::java_util_List * getMotionRanges() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+	virtual int  getSources() ;
 	virtual AndroidCXX::android_os_Vibrator * getVibrator() ;
+	virtual bool  isVirtual() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

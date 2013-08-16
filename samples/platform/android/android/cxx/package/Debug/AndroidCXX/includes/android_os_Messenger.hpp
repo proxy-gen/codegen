@@ -10,13 +10,13 @@
 
 
  		 
- 		 
+	
  		 
 	
  		 
  		 
  		 
-	
+ 		 
 
 
  		 
@@ -47,11 +47,11 @@
 
 #include <java_lang_Object.hpp>
 
-#include <android_os_Message.hpp>
+#include <android_os_IBinder.hpp>
 
 #include <android_os_Parcel.hpp>
 
-#include <android_os_IBinder.hpp>
+#include <android_os_Message.hpp>
 
 #include <android_os_Handler.hpp>
 
@@ -76,12 +76,12 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class android_os_Message;
+class android_os_IBinder;
 
 class android_os_Parcel;
 
-class android_os_IBinder;
 
+class android_os_Message;
 
 class android_os_Handler;
 
@@ -90,22 +90,22 @@ class android_os_Messenger : public android_os_Parcelable
 public:
 
 	// Public ConstrucXXX
-	android_os_Messenger(AndroidCXX::android_os_Handler const& arg0);
 	android_os_Messenger(AndroidCXX::android_os_IBinder const& arg0);
+	android_os_Messenger(AndroidCXX::android_os_Handler const& arg0);
 	android_os_Messenger(const android_os_Messenger& cc);
 	android_os_Messenger(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Messenger();
 	// Functions
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual int  hashCode() ;
-	virtual void  send(AndroidCXX::android_os_Message const& arg0) ;
 	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::android_os_IBinder * getBinder() ;
-	static void  writeMessengerOrNullToParcel(AndroidCXX::android_os_Messenger const& arg0,AndroidCXX::android_os_Parcel const& arg1) ;
+	virtual int  hashCode() ;
 	static AndroidCXX::android_os_Messenger * readMessengerOrNullFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
+	virtual void  send(AndroidCXX::android_os_Message const& arg0) ;
+	static void  writeMessengerOrNullToParcel(AndroidCXX::android_os_Messenger const& arg0,AndroidCXX::android_os_Parcel const& arg1) ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

@@ -9,16 +9,16 @@
 
 
 
+	
+	
+	
+ 		 
+ 		 
  		 
  		 
 	
  		 
  		 
-	
- 		 
-	
- 		 
-	
  		 
  		 
 
@@ -73,17 +73,17 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_lang_String;
+
+class android_os_Bundle;
+
+class android_content_BroadcastReceiver_PendingResult;
+
 class android_content_Context;
 
 class android_content_Intent;
 
-class android_content_BroadcastReceiver_PendingResult;
-
 class android_os_IBinder;
-
-class java_lang_String;
-
-class android_os_Bundle;
 
 class android_content_BroadcastReceiver 
 {
@@ -95,24 +95,24 @@ public:
 	// Default Destructor
 	virtual ~android_content_BroadcastReceiver();
 	// Functions
-	virtual void  onReceive(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_Intent const& arg1) ;
-	virtual AndroidCXX::android_content_BroadcastReceiver_PendingResult * goAsync() ;
-	virtual AndroidCXX::android_os_IBinder * peekService(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_Intent const& arg1) ;
-	virtual void  setResultCode(int const& arg0) ;
-	virtual int  getResultCode() ;
-	virtual void  setResultData(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getResultData() ;
-	virtual void  setResultExtras(AndroidCXX::android_os_Bundle const& arg0) ;
-	virtual AndroidCXX::android_os_Bundle * getResultExtras(bool const& arg0) ;
-	virtual void  setResult(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
-	virtual bool  getAbortBroadcast() ;
 	virtual void  abortBroadcast() ;
 	virtual void  clearAbortBroadcast() ;
-	virtual bool  isOrderedBroadcast() ;
-	virtual bool  isInitialStickyBroadcast() ;
-	virtual void  setOrderedHint(bool const& arg0) ;
-	virtual void  setDebugUnregister(bool const& arg0) ;
+	virtual bool  getAbortBroadcast() ;
 	virtual bool  getDebugUnregister() ;
+	virtual int  getResultCode() ;
+	virtual AndroidCXX::java_lang_String * getResultData() ;
+	virtual AndroidCXX::android_os_Bundle * getResultExtras(bool const& arg0) ;
+	virtual AndroidCXX::android_content_BroadcastReceiver_PendingResult * goAsync() ;
+	virtual bool  isInitialStickyBroadcast() ;
+	virtual bool  isOrderedBroadcast() ;
+	virtual void  onReceive(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_Intent const& arg1) ;
+	virtual AndroidCXX::android_os_IBinder * peekService(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_Intent const& arg1) ;
+	virtual void  setDebugUnregister(bool const& arg0) ;
+	virtual void  setOrderedHint(bool const& arg0) ;
+	virtual void  setResult(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
+	virtual void  setResultCode(int const& arg0) ;
+	virtual void  setResultData(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setResultExtras(AndroidCXX::android_os_Bundle const& arg0) ;
 
 protected:
 	android_content_BroadcastReceiver();

@@ -10,11 +10,11 @@
 
 
  		 
- 		 
- 		 
+	
 	
  		 
-	
+ 		 
+ 		 
 
 
  		 
@@ -42,17 +42,17 @@
 //
 
 
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
 #include <android_util_AttributeSet.hpp>
 
 #include <android_widget_TableRow_LayoutParams.hpp>
 
-#include <android_view_ViewGroup_OnHierarchyChangeListener.hpp>
-
 #include <android_view_View.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_view_ViewGroup_OnHierarchyChangeListener.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -75,17 +75,17 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_accessibility_AccessibilityEvent;
-
-class android_view_accessibility_AccessibilityNodeInfo;
-
 class android_util_AttributeSet;
 
 class android_widget_TableRow_LayoutParams;
 
-class android_view_ViewGroup_OnHierarchyChangeListener;
-
 class android_view_View;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_view_ViewGroup_OnHierarchyChangeListener;
 
 class android_content_Context;
 
@@ -102,12 +102,12 @@ public:
 	// Default Destructor
 	virtual ~android_widget_TableRow();
 	// Functions
-	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual AndroidCXX::android_widget_TableRow_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
-	virtual void  setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0) ;
 	virtual AndroidCXX::android_view_View * getVirtualChildAt(int const& arg0) ;
 	virtual int  getVirtualChildCount() ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0) ;
 
 protected:
 

@@ -48,8 +48,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
 
+class java_lang_String;
 
 class java_nio_ByteOrder 
 {
@@ -62,8 +62,8 @@ public:
 	// Default Destructor
 	virtual ~java_nio_ByteOrder();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
 	static AndroidCXX::java_nio_ByteOrder * nativeOrder() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 

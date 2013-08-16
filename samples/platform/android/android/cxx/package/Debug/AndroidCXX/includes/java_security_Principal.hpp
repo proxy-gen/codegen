@@ -65,9 +65,9 @@ public:
 	virtual ~java_security_Principal();
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
 	virtual AndroidCXX::java_lang_String * getName() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 	java_security_Principal();

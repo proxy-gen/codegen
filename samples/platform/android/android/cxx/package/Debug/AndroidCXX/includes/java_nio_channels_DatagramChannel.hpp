@@ -9,25 +9,25 @@
 
 
 
+ 		 
+	
+	
+	
  	
  		 
  		 
  	
  		 
  		 
+	
+ 		 
+ 		 
+	
+ 	
+ 		 
  		 
  	
  		 
- 	
- 		 
- 		 
-	
- 		 
-	
-	
-	
- 		 
-	
 
 
 
@@ -81,10 +81,10 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_ByteBuffer;
-
 class java_net_SocketAddress;
 
+
+class java_nio_ByteBuffer;
 
 class java_net_DatagramSocket;
 
@@ -98,20 +98,20 @@ public:
 	// Default Destructor
 	virtual ~java_nio_channels_DatagramChannel();
 	// Functions
+	virtual AndroidCXX::java_nio_channels_DatagramChannel * connect(AndroidCXX::java_net_SocketAddress const& arg0) ;
+	virtual AndroidCXX::java_nio_channels_DatagramChannel * disconnect() ;
+	virtual bool  isConnected() ;
+	static AndroidCXX::java_nio_channels_DatagramChannel * open() ;
+	virtual long  read(std::vector<java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
+	virtual int  read(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
+	virtual long  read(std::vector<java_nio_ByteBuffer> const& arg0) ;
+	virtual AndroidCXX::java_net_SocketAddress * receive(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
+	virtual int  send(AndroidCXX::java_nio_ByteBuffer const& arg0,AndroidCXX::java_net_SocketAddress const& arg1) ;
+	virtual AndroidCXX::java_net_DatagramSocket * socket() ;
+	virtual int  validOps() ;
 	virtual long  write(std::vector<java_nio_ByteBuffer> const& arg0) ;
 	virtual int  write(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
 	virtual long  write(std::vector<java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
-	virtual int  send(AndroidCXX::java_nio_ByteBuffer const& arg0,AndroidCXX::java_net_SocketAddress const& arg1) ;
-	virtual long  read(std::vector<java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
-	virtual long  read(std::vector<java_nio_ByteBuffer> const& arg0) ;
-	virtual int  read(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
-	static AndroidCXX::java_nio_channels_DatagramChannel * open() ;
-	virtual AndroidCXX::java_nio_channels_DatagramChannel * connect(AndroidCXX::java_net_SocketAddress const& arg0) ;
-	virtual AndroidCXX::java_net_DatagramSocket * socket() ;
-	virtual AndroidCXX::java_nio_channels_DatagramChannel * disconnect() ;
-	virtual bool  isConnected() ;
-	virtual AndroidCXX::java_net_SocketAddress * receive(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
-	virtual int  validOps() ;
 
 protected:
 	java_nio_channels_DatagramChannel();

@@ -11,30 +11,23 @@
 
  		 
  		 
+ 		 
+ 	
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
+ 		 
+ 	
+ 		 
+ 		 
 	
- 		 
- 		 
- 		 
- 		 
- 		 
- 	
- 		 
- 		 
- 	
- 		 
- 	
- 	
- 		 
- 		 
- 	
  		 
 	
  	
  		 
-	
  		 
- 		 
-	
 	
  	
  		 
@@ -42,12 +35,19 @@
  	
  		 
 	
- 	
  		 
  		 
  	
  		 
  		 
+ 	
+ 		 
+ 		 
+	
+	
+ 	
+ 		 
+ 	
  	
  		 
  		 
@@ -133,29 +133,29 @@ public:
 	// Functions
 	virtual void  add(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual bool  add(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_Object * get(int const& arg0) ;
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual int  hashCode() ;
-	virtual int  indexOf(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual void  clear() ;
-	virtual bool  isEmpty() ;
-	virtual int  lastIndexOf(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual bool  contains(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual bool  addAll(int const& arg0,AndroidCXX::java_util_Collection const& arg1) ;
 	virtual bool  addAll(AndroidCXX::java_util_Collection const& arg0) ;
-	virtual int  size() ;
-	virtual std::vector<java_lang_Object>  toArray(std::vector<java_lang_Object> const& arg0) ;
-	virtual std::vector<java_lang_Object>  toArray() ;
+	virtual void  clear() ;
+	virtual bool  contains(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual bool  containsAll(AndroidCXX::java_util_Collection const& arg0) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * get(int const& arg0) ;
+	virtual int  hashCode() ;
+	virtual int  indexOf(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual bool  isEmpty() ;
 	virtual AndroidCXX::java_util_Iterator * iterator() ;
-	virtual AndroidCXX::java_lang_Object * remove(int const& arg0) ;
-	virtual bool  remove(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_Object * set(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual int  lastIndexOf(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_util_ListIterator * listIterator(int const& arg0) ;
 	virtual AndroidCXX::java_util_ListIterator * listIterator() ;
-	virtual AndroidCXX::java_util_List * subList(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::java_lang_Object * remove(int const& arg0) ;
+	virtual bool  remove(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual bool  removeAll(AndroidCXX::java_util_Collection const& arg0) ;
-	virtual bool  containsAll(AndroidCXX::java_util_Collection const& arg0) ;
 	virtual bool  retainAll(AndroidCXX::java_util_Collection const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * set(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual int  size() ;
+	virtual AndroidCXX::java_util_List * subList(int const& arg0,int const& arg1) ;
+	virtual std::vector<java_lang_Object>  toArray(std::vector<java_lang_Object> const& arg0) ;
+	virtual std::vector<java_lang_Object>  toArray() ;
 
 protected:
 	java_util_List();

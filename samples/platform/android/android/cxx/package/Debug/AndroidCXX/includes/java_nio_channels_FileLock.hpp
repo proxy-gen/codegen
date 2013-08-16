@@ -52,9 +52,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 class java_nio_channels_FileChannel;
+
+class java_lang_String;
 
 class java_nio_channels_FileLock 
 {
@@ -66,14 +66,14 @@ public:
 	// Default Destructor
 	virtual ~java_nio_channels_FileLock();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual long  size() ;
-	virtual long  position() ;
-	virtual void  release() ;
 	virtual AndroidCXX::java_nio_channels_FileChannel * channel() ;
 	virtual bool  isShared() ;
 	virtual bool  isValid() ;
 	virtual bool  overlaps(long const& arg0,long const& arg1) ;
+	virtual long  position() ;
+	virtual void  release() ;
+	virtual long  size() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 	java_nio_channels_FileLock();

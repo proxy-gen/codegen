@@ -9,31 +9,31 @@
 
 
 
-	
-	
- 		 
-	
  		 
  	
 	
- 		 
  		 
  	
  		 
  	
  		 
+	
+	
+	
+	
+ 		 
+	
  	
  		 
+	
+	
+	
+ 		 
  	
  		 
  		 
-	
-	
-	
-	
-	
-	
  		 
+	
 
 
 
@@ -68,11 +68,11 @@
 //
 
 
-#include <java_lang_String.hpp>
-
 #include <java_lang_Class.hpp>
 
 #include <java_lang_annotation_Annotation.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <java_net_URL.hpp>
 
@@ -95,12 +95,12 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
-
 class java_lang_Class;
 
 class java_lang_annotation_Annotation;
+
+class java_lang_String;
+
 
 class java_net_URL;
 
@@ -115,24 +115,24 @@ public:
 	// Default Destructor
 	virtual ~java_lang_Package();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
-	virtual AndroidCXX::java_lang_String * getName() ;
-	static AndroidCXX::java_lang_Package * getPackage(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_annotation_Annotation * getAnnotation(AndroidCXX::java_lang_Class const& arg0) ;
-	virtual bool  isAnnotationPresent(AndroidCXX::java_lang_Class const& arg0) ;
 	virtual std::vector<java_lang_annotation_Annotation>  getAnnotations() ;
 	virtual std::vector<java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
+	virtual AndroidCXX::java_lang_String * getImplementationTitle() ;
+	virtual AndroidCXX::java_lang_String * getImplementationVendor() ;
+	virtual AndroidCXX::java_lang_String * getImplementationVersion() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+	static AndroidCXX::java_lang_Package * getPackage(AndroidCXX::java_lang_String const& arg0) ;
 	static std::vector<java_lang_Package>  getPackages() ;
+	virtual AndroidCXX::java_lang_String * getSpecificationTitle() ;
+	virtual AndroidCXX::java_lang_String * getSpecificationVendor() ;
+	virtual AndroidCXX::java_lang_String * getSpecificationVersion() ;
+	virtual int  hashCode() ;
+	virtual bool  isAnnotationPresent(AndroidCXX::java_lang_Class const& arg0) ;
+	virtual bool  isCompatibleWith(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  isSealed() ;
 	virtual bool  isSealed(AndroidCXX::java_net_URL const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getSpecificationTitle() ;
-	virtual AndroidCXX::java_lang_String * getSpecificationVersion() ;
-	virtual AndroidCXX::java_lang_String * getSpecificationVendor() ;
-	virtual AndroidCXX::java_lang_String * getImplementationTitle() ;
-	virtual AndroidCXX::java_lang_String * getImplementationVersion() ;
-	virtual AndroidCXX::java_lang_String * getImplementationVendor() ;
-	virtual bool  isCompatibleWith(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 

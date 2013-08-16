@@ -98,19 +98,19 @@ public:
 	// Default Destructor
 	virtual ~android_widget_AdapterViewFlipper();
 	// Functions
-	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
-	virtual void  setFlipInterval(int const& arg0) ;
-	virtual void  startFlipping() ;
-	virtual void  stopFlipping() ;
-	virtual bool  isFlipping() ;
-	virtual void  setAutoStart(bool const& arg0) ;
-	virtual bool  isAutoStart() ;
-	virtual void  showNext() ;
-	virtual void  showPrevious() ;
-	virtual void  setAdapter(AndroidCXX::android_widget_Adapter const& arg0) ;
 	virtual void  fyiWillBeAdvancedByHostKThx() ;
 	virtual int  getFlipInterval() ;
+	virtual bool  isAutoStart() ;
+	virtual bool  isFlipping() ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  setAdapter(AndroidCXX::android_widget_Adapter const& arg0) ;
+	virtual void  setAutoStart(bool const& arg0) ;
+	virtual void  setFlipInterval(int const& arg0) ;
+	virtual void  showNext() ;
+	virtual void  showPrevious() ;
+	virtual void  startFlipping() ;
+	virtual void  stopFlipping() ;
 
 protected:
 

@@ -9,12 +9,12 @@
 
 
 
- 		 
- 		 
+	
  		 
  		 
 	
-	
+ 		 
+ 		 
 
 
 
@@ -60,12 +60,12 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_database_DataSetObserver;
 
 class android_view_View;
 
 class android_view_ViewGroup;
 
+class android_database_DataSetObserver;
 
 class android_widget_Adapter : public java_lang_Object
 {
@@ -77,16 +77,16 @@ public:
 	// Default Destructor
 	virtual ~android_widget_Adapter();
 	// Functions
-	virtual bool  isEmpty() ;
 	virtual int  getCount() ;
-	virtual void  registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
-	virtual void  unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
-	virtual AndroidCXX::android_view_View * getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
 	virtual AndroidCXX::java_lang_Object * getItem(int const& arg0) ;
 	virtual long  getItemId(int const& arg0) ;
-	virtual bool  hasStableIds() ;
 	virtual int  getItemViewType(int const& arg0) ;
+	virtual AndroidCXX::android_view_View * getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
 	virtual int  getViewTypeCount() ;
+	virtual bool  hasStableIds() ;
+	virtual bool  isEmpty() ;
+	virtual void  registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
+	virtual void  unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
 
 protected:
 	android_widget_Adapter();

@@ -9,9 +9,17 @@
 
 
 
+	
+ 	
+	
+	
+ 		 
+	
+ 		 
  	
 	
  	
+	
 	
  		 
 	
@@ -21,19 +29,11 @@
 	
  	
 	
- 		 
 	
- 		 
- 	
+	
  	
 	
  	
-	
-	
-	
-	
-	
-	
 	
 
 
@@ -98,9 +98,9 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_lang_String;
-
 class java_nio_ByteOrder;
+
+class java_lang_String;
 
 class java_nio_ShortBuffer : public java_lang_Comparable
 {
@@ -112,31 +112,31 @@ public:
 	// Default Destructor
 	virtual ~java_nio_ShortBuffer();
 	// Functions
+	static AndroidCXX::java_nio_ShortBuffer * allocate(int const& arg0) ;
+	virtual std::vector<short>  array() ;
+	virtual int  arrayOffset() ;
+	virtual AndroidCXX::java_nio_ShortBuffer * asReadOnlyBuffer() ;
+	virtual AndroidCXX::java_nio_ShortBuffer * compact() ;
+	virtual int  compareTo(AndroidCXX::java_nio_ShortBuffer const& arg0) ;
+	virtual AndroidCXX::java_nio_ShortBuffer * duplicate() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual short  get() ;
 	virtual AndroidCXX::java_nio_ShortBuffer * get(std::vector<short> const& arg0) ;
 	virtual AndroidCXX::java_nio_ShortBuffer * get(std::vector<short> const& arg0,int const& arg1,int const& arg2) ;
 	virtual short  get(int const& arg0) ;
+	virtual bool  hasArray() ;
+	virtual int  hashCode() ;
+	virtual bool  isDirect() ;
+	virtual AndroidCXX::java_nio_ByteOrder * order() ;
 	virtual AndroidCXX::java_nio_ShortBuffer * put(AndroidCXX::java_nio_ShortBuffer const& arg0) ;
 	virtual AndroidCXX::java_nio_ShortBuffer * put(short const& arg0) ;
 	virtual AndroidCXX::java_nio_ShortBuffer * put(int const& arg0,short const& arg1) ;
 	virtual AndroidCXX::java_nio_ShortBuffer * put(std::vector<short> const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_nio_ShortBuffer * put(std::vector<short> const& arg0) ;
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_nio_ShortBuffer * slice() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
-	virtual int  compareTo(AndroidCXX::java_nio_ShortBuffer const& arg0) ;
-	virtual bool  isDirect() ;
-	virtual bool  hasArray() ;
-	virtual std::vector<short>  array() ;
-	virtual int  arrayOffset() ;
 	static AndroidCXX::java_nio_ShortBuffer * wrap(std::vector<short> const& arg0,int const& arg1,int const& arg2) ;
 	static AndroidCXX::java_nio_ShortBuffer * wrap(std::vector<short> const& arg0) ;
-	static AndroidCXX::java_nio_ShortBuffer * allocate(int const& arg0) ;
-	virtual AndroidCXX::java_nio_ShortBuffer * duplicate() ;
-	virtual AndroidCXX::java_nio_ShortBuffer * slice() ;
-	virtual AndroidCXX::java_nio_ShortBuffer * asReadOnlyBuffer() ;
-	virtual AndroidCXX::java_nio_ShortBuffer * compact() ;
-	virtual AndroidCXX::java_nio_ByteOrder * order() ;
 
 protected:
 	java_nio_ShortBuffer();

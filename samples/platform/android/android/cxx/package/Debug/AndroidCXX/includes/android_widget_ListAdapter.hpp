@@ -56,8 +56,8 @@ public:
 	// Default Destructor
 	virtual ~android_widget_ListAdapter();
 	// Functions
-	virtual bool  isEnabled(int const& arg0) ;
 	virtual bool  areAllItemsEnabled() ;
+	virtual bool  isEnabled(int const& arg0) ;
 
 protected:
 	android_widget_ListAdapter();

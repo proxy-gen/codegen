@@ -60,9 +60,9 @@ public:
 	// Default Destructor
 	virtual ~android_widget_SectionIndexer();
 	// Functions
-	virtual std::vector<java_lang_Object>  getSections() ;
 	virtual int  getPositionForSection(int const& arg0) ;
 	virtual int  getSectionForPosition(int const& arg0) ;
+	virtual std::vector<java_lang_Object>  getSections() ;
 
 protected:
 	android_widget_SectionIndexer();

@@ -11,11 +11,17 @@
 
  		 
  		 
+ 		 
+ 	
+ 		 
+ 		 
 	
  		 
+	
+ 	
  		 
  		 
- 		 
+	
  	
  		 
 	
@@ -24,12 +30,6 @@
 	
  		 
 	
-	
- 	
- 		 
-	
- 	
- 		 
 	
  	
  		 
@@ -104,18 +104,18 @@ public:
 	// Functions
 	virtual bool  add(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual void  add(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
-	virtual AndroidCXX::java_lang_Object * get(int const& arg0) ;
+	virtual bool  addAll(int const& arg0,AndroidCXX::java_util_Collection const& arg1) ;
+	virtual void  clear() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * get(int const& arg0) ;
 	virtual int  hashCode() ;
 	virtual int  indexOf(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual void  clear() ;
-	virtual int  lastIndexOf(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual bool  addAll(int const& arg0,AndroidCXX::java_util_Collection const& arg1) ;
 	virtual AndroidCXX::java_util_Iterator * iterator() ;
-	virtual AndroidCXX::java_lang_Object * remove(int const& arg0) ;
-	virtual AndroidCXX::java_lang_Object * set(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual int  lastIndexOf(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_util_ListIterator * listIterator(int const& arg0) ;
 	virtual AndroidCXX::java_util_ListIterator * listIterator() ;
+	virtual AndroidCXX::java_lang_Object * remove(int const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * set(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual AndroidCXX::java_util_List * subList(int const& arg0,int const& arg1) ;
 
 protected:

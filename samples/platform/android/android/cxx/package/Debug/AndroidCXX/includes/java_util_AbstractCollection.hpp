@@ -10,13 +10,9 @@
 
 
  		 
-	
- 		 
  		 
  	
  		 
- 	
- 	
  		 
  		 
  	
@@ -31,9 +27,13 @@
  		 
  	
  		 
+ 	
+ 	
+ 		 
  		 
  	
  		 
+	
 
 
 
@@ -85,10 +85,10 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_lang_String;
-
 
 class java_util_Iterator;
+
+class java_lang_String;
 
 class java_util_AbstractCollection : public java_util_Collection
 {
@@ -101,19 +101,19 @@ public:
 	virtual ~java_util_AbstractCollection();
 	// Functions
 	virtual bool  add(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual void  clear() ;
-	virtual bool  isEmpty() ;
-	virtual bool  contains(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual bool  addAll(AndroidCXX::java_util_Collection const& arg0) ;
-	virtual int  size() ;
-	virtual std::vector<java_lang_Object>  toArray(std::vector<java_lang_Object> const& arg0) ;
-	virtual std::vector<java_lang_Object>  toArray() ;
+	virtual void  clear() ;
+	virtual bool  contains(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual bool  containsAll(AndroidCXX::java_util_Collection const& arg0) ;
+	virtual bool  isEmpty() ;
 	virtual AndroidCXX::java_util_Iterator * iterator() ;
 	virtual bool  remove(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual bool  removeAll(AndroidCXX::java_util_Collection const& arg0) ;
-	virtual bool  containsAll(AndroidCXX::java_util_Collection const& arg0) ;
 	virtual bool  retainAll(AndroidCXX::java_util_Collection const& arg0) ;
+	virtual int  size() ;
+	virtual std::vector<java_lang_Object>  toArray(std::vector<java_lang_Object> const& arg0) ;
+	virtual std::vector<java_lang_Object>  toArray() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 	java_util_AbstractCollection();

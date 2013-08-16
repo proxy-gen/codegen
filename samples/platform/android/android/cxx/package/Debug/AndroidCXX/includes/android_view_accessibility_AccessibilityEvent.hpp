@@ -9,6 +9,8 @@
 
 
 
+ 		 
+	
 	
 	
  		 
@@ -19,8 +21,6 @@
  		 
 	
  		 
- 		 
-	
 
 
 
@@ -59,13 +59,13 @@
 //
 
 
+#include <android_view_accessibility_AccessibilityRecord.hpp>
+
 #include <java_lang_String.hpp>
 
 #include <java_lang_CharSequence.hpp>
 
 #include <android_os_Parcel.hpp>
-
-#include <android_view_accessibility_AccessibilityRecord.hpp>
 
 
 #include <android_os_Parcelable.hpp>
@@ -86,14 +86,14 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_view_accessibility_AccessibilityRecord;
+
 class java_lang_String;
 
 class java_lang_CharSequence;
 
 class android_os_Parcel;
 
-
-class android_view_accessibility_AccessibilityRecord;
 
 class android_view_accessibility_AccessibilityEvent : public android_os_Parcelable
 {
@@ -106,28 +106,28 @@ public:
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityEvent();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual AndroidCXX::java_lang_CharSequence * getPackageName() ;
-	virtual int  getAction() ;
+	virtual void  appendRecord(AndroidCXX::android_view_accessibility_AccessibilityRecord const& arg0) ;
 	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	static AndroidCXX::java_lang_String * eventTypeToString(int const& arg0) ;
+	virtual int  getAction() ;
+	virtual long  getEventTime() ;
+	virtual int  getEventType() ;
+	virtual int  getMovementGranularity() ;
+	virtual AndroidCXX::java_lang_CharSequence * getPackageName() ;
+	virtual AndroidCXX::android_view_accessibility_AccessibilityRecord * getRecord(int const& arg0) ;
+	virtual int  getRecordCount() ;
+	virtual void  initFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
 	static AndroidCXX::android_view_accessibility_AccessibilityEvent * obtain(int const& arg0) ;
 	static AndroidCXX::android_view_accessibility_AccessibilityEvent * obtain() ;
 	static AndroidCXX::android_view_accessibility_AccessibilityEvent * obtain(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  recycle() ;
 	virtual void  setAction(int const& arg0) ;
-	virtual int  getEventType() ;
-	virtual long  getEventTime() ;
-	virtual int  getRecordCount() ;
-	virtual void  appendRecord(AndroidCXX::android_view_accessibility_AccessibilityRecord const& arg0) ;
-	virtual AndroidCXX::android_view_accessibility_AccessibilityRecord * getRecord(int const& arg0) ;
-	virtual void  setEventType(int const& arg0) ;
 	virtual void  setEventTime(long const& arg0) ;
-	virtual void  setPackageName(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  setEventType(int const& arg0) ;
 	virtual void  setMovementGranularity(int const& arg0) ;
-	virtual int  getMovementGranularity() ;
-	virtual void  initFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
-	static AndroidCXX::java_lang_String * eventTypeToString(int const& arg0) ;
+	virtual void  setPackageName(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

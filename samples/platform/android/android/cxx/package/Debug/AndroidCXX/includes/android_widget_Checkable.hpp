@@ -57,8 +57,8 @@ public:
 	// Default Destructor
 	virtual ~android_widget_Checkable();
 	// Functions
-	virtual void  setChecked(bool const& arg0) ;
 	virtual bool  isChecked() ;
+	virtual void  setChecked(bool const& arg0) ;
 	virtual void  toggle() ;
 
 protected:

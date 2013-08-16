@@ -85,8 +85,8 @@ public:
 	// Default Destructor
 	virtual ~android_content_PeriodicSync();
 	// Functions
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual int  describeContents() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:

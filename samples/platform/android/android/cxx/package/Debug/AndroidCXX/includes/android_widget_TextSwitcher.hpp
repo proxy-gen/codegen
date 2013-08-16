@@ -41,15 +41,15 @@
 //
 
 
-#include <java_lang_CharSequence.hpp>
+#include <android_view_View.hpp>
+
+#include <android_view_ViewGroup_LayoutParams.hpp>
 
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
-#include <android_view_View.hpp>
-
-#include <android_view_ViewGroup_LayoutParams.hpp>
+#include <java_lang_CharSequence.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -74,15 +74,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_CharSequence;
+class android_view_View;
+
+class android_view_ViewGroup_LayoutParams;
 
 class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
-class android_view_View;
-
-class android_view_ViewGroup_LayoutParams;
+class java_lang_CharSequence;
 
 class android_content_Context;
 
@@ -93,19 +93,19 @@ class android_widget_TextSwitcher : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_TextSwitcher(AndroidCXX::android_content_Context const& arg0);
 	android_widget_TextSwitcher(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_TextSwitcher(AndroidCXX::android_content_Context const& arg0);
 	android_widget_TextSwitcher(const android_widget_TextSwitcher& cc);
 	android_widget_TextSwitcher(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TextSwitcher();
 	// Functions
-	virtual void  setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
-	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
 	virtual void  setCurrentText(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
 
 protected:
 

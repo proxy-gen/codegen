@@ -10,8 +10,8 @@
 
 
  		 
-	
  		 
+	
  		 
  		 
 
@@ -40,11 +40,11 @@
 
 #include <java_lang_Object.hpp>
 
+#include <android_view_WindowId_FocusObserver.hpp>
+
 #include <java_lang_String.hpp>
 
 #include <android_os_Parcel.hpp>
-
-#include <android_view_WindowId_FocusObserver.hpp>
 
 
 #include <android_os_Parcelable.hpp>
@@ -67,11 +67,11 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
+class android_view_WindowId_FocusObserver;
+
 class java_lang_String;
 
 class android_os_Parcel;
-
-class android_view_WindowId_FocusObserver;
 
 class android_view_WindowId : public android_os_Parcelable
 {
@@ -84,14 +84,14 @@ public:
 	// Default Destructor
 	virtual ~android_view_WindowId();
 	// Functions
+	virtual int  describeContents() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual int  hashCode() ;
 	virtual bool  isFocused() ;
-	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 	virtual void  registerFocusObserver(AndroidCXX::android_view_WindowId_FocusObserver const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual void  unregisterFocusObserver(AndroidCXX::android_view_WindowId_FocusObserver const& arg0) ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

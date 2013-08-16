@@ -9,21 +9,21 @@
 
 
 
- 	
- 		 
- 		 
- 	
- 		 
- 	
- 		 
- 	
- 		 
  		 
  		 
 	
 	
+ 	
+ 		 
+ 	
+ 		 
  		 
 	
+ 	
+ 		 
+ 		 
+ 	
+ 		 
 
 
 
@@ -77,10 +77,10 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_ByteBuffer;
-
 class java_net_SocketAddress;
 
+
+class java_nio_ByteBuffer;
 
 class java_net_Socket;
 
@@ -94,20 +94,20 @@ public:
 	// Default Destructor
 	virtual ~java_nio_channels_SocketChannel();
 	// Functions
-	virtual long  write(std::vector<java_nio_ByteBuffer> const& arg0) ;
-	virtual int  write(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
-	virtual long  write(std::vector<java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
+	virtual bool  connect(AndroidCXX::java_net_SocketAddress const& arg0) ;
+	virtual bool  finishConnect() ;
+	virtual bool  isConnected() ;
+	virtual bool  isConnectionPending() ;
+	static AndroidCXX::java_nio_channels_SocketChannel * open(AndroidCXX::java_net_SocketAddress const& arg0) ;
+	static AndroidCXX::java_nio_channels_SocketChannel * open() ;
 	virtual long  read(std::vector<java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
 	virtual long  read(std::vector<java_nio_ByteBuffer> const& arg0) ;
 	virtual int  read(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
-	static AndroidCXX::java_nio_channels_SocketChannel * open(AndroidCXX::java_net_SocketAddress const& arg0) ;
-	static AndroidCXX::java_nio_channels_SocketChannel * open() ;
-	virtual bool  connect(AndroidCXX::java_net_SocketAddress const& arg0) ;
 	virtual AndroidCXX::java_net_Socket * socket() ;
-	virtual bool  isConnected() ;
 	virtual int  validOps() ;
-	virtual bool  isConnectionPending() ;
-	virtual bool  finishConnect() ;
+	virtual long  write(std::vector<java_nio_ByteBuffer> const& arg0) ;
+	virtual int  write(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
+	virtual long  write(std::vector<java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
 
 protected:
 	java_nio_channels_SocketChannel();

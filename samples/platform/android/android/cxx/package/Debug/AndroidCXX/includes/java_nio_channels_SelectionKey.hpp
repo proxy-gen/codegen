@@ -9,10 +9,10 @@
 
 
 
-	
-	
-	
  		 
+	
+	
+	
 	
 	
 
@@ -61,12 +61,12 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_lang_Object;
+
 class java_nio_channels_SelectableChannel;
 
+
 class java_nio_channels_Selector;
-
-
-class java_lang_Object;
 
 class java_nio_channels_SelectionKey 
 {
@@ -78,19 +78,19 @@ public:
 	// Default Destructor
 	virtual ~java_nio_channels_SelectionKey();
 	// Functions
-	virtual AndroidCXX::java_nio_channels_SelectableChannel * channel() ;
-	virtual bool  isValid() ;
-	virtual void  cancel() ;
-	virtual AndroidCXX::java_nio_channels_Selector * selector() ;
-	virtual int  interestOps() ;
-	virtual AndroidCXX::java_nio_channels_SelectionKey * interestOps(int const& arg0) ;
 	virtual AndroidCXX::java_lang_Object * attach(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_lang_Object * attachment() ;
-	virtual int  readyOps() ;
-	virtual bool  isReadable() ;
-	virtual bool  isWritable() ;
-	virtual bool  isConnectable() ;
+	virtual void  cancel() ;
+	virtual AndroidCXX::java_nio_channels_SelectableChannel * channel() ;
+	virtual int  interestOps() ;
+	virtual AndroidCXX::java_nio_channels_SelectionKey * interestOps(int const& arg0) ;
 	virtual bool  isAcceptable() ;
+	virtual bool  isConnectable() ;
+	virtual bool  isReadable() ;
+	virtual bool  isValid() ;
+	virtual bool  isWritable() ;
+	virtual int  readyOps() ;
+	virtual AndroidCXX::java_nio_channels_Selector * selector() ;
 
 protected:
 	java_nio_channels_SelectionKey();

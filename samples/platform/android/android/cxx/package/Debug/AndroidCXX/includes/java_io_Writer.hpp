@@ -85,13 +85,13 @@ public:
 	virtual AndroidCXX::java_io_Writer * append(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::java_io_Writer * append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_io_Writer * append(char const& arg0) ;
+	virtual void  close() ;
+	virtual void  flush() ;
 	virtual void  write(std::vector<char> const& arg0,int const& arg1,int const& arg2) ;
 	virtual void  write(int const& arg0) ;
 	virtual void  write(std::vector<char> const& arg0) ;
 	virtual void  write(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  write(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) ;
-	virtual void  flush() ;
-	virtual void  close() ;
 
 protected:
 	java_io_Writer();

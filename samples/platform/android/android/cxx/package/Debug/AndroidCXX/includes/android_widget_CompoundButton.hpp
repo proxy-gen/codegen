@@ -11,8 +11,8 @@
 
  		 
  		 
-	
  		 
+	
  		 
  		 
 
@@ -78,9 +78,9 @@ class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_os_Parcelable;
 
-class android_widget_CompoundButton_OnCheckedChangeListener;
-
 class android_graphics_drawable_Drawable;
+
+class android_widget_CompoundButton_OnCheckedChangeListener;
 
 class android_content_Context;
 
@@ -96,20 +96,20 @@ public:
 	// Default Destructor
 	virtual ~android_widget_CompoundButton();
 	// Functions
-	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
-	virtual void  jumpDrawablesToCurrentState() ;
-	virtual bool  performClick() ;
-	virtual AndroidCXX::android_os_Parcelable * onSaveInstanceState() ;
-	virtual void  onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0) ;
-	virtual void  setChecked(bool const& arg0) ;
-	virtual bool  isChecked() ;
 	virtual int  getCompoundPaddingLeft() ;
 	virtual int  getCompoundPaddingRight() ;
-	virtual void  toggle() ;
-	virtual void  setOnCheckedChangeListener(AndroidCXX::android_widget_CompoundButton_OnCheckedChangeListener const& arg0) ;
-	virtual void  setButtonDrawable(int const& arg0) ;
+	virtual bool  isChecked() ;
+	virtual void  jumpDrawablesToCurrentState() ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0) ;
+	virtual AndroidCXX::android_os_Parcelable * onSaveInstanceState() ;
+	virtual bool  performClick() ;
 	virtual void  setButtonDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  setButtonDrawable(int const& arg0) ;
+	virtual void  setChecked(bool const& arg0) ;
+	virtual void  setOnCheckedChangeListener(AndroidCXX::android_widget_CompoundButton_OnCheckedChangeListener const& arg0) ;
+	virtual void  toggle() ;
 
 protected:
 	android_widget_CompoundButton();

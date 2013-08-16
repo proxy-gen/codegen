@@ -75,12 +75,12 @@ public:
 	virtual ~android_app_Application_ActivityLifecycleCallbacks();
 	// Functions
 	virtual void  onActivityCreated(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
-	virtual void  onActivityStarted(AndroidCXX::android_app_Activity const& arg0) ;
-	virtual void  onActivityResumed(AndroidCXX::android_app_Activity const& arg0) ;
-	virtual void  onActivityPaused(AndroidCXX::android_app_Activity const& arg0) ;
-	virtual void  onActivityStopped(AndroidCXX::android_app_Activity const& arg0) ;
-	virtual void  onActivitySaveInstanceState(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
 	virtual void  onActivityDestroyed(AndroidCXX::android_app_Activity const& arg0) ;
+	virtual void  onActivityPaused(AndroidCXX::android_app_Activity const& arg0) ;
+	virtual void  onActivityResumed(AndroidCXX::android_app_Activity const& arg0) ;
+	virtual void  onActivitySaveInstanceState(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual void  onActivityStarted(AndroidCXX::android_app_Activity const& arg0) ;
+	virtual void  onActivityStopped(AndroidCXX::android_app_Activity const& arg0) ;
 
 protected:
 	android_app_Application_ActivityLifecycleCallbacks();

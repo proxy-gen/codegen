@@ -49,9 +49,9 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class java_nio_channels_Pipe_SourceChannel;
-
 class java_nio_channels_Pipe_SinkChannel;
+
+class java_nio_channels_Pipe_SourceChannel;
 
 class java_nio_channels_Pipe 
 {
@@ -64,8 +64,8 @@ public:
 	virtual ~java_nio_channels_Pipe();
 	// Functions
 	static AndroidCXX::java_nio_channels_Pipe * open() ;
-	virtual AndroidCXX::java_nio_channels_Pipe_SourceChannel * source() ;
 	virtual AndroidCXX::java_nio_channels_Pipe_SinkChannel * sink() ;
+	virtual AndroidCXX::java_nio_channels_Pipe_SourceChannel * source() ;
 
 protected:
 	java_nio_channels_Pipe();

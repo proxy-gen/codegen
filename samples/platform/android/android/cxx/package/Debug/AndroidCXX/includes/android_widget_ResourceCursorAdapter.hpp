@@ -83,10 +83,10 @@ public:
 	// Default Destructor
 	virtual ~android_widget_ResourceCursorAdapter();
 	// Functions
-	virtual AndroidCXX::android_view_View * newView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
 	virtual AndroidCXX::android_view_View * newDropDownView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
-	virtual void  setViewResource(int const& arg0) ;
+	virtual AndroidCXX::android_view_View * newView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
 	virtual void  setDropDownViewResource(int const& arg0) ;
+	virtual void  setViewResource(int const& arg0) ;
 
 protected:
 	android_widget_ResourceCursorAdapter();

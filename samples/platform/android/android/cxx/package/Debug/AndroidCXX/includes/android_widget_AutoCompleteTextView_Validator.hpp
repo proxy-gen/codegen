@@ -10,8 +10,8 @@
 
 
  		 
- 		 
 	
+ 		 
 
 
 
@@ -61,8 +61,8 @@ public:
 	// Default Destructor
 	virtual ~android_widget_AutoCompleteTextView_Validator();
 	// Functions
-	virtual bool  isValid(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::java_lang_CharSequence * fixText(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual bool  isValid(AndroidCXX::java_lang_CharSequence const& arg0) ;
 
 protected:
 	android_widget_AutoCompleteTextView_Validator();

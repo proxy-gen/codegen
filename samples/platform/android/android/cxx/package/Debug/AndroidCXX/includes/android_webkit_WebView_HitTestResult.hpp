@@ -60,8 +60,8 @@ public:
 	// Default Destructor
 	virtual ~android_webkit_WebView_HitTestResult();
 	// Functions
-	virtual int  getType() ;
 	virtual AndroidCXX::java_lang_String * getExtra() ;
+	virtual int  getType() ;
 
 protected:
 

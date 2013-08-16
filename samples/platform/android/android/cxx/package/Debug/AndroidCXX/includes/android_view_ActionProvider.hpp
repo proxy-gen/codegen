@@ -78,14 +78,14 @@ public:
 	// Default Destructor
 	virtual ~android_view_ActionProvider();
 	// Functions
-	virtual bool  isVisible() ;
 	virtual bool  hasSubMenu() ;
+	virtual bool  isVisible() ;
 	virtual AndroidCXX::android_view_View * onCreateActionView() ;
 	virtual AndroidCXX::android_view_View * onCreateActionView(AndroidCXX::android_view_MenuItem const& arg0) ;
-	virtual bool  overridesItemVisibility() ;
-	virtual void  refreshVisibility() ;
 	virtual bool  onPerformDefaultAction() ;
 	virtual void  onPrepareSubMenu(AndroidCXX::android_view_SubMenu const& arg0) ;
+	virtual bool  overridesItemVisibility() ;
+	virtual void  refreshVisibility() ;
 	virtual void  setVisibilityListener(AndroidCXX::android_view_ActionProvider_VisibilityListener const& arg0) ;
 
 protected:

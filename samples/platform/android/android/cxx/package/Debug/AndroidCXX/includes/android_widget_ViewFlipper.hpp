@@ -80,22 +80,22 @@ class android_widget_ViewFlipper : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_ViewFlipper(AndroidCXX::android_content_Context const& arg0);
 	android_widget_ViewFlipper(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_ViewFlipper(AndroidCXX::android_content_Context const& arg0);
 	android_widget_ViewFlipper(const android_widget_ViewFlipper& cc);
 	android_widget_ViewFlipper(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ViewFlipper();
 	// Functions
+	virtual bool  isAutoStart() ;
+	virtual bool  isFlipping() ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  setAutoStart(bool const& arg0) ;
 	virtual void  setFlipInterval(int const& arg0) ;
 	virtual void  startFlipping() ;
 	virtual void  stopFlipping() ;
-	virtual bool  isFlipping() ;
-	virtual void  setAutoStart(bool const& arg0) ;
-	virtual bool  isAutoStart() ;
 
 protected:
 

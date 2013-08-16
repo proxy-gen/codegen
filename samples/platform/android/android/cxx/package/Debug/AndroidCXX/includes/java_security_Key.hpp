@@ -9,8 +9,8 @@
 
 
 
- 	
 	
+ 	
 	
 
 
@@ -62,8 +62,8 @@ public:
 	// Default Destructor
 	virtual ~java_security_Key();
 	// Functions
-	virtual std::vector<byte>  getEncoded() ;
 	virtual AndroidCXX::java_lang_String * getAlgorithm() ;
+	virtual std::vector<byte>  getEncoded() ;
 	virtual AndroidCXX::java_lang_String * getFormat() ;
 
 protected:

@@ -73,14 +73,14 @@ public:
 	// Functions
 	virtual void  close() ;
 	virtual void  mark(int const& arg0) ;
-	virtual void  reset() ;
+	virtual bool  markSupported() ;
 	virtual int  read(std::vector<char> const& arg0,int const& arg1,int const& arg2) ;
 	virtual int  read() ;
 	virtual int  read(std::vector<char> const& arg0) ;
 	virtual int  read(AndroidCXX::java_nio_CharBuffer const& arg0) ;
-	virtual long  skip(long const& arg0) ;
-	virtual bool  markSupported() ;
 	virtual bool  ready() ;
+	virtual void  reset() ;
+	virtual long  skip(long const& arg0) ;
 
 protected:
 	java_io_Reader();

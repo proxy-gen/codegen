@@ -11,9 +11,9 @@
 
  		 
  		 
- 		 
 	
  	
+ 		 
  		 
  		 
 
@@ -72,9 +72,9 @@ public:
 	// Default Destructor
 	virtual ~android_util_Pair();
 	// Functions
+	static AndroidCXX::android_util_Pair * create(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual int  hashCode() ;
-	static AndroidCXX::android_util_Pair * create(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 
 protected:
 

@@ -10,13 +10,6 @@
 
 
  		 
-	
- 		 
- 		 
-	
- 		 
-	
- 	
  		 
 	
  	
@@ -25,6 +18,15 @@
  		 
  		 
  		 
+ 		 
+	
+	
+ 	
+ 		 
+ 		 
+ 		 
+	
+ 		 
  	
  		 
  		 
@@ -32,8 +34,6 @@
 	
 	
  	
- 		 
- 		 
  		 
 
 
@@ -85,12 +85,12 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class java_util_Collection;
-
 class java_util_Set;
 
 class java_util_Map_Entry;
 
+
+class java_util_Collection;
 
 class java_util_Map : public java_lang_Object
 {
@@ -102,20 +102,20 @@ public:
 	// Default Destructor
 	virtual ~java_util_Map();
 	// Functions
-	virtual AndroidCXX::java_lang_Object * get(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_Object * put(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_util_Collection * values() ;
-	virtual int  hashCode() ;
 	virtual void  clear() ;
-	virtual bool  isEmpty() ;
-	virtual int  size() ;
+	virtual bool  containsKey(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual bool  containsValue(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_util_Set * entrySet() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * get(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	virtual bool  isEmpty() ;
+	virtual AndroidCXX::java_util_Set * keySet() ;
+	virtual AndroidCXX::java_lang_Object * put(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual void  putAll(AndroidCXX::java_util_Map const& arg0) ;
 	virtual AndroidCXX::java_lang_Object * remove(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_util_Set * keySet() ;
-	virtual bool  containsValue(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual bool  containsKey(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  size() ;
+	virtual AndroidCXX::java_util_Collection * values() ;
 
 protected:
 	java_util_Map();

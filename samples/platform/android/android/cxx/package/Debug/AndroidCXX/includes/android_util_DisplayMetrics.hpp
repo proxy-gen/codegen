@@ -11,8 +11,8 @@
 
  		 
  		 
-	
  		 
+	
 
 
 
@@ -76,10 +76,10 @@ public:
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual bool  equals(AndroidCXX::android_util_DisplayMetrics const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual int  hashCode() ;
 	virtual void  setTo(AndroidCXX::android_util_DisplayMetrics const& arg0) ;
 	virtual void  setToDefaults() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 

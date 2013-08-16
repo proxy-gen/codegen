@@ -39,11 +39,11 @@
 
 #include <java_lang_Object.hpp>
 
-#include <java_lang_String.hpp>
-
 #include <java_security_cert_CertPath.hpp>
 
 #include <java_util_Date.hpp>
+
+#include <java_lang_String.hpp>
 
 
 #include <java_io_Serializable.hpp>
@@ -66,11 +66,11 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_lang_String;
-
 class java_security_cert_CertPath;
 
 class java_util_Date;
+
+class java_lang_String;
 
 class java_security_Timestamp : public java_io_Serializable
 {
@@ -85,10 +85,10 @@ public:
 	virtual ~java_security_Timestamp();
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
 	virtual AndroidCXX::java_security_cert_CertPath * getSignerCertPath() ;
 	virtual AndroidCXX::java_util_Date * getTimestamp() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 

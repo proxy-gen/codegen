@@ -66,9 +66,9 @@ public:
 	virtual ~java_util_Map_Entry();
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual int  hashCode() ;
-	virtual AndroidCXX::java_lang_Object * getValue() ;
 	virtual AndroidCXX::java_lang_Object * getKey() ;
+	virtual AndroidCXX::java_lang_Object * getValue() ;
+	virtual int  hashCode() ;
 	virtual AndroidCXX::java_lang_Object * setValue(AndroidCXX::java_lang_Object const& arg0) ;
 
 protected:

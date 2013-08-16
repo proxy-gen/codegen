@@ -9,12 +9,12 @@
 
 
 
- 		 
- 		 
- 		 
- 		 
- 		 
 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
  		 
  		 
 
@@ -66,13 +66,13 @@
 //
 
 
+#include <android_widget_ListAdapter.hpp>
+
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_view_KeyEvent.hpp>
-
-#include <android_widget_ListAdapter.hpp>
 
 #include <android_content_Intent.hpp>
 
@@ -99,13 +99,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_widget_ListAdapter;
+
 class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_view_KeyEvent;
-
-class android_widget_ListAdapter;
 
 class android_content_Intent;
 
@@ -118,40 +118,40 @@ class android_widget_GridView : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_GridView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_GridView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_GridView(AndroidCXX::android_content_Context const& arg0);
+	android_widget_GridView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_GridView(const android_widget_GridView& cc);
 	android_widget_GridView(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_GridView();
 	// Functions
+	virtual AndroidCXX::android_widget_ListAdapter * getAdapter() ;
+	virtual int  getColumnWidth() ;
+	virtual int  getGravity() ;
+	virtual int  getHorizontalSpacing() ;
+	virtual int  getNumColumns() ;
+	virtual int  getRequestedColumnWidth() ;
+	virtual int  getRequestedHorizontalSpacing() ;
+	virtual int  getStretchMode() ;
+	virtual int  getVerticalSpacing() ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
-	virtual void  setGravity(int const& arg0) ;
 	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
-	virtual bool  onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
 	virtual bool  onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
-	virtual void  setSelection(int const& arg0) ;
-	virtual int  getGravity() ;
-	virtual AndroidCXX::android_widget_ListAdapter * getAdapter() ;
+	virtual bool  onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
 	virtual void  setAdapter(AndroidCXX::android_widget_ListAdapter const& arg0) ;
-	virtual void  setRemoteViewsAdapter(AndroidCXX::android_content_Intent const& arg0) ;
-	virtual void  smoothScrollToPosition(int const& arg0) ;
-	virtual void  smoothScrollByOffset(int const& arg0) ;
-	virtual void  setHorizontalSpacing(int const& arg0) ;
-	virtual int  getHorizontalSpacing() ;
-	virtual int  getRequestedHorizontalSpacing() ;
-	virtual void  setVerticalSpacing(int const& arg0) ;
-	virtual int  getVerticalSpacing() ;
-	virtual void  setStretchMode(int const& arg0) ;
-	virtual int  getStretchMode() ;
 	virtual void  setColumnWidth(int const& arg0) ;
-	virtual int  getColumnWidth() ;
-	virtual int  getRequestedColumnWidth() ;
+	virtual void  setGravity(int const& arg0) ;
+	virtual void  setHorizontalSpacing(int const& arg0) ;
 	virtual void  setNumColumns(int const& arg0) ;
-	virtual int  getNumColumns() ;
+	virtual void  setRemoteViewsAdapter(AndroidCXX::android_content_Intent const& arg0) ;
+	virtual void  setSelection(int const& arg0) ;
+	virtual void  setStretchMode(int const& arg0) ;
+	virtual void  setVerticalSpacing(int const& arg0) ;
+	virtual void  smoothScrollByOffset(int const& arg0) ;
+	virtual void  smoothScrollToPosition(int const& arg0) ;
 
 protected:
 

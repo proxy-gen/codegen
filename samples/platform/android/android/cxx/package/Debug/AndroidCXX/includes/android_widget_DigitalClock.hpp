@@ -74,8 +74,8 @@ class android_widget_DigitalClock : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_DigitalClock(AndroidCXX::android_content_Context const& arg0);
 	android_widget_DigitalClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_DigitalClock(AndroidCXX::android_content_Context const& arg0);
 	android_widget_DigitalClock(const android_widget_DigitalClock& cc);
 	android_widget_DigitalClock(Proxy proxy);
 	Proxy proxy() const;	

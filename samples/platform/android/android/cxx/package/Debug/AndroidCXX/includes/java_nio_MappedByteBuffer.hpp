@@ -60,9 +60,9 @@ public:
 	// Default Destructor
 	virtual ~java_nio_MappedByteBuffer();
 	// Functions
-	virtual AndroidCXX::java_nio_MappedByteBuffer * load() ;
-	virtual bool  isLoaded() ;
 	virtual AndroidCXX::java_nio_MappedByteBuffer * force() ;
+	virtual bool  isLoaded() ;
+	virtual AndroidCXX::java_nio_MappedByteBuffer * load() ;
 
 protected:
 	java_nio_MappedByteBuffer();

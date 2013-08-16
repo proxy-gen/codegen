@@ -9,10 +9,10 @@
 
 
 
- 		 
- 		 
 	
 	
+ 		 
+ 		 
 
 
  		 
@@ -41,11 +41,11 @@
 //
 
 
+#include <android_widget_TextView.hpp>
+
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
-#include <android_widget_TextView.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -70,11 +70,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_widget_TextView;
+
 class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
-
-class android_widget_TextView;
 
 class android_content_Context;
 
@@ -85,19 +85,19 @@ class android_widget_TwoLineListItem : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_TwoLineListItem(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_TwoLineListItem(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_TwoLineListItem(AndroidCXX::android_content_Context const& arg0);
+	android_widget_TwoLineListItem(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_TwoLineListItem(const android_widget_TwoLineListItem& cc);
 	android_widget_TwoLineListItem(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TwoLineListItem();
 	// Functions
-	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual AndroidCXX::android_widget_TextView * getText1() ;
 	virtual AndroidCXX::android_widget_TextView * getText2() ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 
 protected:
 

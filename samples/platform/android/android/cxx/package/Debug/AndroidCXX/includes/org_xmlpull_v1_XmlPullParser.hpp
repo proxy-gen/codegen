@@ -11,16 +11,6 @@
 
  		 
  		 
- 		 
-	
-	
- 		 
- 		 
- 		 
-	
- 		 
- 		 
-	
 	
 	
 	
@@ -28,8 +18,15 @@
  		 
  		 
 	
+	
  		 
+	
+	
+	
  		 
+	
+	
+	
 	
 	
  		 
@@ -38,11 +35,14 @@
  	
  	
 	
-	
-	
  		 
  		 
-	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
 
 
 
@@ -132,43 +132,43 @@ public:
 	// Default Destructor
 	virtual ~org_xmlpull_v1_XmlPullParser();
 	// Functions
-	virtual void  setProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
-	virtual AndroidCXX::java_lang_Object * getProperty(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getName() ;
-	virtual int  next() ;
-	virtual int  getLineNumber() ;
-	virtual bool  isWhitespace() ;
-	virtual int  nextToken() ;
-	virtual void  setInput(AndroidCXX::java_io_InputStream const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual void  setInput(AndroidCXX::java_io_Reader const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getPrefix() ;
-	virtual AndroidCXX::java_lang_String * getAttributeValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual AndroidCXX::java_lang_String * getAttributeValue(int const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getText() ;
+	virtual void  defineEntityReplacementText(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual int  getAttributeCount() ;
 	virtual AndroidCXX::java_lang_String * getAttributeName(int const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getPositionDescription() ;
-	virtual void  setFeature(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
-	virtual bool  getFeature(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getInputEncoding() ;
-	virtual void  defineEntityReplacementText(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual int  getNamespaceCount(int const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getNamespacePrefix(int const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getNamespaceUri(int const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getNamespace(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getNamespace() ;
-	virtual int  getDepth() ;
-	virtual int  getColumnNumber() ;
-	virtual std::vector<char>  getTextCharacters(std::vector<int> const& arg0) ;
-	virtual bool  isEmptyElementTag() ;
 	virtual AndroidCXX::java_lang_String * getAttributeNamespace(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getAttributePrefix(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getAttributeType(int const& arg0) ;
-	virtual bool  isAttributeDefault(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getAttributeValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual AndroidCXX::java_lang_String * getAttributeValue(int const& arg0) ;
+	virtual int  getColumnNumber() ;
+	virtual int  getDepth() ;
 	virtual int  getEventType() ;
-	virtual void  require(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) ;
-	virtual AndroidCXX::java_lang_String * nextText() ;
+	virtual bool  getFeature(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getInputEncoding() ;
+	virtual int  getLineNumber() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+	virtual AndroidCXX::java_lang_String * getNamespace() ;
+	virtual AndroidCXX::java_lang_String * getNamespace(AndroidCXX::java_lang_String const& arg0) ;
+	virtual int  getNamespaceCount(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getNamespacePrefix(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getNamespaceUri(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getPositionDescription() ;
+	virtual AndroidCXX::java_lang_String * getPrefix() ;
+	virtual AndroidCXX::java_lang_Object * getProperty(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getText() ;
+	virtual std::vector<char>  getTextCharacters(std::vector<int> const& arg0) ;
+	virtual bool  isAttributeDefault(int const& arg0) ;
+	virtual bool  isEmptyElementTag() ;
+	virtual bool  isWhitespace() ;
+	virtual int  next() ;
 	virtual int  nextTag() ;
+	virtual AndroidCXX::java_lang_String * nextText() ;
+	virtual int  nextToken() ;
+	virtual void  require(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) ;
+	virtual void  setFeature(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
+	virtual void  setInput(AndroidCXX::java_io_InputStream const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  setInput(AndroidCXX::java_io_Reader const& arg0) ;
+	virtual void  setProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 
 protected:
 	org_xmlpull_v1_XmlPullParser();

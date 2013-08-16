@@ -53,8 +53,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
+class java_lang_Object;
 
 class android_view_MotionEvent_PointerProperties 
 {
@@ -68,10 +68,10 @@ public:
 	// Default Destructor
 	virtual ~android_view_MotionEvent_PointerProperties();
 	// Functions
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual int  hashCode() ;
 	virtual void  clear() ;
 	virtual void  copyFrom(AndroidCXX::android_view_MotionEvent_PointerProperties const& arg0) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
 
 protected:
 

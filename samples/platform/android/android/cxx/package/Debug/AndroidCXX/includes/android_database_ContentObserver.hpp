@@ -66,10 +66,10 @@ public:
 	virtual ~android_database_ContentObserver();
 	// Functions
 	virtual bool  deliverSelfNotifications() ;
-	virtual void  onChange(bool const& arg0) ;
-	virtual void  onChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1) ;
 	virtual void  dispatchChange(bool const& arg0) ;
 	virtual void  dispatchChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1) ;
+	virtual void  onChange(bool const& arg0) ;
+	virtual void  onChange(bool const& arg0,AndroidCXX::android_net_Uri const& arg1) ;
 
 protected:
 	android_database_ContentObserver();

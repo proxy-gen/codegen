@@ -9,13 +9,13 @@
 
 
 
+	
+	
+ 		 
  		 
  		 
 	
  		 
-	
- 		 
-	
 
 
  		 
@@ -71,15 +71,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_widget_SpinnerAdapter;
+
+class android_view_View;
+
 class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_os_Parcelable;
-
-class android_widget_SpinnerAdapter;
-
-class android_view_View;
 
 class android_content_Context;
 
@@ -95,18 +95,18 @@ public:
 	// Default Destructor
 	virtual ~android_widget_AbsSpinner();
 	// Functions
+	virtual AndroidCXX::android_widget_SpinnerAdapter * getAdapter() ;
+	virtual int  getCount() ;
+	virtual AndroidCXX::android_view_View * getSelectedView() ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
-	virtual void  requestLayout() ;
-	virtual AndroidCXX::android_os_Parcelable * onSaveInstanceState() ;
 	virtual void  onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0) ;
-	virtual int  getCount() ;
+	virtual AndroidCXX::android_os_Parcelable * onSaveInstanceState() ;
+	virtual int  pointToPosition(int const& arg0,int const& arg1) ;
+	virtual void  requestLayout() ;
+	virtual void  setAdapter(AndroidCXX::android_widget_SpinnerAdapter const& arg0) ;
 	virtual void  setSelection(int const& arg0) ;
 	virtual void  setSelection(int const& arg0,bool const& arg1) ;
-	virtual AndroidCXX::android_widget_SpinnerAdapter * getAdapter() ;
-	virtual void  setAdapter(AndroidCXX::android_widget_SpinnerAdapter const& arg0) ;
-	virtual AndroidCXX::android_view_View * getSelectedView() ;
-	virtual int  pointToPosition(int const& arg0,int const& arg1) ;
 
 protected:
 	android_widget_AbsSpinner();

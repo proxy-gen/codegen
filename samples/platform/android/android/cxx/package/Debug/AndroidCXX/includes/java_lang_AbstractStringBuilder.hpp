@@ -13,7 +13,6 @@
 	
 	
 	
-	
  	
 	
  		 
@@ -30,19 +29,12 @@
 	
 	
 	
- 		 
- 		 
+	
+	
+	
  	
  		 
  		 
-	
-	
-	
- 		 
-	
-	
-	
-	
 	
 	
 	
@@ -59,6 +51,14 @@
  		 
 	
  		 
+	
+	
+ 		 
+ 		 
+ 		 
+	
+	
+	
 	
 	
 	
@@ -149,10 +149,10 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 
 class java_lang_Object;
+
+class java_lang_String;
 
 class java_lang_StringBuffer;
 
@@ -167,7 +167,6 @@ public:
 	// Default Destructor
 	virtual ~java_lang_AbstractStringBuilder();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * append(long const& arg0) ;
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * append(int const& arg0) ;
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * append(char const& arg0) ;
@@ -181,29 +180,18 @@ public:
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * append(double const& arg0) ;
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * append(float const& arg0) ;
-	virtual int  indexOf(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
-	virtual int  indexOf(AndroidCXX::java_lang_String const& arg0) ;
-	virtual int  length() ;
+	virtual AndroidCXX::java_lang_AbstractStringBuilder * appendCodePoint(int const& arg0) ;
+	virtual int  capacity() ;
 	virtual char  charAt(int const& arg0) ;
 	virtual int  codePointAt(int const& arg0) ;
 	virtual int  codePointBefore(int const& arg0) ;
 	virtual int  codePointCount(int const& arg0,int const& arg1) ;
-	virtual int  offsetByCodePoints(int const& arg0,int const& arg1) ;
-	virtual void  getChars(int const& arg0,int const& arg1,std::vector<char> const& arg2,int const& arg3) ;
-	virtual int  lastIndexOf(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
-	virtual int  lastIndexOf(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_lang_String * substring(int const& arg0,int const& arg1) ;
-	virtual AndroidCXX::java_lang_String * substring(int const& arg0) ;
-	virtual AndroidCXX::java_lang_CharSequence * subSequence(int const& arg0,int const& arg1) ;
-	virtual AndroidCXX::java_lang_AbstractStringBuilder * replace(int const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2) ;
-	virtual int  capacity() ;
-	virtual void  ensureCapacity(int const& arg0) ;
-	virtual void  trimToSize() ;
-	virtual void  setLength(int const& arg0) ;
-	virtual void  setCharAt(int const& arg0,char const& arg1) ;
-	virtual AndroidCXX::java_lang_AbstractStringBuilder * appendCodePoint(int const& arg0) ;
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * _delete(int const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * deleteCharAt(int const& arg0) ;
+	virtual void  ensureCapacity(int const& arg0) ;
+	virtual void  getChars(int const& arg0,int const& arg1,std::vector<char> const& arg2,int const& arg3) ;
+	virtual int  indexOf(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	virtual int  indexOf(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * insert(int const& arg0,char const& arg1) ;
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * insert(int const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * insert(int const& arg0,long const& arg1) ;
@@ -216,7 +204,19 @@ public:
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * insert(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) ;
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * insert(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,int const& arg2,int const& arg3) ;
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * insert(int const& arg0,bool const& arg1) ;
+	virtual int  lastIndexOf(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	virtual int  lastIndexOf(AndroidCXX::java_lang_String const& arg0) ;
+	virtual int  length() ;
+	virtual int  offsetByCodePoints(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::java_lang_AbstractStringBuilder * replace(int const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2) ;
 	virtual AndroidCXX::java_lang_AbstractStringBuilder * reverse() ;
+	virtual void  setCharAt(int const& arg0,char const& arg1) ;
+	virtual void  setLength(int const& arg0) ;
+	virtual AndroidCXX::java_lang_CharSequence * subSequence(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::java_lang_String * substring(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::java_lang_String * substring(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  trimToSize() ;
 
 protected:
 	java_lang_AbstractStringBuilder();

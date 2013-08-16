@@ -60,8 +60,8 @@ public:
 	// Default Destructor
 	virtual ~android_view_MenuItem_OnActionExpandListener();
 	// Functions
-	virtual bool  onMenuItemActionExpand(AndroidCXX::android_view_MenuItem const& arg0) ;
 	virtual bool  onMenuItemActionCollapse(AndroidCXX::android_view_MenuItem const& arg0) ;
+	virtual bool  onMenuItemActionExpand(AndroidCXX::android_view_MenuItem const& arg0) ;
 
 protected:
 	android_view_MenuItem_OnActionExpandListener();

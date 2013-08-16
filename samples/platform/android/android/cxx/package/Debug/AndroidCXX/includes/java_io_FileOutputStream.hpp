@@ -9,10 +9,10 @@
 
 
 
- 	
- 	
 	
 	
+ 	
+ 	
 
 
  		 
@@ -45,13 +45,13 @@
 //
 
 
-#include <java_io_FileDescriptor.hpp>
-
 #include <java_nio_channels_FileChannel.hpp>
 
-#include <java_io_File.hpp>
+#include <java_io_FileDescriptor.hpp>
 
 #include <java_lang_String.hpp>
+
+#include <java_io_File.hpp>
 
 
 #include <java_lang_Object.hpp>
@@ -72,36 +72,36 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_io_FileDescriptor;
-
 class java_nio_channels_FileChannel;
 
-class java_io_File;
+class java_io_FileDescriptor;
 
 class java_lang_String;
+
+class java_io_File;
 
 class java_io_FileOutputStream : public java_lang_Object
 {
 public:
 
 	// Public ConstrucXXX
-	java_io_FileOutputStream(AndroidCXX::java_io_File const& arg0);
-	java_io_FileOutputStream(AndroidCXX::java_lang_String const& arg0);
-	java_io_FileOutputStream(AndroidCXX::java_lang_String const& arg0,bool const& arg1);
-	java_io_FileOutputStream(AndroidCXX::java_io_File const& arg0,bool const& arg1);
 	java_io_FileOutputStream(AndroidCXX::java_io_FileDescriptor const& arg0);
+	java_io_FileOutputStream(AndroidCXX::java_lang_String const& arg0);
+	java_io_FileOutputStream(AndroidCXX::java_io_File const& arg0);
+	java_io_FileOutputStream(AndroidCXX::java_io_File const& arg0,bool const& arg1);
+	java_io_FileOutputStream(AndroidCXX::java_lang_String const& arg0,bool const& arg1);
 	java_io_FileOutputStream(const java_io_FileOutputStream& cc);
 	java_io_FileOutputStream(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FileOutputStream();
 	// Functions
+	virtual void  close() ;
+	virtual AndroidCXX::java_nio_channels_FileChannel * getChannel() ;
+	virtual AndroidCXX::java_io_FileDescriptor * getFD() ;
 	virtual void  write(std::vector<byte> const& arg0,int const& arg1,int const& arg2) ;
 	virtual void  write(int const& arg0) ;
 	virtual void  write(std::vector<byte> const& arg0) ;
-	virtual void  close() ;
-	virtual AndroidCXX::java_io_FileDescriptor * getFD() ;
-	virtual AndroidCXX::java_nio_channels_FileChannel * getChannel() ;
 
 protected:
 

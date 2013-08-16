@@ -60,8 +60,8 @@ public:
 	// Default Destructor
 	virtual ~android_widget_AbsListView_OnScrollListener();
 	// Functions
-	virtual void  onScrollStateChanged(AndroidCXX::android_widget_AbsListView const& arg0,int const& arg1) ;
 	virtual void  onScroll(AndroidCXX::android_widget_AbsListView const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  onScrollStateChanged(AndroidCXX::android_widget_AbsListView const& arg0,int const& arg1) ;
 
 protected:
 	android_widget_AbsListView_OnScrollListener();

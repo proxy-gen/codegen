@@ -10,12 +10,6 @@
 
 
  		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
 	
 	
  	
@@ -23,12 +17,18 @@
  		 
  		 
  		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
  	
 	
  	
  		 
  		 
-	
  		 
  		 
 
@@ -79,12 +79,12 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
+class android_content_SharedPreferences_Editor;
+
 class java_util_Map;
 
 
 class java_util_Set;
-
-class android_content_SharedPreferences_Editor;
 
 class android_content_SharedPreferences_OnSharedPreferenceChangeListener;
 
@@ -98,15 +98,15 @@ public:
 	// Default Destructor
 	virtual ~android_content_SharedPreferences();
 	// Functions
+	virtual bool  contains(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::android_content_SharedPreferences_Editor * edit() ;
+	virtual AndroidCXX::java_util_Map * getAll() ;
 	virtual bool  getBoolean(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
+	virtual float  getFloat(AndroidCXX::java_lang_String const& arg0,float const& arg1) ;
 	virtual int  getInt(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual long  getLong(AndroidCXX::java_lang_String const& arg0,long const& arg1) ;
-	virtual float  getFloat(AndroidCXX::java_lang_String const& arg0,float const& arg1) ;
-	virtual bool  contains(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual AndroidCXX::java_util_Map * getAll() ;
 	virtual AndroidCXX::java_util_Set * getStringSet(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Set const& arg1) ;
-	virtual AndroidCXX::android_content_SharedPreferences_Editor * edit() ;
 	virtual void  registerOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener const& arg0) ;
 	virtual void  unregisterOnSharedPreferenceChangeListener(AndroidCXX::android_content_SharedPreferences_OnSharedPreferenceChangeListener const& arg0) ;
 

@@ -69,10 +69,10 @@ public:
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_TrackInfo();
 	// Functions
-	virtual AndroidCXX::java_lang_String * getLanguage() ;
 	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	virtual AndroidCXX::java_lang_String * getLanguage() ;
 	virtual int  getTrackType() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

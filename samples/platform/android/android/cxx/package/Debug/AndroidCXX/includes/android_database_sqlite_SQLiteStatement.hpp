@@ -35,9 +35,9 @@
 //
 
 
-#include <java_lang_String.hpp>
-
 #include <android_os_ParcelFileDescriptor.hpp>
+
+#include <java_lang_String.hpp>
 
 
 #include <java_lang_Object.hpp>
@@ -58,9 +58,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 class android_os_ParcelFileDescriptor;
+
+class java_lang_String;
 
 class android_database_sqlite_SQLiteStatement : public java_lang_Object
 {
@@ -73,13 +73,13 @@ public:
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteStatement();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual void  execute() ;
-	virtual int  executeUpdateDelete() ;
 	virtual long  executeInsert() ;
+	virtual int  executeUpdateDelete() ;
+	virtual AndroidCXX::android_os_ParcelFileDescriptor * simpleQueryForBlobFileDescriptor() ;
 	virtual long  simpleQueryForLong() ;
 	virtual AndroidCXX::java_lang_String * simpleQueryForString() ;
-	virtual AndroidCXX::android_os_ParcelFileDescriptor * simpleQueryForBlobFileDescriptor() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 

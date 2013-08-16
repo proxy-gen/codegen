@@ -13,10 +13,10 @@
  	
 	
  		 
- 		 
  	
  		 
  	
+ 		 
  		 
  	
  		 
@@ -85,12 +85,12 @@ public:
 	virtual ~java_lang_reflect_AccessibleObject();
 	// Functions
 	virtual AndroidCXX::java_lang_annotation_Annotation * getAnnotation(AndroidCXX::java_lang_Class const& arg0) ;
-	virtual bool  isAnnotationPresent(AndroidCXX::java_lang_Class const& arg0) ;
 	virtual std::vector<java_lang_annotation_Annotation>  getAnnotations() ;
 	virtual std::vector<java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
+	virtual bool  isAccessible() ;
+	virtual bool  isAnnotationPresent(AndroidCXX::java_lang_Class const& arg0) ;
 	static void  setAccessible(std::vector<java_lang_reflect_AccessibleObject> const& arg0,bool const& arg1) ;
 	virtual void  setAccessible(bool const& arg0) ;
-	virtual bool  isAccessible() ;
 
 protected:
 

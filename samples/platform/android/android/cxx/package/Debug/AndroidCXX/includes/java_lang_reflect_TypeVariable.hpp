@@ -9,9 +9,9 @@
 
 
 
-	
  	
  		 
+	
 	
 
 
@@ -51,10 +51,10 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 
 class java_lang_reflect_GenericDeclaration;
+
+class java_lang_String;
 
 class java_lang_reflect_TypeVariable : public java_lang_reflect_Type
 {
@@ -66,9 +66,9 @@ public:
 	// Default Destructor
 	virtual ~java_lang_reflect_TypeVariable();
 	// Functions
-	virtual AndroidCXX::java_lang_String * getName() ;
 	virtual std::vector<java_lang_reflect_Type>  getBounds() ;
 	virtual AndroidCXX::java_lang_reflect_GenericDeclaration * getGenericDeclaration() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
 
 protected:
 	java_lang_reflect_TypeVariable();

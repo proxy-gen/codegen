@@ -57,8 +57,8 @@ public:
 	// Default Destructor
 	virtual ~java_io_FileDescriptor();
 	// Functions
-	virtual bool  valid() ;
 	virtual void  sync() ;
+	virtual bool  valid() ;
 
 protected:
 

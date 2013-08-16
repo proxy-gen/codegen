@@ -67,8 +67,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-
 class java_lang_Object;
+
 
 class java_nio_Buffer 
 {
@@ -80,23 +80,23 @@ public:
 	// Default Destructor
 	virtual ~java_nio_Buffer();
 	// Functions
-	virtual int  limit() ;
-	virtual AndroidCXX::java_nio_Buffer * limit(int const& arg0) ;
-	virtual AndroidCXX::java_nio_Buffer * clear() ;
-	virtual int  remaining() ;
-	virtual bool  isDirect() ;
-	virtual bool  hasArray() ;
 	virtual AndroidCXX::java_lang_Object * array() ;
-	virtual AndroidCXX::java_nio_Buffer * position(int const& arg0) ;
-	virtual int  position() ;
 	virtual int  arrayOffset() ;
 	virtual int  capacity() ;
-	virtual AndroidCXX::java_nio_Buffer * mark() ;
-	virtual AndroidCXX::java_nio_Buffer * reset() ;
+	virtual AndroidCXX::java_nio_Buffer * clear() ;
 	virtual AndroidCXX::java_nio_Buffer * flip() ;
-	virtual AndroidCXX::java_nio_Buffer * rewind() ;
+	virtual bool  hasArray() ;
 	virtual bool  hasRemaining() ;
+	virtual bool  isDirect() ;
 	virtual bool  isReadOnly() ;
+	virtual int  limit() ;
+	virtual AndroidCXX::java_nio_Buffer * limit(int const& arg0) ;
+	virtual AndroidCXX::java_nio_Buffer * mark() ;
+	virtual AndroidCXX::java_nio_Buffer * position(int const& arg0) ;
+	virtual int  position() ;
+	virtual int  remaining() ;
+	virtual AndroidCXX::java_nio_Buffer * reset() ;
+	virtual AndroidCXX::java_nio_Buffer * rewind() ;
 
 protected:
 	java_nio_Buffer();

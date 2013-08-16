@@ -12,11 +12,11 @@
 	
  	
  		 
+ 		 
+ 	
 	
  	
  		 
- 		 
- 	
 
 
 
@@ -70,10 +70,10 @@ public:
 	// Default Destructor
 	virtual ~java_security_cert_X509Extension();
 	// Functions
-	virtual bool  hasUnsupportedCriticalExtension() ;
 	virtual AndroidCXX::java_util_Set * getCriticalExtensionOIDs() ;
-	virtual AndroidCXX::java_util_Set * getNonCriticalExtensionOIDs() ;
 	virtual std::vector<byte>  getExtensionValue(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_util_Set * getNonCriticalExtensionOIDs() ;
+	virtual bool  hasUnsupportedCriticalExtension() ;
 
 protected:
 	java_security_cert_X509Extension();

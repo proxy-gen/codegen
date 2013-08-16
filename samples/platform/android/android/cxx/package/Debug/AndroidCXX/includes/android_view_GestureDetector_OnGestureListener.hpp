@@ -70,12 +70,12 @@ public:
 	// Default Destructor
 	virtual ~android_view_GestureDetector_OnGestureListener();
 	// Functions
-	virtual bool  onScroll(AndroidCXX::android_view_MotionEvent const& arg0,AndroidCXX::android_view_MotionEvent const& arg1,float const& arg2,float const& arg3) ;
-	virtual bool  onSingleTapUp(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual bool  onFling(AndroidCXX::android_view_MotionEvent const& arg0,AndroidCXX::android_view_MotionEvent const& arg1,float const& arg2,float const& arg3) ;
 	virtual bool  onDown(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual bool  onFling(AndroidCXX::android_view_MotionEvent const& arg0,AndroidCXX::android_view_MotionEvent const& arg1,float const& arg2,float const& arg3) ;
 	virtual void  onLongPress(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual bool  onScroll(AndroidCXX::android_view_MotionEvent const& arg0,AndroidCXX::android_view_MotionEvent const& arg1,float const& arg2,float const& arg3) ;
 	virtual void  onShowPress(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual bool  onSingleTapUp(AndroidCXX::android_view_MotionEvent const& arg0) ;
 
 protected:
 	android_view_GestureDetector_OnGestureListener();

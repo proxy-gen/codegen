@@ -31,11 +31,11 @@
 //
 
 
+#include <android_view_ViewGroup_LayoutParams.hpp>
+
 #include <android_content_Context.hpp>
 
 #include <android_util_AttributeSet.hpp>
-
-#include <android_view_ViewGroup_LayoutParams.hpp>
 
 
 #include <java_lang_Object.hpp>
@@ -56,20 +56,20 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_view_ViewGroup_LayoutParams;
+
 class android_content_Context;
 
 class android_util_AttributeSet;
-
-class android_view_ViewGroup_LayoutParams;
 
 class android_widget_Gallery_LayoutParams : public java_lang_Object
 {
 public:
 
 	// Public ConstrucXXX
-	android_widget_Gallery_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_Gallery_LayoutParams(int const& arg0,int const& arg1);
 	android_widget_Gallery_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
+	android_widget_Gallery_LayoutParams(int const& arg0,int const& arg1);
+	android_widget_Gallery_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
 	android_widget_Gallery_LayoutParams(const android_widget_Gallery_LayoutParams& cc);
 	android_widget_Gallery_LayoutParams(Proxy proxy);
 	Proxy proxy() const;	

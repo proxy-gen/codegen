@@ -73,8 +73,8 @@ public:
 	// Default Destructor
 	virtual ~android_net_http_SslCertificate_DName();
 	// Functions
-	virtual AndroidCXX::java_lang_String * getDName() ;
 	virtual AndroidCXX::java_lang_String * getCName() ;
+	virtual AndroidCXX::java_lang_String * getDName() ;
 	virtual AndroidCXX::java_lang_String * getOName() ;
 	virtual AndroidCXX::java_lang_String * getUName() ;
 

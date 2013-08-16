@@ -9,8 +9,8 @@
 
 
 
- 		 
  	
+ 		 
  	
  		 
 
@@ -68,14 +68,14 @@ public:
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteProgram();
 	// Functions
-	virtual int  getUniqueId() ;
-	virtual void  bindNull(int const& arg0) ;
-	virtual void  bindLong(int const& arg0,long const& arg1) ;
-	virtual void  bindDouble(int const& arg0,double const& arg1) ;
-	virtual void  bindString(int const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual void  bindBlob(int const& arg0,std::vector<byte> const& arg1) ;
-	virtual void  clearBindings() ;
 	virtual void  bindAllArgsAsStrings(std::vector<java_lang_String> const& arg0) ;
+	virtual void  bindBlob(int const& arg0,std::vector<byte> const& arg1) ;
+	virtual void  bindDouble(int const& arg0,double const& arg1) ;
+	virtual void  bindLong(int const& arg0,long const& arg1) ;
+	virtual void  bindNull(int const& arg0) ;
+	virtual void  bindString(int const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  clearBindings() ;
+	virtual int  getUniqueId() ;
 
 protected:
 	android_database_sqlite_SQLiteProgram();

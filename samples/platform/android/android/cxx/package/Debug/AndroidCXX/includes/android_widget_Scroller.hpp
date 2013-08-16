@@ -83,35 +83,35 @@ class android_widget_Scroller
 public:
 
 	// Public ConstrucXXX
+	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,bool const& arg2);
 	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0);
 	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1);
-	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,bool const& arg2);
 	android_widget_Scroller(const android_widget_Scroller& cc);
 	android_widget_Scroller(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Scroller();
 	// Functions
-	virtual int  getDuration() ;
-	virtual void  setFriction(float const& arg0) ;
-	virtual bool  isFinished() ;
+	virtual void  abortAnimation() ;
+	virtual bool  computeScrollOffset() ;
+	virtual void  extendDuration(int const& arg0) ;
+	virtual void  fling(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7) ;
 	virtual void  forceFinished(bool const& arg0) ;
+	virtual float  getCurrVelocity() ;
 	virtual int  getCurrX() ;
 	virtual int  getCurrY() ;
-	virtual float  getCurrVelocity() ;
-	virtual int  getStartX() ;
-	virtual int  getStartY() ;
+	virtual int  getDuration() ;
 	virtual int  getFinalX() ;
 	virtual int  getFinalY() ;
-	virtual bool  computeScrollOffset() ;
-	virtual void  startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
-	virtual void  startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) ;
-	virtual void  fling(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7) ;
-	virtual void  abortAnimation() ;
-	virtual void  extendDuration(int const& arg0) ;
-	virtual int  timePassed() ;
+	virtual int  getStartX() ;
+	virtual int  getStartY() ;
+	virtual bool  isFinished() ;
 	virtual void  setFinalX(int const& arg0) ;
 	virtual void  setFinalY(int const& arg0) ;
+	virtual void  setFriction(float const& arg0) ;
+	virtual void  startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4) ;
+	virtual int  timePassed() ;
 
 protected:
 

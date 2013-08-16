@@ -68,8 +68,8 @@ public:
 	// Default Destructor
 	virtual ~android_animation_LayoutTransition_TransitionListener();
 	// Functions
-	virtual void  startTransition(AndroidCXX::android_animation_LayoutTransition const& arg0,AndroidCXX::android_view_ViewGroup const& arg1,AndroidCXX::android_view_View const& arg2,int const& arg3) ;
 	virtual void  endTransition(AndroidCXX::android_animation_LayoutTransition const& arg0,AndroidCXX::android_view_ViewGroup const& arg1,AndroidCXX::android_view_View const& arg2,int const& arg3) ;
+	virtual void  startTransition(AndroidCXX::android_animation_LayoutTransition const& arg0,AndroidCXX::android_view_ViewGroup const& arg1,AndroidCXX::android_view_View const& arg2,int const& arg3) ;
 
 protected:
 	android_animation_LayoutTransition_TransitionListener();

@@ -9,12 +9,12 @@
 
 
 
-	
+ 		 
+ 		 
+ 		 
  	
  		 
- 		 
- 		 
- 		 
+	
  	
  		 
  		 
@@ -72,15 +72,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_support_v4_content_Loader;
-
-class java_lang_Object;
-
 class java_lang_String;
 
 class java_io_FileDescriptor;
 
 class java_io_PrintWriter;
+
+class android_support_v4_content_Loader;
+
+class java_lang_Object;
 
 class android_os_Bundle;
 
@@ -96,13 +96,13 @@ public:
 	// Default Destructor
 	virtual ~android_support_v4_app_LoaderManager();
 	// Functions
-	virtual AndroidCXX::android_support_v4_content_Loader * getLoader(int const& arg0) ;
+	virtual void  destroyLoader(int const& arg0) ;
 	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3) ;
 	static void  enableDebugLogging(bool const& arg0) ;
+	virtual AndroidCXX::android_support_v4_content_Loader * getLoader(int const& arg0) ;
+	virtual bool  hasRunningLoaders() ;
 	virtual AndroidCXX::android_support_v4_content_Loader * initLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks const& arg2) ;
 	virtual AndroidCXX::android_support_v4_content_Loader * restartLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1,AndroidCXX::android_support_v4_app_LoaderManager_LoaderCallbacks const& arg2) ;
-	virtual void  destroyLoader(int const& arg0) ;
-	virtual bool  hasRunningLoaders() ;
 
 protected:
 	android_support_v4_app_LoaderManager();

@@ -67,15 +67,15 @@ public:
 	// Default Destructor
 	virtual ~android_widget_RemoteViewsService_RemoteViewsFactory();
 	// Functions
-	virtual void  onCreate() ;
 	virtual int  getCount() ;
 	virtual long  getItemId(int const& arg0) ;
-	virtual void  onDestroy() ;
-	virtual bool  hasStableIds() ;
-	virtual int  getViewTypeCount() ;
-	virtual void  onDataSetChanged() ;
-	virtual AndroidCXX::android_widget_RemoteViews * getViewAt(int const& arg0) ;
 	virtual AndroidCXX::android_widget_RemoteViews * getLoadingView() ;
+	virtual AndroidCXX::android_widget_RemoteViews * getViewAt(int const& arg0) ;
+	virtual int  getViewTypeCount() ;
+	virtual bool  hasStableIds() ;
+	virtual void  onCreate() ;
+	virtual void  onDataSetChanged() ;
+	virtual void  onDestroy() ;
 
 protected:
 	android_widget_RemoteViewsService_RemoteViewsFactory();

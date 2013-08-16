@@ -10,25 +10,25 @@
 
 
 	
+	
+	
+	
+	
+	
+ 		 
+	
  		 
 	
 	
 	
  		 
 	
+ 		 
 	
  		 
 	
-	
-	
  		 
 	
-	
-	
- 		 
-	
-	
- 		 
 	
 
 
@@ -81,14 +81,14 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
-
 class java_lang_CharSequence;
 
+class android_view_View;
 
 class android_graphics_drawable_Drawable;
 
-class android_view_View;
+class java_lang_Object;
+
 
 class android_app_ActionBar_TabListener;
 
@@ -102,23 +102,23 @@ public:
 	// Default Destructor
 	virtual ~android_app_ActionBar_Tab();
 	// Functions
-	virtual AndroidCXX::java_lang_Object * getTag() ;
-	virtual int  getPosition() ;
-	virtual AndroidCXX::android_app_ActionBar_Tab * setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
-	virtual AndroidCXX::android_app_ActionBar_Tab * setText(int const& arg0) ;
 	virtual AndroidCXX::java_lang_CharSequence * getContentDescription() ;
-	virtual AndroidCXX::android_app_ActionBar_Tab * setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0) ;
-	virtual AndroidCXX::android_app_ActionBar_Tab * setContentDescription(int const& arg0) ;
-	virtual AndroidCXX::android_app_ActionBar_Tab * setTag(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual void  select() ;
+	virtual AndroidCXX::android_view_View * getCustomView() ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getIcon() ;
+	virtual int  getPosition() ;
+	virtual AndroidCXX::java_lang_Object * getTag() ;
 	virtual AndroidCXX::java_lang_CharSequence * getText() ;
+	virtual void  select() ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setContentDescription(int const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setContentDescription(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setCustomView(AndroidCXX::android_view_View const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setCustomView(int const& arg0) ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setIcon(int const& arg0) ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setIcon(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
-	virtual AndroidCXX::android_graphics_drawable_Drawable * getIcon() ;
-	virtual AndroidCXX::android_app_ActionBar_Tab * setCustomView(int const& arg0) ;
-	virtual AndroidCXX::android_app_ActionBar_Tab * setCustomView(AndroidCXX::android_view_View const& arg0) ;
-	virtual AndroidCXX::android_view_View * getCustomView() ;
 	virtual AndroidCXX::android_app_ActionBar_Tab * setTabListener(AndroidCXX::android_app_ActionBar_TabListener const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setTag(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual AndroidCXX::android_app_ActionBar_Tab * setText(int const& arg0) ;
 
 protected:
 	android_app_ActionBar_Tab();

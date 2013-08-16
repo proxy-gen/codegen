@@ -58,16 +58,16 @@ namespace AndroidCXX {
 
 class java_nio_channels_Channel;
 
-
 class java_nio_channels_DatagramChannel;
 
-class java_nio_channels_spi_AbstractSelector;
-
 class java_nio_channels_Pipe;
+
+class java_nio_channels_spi_AbstractSelector;
 
 class java_nio_channels_ServerSocketChannel;
 
 class java_nio_channels_SocketChannel;
+
 
 class java_nio_channels_spi_SelectorProvider 
 {
@@ -80,12 +80,12 @@ public:
 	virtual ~java_nio_channels_spi_SelectorProvider();
 	// Functions
 	virtual AndroidCXX::java_nio_channels_Channel * inheritedChannel() ;
-	static AndroidCXX::java_nio_channels_spi_SelectorProvider * provider() ;
 	virtual AndroidCXX::java_nio_channels_DatagramChannel * openDatagramChannel() ;
-	virtual AndroidCXX::java_nio_channels_spi_AbstractSelector * openSelector() ;
 	virtual AndroidCXX::java_nio_channels_Pipe * openPipe() ;
+	virtual AndroidCXX::java_nio_channels_spi_AbstractSelector * openSelector() ;
 	virtual AndroidCXX::java_nio_channels_ServerSocketChannel * openServerSocketChannel() ;
 	virtual AndroidCXX::java_nio_channels_SocketChannel * openSocketChannel() ;
+	static AndroidCXX::java_nio_channels_spi_SelectorProvider * provider() ;
 
 protected:
 	java_nio_channels_spi_SelectorProvider();

@@ -62,11 +62,11 @@ public:
 	virtual ~java_lang_Number();
 	// Functions
 	virtual byte  byteValue() ;
-	virtual short  shortValue() ;
+	virtual double  doubleValue() ;
+	virtual float  floatValue() ;
 	virtual int  intValue() ;
 	virtual long  longValue() ;
-	virtual float  floatValue() ;
-	virtual double  doubleValue() ;
+	virtual short  shortValue() ;
 
 protected:
 	java_lang_Number();

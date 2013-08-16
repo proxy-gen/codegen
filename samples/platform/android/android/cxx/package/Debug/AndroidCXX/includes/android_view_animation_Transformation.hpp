@@ -9,8 +9,8 @@
 
 
 
-	
  		 
+	
  		 
 	
 	
@@ -41,9 +41,9 @@
 //
 
 
-#include <java_lang_String.hpp>
-
 #include <android_graphics_Matrix.hpp>
+
+#include <java_lang_String.hpp>
 
 
 #include <vector>
@@ -62,10 +62,10 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 
 class android_graphics_Matrix;
+
+class java_lang_String;
 
 class android_view_animation_Transformation 
 {
@@ -79,16 +79,16 @@ public:
 	// Default Destructor
 	virtual ~android_view_animation_Transformation();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual void  clear() ;
-	virtual void  set(AndroidCXX::android_view_animation_Transformation const& arg0) ;
 	virtual void  compose(AndroidCXX::android_view_animation_Transformation const& arg0) ;
-	virtual AndroidCXX::android_graphics_Matrix * getMatrix() ;
 	virtual float  getAlpha() ;
-	virtual void  setAlpha(float const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toShortString() ;
+	virtual AndroidCXX::android_graphics_Matrix * getMatrix() ;
 	virtual int  getTransformationType() ;
+	virtual void  set(AndroidCXX::android_view_animation_Transformation const& arg0) ;
+	virtual void  setAlpha(float const& arg0) ;
 	virtual void  setTransformationType(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toShortString() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 

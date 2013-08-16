@@ -60,8 +60,8 @@ public:
 	// Default Destructor
 	virtual ~android_text_Spannable();
 	// Functions
-	virtual void  setSpan(AndroidCXX::java_lang_Object const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual void  removeSpan(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  setSpan(AndroidCXX::java_lang_Object const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 
 protected:
 	android_text_Spannable();

@@ -9,8 +9,8 @@
 
 
 
- 		 
 	
+ 		 
  		 
 	
 
@@ -63,9 +63,9 @@ public:
 	// Default Destructor
 	virtual ~android_text_style_CharacterStyle();
 	// Functions
-	static AndroidCXX::android_text_style_CharacterStyle * wrap(AndroidCXX::android_text_style_CharacterStyle const& arg0) ;
-	virtual void  updateDrawState(AndroidCXX::android_text_TextPaint const& arg0) ;
 	virtual AndroidCXX::android_text_style_CharacterStyle * getUnderlying() ;
+	virtual void  updateDrawState(AndroidCXX::android_text_TextPaint const& arg0) ;
+	static AndroidCXX::android_text_style_CharacterStyle * wrap(AndroidCXX::android_text_style_CharacterStyle const& arg0) ;
 
 protected:
 	android_text_style_CharacterStyle();

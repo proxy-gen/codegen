@@ -9,14 +9,6 @@
 
 
 
- 		 
-	
- 	
- 		 
-	
- 		 
-	
- 		 
 	
  		 
 	
@@ -26,11 +18,19 @@
 	
  	
  		 
+	
+ 		 
+	
+ 		 
+	
  		 
 	
  	
  		 
+ 		 
 	
+ 	
+ 		 
  		 
  		 
 
@@ -79,18 +79,18 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+
 class java_lang_String;
+
+class java_net_URL;
+
+class java_io_InputStream;
+
+class java_util_Enumeration;
 
 class java_lang_Class;
 
 class java_lang_Object;
-
-
-class java_io_InputStream;
-
-class java_net_URL;
-
-class java_util_Enumeration;
 
 class java_lang_ClassLoader 
 {
@@ -102,19 +102,19 @@ public:
 	// Default Destructor
 	virtual ~java_lang_ClassLoader();
 	// Functions
-	virtual AndroidCXX::java_lang_Class * loadClass(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::java_lang_ClassLoader * getSystemClassLoader() ;
-	virtual AndroidCXX::java_io_InputStream * getResourceAsStream(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_net_URL * getResource(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::java_io_InputStream * getSystemResourceAsStream(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::java_net_URL * getSystemResource(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_util_Enumeration * getResources(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::java_util_Enumeration * getSystemResources(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  clearAssertionStatus() ;
 	virtual AndroidCXX::java_lang_ClassLoader * getParent() ;
+	virtual AndroidCXX::java_net_URL * getResource(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_io_InputStream * getResourceAsStream(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_util_Enumeration * getResources(AndroidCXX::java_lang_String const& arg0) ;
+	static AndroidCXX::java_lang_ClassLoader * getSystemClassLoader() ;
+	static AndroidCXX::java_net_URL * getSystemResource(AndroidCXX::java_lang_String const& arg0) ;
+	static AndroidCXX::java_io_InputStream * getSystemResourceAsStream(AndroidCXX::java_lang_String const& arg0) ;
+	static AndroidCXX::java_util_Enumeration * getSystemResources(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_Class * loadClass(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setClassAssertionStatus(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
 	virtual void  setDefaultAssertionStatus(bool const& arg0) ;
 	virtual void  setPackageAssertionStatus(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
-	virtual void  setClassAssertionStatus(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
-	virtual void  clearAssertionStatus() ;
 
 protected:
 	java_lang_ClassLoader();

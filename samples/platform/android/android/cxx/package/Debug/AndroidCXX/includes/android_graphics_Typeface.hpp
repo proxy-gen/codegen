@@ -10,18 +10,18 @@
 
 
  		 
- 		 
-	
- 		 
-	
-	
- 		 
- 		 
 	
  		 
 	
  		 
+ 		 
 	
+ 		 
+	
+ 		 
+	
+	
+ 		 
 
 
 
@@ -49,13 +49,13 @@
 //
 
 
-#include <java_lang_Object.hpp>
-
 #include <java_lang_String.hpp>
 
 #include <android_content_res_AssetManager.hpp>
 
 #include <java_io_File.hpp>
+
+#include <java_lang_Object.hpp>
 
 
 #include <vector>
@@ -74,14 +74,14 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
-
 class java_lang_String;
 
 
 class android_content_res_AssetManager;
 
 class java_io_File;
+
+class java_lang_Object;
 
 class android_graphics_Typeface 
 {
@@ -94,17 +94,17 @@ public:
 	// Default Destructor
 	virtual ~android_graphics_Typeface();
 	// Functions
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual int  hashCode() ;
 	static AndroidCXX::android_graphics_Typeface * create(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	static AndroidCXX::android_graphics_Typeface * create(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1) ;
-	virtual int  getStyle() ;
-	virtual bool  isBold() ;
-	virtual bool  isItalic() ;
-	static AndroidCXX::android_graphics_Typeface * defaultFromStyle(int const& arg0) ;
 	static AndroidCXX::android_graphics_Typeface * createFromAsset(AndroidCXX::android_content_res_AssetManager const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	static AndroidCXX::android_graphics_Typeface * createFromFile(AndroidCXX::java_lang_String const& arg0) ;
 	static AndroidCXX::android_graphics_Typeface * createFromFile(AndroidCXX::java_io_File const& arg0) ;
+	static AndroidCXX::android_graphics_Typeface * defaultFromStyle(int const& arg0) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  getStyle() ;
+	virtual int  hashCode() ;
+	virtual bool  isBold() ;
+	virtual bool  isItalic() ;
 
 protected:
 

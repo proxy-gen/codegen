@@ -11,10 +11,10 @@
 
  		 
 	
- 		 
-	
  	
  		 
+ 		 
+	
 
 
 
@@ -59,9 +59,9 @@ namespace AndroidCXX {
 
 class java_security_Permission;
 
-class java_lang_String;
-
 class java_util_Enumeration;
+
+class java_lang_String;
 
 class java_security_PermissionCollection : public java_io_Serializable
 {
@@ -74,11 +74,11 @@ public:
 	virtual ~java_security_PermissionCollection();
 	// Functions
 	virtual void  add(AndroidCXX::java_security_Permission const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual bool  implies(AndroidCXX::java_security_Permission const& arg0) ;
-	virtual void  setReadOnly() ;
 	virtual AndroidCXX::java_util_Enumeration * elements() ;
+	virtual bool  implies(AndroidCXX::java_security_Permission const& arg0) ;
 	virtual bool  isReadOnly() ;
+	virtual void  setReadOnly() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 	java_security_PermissionCollection();

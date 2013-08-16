@@ -28,11 +28,10 @@
 
 
 
-
 // Generated Code 
 
-#ifndef _android_widget_RadioButton
-#define _android_widget_RadioButton
+#ifndef _android_widget_ImageButton
+#define _android_widget_ImageButton
 //
 // Scroll Down 
 //
@@ -73,23 +72,22 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_RadioButton : public java_lang_Object
+class android_widget_ImageButton : public java_lang_Object
 {
 public:
 
 	// Public ConstrucXXX
-	android_widget_RadioButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
-	android_widget_RadioButton(AndroidCXX::android_content_Context const& arg0);
-	android_widget_RadioButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_RadioButton(const android_widget_RadioButton& cc);
-	android_widget_RadioButton(Proxy proxy);
+	android_widget_ImageButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	android_widget_ImageButton(AndroidCXX::android_content_Context const& arg0);
+	android_widget_ImageButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_ImageButton(const android_widget_ImageButton& cc);
+	android_widget_ImageButton(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
-	virtual ~android_widget_RadioButton();
+	virtual ~android_widget_ImageButton();
 	// Functions
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
-	virtual void  toggle() ;
 
 protected:
 
@@ -101,4 +99,4 @@ protected:
 }
 #endif //__cplusplus
 
-#endif // _android_widget_RadioButton
+#endif // _android_widget_ImageButton

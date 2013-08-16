@@ -59,8 +59,8 @@ public:
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteClosable();
 	// Functions
-	virtual void  close() ;
 	virtual void  acquireReference() ;
+	virtual void  close() ;
 	virtual void  releaseReference() ;
 	virtual void  releaseReferenceFromContainer() ;
 

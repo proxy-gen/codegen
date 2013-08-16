@@ -10,12 +10,12 @@
 
 
  		 
-	
-	
-	
+ 		 
 	
  		 
 	
+	
+ 	
 	
  	
  		 
@@ -23,14 +23,14 @@
  	
  		 
 	
+	
  	
- 		 
  		 
 	
 	
  	
  		 
- 	
+	
 
 
 
@@ -68,11 +68,11 @@
 
 #include <java_lang_Object.hpp>
 
+#include <java_net_InetAddress.hpp>
+
 #include <java_lang_String.hpp>
 
 #include <java_util_Enumeration.hpp>
-
-#include <java_net_InetAddress.hpp>
 
 #include <java_util_List.hpp>
 
@@ -97,12 +97,12 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
+class java_net_InetAddress;
+
+
 class java_lang_String;
 
-
 class java_util_Enumeration;
-
-class java_net_InetAddress;
 
 class java_util_List;
 
@@ -120,24 +120,24 @@ public:
 	virtual ~java_net_NetworkInterface();
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
-	virtual AndroidCXX::java_lang_String * getName() ;
-	virtual AndroidCXX::java_net_NetworkInterface * getParent() ;
-	virtual AndroidCXX::java_lang_String * getDisplayName() ;
+	static AndroidCXX::java_net_NetworkInterface * getByInetAddress(AndroidCXX::java_net_InetAddress const& arg0) ;
 	static AndroidCXX::java_net_NetworkInterface * getByName(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getDisplayName() ;
+	virtual std::vector<byte>  getHardwareAddress() ;
 	virtual AndroidCXX::java_util_Enumeration * getInetAddresses() ;
 	virtual AndroidCXX::java_util_List * getInterfaceAddresses() ;
-	virtual AndroidCXX::java_util_Enumeration * getSubInterfaces() ;
-	static AndroidCXX::java_net_NetworkInterface * getByInetAddress(AndroidCXX::java_net_InetAddress const& arg0) ;
+	virtual int  getMTU() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
 	static AndroidCXX::java_util_Enumeration * getNetworkInterfaces() ;
-	virtual bool  isUp() ;
+	virtual AndroidCXX::java_net_NetworkInterface * getParent() ;
+	virtual AndroidCXX::java_util_Enumeration * getSubInterfaces() ;
+	virtual int  hashCode() ;
 	virtual bool  isLoopback() ;
 	virtual bool  isPointToPoint() ;
-	virtual bool  supportsMulticast() ;
-	virtual std::vector<byte>  getHardwareAddress() ;
-	virtual int  getMTU() ;
+	virtual bool  isUp() ;
 	virtual bool  isVirtual() ;
+	virtual bool  supportsMulticast() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 

@@ -53,9 +53,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 class java_lang_CharSequence;
+
+class java_lang_String;
 
 class android_app_FragmentManager_BackStackEntry : public java_lang_Object
 {
@@ -67,12 +67,12 @@ public:
 	// Default Destructor
 	virtual ~android_app_FragmentManager_BackStackEntry();
 	// Functions
-	virtual AndroidCXX::java_lang_String * getName() ;
-	virtual int  getId() ;
-	virtual int  getBreadCrumbTitleRes() ;
+	virtual AndroidCXX::java_lang_CharSequence * getBreadCrumbShortTitle() ;
 	virtual int  getBreadCrumbShortTitleRes() ;
 	virtual AndroidCXX::java_lang_CharSequence * getBreadCrumbTitle() ;
-	virtual AndroidCXX::java_lang_CharSequence * getBreadCrumbShortTitle() ;
+	virtual int  getBreadCrumbTitleRes() ;
+	virtual int  getId() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
 
 protected:
 	android_app_FragmentManager_BackStackEntry();

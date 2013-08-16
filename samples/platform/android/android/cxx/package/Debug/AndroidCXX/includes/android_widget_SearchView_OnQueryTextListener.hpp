@@ -60,8 +60,8 @@ public:
 	// Default Destructor
 	virtual ~android_widget_SearchView_OnQueryTextListener();
 	// Functions
-	virtual bool  onQueryTextSubmit(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  onQueryTextChange(AndroidCXX::java_lang_String const& arg0) ;
+	virtual bool  onQueryTextSubmit(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
 	android_widget_SearchView_OnQueryTextListener();

@@ -9,14 +9,12 @@
 
 
 
- 		 
 	
  		 
 	
  		 
 	
  		 
-	
 	
  		 
 	
@@ -28,6 +26,8 @@
  	
 	
  		 
+ 		 
+	
 
 
 
@@ -73,8 +73,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
 
+class java_lang_String;
 
 class java_util_Set;
 
@@ -88,16 +88,16 @@ public:
 	// Default Destructor
 	virtual ~android_content_SharedPreferences_Editor();
 	// Functions
+	virtual void  apply() ;
+	virtual AndroidCXX::android_content_SharedPreferences_Editor * clear() ;
+	virtual bool  commit() ;
 	virtual AndroidCXX::android_content_SharedPreferences_Editor * putBoolean(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
+	virtual AndroidCXX::android_content_SharedPreferences_Editor * putFloat(AndroidCXX::java_lang_String const& arg0,float const& arg1) ;
 	virtual AndroidCXX::android_content_SharedPreferences_Editor * putInt(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_content_SharedPreferences_Editor * putLong(AndroidCXX::java_lang_String const& arg0,long const& arg1) ;
-	virtual AndroidCXX::android_content_SharedPreferences_Editor * putFloat(AndroidCXX::java_lang_String const& arg0,float const& arg1) ;
-	virtual AndroidCXX::android_content_SharedPreferences_Editor * clear() ;
-	virtual AndroidCXX::android_content_SharedPreferences_Editor * remove(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_content_SharedPreferences_Editor * putString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
-	virtual void  apply() ;
 	virtual AndroidCXX::android_content_SharedPreferences_Editor * putStringSet(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Set const& arg1) ;
-	virtual bool  commit() ;
+	virtual AndroidCXX::android_content_SharedPreferences_Editor * remove(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
 	android_content_SharedPreferences_Editor();

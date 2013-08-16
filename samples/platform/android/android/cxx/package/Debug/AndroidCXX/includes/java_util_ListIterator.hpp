@@ -11,8 +11,8 @@
 
  		 
 	
- 		 
 	
+ 		 
 
 
 
@@ -71,13 +71,13 @@ public:
 	// Functions
 	virtual void  add(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual bool  hasNext() ;
+	virtual bool  hasPrevious() ;
 	virtual AndroidCXX::java_lang_Object * next() ;
-	virtual void  remove() ;
-	virtual void  set(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual int  nextIndex() ;
 	virtual AndroidCXX::java_lang_Object * previous() ;
 	virtual int  previousIndex() ;
-	virtual bool  hasPrevious() ;
+	virtual void  remove() ;
+	virtual void  set(AndroidCXX::java_lang_Object const& arg0) ;
 
 protected:
 	java_util_ListIterator();

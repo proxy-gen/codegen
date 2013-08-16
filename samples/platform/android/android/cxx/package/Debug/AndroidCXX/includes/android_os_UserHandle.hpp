@@ -10,12 +10,12 @@
 
 
  		 
+ 		 
+	
 	
  		 
  		 
  		 
- 		 
-	
 
 
  		 
@@ -43,9 +43,9 @@
 
 #include <java_lang_Object.hpp>
 
-#include <java_lang_String.hpp>
-
 #include <android_os_Parcel.hpp>
+
+#include <java_lang_String.hpp>
 
 
 #include <android_os_Parcelable.hpp>
@@ -68,10 +68,10 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_lang_String;
-
 class android_os_Parcel;
 
+
+class java_lang_String;
 
 class android_os_UserHandle : public android_os_Parcelable
 {
@@ -85,13 +85,13 @@ public:
 	// Default Destructor
 	virtual ~android_os_UserHandle();
 	// Functions
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
 	virtual int  describeContents() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	static AndroidCXX::android_os_UserHandle * readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 	static void  writeToParcel(AndroidCXX::android_os_UserHandle const& arg0,AndroidCXX::android_os_Parcel const& arg1) ;
-	static AndroidCXX::android_os_UserHandle * readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
 
 protected:
 

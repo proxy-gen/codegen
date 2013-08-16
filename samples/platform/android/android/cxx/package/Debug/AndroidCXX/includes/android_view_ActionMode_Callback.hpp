@@ -57,9 +57,9 @@ namespace AndroidCXX {
 
 class android_view_ActionMode;
 
-class android_view_Menu;
-
 class android_view_MenuItem;
+
+class android_view_Menu;
 
 class android_view_ActionMode_Callback : public java_lang_Object
 {
@@ -71,10 +71,10 @@ public:
 	// Default Destructor
 	virtual ~android_view_ActionMode_Callback();
 	// Functions
-	virtual bool  onCreateActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1) ;
-	virtual bool  onPrepareActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1) ;
 	virtual bool  onActionItemClicked(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_MenuItem const& arg1) ;
+	virtual bool  onCreateActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1) ;
 	virtual void  onDestroyActionMode(AndroidCXX::android_view_ActionMode const& arg0) ;
+	virtual bool  onPrepareActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1) ;
 
 protected:
 	android_view_ActionMode_Callback();

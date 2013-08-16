@@ -35,13 +35,13 @@
 //
 
 
-#include <android_content_Context.hpp>
-
-#include <android_util_AttributeSet.hpp>
+#include <android_view_ViewGroup_MarginLayoutParams.hpp>
 
 #include <android_view_ViewGroup_LayoutParams.hpp>
 
-#include <android_view_ViewGroup_MarginLayoutParams.hpp>
+#include <android_content_Context.hpp>
+
+#include <android_util_AttributeSet.hpp>
 
 
 #include <java_lang_Object.hpp>
@@ -62,25 +62,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_content_Context;
-
-class android_util_AttributeSet;
+class android_view_ViewGroup_MarginLayoutParams;
 
 class android_view_ViewGroup_LayoutParams;
 
-class android_view_ViewGroup_MarginLayoutParams;
+class android_content_Context;
+
+class android_util_AttributeSet;
 
 class android_widget_TableLayout_LayoutParams : public java_lang_Object
 {
 public:
 
 	// Public ConstrucXXX
-	android_widget_TableLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_TableLayout_LayoutParams(int const& arg0,int const& arg1);
-	android_widget_TableLayout_LayoutParams(int const& arg0,int const& arg1,float const& arg2);
 	android_widget_TableLayout_LayoutParams();
-	android_widget_TableLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
 	android_widget_TableLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0);
+	android_widget_TableLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
+	android_widget_TableLayout_LayoutParams(int const& arg0,int const& arg1);
+	android_widget_TableLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_TableLayout_LayoutParams(int const& arg0,int const& arg1,float const& arg2);
 	android_widget_TableLayout_LayoutParams(const android_widget_TableLayout_LayoutParams& cc);
 	android_widget_TableLayout_LayoutParams(Proxy proxy);
 	Proxy proxy() const;	

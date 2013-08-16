@@ -61,8 +61,8 @@ public:
 
 	// Public ConstrucXXX
 	android_text_TextPaint();
-	android_text_TextPaint(int const& arg0);
 	android_text_TextPaint(AndroidCXX::android_graphics_Paint const& arg0);
+	android_text_TextPaint(int const& arg0);
 	android_text_TextPaint(const android_text_TextPaint& cc);
 	android_text_TextPaint(Proxy proxy);
 	Proxy proxy() const;	

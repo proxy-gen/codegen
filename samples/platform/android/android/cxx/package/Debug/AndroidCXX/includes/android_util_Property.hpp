@@ -16,14 +16,14 @@
  	
  		 
  		 
- 		 
- 		 
  	
  		 
  	
  		 
 	
  	
+ 		 
+ 		 
  		 
  		 
  		 
@@ -92,9 +92,9 @@ public:
 	virtual AndroidCXX::java_lang_Object * get(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getName() ;
 	virtual AndroidCXX::java_lang_Class * getType() ;
-	virtual void  set(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual bool  isReadOnly() ;
 	static AndroidCXX::android_util_Property * of(AndroidCXX::java_lang_Class const& arg0,AndroidCXX::java_lang_Class const& arg1,AndroidCXX::java_lang_String const& arg2) ;
+	virtual void  set(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 
 protected:
 	android_util_Property();

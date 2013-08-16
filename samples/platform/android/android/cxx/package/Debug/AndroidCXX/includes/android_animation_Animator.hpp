@@ -9,14 +9,14 @@
 
 
 
-	
-	
  		 
 	
- 		 
- 		 
+	
 	
  	
+ 		 
+ 		 
+	
  		 
  		 
 
@@ -74,10 +74,10 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_animation_Animator_AnimatorListener;
+
 
 class android_animation_TimeInterpolator;
-
-class android_animation_Animator_AnimatorListener;
 
 class java_util_ArrayList;
 
@@ -93,25 +93,25 @@ public:
 	// Default Destructor
 	virtual ~android_animation_Animator();
 	// Functions
-	virtual AndroidCXX::android_animation_Animator * clone() ;
-	virtual void  start() ;
-	virtual void  end() ;
-	virtual AndroidCXX::android_animation_Animator * setDuration(long const& arg0) ;
-	virtual long  getDuration() ;
-	virtual long  getStartDelay() ;
-	virtual void  setStartDelay(long const& arg0) ;
-	virtual void  setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0) ;
-	virtual AndroidCXX::android_animation_TimeInterpolator * getInterpolator() ;
+	virtual void  addListener(AndroidCXX::android_animation_Animator_AnimatorListener const& arg0) ;
 	virtual void  cancel() ;
+	virtual AndroidCXX::android_animation_Animator * clone() ;
+	virtual void  end() ;
+	virtual long  getDuration() ;
+	virtual AndroidCXX::android_animation_TimeInterpolator * getInterpolator() ;
+	virtual AndroidCXX::java_util_ArrayList * getListeners() ;
+	virtual long  getStartDelay() ;
 	virtual bool  isRunning() ;
 	virtual bool  isStarted() ;
-	virtual void  addListener(AndroidCXX::android_animation_Animator_AnimatorListener const& arg0) ;
-	virtual void  removeListener(AndroidCXX::android_animation_Animator_AnimatorListener const& arg0) ;
-	virtual AndroidCXX::java_util_ArrayList * getListeners() ;
 	virtual void  removeAllListeners() ;
-	virtual void  setupStartValues() ;
-	virtual void  setupEndValues() ;
+	virtual void  removeListener(AndroidCXX::android_animation_Animator_AnimatorListener const& arg0) ;
+	virtual AndroidCXX::android_animation_Animator * setDuration(long const& arg0) ;
+	virtual void  setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0) ;
+	virtual void  setStartDelay(long const& arg0) ;
 	virtual void  setTarget(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  setupEndValues() ;
+	virtual void  setupStartValues() ;
+	virtual void  start() ;
 
 protected:
 	android_animation_Animator();

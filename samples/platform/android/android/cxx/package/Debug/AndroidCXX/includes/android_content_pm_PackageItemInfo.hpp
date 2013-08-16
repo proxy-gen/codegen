@@ -10,7 +10,6 @@
 
 
  		 
- 		 
 	
  		 
 	
@@ -19,6 +18,7 @@
  		 
  		 
 	
+ 		 
 
 
  		 
@@ -43,17 +43,17 @@
 //
 
 
-#include <android_os_Parcel.hpp>
-
 #include <android_content_pm_PackageManager.hpp>
 
-#include <java_lang_CharSequence.hpp>
-
 #include <android_graphics_drawable_Drawable.hpp>
+
+#include <java_lang_CharSequence.hpp>
 
 #include <java_lang_String.hpp>
 
 #include <android_content_res_XmlResourceParser.hpp>
+
+#include <android_os_Parcel.hpp>
 
 
 #include <vector>
@@ -72,17 +72,17 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_Parcel;
-
 class android_content_pm_PackageManager;
 
-class java_lang_CharSequence;
-
 class android_graphics_drawable_Drawable;
+
+class java_lang_CharSequence;
 
 class java_lang_String;
 
 class android_content_res_XmlResourceParser;
+
+class android_os_Parcel;
 
 
 class android_content_pm_PackageItemInfo 
@@ -97,11 +97,11 @@ public:
 	// Default Destructor
 	virtual ~android_content_pm_PackageItemInfo();
 	// Functions
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual AndroidCXX::java_lang_CharSequence * loadLabel(AndroidCXX::android_content_pm_PackageManager const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * loadIcon(AndroidCXX::android_content_pm_PackageManager const& arg0) ;
+	virtual AndroidCXX::java_lang_CharSequence * loadLabel(AndroidCXX::android_content_pm_PackageManager const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * loadLogo(AndroidCXX::android_content_pm_PackageManager const& arg0) ;
 	virtual AndroidCXX::android_content_res_XmlResourceParser * loadXmlMetaData(AndroidCXX::android_content_pm_PackageManager const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

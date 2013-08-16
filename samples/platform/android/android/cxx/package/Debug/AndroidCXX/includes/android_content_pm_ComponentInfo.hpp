@@ -10,8 +10,8 @@
 
 
  		 
- 		 
 	
+ 		 
 
 
  		 
@@ -35,11 +35,11 @@
 //
 
 
-#include <android_os_Parcel.hpp>
-
 #include <android_content_pm_PackageManager.hpp>
 
 #include <java_lang_CharSequence.hpp>
+
+#include <android_os_Parcel.hpp>
 
 
 #include <java_lang_Object.hpp>
@@ -60,11 +60,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_Parcel;
-
 class android_content_pm_PackageManager;
 
 class java_lang_CharSequence;
+
+class android_os_Parcel;
 
 
 class android_content_pm_ComponentInfo : public java_lang_Object
@@ -79,10 +79,10 @@ public:
 	// Default Destructor
 	virtual ~android_content_pm_ComponentInfo();
 	// Functions
-	virtual bool  isEnabled() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual AndroidCXX::java_lang_CharSequence * loadLabel(AndroidCXX::android_content_pm_PackageManager const& arg0) ;
 	virtual int  getIconResource() ;
+	virtual bool  isEnabled() ;
+	virtual AndroidCXX::java_lang_CharSequence * loadLabel(AndroidCXX::android_content_pm_PackageManager const& arg0) ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

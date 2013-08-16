@@ -15,17 +15,17 @@
 	
  		 
 	
- 		 
-	
-	
- 		 
 	
  		 
 	
 	
-	
+ 		 
 	
  		 
+	
+ 		 
+	
+	
 	
 	
 
@@ -85,8 +85,8 @@ class java_nio_CharBuffer;
 
 class java_nio_charset_CoderResult;
 
-
 class java_nio_charset_CodingErrorAction;
+
 
 class java_lang_String;
 
@@ -100,22 +100,22 @@ public:
 	// Default Destructor
 	virtual ~java_nio_charset_CharsetDecoder();
 	// Functions
+	virtual float  averageCharsPerByte() ;
 	virtual AndroidCXX::java_nio_charset_Charset * charset() ;
 	virtual AndroidCXX::java_nio_charset_CoderResult * decode(AndroidCXX::java_nio_ByteBuffer const& arg0,AndroidCXX::java_nio_CharBuffer const& arg1,bool const& arg2) ;
 	virtual AndroidCXX::java_nio_CharBuffer * decode(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
+	virtual AndroidCXX::java_nio_charset_Charset * detectedCharset() ;
 	virtual AndroidCXX::java_nio_charset_CoderResult * flush(AndroidCXX::java_nio_CharBuffer const& arg0) ;
-	virtual AndroidCXX::java_nio_charset_CharsetDecoder * reset() ;
-	virtual AndroidCXX::java_nio_charset_CharsetDecoder * onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0) ;
-	virtual AndroidCXX::java_nio_charset_CharsetDecoder * onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0) ;
-	virtual AndroidCXX::java_lang_String * replacement() ;
-	virtual AndroidCXX::java_nio_charset_CodingErrorAction * malformedInputAction() ;
-	virtual AndroidCXX::java_nio_charset_CodingErrorAction * unmappableCharacterAction() ;
-	virtual AndroidCXX::java_nio_charset_CharsetDecoder * replaceWith(AndroidCXX::java_lang_String const& arg0) ;
-	virtual float  maxCharsPerByte() ;
-	virtual float  averageCharsPerByte() ;
 	virtual bool  isAutoDetecting() ;
 	virtual bool  isCharsetDetected() ;
-	virtual AndroidCXX::java_nio_charset_Charset * detectedCharset() ;
+	virtual AndroidCXX::java_nio_charset_CodingErrorAction * malformedInputAction() ;
+	virtual float  maxCharsPerByte() ;
+	virtual AndroidCXX::java_nio_charset_CharsetDecoder * onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0) ;
+	virtual AndroidCXX::java_nio_charset_CharsetDecoder * onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0) ;
+	virtual AndroidCXX::java_nio_charset_CharsetDecoder * replaceWith(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * replacement() ;
+	virtual AndroidCXX::java_nio_charset_CharsetDecoder * reset() ;
+	virtual AndroidCXX::java_nio_charset_CodingErrorAction * unmappableCharacterAction() ;
 
 protected:
 	java_nio_charset_CharsetDecoder();

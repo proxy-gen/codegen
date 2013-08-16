@@ -66,8 +66,8 @@ public:
 	// Functions
 	virtual bool  onKeyDown(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
 	virtual bool  onKeyLongPress(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
-	virtual bool  onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
 	virtual bool  onKeyMultiple(int const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
+	virtual bool  onKeyUp(int const& arg0,AndroidCXX::android_view_KeyEvent const& arg1) ;
 
 protected:
 	android_view_KeyEvent_Callback();

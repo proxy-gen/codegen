@@ -40,9 +40,9 @@
 
 #include <java_lang_Object.hpp>
 
-#include <java_lang_String.hpp>
-
 #include <java_math_RoundingMode.hpp>
+
+#include <java_lang_String.hpp>
 
 
 #include <java_io_Serializable.hpp>
@@ -65,17 +65,17 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_lang_String;
 
+class java_lang_String;
 
 class java_math_MathContext : public java_io_Serializable
 {
 public:
 
 	// Public ConstrucXXX
+	java_math_MathContext(AndroidCXX::java_lang_String const& arg0);
 	java_math_MathContext(int const& arg0);
 	java_math_MathContext(int const& arg0,java_math_RoundingMode::java_math_RoundingMode const& arg1);
-	java_math_MathContext(AndroidCXX::java_lang_String const& arg0);
 	java_math_MathContext(const java_math_MathContext& cc);
 	java_math_MathContext(Proxy proxy);
 	Proxy proxy() const;	
@@ -83,10 +83,10 @@ public:
 	virtual ~java_math_MathContext();
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
 	virtual int  getPrecision() ;
 	virtual java_math_RoundingMode::java_math_RoundingMode  getRoundingMode() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 

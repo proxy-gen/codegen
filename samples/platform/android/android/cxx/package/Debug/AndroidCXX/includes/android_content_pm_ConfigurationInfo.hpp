@@ -10,8 +10,8 @@
 
 
 	
- 		 
 	
+ 		 
 
 
  		 
@@ -75,10 +75,10 @@ public:
 	// Default Destructor
 	virtual ~android_content_pm_ConfigurationInfo();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_String * getGlEsVersion() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

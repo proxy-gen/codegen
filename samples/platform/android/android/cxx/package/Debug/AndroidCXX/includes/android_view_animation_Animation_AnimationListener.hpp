@@ -62,9 +62,9 @@ public:
 	// Default Destructor
 	virtual ~android_view_animation_Animation_AnimationListener();
 	// Functions
-	virtual void  onAnimationStart(AndroidCXX::android_view_animation_Animation const& arg0) ;
 	virtual void  onAnimationEnd(AndroidCXX::android_view_animation_Animation const& arg0) ;
 	virtual void  onAnimationRepeat(AndroidCXX::android_view_animation_Animation const& arg0) ;
+	virtual void  onAnimationStart(AndroidCXX::android_view_animation_Animation const& arg0) ;
 
 protected:
 	android_view_animation_Animation_AnimationListener();

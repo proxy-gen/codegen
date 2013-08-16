@@ -93,15 +93,15 @@ public:
 	// Default Destructor
 	virtual ~android_text_method_MovementMethod();
 	// Functions
-	virtual void  initialize(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1) ;
-	virtual bool  onTouchEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2) ;
-	virtual bool  onKeyDown(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) ;
-	virtual bool  onKeyUp(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) ;
-	virtual bool  onTrackballEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2) ;
-	virtual bool  onGenericMotionEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2) ;
-	virtual bool  onKeyOther(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
-	virtual void  onTakeFocus(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2) ;
 	virtual bool  canSelectArbitrarily() ;
+	virtual void  initialize(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1) ;
+	virtual bool  onGenericMotionEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2) ;
+	virtual bool  onKeyDown(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) ;
+	virtual bool  onKeyOther(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
+	virtual bool  onKeyUp(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) ;
+	virtual void  onTakeFocus(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,int const& arg2) ;
+	virtual bool  onTouchEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2) ;
+	virtual bool  onTrackballEvent(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::android_text_Spannable const& arg1,AndroidCXX::android_view_MotionEvent const& arg2) ;
 
 protected:
 	android_text_method_MovementMethod();

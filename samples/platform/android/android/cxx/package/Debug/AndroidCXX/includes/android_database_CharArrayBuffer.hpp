@@ -50,8 +50,8 @@ class android_database_CharArrayBuffer
 public:
 
 	// Public ConstrucXXX
-	android_database_CharArrayBuffer(int const& arg0);
 	android_database_CharArrayBuffer(std::vector<char> const& arg0);
+	android_database_CharArrayBuffer(int const& arg0);
 	android_database_CharArrayBuffer(const android_database_CharArrayBuffer& cc);
 	android_database_CharArrayBuffer(Proxy proxy);
 	Proxy proxy() const;	

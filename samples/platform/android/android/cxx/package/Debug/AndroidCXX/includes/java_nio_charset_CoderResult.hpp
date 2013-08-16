@@ -57,8 +57,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
 
+class java_lang_String;
 
 class java_nio_charset_CoderResult 
 {
@@ -71,15 +71,15 @@ public:
 	// Default Destructor
 	virtual ~java_nio_charset_CoderResult();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  length() ;
-	virtual void  throwException() ;
-	virtual bool  isUnderflow() ;
 	virtual bool  isError() ;
-	virtual bool  isOverflow() ;
-	static AndroidCXX::java_nio_charset_CoderResult * malformedForLength(int const& arg0) ;
 	virtual bool  isMalformed() ;
+	virtual bool  isOverflow() ;
+	virtual bool  isUnderflow() ;
 	virtual bool  isUnmappable() ;
+	virtual int  length() ;
+	static AndroidCXX::java_nio_charset_CoderResult * malformedForLength(int const& arg0) ;
+	virtual void  throwException() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 	static AndroidCXX::java_nio_charset_CoderResult * unmappableForLength(int const& arg0) ;
 
 protected:

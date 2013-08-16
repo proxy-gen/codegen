@@ -9,13 +9,13 @@
 
 
 
-	
  		 
  		 
 	
 	
- 		 
 	
+	
+ 		 
 	
 
 
@@ -45,13 +45,13 @@
 //
 
 
-#include <java_lang_String.hpp>
-
 #include <android_util_Printer.hpp>
 
-#include <android_os_MessageQueue.hpp>
+#include <java_lang_String.hpp>
 
 #include <java_lang_Thread.hpp>
+
+#include <android_os_MessageQueue.hpp>
 
 
 #include <vector>
@@ -70,14 +70,14 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 class android_util_Printer;
 
+class java_lang_String;
 
-class android_os_MessageQueue;
 
 class java_lang_Thread;
+
+class android_os_MessageQueue;
 
 class android_os_Looper 
 {
@@ -90,18 +90,18 @@ public:
 	// Default Destructor
 	virtual ~android_os_Looper();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
-	static void  loop() ;
 	virtual void  dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	static AndroidCXX::android_os_Looper * getMainLooper() ;
+	virtual AndroidCXX::java_lang_Thread * getThread() ;
+	static void  loop() ;
+	static AndroidCXX::android_os_Looper * myLooper() ;
+	static AndroidCXX::android_os_MessageQueue * myQueue() ;
 	static void  prepare() ;
 	static void  prepareMainLooper() ;
-	static AndroidCXX::android_os_Looper * myLooper() ;
-	virtual void  setMessageLogging(AndroidCXX::android_util_Printer const& arg0) ;
-	static AndroidCXX::android_os_MessageQueue * myQueue() ;
 	virtual void  quit() ;
 	virtual void  quitSafely() ;
-	virtual AndroidCXX::java_lang_Thread * getThread() ;
+	virtual void  setMessageLogging(AndroidCXX::android_util_Printer const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 

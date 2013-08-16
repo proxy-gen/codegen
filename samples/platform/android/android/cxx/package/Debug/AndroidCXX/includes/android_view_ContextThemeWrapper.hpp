@@ -9,11 +9,11 @@
 
 
 
-	
-	
  		 
 	
  		 
+	
+	
 
 
  		 
@@ -38,15 +38,15 @@
 //
 
 
-#include <android_content_res_Resources.hpp>
+#include <android_content_res_Configuration.hpp>
 
-#include <android_content_res_Resources_Theme.hpp>
+#include <android_content_res_Resources.hpp>
 
 #include <java_lang_String.hpp>
 
 #include <java_lang_Object.hpp>
 
-#include <android_content_res_Configuration.hpp>
+#include <android_content_res_Resources_Theme.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -67,14 +67,14 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_content_res_Resources;
+class android_content_res_Configuration;
 
-class android_content_res_Resources_Theme;
+class android_content_res_Resources;
 
 class java_lang_String;
 
 
-class android_content_res_Configuration;
+class android_content_res_Resources_Theme;
 
 class android_content_Context;
 
@@ -91,11 +91,11 @@ public:
 	// Default Destructor
 	virtual ~android_view_ContextThemeWrapper();
 	// Functions
-	virtual AndroidCXX::android_content_res_Resources * getResources() ;
-	virtual void  setTheme(int const& arg0) ;
-	virtual AndroidCXX::android_content_res_Resources_Theme * getTheme() ;
-	virtual AndroidCXX::java_lang_Object * getSystemService(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  applyOverrideConfiguration(AndroidCXX::android_content_res_Configuration const& arg0) ;
+	virtual AndroidCXX::android_content_res_Resources * getResources() ;
+	virtual AndroidCXX::java_lang_Object * getSystemService(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::android_content_res_Resources_Theme * getTheme() ;
+	virtual void  setTheme(int const& arg0) ;
 
 protected:
 

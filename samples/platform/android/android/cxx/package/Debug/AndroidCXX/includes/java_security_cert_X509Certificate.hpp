@@ -9,22 +9,7 @@
 
 
 
- 	
-	
-	
- 	
  		 
-	
-	
-	
-	
-	
-	
-	
- 	
- 	
- 	
- 	
 	
  	
  		 
@@ -35,9 +20,24 @@
  		 
 	
  	
+	
+ 	
+	
+	
+	
+	
+	
+ 	
+ 	
+	
+ 	
  		 
  	
  		 
+	
+ 	
+	
+ 	
 
 
 
@@ -95,21 +95,21 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_math_BigInteger;
-
-class java_security_Principal;
-
 class java_util_Date;
 
-class javax_security_auth_x500_X500Principal;
+class java_util_List;
 
 class java_lang_String;
-
-class java_util_List;
 
 class java_util_Collection;
 
 class java_lang_Object;
+
+class java_security_Principal;
+
+class javax_security_auth_x500_X500Principal;
+
+class java_math_BigInteger;
 
 class java_security_cert_X509Certificate : public java_security_cert_X509Extension
 {
@@ -121,28 +121,28 @@ public:
 	// Default Destructor
 	virtual ~java_security_cert_X509Certificate();
 	// Functions
-	virtual std::vector<byte>  getSignature() ;
-	virtual int  getBasicConstraints() ;
-	virtual int  getVersion() ;
-	virtual AndroidCXX::java_math_BigInteger * getSerialNumber() ;
-	virtual AndroidCXX::java_security_Principal * getIssuerDN() ;
-	virtual std::vector<byte>  getTBSCertificate() ;
 	virtual void  checkValidity() ;
 	virtual void  checkValidity(AndroidCXX::java_util_Date const& arg0) ;
+	virtual int  getBasicConstraints() ;
+	virtual AndroidCXX::java_util_List * getExtendedKeyUsage() ;
+	virtual AndroidCXX::java_util_Collection * getIssuerAlternativeNames() ;
+	virtual AndroidCXX::java_security_Principal * getIssuerDN() ;
+	virtual std::vector<bool>  getIssuerUniqueID() ;
 	virtual AndroidCXX::javax_security_auth_x500_X500Principal * getIssuerX500Principal() ;
-	virtual AndroidCXX::java_security_Principal * getSubjectDN() ;
-	virtual AndroidCXX::javax_security_auth_x500_X500Principal * getSubjectX500Principal() ;
-	virtual AndroidCXX::java_util_Date * getNotBefore() ;
+	virtual std::vector<bool>  getKeyUsage() ;
 	virtual AndroidCXX::java_util_Date * getNotAfter() ;
+	virtual AndroidCXX::java_util_Date * getNotBefore() ;
+	virtual AndroidCXX::java_math_BigInteger * getSerialNumber() ;
 	virtual AndroidCXX::java_lang_String * getSigAlgName() ;
 	virtual AndroidCXX::java_lang_String * getSigAlgOID() ;
 	virtual std::vector<byte>  getSigAlgParams() ;
-	virtual std::vector<bool>  getIssuerUniqueID() ;
-	virtual std::vector<bool>  getSubjectUniqueID() ;
-	virtual std::vector<bool>  getKeyUsage() ;
-	virtual AndroidCXX::java_util_List * getExtendedKeyUsage() ;
+	virtual std::vector<byte>  getSignature() ;
 	virtual AndroidCXX::java_util_Collection * getSubjectAlternativeNames() ;
-	virtual AndroidCXX::java_util_Collection * getIssuerAlternativeNames() ;
+	virtual AndroidCXX::java_security_Principal * getSubjectDN() ;
+	virtual std::vector<bool>  getSubjectUniqueID() ;
+	virtual AndroidCXX::javax_security_auth_x500_X500Principal * getSubjectX500Principal() ;
+	virtual std::vector<byte>  getTBSCertificate() ;
+	virtual int  getVersion() ;
 
 protected:
 	java_security_cert_X509Certificate();

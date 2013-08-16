@@ -82,13 +82,13 @@ public:
 	virtual ~java_lang_StackTraceElement();
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * getClassName() ;
 	virtual AndroidCXX::java_lang_String * getFileName() ;
 	virtual int  getLineNumber() ;
-	virtual AndroidCXX::java_lang_String * getClassName() ;
 	virtual AndroidCXX::java_lang_String * getMethodName() ;
+	virtual int  hashCode() ;
 	virtual bool  isNativeMethod() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 

@@ -37,13 +37,13 @@
 //
 
 
-#include <java_net_Proxy_Type.hpp>
+#include <java_net_SocketAddress.hpp>
 
 #include <java_lang_Object.hpp>
 
 #include <java_lang_String.hpp>
 
-#include <java_net_SocketAddress.hpp>
+#include <java_net_Proxy_Type.hpp>
 
 
 #include <vector>
@@ -62,12 +62,12 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_net_SocketAddress;
 
 class java_lang_Object;
 
 class java_lang_String;
 
-class java_net_SocketAddress;
 
 class java_net_Proxy 
 {
@@ -81,11 +81,11 @@ public:
 	// Default Destructor
 	virtual ~java_net_Proxy();
 	// Functions
-	virtual java_net_Proxy_Type::java_net_Proxy_Type  type() ;
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
 	virtual AndroidCXX::java_net_SocketAddress * address() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual java_net_Proxy_Type::java_net_Proxy_Type  type() ;
 
 protected:
 

@@ -9,13 +9,13 @@
 
 
 
- 		 
- 		 
 	
 	
  		 
 	
 	
+ 		 
+ 		 
 	
 
 
@@ -59,14 +59,14 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_channels_Selector;
 
+class java_nio_channels_SelectableChannel;
+
+class java_nio_channels_Selector;
 
 class java_nio_channels_SelectionKey;
 
 class java_nio_channels_spi_SelectorProvider;
-
-class java_nio_channels_SelectableChannel;
 
 class java_nio_channels_spi_AbstractSelectableChannel : public java_lang_Object
 {
@@ -78,13 +78,13 @@ public:
 	// Default Destructor
 	virtual ~java_nio_channels_spi_AbstractSelectableChannel();
 	// Functions
-	virtual AndroidCXX::java_nio_channels_SelectionKey * _register(AndroidCXX::java_nio_channels_Selector const& arg0,int const& arg1,AndroidCXX::java_lang_Object const& arg2) ;
-	virtual AndroidCXX::java_nio_channels_spi_SelectorProvider * provider() ;
-	virtual bool  isRegistered() ;
-	virtual AndroidCXX::java_nio_channels_SelectionKey * keyFor(AndroidCXX::java_nio_channels_Selector const& arg0) ;
-	virtual bool  isBlocking() ;
 	virtual AndroidCXX::java_lang_Object * blockingLock() ;
 	virtual AndroidCXX::java_nio_channels_SelectableChannel * configureBlocking(bool const& arg0) ;
+	virtual bool  isBlocking() ;
+	virtual bool  isRegistered() ;
+	virtual AndroidCXX::java_nio_channels_SelectionKey * keyFor(AndroidCXX::java_nio_channels_Selector const& arg0) ;
+	virtual AndroidCXX::java_nio_channels_spi_SelectorProvider * provider() ;
+	virtual AndroidCXX::java_nio_channels_SelectionKey * _register(AndroidCXX::java_nio_channels_Selector const& arg0,int const& arg1,AndroidCXX::java_lang_Object const& arg2) ;
 
 protected:
 	java_nio_channels_spi_AbstractSelectableChannel();

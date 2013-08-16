@@ -43,9 +43,9 @@
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
-#include <android_net_Uri.hpp>
-
 #include <android_graphics_drawable_Drawable.hpp>
+
+#include <android_net_Uri.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -74,9 +74,9 @@ class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
-class android_net_Uri;
-
 class android_graphics_drawable_Drawable;
+
+class android_net_Uri;
 
 class android_content_Context;
 
@@ -87,8 +87,8 @@ class android_widget_ImageSwitcher : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_ImageSwitcher(AndroidCXX::android_content_Context const& arg0);
 	android_widget_ImageSwitcher(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_ImageSwitcher(AndroidCXX::android_content_Context const& arg0);
 	android_widget_ImageSwitcher(const android_widget_ImageSwitcher& cc);
 	android_widget_ImageSwitcher(Proxy proxy);
 	Proxy proxy() const;	
@@ -97,9 +97,9 @@ public:
 	// Functions
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  setImageDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 	virtual void  setImageResource(int const& arg0) ;
 	virtual void  setImageURI(AndroidCXX::android_net_Uri const& arg0) ;
-	virtual void  setImageDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 
 protected:
 

@@ -9,6 +9,8 @@
 
 
 
+ 	
+ 		 
  		 
  	
  		 
@@ -26,8 +28,6 @@
 	
  		 
 	
- 	
- 		 
 
 
 
@@ -98,8 +98,9 @@ public:
 	// Default Destructor
 	virtual ~android_content_res_AssetManager();
 	// Functions
-	virtual std::vector<java_lang_String>  list(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  close() ;
+	virtual std::vector<java_lang_String>  getLocales() ;
+	virtual std::vector<java_lang_String>  list(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_io_InputStream * open(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_io_InputStream * open(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_content_res_AssetFileDescriptor * openFd(AndroidCXX::java_lang_String const& arg0) ;
@@ -107,7 +108,6 @@ public:
 	virtual AndroidCXX::android_content_res_AssetFileDescriptor * openNonAssetFd(int const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual AndroidCXX::android_content_res_XmlResourceParser * openXmlResourceParser(int const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual AndroidCXX::android_content_res_XmlResourceParser * openXmlResourceParser(AndroidCXX::java_lang_String const& arg0) ;
-	virtual std::vector<java_lang_String>  getLocales() ;
 
 protected:
 

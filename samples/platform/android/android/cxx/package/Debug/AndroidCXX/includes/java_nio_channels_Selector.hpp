@@ -10,9 +10,9 @@
 
 
 	
-	
  	
  		 
+	
 	
 	
  	
@@ -61,12 +61,12 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_channels_spi_SelectorProvider;
-
 class java_util_Set;
 
 class java_nio_channels_SelectionKey;
 
+
+class java_nio_channels_spi_SelectorProvider;
 
 class java_nio_channels_Selector 
 {
@@ -78,15 +78,15 @@ public:
 	// Default Destructor
 	virtual ~java_nio_channels_Selector();
 	// Functions
-	virtual AndroidCXX::java_nio_channels_spi_SelectorProvider * provider() ;
-	virtual AndroidCXX::java_util_Set * keys() ;
 	virtual void  close() ;
-	static AndroidCXX::java_nio_channels_Selector * open() ;
 	virtual bool  isOpen() ;
-	virtual AndroidCXX::java_util_Set * selectedKeys() ;
-	virtual int  selectNow() ;
+	virtual AndroidCXX::java_util_Set * keys() ;
+	static AndroidCXX::java_nio_channels_Selector * open() ;
+	virtual AndroidCXX::java_nio_channels_spi_SelectorProvider * provider() ;
 	virtual int  select(long const& arg0) ;
 	virtual int  select() ;
+	virtual int  selectNow() ;
+	virtual AndroidCXX::java_util_Set * selectedKeys() ;
 	virtual AndroidCXX::java_nio_channels_Selector * wakeup() ;
 
 protected:

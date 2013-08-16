@@ -9,11 +9,11 @@
 
 
 
-	
- 		 
- 		 
  		 
 	
+ 		 
+	
+ 		 
  		 
  		 
 
@@ -43,13 +43,13 @@
 //
 
 
-#include <java_lang_String.hpp>
-
-#include <android_os_Parcel.hpp>
-
 #include <android_graphics_Rect.hpp>
 
 #include <android_graphics_Canvas.hpp>
+
+#include <android_os_Parcel.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <android_graphics_SurfaceTexture.hpp>
 
@@ -72,13 +72,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
-class android_os_Parcel;
-
 class android_graphics_Rect;
 
 class android_graphics_Canvas;
+
+class android_os_Parcel;
+
+class java_lang_String;
 
 class android_graphics_SurfaceTexture;
 
@@ -94,15 +94,15 @@ public:
 	// Default Destructor
 	virtual ~android_view_Surface();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual void  release() ;
-	virtual bool  isValid() ;
 	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual void  readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
+	virtual bool  isValid() ;
 	virtual AndroidCXX::android_graphics_Canvas * lockCanvas(AndroidCXX::android_graphics_Rect const& arg0) ;
-	virtual void  unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual void  readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
+	virtual void  release() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual void  unlockCanvas(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual void  unlockCanvasAndPost(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

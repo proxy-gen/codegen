@@ -10,10 +10,6 @@
 
 
  		 
-	
- 		 
-	
-	
  		 
 	
  		 
@@ -25,15 +21,19 @@
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
  		 
 	
-	
  		 
 	
-	
-	
-	
-	
+ 		 
 	
 	
 	
@@ -107,9 +107,9 @@
 //
 
 
-#include <java_lang_Object.hpp>
-
 #include <java_lang_String.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <java_net_URL.hpp>
 
@@ -134,10 +134,10 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
 class java_lang_String;
 
+class java_lang_Object;
 
 class java_net_URL;
 
@@ -146,46 +146,46 @@ class java_net_URI : public java_io_Serializable,public java_lang_Comparable
 public:
 
 	// Public ConstrucXXX
-	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,AndroidCXX::java_lang_String const& arg5,AndroidCXX::java_lang_String const& arg6);
-	java_net_URI(AndroidCXX::java_lang_String const& arg0);
-	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::java_lang_String const& arg4);
-	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3);
 	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
+	java_net_URI(AndroidCXX::java_lang_String const& arg0);
+	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3);
+	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::java_lang_String const& arg4);
+	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,AndroidCXX::java_lang_String const& arg5,AndroidCXX::java_lang_String const& arg6);
 	java_net_URI(const java_net_URI& cc);
 	java_net_URI(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_net_URI();
 	// Functions
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
 	virtual int  compareTo(AndroidCXX::java_net_URI const& arg0) ;
-	virtual bool  isAbsolute() ;
-	virtual AndroidCXX::java_lang_String * getPath() ;
-	virtual AndroidCXX::java_net_URL * toURL() ;
-	virtual AndroidCXX::java_net_URI * resolve(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_net_URI * resolve(AndroidCXX::java_net_URI const& arg0) ;
-	virtual AndroidCXX::java_net_URI * normalize() ;
-	virtual bool  isOpaque() ;
-	virtual AndroidCXX::java_lang_String * getScheme() ;
+	static AndroidCXX::java_net_URI * create(AndroidCXX::java_lang_String const& arg0) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getAuthority() ;
 	virtual AndroidCXX::java_lang_String * getFragment() ;
-	virtual AndroidCXX::java_lang_String * getQuery() ;
-	virtual AndroidCXX::java_lang_String * getUserInfo() ;
-	virtual int  getPort() ;
 	virtual AndroidCXX::java_lang_String * getHost() ;
-	static AndroidCXX::java_net_URI * create(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_net_URI * parseServerAuthority() ;
-	virtual AndroidCXX::java_net_URI * relativize(AndroidCXX::java_net_URI const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getRawSchemeSpecificPart() ;
-	virtual AndroidCXX::java_lang_String * getSchemeSpecificPart() ;
+	virtual AndroidCXX::java_lang_String * getPath() ;
+	virtual int  getPort() ;
+	virtual AndroidCXX::java_lang_String * getQuery() ;
 	virtual AndroidCXX::java_lang_String * getRawAuthority() ;
-	virtual AndroidCXX::java_lang_String * getRawUserInfo() ;
+	virtual AndroidCXX::java_lang_String * getRawFragment() ;
 	virtual AndroidCXX::java_lang_String * getRawPath() ;
 	virtual AndroidCXX::java_lang_String * getRawQuery() ;
-	virtual AndroidCXX::java_lang_String * getRawFragment() ;
+	virtual AndroidCXX::java_lang_String * getRawSchemeSpecificPart() ;
+	virtual AndroidCXX::java_lang_String * getRawUserInfo() ;
+	virtual AndroidCXX::java_lang_String * getScheme() ;
+	virtual AndroidCXX::java_lang_String * getSchemeSpecificPart() ;
+	virtual AndroidCXX::java_lang_String * getUserInfo() ;
+	virtual int  hashCode() ;
+	virtual bool  isAbsolute() ;
+	virtual bool  isOpaque() ;
+	virtual AndroidCXX::java_net_URI * normalize() ;
+	virtual AndroidCXX::java_net_URI * parseServerAuthority() ;
+	virtual AndroidCXX::java_net_URI * relativize(AndroidCXX::java_net_URI const& arg0) ;
+	virtual AndroidCXX::java_net_URI * resolve(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_net_URI * resolve(AndroidCXX::java_net_URI const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toASCIIString() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual AndroidCXX::java_net_URL * toURL() ;
 
 protected:
 

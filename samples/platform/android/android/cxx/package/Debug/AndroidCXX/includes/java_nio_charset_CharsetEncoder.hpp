@@ -9,25 +9,25 @@
 
 
 
-	
- 		 
  		 
 	
  		 
-	
  		 
 	
-	
- 		 
  		 
 	
  		 
 	
  	
+	
+ 		 
+	
+ 		 
+	
  	
 	
-	
  	
+	
 	
 
 
@@ -78,6 +78,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_lang_CharSequence;
+
 class java_nio_charset_Charset;
 
 class java_nio_CharBuffer;
@@ -86,10 +88,8 @@ class java_nio_ByteBuffer;
 
 class java_nio_charset_CoderResult;
 
-
-class java_lang_CharSequence;
-
 class java_nio_charset_CodingErrorAction;
+
 
 class java_nio_charset_CharsetEncoder 
 {
@@ -101,22 +101,22 @@ public:
 	// Default Destructor
 	virtual ~java_nio_charset_CharsetEncoder();
 	// Functions
+	virtual float  averageBytesPerChar() ;
+	virtual bool  canEncode(char const& arg0) ;
+	virtual bool  canEncode(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::java_nio_charset_Charset * charset() ;
 	virtual AndroidCXX::java_nio_charset_CoderResult * encode(AndroidCXX::java_nio_CharBuffer const& arg0,AndroidCXX::java_nio_ByteBuffer const& arg1,bool const& arg2) ;
 	virtual AndroidCXX::java_nio_ByteBuffer * encode(AndroidCXX::java_nio_CharBuffer const& arg0) ;
 	virtual AndroidCXX::java_nio_charset_CoderResult * flush(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
-	virtual AndroidCXX::java_nio_charset_CharsetEncoder * reset() ;
-	virtual bool  canEncode(char const& arg0) ;
-	virtual bool  canEncode(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual bool  isLegalReplacement(std::vector<byte> const& arg0) ;
+	virtual AndroidCXX::java_nio_charset_CodingErrorAction * malformedInputAction() ;
+	virtual float  maxBytesPerChar() ;
 	virtual AndroidCXX::java_nio_charset_CharsetEncoder * onMalformedInput(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0) ;
 	virtual AndroidCXX::java_nio_charset_CharsetEncoder * onUnmappableCharacter(AndroidCXX::java_nio_charset_CodingErrorAction const& arg0) ;
-	virtual float  maxBytesPerChar() ;
-	virtual bool  isLegalReplacement(std::vector<byte> const& arg0) ;
-	virtual float  averageBytesPerChar() ;
-	virtual std::vector<byte>  replacement() ;
-	virtual AndroidCXX::java_nio_charset_CodingErrorAction * malformedInputAction() ;
-	virtual AndroidCXX::java_nio_charset_CodingErrorAction * unmappableCharacterAction() ;
 	virtual AndroidCXX::java_nio_charset_CharsetEncoder * replaceWith(std::vector<byte> const& arg0) ;
+	virtual std::vector<byte>  replacement() ;
+	virtual AndroidCXX::java_nio_charset_CharsetEncoder * reset() ;
+	virtual AndroidCXX::java_nio_charset_CodingErrorAction * unmappableCharacterAction() ;
 
 protected:
 	java_nio_charset_CharsetEncoder();

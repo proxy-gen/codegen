@@ -60,9 +60,9 @@ public:
 	// Default Destructor
 	virtual ~java_nio_channels_spi_AbstractSelector();
 	// Functions
-	virtual AndroidCXX::java_nio_channels_spi_SelectorProvider * provider() ;
 	virtual void  close() ;
 	virtual bool  isOpen() ;
+	virtual AndroidCXX::java_nio_channels_spi_SelectorProvider * provider() ;
 
 protected:
 	java_nio_channels_spi_AbstractSelector();

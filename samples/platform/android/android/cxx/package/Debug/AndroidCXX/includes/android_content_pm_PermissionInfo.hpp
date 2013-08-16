@@ -9,10 +9,10 @@
 
 
 
-	
- 		 
  		 
 	
+	
+ 		 
 
 
  		 
@@ -36,13 +36,13 @@
 //
 
 
-#include <java_lang_String.hpp>
-
-#include <android_os_Parcel.hpp>
-
 #include <android_content_pm_PackageManager.hpp>
 
 #include <java_lang_CharSequence.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <android_os_Parcel.hpp>
 
 
 #include <android_os_Parcelable.hpp>
@@ -63,13 +63,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
-class android_os_Parcel;
-
 class android_content_pm_PackageManager;
 
 class java_lang_CharSequence;
+
+class java_lang_String;
+
+class android_os_Parcel;
 
 
 class android_content_pm_PermissionInfo : public android_os_Parcelable
@@ -84,10 +84,10 @@ public:
 	// Default Destructor
 	virtual ~android_content_pm_PermissionInfo();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_CharSequence * loadDescription(AndroidCXX::android_content_pm_PackageManager const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

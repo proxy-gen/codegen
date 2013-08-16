@@ -70,8 +70,8 @@ public:
 	// Default Destructor
 	virtual ~android_content_IntentFilter_AuthorityEntry();
 	// Functions
-	virtual int  getPort() ;
 	virtual AndroidCXX::java_lang_String * getHost() ;
+	virtual int  getPort() ;
 	virtual int  match(AndroidCXX::android_net_Uri const& arg0) ;
 
 protected:

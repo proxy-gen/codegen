@@ -64,11 +64,11 @@ public:
 	// Default Destructor
 	virtual ~java_io_OutputStream();
 	// Functions
+	virtual void  close() ;
+	virtual void  flush() ;
 	virtual void  write(int const& arg0) ;
 	virtual void  write(std::vector<byte> const& arg0) ;
 	virtual void  write(std::vector<byte> const& arg0,int const& arg1,int const& arg2) ;
-	virtual void  flush() ;
-	virtual void  close() ;
 
 protected:
 	java_io_OutputStream();

@@ -56,8 +56,8 @@ public:
 	// Default Destructor
 	virtual ~android_widget_SlidingDrawer_OnDrawerScrollListener();
 	// Functions
-	virtual void  onScrollStarted() ;
 	virtual void  onScrollEnded() ;
+	virtual void  onScrollStarted() ;
 
 protected:
 	android_widget_SlidingDrawer_OnDrawerScrollListener();

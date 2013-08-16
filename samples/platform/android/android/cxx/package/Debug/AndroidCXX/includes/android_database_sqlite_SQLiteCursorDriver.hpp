@@ -10,9 +10,9 @@
 
 
  		 
+ 		 
  	
 	
- 		 
  		 
  	
  		 
@@ -56,9 +56,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_database_sqlite_SQLiteDatabase_CursorFactory;
-
 class android_database_Cursor;
+
+class android_database_sqlite_SQLiteDatabase_CursorFactory;
 
 class java_lang_String;
 
@@ -72,10 +72,10 @@ public:
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteCursorDriver();
 	// Functions
-	virtual AndroidCXX::android_database_Cursor * query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg0,std::vector<java_lang_String> const& arg1) ;
+	virtual void  cursorClosed() ;
 	virtual void  cursorDeactivated() ;
 	virtual void  cursorRequeried(AndroidCXX::android_database_Cursor const& arg0) ;
-	virtual void  cursorClosed() ;
+	virtual AndroidCXX::android_database_Cursor * query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg0,std::vector<java_lang_String> const& arg1) ;
 	virtual void  setBindArguments(std::vector<java_lang_String> const& arg0) ;
 
 protected:

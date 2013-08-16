@@ -9,8 +9,8 @@
 
 
 
- 		 
 	
+ 		 
 
 
 
@@ -49,8 +49,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_Parcel;
 
+class android_os_Parcel;
 
 class android_view_AbsSavedState : public android_os_Parcelable
 {
@@ -63,8 +63,8 @@ public:
 	virtual ~android_view_AbsSavedState();
 	// Functions
 	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_os_Parcelable * getSuperState() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 	android_view_AbsSavedState();

@@ -10,10 +10,10 @@
 
 
  		 
- 		 
- 		 
- 		 
 	
+ 		 
+ 		 
+ 		 
 
 
 
@@ -51,11 +51,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_lang_Object;
+
 class java_lang_CharSequence;
 
 class android_widget_Filter_FilterListener;
-
-class java_lang_Object;
 
 class android_widget_Filter 
 {
@@ -67,9 +67,9 @@ public:
 	// Default Destructor
 	virtual ~android_widget_Filter();
 	// Functions
+	virtual AndroidCXX::java_lang_CharSequence * convertResultToString(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual void  filter(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  filter(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_widget_Filter_FilterListener const& arg1) ;
-	virtual AndroidCXX::java_lang_CharSequence * convertResultToString(AndroidCXX::java_lang_Object const& arg0) ;
 
 protected:
 	android_widget_Filter();

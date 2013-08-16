@@ -13,10 +13,10 @@
  	
 	
  		 
- 		 
  	
  		 
  	
+ 		 
  		 
  	
  		 
@@ -74,9 +74,9 @@ public:
 	virtual ~java_lang_reflect_AnnotatedElement();
 	// Functions
 	virtual AndroidCXX::java_lang_annotation_Annotation * getAnnotation(AndroidCXX::java_lang_Class const& arg0) ;
-	virtual bool  isAnnotationPresent(AndroidCXX::java_lang_Class const& arg0) ;
 	virtual std::vector<java_lang_annotation_Annotation>  getAnnotations() ;
 	virtual std::vector<java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
+	virtual bool  isAnnotationPresent(AndroidCXX::java_lang_Class const& arg0) ;
 
 protected:
 	java_lang_reflect_AnnotatedElement();

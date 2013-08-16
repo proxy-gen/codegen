@@ -67,9 +67,9 @@ public:
 	// Default Destructor
 	virtual ~android_app_ActionBar_TabListener();
 	// Functions
+	virtual void  onTabReselected(AndroidCXX::android_app_ActionBar_Tab const& arg0,AndroidCXX::android_app_FragmentTransaction const& arg1) ;
 	virtual void  onTabSelected(AndroidCXX::android_app_ActionBar_Tab const& arg0,AndroidCXX::android_app_FragmentTransaction const& arg1) ;
 	virtual void  onTabUnselected(AndroidCXX::android_app_ActionBar_Tab const& arg0,AndroidCXX::android_app_FragmentTransaction const& arg1) ;
-	virtual void  onTabReselected(AndroidCXX::android_app_ActionBar_Tab const& arg0,AndroidCXX::android_app_FragmentTransaction const& arg1) ;
 
 protected:
 	android_app_ActionBar_TabListener();

@@ -55,17 +55,17 @@
 //
 
 
-#include <android_view_MotionEvent.hpp>
+#include <android_view_KeyEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
-#include <android_view_KeyEvent.hpp>
-
-#include <android_widget_MediaController_MediaPlayerControl.hpp>
+#include <android_view_MotionEvent.hpp>
 
 #include <android_view_View.hpp>
+
+#include <android_widget_MediaController_MediaPlayerControl.hpp>
 
 #include <android_view_View_OnClickListener.hpp>
 
@@ -92,17 +92,17 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_MotionEvent;
+class android_view_KeyEvent;
 
 class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
-class android_view_KeyEvent;
-
-class android_widget_MediaController_MediaPlayerControl;
+class android_view_MotionEvent;
 
 class android_view_View;
+
+class android_widget_MediaController_MediaPlayerControl;
 
 class android_view_View_OnClickListener;
 
@@ -116,28 +116,28 @@ public:
 
 	// Public ConstrucXXX
 	android_widget_MediaController(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_MediaController(AndroidCXX::android_content_Context const& arg0,bool const& arg1);
 	android_widget_MediaController(AndroidCXX::android_content_Context const& arg0);
+	android_widget_MediaController(AndroidCXX::android_content_Context const& arg0,bool const& arg1);
 	android_widget_MediaController(const android_widget_MediaController& cc);
 	android_widget_MediaController(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_MediaController();
 	// Functions
-	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual void  show(int const& arg0) ;
-	virtual void  show() ;
+	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual void  hide() ;
+	virtual bool  isShowing() ;
+	virtual void  onFinishInflate() ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
-	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
-	virtual void  setEnabled(bool const& arg0) ;
+	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual bool  onTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual void  onFinishInflate() ;
-	virtual void  setMediaPlayer(AndroidCXX::android_widget_MediaController_MediaPlayerControl const& arg0) ;
 	virtual void  setAnchorView(AndroidCXX::android_view_View const& arg0) ;
-	virtual bool  isShowing() ;
+	virtual void  setEnabled(bool const& arg0) ;
+	virtual void  setMediaPlayer(AndroidCXX::android_widget_MediaController_MediaPlayerControl const& arg0) ;
 	virtual void  setPrevNextListeners(AndroidCXX::android_view_View_OnClickListener const& arg0,AndroidCXX::android_view_View_OnClickListener const& arg1) ;
+	virtual void  show() ;
+	virtual void  show(int const& arg0) ;
 
 protected:
 

@@ -38,9 +38,9 @@
 //
 
 
-#include <java_lang_Object.hpp>
-
 #include <android_view_KeyEvent.hpp>
+
+#include <java_lang_Object.hpp>
 
 
 #include <vector>
@@ -59,9 +59,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
-
 class android_view_KeyEvent;
+
+class java_lang_Object;
 
 class android_view_KeyEvent_DispatcherState 
 {
@@ -75,12 +75,12 @@ public:
 	// Default Destructor
 	virtual ~android_view_KeyEvent_DispatcherState();
 	// Functions
+	virtual void  handleUpEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
+	virtual bool  isTracking(AndroidCXX::android_view_KeyEvent const& arg0) ;
+	virtual void  performedLongPress(AndroidCXX::android_view_KeyEvent const& arg0) ;
 	virtual void  reset() ;
 	virtual void  reset(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual void  startTracking(AndroidCXX::android_view_KeyEvent const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
-	virtual bool  isTracking(AndroidCXX::android_view_KeyEvent const& arg0) ;
-	virtual void  performedLongPress(AndroidCXX::android_view_KeyEvent const& arg0) ;
-	virtual void  handleUpEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
 
 protected:
 

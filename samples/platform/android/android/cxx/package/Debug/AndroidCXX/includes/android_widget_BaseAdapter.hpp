@@ -11,9 +11,9 @@
 
  		 
  		 
- 		 
- 		 
 	
+ 		 
+ 		 
 
 
 
@@ -63,11 +63,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_database_DataSetObserver;
-
 class android_view_View;
 
 class android_view_ViewGroup;
+
+class android_database_DataSetObserver;
 
 class android_widget_BaseAdapter : public android_widget_ListAdapter,public android_widget_SpinnerAdapter
 {
@@ -79,17 +79,17 @@ public:
 	// Default Destructor
 	virtual ~android_widget_BaseAdapter();
 	// Functions
-	virtual bool  isEmpty() ;
-	virtual bool  isEnabled(int const& arg0) ;
-	virtual void  registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
-	virtual void  unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
+	virtual bool  areAllItemsEnabled() ;
 	virtual AndroidCXX::android_view_View * getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
-	virtual bool  hasStableIds() ;
 	virtual int  getItemViewType(int const& arg0) ;
 	virtual int  getViewTypeCount() ;
-	virtual void  notifyDataSetInvalidated() ;
+	virtual bool  hasStableIds() ;
+	virtual bool  isEmpty() ;
+	virtual bool  isEnabled(int const& arg0) ;
 	virtual void  notifyDataSetChanged() ;
-	virtual bool  areAllItemsEnabled() ;
+	virtual void  notifyDataSetInvalidated() ;
+	virtual void  registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
+	virtual void  unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
 
 protected:
 	android_widget_BaseAdapter();

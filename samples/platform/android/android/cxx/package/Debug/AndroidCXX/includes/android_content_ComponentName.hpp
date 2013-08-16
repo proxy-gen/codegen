@@ -9,16 +9,11 @@
 
 
 
- 		 
-	
-	
- 		 
-	
 	
  		 
  		 
- 		 
- 		 
+	
+	
 	
 	
 	
@@ -26,15 +21,20 @@
 	
 	
 	
+ 		 
+	
+ 		 
+ 		 
+ 		 
 
 
- 		 
- 		 
- 		 
  		 
  		 
  		 
  	
+ 		 
+ 		 
+ 		 
  		 
  		 
 
@@ -104,10 +104,10 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+
 class java_lang_Object;
 
 class java_lang_String;
-
 
 class android_os_Parcel;
 
@@ -120,32 +120,32 @@ class android_content_ComponentName : public android_os_Parcelable,public java_l
 public:
 
 	// Public ConstrucXXX
-	android_content_ComponentName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
-	android_content_ComponentName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
-	android_content_ComponentName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1);
 	android_content_ComponentName(AndroidCXX::android_os_Parcel const& arg0);
+	android_content_ComponentName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1);
+	android_content_ComponentName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
+	android_content_ComponentName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
 	android_content_ComponentName(const android_content_ComponentName& cc);
 	android_content_ComponentName(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ComponentName();
 	// Functions
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
 	virtual AndroidCXX::android_content_ComponentName * clone() ;
 	virtual int  compareTo(AndroidCXX::android_content_ComponentName const& arg0) ;
+	virtual int  describeContents() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_String * flattenToShortString() ;
+	virtual AndroidCXX::java_lang_String * flattenToString() ;
 	virtual AndroidCXX::java_lang_String * getClassName() ;
 	virtual AndroidCXX::java_lang_String * getPackageName() ;
-	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	static void  writeToParcel(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_Parcel const& arg1) ;
+	virtual AndroidCXX::java_lang_String * getShortClassName() ;
+	virtual int  hashCode() ;
 	static AndroidCXX::android_content_ComponentName * readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toShortString() ;
-	virtual AndroidCXX::java_lang_String * flattenToString() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 	static AndroidCXX::android_content_ComponentName * unflattenFromString(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getShortClassName() ;
-	virtual AndroidCXX::java_lang_String * flattenToShortString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	static void  writeToParcel(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_Parcel const& arg1) ;
 
 protected:
 

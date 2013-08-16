@@ -12,10 +12,10 @@
  		 
 	
  		 
-	
- 		 
  		 
 	
+	
+ 		 
 
 
  		 
@@ -77,33 +77,33 @@ class java_lang_Object;
 
 class java_lang_String;
 
-class android_os_Parcel;
 
+class android_os_Parcel;
 
 class android_content_SyncAdapterType : public android_os_Parcelable
 {
 public:
 
 	// Public ConstrucXXX
-	android_content_SyncAdapterType(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2,bool const& arg3);
 	android_content_SyncAdapterType(AndroidCXX::android_os_Parcel const& arg0);
+	android_content_SyncAdapterType(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,bool const& arg2,bool const& arg3);
 	android_content_SyncAdapterType(const android_content_SyncAdapterType& cc);
 	android_content_SyncAdapterType(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_SyncAdapterType();
 	// Functions
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
-	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual bool  supportsUploading() ;
-	virtual bool  isUserVisible() ;
 	virtual bool  allowParallelSyncs() ;
-	virtual bool  isAlwaysSyncable() ;
+	virtual int  describeContents() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getSettingsActivity() ;
+	virtual int  hashCode() ;
+	virtual bool  isAlwaysSyncable() ;
+	virtual bool  isUserVisible() ;
 	static AndroidCXX::android_content_SyncAdapterType * newKey(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual bool  supportsUploading() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

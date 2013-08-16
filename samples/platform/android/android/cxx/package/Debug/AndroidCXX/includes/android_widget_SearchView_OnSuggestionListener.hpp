@@ -56,8 +56,8 @@ public:
 	// Default Destructor
 	virtual ~android_widget_SearchView_OnSuggestionListener();
 	// Functions
-	virtual bool  onSuggestionSelect(int const& arg0) ;
 	virtual bool  onSuggestionClick(int const& arg0) ;
+	virtual bool  onSuggestionSelect(int const& arg0) ;
 
 protected:
 	android_widget_SearchView_OnSuggestionListener();

@@ -66,15 +66,15 @@ public:
 	// Default Destructor
 	virtual ~java_io_InputStream();
 	// Functions
+	virtual int  available() ;
 	virtual void  close() ;
 	virtual void  mark(int const& arg0) ;
-	virtual void  reset() ;
+	virtual bool  markSupported() ;
 	virtual int  read(std::vector<byte> const& arg0,int const& arg1,int const& arg2) ;
 	virtual int  read(std::vector<byte> const& arg0) ;
 	virtual int  read() ;
+	virtual void  reset() ;
 	virtual long  skip(long const& arg0) ;
-	virtual int  available() ;
-	virtual bool  markSupported() ;
 
 protected:
 	java_io_InputStream();

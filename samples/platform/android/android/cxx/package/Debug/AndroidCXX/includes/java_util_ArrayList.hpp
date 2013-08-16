@@ -11,18 +11,7 @@
 
  		 
  		 
-	
-	
  		 
- 		 
- 		 
- 		 
- 	
- 		 
- 		 
- 	
- 		 
- 	
  	
  		 
  		 
@@ -30,8 +19,19 @@
  		 
 	
  		 
+	
+ 		 
  		 
 	
+ 		 
+ 		 
+	
+ 	
+ 	
+ 		 
+ 		 
+ 	
+ 		 
 
 
  		 
@@ -111,9 +111,9 @@ class java_util_ArrayList : public java_io_Serializable,public java_lang_Cloneab
 public:
 
 	// Public ConstrucXXX
-	java_util_ArrayList(int const& arg0);
 	java_util_ArrayList();
 	java_util_ArrayList(AndroidCXX::java_util_Collection const& arg0);
+	java_util_ArrayList(int const& arg0);
 	java_util_ArrayList(const java_util_ArrayList& cc);
 	java_util_ArrayList(Proxy proxy);
 	Proxy proxy() const;	
@@ -122,22 +122,22 @@ public:
 	// Functions
 	virtual void  add(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual bool  add(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_Object * get(int const& arg0) ;
-	virtual AndroidCXX::java_lang_Object * clone() ;
-	virtual int  indexOf(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual void  clear() ;
-	virtual bool  isEmpty() ;
-	virtual int  lastIndexOf(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual bool  contains(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual bool  addAll(AndroidCXX::java_util_Collection const& arg0) ;
 	virtual bool  addAll(int const& arg0,AndroidCXX::java_util_Collection const& arg1) ;
-	virtual int  size() ;
-	virtual std::vector<java_lang_Object>  toArray(std::vector<java_lang_Object> const& arg0) ;
-	virtual std::vector<java_lang_Object>  toArray() ;
+	virtual void  clear() ;
+	virtual AndroidCXX::java_lang_Object * clone() ;
+	virtual bool  contains(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  ensureCapacity(int const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * get(int const& arg0) ;
+	virtual int  indexOf(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual bool  isEmpty() ;
+	virtual int  lastIndexOf(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_lang_Object * remove(int const& arg0) ;
 	virtual bool  remove(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_lang_Object * set(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
-	virtual void  ensureCapacity(int const& arg0) ;
+	virtual int  size() ;
+	virtual std::vector<java_lang_Object>  toArray(std::vector<java_lang_Object> const& arg0) ;
+	virtual std::vector<java_lang_Object>  toArray() ;
 	virtual void  trimToSize() ;
 
 protected:

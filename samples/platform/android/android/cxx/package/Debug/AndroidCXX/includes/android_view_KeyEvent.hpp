@@ -10,23 +10,23 @@
 
 
  		 
+	
  		 
- 		 
+	
  		 
 	
  		 
 	
+ 		 
+ 		 
+ 		 
+ 		 
+	
+	
+ 		 
  	
  	
  		 
- 		 
-	
- 		 
-	
- 		 
-	
- 		 
-	
 	
 	
  		 
@@ -122,11 +122,11 @@
 
 #include <java_lang_String.hpp>
 
-#include <android_os_Parcel.hpp>
-
 #include <android_view_KeyCharacterMap.hpp>
 
 #include <android_view_KeyCharacterMap_KeyData.hpp>
+
+#include <android_os_Parcel.hpp>
 
 
 #include <android_os_Parcelable.hpp>
@@ -147,6 +147,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+
 class android_view_KeyEvent_Callback;
 
 class android_view_KeyEvent_DispatcherState;
@@ -155,88 +156,87 @@ class java_lang_Object;
 
 class java_lang_String;
 
-class android_os_Parcel;
-
 class android_view_KeyCharacterMap;
 
 class android_view_KeyCharacterMap_KeyData;
 
+class android_os_Parcel;
 
 class android_view_KeyEvent : public android_os_Parcelable
 {
 public:
 
 	// Public ConstrucXXX
+	android_view_KeyEvent(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2);
+	android_view_KeyEvent(AndroidCXX::android_view_KeyEvent const& arg0);
 	android_view_KeyEvent(int const& arg0,int const& arg1);
+	android_view_KeyEvent(long const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,int const& arg3);
 	android_view_KeyEvent(long const& arg0,long const& arg1,int const& arg2,int const& arg3,int const& arg4);
 	android_view_KeyEvent(long const& arg0,long const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5);
 	android_view_KeyEvent(long const& arg0,long const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7);
 	android_view_KeyEvent(long const& arg0,long const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7,int const& arg8);
 	android_view_KeyEvent(long const& arg0,long const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,int const& arg7,int const& arg8,int const& arg9);
-	android_view_KeyEvent(long const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,int const& arg3);
-	android_view_KeyEvent(AndroidCXX::android_view_KeyEvent const& arg0);
-	android_view_KeyEvent(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2);
 	android_view_KeyEvent(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_view_KeyEvent();
 	// Functions
-	virtual bool  dispatch(AndroidCXX::android_view_KeyEvent_Callback const& arg0,AndroidCXX::android_view_KeyEvent_DispatcherState const& arg1,AndroidCXX::java_lang_Object const& arg2) ;
-	virtual bool  dispatch(AndroidCXX::android_view_KeyEvent_Callback const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  getModifiers() ;
-	virtual char  getNumber() ;
-	virtual int  getAction() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual int  getFlags() ;
-	virtual bool  isCanceled() ;
-	virtual int  getRepeatCount() ;
-	virtual int  getDeviceId() ;
-	virtual int  getSource() ;
-	virtual void  setSource(int const& arg0) ;
-	virtual long  getDownTime() ;
-	virtual long  getEventTime() ;
-	virtual int  getMetaState() ;
-	virtual AndroidCXX::android_view_KeyCharacterMap * getKeyCharacterMap() ;
-	virtual char  getMatch(std::vector<char> const& arg0,int const& arg1) ;
-	virtual char  getMatch(std::vector<char> const& arg0) ;
-	virtual char  getDisplayLabel() ;
-	static int  getDeadChar(int const& arg0,int const& arg1) ;
-	virtual bool  getKeyData(AndroidCXX::android_view_KeyCharacterMap_KeyData const& arg0) ;
-	virtual bool  isPrintingKey() ;
-	static int  getMaxKeyCode() ;
-	static AndroidCXX::android_view_KeyEvent * changeTimeRepeat(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2,int const& arg3) ;
-	static AndroidCXX::android_view_KeyEvent * changeTimeRepeat(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2) ;
 	static AndroidCXX::android_view_KeyEvent * changeAction(AndroidCXX::android_view_KeyEvent const& arg0,int const& arg1) ;
 	static AndroidCXX::android_view_KeyEvent * changeFlags(AndroidCXX::android_view_KeyEvent const& arg0,int const& arg1) ;
-	virtual bool  isSystem() ;
-	static bool  isGamepadButton(int const& arg0) ;
+	static AndroidCXX::android_view_KeyEvent * changeTimeRepeat(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2) ;
+	static AndroidCXX::android_view_KeyEvent * changeTimeRepeat(AndroidCXX::android_view_KeyEvent const& arg0,long const& arg1,int const& arg2,int const& arg3) ;
+	virtual bool  dispatch(AndroidCXX::android_view_KeyEvent_Callback const& arg0,AndroidCXX::android_view_KeyEvent_DispatcherState const& arg1,AndroidCXX::java_lang_Object const& arg2) ;
+	virtual bool  dispatch(AndroidCXX::android_view_KeyEvent_Callback const& arg0) ;
+	virtual int  getAction() ;
+	virtual AndroidCXX::java_lang_String * getCharacters() ;
+	static int  getDeadChar(int const& arg0,int const& arg1) ;
+	virtual int  getDeviceId() ;
+	virtual char  getDisplayLabel() ;
+	virtual long  getDownTime() ;
+	virtual long  getEventTime() ;
+	virtual int  getFlags() ;
+	virtual AndroidCXX::android_view_KeyCharacterMap * getKeyCharacterMap() ;
+	virtual int  getKeyCode() ;
+	virtual bool  getKeyData(AndroidCXX::android_view_KeyCharacterMap_KeyData const& arg0) ;
+	virtual char  getMatch(std::vector<char> const& arg0,int const& arg1) ;
+	virtual char  getMatch(std::vector<char> const& arg0) ;
+	static int  getMaxKeyCode() ;
+	virtual int  getMetaState() ;
 	static int  getModifierMetaStateMask() ;
-	static bool  isModifierKey(int const& arg0) ;
-	static int  normalizeMetaState(int const& arg0) ;
-	static bool  metaStateHasNoModifiers(int const& arg0) ;
-	static bool  metaStateHasModifiers(int const& arg0,int const& arg1) ;
-	virtual bool  hasNoModifiers() ;
+	virtual int  getModifiers() ;
+	virtual char  getNumber() ;
+	virtual int  getRepeatCount() ;
+	virtual int  getScanCode() ;
+	virtual int  getSource() ;
+	virtual int  getUnicodeChar() ;
+	virtual int  getUnicodeChar(int const& arg0) ;
 	virtual bool  hasModifiers(int const& arg0) ;
+	virtual bool  hasNoModifiers() ;
 	virtual bool  isAltPressed() ;
+	virtual bool  isCanceled() ;
+	virtual bool  isCapsLockOn() ;
+	virtual bool  isCtrlPressed() ;
+	virtual bool  isFunctionPressed() ;
+	static bool  isGamepadButton(int const& arg0) ;
+	virtual bool  isLongPress() ;
+	virtual bool  isMetaPressed() ;
+	static bool  isModifierKey(int const& arg0) ;
+	virtual bool  isNumLockOn() ;
+	virtual bool  isPrintingKey() ;
+	virtual bool  isScrollLockOn() ;
 	virtual bool  isShiftPressed() ;
 	virtual bool  isSymPressed() ;
-	virtual bool  isCtrlPressed() ;
-	virtual bool  isMetaPressed() ;
-	virtual bool  isFunctionPressed() ;
-	virtual bool  isCapsLockOn() ;
-	virtual bool  isNumLockOn() ;
-	virtual bool  isScrollLockOn() ;
-	virtual void  startTracking() ;
+	virtual bool  isSystem() ;
 	virtual bool  isTracking() ;
-	virtual bool  isLongPress() ;
-	virtual int  getKeyCode() ;
-	virtual AndroidCXX::java_lang_String * getCharacters() ;
-	virtual int  getScanCode() ;
-	virtual int  getUnicodeChar(int const& arg0) ;
-	virtual int  getUnicodeChar() ;
-	static AndroidCXX::java_lang_String * keyCodeToString(int const& arg0) ;
 	static int  keyCodeFromString(AndroidCXX::java_lang_String const& arg0) ;
+	static AndroidCXX::java_lang_String * keyCodeToString(int const& arg0) ;
+	static bool  metaStateHasModifiers(int const& arg0,int const& arg1) ;
+	static bool  metaStateHasNoModifiers(int const& arg0) ;
+	static int  normalizeMetaState(int const& arg0) ;
+	virtual void  setSource(int const& arg0) ;
+	virtual void  startTracking() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

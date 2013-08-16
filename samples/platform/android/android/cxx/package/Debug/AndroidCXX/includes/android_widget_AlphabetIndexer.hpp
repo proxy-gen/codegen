@@ -80,12 +80,12 @@ public:
 	// Default Destructor
 	virtual ~android_widget_AlphabetIndexer();
 	// Functions
-	virtual void  onChanged() ;
-	virtual void  onInvalidated() ;
-	virtual std::vector<java_lang_Object>  getSections() ;
-	virtual void  setCursor(AndroidCXX::android_database_Cursor const& arg0) ;
 	virtual int  getPositionForSection(int const& arg0) ;
 	virtual int  getSectionForPosition(int const& arg0) ;
+	virtual std::vector<java_lang_Object>  getSections() ;
+	virtual void  onChanged() ;
+	virtual void  onInvalidated() ;
+	virtual void  setCursor(AndroidCXX::android_database_Cursor const& arg0) ;
 
 protected:
 

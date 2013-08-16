@@ -33,9 +33,9 @@
 //
 
 
-#include <java_lang_String.hpp>
-
 #include <android_graphics_Bitmap.hpp>
+
+#include <java_lang_String.hpp>
 
 
 #include <java_lang_Cloneable.hpp>
@@ -56,9 +56,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 class android_graphics_Bitmap;
+
+class java_lang_String;
 
 class android_webkit_WebHistoryItem : public java_lang_Cloneable
 {
@@ -71,10 +71,10 @@ public:
 	// Default Destructor
 	virtual ~android_webkit_WebHistoryItem();
 	// Functions
+	virtual AndroidCXX::android_graphics_Bitmap * getFavicon() ;
+	virtual AndroidCXX::java_lang_String * getOriginalUrl() ;
 	virtual AndroidCXX::java_lang_String * getTitle() ;
 	virtual AndroidCXX::java_lang_String * getUrl() ;
-	virtual AndroidCXX::java_lang_String * getOriginalUrl() ;
-	virtual AndroidCXX::android_graphics_Bitmap * getFavicon() ;
 
 protected:
 

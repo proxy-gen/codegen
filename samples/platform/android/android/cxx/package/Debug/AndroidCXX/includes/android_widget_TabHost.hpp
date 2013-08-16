@@ -11,17 +11,17 @@
 
  		 
  		 
- 		 
- 		 
 	
- 		 
 	
- 		 
 	
 	
 	
  		 
 	
+ 		 
+ 		 
+ 		 
+ 		 
  		 
 
 
@@ -64,25 +64,25 @@
 //
 
 
-#include <android_app_LocalActivityManager.hpp>
+#include <android_widget_TabHost_TabSpec.hpp>
+
+#include <android_view_KeyEvent.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <android_view_View.hpp>
+
+#include <android_widget_FrameLayout.hpp>
+
+#include <android_widget_TabWidget.hpp>
 
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
-#include <android_view_KeyEvent.hpp>
-
-#include <android_view_View.hpp>
-
-#include <java_lang_String.hpp>
-
-#include <android_widget_TabHost_TabSpec.hpp>
-
-#include <android_widget_TabWidget.hpp>
-
-#include <android_widget_FrameLayout.hpp>
-
 #include <android_widget_TabHost_OnTabChangeListener.hpp>
+
+#include <android_app_LocalActivityManager.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -107,25 +107,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_app_LocalActivityManager;
+class android_widget_TabHost_TabSpec;
+
+class android_view_KeyEvent;
+
+class java_lang_String;
+
+class android_view_View;
+
+class android_widget_FrameLayout;
+
+class android_widget_TabWidget;
 
 class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
-class android_view_KeyEvent;
-
-class android_view_View;
-
-class java_lang_String;
-
-class android_widget_TabHost_TabSpec;
-
-class android_widget_TabWidget;
-
-class android_widget_FrameLayout;
-
 class android_widget_TabHost_OnTabChangeListener;
+
+class android_app_LocalActivityManager;
 
 class android_content_Context;
 
@@ -144,26 +144,26 @@ public:
 	// Default Destructor
 	virtual ~android_widget_TabHost();
 	// Functions
-	virtual void  setup() ;
-	virtual void  setup(AndroidCXX::android_app_LocalActivityManager const& arg0) ;
-	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
-	virtual void  dispatchWindowFocusChanged(bool const& arg0) ;
-	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
-	virtual void  sendAccessibilityEvent(int const& arg0) ;
-	virtual void  onTouchModeChanged(bool const& arg0) ;
-	virtual AndroidCXX::android_view_View * getCurrentView() ;
-	virtual void  setCurrentTab(int const& arg0) ;
-	virtual AndroidCXX::android_widget_TabHost_TabSpec * newTabSpec(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  addTab(AndroidCXX::android_widget_TabHost_TabSpec const& arg0) ;
 	virtual void  clearAllTabs() ;
-	virtual AndroidCXX::android_widget_TabWidget * getTabWidget() ;
+	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
+	virtual void  dispatchWindowFocusChanged(bool const& arg0) ;
 	virtual int  getCurrentTab() ;
 	virtual AndroidCXX::java_lang_String * getCurrentTabTag() ;
 	virtual AndroidCXX::android_view_View * getCurrentTabView() ;
-	virtual void  setCurrentTabByTag(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::android_view_View * getCurrentView() ;
 	virtual AndroidCXX::android_widget_FrameLayout * getTabContentView() ;
+	virtual AndroidCXX::android_widget_TabWidget * getTabWidget() ;
+	virtual AndroidCXX::android_widget_TabHost_TabSpec * newTabSpec(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  onTouchModeChanged(bool const& arg0) ;
+	virtual void  sendAccessibilityEvent(int const& arg0) ;
+	virtual void  setCurrentTab(int const& arg0) ;
+	virtual void  setCurrentTabByTag(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setOnTabChangedListener(AndroidCXX::android_widget_TabHost_OnTabChangeListener const& arg0) ;
+	virtual void  setup() ;
+	virtual void  setup(AndroidCXX::android_app_LocalActivityManager const& arg0) ;
 
 protected:
 

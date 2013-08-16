@@ -11,9 +11,9 @@
 
  		 
  		 
- 		 
- 		 
 	
+ 		 
+ 		 
  		 
 
 
@@ -42,13 +42,13 @@
 //
 
 
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
 #include <android_view_View.hpp>
 
 #include <android_view_ViewGroup_LayoutParams.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_widget_ViewSwitcher_ViewFactory.hpp>
 
@@ -75,13 +75,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_accessibility_AccessibilityEvent;
-
-class android_view_accessibility_AccessibilityNodeInfo;
-
 class android_view_View;
 
 class android_view_ViewGroup_LayoutParams;
+
+class android_view_accessibility_AccessibilityEvent;
+
+class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_widget_ViewSwitcher_ViewFactory;
 
@@ -94,19 +94,19 @@ class android_widget_ViewSwitcher : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
-	android_widget_ViewSwitcher(AndroidCXX::android_content_Context const& arg0);
 	android_widget_ViewSwitcher(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_ViewSwitcher(AndroidCXX::android_content_Context const& arg0);
 	android_widget_ViewSwitcher(const android_widget_ViewSwitcher& cc);
 	android_widget_ViewSwitcher(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ViewSwitcher();
 	// Functions
-	virtual void  reset() ;
-	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
 	virtual AndroidCXX::android_view_View * getNextView() ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  reset() ;
 	virtual void  setFactory(AndroidCXX::android_widget_ViewSwitcher_ViewFactory const& arg0) ;
 
 protected:

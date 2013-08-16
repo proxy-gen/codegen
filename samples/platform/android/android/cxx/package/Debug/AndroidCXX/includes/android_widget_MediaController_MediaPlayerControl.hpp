@@ -65,17 +65,17 @@ public:
 	// Default Destructor
 	virtual ~android_widget_MediaController_MediaPlayerControl();
 	// Functions
-	virtual void  start() ;
-	virtual int  getDuration() ;
-	virtual void  pause() ;
-	virtual int  getCurrentPosition() ;
-	virtual void  seekTo(int const& arg0) ;
-	virtual bool  isPlaying() ;
-	virtual int  getBufferPercentage() ;
 	virtual bool  canPause() ;
 	virtual bool  canSeekBackward() ;
 	virtual bool  canSeekForward() ;
 	virtual int  getAudioSessionId() ;
+	virtual int  getBufferPercentage() ;
+	virtual int  getCurrentPosition() ;
+	virtual int  getDuration() ;
+	virtual bool  isPlaying() ;
+	virtual void  pause() ;
+	virtual void  seekTo(int const& arg0) ;
+	virtual void  start() ;
 
 protected:
 	android_widget_MediaController_MediaPlayerControl();

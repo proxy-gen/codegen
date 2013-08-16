@@ -11,8 +11,8 @@
 
  		 
  		 
- 		 
 	
+ 		 
  		 
 
 
@@ -52,11 +52,11 @@
 
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
 #include <android_util_AttributeSet.hpp>
 
 #include <android_widget_RelativeLayout_LayoutParams.hpp>
+
+#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -81,11 +81,11 @@ namespace AndroidCXX {
 
 class android_view_accessibility_AccessibilityEvent;
 
-class android_view_accessibility_AccessibilityNodeInfo;
-
 class android_util_AttributeSet;
 
 class android_widget_RelativeLayout_LayoutParams;
+
+class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_content_Context;
 
@@ -103,18 +103,18 @@ public:
 	// Default Destructor
 	virtual ~android_widget_RelativeLayout();
 	// Functions
+	virtual bool  dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual AndroidCXX::android_widget_RelativeLayout_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
+	virtual int  getBaseline() ;
+	virtual int  getGravity() ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
-	virtual bool  shouldDelayChildPressedState() ;
-	virtual int  getBaseline() ;
+	virtual void  requestLayout() ;
 	virtual void  setGravity(int const& arg0) ;
 	virtual void  setHorizontalGravity(int const& arg0) ;
-	virtual void  setVerticalGravity(int const& arg0) ;
-	virtual AndroidCXX::android_widget_RelativeLayout_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
-	virtual void  requestLayout() ;
-	virtual bool  dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  setIgnoreGravity(int const& arg0) ;
-	virtual int  getGravity() ;
+	virtual void  setVerticalGravity(int const& arg0) ;
+	virtual bool  shouldDelayChildPressedState() ;
 
 protected:
 

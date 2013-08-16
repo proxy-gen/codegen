@@ -9,28 +9,28 @@
 
 
 
-	
-	
- 		 
- 		 
- 		 
- 	
- 		 
- 		 
- 		 
- 	
- 		 
- 		 
- 	
- 		 
- 		 
- 	
- 		 
- 		 
- 	
- 		 
  		 
 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
+ 		 
+	
+ 		 
+ 	
+ 		 
+ 		 
+ 	
+ 		 
+	
+ 		 
+ 	
+ 		 
+ 		 
+ 	
+ 		 
 
 
  		 
@@ -73,15 +73,15 @@
 //
 
 
-#include <java_lang_String.hpp>
+#include <java_lang_Object.hpp>
 
-#include <android_content_Context.hpp>
+#include <java_lang_String.hpp>
 
 #include <java_io_FileDescriptor.hpp>
 
 #include <java_io_PrintWriter.hpp>
 
-#include <java_lang_Object.hpp>
+#include <android_content_Context.hpp>
 
 #include <android_content_Loader_OnLoadCompleteListener.hpp>
 
@@ -104,15 +104,15 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
+class java_lang_Object;
 
-class android_content_Context;
+class java_lang_String;
 
 class java_io_FileDescriptor;
 
 class java_io_PrintWriter;
 
-class java_lang_Object;
+class android_content_Context;
 
 class android_content_Loader_OnLoadCompleteListener;
 
@@ -130,30 +130,30 @@ public:
 	// Default Destructor
 	virtual ~android_content_Loader();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  abandon() ;
+	virtual bool  cancelLoad() ;
+	virtual void  commitContentChanged() ;
+	virtual AndroidCXX::java_lang_String * dataToString(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  deliverCancellation() ;
+	virtual void  deliverResult(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3) ;
+	virtual void  forceLoad() ;
 	virtual AndroidCXX::android_content_Context * getContext() ;
 	virtual int  getId() ;
-	virtual void  reset() ;
-	virtual bool  isStarted() ;
-	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3) ;
-	virtual void  onContentChanged() ;
-	virtual void  deliverResult(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual void  deliverCancellation() ;
-	virtual void  registerListener(int const& arg0,AndroidCXX::android_content_Loader_OnLoadCompleteListener const& arg1) ;
-	virtual void  unregisterListener(AndroidCXX::android_content_Loader_OnLoadCompleteListener const& arg0) ;
-	virtual void  registerOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener const& arg0) ;
-	virtual void  unregisterOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener const& arg0) ;
 	virtual bool  isAbandoned() ;
 	virtual bool  isReset() ;
-	virtual void  startLoading() ;
-	virtual bool  cancelLoad() ;
-	virtual void  forceLoad() ;
-	virtual void  stopLoading() ;
-	virtual void  abandon() ;
-	virtual bool  takeContentChanged() ;
-	virtual void  commitContentChanged() ;
+	virtual bool  isStarted() ;
+	virtual void  onContentChanged() ;
+	virtual void  registerListener(int const& arg0,AndroidCXX::android_content_Loader_OnLoadCompleteListener const& arg1) ;
+	virtual void  registerOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener const& arg0) ;
+	virtual void  reset() ;
 	virtual void  rollbackContentChanged() ;
-	virtual AndroidCXX::java_lang_String * dataToString(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  startLoading() ;
+	virtual void  stopLoading() ;
+	virtual bool  takeContentChanged() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  unregisterListener(AndroidCXX::android_content_Loader_OnLoadCompleteListener const& arg0) ;
+	virtual void  unregisterOnLoadCanceledListener(AndroidCXX::android_content_Loader_OnLoadCanceledListener const& arg0) ;
 
 protected:
 

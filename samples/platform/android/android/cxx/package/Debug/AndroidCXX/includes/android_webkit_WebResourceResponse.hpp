@@ -11,8 +11,8 @@
 
 	
 	
- 		 
 	
+ 		 
  		 
  		 
 
@@ -41,9 +41,9 @@
 //
 
 
-#include <java_lang_String.hpp>
-
 #include <java_io_InputStream.hpp>
+
+#include <java_lang_String.hpp>
 
 
 #include <vector>
@@ -62,9 +62,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 class java_io_InputStream;
+
+class java_lang_String;
 
 class android_webkit_WebResourceResponse 
 {
@@ -78,12 +78,12 @@ public:
 	// Default Destructor
 	virtual ~android_webkit_WebResourceResponse();
 	// Functions
-	virtual AndroidCXX::java_lang_String * getEncoding() ;
 	virtual AndroidCXX::java_io_InputStream * getData() ;
-	virtual void  setData(AndroidCXX::java_io_InputStream const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getEncoding() ;
 	virtual AndroidCXX::java_lang_String * getMimeType() ;
-	virtual void  setMimeType(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setData(AndroidCXX::java_io_InputStream const& arg0) ;
 	virtual void  setEncoding(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setMimeType(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
 

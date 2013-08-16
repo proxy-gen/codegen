@@ -68,8 +68,8 @@ public:
 	// Default Destructor
 	virtual ~android_widget_MultiAutoCompleteTextView_CommaTokenizer();
 	// Functions
-	virtual int  findTokenStart(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) ;
 	virtual int  findTokenEnd(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) ;
+	virtual int  findTokenStart(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_CharSequence * terminateToken(AndroidCXX::java_lang_CharSequence const& arg0) ;
 
 protected:

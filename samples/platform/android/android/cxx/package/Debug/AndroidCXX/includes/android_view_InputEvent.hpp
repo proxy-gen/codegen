@@ -64,10 +64,10 @@ public:
 	virtual ~android_view_InputEvent();
 	// Functions
 	virtual int  describeContents() ;
-	virtual int  getDeviceId() ;
-	virtual int  getSource() ;
-	virtual long  getEventTime() ;
 	virtual AndroidCXX::android_view_InputDevice * getDevice() ;
+	virtual int  getDeviceId() ;
+	virtual long  getEventTime() ;
+	virtual int  getSource() ;
 	virtual bool  isFromSource(int const& arg0) ;
 
 protected:

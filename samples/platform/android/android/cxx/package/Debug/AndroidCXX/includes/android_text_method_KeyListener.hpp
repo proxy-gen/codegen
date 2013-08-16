@@ -76,11 +76,11 @@ public:
 	// Default Destructor
 	virtual ~android_text_method_KeyListener();
 	// Functions
-	virtual bool  onKeyDown(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) ;
-	virtual bool  onKeyUp(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) ;
-	virtual int  getInputType() ;
-	virtual bool  onKeyOther(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
 	virtual void  clearMetaKeyState(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2) ;
+	virtual int  getInputType() ;
+	virtual bool  onKeyDown(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) ;
+	virtual bool  onKeyOther(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
+	virtual bool  onKeyUp(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) ;
 
 protected:
 	android_text_method_KeyListener();

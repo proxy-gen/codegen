@@ -50,9 +50,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_CharSequence;
-
 class android_text_Editable;
+
+class java_lang_CharSequence;
 
 class android_text_TextWatcher : public android_text_NoCopySpan
 {
@@ -64,9 +64,9 @@ public:
 	// Default Destructor
 	virtual ~android_text_TextWatcher();
 	// Functions
-	virtual void  onTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
-	virtual void  beforeTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual void  afterTextChanged(AndroidCXX::android_text_Editable const& arg0) ;
+	virtual void  beforeTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  onTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 
 protected:
 	android_text_TextWatcher();

@@ -9,11 +9,11 @@
 
 
 
+	
  		 
 	
  		 
  		 
-	
  		 
  		 
  		 
@@ -72,13 +72,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_content_res_Configuration;
-
 class android_app_Application;
 
 class android_content_Intent;
 
 class android_os_IBinder;
+
+class android_content_res_Configuration;
 
 class android_app_Notification;
 
@@ -92,23 +92,23 @@ public:
 	// Default Destructor
 	virtual ~android_app_Service();
 	// Functions
+	virtual AndroidCXX::android_app_Application * getApplication() ;
+	virtual AndroidCXX::android_os_IBinder * onBind(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual void  onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0) ;
 	virtual void  onCreate() ;
-	virtual void  onLowMemory() ;
-	virtual void  onTrimMemory(int const& arg0) ;
-	virtual AndroidCXX::android_app_Application * getApplication() ;
-	virtual void  onStart(AndroidCXX::android_content_Intent const& arg0,int const& arg1) ;
 	virtual void  onDestroy() ;
-	virtual AndroidCXX::android_os_IBinder * onBind(AndroidCXX::android_content_Intent const& arg0) ;
-	virtual int  onStartCommand(AndroidCXX::android_content_Intent const& arg0,int const& arg1,int const& arg2) ;
-	virtual bool  onUnbind(AndroidCXX::android_content_Intent const& arg0) ;
+	virtual void  onLowMemory() ;
 	virtual void  onRebind(AndroidCXX::android_content_Intent const& arg0) ;
+	virtual void  onStart(AndroidCXX::android_content_Intent const& arg0,int const& arg1) ;
+	virtual int  onStartCommand(AndroidCXX::android_content_Intent const& arg0,int const& arg1,int const& arg2) ;
 	virtual void  onTaskRemoved(AndroidCXX::android_content_Intent const& arg0) ;
+	virtual void  onTrimMemory(int const& arg0) ;
+	virtual bool  onUnbind(AndroidCXX::android_content_Intent const& arg0) ;
+	virtual void  startForeground(int const& arg0,AndroidCXX::android_app_Notification const& arg1) ;
+	virtual void  stopForeground(bool const& arg0) ;
 	virtual void  stopSelf() ;
 	virtual void  stopSelf(int const& arg0) ;
 	virtual bool  stopSelfResult(int const& arg0) ;
-	virtual void  startForeground(int const& arg0,AndroidCXX::android_app_Notification const& arg1) ;
-	virtual void  stopForeground(bool const& arg0) ;
 
 protected:
 	android_app_Service();

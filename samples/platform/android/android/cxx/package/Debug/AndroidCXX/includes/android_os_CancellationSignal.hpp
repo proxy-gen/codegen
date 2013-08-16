@@ -66,8 +66,8 @@ public:
 	// Functions
 	virtual void  cancel() ;
 	virtual bool  isCanceled() ;
-	virtual void  throwIfCanceled() ;
 	virtual void  setOnCancelListener(AndroidCXX::android_os_CancellationSignal_OnCancelListener const& arg0) ;
+	virtual void  throwIfCanceled() ;
 
 protected:
 

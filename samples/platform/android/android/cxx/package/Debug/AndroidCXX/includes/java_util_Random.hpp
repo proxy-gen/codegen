@@ -69,15 +69,15 @@ public:
 	// Default Destructor
 	virtual ~java_util_Random();
 	// Functions
-	virtual int  nextInt() ;
-	virtual int  nextInt(int const& arg0) ;
-	virtual double  nextDouble() ;
-	virtual long  nextLong() ;
-	virtual void  nextBytes(std::vector<byte> const& arg0) ;
-	virtual void  setSeed(long const& arg0) ;
 	virtual bool  nextBoolean() ;
+	virtual void  nextBytes(std::vector<byte> const& arg0) ;
+	virtual double  nextDouble() ;
 	virtual float  nextFloat() ;
 	virtual double  nextGaussian() ;
+	virtual int  nextInt() ;
+	virtual int  nextInt(int const& arg0) ;
+	virtual long  nextLong() ;
+	virtual void  setSeed(long const& arg0) ;
 
 protected:
 

@@ -15,12 +15,12 @@
  	
  	
  	
- 		 
 	
-
-
- 	
  		 
+
+
+ 		 
+ 	
 
 
 
@@ -47,9 +47,9 @@
 
 #include <java_lang_Object.hpp>
 
-#include <android_os_Parcel.hpp>
-
 #include <java_lang_String.hpp>
+
+#include <android_os_Parcel.hpp>
 
 
 #include <android_os_Parcelable.hpp>
@@ -72,31 +72,31 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class android_os_Parcel;
-
 class java_lang_String;
+
+class android_os_Parcel;
 
 class android_content_pm_Signature : public android_os_Parcelable
 {
 public:
 
 	// Public ConstrucXXX
-	android_content_pm_Signature(std::vector<byte> const& arg0);
 	android_content_pm_Signature(AndroidCXX::java_lang_String const& arg0);
+	android_content_pm_Signature(std::vector<byte> const& arg0);
 	android_content_pm_Signature(const android_content_pm_Signature& cc);
 	android_content_pm_Signature(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_Signature();
 	// Functions
+	virtual int  describeContents() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual int  hashCode() ;
+	virtual std::vector<byte>  toByteArray() ;
 	virtual std::vector<char>  toChars() ;
 	virtual std::vector<char>  toChars(std::vector<char> const& arg0,std::vector<int> const& arg1) ;
-	virtual std::vector<byte>  toByteArray() ;
-	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_String * toCharsString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

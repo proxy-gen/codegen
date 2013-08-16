@@ -11,16 +11,16 @@
 
  		 
 	
-	
  	
  		 
-	
  	
  		 
  	
 	
  	
  		 
+	
+	
 
 
 
@@ -66,11 +66,11 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_lang_String;
-
 class java_util_List;
 
 class java_security_cert_Certificate;
+
+class java_lang_String;
 
 class java_util_Iterator;
 
@@ -85,13 +85,13 @@ public:
 	virtual ~java_security_cert_CertPath();
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
 	virtual AndroidCXX::java_util_List * getCertificates() ;
-	virtual AndroidCXX::java_lang_String * getType() ;
 	virtual std::vector<byte>  getEncoded() ;
 	virtual std::vector<byte>  getEncoded(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_util_Iterator * getEncodings() ;
+	virtual AndroidCXX::java_lang_String * getType() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 	java_security_cert_CertPath();

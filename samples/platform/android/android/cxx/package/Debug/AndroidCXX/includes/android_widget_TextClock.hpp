@@ -10,10 +10,10 @@
 
 
 	
- 		 
+	
 	
  		 
-	
+ 		 
  		 
 
 
@@ -46,9 +46,9 @@
 //
 
 
-#include <java_lang_String.hpp>
-
 #include <java_lang_CharSequence.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -73,9 +73,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 class java_lang_CharSequence;
+
+class java_lang_String;
 
 class android_content_Context;
 
@@ -86,22 +86,22 @@ class android_widget_TextClock : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
+	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0);
 	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_TextClock(const android_widget_TextClock& cc);
 	android_widget_TextClock(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TextClock();
 	// Functions
-	virtual AndroidCXX::java_lang_String * getTimeZone() ;
-	virtual void  setTimeZone(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_CharSequence * getFormat12Hour() ;
-	virtual void  setFormat12Hour(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::java_lang_CharSequence * getFormat24Hour() ;
-	virtual void  setFormat24Hour(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getTimeZone() ;
 	virtual bool  is24HourModeEnabled() ;
+	virtual void  setFormat12Hour(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  setFormat24Hour(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  setTimeZone(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
 

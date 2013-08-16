@@ -44,15 +44,15 @@
 
 #include <java_lang_Object.hpp>
 
-#include <android_widget_GridLayout_Spec.hpp>
-
-#include <android_view_ViewGroup_LayoutParams.hpp>
-
-#include <android_view_ViewGroup_MarginLayoutParams.hpp>
-
 #include <android_content_Context.hpp>
 
 #include <android_util_AttributeSet.hpp>
+
+#include <android_view_ViewGroup_MarginLayoutParams.hpp>
+
+#include <android_view_ViewGroup_LayoutParams.hpp>
+
+#include <android_widget_GridLayout_Spec.hpp>
 
 
 #include <vector>
@@ -72,28 +72,28 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class android_widget_GridLayout_Spec;
-
-class android_view_ViewGroup_LayoutParams;
-
-class android_view_ViewGroup_MarginLayoutParams;
-
-
 class android_content_Context;
 
 class android_util_AttributeSet;
+
+
+class android_view_ViewGroup_MarginLayoutParams;
+
+class android_view_ViewGroup_LayoutParams;
+
+class android_widget_GridLayout_Spec;
 
 class android_widget_GridLayout_LayoutParams : public java_lang_Object
 {
 public:
 
 	// Public ConstrucXXX
-	android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_Spec const& arg0,AndroidCXX::android_widget_GridLayout_Spec const& arg1);
 	android_widget_GridLayout_LayoutParams();
-	android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
-	android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0);
-	android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_LayoutParams const& arg0);
 	android_widget_GridLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_LayoutParams const& arg0);
+	android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0);
+	android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
+	android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_Spec const& arg0,AndroidCXX::android_widget_GridLayout_Spec const& arg1);
 	android_widget_GridLayout_LayoutParams(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor

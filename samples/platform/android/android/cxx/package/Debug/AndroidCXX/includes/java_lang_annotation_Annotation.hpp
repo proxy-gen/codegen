@@ -9,11 +9,11 @@
 
 
 
- 		 
-	
 	
  	
  		 
+ 		 
+	
 
 
 
@@ -53,11 +53,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-
-class java_lang_String;
-
 class java_lang_Class;
 
+
+
+class java_lang_String;
 
 class java_lang_annotation_Annotation : public java_lang_Object
 {
@@ -69,10 +69,10 @@ public:
 	// Default Destructor
 	virtual ~java_lang_annotation_Annotation();
 	// Functions
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
 	virtual AndroidCXX::java_lang_Class * annotationType() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 	java_lang_annotation_Annotation();

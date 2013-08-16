@@ -10,17 +10,7 @@
 
 
 	
-	
-	
-	
  	
- 		 
- 		 
- 		 
- 	
- 		 
-	
- 		 
  		 
 	
  	
@@ -28,10 +18,20 @@
  		 
  		 
 	
+	
+	
+ 	
  		 
 	
 	
+	
  		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
 
 
  		 
@@ -112,23 +112,23 @@
 //
 
 
-#include <java_lang_String.hpp>
-
-#include <java_lang_ThreadGroup.hpp>
+#include <java_util_Map.hpp>
 
 #include <java_lang_StackTraceElement.hpp>
 
-#include <java_lang_Throwable.hpp>
-
 #include <java_lang_ClassLoader.hpp>
 
-#include <java_lang_Object.hpp>
+#include <java_lang_Thread_UncaughtExceptionHandler.hpp>
 
-#include <java_util_Map.hpp>
+#include <java_lang_String.hpp>
 
 #include <java_lang_Thread_State.hpp>
 
-#include <java_lang_Thread_UncaughtExceptionHandler.hpp>
+#include <java_lang_ThreadGroup.hpp>
+
+#include <java_lang_Object.hpp>
+
+#include <java_lang_Throwable.hpp>
 
 #include <java_lang_Runnable.hpp>
 
@@ -149,23 +149,23 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+
+class java_util_Map;
+
+class java_lang_StackTraceElement;
+
+class java_lang_ClassLoader;
+
+class java_lang_Thread_UncaughtExceptionHandler;
+
 class java_lang_String;
 
 
 class java_lang_ThreadGroup;
 
-class java_lang_StackTraceElement;
-
-class java_lang_Throwable;
-
-class java_lang_ClassLoader;
-
 class java_lang_Object;
 
-class java_util_Map;
-
-
-class java_lang_Thread_UncaughtExceptionHandler;
+class java_lang_Throwable;
 
 
 class java_lang_Thread : public java_lang_Runnable
@@ -173,62 +173,62 @@ class java_lang_Thread : public java_lang_Runnable
 public:
 
 	// Public ConstrucXXX
-	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1,AndroidCXX::java_lang_String const& arg2,long const& arg3);
 	java_lang_Thread();
-	java_lang_Thread(AndroidCXX::java_lang_Runnable const& arg0);
-	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1);
-	java_lang_Thread(AndroidCXX::java_lang_String const& arg0);
-	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1);
-	java_lang_Thread(AndroidCXX::java_lang_Runnable const& arg0,AndroidCXX::java_lang_String const& arg1);
 	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1,AndroidCXX::java_lang_String const& arg2);
+	java_lang_Thread(AndroidCXX::java_lang_String const& arg0);
+	java_lang_Thread(AndroidCXX::java_lang_Runnable const& arg0);
+	java_lang_Thread(AndroidCXX::java_lang_Runnable const& arg0,AndroidCXX::java_lang_String const& arg1);
+	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1);
+	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1);
+	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1,AndroidCXX::java_lang_String const& arg2,long const& arg3);
 	java_lang_Thread(const java_lang_Thread& cc);
 	java_lang_Thread(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Thread();
 	// Functions
-	virtual void  run() ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual bool  isInterrupted() ;
+	static int  activeCount() ;
+	virtual void  checkAccess() ;
+	virtual int  countStackFrames() ;
 	static AndroidCXX::java_lang_Thread * currentThread() ;
-	virtual AndroidCXX::java_lang_String * getName() ;
-	virtual AndroidCXX::java_lang_ThreadGroup * getThreadGroup() ;
-	virtual std::vector<java_lang_StackTraceElement>  getStackTrace() ;
+	virtual void  destroy() ;
 	static void  dumpStack() ;
-	virtual void  setPriority(int const& arg0) ;
-	virtual void  setDaemon(bool const& arg0) ;
-	virtual void  start() ;
-	static void  yield() ;
-	static void  sleep(long const& arg0) ;
-	static void  sleep(long const& arg0,int const& arg1) ;
-	virtual void  stop() ;
-	virtual void  stop(AndroidCXX::java_lang_Throwable const& arg0) ;
+	static int  enumerate(std::vector<java_lang_Thread> const& arg0) ;
+	static AndroidCXX::java_util_Map * getAllStackTraces() ;
+	virtual AndroidCXX::java_lang_ClassLoader * getContextClassLoader() ;
+	static AndroidCXX::java_lang_Thread_UncaughtExceptionHandler * getDefaultUncaughtExceptionHandler() ;
+	virtual long  getId() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+	virtual int  getPriority() ;
+	virtual std::vector<java_lang_StackTraceElement>  getStackTrace() ;
+	virtual java_lang_Thread_State::java_lang_Thread_State  getState() ;
+	virtual AndroidCXX::java_lang_ThreadGroup * getThreadGroup() ;
+	virtual AndroidCXX::java_lang_Thread_UncaughtExceptionHandler * getUncaughtExceptionHandler() ;
+	static bool  holdsLock(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual void  interrupt() ;
 	static bool  interrupted() ;
-	virtual void  destroy() ;
 	virtual bool  isAlive() ;
-	virtual void  suspend() ;
-	virtual void  resume() ;
-	virtual int  getPriority() ;
-	virtual void  setName(AndroidCXX::java_lang_String const& arg0) ;
-	static int  activeCount() ;
-	static int  enumerate(std::vector<java_lang_Thread> const& arg0) ;
-	virtual int  countStackFrames() ;
+	virtual bool  isDaemon() ;
+	virtual bool  isInterrupted() ;
 	virtual void  join() ;
 	virtual void  join(long const& arg0,int const& arg1) ;
 	virtual void  join(long const& arg0) ;
-	virtual bool  isDaemon() ;
-	virtual void  checkAccess() ;
-	virtual AndroidCXX::java_lang_ClassLoader * getContextClassLoader() ;
+	virtual void  resume() ;
+	virtual void  run() ;
 	virtual void  setContextClassLoader(AndroidCXX::java_lang_ClassLoader const& arg0) ;
-	static bool  holdsLock(AndroidCXX::java_lang_Object const& arg0) ;
-	static AndroidCXX::java_util_Map * getAllStackTraces() ;
-	virtual long  getId() ;
-	virtual java_lang_Thread_State::java_lang_Thread_State  getState() ;
+	virtual void  setDaemon(bool const& arg0) ;
 	static void  setDefaultUncaughtExceptionHandler(AndroidCXX::java_lang_Thread_UncaughtExceptionHandler const& arg0) ;
-	static AndroidCXX::java_lang_Thread_UncaughtExceptionHandler * getDefaultUncaughtExceptionHandler() ;
-	virtual AndroidCXX::java_lang_Thread_UncaughtExceptionHandler * getUncaughtExceptionHandler() ;
+	virtual void  setName(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setPriority(int const& arg0) ;
 	virtual void  setUncaughtExceptionHandler(AndroidCXX::java_lang_Thread_UncaughtExceptionHandler const& arg0) ;
+	static void  sleep(long const& arg0) ;
+	static void  sleep(long const& arg0,int const& arg1) ;
+	virtual void  start() ;
+	virtual void  stop() ;
+	virtual void  stop(AndroidCXX::java_lang_Throwable const& arg0) ;
+	virtual void  suspend() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	static void  yield() ;
 
 protected:
 

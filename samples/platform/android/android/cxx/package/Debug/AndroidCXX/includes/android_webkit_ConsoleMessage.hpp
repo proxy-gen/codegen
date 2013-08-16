@@ -74,8 +74,8 @@ public:
 	// Functions
 	virtual int  lineNumber() ;
 	virtual AndroidCXX::java_lang_String * message() ;
-	virtual AndroidCXX::java_lang_String * sourceId() ;
 	virtual android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel  messageLevel() ;
+	virtual AndroidCXX::java_lang_String * sourceId() ;
 
 protected:
 

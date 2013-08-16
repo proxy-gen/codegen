@@ -10,11 +10,11 @@
 
 
 	
+	
+	
+	
+	
  		 
-	
-	
-	
-	
 
 
  		 
@@ -44,17 +44,17 @@
 //
 
 
-#include <java_lang_String.hpp>
+#include <java_io_FileInputStream.hpp>
 
-#include <android_os_Parcel.hpp>
+#include <java_io_FileOutputStream.hpp>
 
 #include <java_io_FileDescriptor.hpp>
 
 #include <android_os_ParcelFileDescriptor.hpp>
 
-#include <java_io_FileInputStream.hpp>
+#include <java_lang_String.hpp>
 
-#include <java_io_FileOutputStream.hpp>
+#include <android_os_Parcel.hpp>
 
 
 #include <android_os_Parcelable.hpp>
@@ -75,17 +75,17 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
+class java_io_FileInputStream;
 
-class android_os_Parcel;
+class java_io_FileOutputStream;
 
 class java_io_FileDescriptor;
 
 class android_os_ParcelFileDescriptor;
 
-class java_io_FileInputStream;
+class java_lang_String;
 
-class java_io_FileOutputStream;
+class android_os_Parcel;
 
 class android_content_res_AssetFileDescriptor : public android_os_Parcelable
 {
@@ -99,17 +99,17 @@ public:
 	// Default Destructor
 	virtual ~android_content_res_AssetFileDescriptor();
 	// Functions
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual long  getLength() ;
 	virtual void  close() ;
-	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
-	virtual AndroidCXX::java_io_FileDescriptor * getFileDescriptor() ;
-	virtual AndroidCXX::android_os_ParcelFileDescriptor * getParcelFileDescriptor() ;
-	virtual long  getStartOffset() ;
-	virtual long  getDeclaredLength() ;
 	virtual AndroidCXX::java_io_FileInputStream * createInputStream() ;
 	virtual AndroidCXX::java_io_FileOutputStream * createOutputStream() ;
+	virtual int  describeContents() ;
+	virtual long  getDeclaredLength() ;
+	virtual AndroidCXX::java_io_FileDescriptor * getFileDescriptor() ;
+	virtual long  getLength() ;
+	virtual AndroidCXX::android_os_ParcelFileDescriptor * getParcelFileDescriptor() ;
+	virtual long  getStartOffset() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 

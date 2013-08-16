@@ -77,9 +77,9 @@ class android_widget_CheckBox : public java_lang_Object
 public:
 
 	// Public ConstrucXXX
+	android_widget_CheckBox(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_CheckBox(AndroidCXX::android_content_Context const& arg0);
 	android_widget_CheckBox(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_CheckBox(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
 	android_widget_CheckBox(const android_widget_CheckBox& cc);
 	android_widget_CheckBox(Proxy proxy);
 	Proxy proxy() const;	

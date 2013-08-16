@@ -9,10 +9,10 @@
 
 
 
- 		 
+	
 	
  		 
-	
+ 		 
  		 
  		 
 
@@ -78,17 +78,17 @@ public:
 	// Default Destructor
 	virtual ~android_content_BroadcastReceiver_PendingResult();
 	// Functions
-	virtual void  setResultCode(int const& arg0) ;
-	virtual int  getResultCode() ;
-	virtual void  setResultData(AndroidCXX::java_lang_String const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getResultData() ;
-	virtual void  setResultExtras(AndroidCXX::android_os_Bundle const& arg0) ;
-	virtual AndroidCXX::android_os_Bundle * getResultExtras(bool const& arg0) ;
-	virtual void  setResult(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
-	virtual bool  getAbortBroadcast() ;
 	virtual void  abortBroadcast() ;
 	virtual void  clearAbortBroadcast() ;
 	virtual void  finish() ;
+	virtual bool  getAbortBroadcast() ;
+	virtual int  getResultCode() ;
+	virtual AndroidCXX::java_lang_String * getResultData() ;
+	virtual AndroidCXX::android_os_Bundle * getResultExtras(bool const& arg0) ;
+	virtual void  setResult(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
+	virtual void  setResultCode(int const& arg0) ;
+	virtual void  setResultData(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setResultExtras(AndroidCXX::android_os_Bundle const& arg0) ;
 
 protected:
 

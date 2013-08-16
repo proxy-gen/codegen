@@ -62,8 +62,8 @@ public:
 	// Default Destructor
 	virtual ~android_view_SurfaceHolder_Callback();
 	// Functions
-	virtual void  surfaceCreated(AndroidCXX::android_view_SurfaceHolder const& arg0) ;
 	virtual void  surfaceChanged(AndroidCXX::android_view_SurfaceHolder const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  surfaceCreated(AndroidCXX::android_view_SurfaceHolder const& arg0) ;
 	virtual void  surfaceDestroyed(AndroidCXX::android_view_SurfaceHolder const& arg0) ;
 
 protected:

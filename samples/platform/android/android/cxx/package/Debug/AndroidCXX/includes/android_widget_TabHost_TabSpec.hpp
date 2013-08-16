@@ -10,13 +10,13 @@
 
 
 	
- 		 
- 		 
 	
  		 
 	
  		 
 	
+ 		 
+ 		 
 	
  		 
 	
@@ -47,15 +47,15 @@
 
 #include <java_lang_String.hpp>
 
+#include <android_widget_TabHost_TabContentFactory.hpp>
+
+#include <android_content_Intent.hpp>
+
 #include <java_lang_CharSequence.hpp>
 
 #include <android_graphics_drawable_Drawable.hpp>
 
 #include <android_view_View.hpp>
-
-#include <android_widget_TabHost_TabContentFactory.hpp>
-
-#include <android_content_Intent.hpp>
 
 
 #include <vector>
@@ -76,16 +76,16 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_lang_CharSequence;
-
-class android_graphics_drawable_Drawable;
-
-
-class android_view_View;
 
 class android_widget_TabHost_TabContentFactory;
 
 class android_content_Intent;
+
+class java_lang_CharSequence;
+
+class android_graphics_drawable_Drawable;
+
+class android_view_View;
 
 class android_widget_TabHost_TabSpec 
 {
@@ -99,12 +99,12 @@ public:
 	virtual ~android_widget_TabHost_TabSpec();
 	// Functions
 	virtual AndroidCXX::java_lang_String * getTag() ;
-	virtual AndroidCXX::android_widget_TabHost_TabSpec * setIndicator(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1) ;
-	virtual AndroidCXX::android_widget_TabHost_TabSpec * setIndicator(AndroidCXX::android_view_View const& arg0) ;
-	virtual AndroidCXX::android_widget_TabHost_TabSpec * setIndicator(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual AndroidCXX::android_widget_TabHost_TabSpec * setContent(int const& arg0) ;
 	virtual AndroidCXX::android_widget_TabHost_TabSpec * setContent(AndroidCXX::android_widget_TabHost_TabContentFactory const& arg0) ;
 	virtual AndroidCXX::android_widget_TabHost_TabSpec * setContent(AndroidCXX::android_content_Intent const& arg0) ;
+	virtual AndroidCXX::android_widget_TabHost_TabSpec * setIndicator(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1) ;
+	virtual AndroidCXX::android_widget_TabHost_TabSpec * setIndicator(AndroidCXX::android_view_View const& arg0) ;
+	virtual AndroidCXX::android_widget_TabHost_TabSpec * setIndicator(AndroidCXX::java_lang_CharSequence const& arg0) ;
 
 protected:
 

@@ -29,9 +29,9 @@
 //
 
 
-#include <android_os_Parcel.hpp>
-
 #include <android_os_Parcelable.hpp>
+
+#include <android_os_Parcel.hpp>
 
 
 #include <java_lang_Object.hpp>
@@ -52,17 +52,17 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_Parcel;
-
 class android_os_Parcelable;
+
+class android_os_Parcel;
 
 class android_view_View_BaseSavedState : public java_lang_Object
 {
 public:
 
 	// Public ConstrucXXX
-	android_view_View_BaseSavedState(AndroidCXX::android_os_Parcel const& arg0);
 	android_view_View_BaseSavedState(AndroidCXX::android_os_Parcelable const& arg0);
+	android_view_View_BaseSavedState(AndroidCXX::android_os_Parcel const& arg0);
 	android_view_View_BaseSavedState(const android_view_View_BaseSavedState& cc);
 	android_view_View_BaseSavedState(Proxy proxy);
 	Proxy proxy() const;	

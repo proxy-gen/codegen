@@ -11,9 +11,9 @@
 
 	
  		 
- 		 
 	
  	
+ 		 
  		 
 
 
@@ -54,11 +54,11 @@ namespace AndroidCXX {
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
-class android_os_Bundle;
-
 class java_lang_String;
 
 class java_util_List;
+
+class android_os_Bundle;
 
 class android_view_accessibility_AccessibilityNodeProvider 
 {
@@ -71,8 +71,8 @@ public:
 	virtual ~android_view_accessibility_AccessibilityNodeProvider();
 	// Functions
 	virtual AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * createAccessibilityNodeInfo(int const& arg0) ;
-	virtual bool  performAction(int const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
 	virtual AndroidCXX::java_util_List * findAccessibilityNodeInfosByText(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	virtual bool  performAction(int const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
 
 protected:
 	android_view_accessibility_AccessibilityNodeProvider();

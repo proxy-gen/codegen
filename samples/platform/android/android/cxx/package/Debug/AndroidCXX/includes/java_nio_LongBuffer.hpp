@@ -9,9 +9,17 @@
 
 
 
+	
+ 	
+	
+	
+ 		 
+	
+ 		 
  	
 	
  	
+	
 	
  		 
 	
@@ -21,19 +29,11 @@
 	
  	
 	
- 		 
 	
- 		 
- 	
+	
  	
 	
  	
-	
-	
-	
-	
-	
-	
 	
 
 
@@ -98,9 +98,9 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_lang_String;
-
 class java_nio_ByteOrder;
+
+class java_lang_String;
 
 class java_nio_LongBuffer : public java_lang_Comparable
 {
@@ -112,31 +112,31 @@ public:
 	// Default Destructor
 	virtual ~java_nio_LongBuffer();
 	// Functions
+	static AndroidCXX::java_nio_LongBuffer * allocate(int const& arg0) ;
+	virtual std::vector<long>  array() ;
+	virtual int  arrayOffset() ;
+	virtual AndroidCXX::java_nio_LongBuffer * asReadOnlyBuffer() ;
+	virtual AndroidCXX::java_nio_LongBuffer * compact() ;
+	virtual int  compareTo(AndroidCXX::java_nio_LongBuffer const& arg0) ;
+	virtual AndroidCXX::java_nio_LongBuffer * duplicate() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual long  get() ;
 	virtual AndroidCXX::java_nio_LongBuffer * get(std::vector<long> const& arg0) ;
 	virtual AndroidCXX::java_nio_LongBuffer * get(std::vector<long> const& arg0,int const& arg1,int const& arg2) ;
 	virtual long  get(int const& arg0) ;
+	virtual bool  hasArray() ;
+	virtual int  hashCode() ;
+	virtual bool  isDirect() ;
+	virtual AndroidCXX::java_nio_ByteOrder * order() ;
 	virtual AndroidCXX::java_nio_LongBuffer * put(AndroidCXX::java_nio_LongBuffer const& arg0) ;
 	virtual AndroidCXX::java_nio_LongBuffer * put(long const& arg0) ;
 	virtual AndroidCXX::java_nio_LongBuffer * put(int const& arg0,long const& arg1) ;
 	virtual AndroidCXX::java_nio_LongBuffer * put(std::vector<long> const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_nio_LongBuffer * put(std::vector<long> const& arg0) ;
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_nio_LongBuffer * slice() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual int  hashCode() ;
-	virtual int  compareTo(AndroidCXX::java_nio_LongBuffer const& arg0) ;
-	virtual bool  isDirect() ;
-	virtual bool  hasArray() ;
-	virtual std::vector<long>  array() ;
-	virtual int  arrayOffset() ;
 	static AndroidCXX::java_nio_LongBuffer * wrap(std::vector<long> const& arg0,int const& arg1,int const& arg2) ;
 	static AndroidCXX::java_nio_LongBuffer * wrap(std::vector<long> const& arg0) ;
-	static AndroidCXX::java_nio_LongBuffer * allocate(int const& arg0) ;
-	virtual AndroidCXX::java_nio_LongBuffer * duplicate() ;
-	virtual AndroidCXX::java_nio_LongBuffer * slice() ;
-	virtual AndroidCXX::java_nio_LongBuffer * asReadOnlyBuffer() ;
-	virtual AndroidCXX::java_nio_LongBuffer * compact() ;
-	virtual AndroidCXX::java_nio_ByteOrder * order() ;
 
 protected:
 	java_nio_LongBuffer();

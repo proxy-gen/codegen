@@ -29,9 +29,9 @@
 //
 
 
-#include <java_lang_Exception.hpp>
-
 #include <java_lang_String.hpp>
+
+#include <java_lang_Exception.hpp>
 
 
 #include <java_lang_Object.hpp>
@@ -52,17 +52,17 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Exception;
-
 class java_lang_String;
+
+class java_lang_Exception;
 
 class android_widget_RemoteViews_ActionException : public java_lang_Object
 {
 public:
 
 	// Public ConstrucXXX
-	android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_Exception const& arg0);
 	android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_String const& arg0);
+	android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_Exception const& arg0);
 	android_widget_RemoteViews_ActionException(const android_widget_RemoteViews_ActionException& cc);
 	android_widget_RemoteViews_ActionException(Proxy proxy);
 	Proxy proxy() const;	
