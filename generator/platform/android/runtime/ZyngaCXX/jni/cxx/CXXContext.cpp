@@ -45,6 +45,7 @@ std::map<long, std::string> contextIDMap = std::map<long, std::string>();
 std::map<long, long> callbackDataMap = std::map<long, long>();
 std::map<long, long> userDataMap = std::map<long, long>();
 std::map<long, jobject> proxyComponentMap = std::map<long, jobject>();
+std::map<jobject,long> proxyComponentRefCountMap = std::map<jobject,long>();
 
 CXXContext* CXXContext::sm_sharedInstance = 0;
 
@@ -168,6 +169,7 @@ void CXXContext::registerProxyComponent(long contextAddress, jobject externalObj
 	LOGV("registerProxyComponent contextAddress %ld externalObject %ld", contextAddress, externalObject);
 	pthread_mutex_lock(&proxyComponentMapMutex);
 	proxyComponentMap[contextAddress] = externalObject;
+	proxyComponentRefCountMap[externalObject]++;
 	pthread_mutex_unlock(&proxyComponentMapMutex);
 }
 
@@ -181,8 +183,15 @@ void CXXContext::deregisterProxyComponent(long contextAddress)
 	{
 		if ((*iter).first == contextAddress)
 		{
+			jobject externalObject = (jobject) (*iter).first;
 			LOGV("deregisterProxyComponent erasing contextAddress %ld", contextAddress);
 			proxyComponentMap.erase(contextAddress);
+			proxyComponentRefCountMap[externalObject]--;
+			if (proxyComponentRefCountMap[externalObject] <= 0)
+			{
+				proxyComponentRefCountMap.erase(externalObject);
+				jniContext.deleteGlobalRef(externalObject);
+			}
 			break;
 		}
 	}
