@@ -5,4 +5,4 @@ Codegen implements a proxy based pattern to wrap underlying iOS and Android libr
 
 ----------------------
 
-Please visit http://proxy-gen.github.io/codegen/ for details.
+Please visit our [GitHub IO page](http://proxy-gen.github.io/codegen/) for details.
