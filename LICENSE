@@ -1,0 +1,17 @@
+CodeGen is made up of many pieces of code, all of them open source, but
+different pieces of CodeGen use different licensing terms.
+
+** generator
+
+   Unless specified, the code is licensed under Apache 2.0 license 
+   http://www.apache.org/licenses/LICENSE-2.0
+
+** generator/android/indexer/jindex.py
+   
+     This is a port of the LLVM cindex.py and thus is licensed under the NCSA license
+     http://opensource.org/licenses/NCSA
+
+** samples
+
+     The samples are licensed under Apache 2.0 license 
+     http://www.apache.org/licenses/LICENSE-2.0
