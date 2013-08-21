@@ -68,7 +68,7 @@ class android_view_View;
 
 class android_os_Parcel;
 
-class android_text_style_URLSpan : public android_text_ParcelableSpan
+class android_text_style_URLSpan : public AndroidCXX::android_text_ParcelableSpan
 {
 public:
 

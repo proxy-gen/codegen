@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,6 +29,9 @@
 
 #include <android_view_View.hpp>
 
+
+#include <android_view_View_OnClickListener.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -45,18 +49,21 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_widget_LoginButton_LoginClickListener
+class com_facebook_widget_LoginButton_LoginClickListener : public AndroidCXX::android_view_View_OnClickListener
 {
 public:
 
+	// Public ConstrucXXX
 	com_facebook_widget_LoginButton_LoginClickListener(const com_facebook_widget_LoginButton_LoginClickListener& cc);
 	com_facebook_widget_LoginButton_LoginClickListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_LoginClickListener();
 	// Functions
-	 void onClick(AndroidCXX::android_view_View const& arg0);
+	virtual void  onClick(AndroidCXX::android_view_View const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

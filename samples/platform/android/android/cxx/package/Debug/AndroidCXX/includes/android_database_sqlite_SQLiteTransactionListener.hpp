@@ -47,7 +47,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_database_sqlite_SQLiteTransactionListener : public java_lang_Object
+class android_database_sqlite_SQLiteTransactionListener : public AndroidCXX::java_lang_Object
 {
 public:
 

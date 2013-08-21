@@ -55,7 +55,7 @@ namespace AndroidCXX {
 
 class java_lang_CharSequence;
 
-class java_lang_Appendable : public java_lang_Object
+class java_lang_Appendable : public AndroidCXX::java_lang_Object
 {
 public:
 

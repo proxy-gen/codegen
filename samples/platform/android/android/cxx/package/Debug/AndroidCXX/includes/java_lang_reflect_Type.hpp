@@ -44,7 +44,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_reflect_Type : public java_lang_Object
+class java_lang_reflect_Type : public AndroidCXX::java_lang_Object
 {
 public:
 

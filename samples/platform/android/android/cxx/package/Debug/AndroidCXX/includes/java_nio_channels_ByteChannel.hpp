@@ -46,7 +46,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_channels_ByteChannel : public java_nio_channels_ReadableByteChannel,public java_nio_channels_WritableByteChannel
+class java_nio_channels_ByteChannel : public AndroidCXX::java_nio_channels_ReadableByteChannel,public AndroidCXX::java_nio_channels_WritableByteChannel
 {
 public:
 

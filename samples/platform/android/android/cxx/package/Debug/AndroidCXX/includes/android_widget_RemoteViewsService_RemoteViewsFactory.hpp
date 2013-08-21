@@ -57,7 +57,7 @@ namespace AndroidCXX {
 
 class android_widget_RemoteViews;
 
-class android_widget_RemoteViewsService_RemoteViewsFactory : public java_lang_Object
+class android_widget_RemoteViewsService_RemoteViewsFactory : public AndroidCXX::java_lang_Object
 {
 public:
 

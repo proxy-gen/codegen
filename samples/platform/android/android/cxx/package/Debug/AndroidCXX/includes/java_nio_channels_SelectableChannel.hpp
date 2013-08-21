@@ -72,7 +72,7 @@ class java_nio_channels_SelectionKey;
 
 class java_nio_channels_spi_SelectorProvider;
 
-class java_nio_channels_SelectableChannel : public java_nio_channels_Channel
+class java_nio_channels_SelectableChannel : public AndroidCXX::java_nio_channels_Channel
 {
 public:
 

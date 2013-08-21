@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_net_DatagramSocketImpl : public java_net_SocketOptions
+class java_net_DatagramSocketImpl : public AndroidCXX::java_net_SocketOptions
 {
 public:
 

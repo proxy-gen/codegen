@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_content_SyncStatusObserver : public java_lang_Object
+class android_content_SyncStatusObserver : public AndroidCXX::java_lang_Object
 {
 public:
 

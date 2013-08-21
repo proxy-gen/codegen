@@ -107,7 +107,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_QuickContactBadge : public android_view_View_OnClickListener
+class android_widget_QuickContactBadge : public AndroidCXX::android_view_View_OnClickListener
 {
 public:
 
@@ -129,7 +129,7 @@ public:
 	virtual void  onClick(AndroidCXX::android_view_View const& arg0) ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
-	virtual void  setExcludeMimes(std::vector<java_lang_String> const& arg0) ;
+	virtual void  setExcludeMimes(std::vector<AndroidCXX::java_lang_String> const& arg0) ;
 	virtual void  setImageToDefault() ;
 	virtual void  setMode(int const& arg0) ;
 

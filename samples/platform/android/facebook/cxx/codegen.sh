@@ -32,8 +32,8 @@ android_generator_dir=$android_dir/generator
 android_generator_runtime_dir=$android_generator_dir/runtime
 android_indexer=$android_generator_dir/indexer
 android_indexer_cxx=$android_indexer/cxx
-codegen_base_config_file=./base.config.py
-codegen_config_file=./generated/config/$CODEGEN_TARGET/config.py
+codegen_base_config_file=./config.py
+codegen_config_file=./config.py
 
 
 configure_flag=0

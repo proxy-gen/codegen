@@ -54,7 +54,7 @@ class java_lang_ClassLoader;
 
 class java_lang_Object;
 
-class android_os_Parcelable_ClassLoaderCreator : public android_os_Parcelable_Creator
+class android_os_Parcelable_ClassLoaderCreator : public AndroidCXX::android_os_Parcelable_Creator
 {
 public:
 

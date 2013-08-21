@@ -47,7 +47,7 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class java_lang_Comparable : public java_lang_Object
+class java_lang_Comparable : public AndroidCXX::java_lang_Object
 {
 public:
 

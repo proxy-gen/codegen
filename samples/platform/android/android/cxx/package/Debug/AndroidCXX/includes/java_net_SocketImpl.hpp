@@ -49,7 +49,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_net_SocketImpl : public java_net_SocketOptions
+class java_net_SocketImpl : public AndroidCXX::java_net_SocketOptions
 {
 public:
 

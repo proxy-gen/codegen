@@ -79,7 +79,7 @@ class android_content_ComponentCallbacks;
 
 class android_app_Application_OnProvideAssistDataListener;
 
-class android_app_Application : public android_content_ComponentCallbacks2
+class android_app_Application : public AndroidCXX::android_content_ComponentCallbacks2
 {
 public:
 

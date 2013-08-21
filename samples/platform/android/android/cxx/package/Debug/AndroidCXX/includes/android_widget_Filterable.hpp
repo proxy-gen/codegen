@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_widget_Filter;
 
-class android_widget_Filterable : public java_lang_Object
+class android_widget_Filterable : public AndroidCXX::java_lang_Object
 {
 public:
 

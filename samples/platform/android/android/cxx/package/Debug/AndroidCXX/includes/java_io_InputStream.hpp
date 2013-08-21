@@ -56,7 +56,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_io_InputStream : public java_io_Closeable
+class java_io_InputStream : public AndroidCXX::java_io_Closeable
 {
 public:
 

@@ -114,7 +114,7 @@ class android_content_ContentResolver;
 
 class android_net_Uri;
 
-class android_database_Cursor : public java_io_Closeable
+class android_database_Cursor : public AndroidCXX::java_io_Closeable
 {
 public:
 
@@ -132,7 +132,7 @@ public:
 	virtual int  getColumnIndexOrThrow(AndroidCXX::java_lang_String const& arg0) ;
 	virtual int  getColumnIndex(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getColumnName(int const& arg0) ;
-	virtual std::vector<java_lang_String>  getColumnNames() ;
+	virtual std::vector<AndroidCXX::java_lang_String>  getColumnNames() ;
 	virtual int  getCount() ;
 	virtual double  getDouble(int const& arg0) ;
 	virtual AndroidCXX::android_os_Bundle * getExtras() ;

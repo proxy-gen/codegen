@@ -206,7 +206,7 @@ class android_os_Bundle;
 
 class android_os_Parcel;
 
-class android_view_accessibility_AccessibilityNodeInfo : public android_os_Parcelable
+class android_view_accessibility_AccessibilityNodeInfo : public AndroidCXX::android_os_Parcelable
 {
 public:
 

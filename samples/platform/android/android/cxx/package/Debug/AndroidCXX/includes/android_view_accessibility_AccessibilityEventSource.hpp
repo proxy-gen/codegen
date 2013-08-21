@@ -49,7 +49,7 @@ namespace AndroidCXX {
 
 class android_view_accessibility_AccessibilityEvent;
 
-class android_view_accessibility_AccessibilityEventSource : public java_lang_Object
+class android_view_accessibility_AccessibilityEventSource : public AndroidCXX::java_lang_Object
 {
 public:
 

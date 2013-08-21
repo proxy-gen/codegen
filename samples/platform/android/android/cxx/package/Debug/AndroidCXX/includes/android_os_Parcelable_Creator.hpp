@@ -53,7 +53,7 @@ namespace AndroidCXX {
 class android_os_Parcel;
 
 
-class android_os_Parcelable_Creator : public java_lang_Object
+class android_os_Parcelable_Creator : public AndroidCXX::java_lang_Object
 {
 public:
 
@@ -64,7 +64,7 @@ public:
 	virtual ~android_os_Parcelable_Creator();
 	// Functions
 	virtual AndroidCXX::java_lang_Object * createFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
-	virtual std::vector<java_lang_Object>  newArray(int const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  newArray(int const& arg0) ;
 
 protected:
 	android_os_Parcelable_Creator();

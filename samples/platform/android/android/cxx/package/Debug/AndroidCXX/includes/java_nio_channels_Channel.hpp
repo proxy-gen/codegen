@@ -46,7 +46,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_channels_Channel : public java_io_Closeable
+class java_nio_channels_Channel : public AndroidCXX::java_io_Closeable
 {
 public:
 

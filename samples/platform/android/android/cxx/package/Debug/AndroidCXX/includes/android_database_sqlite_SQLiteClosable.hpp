@@ -49,7 +49,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_database_sqlite_SQLiteClosable : public java_io_Closeable
+class android_database_sqlite_SQLiteClosable : public AndroidCXX::java_io_Closeable
 {
 public:
 

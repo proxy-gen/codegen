@@ -146,7 +146,7 @@ class android_view_MenuItem;
 
 class android_content_Intent;
 
-class android_support_v4_app_FragmentActivity : public java_lang_Object
+class android_support_v4_app_FragmentActivity : public AndroidCXX::java_lang_Object
 {
 public:
 
@@ -158,7 +158,7 @@ public:
 	// Default Destructor
 	virtual ~android_support_v4_app_FragmentActivity();
 	// Functions
-	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3) ;
+	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3) ;
 	virtual AndroidCXX::java_lang_Object * getLastCustomNonConfigurationInstance() ;
 	virtual AndroidCXX::android_support_v4_app_FragmentManager * getSupportFragmentManager() ;
 	virtual AndroidCXX::android_support_v4_app_LoaderManager * getSupportLoaderManager() ;

@@ -225,7 +225,7 @@ public:
 	virtual int  getAudioSessionId() ;
 	virtual int  getCurrentPosition() ;
 	virtual int  getDuration() ;
-	virtual std::vector<android_media_MediaPlayer_TrackInfo>  getTrackInfo() ;
+	virtual std::vector<AndroidCXX::android_media_MediaPlayer_TrackInfo>  getTrackInfo() ;
 	virtual int  getVideoHeight() ;
 	virtual int  getVideoWidth() ;
 	virtual bool  isLooping() ;

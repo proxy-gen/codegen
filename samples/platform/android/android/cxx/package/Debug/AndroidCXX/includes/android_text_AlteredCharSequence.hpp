@@ -65,7 +65,7 @@ class java_lang_CharSequence;
 
 class java_lang_String;
 
-class android_text_AlteredCharSequence : public android_text_GetChars
+class android_text_AlteredCharSequence : public AndroidCXX::android_text_GetChars
 {
 public:
 

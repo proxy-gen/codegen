@@ -132,7 +132,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_Spinner : public android_content_DialogInterface_OnClickListener
+class android_widget_Spinner : public AndroidCXX::android_content_DialogInterface_OnClickListener
 {
 public:
 

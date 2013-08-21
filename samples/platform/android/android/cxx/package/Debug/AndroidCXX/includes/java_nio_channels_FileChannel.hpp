@@ -103,7 +103,7 @@ class java_nio_channels_ReadableByteChannel;
 
 class java_nio_channels_WritableByteChannel;
 
-class java_nio_channels_FileChannel : public java_nio_channels_ByteChannel,public java_nio_channels_GatheringByteChannel,public java_nio_channels_ScatteringByteChannel
+class java_nio_channels_FileChannel : public AndroidCXX::java_nio_channels_ByteChannel,public AndroidCXX::java_nio_channels_GatheringByteChannel,public AndroidCXX::java_nio_channels_ScatteringByteChannel
 {
 public:
 
@@ -119,8 +119,8 @@ public:
 	virtual AndroidCXX::java_nio_MappedByteBuffer * map(AndroidCXX::java_nio_channels_FileChannel_MapMode const& arg0,long const& arg1,long const& arg2) ;
 	virtual AndroidCXX::java_nio_channels_FileChannel * position(long const& arg0) ;
 	virtual long  position() ;
-	virtual long  read(std::vector<java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
-	virtual long  read(std::vector<java_nio_ByteBuffer> const& arg0) ;
+	virtual long  read(std::vector<AndroidCXX::java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
+	virtual long  read(std::vector<AndroidCXX::java_nio_ByteBuffer> const& arg0) ;
 	virtual int  read(AndroidCXX::java_nio_ByteBuffer const& arg0,long const& arg1) ;
 	virtual int  read(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
 	virtual long  size() ;
@@ -129,8 +129,8 @@ public:
 	virtual AndroidCXX::java_nio_channels_FileChannel * truncate(long const& arg0) ;
 	virtual AndroidCXX::java_nio_channels_FileLock * tryLock(long const& arg0,long const& arg1,bool const& arg2) ;
 	virtual AndroidCXX::java_nio_channels_FileLock * tryLock() ;
-	virtual long  write(std::vector<java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
-	virtual long  write(std::vector<java_nio_ByteBuffer> const& arg0) ;
+	virtual long  write(std::vector<AndroidCXX::java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
+	virtual long  write(std::vector<AndroidCXX::java_nio_ByteBuffer> const& arg0) ;
 	virtual int  write(AndroidCXX::java_nio_ByteBuffer const& arg0,long const& arg1) ;
 	virtual int  write(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
 

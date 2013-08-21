@@ -115,7 +115,7 @@ class android_widget_Filter;
 
 class java_lang_Object;
 
-class android_widget_CursorAdapter : public android_widget_Filterable
+class android_widget_CursorAdapter : public AndroidCXX::android_widget_Filterable
 {
 public:
 

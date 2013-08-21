@@ -61,7 +61,7 @@ namespace AndroidCXX {
 
 class java_nio_CharBuffer;
 
-class java_io_Reader : public java_io_Closeable,public java_lang_Readable
+class java_io_Reader : public AndroidCXX::java_io_Closeable,public AndroidCXX::java_lang_Readable
 {
 public:
 

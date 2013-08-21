@@ -60,7 +60,7 @@ class java_lang_String;
 
 class java_lang_Throwable;
 
-class java_io_IOException : public java_lang_Object
+class java_io_IOException : public AndroidCXX::java_lang_Object
 {
 public:
 

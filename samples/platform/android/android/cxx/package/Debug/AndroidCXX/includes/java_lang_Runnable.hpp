@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Runnable : public java_lang_Object
+class java_lang_Runnable : public AndroidCXX::java_lang_Object
 {
 public:
 

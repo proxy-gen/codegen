@@ -66,7 +66,7 @@ class java_security_PublicKey;
 
 class java_lang_String;
 
-class java_security_cert_Certificate : public java_io_Serializable
+class java_security_cert_Certificate : public AndroidCXX::java_io_Serializable
 {
 public:
 

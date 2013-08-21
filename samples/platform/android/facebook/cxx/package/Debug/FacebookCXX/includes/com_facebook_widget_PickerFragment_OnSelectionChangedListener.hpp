@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,9 +29,8 @@
 //
 
 
-#include <com_facebook_widget_PickerFragment.hpp>
-
 #include <java_lang_Object.hpp>
+
 
 #include <vector>
 #include <map>
@@ -51,18 +51,21 @@ namespace FacebookCXX {
 class com_facebook_widget_PickerFragment;
 
 
-class com_facebook_widget_PickerFragment_OnSelectionChangedListener
+class com_facebook_widget_PickerFragment_OnSelectionChangedListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_widget_PickerFragment_OnSelectionChangedListener(const com_facebook_widget_PickerFragment_OnSelectionChangedListener& cc);
 	com_facebook_widget_PickerFragment_OnSelectionChangedListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_OnSelectionChangedListener();
 	// Functions
-	 void onSelectionChanged(FacebookCXX::com_facebook_widget_PickerFragment const& arg0);
+	virtual void  onSelectionChanged(FacebookCXX::com_facebook_widget_PickerFragment const& arg0) ;
+
+protected:
+	com_facebook_widget_PickerFragment_OnSelectionChangedListener();
+
 };	
 
 } // namespace

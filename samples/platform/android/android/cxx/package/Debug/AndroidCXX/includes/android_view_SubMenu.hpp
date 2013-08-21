@@ -74,7 +74,7 @@ class java_lang_CharSequence;
 
 class android_view_View;
 
-class android_view_SubMenu : public android_view_Menu
+class android_view_SubMenu : public AndroidCXX::android_view_Menu
 {
 public:
 

@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_os_Message;
 
-class android_os_Handler_Callback : public java_lang_Object
+class android_os_Handler_Callback : public AndroidCXX::java_lang_Object
 {
 public:
 

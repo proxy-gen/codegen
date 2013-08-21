@@ -102,7 +102,7 @@ class android_view_ViewGroup_OnHierarchyChangeListener;
 
 class android_content_Context;
 
-class android_widget_RadioGroup : public java_lang_Object
+class android_widget_RadioGroup : public AndroidCXX::java_lang_Object
 {
 public:
 

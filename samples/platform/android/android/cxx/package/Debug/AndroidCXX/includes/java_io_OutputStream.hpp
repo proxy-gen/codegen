@@ -54,7 +54,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_io_OutputStream : public java_io_Closeable,public java_io_Flushable
+class java_io_OutputStream : public AndroidCXX::java_io_Closeable,public AndroidCXX::java_io_Flushable
 {
 public:
 

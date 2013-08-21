@@ -149,7 +149,7 @@ class java_io_File;
 
 class java_io_OutputStream;
 
-class java_io_PrintStream : public java_io_Closeable,public java_lang_Appendable
+class java_io_PrintStream : public AndroidCXX::java_io_Closeable,public AndroidCXX::java_lang_Appendable
 {
 public:
 
@@ -173,8 +173,8 @@ public:
 	virtual bool  checkError() ;
 	virtual void  close() ;
 	virtual void  flush() ;
-	virtual AndroidCXX::java_io_PrintStream * format(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_Object> const& arg1) ;
-	virtual AndroidCXX::java_io_PrintStream * format(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<java_lang_Object> const& arg2) ;
+	virtual AndroidCXX::java_io_PrintStream * format(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Object> const& arg1) ;
+	virtual AndroidCXX::java_io_PrintStream * format(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_Object> const& arg2) ;
 	virtual void  print(std::vector<char> const& arg0) ;
 	virtual void  print(bool const& arg0) ;
 	virtual void  print(char const& arg0) ;
@@ -184,8 +184,8 @@ public:
 	virtual void  print(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual void  print(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  print(long const& arg0) ;
-	virtual AndroidCXX::java_io_PrintStream * printf(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_Object> const& arg1) ;
-	virtual AndroidCXX::java_io_PrintStream * printf(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<java_lang_Object> const& arg2) ;
+	virtual AndroidCXX::java_io_PrintStream * printf(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Object> const& arg1) ;
+	virtual AndroidCXX::java_io_PrintStream * printf(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_Object> const& arg2) ;
 	virtual void  println(std::vector<char> const& arg0) ;
 	virtual void  println(bool const& arg0) ;
 	virtual void  println(char const& arg0) ;

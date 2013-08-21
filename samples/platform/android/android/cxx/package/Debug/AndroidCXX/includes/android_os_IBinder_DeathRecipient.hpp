@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_IBinder_DeathRecipient : public java_lang_Object
+class android_os_IBinder_DeathRecipient : public AndroidCXX::java_lang_Object
 {
 public:
 

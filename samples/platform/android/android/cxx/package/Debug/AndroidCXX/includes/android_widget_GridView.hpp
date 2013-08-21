@@ -113,7 +113,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_GridView : public java_lang_Object
+class android_widget_GridView : public AndroidCXX::java_lang_Object
 {
 public:
 

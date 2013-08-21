@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -33,6 +34,9 @@
 
 #include <java_lang_String.hpp>
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -51,19 +55,22 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_widget_PickerFragment_SingleSelectionStrategy
+class com_facebook_widget_PickerFragment_SingleSelectionStrategy : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public ConstrucXXX
 	com_facebook_widget_PickerFragment_SingleSelectionStrategy(const com_facebook_widget_PickerFragment_SingleSelectionStrategy& cc);
 	com_facebook_widget_PickerFragment_SingleSelectionStrategy(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_SingleSelectionStrategy();
 	// Functions
-	 void clear();
-	 AndroidCXX::java_util_Collection getSelectedIds();
+	virtual void  clear() ;
+	virtual AndroidCXX::java_util_Collection * getSelectedIds() ;
+
+protected:
+
 };	
 
 } // namespace

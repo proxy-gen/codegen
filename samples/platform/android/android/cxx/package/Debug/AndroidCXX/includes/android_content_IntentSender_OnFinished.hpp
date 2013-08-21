@@ -57,7 +57,7 @@ class java_lang_String;
 
 class android_os_Bundle;
 
-class android_content_IntentSender_OnFinished : public java_lang_Object
+class android_content_IntentSender_OnFinished : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -51,7 +51,7 @@ class android_widget_ShareActionProvider;
 
 class android_content_Intent;
 
-class android_widget_ShareActionProvider_OnShareTargetSelectedListener : public java_lang_Object
+class android_widget_ShareActionProvider_OnShareTargetSelectedListener : public AndroidCXX::java_lang_Object
 {
 public:
 

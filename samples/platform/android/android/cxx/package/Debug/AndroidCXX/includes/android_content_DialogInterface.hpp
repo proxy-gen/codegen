@@ -46,7 +46,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_content_DialogInterface : public java_lang_Object
+class android_content_DialogInterface : public AndroidCXX::java_lang_Object
 {
 public:
 

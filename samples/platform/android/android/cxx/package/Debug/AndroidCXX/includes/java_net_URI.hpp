@@ -141,7 +141,7 @@ class java_lang_Object;
 
 class java_net_URL;
 
-class java_net_URI : public java_io_Serializable,public java_lang_Comparable
+class java_net_URI : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Comparable
 {
 public:
 

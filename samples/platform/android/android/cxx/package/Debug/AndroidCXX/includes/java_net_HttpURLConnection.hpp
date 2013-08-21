@@ -75,7 +75,7 @@ class java_lang_String;
 
 class java_security_Permission;
 
-class java_net_HttpURLConnection : public java_lang_Object
+class java_net_HttpURLConnection : public AndroidCXX::java_lang_Object
 {
 public:
 

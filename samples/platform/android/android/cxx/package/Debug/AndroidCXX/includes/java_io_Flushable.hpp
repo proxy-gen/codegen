@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_io_Flushable : public java_lang_Object
+class java_io_Flushable : public AndroidCXX::java_lang_Object
 {
 public:
 

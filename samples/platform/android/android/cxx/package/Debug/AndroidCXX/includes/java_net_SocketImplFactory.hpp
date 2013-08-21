@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class java_net_SocketImpl;
 
-class java_net_SocketImplFactory : public java_lang_Object
+class java_net_SocketImplFactory : public AndroidCXX::java_lang_Object
 {
 public:
 

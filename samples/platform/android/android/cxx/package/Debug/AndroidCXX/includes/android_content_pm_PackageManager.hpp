@@ -321,13 +321,13 @@ public:
 	virtual void  addPackageToPreferred(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  addPermissionAsync(AndroidCXX::android_content_pm_PermissionInfo const& arg0) ;
 	virtual bool  addPermission(AndroidCXX::android_content_pm_PermissionInfo const& arg0) ;
-	virtual void  addPreferredActivity(AndroidCXX::android_content_IntentFilter const& arg0,int const& arg1,std::vector<android_content_ComponentName> const& arg2,AndroidCXX::android_content_ComponentName const& arg3) ;
-	virtual std::vector<java_lang_String>  canonicalToCurrentPackageNames(std::vector<java_lang_String> const& arg0) ;
+	virtual void  addPreferredActivity(AndroidCXX::android_content_IntentFilter const& arg0,int const& arg1,std::vector<AndroidCXX::android_content_ComponentName> const& arg2,AndroidCXX::android_content_ComponentName const& arg3) ;
+	virtual std::vector<AndroidCXX::java_lang_String>  canonicalToCurrentPackageNames(std::vector<AndroidCXX::java_lang_String> const& arg0) ;
 	virtual int  checkPermission(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual int  checkSignatures(int const& arg0,int const& arg1) ;
 	virtual int  checkSignatures(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual void  clearPackagePreferredActivities(AndroidCXX::java_lang_String const& arg0) ;
-	virtual std::vector<java_lang_String>  currentToCanonicalPackageNames(std::vector<java_lang_String> const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_String>  currentToCanonicalPackageNames(std::vector<AndroidCXX::java_lang_String> const& arg0) ;
 	virtual void  extendVerificationTimeout(int const& arg0,int const& arg1,long const& arg2) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getActivityIcon(AndroidCXX::android_content_ComponentName const& arg0) ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getActivityIcon(AndroidCXX::android_content_Intent const& arg0) ;
@@ -354,8 +354,8 @@ public:
 	virtual AndroidCXX::android_content_pm_PackageInfo * getPackageArchiveInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual std::vector<int>  getPackageGids(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_content_pm_PackageInfo * getPackageInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
-	virtual std::vector<java_lang_String>  getPackagesForUid(int const& arg0) ;
-	virtual AndroidCXX::java_util_List * getPackagesHoldingPermissions(std::vector<java_lang_String> const& arg0,int const& arg1) ;
+	virtual std::vector<AndroidCXX::java_lang_String>  getPackagesForUid(int const& arg0) ;
+	virtual AndroidCXX::java_util_List * getPackagesHoldingPermissions(std::vector<AndroidCXX::java_lang_String> const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_content_pm_PermissionGroupInfo * getPermissionGroupInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_content_pm_PermissionInfo * getPermissionInfo(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual int  getPreferredActivities(AndroidCXX::java_util_List const& arg0,AndroidCXX::java_util_List const& arg1,AndroidCXX::java_lang_String const& arg2) ;
@@ -366,8 +366,8 @@ public:
 	virtual AndroidCXX::android_content_res_Resources * getResourcesForApplication(AndroidCXX::android_content_pm_ApplicationInfo const& arg0) ;
 	virtual AndroidCXX::android_content_res_Resources * getResourcesForApplication(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_content_pm_ServiceInfo * getServiceInfo(AndroidCXX::android_content_ComponentName const& arg0,int const& arg1) ;
-	virtual std::vector<android_content_pm_FeatureInfo>  getSystemAvailableFeatures() ;
-	virtual std::vector<java_lang_String>  getSystemSharedLibraryNames() ;
+	virtual std::vector<AndroidCXX::android_content_pm_FeatureInfo>  getSystemAvailableFeatures() ;
+	virtual std::vector<AndroidCXX::java_lang_String>  getSystemSharedLibraryNames() ;
 	virtual AndroidCXX::java_lang_CharSequence * getText(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2) ;
 	virtual AndroidCXX::android_content_res_XmlResourceParser * getXml(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::android_content_pm_ApplicationInfo const& arg2) ;
 	virtual bool  hasSystemFeature(AndroidCXX::java_lang_String const& arg0) ;
@@ -376,7 +376,7 @@ public:
 	virtual AndroidCXX::java_util_List * queryContentProviders(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_util_List * queryInstrumentation(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_util_List * queryIntentActivities(AndroidCXX::android_content_Intent const& arg0,int const& arg1) ;
-	virtual AndroidCXX::java_util_List * queryIntentActivityOptions(AndroidCXX::android_content_ComponentName const& arg0,std::vector<android_content_Intent> const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3) ;
+	virtual AndroidCXX::java_util_List * queryIntentActivityOptions(AndroidCXX::android_content_ComponentName const& arg0,std::vector<AndroidCXX::android_content_Intent> const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3) ;
 	virtual AndroidCXX::java_util_List * queryIntentServices(AndroidCXX::android_content_Intent const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_util_List * queryPermissionsByGroup(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual void  removePackageFromPreferred(AndroidCXX::java_lang_String const& arg0) ;

@@ -416,7 +416,7 @@ class android_content_ComponentName;
 
 class android_content_IntentSender;
 
-class android_content_ContextWrapper : public java_lang_Object
+class android_content_ContextWrapper : public AndroidCXX::java_lang_Object
 {
 public:
 
@@ -440,7 +440,7 @@ public:
 	virtual AndroidCXX::android_content_Context * createConfigurationContext(AndroidCXX::android_content_res_Configuration const& arg0) ;
 	virtual AndroidCXX::android_content_Context * createDisplayContext(AndroidCXX::android_view_Display const& arg0) ;
 	virtual AndroidCXX::android_content_Context * createPackageContext(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
-	virtual std::vector<java_lang_String>  databaseList() ;
+	virtual std::vector<AndroidCXX::java_lang_String>  databaseList() ;
 	virtual bool  deleteDatabase(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  deleteFile(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  enforceCallingOrSelfPermission(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
@@ -450,7 +450,7 @@ public:
 	virtual void  enforcePermission(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_lang_String const& arg3) ;
 	virtual void  enforceUriPermission(AndroidCXX::android_net_Uri const& arg0,int const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4) ;
 	virtual void  enforceUriPermission(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3,int const& arg4,int const& arg5,AndroidCXX::java_lang_String const& arg6) ;
-	virtual std::vector<java_lang_String>  fileList() ;
+	virtual std::vector<AndroidCXX::java_lang_String>  fileList() ;
 	virtual AndroidCXX::android_content_Context * getApplicationContext() ;
 	virtual AndroidCXX::android_content_pm_ApplicationInfo * getApplicationInfo() ;
 	virtual AndroidCXX::android_content_res_AssetManager * getAssets() ;
@@ -503,8 +503,8 @@ public:
 	virtual void  setTheme(int const& arg0) ;
 	virtual void  setWallpaper(AndroidCXX::android_graphics_Bitmap const& arg0) ;
 	virtual void  setWallpaper(AndroidCXX::java_io_InputStream const& arg0) ;
-	virtual void  startActivities(std::vector<android_content_Intent> const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
-	virtual void  startActivities(std::vector<android_content_Intent> const& arg0) ;
+	virtual void  startActivities(std::vector<AndroidCXX::android_content_Intent> const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual void  startActivities(std::vector<AndroidCXX::android_content_Intent> const& arg0) ;
 	virtual void  startActivity(AndroidCXX::android_content_Intent const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
 	virtual void  startActivity(AndroidCXX::android_content_Intent const& arg0) ;
 	virtual bool  startInstrumentation(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;

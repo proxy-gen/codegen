@@ -57,7 +57,7 @@ class java_lang_Class;
 
 class java_lang_String;
 
-class java_lang_reflect_Member : public java_lang_Object
+class java_lang_reflect_Member : public AndroidCXX::java_lang_Object
 {
 public:
 

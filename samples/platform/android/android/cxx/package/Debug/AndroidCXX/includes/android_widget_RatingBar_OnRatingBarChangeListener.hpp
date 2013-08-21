@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_widget_RatingBar;
 
-class android_widget_RatingBar_OnRatingBarChangeListener : public java_lang_Object
+class android_widget_RatingBar_OnRatingBarChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -47,7 +47,7 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class android_webkit_ValueCallback : public java_lang_Object
+class android_webkit_ValueCallback : public AndroidCXX::java_lang_Object
 {
 public:
 

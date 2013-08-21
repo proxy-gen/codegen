@@ -114,7 +114,7 @@ class java_lang_String;
 
 class java_lang_Object;
 
-class java_lang_Long : public java_lang_Comparable
+class java_lang_Long : public AndroidCXX::java_lang_Comparable
 {
 public:
 

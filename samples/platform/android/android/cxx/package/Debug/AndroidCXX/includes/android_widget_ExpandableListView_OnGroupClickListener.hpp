@@ -51,7 +51,7 @@ class android_widget_ExpandableListView;
 
 class android_view_View;
 
-class android_widget_ExpandableListView_OnGroupClickListener : public java_lang_Object
+class android_widget_ExpandableListView_OnGroupClickListener : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -102,7 +102,7 @@ class android_view_SubMenu;
 
 class android_view_KeyEvent;
 
-class android_view_Menu : public java_lang_Object
+class android_view_Menu : public AndroidCXX::java_lang_Object
 {
 public:
 
@@ -112,7 +112,7 @@ public:
 	// Default Destructor
 	virtual ~android_view_Menu();
 	// Functions
-	virtual int  addIntentOptions(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_content_ComponentName const& arg3,std::vector<android_content_Intent> const& arg4,AndroidCXX::android_content_Intent const& arg5,int const& arg6,std::vector<android_view_MenuItem> const& arg7) ;
+	virtual int  addIntentOptions(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_content_ComponentName const& arg3,std::vector<AndroidCXX::android_content_Intent> const& arg4,AndroidCXX::android_content_Intent const& arg5,int const& arg6,std::vector<AndroidCXX::android_view_MenuItem> const& arg7) ;
 	virtual AndroidCXX::android_view_MenuItem * add(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 	virtual AndroidCXX::android_view_MenuItem * add(int const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_lang_CharSequence const& arg3) ;
 	virtual AndroidCXX::android_view_MenuItem * add(int const& arg0) ;

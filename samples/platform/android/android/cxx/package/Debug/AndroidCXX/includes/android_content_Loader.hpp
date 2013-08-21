@@ -136,7 +136,7 @@ public:
 	virtual AndroidCXX::java_lang_String * dataToString(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual void  deliverCancellation() ;
 	virtual void  deliverResult(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3) ;
+	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3) ;
 	virtual void  forceLoad() ;
 	virtual AndroidCXX::android_content_Context * getContext() ;
 	virtual int  getId() ;

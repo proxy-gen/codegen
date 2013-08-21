@@ -97,7 +97,7 @@ class java_lang_String;
 
 class java_util_Collection;
 
-class java_util_AbstractMap : public java_util_Map
+class java_util_AbstractMap : public AndroidCXX::java_util_Map
 {
 public:
 

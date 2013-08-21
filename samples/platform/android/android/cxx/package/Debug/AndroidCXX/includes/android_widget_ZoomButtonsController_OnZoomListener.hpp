@@ -46,7 +46,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_ZoomButtonsController_OnZoomListener : public java_lang_Object
+class android_widget_ZoomButtonsController_OnZoomListener : public AndroidCXX::java_lang_Object
 {
 public:
 

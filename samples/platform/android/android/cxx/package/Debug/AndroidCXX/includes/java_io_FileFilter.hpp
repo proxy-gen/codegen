@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class java_io_File;
 
-class java_io_FileFilter : public java_lang_Object
+class java_io_FileFilter : public AndroidCXX::java_lang_Object
 {
 public:
 

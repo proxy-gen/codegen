@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -47,6 +48,7 @@
 
 #include <java_lang_Class.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -68,20 +70,23 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_model_GraphObject_Factory_GraphObjectProxy
+class com_facebook_model_GraphObject_Factory_GraphObjectProxy : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public ConstrucXXX
+	com_facebook_model_GraphObject_Factory_GraphObjectProxy(AndroidCXX::org_json_JSONObject const& arg0,AndroidCXX::java_lang_Class const& arg1);
 	com_facebook_model_GraphObject_Factory_GraphObjectProxy(const com_facebook_model_GraphObject_Factory_GraphObjectProxy& cc);
 	com_facebook_model_GraphObject_Factory_GraphObjectProxy(Proxy proxy);
-	// Public Constructors
-	com_facebook_model_GraphObject_Factory_GraphObjectProxy(AndroidCXX::org_json_JSONObject const& arg0,AndroidCXX::java_lang_Class const& arg1);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject_Factory_GraphObjectProxy();
 	// Functions
-	 AndroidCXX::java_lang_Object invoke(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_reflect_Method const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2);
-	 AndroidCXX::java_lang_String toString();
+	virtual AndroidCXX::java_lang_Object * invoke(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_reflect_Method const& arg1,std::vector<AndroidCXX::java_lang_Object> const& arg2) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
 };	
 
 } // namespace

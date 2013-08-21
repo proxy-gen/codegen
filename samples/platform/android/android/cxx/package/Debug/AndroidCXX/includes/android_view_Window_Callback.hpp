@@ -101,7 +101,7 @@ class android_view_WindowManager_LayoutParams;
 
 class android_view_ActionMode_Callback;
 
-class android_view_Window_Callback : public java_lang_Object
+class android_view_Window_Callback : public AndroidCXX::java_lang_Object
 {
 public:
 

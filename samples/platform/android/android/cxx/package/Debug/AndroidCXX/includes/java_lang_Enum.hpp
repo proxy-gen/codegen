@@ -73,7 +73,7 @@ class java_lang_Class;
 
 class java_lang_String;
 
-class java_lang_Enum : public java_io_Serializable,public java_lang_Comparable
+class java_lang_Enum : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Comparable
 {
 public:
 

@@ -109,7 +109,7 @@ class android_content_IntentSender_OnFinished;
 
 class android_os_Handler;
 
-class android_content_IntentSender : public android_os_Parcelable
+class android_content_IntentSender : public AndroidCXX::android_os_Parcelable
 {
 public:
 

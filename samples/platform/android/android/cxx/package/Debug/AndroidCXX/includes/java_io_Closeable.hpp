@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_io_Closeable : public java_lang_Object
+class java_io_Closeable : public AndroidCXX::java_lang_Object
 {
 public:
 

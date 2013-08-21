@@ -128,7 +128,7 @@ class android_view_View;
 
 class android_content_Context;
 
-class android_widget_Gallery : public android_view_GestureDetector_OnGestureListener
+class android_widget_Gallery : public AndroidCXX::android_view_GestureDetector_OnGestureListener
 {
 public:
 

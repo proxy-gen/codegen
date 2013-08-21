@@ -52,7 +52,7 @@ class java_lang_CharSequence;
 
 class android_text_Spanned;
 
-class android_text_InputFilter : public java_lang_Object
+class android_text_InputFilter : public AndroidCXX::java_lang_Object
 {
 public:
 

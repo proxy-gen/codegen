@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <com_facebook_RequestBatch.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,21 @@ namespace FacebookCXX {
 
 class com_facebook_RequestBatch;
 
-class com_facebook_RequestBatch_Callback
+class com_facebook_RequestBatch_Callback : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_RequestBatch_Callback(const com_facebook_RequestBatch_Callback& cc);
 	com_facebook_RequestBatch_Callback(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_RequestBatch_Callback();
 	// Functions
-	 void onBatchCompleted(FacebookCXX::com_facebook_RequestBatch const& arg0);
+	virtual void  onBatchCompleted(FacebookCXX::com_facebook_RequestBatch const& arg0) ;
+
+protected:
+	com_facebook_RequestBatch_Callback();
+
 };	
 
 } // namespace

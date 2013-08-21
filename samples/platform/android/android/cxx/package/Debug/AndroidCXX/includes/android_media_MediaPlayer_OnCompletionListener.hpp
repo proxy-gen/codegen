@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_media_MediaPlayer;
 
-class android_media_MediaPlayer_OnCompletionListener : public java_lang_Object
+class android_media_MediaPlayer_OnCompletionListener : public AndroidCXX::java_lang_Object
 {
 public:
 

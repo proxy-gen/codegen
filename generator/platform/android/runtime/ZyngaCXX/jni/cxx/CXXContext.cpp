@@ -176,6 +176,7 @@ void CXXContext::registerProxyComponent(long contextAddress, jobject externalObj
 void CXXContext::deregisterProxyComponent(long contextAddress)
 {
 	LOGV("deregisterProxyComponent contextAddress %ld", contextAddress);
+	JNIContext *jniContext = JNIContext::sharedInstance();
 	pthread_mutex_lock(&proxyComponentMapMutex);
 	proxyComponentMap[contextAddress] = 0;
 	std::map<long,jobject>::const_iterator iter;
@@ -190,7 +191,7 @@ void CXXContext::deregisterProxyComponent(long contextAddress)
 			if (proxyComponentRefCountMap[externalObject] <= 0)
 			{
 				proxyComponentRefCountMap.erase(externalObject);
-				jniContext.deleteGlobalRef(externalObject);
+				jniContext->deleteGlobalRef(externalObject);
 			}
 			break;
 		}

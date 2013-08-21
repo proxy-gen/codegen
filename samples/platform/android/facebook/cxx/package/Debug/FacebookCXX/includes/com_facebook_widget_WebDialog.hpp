@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,8 +8,9 @@
 //
 
 
- 		 
+
 	
+ 		 
 
 
  		 
@@ -50,6 +51,9 @@
 
 #include <android_os_Bundle.hpp>
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -71,25 +75,28 @@ class com_facebook_widget_WebDialog_OnCompleteListener;
 
 
 
-class com_facebook_widget_WebDialog
+class com_facebook_widget_WebDialog : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public ConstrucXXX
+	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
+	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,int const& arg3,FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener const& arg4);
+	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2);
 	com_facebook_widget_WebDialog(const com_facebook_widget_WebDialog& cc);
 	com_facebook_widget_WebDialog(Proxy proxy);
-	// Public Constructors
-	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2);
-	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,int const& arg3,FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener const& arg4);
-	com_facebook_widget_WebDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog();
 	// Functions
-	 void onAttachedToWindow();
-	 void onDetachedFromWindow();
-	 void setOnCompleteListener(FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener const& arg0);
-	 FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener getOnCompleteListener();
-	 void dismiss();
+	virtual void  dismiss() ;
+	virtual FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener * getOnCompleteListener() ;
+	virtual void  onAttachedToWindow() ;
+	virtual void  onDetachedFromWindow() ;
+	virtual void  setOnCompleteListener(FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

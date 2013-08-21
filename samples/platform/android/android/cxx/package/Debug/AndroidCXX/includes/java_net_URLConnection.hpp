@@ -175,7 +175,7 @@ public:
 	virtual int  getConnectTimeout() ;
 	virtual AndroidCXX::java_lang_String * getContentEncoding() ;
 	virtual int  getContentLength() ;
-	virtual AndroidCXX::java_lang_Object * getContent(std::vector<java_lang_Class> const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * getContent(std::vector<AndroidCXX::java_lang_Class> const& arg0) ;
 	virtual AndroidCXX::java_lang_Object * getContent() ;
 	virtual AndroidCXX::java_lang_String * getContentType() ;
 	virtual long  getDate() ;

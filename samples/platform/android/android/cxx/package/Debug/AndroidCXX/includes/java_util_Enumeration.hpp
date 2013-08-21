@@ -48,7 +48,7 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class java_util_Enumeration : public java_lang_Object
+class java_util_Enumeration : public AndroidCXX::java_lang_Object
 {
 public:
 

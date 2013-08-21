@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -31,6 +32,9 @@
 
 #include <android_content_Intent.hpp>
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,18 +53,21 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver
+class com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public ConstrucXXX
 	com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver(const com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver& cc);
 	com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver();
 	// Functions
-	 void onReceive(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_Intent const& arg1);
+	virtual void  onReceive(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_Intent const& arg1) ;
+
+protected:
+
 };	
 
 } // namespace

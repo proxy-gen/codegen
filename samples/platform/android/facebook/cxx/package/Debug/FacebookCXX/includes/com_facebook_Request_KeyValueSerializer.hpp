@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -29,6 +30,9 @@
 
 #include <java_lang_String.hpp>
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,18 +50,21 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_Request_KeyValueSerializer
+class com_facebook_Request_KeyValueSerializer : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_Request_KeyValueSerializer(const com_facebook_Request_KeyValueSerializer& cc);
 	com_facebook_Request_KeyValueSerializer(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Request_KeyValueSerializer();
 	// Functions
-	 void writeString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	virtual void  writeString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+
+protected:
+	com_facebook_Request_KeyValueSerializer();
+
 };	
 
 } // namespace

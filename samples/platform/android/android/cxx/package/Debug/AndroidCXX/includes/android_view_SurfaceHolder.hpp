@@ -73,7 +73,7 @@ class android_view_Surface;
 
 class android_graphics_Canvas;
 
-class android_view_SurfaceHolder : public java_lang_Object
+class android_view_SurfaceHolder : public AndroidCXX::java_lang_Object
 {
 public:
 

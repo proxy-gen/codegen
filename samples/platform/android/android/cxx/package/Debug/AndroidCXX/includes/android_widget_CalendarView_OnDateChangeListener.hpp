@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_widget_CalendarView;
 
-class android_widget_CalendarView_OnDateChangeListener : public java_lang_Object
+class android_widget_CalendarView_OnDateChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 

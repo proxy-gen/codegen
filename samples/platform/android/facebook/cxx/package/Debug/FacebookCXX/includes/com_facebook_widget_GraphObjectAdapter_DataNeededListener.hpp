@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,21 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_widget_GraphObjectAdapter_DataNeededListener
+class com_facebook_widget_GraphObjectAdapter_DataNeededListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_widget_GraphObjectAdapter_DataNeededListener(const com_facebook_widget_GraphObjectAdapter_DataNeededListener& cc);
 	com_facebook_widget_GraphObjectAdapter_DataNeededListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_DataNeededListener();
 	// Functions
-	 void onDataNeeded();
+	virtual void  onDataNeeded() ;
+
+protected:
+	com_facebook_widget_GraphObjectAdapter_DataNeededListener();
+
 };	
 
 } // namespace

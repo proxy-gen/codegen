@@ -128,7 +128,7 @@ public:
 	static AndroidCXX::android_app_TaskStackBuilder * create(AndroidCXX::android_content_Context const& arg0) ;
 	virtual AndroidCXX::android_content_Intent * editIntentAt(int const& arg0) ;
 	virtual int  getIntentCount() ;
-	virtual std::vector<android_content_Intent>  getIntents() ;
+	virtual std::vector<AndroidCXX::android_content_Intent>  getIntents() ;
 	virtual AndroidCXX::android_app_PendingIntent * getPendingIntent(int const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
 	virtual AndroidCXX::android_app_PendingIntent * getPendingIntent(int const& arg0,int const& arg1) ;
 	virtual void  startActivities(AndroidCXX::android_os_Bundle const& arg0) ;

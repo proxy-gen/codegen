@@ -68,7 +68,7 @@ class android_view_ViewGroup_LayoutParams;
 
 class android_content_Context;
 
-class android_widget_AbsoluteLayout : public java_lang_Object
+class android_widget_AbsoluteLayout : public AndroidCXX::java_lang_Object
 {
 public:
 

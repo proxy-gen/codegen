@@ -61,7 +61,7 @@ class android_view_MenuItem;
 
 class android_view_Menu;
 
-class android_view_ActionMode_Callback : public java_lang_Object
+class android_view_ActionMode_Callback : public AndroidCXX::java_lang_Object
 {
 public:
 

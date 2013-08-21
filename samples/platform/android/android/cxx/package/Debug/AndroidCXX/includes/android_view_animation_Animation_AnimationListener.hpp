@@ -52,7 +52,7 @@ namespace AndroidCXX {
 
 class android_view_animation_Animation;
 
-class android_view_animation_Animation_AnimationListener : public java_lang_Object
+class android_view_animation_Animation_AnimationListener : public AndroidCXX::java_lang_Object
 {
 public:
 

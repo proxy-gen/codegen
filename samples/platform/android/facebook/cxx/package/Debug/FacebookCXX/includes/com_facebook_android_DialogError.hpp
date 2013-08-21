@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -32,6 +33,9 @@
 
 #include <java_lang_String.hpp>
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,20 +53,23 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_android_DialogError
+class com_facebook_android_DialogError : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public ConstrucXXX
+	com_facebook_android_DialogError(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2);
 	com_facebook_android_DialogError(const com_facebook_android_DialogError& cc);
 	com_facebook_android_DialogError(Proxy proxy);
-	// Public Constructors
-	com_facebook_android_DialogError(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_DialogError();
 	// Functions
-	 int getErrorCode();
-	 AndroidCXX::java_lang_String getFailingUrl();
+	virtual int  getErrorCode() ;
+	virtual AndroidCXX::java_lang_String * getFailingUrl() ;
+
+protected:
+
 };	
 
 } // namespace

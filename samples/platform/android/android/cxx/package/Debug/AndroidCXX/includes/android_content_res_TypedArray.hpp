@@ -138,7 +138,7 @@ public:
 	virtual int  getResourceId(int const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_content_res_Resources * getResources() ;
 	virtual AndroidCXX::java_lang_String * getString(int const& arg0) ;
-	virtual std::vector<java_lang_CharSequence>  getTextArray(int const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_CharSequence>  getTextArray(int const& arg0) ;
 	virtual AndroidCXX::java_lang_CharSequence * getText(int const& arg0) ;
 	virtual bool  getValue(int const& arg0,AndroidCXX::android_util_TypedValue const& arg1) ;
 	virtual bool  hasValue(int const& arg0) ;

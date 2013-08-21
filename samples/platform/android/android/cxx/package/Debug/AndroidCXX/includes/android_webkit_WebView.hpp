@@ -361,7 +361,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_webkit_WebView : public android_view_ViewGroup_OnHierarchyChangeListener,public android_view_ViewTreeObserver_OnGlobalFocusChangeListener
+class android_webkit_WebView : public AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener,public AndroidCXX::android_view_ViewTreeObserver_OnGlobalFocusChangeListener
 {
 public:
 
@@ -404,7 +404,7 @@ public:
 	virtual int  getContentHeight() ;
 	virtual AndroidCXX::android_graphics_Bitmap * getFavicon() ;
 	virtual AndroidCXX::android_webkit_WebView_HitTestResult * getHitTestResult() ;
-	virtual std::vector<java_lang_String>  getHttpAuthUsernamePassword(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual std::vector<AndroidCXX::java_lang_String>  getHttpAuthUsernamePassword(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual AndroidCXX::java_lang_String * getOriginalUrl() ;
 	virtual int  getProgress() ;
 	virtual float  getScale() ;

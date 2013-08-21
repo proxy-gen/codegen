@@ -115,7 +115,7 @@ class android_content_Context;
 
 class java_lang_Class;
 
-class android_content_ComponentName : public android_os_Parcelable,public java_lang_Cloneable,public java_lang_Comparable
+class android_content_ComponentName : public AndroidCXX::android_os_Parcelable,public AndroidCXX::java_lang_Cloneable,public AndroidCXX::java_lang_Comparable
 {
 public:
 

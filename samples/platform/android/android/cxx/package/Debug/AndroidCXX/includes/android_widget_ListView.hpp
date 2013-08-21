@@ -158,7 +158,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_ListView : public java_lang_Object
+class android_widget_ListView : public AndroidCXX::java_lang_Object
 {
 public:
 

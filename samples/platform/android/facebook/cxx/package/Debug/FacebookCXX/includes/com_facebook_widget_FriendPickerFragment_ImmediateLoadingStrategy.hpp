@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +44,20 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy
+class com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public ConstrucXXX
 	com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy(const com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy& cc);
 	com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

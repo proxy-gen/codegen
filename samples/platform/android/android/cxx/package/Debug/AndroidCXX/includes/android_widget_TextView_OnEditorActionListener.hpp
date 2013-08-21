@@ -51,7 +51,7 @@ class android_widget_TextView;
 
 class android_view_KeyEvent;
 
-class android_widget_TextView_OnEditorActionListener : public java_lang_Object
+class android_widget_TextView_OnEditorActionListener : public AndroidCXX::java_lang_Object
 {
 public:
 

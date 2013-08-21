@@ -94,7 +94,7 @@ class java_util_Locale;
 
 class java_lang_String;
 
-class android_content_res_Configuration : public android_os_Parcelable,public java_lang_Comparable
+class android_content_res_Configuration : public AndroidCXX::android_os_Parcelable,public AndroidCXX::java_lang_Comparable
 {
 public:
 

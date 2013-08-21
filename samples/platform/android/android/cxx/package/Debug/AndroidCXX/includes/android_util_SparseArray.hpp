@@ -77,7 +77,7 @@ namespace AndroidCXX {
 class java_lang_Object;
 
 
-class android_util_SparseArray : public java_lang_Cloneable
+class android_util_SparseArray : public AndroidCXX::java_lang_Cloneable
 {
 public:
 

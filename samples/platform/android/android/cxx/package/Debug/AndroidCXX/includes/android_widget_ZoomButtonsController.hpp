@@ -79,7 +79,7 @@ class android_view_MotionEvent;
 
 class android_widget_ZoomButtonsController_OnZoomListener;
 
-class android_widget_ZoomButtonsController : public android_view_View_OnTouchListener
+class android_widget_ZoomButtonsController : public AndroidCXX::android_view_View_OnTouchListener
 {
 public:
 

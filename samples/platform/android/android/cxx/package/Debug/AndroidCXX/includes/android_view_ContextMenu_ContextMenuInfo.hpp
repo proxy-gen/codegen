@@ -44,7 +44,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_ContextMenu_ContextMenuInfo : public java_lang_Object
+class android_view_ContextMenu_ContextMenuInfo : public AndroidCXX::java_lang_Object
 {
 public:
 

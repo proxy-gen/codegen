@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_Filter_FilterListener : public java_lang_Object
+class android_widget_Filter_FilterListener : public AndroidCXX::java_lang_Object
 {
 public:
 

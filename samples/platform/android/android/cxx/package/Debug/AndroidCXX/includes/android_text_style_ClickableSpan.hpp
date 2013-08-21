@@ -53,7 +53,7 @@ class android_view_View;
 
 class android_text_TextPaint;
 
-class android_text_style_ClickableSpan : public android_text_style_UpdateAppearance
+class android_text_style_ClickableSpan : public AndroidCXX::android_text_style_UpdateAppearance
 {
 public:
 

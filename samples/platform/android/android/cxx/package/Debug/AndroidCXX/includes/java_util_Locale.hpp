@@ -114,7 +114,7 @@ class java_lang_Object;
 
 class java_lang_String;
 
-class java_util_Locale : public java_io_Serializable,public java_lang_Cloneable
+class java_util_Locale : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Cloneable
 {
 public:
 
@@ -130,7 +130,7 @@ public:
 	// Functions
 	virtual AndroidCXX::java_lang_Object * clone() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	static std::vector<java_util_Locale>  getAvailableLocales() ;
+	static std::vector<AndroidCXX::java_util_Locale>  getAvailableLocales() ;
 	virtual AndroidCXX::java_lang_String * getCountry() ;
 	static AndroidCXX::java_util_Locale * getDefault() ;
 	virtual AndroidCXX::java_lang_String * getDisplayCountry(AndroidCXX::java_util_Locale const& arg0) ;
@@ -143,8 +143,8 @@ public:
 	virtual AndroidCXX::java_lang_String * getDisplayVariant() ;
 	virtual AndroidCXX::java_lang_String * getISO3Country() ;
 	virtual AndroidCXX::java_lang_String * getISO3Language() ;
-	static std::vector<java_lang_String>  getISOCountries() ;
-	static std::vector<java_lang_String>  getISOLanguages() ;
+	static std::vector<AndroidCXX::java_lang_String>  getISOCountries() ;
+	static std::vector<AndroidCXX::java_lang_String>  getISOLanguages() ;
 	virtual AndroidCXX::java_lang_String * getLanguage() ;
 	virtual AndroidCXX::java_lang_String * getVariant() ;
 	virtual int  hashCode() ;

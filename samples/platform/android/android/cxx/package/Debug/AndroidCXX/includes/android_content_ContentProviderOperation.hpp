@@ -108,7 +108,7 @@ class android_content_ContentValues;
 
 class android_os_Parcel;
 
-class android_content_ContentProviderOperation : public android_os_Parcelable
+class android_content_ContentProviderOperation : public AndroidCXX::android_os_Parcelable
 {
 public:
 
@@ -119,7 +119,7 @@ public:
 	// Default Destructor
 	virtual ~android_content_ContentProviderOperation();
 	// Functions
-	virtual AndroidCXX::android_content_ContentProviderResult * apply(AndroidCXX::android_content_ContentProvider const& arg0,std::vector<android_content_ContentProviderResult> const& arg1,int const& arg2) ;
+	virtual AndroidCXX::android_content_ContentProviderResult * apply(AndroidCXX::android_content_ContentProvider const& arg0,std::vector<AndroidCXX::android_content_ContentProviderResult> const& arg1,int const& arg2) ;
 	virtual int  describeContents() ;
 	virtual AndroidCXX::android_net_Uri * getUri() ;
 	virtual bool  isReadOperation() ;
@@ -129,8 +129,8 @@ public:
 	static AndroidCXX::android_content_ContentProviderOperation_Builder * newDelete(AndroidCXX::android_net_Uri const& arg0) ;
 	static AndroidCXX::android_content_ContentProviderOperation_Builder * newInsert(AndroidCXX::android_net_Uri const& arg0) ;
 	static AndroidCXX::android_content_ContentProviderOperation_Builder * newUpdate(AndroidCXX::android_net_Uri const& arg0) ;
-	virtual std::vector<java_lang_String>  resolveSelectionArgsBackReferences(std::vector<android_content_ContentProviderResult> const& arg0,int const& arg1) ;
-	virtual AndroidCXX::android_content_ContentValues * resolveValueBackReferences(std::vector<android_content_ContentProviderResult> const& arg0,int const& arg1) ;
+	virtual std::vector<AndroidCXX::java_lang_String>  resolveSelectionArgsBackReferences(std::vector<AndroidCXX::android_content_ContentProviderResult> const& arg0,int const& arg1) ;
+	virtual AndroidCXX::android_content_ContentValues * resolveValueBackReferences(std::vector<AndroidCXX::android_content_ContentProviderResult> const& arg0,int const& arg1) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 

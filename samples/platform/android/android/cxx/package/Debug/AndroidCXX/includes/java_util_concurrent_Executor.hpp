@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class java_lang_Runnable;
 
-class java_util_concurrent_Executor : public java_lang_Object
+class java_util_concurrent_Executor : public AndroidCXX::java_lang_Object
 {
 public:
 

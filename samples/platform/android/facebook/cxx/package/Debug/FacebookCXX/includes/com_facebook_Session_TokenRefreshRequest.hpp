@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -34,6 +35,9 @@
 
 #include <android_os_IBinder.hpp>
 
+
+#include <android_content_ServiceConnection.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -52,20 +56,23 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_Session_TokenRefreshRequest
+class com_facebook_Session_TokenRefreshRequest : public AndroidCXX::android_content_ServiceConnection
 {
 public:
 
+	// Public ConstrucXXX
 	com_facebook_Session_TokenRefreshRequest(const com_facebook_Session_TokenRefreshRequest& cc);
 	com_facebook_Session_TokenRefreshRequest(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_TokenRefreshRequest();
 	// Functions
-	 void bind();
-	 void onServiceConnected(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_IBinder const& arg1);
-	 void onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0);
+	virtual void  bind() ;
+	virtual void  onServiceConnected(AndroidCXX::android_content_ComponentName const& arg0,AndroidCXX::android_os_IBinder const& arg1) ;
+	virtual void  onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

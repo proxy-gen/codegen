@@ -44,7 +44,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_text_NoCopySpan : public java_lang_Object
+class android_text_NoCopySpan : public AndroidCXX::java_lang_Object
 {
 public:
 

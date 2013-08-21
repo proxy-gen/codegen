@@ -56,7 +56,7 @@ class android_view_View;
 
 class android_view_ViewGroup_LayoutParams;
 
-class android_view_ViewManager : public java_lang_Object
+class android_view_ViewManager : public AndroidCXX::java_lang_Object
 {
 public:
 

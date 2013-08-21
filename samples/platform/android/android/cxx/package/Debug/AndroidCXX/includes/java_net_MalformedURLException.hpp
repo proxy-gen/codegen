@@ -51,7 +51,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_net_MalformedURLException : public java_lang_Object
+class java_net_MalformedURLException : public AndroidCXX::java_lang_Object
 {
 public:
 

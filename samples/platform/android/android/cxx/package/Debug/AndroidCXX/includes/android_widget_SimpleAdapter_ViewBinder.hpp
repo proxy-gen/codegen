@@ -53,7 +53,7 @@ class android_view_View;
 
 class java_lang_String;
 
-class android_widget_SimpleAdapter_ViewBinder : public java_lang_Object
+class android_widget_SimpleAdapter_ViewBinder : public AndroidCXX::java_lang_Object
 {
 public:
 

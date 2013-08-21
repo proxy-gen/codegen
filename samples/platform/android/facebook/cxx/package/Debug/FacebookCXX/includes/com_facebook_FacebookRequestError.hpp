@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -50,17 +51,18 @@
 //
 
 
+#include <java_lang_Object.hpp>
+
+#include <com_facebook_FacebookRequestError_Category.hpp>
+
+#include <java_net_HttpURLConnection.hpp>
+
 #include <java_lang_String.hpp>
 
 #include <com_facebook_FacebookException.hpp>
 
-#include <java_net_HttpURLConnection.hpp>
-
-#include <com_facebook_FacebookRequestError_Category.hpp>
-
 #include <org_json_JSONObject.hpp>
 
-#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -79,38 +81,41 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
+
+
+
 class com_facebook_FacebookException;
 
 
-
-
-
-class com_facebook_FacebookRequestError
+class com_facebook_FacebookRequestError 
 {
 public:
 
+	// Public ConstrucXXX
+	com_facebook_FacebookRequestError(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
 	com_facebook_FacebookRequestError(const com_facebook_FacebookRequestError& cc);
 	com_facebook_FacebookRequestError(Proxy proxy);
-	// Public Constructors
-	com_facebook_FacebookRequestError(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookRequestError();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 FacebookCXX::com_facebook_FacebookException getException();
-	 AndroidCXX::java_net_HttpURLConnection getConnection();
-	 int getErrorCode();
-	 bool shouldNotifyUser();
-	 int getUserActionMessageId();
-	 com_facebook_FacebookRequestError_Category::com_facebook_FacebookRequestError_Category getCategory();
-	 int getRequestStatusCode();
-	 int getSubErrorCode();
-	 AndroidCXX::java_lang_String getErrorType();
-	 AndroidCXX::java_lang_String getErrorMessage();
-	 AndroidCXX::org_json_JSONObject getRequestResultBody();
-	 AndroidCXX::org_json_JSONObject getRequestResult();
-	 AndroidCXX::java_lang_Object getBatchRequestResult();
+	virtual AndroidCXX::java_lang_Object * getBatchRequestResult() ;
+	virtual com_facebook_FacebookRequestError_Category::com_facebook_FacebookRequestError_Category  getCategory() ;
+	virtual AndroidCXX::java_net_HttpURLConnection * getConnection() ;
+	virtual int  getErrorCode() ;
+	virtual AndroidCXX::java_lang_String * getErrorMessage() ;
+	virtual AndroidCXX::java_lang_String * getErrorType() ;
+	virtual FacebookCXX::com_facebook_FacebookException * getException() ;
+	virtual AndroidCXX::org_json_JSONObject * getRequestResultBody() ;
+	virtual AndroidCXX::org_json_JSONObject * getRequestResult() ;
+	virtual int  getRequestStatusCode() ;
+	virtual int  getSubErrorCode() ;
+	virtual int  getUserActionMessageId() ;
+	virtual bool  shouldNotifyUser() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
 };	
 
 } // namespace

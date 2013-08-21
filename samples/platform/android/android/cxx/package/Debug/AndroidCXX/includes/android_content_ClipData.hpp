@@ -121,14 +121,14 @@ class android_content_ContentResolver;
 
 class android_os_Parcel;
 
-class android_content_ClipData : public android_os_Parcelable
+class android_content_ClipData : public AndroidCXX::android_os_Parcelable
 {
 public:
 
 	// Public ConstrucXXX
 	android_content_ClipData(AndroidCXX::android_content_ClipData const& arg0);
 	android_content_ClipData(AndroidCXX::android_content_ClipDescription const& arg0,AndroidCXX::android_content_ClipData_Item const& arg1);
-	android_content_ClipData(AndroidCXX::java_lang_CharSequence const& arg0,std::vector<java_lang_String> const& arg1,AndroidCXX::android_content_ClipData_Item const& arg2);
+	android_content_ClipData(AndroidCXX::java_lang_CharSequence const& arg0,std::vector<AndroidCXX::java_lang_String> const& arg1,AndroidCXX::android_content_ClipData_Item const& arg2);
 	android_content_ClipData(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor

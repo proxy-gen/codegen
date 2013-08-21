@@ -49,7 +49,7 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_view_ViewTreeObserver_OnGlobalFocusChangeListener : public java_lang_Object
+class android_view_ViewTreeObserver_OnGlobalFocusChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 

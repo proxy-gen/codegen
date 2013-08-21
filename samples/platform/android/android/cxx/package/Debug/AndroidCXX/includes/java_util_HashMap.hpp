@@ -112,7 +112,7 @@ class java_util_Map_Entry;
 
 class java_util_Collection;
 
-class java_util_HashMap : public java_io_Serializable,public java_lang_Cloneable,public java_util_Map
+class java_util_HashMap : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Cloneable,public AndroidCXX::java_util_Map
 {
 public:
 

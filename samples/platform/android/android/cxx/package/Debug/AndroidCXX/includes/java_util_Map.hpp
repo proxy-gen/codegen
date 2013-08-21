@@ -92,7 +92,7 @@ class java_util_Map_Entry;
 
 class java_util_Collection;
 
-class java_util_Map : public java_lang_Object
+class java_util_Map : public AndroidCXX::java_lang_Object
 {
 public:
 

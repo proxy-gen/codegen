@@ -92,7 +92,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_util_AttributeSet : public java_lang_Object
+class android_util_AttributeSet : public AndroidCXX::java_lang_Object
 {
 public:
 
@@ -109,8 +109,8 @@ public:
 	virtual float  getAttributeFloatValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,float const& arg2) ;
 	virtual int  getAttributeIntValue(int const& arg0,int const& arg1) ;
 	virtual int  getAttributeIntValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2) ;
-	virtual int  getAttributeListValue(int const& arg0,std::vector<java_lang_String> const& arg1,int const& arg2) ;
-	virtual int  getAttributeListValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<java_lang_String> const& arg2,int const& arg3) ;
+	virtual int  getAttributeListValue(int const& arg0,std::vector<AndroidCXX::java_lang_String> const& arg1,int const& arg2) ;
+	virtual int  getAttributeListValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_String> const& arg2,int const& arg3) ;
 	virtual AndroidCXX::java_lang_String * getAttributeName(int const& arg0) ;
 	virtual int  getAttributeNameResource(int const& arg0) ;
 	virtual int  getAttributeResourceValue(int const& arg0,int const& arg1) ;

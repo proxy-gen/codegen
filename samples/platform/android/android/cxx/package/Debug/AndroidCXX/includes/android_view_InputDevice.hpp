@@ -98,7 +98,7 @@ class android_os_Vibrator;
 
 class android_os_Parcel;
 
-class android_view_InputDevice : public android_os_Parcelable
+class android_view_InputDevice : public AndroidCXX::android_os_Parcelable
 {
 public:
 

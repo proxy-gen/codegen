@@ -102,7 +102,7 @@ class java_nio_ByteOrder;
 
 class java_lang_String;
 
-class java_nio_ShortBuffer : public java_lang_Comparable
+class java_nio_ShortBuffer : public AndroidCXX::java_lang_Comparable
 {
 public:
 

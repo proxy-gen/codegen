@@ -53,7 +53,7 @@ class android_content_ComponentName;
 
 class android_os_IBinder;
 
-class android_content_ServiceConnection : public java_lang_Object
+class android_content_ServiceConnection : public AndroidCXX::java_lang_Object
 {
 public:
 

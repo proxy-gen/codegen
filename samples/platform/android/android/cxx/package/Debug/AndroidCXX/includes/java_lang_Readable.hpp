@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class java_nio_CharBuffer;
 
-class java_lang_Readable : public java_lang_Object
+class java_lang_Readable : public AndroidCXX::java_lang_Object
 {
 public:
 

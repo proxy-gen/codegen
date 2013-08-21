@@ -57,7 +57,7 @@ namespace AndroidCXX {
 
 class java_io_OutputStream;
 
-class java_io_FilterOutputStream : public java_lang_Object
+class java_io_FilterOutputStream : public AndroidCXX::java_lang_Object
 {
 public:
 

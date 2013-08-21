@@ -191,7 +191,7 @@ class android_app_PendingIntent;
 
 class android_os_Parcel;
 
-class android_widget_RemoteViews : public android_os_Parcelable,public android_view_LayoutInflater_Filter
+class android_widget_RemoteViews : public AndroidCXX::android_os_Parcelable,public AndroidCXX::android_view_LayoutInflater_Filter
 {
 public:
 

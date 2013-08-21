@@ -92,7 +92,7 @@ class java_util_Iterator;
 class java_util_ListIterator;
 
 
-class java_util_AbstractList : public java_util_List
+class java_util_AbstractList : public AndroidCXX::java_util_List
 {
 public:
 

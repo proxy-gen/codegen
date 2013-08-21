@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_widget_TabHost_OnTabChangeListener : public java_lang_Object
+class android_widget_TabHost_OnTabChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 

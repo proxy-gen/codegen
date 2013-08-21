@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_widget_DatePicker;
 
-class android_widget_DatePicker_OnDateChangedListener : public java_lang_Object
+class android_widget_DatePicker_OnDateChangedListener : public AndroidCXX::java_lang_Object
 {
 public:
 

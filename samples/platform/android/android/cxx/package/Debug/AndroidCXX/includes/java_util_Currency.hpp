@@ -69,7 +69,7 @@ class java_lang_String;
 
 class java_util_Locale;
 
-class java_util_Currency : public java_io_Serializable
+class java_util_Currency : public AndroidCXX::java_io_Serializable
 {
 public:
 

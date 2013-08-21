@@ -89,7 +89,7 @@ class java_lang_Object;
 
 class java_util_Iterator;
 
-class java_util_Set : public java_util_Collection
+class java_util_Set : public AndroidCXX::java_util_Collection
 {
 public:
 
@@ -112,8 +112,8 @@ public:
 	virtual bool  remove(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual bool  retainAll(AndroidCXX::java_util_Collection const& arg0) ;
 	virtual int  size() ;
-	virtual std::vector<java_lang_Object>  toArray(std::vector<java_lang_Object> const& arg0) ;
-	virtual std::vector<java_lang_Object>  toArray() ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  toArray(std::vector<AndroidCXX::java_lang_Object> const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  toArray() ;
 
 protected:
 	java_util_Set();

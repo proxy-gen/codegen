@@ -83,7 +83,7 @@ class java_util_ArrayList;
 
 class java_lang_Object;
 
-class android_animation_Animator : public java_lang_Cloneable
+class android_animation_Animator : public AndroidCXX::java_lang_Cloneable
 {
 public:
 

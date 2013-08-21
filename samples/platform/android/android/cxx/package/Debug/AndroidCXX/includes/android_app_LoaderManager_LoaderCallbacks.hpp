@@ -63,7 +63,7 @@ class android_os_Bundle;
 class android_content_Loader;
 
 
-class android_app_LoaderManager_LoaderCallbacks : public java_lang_Object
+class android_app_LoaderManager_LoaderCallbacks : public AndroidCXX::java_lang_Object
 {
 public:
 

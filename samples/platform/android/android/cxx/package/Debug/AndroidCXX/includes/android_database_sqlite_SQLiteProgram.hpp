@@ -58,7 +58,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_database_sqlite_SQLiteProgram : public java_lang_Object
+class android_database_sqlite_SQLiteProgram : public AndroidCXX::java_lang_Object
 {
 public:
 
@@ -68,7 +68,7 @@ public:
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteProgram();
 	// Functions
-	virtual void  bindAllArgsAsStrings(std::vector<java_lang_String> const& arg0) ;
+	virtual void  bindAllArgsAsStrings(std::vector<AndroidCXX::java_lang_String> const& arg0) ;
 	virtual void  bindBlob(int const& arg0,std::vector<byte> const& arg1) ;
 	virtual void  bindDouble(int const& arg0,double const& arg1) ;
 	virtual void  bindLong(int const& arg0,long const& arg1) ;

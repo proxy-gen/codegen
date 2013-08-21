@@ -81,7 +81,7 @@ class android_content_Intent;
 
 class android_content_Context;
 
-class android_widget_ShareActionProvider : public java_lang_Object
+class android_widget_ShareActionProvider : public AndroidCXX::java_lang_Object
 {
 public:
 

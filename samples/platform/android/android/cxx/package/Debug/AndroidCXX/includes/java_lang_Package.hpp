@@ -104,7 +104,7 @@ class java_lang_String;
 
 class java_net_URL;
 
-class java_lang_Package : public java_lang_reflect_AnnotatedElement
+class java_lang_Package : public AndroidCXX::java_lang_reflect_AnnotatedElement
 {
 public:
 
@@ -116,14 +116,14 @@ public:
 	virtual ~java_lang_Package();
 	// Functions
 	virtual AndroidCXX::java_lang_annotation_Annotation * getAnnotation(AndroidCXX::java_lang_Class const& arg0) ;
-	virtual std::vector<java_lang_annotation_Annotation>  getAnnotations() ;
-	virtual std::vector<java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
+	virtual std::vector<AndroidCXX::java_lang_annotation_Annotation>  getAnnotations() ;
+	virtual std::vector<AndroidCXX::java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
 	virtual AndroidCXX::java_lang_String * getImplementationTitle() ;
 	virtual AndroidCXX::java_lang_String * getImplementationVendor() ;
 	virtual AndroidCXX::java_lang_String * getImplementationVersion() ;
 	virtual AndroidCXX::java_lang_String * getName() ;
 	static AndroidCXX::java_lang_Package * getPackage(AndroidCXX::java_lang_String const& arg0) ;
-	static std::vector<java_lang_Package>  getPackages() ;
+	static std::vector<AndroidCXX::java_lang_Package>  getPackages() ;
 	virtual AndroidCXX::java_lang_String * getSpecificationTitle() ;
 	virtual AndroidCXX::java_lang_String * getSpecificationVendor() ;
 	virtual AndroidCXX::java_lang_String * getSpecificationVersion() ;

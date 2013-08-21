@@ -38,6 +38,8 @@
 #set $class_classinfo = $class_config['deriveddata']['targetdata']['classinfo']
 #set $class_jnidata = $class_config['deriveddata']['jnidata']
 #set $entity_class_name = $class_classinfo['typename']
+#set $entity_namespace_name = $class_classinfo['namespace']
+#set $entity_qualified_name = $entity_namespace_name + '::' + $entity_class_name
 void convert_${entity_class_name}(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	CXXContext *ctx = CXXContext::sharedInstance();
@@ -86,7 +88,7 @@ void convert_${entity_class_name}(long& java_value, long& cxx_value, const CXXTy
 		#else
 		Proxy proxy;
 		proxy.address = (long) java_value;
-		${entity_class_name} *cxx_object = new ${entity_class_name}(proxy);
+		${entity_qualified_name} *cxx_object = new ${entity_qualified_name}(proxy);
 		cxx_value = (long) cxx_object;
 		#end if
 	}

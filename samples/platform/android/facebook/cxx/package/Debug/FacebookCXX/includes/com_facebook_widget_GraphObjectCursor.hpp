@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -42,7 +43,8 @@
 //
 
 
-#include <com_facebook_model_GraphObject.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -62,34 +64,37 @@ namespace FacebookCXX {
 
 class com_facebook_model_GraphObject;
 
-class com_facebook_widget_GraphObjectCursor
+class com_facebook_widget_GraphObjectCursor : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_widget_GraphObjectCursor(const com_facebook_widget_GraphObjectCursor& cc);
 	com_facebook_widget_GraphObjectCursor(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectCursor();
 	// Functions
-	 void close();
-	 bool isFirst();
-	 bool isClosed();
-	 int getPosition();
-	 bool isFromCache();
-	 FacebookCXX::com_facebook_model_GraphObject getGraphObject();
-	 bool moveToFirst();
-	 int getCount();
-	 bool areMoreObjectsAvailable();
-	 bool moveToNext();
-	 bool move(int const& arg0);
-	 bool moveToPosition(int const& arg0);
-	 bool moveToLast();
-	 bool moveToPrevious();
-	 bool isLast();
-	 bool isBeforeFirst();
-	 bool isAfterLast();
+	virtual bool  areMoreObjectsAvailable() ;
+	virtual void  close() ;
+	virtual int  getCount() ;
+	virtual FacebookCXX::com_facebook_model_GraphObject * getGraphObject() ;
+	virtual int  getPosition() ;
+	virtual bool  isAfterLast() ;
+	virtual bool  isBeforeFirst() ;
+	virtual bool  isClosed() ;
+	virtual bool  isFirst() ;
+	virtual bool  isFromCache() ;
+	virtual bool  isLast() ;
+	virtual bool  move(int const& arg0) ;
+	virtual bool  moveToFirst() ;
+	virtual bool  moveToLast() ;
+	virtual bool  moveToNext() ;
+	virtual bool  moveToPosition(int const& arg0) ;
+	virtual bool  moveToPrevious() ;
+
+protected:
+	com_facebook_widget_GraphObjectCursor();
+
 };	
 
 } // namespace

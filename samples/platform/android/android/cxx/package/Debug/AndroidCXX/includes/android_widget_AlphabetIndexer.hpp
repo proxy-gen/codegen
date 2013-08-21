@@ -68,7 +68,7 @@ class android_database_Cursor;
 
 class java_lang_CharSequence;
 
-class android_widget_AlphabetIndexer : public android_widget_SectionIndexer
+class android_widget_AlphabetIndexer : public AndroidCXX::android_widget_SectionIndexer
 {
 public:
 
@@ -82,7 +82,7 @@ public:
 	// Functions
 	virtual int  getPositionForSection(int const& arg0) ;
 	virtual int  getSectionForPosition(int const& arg0) ;
-	virtual std::vector<java_lang_Object>  getSections() ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  getSections() ;
 	virtual void  onChanged() ;
 	virtual void  onInvalidated() ;
 	virtual void  setCursor(AndroidCXX::android_database_Cursor const& arg0) ;

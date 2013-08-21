@@ -44,7 +44,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Cloneable : public java_lang_Object
+class java_lang_Cloneable : public AndroidCXX::java_lang_Object
 {
 public:
 

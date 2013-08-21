@@ -165,7 +165,7 @@ class java_util_Random;
 
 class java_lang_String;
 
-class java_math_BigInteger : public java_lang_Comparable
+class java_math_BigInteger : public AndroidCXX::java_lang_Comparable
 {
 public:
 
@@ -190,7 +190,7 @@ public:
 	virtual int  bitLength() ;
 	virtual AndroidCXX::java_math_BigInteger * clearBit(int const& arg0) ;
 	virtual int  compareTo(AndroidCXX::java_math_BigInteger const& arg0) ;
-	virtual std::vector<java_math_BigInteger>  divideAndRemainder(AndroidCXX::java_math_BigInteger const& arg0) ;
+	virtual std::vector<AndroidCXX::java_math_BigInteger>  divideAndRemainder(AndroidCXX::java_math_BigInteger const& arg0) ;
 	virtual AndroidCXX::java_math_BigInteger * divide(AndroidCXX::java_math_BigInteger const& arg0) ;
 	virtual double  doubleValue() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;

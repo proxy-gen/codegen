@@ -50,7 +50,7 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class java_util_Comparator : public java_lang_Object
+class java_util_Comparator : public AndroidCXX::java_lang_Object
 {
 public:
 

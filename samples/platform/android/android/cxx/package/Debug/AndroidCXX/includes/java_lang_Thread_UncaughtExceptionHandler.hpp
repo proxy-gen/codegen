@@ -51,7 +51,7 @@ class java_lang_Thread;
 
 class java_lang_Throwable;
 
-class java_lang_Thread_UncaughtExceptionHandler : public java_lang_Object
+class java_lang_Thread_UncaughtExceptionHandler : public AndroidCXX::java_lang_Object
 {
 public:
 

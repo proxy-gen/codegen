@@ -57,7 +57,7 @@ class java_lang_CharSequence;
 
 class java_lang_String;
 
-class android_support_v4_app_FragmentManager_BackStackEntry : public java_lang_Object
+class android_support_v4_app_FragmentManager_BackStackEntry : public AndroidCXX::java_lang_Object
 {
 public:
 

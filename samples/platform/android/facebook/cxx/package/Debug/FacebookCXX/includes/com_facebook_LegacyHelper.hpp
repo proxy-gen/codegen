@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -32,6 +33,7 @@
 
 #include <android_os_Bundle.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -51,19 +53,22 @@ namespace FacebookCXX {
 class com_facebook_Session;
 
 
-class com_facebook_LegacyHelper
+class com_facebook_LegacyHelper 
 {
 public:
 
+	// Public ConstrucXXX
+	com_facebook_LegacyHelper();
 	com_facebook_LegacyHelper(const com_facebook_LegacyHelper& cc);
 	com_facebook_LegacyHelper(Proxy proxy);
-	// Public Constructors
-	com_facebook_LegacyHelper();
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_LegacyHelper();
 	// Functions
-	static void extendTokenCompleted(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_os_Bundle const& arg1);
+	static void  extendTokenCompleted(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+
+protected:
+
 };	
 
 } // namespace

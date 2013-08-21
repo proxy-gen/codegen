@@ -69,7 +69,7 @@ class java_lang_Object;
 
 class java_lang_String;
 
-class java_lang_StackTraceElement : public java_io_Serializable
+class java_lang_StackTraceElement : public AndroidCXX::java_io_Serializable
 {
 public:
 

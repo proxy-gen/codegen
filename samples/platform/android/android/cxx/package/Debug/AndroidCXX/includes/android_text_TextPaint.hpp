@@ -55,7 +55,7 @@ namespace AndroidCXX {
 
 class android_graphics_Paint;
 
-class android_text_TextPaint : public java_lang_Object
+class android_text_TextPaint : public AndroidCXX::java_lang_Object
 {
 public:
 

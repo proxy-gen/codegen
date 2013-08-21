@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_widget_Chronometer;
 
-class android_widget_Chronometer_OnChronometerTickListener : public java_lang_Object
+class android_widget_Chronometer_OnChronometerTickListener : public AndroidCXX::java_lang_Object
 {
 public:
 

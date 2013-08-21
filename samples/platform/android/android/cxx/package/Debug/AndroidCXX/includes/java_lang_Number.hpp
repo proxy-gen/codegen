@@ -51,7 +51,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Number : public java_io_Serializable
+class java_lang_Number : public AndroidCXX::java_io_Serializable
 {
 public:
 

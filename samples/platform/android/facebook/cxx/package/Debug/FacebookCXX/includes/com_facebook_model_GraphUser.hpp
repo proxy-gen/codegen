@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,22 +8,23 @@
 //
 
 
+
 	
 	
- 		 
 	
- 		 
 	
- 		 
 	
- 		 
 	
- 		 
+	
+	
 	
  		 
-	
  		 
-	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
  		 
  		 
 
@@ -62,7 +63,8 @@
 
 #include <java_lang_String.hpp>
 
-#include <com_facebook_model_GraphLocation.hpp>
+
+#include <com_facebook_model_GraphObject.hpp>
 
 #include <vector>
 #include <map>
@@ -83,35 +85,38 @@ namespace FacebookCXX {
 
 class com_facebook_model_GraphLocation;
 
-class com_facebook_model_GraphUser
+class com_facebook_model_GraphUser : public FacebookCXX::com_facebook_model_GraphObject
 {
 public:
 
 	com_facebook_model_GraphUser(const com_facebook_model_GraphUser& cc);
 	com_facebook_model_GraphUser(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphUser();
 	// Functions
-	 AndroidCXX::java_lang_String getName();
-	 FacebookCXX::com_facebook_model_GraphLocation getLocation();
-	 void setName(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getId();
-	 void setId(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getFirstName();
-	 void setFirstName(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getMiddleName();
-	 void setMiddleName(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getLastName();
-	 void setLastName(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getLink();
-	 void setLink(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getUsername();
-	 void setUsername(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getBirthday();
-	 void setBirthday(AndroidCXX::java_lang_String const& arg0);
-	 void setLocation(FacebookCXX::com_facebook_model_GraphLocation const& arg0);
+	virtual AndroidCXX::java_lang_String * getBirthday() ;
+	virtual AndroidCXX::java_lang_String * getFirstName() ;
+	virtual AndroidCXX::java_lang_String * getId() ;
+	virtual AndroidCXX::java_lang_String * getLastName() ;
+	virtual AndroidCXX::java_lang_String * getLink() ;
+	virtual FacebookCXX::com_facebook_model_GraphLocation * getLocation() ;
+	virtual AndroidCXX::java_lang_String * getMiddleName() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+	virtual AndroidCXX::java_lang_String * getUsername() ;
+	virtual void  setBirthday(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setFirstName(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setId(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setLastName(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setLink(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setLocation(FacebookCXX::com_facebook_model_GraphLocation const& arg0) ;
+	virtual void  setMiddleName(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setName(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setUsername(AndroidCXX::java_lang_String const& arg0) ;
+
+protected:
+	com_facebook_model_GraphUser();
+
 };	
 
 } // namespace

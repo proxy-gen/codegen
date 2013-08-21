@@ -49,7 +49,7 @@ namespace AndroidCXX {
 
 class android_os_Parcel;
 
-class android_os_Parcelable : public java_lang_Object
+class android_os_Parcelable : public AndroidCXX::java_lang_Object
 {
 public:
 

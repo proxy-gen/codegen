@@ -56,7 +56,7 @@ class java_lang_Exception;
 
 class java_lang_String;
 
-class android_widget_RemoteViews_ActionException : public java_lang_Object
+class android_widget_RemoteViews_ActionException : public AndroidCXX::java_lang_Object
 {
 public:
 

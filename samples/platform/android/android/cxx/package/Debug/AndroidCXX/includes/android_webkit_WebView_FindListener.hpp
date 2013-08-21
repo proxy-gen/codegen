@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_webkit_WebView_FindListener : public java_lang_Object
+class android_webkit_WebView_FindListener : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -46,7 +46,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_text_GetChars : public java_lang_CharSequence
+class android_text_GetChars : public AndroidCXX::java_lang_CharSequence
 {
 public:
 

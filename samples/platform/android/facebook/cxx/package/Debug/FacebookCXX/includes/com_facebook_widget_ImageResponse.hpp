@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +42,20 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_widget_ImageResponse
+class com_facebook_widget_ImageResponse 
 {
 public:
 
+	// Public ConstrucXXX
 	com_facebook_widget_ImageResponse(const com_facebook_widget_ImageResponse& cc);
 	com_facebook_widget_ImageResponse(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageResponse();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

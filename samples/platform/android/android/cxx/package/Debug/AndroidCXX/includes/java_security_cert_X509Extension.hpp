@@ -60,7 +60,7 @@ class java_util_Set;
 
 class java_lang_String;
 
-class java_security_cert_X509Extension : public java_lang_Object
+class java_security_cert_X509Extension : public AndroidCXX::java_lang_Object
 {
 public:
 

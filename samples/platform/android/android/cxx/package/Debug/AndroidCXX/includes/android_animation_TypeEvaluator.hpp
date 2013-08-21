@@ -49,7 +49,7 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class android_animation_TypeEvaluator : public java_lang_Object
+class android_animation_TypeEvaluator : public AndroidCXX::java_lang_Object
 {
 public:
 

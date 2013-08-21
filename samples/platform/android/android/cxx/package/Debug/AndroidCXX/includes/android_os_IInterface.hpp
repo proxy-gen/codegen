@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_os_IBinder;
 
-class android_os_IInterface : public java_lang_Object
+class android_os_IInterface : public AndroidCXX::java_lang_Object
 {
 public:
 

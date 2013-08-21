@@ -97,7 +97,7 @@ class java_util_Map_Entry;
 
 class java_util_Collection;
 
-class java_util_SortedMap : public java_util_Map
+class java_util_SortedMap : public AndroidCXX::java_util_Map
 {
 public:
 

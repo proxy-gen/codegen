@@ -75,7 +75,7 @@ class android_os_Parcel;
 class java_lang_String;
 
 
-class android_graphics_Point : public android_os_Parcelable
+class android_graphics_Point : public AndroidCXX::android_os_Parcelable
 {
 public:
 

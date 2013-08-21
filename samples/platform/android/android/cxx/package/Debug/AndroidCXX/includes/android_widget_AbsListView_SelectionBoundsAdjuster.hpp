@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_graphics_Rect;
 
-class android_widget_AbsListView_SelectionBoundsAdjuster : public java_lang_Object
+class android_widget_AbsListView_SelectionBoundsAdjuster : public AndroidCXX::java_lang_Object
 {
 public:
 

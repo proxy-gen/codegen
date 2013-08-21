@@ -46,7 +46,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_ViewTreeObserver_OnWindowAttachListener : public java_lang_Object
+class android_view_ViewTreeObserver_OnWindowAttachListener : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -51,7 +51,7 @@ class android_database_Cursor;
 
 class java_lang_CharSequence;
 
-class android_widget_SimpleCursorAdapter_CursorToStringConverter : public java_lang_Object
+class android_widget_SimpleCursorAdapter_CursorToStringConverter : public AndroidCXX::java_lang_Object
 {
 public:
 

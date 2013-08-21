@@ -93,7 +93,7 @@ class java_util_Map;
 
 class java_io_InputStream;
 
-class javax_security_auth_x500_X500Principal : public java_io_Serializable,public java_security_Principal
+class javax_security_auth_x500_X500Principal : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_security_Principal
 {
 public:
 

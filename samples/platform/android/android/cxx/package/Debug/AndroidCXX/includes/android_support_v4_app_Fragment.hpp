@@ -283,7 +283,7 @@ class android_util_AttributeSet;
 
 class android_support_v4_app_Fragment_SavedState;
 
-class android_support_v4_app_Fragment : public android_content_ComponentCallbacks,public android_view_View_OnCreateContextMenuListener
+class android_support_v4_app_Fragment : public AndroidCXX::android_content_ComponentCallbacks,public AndroidCXX::android_view_View_OnCreateContextMenuListener
 {
 public:
 
@@ -295,7 +295,7 @@ public:
 	// Default Destructor
 	virtual ~android_support_v4_app_Fragment();
 	// Functions
-	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3) ;
+	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3) ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::android_support_v4_app_FragmentActivity * getActivity() ;
 	virtual AndroidCXX::android_os_Bundle * getArguments() ;
@@ -307,7 +307,7 @@ public:
 	virtual AndroidCXX::android_support_v4_app_Fragment * getParentFragment() ;
 	virtual AndroidCXX::android_content_res_Resources * getResources() ;
 	virtual bool  getRetainInstance() ;
-	virtual AndroidCXX::java_lang_String * getString(int const& arg0,std::vector<java_lang_Object> const& arg1) ;
+	virtual AndroidCXX::java_lang_String * getString(int const& arg0,std::vector<AndroidCXX::java_lang_Object> const& arg1) ;
 	virtual AndroidCXX::java_lang_String * getString(int const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getTag() ;
 	virtual AndroidCXX::android_support_v4_app_Fragment * getTargetFragment() ;

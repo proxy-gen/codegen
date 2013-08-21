@@ -74,7 +74,7 @@ class android_util_AttributeSet;
 class android_view_ViewGroup_LayoutParams;
 
 
-class android_view_ViewGroup_MarginLayoutParams : public java_lang_Object
+class android_view_ViewGroup_MarginLayoutParams : public AndroidCXX::java_lang_Object
 {
 public:
 

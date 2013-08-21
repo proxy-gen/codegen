@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -40,6 +41,9 @@
 
 #include <java_lang_String.hpp>
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -59,22 +63,25 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_SharedPreferencesTokenCachingStrategy
+class com_facebook_SharedPreferencesTokenCachingStrategy : public AndroidCXX::java_lang_Object
 {
 public:
 
-	com_facebook_SharedPreferencesTokenCachingStrategy(const com_facebook_SharedPreferencesTokenCachingStrategy& cc);
-	com_facebook_SharedPreferencesTokenCachingStrategy(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context const& arg0);
 	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
+	com_facebook_SharedPreferencesTokenCachingStrategy(const com_facebook_SharedPreferencesTokenCachingStrategy& cc);
+	com_facebook_SharedPreferencesTokenCachingStrategy(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_SharedPreferencesTokenCachingStrategy();
 	// Functions
-	 void clear();
-	 AndroidCXX::android_os_Bundle load();
-	 void save(AndroidCXX::android_os_Bundle const& arg0);
+	virtual void  clear() ;
+	virtual AndroidCXX::android_os_Bundle * load() ;
+	virtual void  save(AndroidCXX::android_os_Bundle const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

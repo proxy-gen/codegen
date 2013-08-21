@@ -116,7 +116,7 @@ class android_content_Intent;
 
 class android_util_AttributeSet;
 
-class android_widget_AdapterViewAnimator : public android_widget_Advanceable
+class android_widget_AdapterViewAnimator : public AndroidCXX::android_widget_Advanceable
 {
 public:
 

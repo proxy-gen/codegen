@@ -70,7 +70,7 @@ class java_lang_String;
 
 class java_security_PermissionCollection;
 
-class java_security_Permission : public java_io_Serializable,public java_security_Guard
+class java_security_Permission : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_security_Guard
 {
 public:
 

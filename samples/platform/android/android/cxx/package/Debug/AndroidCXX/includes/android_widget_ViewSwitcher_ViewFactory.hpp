@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_widget_ViewSwitcher_ViewFactory : public java_lang_Object
+class android_widget_ViewSwitcher_ViewFactory : public AndroidCXX::java_lang_Object
 {
 public:
 

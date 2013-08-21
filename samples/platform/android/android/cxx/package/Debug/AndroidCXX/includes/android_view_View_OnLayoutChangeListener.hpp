@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_view_View_OnLayoutChangeListener : public java_lang_Object
+class android_view_View_OnLayoutChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 

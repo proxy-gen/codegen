@@ -52,7 +52,7 @@ namespace AndroidCXX {
 
 class android_os_Parcel;
 
-class android_view_inputmethod_ExtractedText : public android_os_Parcelable
+class android_view_inputmethod_ExtractedText : public AndroidCXX::android_os_Parcelable
 {
 public:
 

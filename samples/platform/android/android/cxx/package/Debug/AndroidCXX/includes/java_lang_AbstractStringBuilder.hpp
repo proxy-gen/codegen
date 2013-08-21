@@ -157,7 +157,7 @@ class java_lang_StringBuffer;
 
 class java_lang_String;
 
-class java_lang_AbstractStringBuilder : public java_lang_Appendable,public java_lang_CharSequence
+class java_lang_AbstractStringBuilder : public AndroidCXX::java_lang_Appendable,public AndroidCXX::java_lang_CharSequence
 {
 public:
 

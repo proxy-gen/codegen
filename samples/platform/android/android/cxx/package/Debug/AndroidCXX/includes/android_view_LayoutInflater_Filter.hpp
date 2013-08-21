@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class java_lang_Class;
 
-class android_view_LayoutInflater_Filter : public java_lang_Object
+class android_view_LayoutInflater_Filter : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -167,7 +167,7 @@ class java_nio_ByteOrder;
 
 class java_lang_String;
 
-class java_nio_ByteBuffer : public java_lang_Comparable
+class java_nio_ByteBuffer : public AndroidCXX::java_lang_Comparable
 {
 public:
 

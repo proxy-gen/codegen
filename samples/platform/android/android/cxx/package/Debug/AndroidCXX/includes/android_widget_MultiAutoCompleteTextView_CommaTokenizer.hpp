@@ -56,7 +56,7 @@ namespace AndroidCXX {
 
 class java_lang_CharSequence;
 
-class android_widget_MultiAutoCompleteTextView_CommaTokenizer : public android_widget_MultiAutoCompleteTextView_Tokenizer
+class android_widget_MultiAutoCompleteTextView_CommaTokenizer : public AndroidCXX::android_widget_MultiAutoCompleteTextView_Tokenizer
 {
 public:
 

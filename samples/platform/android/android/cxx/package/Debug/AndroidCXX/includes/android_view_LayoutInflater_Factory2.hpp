@@ -58,7 +58,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_view_LayoutInflater_Factory2 : public android_view_LayoutInflater_Factory
+class android_view_LayoutInflater_Factory2 : public AndroidCXX::android_view_LayoutInflater_Factory
 {
 public:
 

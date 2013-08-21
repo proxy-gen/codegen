@@ -89,7 +89,7 @@ class android_view_ViewGroup_OnHierarchyChangeListener;
 
 class android_content_Context;
 
-class android_widget_TableRow : public java_lang_Object
+class android_widget_TableRow : public AndroidCXX::java_lang_Object
 {
 public:
 

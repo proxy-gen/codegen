@@ -1387,10 +1387,12 @@ class ConfigModule(object):
 				namespaced_child_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=grand_child_type_name)				
 				for namespaced_child_class in namespaced_child_classes:					
 					child_clazz = namespaced_child_class["clazz"]
-					typeinfo['namespace'] = namespaced_child_class['namespace']
+					child_namespace = namespaced_child_class['namespace']
 					child_type_name = child_clazz['name']
 					child_type_name = Utils.to_class_name(child_type_name)					
-					typeinfo['typename'] = 'std::vector<std::vector<' + child_type_name + '> >'
+					child_qualified_type_name = child_namespace + '::' + child_type_name
+					typeinfo['namespace'] = child_namespace
+					typeinfo['typename'] = 'std::vector<std::vector<' + child_qualified_type_name + '> >'
 					typeinfo['typeconverter'] = 'convert_' + child_type_name + '_array_array'
 			elif type_config['converter'] == 'convert__object_array':
 				child_type_config = type_config['children'][0]
@@ -1398,10 +1400,12 @@ class ConfigModule(object):
 				namespaced_child_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=child_type_config['type'])
 				for namespaced_child_class in namespaced_child_classes:					
 					child_clazz = namespaced_child_class["clazz"]
-					typeinfo['namespace'] = namespaced_child_class['namespace']
 					child_type_name = child_clazz['name']
 					child_type_name = Utils.to_class_name(child_type_name)					
-					typeinfo['typename'] = 'std::vector<' + child_type_name + '>'
+					child_namespace = namespaced_child_class['namespace']
+					child_qualified_type_name = child_namespace + '::' + child_type_name
+					typeinfo['namespace'] = child_namespace
+					typeinfo['typename'] = 'std::vector<' + child_qualified_type_name + '>'
 					typeinfo['typeconverter'] = 'convert_' + child_type_name + '_array'
 			else:
 				converters = self.list_all_converters(name=type_config['converter'],cxx_type=None,java_type=None)

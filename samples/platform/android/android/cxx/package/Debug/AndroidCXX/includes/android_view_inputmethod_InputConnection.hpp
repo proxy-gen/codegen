@@ -93,7 +93,7 @@ class android_os_Bundle;
 
 class android_view_KeyEvent;
 
-class android_view_inputmethod_InputConnection : public java_lang_Object
+class android_view_inputmethod_InputConnection : public AndroidCXX::java_lang_Object
 {
 public:
 

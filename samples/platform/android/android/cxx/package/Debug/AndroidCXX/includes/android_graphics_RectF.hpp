@@ -116,7 +116,7 @@ class android_graphics_Rect;
 
 class java_lang_String;
 
-class android_graphics_RectF : public android_os_Parcelable
+class android_graphics_RectF : public AndroidCXX::android_os_Parcelable
 {
 public:
 

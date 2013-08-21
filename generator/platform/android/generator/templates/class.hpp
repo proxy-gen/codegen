@@ -24,6 +24,7 @@
 #set $SPACE = " "
 #set $COMMA = ","
 #set $COLON = ":" 
+#set $DOUBLE_COLON = "::"
 #set $CONST = "const"
 #set $REF = "&"
 #set $PUBLIC = "public"
@@ -35,6 +36,7 @@
 #set $entity_class_name = $CONFIG.entity_class_name
 #set $class_name = $CONFIG.class_name
 #set $entity_head_file_name = $CONFIG.entity_head_file_name
+#set $entity_namespace = $entity_class_info['namespace']
 #set $entity_marker = $entity_class_info['isinterface'] or $entity_class_info['isabstract'] or $entity_class_info['typename'] == 'java_lang_Object' 
 #set $entity_virtual = $entity_marker or '_callback' in $entity_class_config['tags']
 #set $superclass_typeinfos = $entity_class_info['superclasses'] if 'superclasses' in $entity_class_info else None
@@ -58,10 +60,10 @@
 #set $superclassProxyStr = $superclassProxyStr + COMMA
 #set $superclassDefaultStr = $superclassDefaultStr + COMMA
 #end if
-#set $superclassStr = $superclassStr + $PUBLIC + SPACE + $superclass_typeinfo['typename']
-#set $superclassCCStr = $superclassCCStr + SPACE + $superclass_typeinfo['typename'] + '(cc)'
-#set $superclassProxyStr = $superclassProxyStr + SPACE + $superclass_typeinfo['typename'] + '(proxy)'
-#set $superclassDefaultStr = $superclassDefaultStr + SPACE + $superclass_typeinfo['typename'] + '()' 
+#set $superclassStr = $superclassStr + $PUBLIC + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename']
+#set $superclassCCStr = $superclassCCStr + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename'] + '(cc)'
+#set $superclassProxyStr = $superclassProxyStr + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename'] + '(proxy)'
+#set $superclassDefaultStr = $superclassDefaultStr + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename'] + '()' 
 #end if
 #set $superclassIdx = $superclassIdx + 1
 #end for
@@ -218,6 +220,7 @@ $proxied_typeinfos.extend(constructor['proxied_typeinfo_list'])
 #set $included_types = list()
 #for $proxied_typeinfo in $proxied_typeinfos
 #set $proxied_type = $proxied_typeinfo['typename']
+#set $proxied_namespace = $proxied_typeinfo['namespace']
 #if $entity_head_file_name != $proxied_typeinfo['filename']
 #if $proxied_typeinfo['isenum'] == True
 #if $proxied_typeinfo['filename'] not in $included_types
@@ -225,8 +228,13 @@ $included_types.append($proxied_typeinfo['filename'])
 \#include <$proxied_typeinfo['filename']>
 #end if
 #else
-#if not $entity_virtual
 #if $proxied_typeinfo['filename'] not in $included_types
+#if $entity_virtual
+#if not $proxied_namespace == $entity_namespace
+$included_types.append($proxied_typeinfo['filename'])
+\#include <$proxied_typeinfo['filename']>
+#end if
+#else
 $included_types.append($proxied_typeinfo['filename'])
 \#include <$proxied_typeinfo['filename']>
 #end if

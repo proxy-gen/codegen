@@ -63,7 +63,7 @@ class java_util_Enumeration;
 
 class java_lang_String;
 
-class java_security_PermissionCollection : public java_io_Serializable
+class java_security_PermissionCollection : public AndroidCXX::java_io_Serializable
 {
 public:
 

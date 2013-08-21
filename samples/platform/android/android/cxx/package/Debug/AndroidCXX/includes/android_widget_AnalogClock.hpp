@@ -60,7 +60,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_AnalogClock : public java_lang_Object
+class android_widget_AnalogClock : public AndroidCXX::java_lang_Object
 {
 public:
 

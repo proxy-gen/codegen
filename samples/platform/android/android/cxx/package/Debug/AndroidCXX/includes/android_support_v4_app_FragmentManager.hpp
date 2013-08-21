@@ -122,7 +122,7 @@ public:
 	// Functions
 	virtual void  addOnBackStackChangedListener(AndroidCXX::android_support_v4_app_FragmentManager_OnBackStackChangedListener const& arg0) ;
 	virtual AndroidCXX::android_support_v4_app_FragmentTransaction * beginTransaction() ;
-	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3) ;
+	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3) ;
 	static void  enableDebugLogging(bool const& arg0) ;
 	virtual bool  executePendingTransactions() ;
 	virtual AndroidCXX::android_support_v4_app_Fragment * findFragmentById(int const& arg0) ;

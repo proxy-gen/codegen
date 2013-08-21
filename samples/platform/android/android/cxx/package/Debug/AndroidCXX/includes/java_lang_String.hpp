@@ -248,7 +248,7 @@ class java_nio_charset_Charset;
 
 class java_lang_StringBuilder;
 
-class java_lang_String : public java_io_Serializable,public java_lang_CharSequence,public java_lang_Comparable
+class java_lang_String : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_CharSequence,public AndroidCXX::java_lang_Comparable
 {
 public:
 
@@ -288,8 +288,8 @@ public:
 	virtual bool  endsWith(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  equalsIgnoreCase(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	static AndroidCXX::java_lang_String * format(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_Object> const& arg1) ;
-	static AndroidCXX::java_lang_String * format(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<java_lang_Object> const& arg2) ;
+	static AndroidCXX::java_lang_String * format(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Object> const& arg1) ;
+	static AndroidCXX::java_lang_String * format(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_Object> const& arg2) ;
 	virtual void  getBytes(int const& arg0,int const& arg1,std::vector<byte> const& arg2,int const& arg3) ;
 	virtual std::vector<byte>  getBytes(AndroidCXX::java_lang_String const& arg0) ;
 	virtual std::vector<byte>  getBytes(AndroidCXX::java_nio_charset_Charset const& arg0) ;
@@ -315,8 +315,8 @@ public:
 	virtual AndroidCXX::java_lang_String * replaceFirst(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual AndroidCXX::java_lang_String * replace(char const& arg0,char const& arg1) ;
 	virtual AndroidCXX::java_lang_String * replace(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) ;
-	virtual std::vector<java_lang_String>  split(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
-	virtual std::vector<java_lang_String>  split(AndroidCXX::java_lang_String const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_String>  split(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	virtual std::vector<AndroidCXX::java_lang_String>  split(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  startsWith(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual bool  startsWith(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_CharSequence * subSequence(int const& arg0,int const& arg1) ;

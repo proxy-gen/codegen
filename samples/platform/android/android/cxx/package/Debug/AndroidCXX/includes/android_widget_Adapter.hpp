@@ -67,7 +67,7 @@ class android_view_ViewGroup;
 
 class android_database_DataSetObserver;
 
-class android_widget_Adapter : public java_lang_Object
+class android_widget_Adapter : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -56,7 +56,7 @@ class android_os_Parcel;
 
 class android_os_Parcelable;
 
-class android_view_View_BaseSavedState : public java_lang_Object
+class android_view_View_BaseSavedState : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -162,7 +162,7 @@ class android_view_KeyCharacterMap_KeyData;
 
 class android_os_Parcel;
 
-class android_view_KeyEvent : public android_os_Parcelable
+class android_view_KeyEvent : public AndroidCXX::android_os_Parcelable
 {
 public:
 

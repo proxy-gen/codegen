@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_animation_ValueAnimator;
 
-class android_animation_ValueAnimator_AnimatorUpdateListener : public java_lang_Object
+class android_animation_ValueAnimator_AnimatorUpdateListener : public AndroidCXX::java_lang_Object
 {
 public:
 

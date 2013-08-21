@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_content_ComponentCallbacks2 : public android_content_ComponentCallbacks
+class android_content_ComponentCallbacks2 : public AndroidCXX::android_content_ComponentCallbacks
 {
 public:
 

@@ -243,7 +243,7 @@ class java_math_BigInteger;
 
 class java_lang_String;
 
-class java_math_BigDecimal : public java_lang_Comparable
+class java_math_BigDecimal : public AndroidCXX::java_lang_Comparable
 {
 public:
 
@@ -276,8 +276,8 @@ public:
 	virtual AndroidCXX::java_math_BigDecimal * add(AndroidCXX::java_math_BigDecimal const& arg0) ;
 	virtual byte  byteValueExact() ;
 	virtual int  compareTo(AndroidCXX::java_math_BigDecimal const& arg0) ;
-	virtual std::vector<java_math_BigDecimal>  divideAndRemainder(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) ;
-	virtual std::vector<java_math_BigDecimal>  divideAndRemainder(AndroidCXX::java_math_BigDecimal const& arg0) ;
+	virtual std::vector<AndroidCXX::java_math_BigDecimal>  divideAndRemainder(AndroidCXX::java_math_BigDecimal const& arg0,AndroidCXX::java_math_MathContext const& arg1) ;
+	virtual std::vector<AndroidCXX::java_math_BigDecimal>  divideAndRemainder(AndroidCXX::java_math_BigDecimal const& arg0) ;
 	virtual AndroidCXX::java_math_BigDecimal * divide(AndroidCXX::java_math_BigDecimal const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_math_BigDecimal * divide(AndroidCXX::java_math_BigDecimal const& arg0,int const& arg1,java_math_RoundingMode::java_math_RoundingMode const& arg2) ;
 	virtual AndroidCXX::java_math_BigDecimal * divide(AndroidCXX::java_math_BigDecimal const& arg0,int const& arg1) ;

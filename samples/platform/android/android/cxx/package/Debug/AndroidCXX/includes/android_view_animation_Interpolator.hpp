@@ -44,7 +44,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_animation_Interpolator : public android_animation_TimeInterpolator
+class android_view_animation_Interpolator : public AndroidCXX::android_animation_TimeInterpolator
 {
 public:
 

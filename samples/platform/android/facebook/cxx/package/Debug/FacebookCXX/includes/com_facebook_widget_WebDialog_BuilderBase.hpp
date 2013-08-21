@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,10 +8,11 @@
 //
 
 
+
 	
- 	
  		 
 	
+ 	
  		 
 	
  	
@@ -35,12 +36,12 @@
 //
 
 
-
-#include <java_lang_Object.hpp>
-
 #include <com_facebook_widget_WebDialog.hpp>
 
 #include <com_facebook_widget_WebDialog_OnCompleteListener.hpp>
+
+#include <java_lang_Object.hpp>
+
 
 #include <vector>
 #include <map>
@@ -58,27 +59,29 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_widget_WebDialog_BuilderBase;
-
-
 class com_facebook_widget_WebDialog;
 
 class com_facebook_widget_WebDialog_OnCompleteListener;
 
-class com_facebook_widget_WebDialog_BuilderBase
+
+
+class com_facebook_widget_WebDialog_BuilderBase 
 {
 public:
 
+	// Public ConstrucXXX
 	com_facebook_widget_WebDialog_BuilderBase(const com_facebook_widget_WebDialog_BuilderBase& cc);
 	com_facebook_widget_WebDialog_BuilderBase(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_BuilderBase();
 	// Functions
-	 FacebookCXX::com_facebook_widget_WebDialog_BuilderBase setTheme(int const& arg0);
-	 FacebookCXX::com_facebook_widget_WebDialog build();
-	 FacebookCXX::com_facebook_widget_WebDialog_BuilderBase setOnCompleteListener(FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener const& arg0);
+	virtual FacebookCXX::com_facebook_widget_WebDialog * build() ;
+	virtual FacebookCXX::com_facebook_widget_WebDialog_BuilderBase * setOnCompleteListener(FacebookCXX::com_facebook_widget_WebDialog_OnCompleteListener const& arg0) ;
+	virtual FacebookCXX::com_facebook_widget_WebDialog_BuilderBase * setTheme(int const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

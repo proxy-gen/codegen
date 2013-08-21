@@ -347,7 +347,7 @@ class java_util_Set;
 
 class android_os_Parcel;
 
-class android_os_Bundle : public android_os_Parcelable,public java_lang_Cloneable
+class android_os_Bundle : public AndroidCXX::android_os_Parcelable,public AndroidCXX::java_lang_Cloneable
 {
 public:
 
@@ -377,7 +377,7 @@ public:
 	virtual char  getChar(AndroidCXX::java_lang_String const& arg0,char const& arg1) ;
 	virtual char  getChar(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_util_ArrayList * getCharSequenceArrayList(AndroidCXX::java_lang_String const& arg0) ;
-	virtual std::vector<java_lang_CharSequence>  getCharSequenceArray(AndroidCXX::java_lang_String const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_CharSequence>  getCharSequenceArray(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_CharSequence * getCharSequence(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) ;
 	virtual AndroidCXX::java_lang_CharSequence * getCharSequence(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_ClassLoader * getClassLoader() ;
@@ -396,7 +396,7 @@ public:
 	virtual long  getLong(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_Object * get(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_util_ArrayList * getParcelableArrayList(AndroidCXX::java_lang_String const& arg0) ;
-	virtual std::vector<android_os_Parcelable>  getParcelableArray(AndroidCXX::java_lang_String const& arg0) ;
+	virtual std::vector<AndroidCXX::android_os_Parcelable>  getParcelableArray(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_os_Parcelable * getParcelable(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_io_Serializable * getSerializable(AndroidCXX::java_lang_String const& arg0) ;
 	virtual std::vector<short>  getShortArray(AndroidCXX::java_lang_String const& arg0) ;
@@ -404,7 +404,7 @@ public:
 	virtual short  getShort(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_util_SparseArray * getSparseParcelableArray(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_util_ArrayList * getStringArrayList(AndroidCXX::java_lang_String const& arg0) ;
-	virtual std::vector<java_lang_String>  getStringArray(AndroidCXX::java_lang_String const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_String>  getStringArray(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual AndroidCXX::java_lang_String * getString(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  hasFileDescriptors() ;
@@ -420,7 +420,7 @@ public:
 	virtual void  putCharArray(AndroidCXX::java_lang_String const& arg0,std::vector<char> const& arg1) ;
 	virtual void  putChar(AndroidCXX::java_lang_String const& arg0,char const& arg1) ;
 	virtual void  putCharSequenceArrayList(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) ;
-	virtual void  putCharSequenceArray(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_CharSequence> const& arg1) ;
+	virtual void  putCharSequenceArray(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_CharSequence> const& arg1) ;
 	virtual void  putCharSequence(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_CharSequence const& arg1) ;
 	virtual void  putDoubleArray(AndroidCXX::java_lang_String const& arg0,std::vector<double> const& arg1) ;
 	virtual void  putDouble(AndroidCXX::java_lang_String const& arg0,double const& arg1) ;
@@ -432,14 +432,14 @@ public:
 	virtual void  putLongArray(AndroidCXX::java_lang_String const& arg0,std::vector<long> const& arg1) ;
 	virtual void  putLong(AndroidCXX::java_lang_String const& arg0,long const& arg1) ;
 	virtual void  putParcelableArrayList(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) ;
-	virtual void  putParcelableArray(AndroidCXX::java_lang_String const& arg0,std::vector<android_os_Parcelable> const& arg1) ;
+	virtual void  putParcelableArray(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::android_os_Parcelable> const& arg1) ;
 	virtual void  putParcelable(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Parcelable const& arg1) ;
 	virtual void  putSerializable(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_Serializable const& arg1) ;
 	virtual void  putShortArray(AndroidCXX::java_lang_String const& arg0,std::vector<short> const& arg1) ;
 	virtual void  putShort(AndroidCXX::java_lang_String const& arg0,short const& arg1) ;
 	virtual void  putSparseParcelableArray(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_util_SparseArray const& arg1) ;
 	virtual void  putStringArrayList(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_ArrayList const& arg1) ;
-	virtual void  putStringArray(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_String> const& arg1) ;
+	virtual void  putStringArray(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_String> const& arg1) ;
 	virtual void  putString(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual void  readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
 	virtual void  remove(AndroidCXX::java_lang_String const& arg0) ;

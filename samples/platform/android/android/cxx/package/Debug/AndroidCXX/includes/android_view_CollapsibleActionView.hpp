@@ -46,7 +46,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_CollapsibleActionView : public java_lang_Object
+class android_view_CollapsibleActionView : public AndroidCXX::java_lang_Object
 {
 public:
 

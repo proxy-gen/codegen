@@ -47,7 +47,7 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class android_widget_WrapperListAdapter : public android_widget_ListAdapter
+class android_widget_WrapperListAdapter : public AndroidCXX::android_widget_ListAdapter
 {
 public:
 

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <com_facebook_AuthorizationClient_Result.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,21 @@ namespace FacebookCXX {
 
 class com_facebook_AuthorizationClient_Result;
 
-class com_facebook_AuthorizationClient_OnCompletedListener
+class com_facebook_AuthorizationClient_OnCompletedListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_AuthorizationClient_OnCompletedListener(const com_facebook_AuthorizationClient_OnCompletedListener& cc);
 	com_facebook_AuthorizationClient_OnCompletedListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_OnCompletedListener();
 	// Functions
-	 void onCompleted(FacebookCXX::com_facebook_AuthorizationClient_Result const& arg0);
+	virtual void  onCompleted(FacebookCXX::com_facebook_AuthorizationClient_Result const& arg0) ;
+
+protected:
+	com_facebook_AuthorizationClient_OnCompletedListener();
+
 };	
 
 } // namespace

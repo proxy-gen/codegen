@@ -82,7 +82,7 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_content_res_ColorStateList : public android_os_Parcelable
+class android_content_res_ColorStateList : public AndroidCXX::android_os_Parcelable
 {
 public:
 

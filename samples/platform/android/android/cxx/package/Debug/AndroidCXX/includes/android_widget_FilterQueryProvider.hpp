@@ -51,7 +51,7 @@ class java_lang_CharSequence;
 
 class android_database_Cursor;
 
-class android_widget_FilterQueryProvider : public java_lang_Object
+class android_widget_FilterQueryProvider : public AndroidCXX::java_lang_Object
 {
 public:
 

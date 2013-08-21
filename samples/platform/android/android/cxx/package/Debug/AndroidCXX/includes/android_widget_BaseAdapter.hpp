@@ -69,7 +69,7 @@ class android_view_ViewGroup;
 
 class android_database_DataSetObserver;
 
-class android_widget_BaseAdapter : public android_widget_ListAdapter,public android_widget_SpinnerAdapter
+class android_widget_BaseAdapter : public AndroidCXX::android_widget_ListAdapter,public AndroidCXX::android_widget_SpinnerAdapter
 {
 public:
 

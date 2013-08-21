@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <com_facebook_model_GraphUser.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,21 @@ namespace FacebookCXX {
 
 class com_facebook_model_GraphUser;
 
-class com_facebook_widget_LoginButton_UserInfoChangedCallback
+class com_facebook_widget_LoginButton_UserInfoChangedCallback : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_widget_LoginButton_UserInfoChangedCallback(const com_facebook_widget_LoginButton_UserInfoChangedCallback& cc);
 	com_facebook_widget_LoginButton_UserInfoChangedCallback(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_UserInfoChangedCallback();
 	// Functions
-	 void onUserInfoFetched(FacebookCXX::com_facebook_model_GraphUser const& arg0);
+	virtual void  onUserInfoFetched(FacebookCXX::com_facebook_model_GraphUser const& arg0) ;
+
+protected:
+	com_facebook_widget_LoginButton_UserInfoChangedCallback();
+
 };	
 
 } // namespace

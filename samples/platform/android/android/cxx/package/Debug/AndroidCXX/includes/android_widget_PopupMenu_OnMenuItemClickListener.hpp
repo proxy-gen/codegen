@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_view_MenuItem;
 
-class android_widget_PopupMenu_OnMenuItemClickListener : public java_lang_Object
+class android_widget_PopupMenu_OnMenuItemClickListener : public AndroidCXX::java_lang_Object
 {
 public:
 

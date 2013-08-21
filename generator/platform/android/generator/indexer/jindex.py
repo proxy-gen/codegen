@@ -480,6 +480,7 @@ class TypeHierarchy(Structure):
 class Modifier(object):
 	UNKNOWN = 0
 	JAVA_PUBLIC = 1
+	JAVA_PRIVATE = 2
 	JAVA_STATIC = 8
 	JAVA_FINAL = 16
 	JAVA_INTERFACE = 512
@@ -898,40 +899,29 @@ class TranslationUnit(JavaObject):
 				if '_callback' in tags:
 					tags.remove('_callback')
 				tags.append('_no_callback')
+			elif not Modifier.is_modifier(modifiers, Modifier.JAVA_PUBLIC):
+				if '_callback' in tags:
+					tags.remove('_callback')
+				tags.append('_no_callback')
 			type_kind = TypeKind.from_id(_type)
 			if type_kind == TypeKind.JAVA_ENUM:
-				tags[:] = list()
 				tags.append("_enum")
 			elif type_kind == TypeKind.JAVA_INTERFACE:
-				tags[:] = list()
 				tags.append("_interface")
 			elif type_kind == TypeKind.JAVA_ABSTRACT:
-				if "callback" in tags:
-					tags[:] = list()
-					tags.append("_callback")
-				else:
-					tags[:] = list()
 				tags.append("_abstract")
 			elif type_kind == TypeKind.JAVA_INSTANCE:
-				if "callback" in tags:
-					tags[:] = list()
-					tags.append("_callback")
-				else:
-					tags[:] = list()
 				tags.append("_instance")
 			elif type_kind == TypeKind.JAVA_STATIC_METHODS:
-				tags[:] = list()
 				tags.append("_static")
 			elif type_kind == TypeKind.JAVA_SINGLETON_INSTANCE:
-				tags[:] = list()
 				tags.append("_instance")
 				tags.append("_singleton")
 			elif type_kind == TypeKind.JAVA_SINGLETON_FIELD:
-				tags[:] = list()
 				tags.append("_instance")
 				tags.append("_singleton")
 			elif type_kind == TypeKind.JAVA_NOT_INSTANTIATABLE:
-				tags[:] = list()
+				pass
 			if "_no_proxy" in tags:
 				tags.remove("_no_proxy")
 			tags.append("_proxy")
@@ -980,6 +970,10 @@ class TranslationUnit(JavaObject):
 			tags.append("_no_proxy")
 		else:
 			if Modifier.is_modifier(modifiers, Modifier.JAVA_FINAL):
+				if '_callback' in tags:
+					tags.remove('_callback')
+				tags.append('_no_callback')
+			elif not Modifier.is_modifier(modifiers, Modifier.JAVA_PUBLIC):
 				if '_callback' in tags:
 					tags.remove('_callback')
 				tags.append('_no_callback')
@@ -1153,9 +1147,8 @@ class TranslationUnit(JavaObject):
 				new_tags.remove('_proxy')
 			new_tags.append('_no_proxy')
 		if '_callback' in old_tags and '_callback' not in new_tags:
-			if '_no_callback' in new_tags:
-				new_tags.remove('_no_callback')
-			new_tags.append('_callback')
+			if not '_no_callback' in new_tags:
+				new_tags.append('_callback')
 
 	@classmethod
 	def _build_signatures_in_class_hierarchy(cls, classes):

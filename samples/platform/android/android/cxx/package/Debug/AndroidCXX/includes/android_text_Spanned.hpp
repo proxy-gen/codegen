@@ -62,7 +62,7 @@ class java_lang_Object;
 
 class java_lang_Class;
 
-class android_text_Spanned : public java_lang_CharSequence
+class android_text_Spanned : public AndroidCXX::java_lang_CharSequence
 {
 public:
 
@@ -75,7 +75,7 @@ public:
 	virtual int  getSpanEnd(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual int  getSpanFlags(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual int  getSpanStart(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual std::vector<java_lang_Object>  getSpans(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2) ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  getSpans(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2) ;
 	virtual int  nextSpanTransition(int const& arg0,int const& arg1,AndroidCXX::java_lang_Class const& arg2) ;
 
 protected:

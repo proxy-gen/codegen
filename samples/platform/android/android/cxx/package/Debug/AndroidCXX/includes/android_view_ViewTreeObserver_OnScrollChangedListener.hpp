@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_ViewTreeObserver_OnScrollChangedListener : public java_lang_Object
+class android_view_ViewTreeObserver_OnScrollChangedListener : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -543,7 +543,7 @@ class android_text_Spannable_Factory;
 
 class android_util_AttributeSet;
 
-class android_widget_TextView : public android_view_ViewTreeObserver_OnPreDrawListener
+class android_widget_TextView : public AndroidCXX::android_view_ViewTreeObserver_OnPreDrawListener
 {
 public:
 
@@ -573,8 +573,8 @@ public:
 	virtual int  getAutoLinkMask() ;
 	virtual int  getBaseline() ;
 	virtual int  getCompoundDrawablePadding() ;
-	virtual std::vector<android_graphics_drawable_Drawable>  getCompoundDrawables() ;
-	virtual std::vector<android_graphics_drawable_Drawable>  getCompoundDrawablesRelative() ;
+	virtual std::vector<AndroidCXX::android_graphics_drawable_Drawable>  getCompoundDrawables() ;
+	virtual std::vector<AndroidCXX::android_graphics_drawable_Drawable>  getCompoundDrawablesRelative() ;
 	virtual int  getCompoundPaddingBottom() ;
 	virtual int  getCompoundPaddingEnd() ;
 	virtual int  getCompoundPaddingLeft() ;
@@ -589,7 +589,7 @@ public:
 	virtual AndroidCXX::java_lang_CharSequence * getError() ;
 	virtual int  getExtendedPaddingBottom() ;
 	virtual int  getExtendedPaddingTop() ;
-	virtual std::vector<android_text_InputFilter>  getFilters() ;
+	virtual std::vector<AndroidCXX::android_text_InputFilter>  getFilters() ;
 	virtual void  getFocusedRect(AndroidCXX::android_graphics_Rect const& arg0) ;
 	virtual bool  getFreezesText() ;
 	virtual int  getGravity() ;
@@ -646,7 +646,7 @@ public:
 	virtual int  getTotalPaddingTop() ;
 	virtual AndroidCXX::android_text_method_TransformationMethod * getTransformationMethod() ;
 	virtual AndroidCXX::android_graphics_Typeface * getTypeface() ;
-	virtual std::vector<android_text_style_URLSpan>  getUrls() ;
+	virtual std::vector<AndroidCXX::android_text_style_URLSpan>  getUrls() ;
 	virtual bool  hasOverlappingRendering() ;
 	virtual bool  hasSelection() ;
 	virtual void  invalidateDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
@@ -708,7 +708,7 @@ public:
 	virtual void  setError(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_graphics_drawable_Drawable const& arg1) ;
 	virtual void  setError(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual void  setExtractedText(AndroidCXX::android_view_inputmethod_ExtractedText const& arg0) ;
-	virtual void  setFilters(std::vector<android_text_InputFilter> const& arg0) ;
+	virtual void  setFilters(std::vector<AndroidCXX::android_text_InputFilter> const& arg0) ;
 	virtual void  setFreezesText(bool const& arg0) ;
 	virtual void  setGravity(int const& arg0) ;
 	virtual void  setHeight(int const& arg0) ;

@@ -68,7 +68,7 @@ class java_lang_Object;
 
 class java_lang_String;
 
-class java_math_MathContext : public java_io_Serializable
+class java_math_MathContext : public AndroidCXX::java_io_Serializable
 {
 public:
 

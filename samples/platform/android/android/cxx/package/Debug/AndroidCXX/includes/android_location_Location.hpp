@@ -119,7 +119,7 @@ class android_os_Bundle;
 
 class android_os_Parcel;
 
-class android_location_Location : public android_os_Parcelable
+class android_location_Location : public AndroidCXX::android_os_Parcelable
 {
 public:
 

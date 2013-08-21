@@ -210,7 +210,7 @@ class android_os_Parcel;
 
 class org_xmlpull_v1_XmlSerializer;
 
-class android_content_IntentFilter : public android_os_Parcelable
+class android_content_IntentFilter : public AndroidCXX::android_os_Parcelable
 {
 public:
 

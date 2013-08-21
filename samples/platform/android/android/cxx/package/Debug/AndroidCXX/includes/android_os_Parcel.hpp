@@ -360,7 +360,7 @@ public:
 	// Functions
 	virtual void  appendFrom(AndroidCXX::android_os_Parcel const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_util_ArrayList * createBinderArrayList() ;
-	virtual std::vector<android_os_IBinder>  createBinderArray() ;
+	virtual std::vector<AndroidCXX::android_os_IBinder>  createBinderArray() ;
 	virtual std::vector<bool>  createBooleanArray() ;
 	virtual std::vector<byte>  createByteArray() ;
 	virtual std::vector<char>  createCharArray() ;
@@ -369,9 +369,9 @@ public:
 	virtual std::vector<int>  createIntArray() ;
 	virtual std::vector<long>  createLongArray() ;
 	virtual AndroidCXX::java_util_ArrayList * createStringArrayList() ;
-	virtual std::vector<java_lang_String>  createStringArray() ;
+	virtual std::vector<AndroidCXX::java_lang_String>  createStringArray() ;
 	virtual AndroidCXX::java_util_ArrayList * createTypedArrayList(AndroidCXX::android_os_Parcelable_Creator const& arg0) ;
-	virtual std::vector<java_lang_Object>  createTypedArray(AndroidCXX::android_os_Parcelable_Creator const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  createTypedArray(AndroidCXX::android_os_Parcelable_Creator const& arg0) ;
 	virtual int  dataAvail() ;
 	virtual int  dataCapacity() ;
 	virtual int  dataPosition() ;
@@ -381,8 +381,8 @@ public:
 	virtual std::vector<byte>  marshall() ;
 	static AndroidCXX::android_os_Parcel * obtain() ;
 	virtual AndroidCXX::java_util_ArrayList * readArrayList(AndroidCXX::java_lang_ClassLoader const& arg0) ;
-	virtual std::vector<java_lang_Object>  readArray(AndroidCXX::java_lang_ClassLoader const& arg0) ;
-	virtual void  readBinderArray(std::vector<android_os_IBinder> const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  readArray(AndroidCXX::java_lang_ClassLoader const& arg0) ;
+	virtual void  readBinderArray(std::vector<AndroidCXX::android_os_IBinder> const& arg0) ;
 	virtual void  readBinderList(AndroidCXX::java_util_List const& arg0) ;
 	virtual void  readBooleanArray(std::vector<bool> const& arg0) ;
 	virtual AndroidCXX::android_os_Bundle * readBundle(AndroidCXX::java_lang_ClassLoader const& arg0) ;
@@ -404,16 +404,16 @@ public:
 	virtual void  readLongArray(std::vector<long> const& arg0) ;
 	virtual long  readLong() ;
 	virtual void  readMap(AndroidCXX::java_util_Map const& arg0,AndroidCXX::java_lang_ClassLoader const& arg1) ;
-	virtual std::vector<android_os_Parcelable>  readParcelableArray(AndroidCXX::java_lang_ClassLoader const& arg0) ;
+	virtual std::vector<AndroidCXX::android_os_Parcelable>  readParcelableArray(AndroidCXX::java_lang_ClassLoader const& arg0) ;
 	virtual AndroidCXX::android_os_Parcelable * readParcelable(AndroidCXX::java_lang_ClassLoader const& arg0) ;
 	virtual AndroidCXX::java_io_Serializable * readSerializable() ;
 	virtual AndroidCXX::android_util_SparseArray * readSparseArray(AndroidCXX::java_lang_ClassLoader const& arg0) ;
 	virtual AndroidCXX::android_util_SparseBooleanArray * readSparseBooleanArray() ;
-	virtual void  readStringArray(std::vector<java_lang_String> const& arg0) ;
+	virtual void  readStringArray(std::vector<AndroidCXX::java_lang_String> const& arg0) ;
 	virtual void  readStringList(AndroidCXX::java_util_List const& arg0) ;
 	virtual AndroidCXX::java_lang_String * readString() ;
 	virtual AndroidCXX::android_os_IBinder * readStrongBinder() ;
-	virtual void  readTypedArray(std::vector<java_lang_Object> const& arg0,AndroidCXX::android_os_Parcelable_Creator const& arg1) ;
+	virtual void  readTypedArray(std::vector<AndroidCXX::java_lang_Object> const& arg0,AndroidCXX::android_os_Parcelable_Creator const& arg1) ;
 	virtual void  readTypedList(AndroidCXX::java_util_List const& arg0,AndroidCXX::android_os_Parcelable_Creator const& arg1) ;
 	virtual AndroidCXX::java_lang_Object * readValue(AndroidCXX::java_lang_ClassLoader const& arg0) ;
 	virtual void  recycle() ;
@@ -421,8 +421,8 @@ public:
 	virtual void  setDataPosition(int const& arg0) ;
 	virtual void  setDataSize(int const& arg0) ;
 	virtual void  unmarshall(std::vector<byte> const& arg0,int const& arg1,int const& arg2) ;
-	virtual void  writeArray(std::vector<java_lang_Object> const& arg0) ;
-	virtual void  writeBinderArray(std::vector<android_os_IBinder> const& arg0) ;
+	virtual void  writeArray(std::vector<AndroidCXX::java_lang_Object> const& arg0) ;
+	virtual void  writeBinderArray(std::vector<AndroidCXX::android_os_IBinder> const& arg0) ;
 	virtual void  writeBinderList(AndroidCXX::java_util_List const& arg0) ;
 	virtual void  writeBooleanArray(std::vector<bool> const& arg0) ;
 	virtual void  writeBundle(AndroidCXX::android_os_Bundle const& arg0) ;
@@ -444,17 +444,17 @@ public:
 	virtual void  writeLong(long const& arg0) ;
 	virtual void  writeMap(AndroidCXX::java_util_Map const& arg0) ;
 	virtual void  writeNoException() ;
-	virtual void  writeParcelableArray(std::vector<android_os_Parcelable> const& arg0,int const& arg1) ;
+	virtual void  writeParcelableArray(std::vector<AndroidCXX::android_os_Parcelable> const& arg0,int const& arg1) ;
 	virtual void  writeParcelable(AndroidCXX::android_os_Parcelable const& arg0,int const& arg1) ;
 	virtual void  writeSerializable(AndroidCXX::java_io_Serializable const& arg0) ;
 	virtual void  writeSparseArray(AndroidCXX::android_util_SparseArray const& arg0) ;
 	virtual void  writeSparseBooleanArray(AndroidCXX::android_util_SparseBooleanArray const& arg0) ;
-	virtual void  writeStringArray(std::vector<java_lang_String> const& arg0) ;
+	virtual void  writeStringArray(std::vector<AndroidCXX::java_lang_String> const& arg0) ;
 	virtual void  writeStringList(AndroidCXX::java_util_List const& arg0) ;
 	virtual void  writeString(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  writeStrongBinder(AndroidCXX::android_os_IBinder const& arg0) ;
 	virtual void  writeStrongInterface(AndroidCXX::android_os_IInterface const& arg0) ;
-	virtual void  writeTypedArray(std::vector<android_os_Parcelable> const& arg0,int const& arg1) ;
+	virtual void  writeTypedArray(std::vector<AndroidCXX::android_os_Parcelable> const& arg0,int const& arg1) ;
 	virtual void  writeTypedList(AndroidCXX::java_util_List const& arg0) ;
 	virtual void  writeValue(AndroidCXX::java_lang_Object const& arg0) ;
 

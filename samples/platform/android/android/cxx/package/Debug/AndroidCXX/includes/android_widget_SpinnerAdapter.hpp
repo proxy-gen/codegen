@@ -52,7 +52,7 @@ class android_view_View;
 
 class android_view_ViewGroup;
 
-class android_widget_SpinnerAdapter : public android_widget_Adapter
+class android_widget_SpinnerAdapter : public AndroidCXX::android_widget_Adapter
 {
 public:
 

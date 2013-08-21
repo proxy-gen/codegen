@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,9 @@
 //
 
 
+
+#include <java_io_Serializable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +44,20 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1
+class com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1 : public AndroidCXX::java_io_Serializable
 {
 public:
 
+	// Public ConstrucXXX
 	com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1(const com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1& cc);
 	com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

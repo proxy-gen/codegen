@@ -49,7 +49,7 @@ namespace AndroidCXX {
 
 class android_content_res_Configuration;
 
-class android_content_ComponentCallbacks : public java_lang_Object
+class android_content_ComponentCallbacks : public AndroidCXX::java_lang_Object
 {
 public:
 

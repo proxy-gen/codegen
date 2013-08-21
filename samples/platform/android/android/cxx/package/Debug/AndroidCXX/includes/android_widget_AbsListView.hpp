@@ -246,7 +246,7 @@ class android_content_Intent;
 
 class android_content_Context;
 
-class android_widget_AbsListView : public android_text_TextWatcher,public android_view_ViewTreeObserver_OnGlobalLayoutListener,public android_view_ViewTreeObserver_OnTouchModeChangeListener,public android_widget_Filter_FilterListener
+class android_widget_AbsListView : public AndroidCXX::android_text_TextWatcher,public AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener,public AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener,public AndroidCXX::android_widget_Filter_FilterListener
 {
 public:
 

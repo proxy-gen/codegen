@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_MessageQueue_IdleHandler : public java_lang_Object
+class android_os_MessageQueue_IdleHandler : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -139,7 +139,7 @@ class android_view_MenuItem_OnActionExpandListener;
 
 class android_view_MenuItem_OnMenuItemClickListener;
 
-class android_view_MenuItem : public java_lang_Object
+class android_view_MenuItem : public AndroidCXX::java_lang_Object
 {
 public:
 

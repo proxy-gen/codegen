@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_util_Printer : public java_lang_Object
+class android_util_Printer : public AndroidCXX::java_lang_Object
 {
 public:
 

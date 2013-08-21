@@ -165,7 +165,7 @@ class java_lang_Object;
 
 class java_lang_String;
 
-class java_lang_StringBuffer : public java_io_Serializable,public java_lang_CharSequence
+class java_lang_StringBuffer : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_CharSequence
 {
 public:
 

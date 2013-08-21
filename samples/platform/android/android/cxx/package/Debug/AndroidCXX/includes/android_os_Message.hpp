@@ -118,7 +118,7 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_os_Message : public android_os_Parcelable
+class android_os_Message : public AndroidCXX::android_os_Parcelable
 {
 public:
 

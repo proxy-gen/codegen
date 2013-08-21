@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -42,6 +43,9 @@
 
 #include <android_os_Bundle.hpp>
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -63,19 +67,22 @@ class com_facebook_Session;
 
 
 
-class com_facebook_widget_WebDialog_Builder
+class com_facebook_widget_WebDialog_Builder : public AndroidCXX::java_lang_Object
 {
 public:
 
-	com_facebook_widget_WebDialog_Builder(const com_facebook_widget_WebDialog_Builder& cc);
-	com_facebook_widget_WebDialog_Builder(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_Session const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3);
 	com_facebook_widget_WebDialog_Builder(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::android_os_Bundle const& arg3);
+	com_facebook_widget_WebDialog_Builder(const com_facebook_widget_WebDialog_Builder& cc);
+	com_facebook_widget_WebDialog_Builder(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_Builder();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

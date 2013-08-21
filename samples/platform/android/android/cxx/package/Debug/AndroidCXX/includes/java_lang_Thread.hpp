@@ -168,7 +168,7 @@ class java_lang_Object;
 class java_lang_Throwable;
 
 
-class java_lang_Thread : public java_lang_Runnable
+class java_lang_Thread : public AndroidCXX::java_lang_Runnable
 {
 public:
 
@@ -193,14 +193,14 @@ public:
 	static AndroidCXX::java_lang_Thread * currentThread() ;
 	virtual void  destroy() ;
 	static void  dumpStack() ;
-	static int  enumerate(std::vector<java_lang_Thread> const& arg0) ;
+	static int  enumerate(std::vector<AndroidCXX::java_lang_Thread> const& arg0) ;
 	static AndroidCXX::java_util_Map * getAllStackTraces() ;
 	virtual AndroidCXX::java_lang_ClassLoader * getContextClassLoader() ;
 	static AndroidCXX::java_lang_Thread_UncaughtExceptionHandler * getDefaultUncaughtExceptionHandler() ;
 	virtual long  getId() ;
 	virtual AndroidCXX::java_lang_String * getName() ;
 	virtual int  getPriority() ;
-	virtual std::vector<java_lang_StackTraceElement>  getStackTrace() ;
+	virtual std::vector<AndroidCXX::java_lang_StackTraceElement>  getStackTrace() ;
 	virtual java_lang_Thread_State::java_lang_Thread_State  getState() ;
 	virtual AndroidCXX::java_lang_ThreadGroup * getThreadGroup() ;
 	virtual AndroidCXX::java_lang_Thread_UncaughtExceptionHandler * getUncaughtExceptionHandler() ;

@@ -191,7 +191,7 @@ public:
 	org_json_JSONObject();
 	org_json_JSONObject(AndroidCXX::java_lang_String const& arg0);
 	org_json_JSONObject(AndroidCXX::java_util_Map const& arg0);
-	org_json_JSONObject(AndroidCXX::org_json_JSONObject const& arg0,std::vector<java_lang_String> const& arg1);
+	org_json_JSONObject(AndroidCXX::org_json_JSONObject const& arg0,std::vector<AndroidCXX::java_lang_String> const& arg1);
 	org_json_JSONObject(AndroidCXX::org_json_JSONTokener const& arg0);
 	org_json_JSONObject(const org_json_JSONObject& cc);
 	org_json_JSONObject(Proxy proxy);

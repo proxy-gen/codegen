@@ -126,7 +126,7 @@ class java_lang_String;
 class java_lang_reflect_TypeVariable;
 
 
-class java_lang_reflect_Constructor : public java_lang_reflect_GenericDeclaration,public java_lang_reflect_Member
+class java_lang_reflect_Constructor : public AndroidCXX::java_lang_reflect_GenericDeclaration,public AndroidCXX::java_lang_reflect_Member
 {
 public:
 
@@ -139,20 +139,20 @@ public:
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_lang_annotation_Annotation * getAnnotation(AndroidCXX::java_lang_Class const& arg0) ;
-	virtual std::vector<java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
+	virtual std::vector<AndroidCXX::java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
 	virtual AndroidCXX::java_lang_Class * getDeclaringClass() ;
-	virtual std::vector<java_lang_Class>  getExceptionTypes() ;
-	virtual std::vector<java_lang_reflect_Type>  getGenericExceptionTypes() ;
-	virtual std::vector<java_lang_reflect_Type>  getGenericParameterTypes() ;
+	virtual std::vector<AndroidCXX::java_lang_Class>  getExceptionTypes() ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_Type>  getGenericExceptionTypes() ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_Type>  getGenericParameterTypes() ;
 	virtual int  getModifiers() ;
 	virtual AndroidCXX::java_lang_String * getName() ;
-	virtual std::vector<std::vector<java_lang_annotation_Annotation> >  getParameterAnnotations() ;
-	virtual std::vector<java_lang_Class>  getParameterTypes() ;
-	virtual std::vector<java_lang_reflect_TypeVariable>  getTypeParameters() ;
+	virtual std::vector<std::vector<AndroidCXX::java_lang_annotation_Annotation> >  getParameterAnnotations() ;
+	virtual std::vector<AndroidCXX::java_lang_Class>  getParameterTypes() ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_TypeVariable>  getTypeParameters() ;
 	virtual int  hashCode() ;
 	virtual bool  isSynthetic() ;
 	virtual bool  isVarArgs() ;
-	virtual AndroidCXX::java_lang_Object * newInstance(std::vector<java_lang_Object> const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * newInstance(std::vector<AndroidCXX::java_lang_Object> const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toGenericString() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 

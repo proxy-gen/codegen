@@ -100,7 +100,7 @@ class java_lang_Object;
 
 class java_lang_String;
 
-class java_util_Date : public java_io_Serializable,public java_lang_Cloneable,public java_lang_Comparable
+class java_util_Date : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Cloneable,public AndroidCXX::java_lang_Comparable
 {
 public:
 

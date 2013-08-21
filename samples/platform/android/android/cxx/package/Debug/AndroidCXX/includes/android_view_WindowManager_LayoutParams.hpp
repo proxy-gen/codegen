@@ -80,7 +80,7 @@ class java_lang_CharSequence;
 
 class android_os_Parcel;
 
-class android_view_WindowManager_LayoutParams : public android_os_Parcelable
+class android_view_WindowManager_LayoutParams : public AndroidCXX::android_os_Parcelable
 {
 public:
 

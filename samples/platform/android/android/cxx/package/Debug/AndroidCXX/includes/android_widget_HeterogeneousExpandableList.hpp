@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_HeterogeneousExpandableList : public java_lang_Object
+class android_widget_HeterogeneousExpandableList : public AndroidCXX::java_lang_Object
 {
 public:
 

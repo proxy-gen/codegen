@@ -62,7 +62,7 @@ class android_database_sqlite_SQLiteDatabase_CursorFactory;
 
 class java_lang_String;
 
-class android_database_sqlite_SQLiteCursorDriver : public java_lang_Object
+class android_database_sqlite_SQLiteCursorDriver : public AndroidCXX::java_lang_Object
 {
 public:
 
@@ -75,8 +75,8 @@ public:
 	virtual void  cursorClosed() ;
 	virtual void  cursorDeactivated() ;
 	virtual void  cursorRequeried(AndroidCXX::android_database_Cursor const& arg0) ;
-	virtual AndroidCXX::android_database_Cursor * query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg0,std::vector<java_lang_String> const& arg1) ;
-	virtual void  setBindArguments(std::vector<java_lang_String> const& arg0) ;
+	virtual AndroidCXX::android_database_Cursor * query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg0,std::vector<AndroidCXX::java_lang_String> const& arg1) ;
+	virtual void  setBindArguments(std::vector<AndroidCXX::java_lang_String> const& arg0) ;
 
 protected:
 	android_database_sqlite_SQLiteCursorDriver();

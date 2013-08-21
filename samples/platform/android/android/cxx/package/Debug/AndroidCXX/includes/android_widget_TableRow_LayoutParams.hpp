@@ -71,7 +71,7 @@ class android_view_ViewGroup_LayoutParams;
 
 class android_view_ViewGroup_MarginLayoutParams;
 
-class android_widget_TableRow_LayoutParams : public java_lang_Object
+class android_widget_TableRow_LayoutParams : public AndroidCXX::java_lang_Object
 {
 public:
 

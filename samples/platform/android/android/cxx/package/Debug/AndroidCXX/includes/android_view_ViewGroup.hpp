@@ -279,7 +279,7 @@ class android_view_ActionMode;
 
 class android_content_Context;
 
-class android_view_ViewGroup : public android_view_ViewManager,public android_view_ViewParent
+class android_view_ViewGroup : public AndroidCXX::android_view_ViewManager,public AndroidCXX::android_view_ViewParent
 {
 public:
 

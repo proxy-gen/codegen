@@ -56,7 +56,7 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_widget_TextView_SavedState : public java_lang_Object
+class android_widget_TextView_SavedState : public AndroidCXX::java_lang_Object
 {
 public:
 

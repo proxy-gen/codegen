@@ -106,7 +106,7 @@ class java_util_Collection;
 
 class java_lang_Object;
 
-class java_util_ArrayList : public java_io_Serializable,public java_lang_Cloneable,public java_util_List,public java_util_RandomAccess
+class java_util_ArrayList : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Cloneable,public AndroidCXX::java_util_List,public AndroidCXX::java_util_RandomAccess
 {
 public:
 
@@ -136,8 +136,8 @@ public:
 	virtual bool  remove(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_lang_Object * set(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual int  size() ;
-	virtual std::vector<java_lang_Object>  toArray(std::vector<java_lang_Object> const& arg0) ;
-	virtual std::vector<java_lang_Object>  toArray() ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  toArray(std::vector<AndroidCXX::java_lang_Object> const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  toArray() ;
 	virtual void  trimToSize() ;
 
 protected:

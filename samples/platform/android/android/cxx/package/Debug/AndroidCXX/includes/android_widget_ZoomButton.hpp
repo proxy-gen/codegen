@@ -94,7 +94,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_ZoomButton : public android_view_View_OnLongClickListener
+class android_widget_ZoomButton : public AndroidCXX::android_view_View_OnLongClickListener
 {
 public:
 

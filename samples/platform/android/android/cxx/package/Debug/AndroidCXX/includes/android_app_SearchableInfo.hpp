@@ -90,7 +90,7 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_app_SearchableInfo : public android_os_Parcelable
+class android_app_SearchableInfo : public AndroidCXX::android_os_Parcelable
 {
 public:
 

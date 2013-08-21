@@ -94,7 +94,7 @@ public:
 
 	// Public ConstrucXXX
 	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1);
-	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1,AndroidCXX::java_lang_ClassLoader const& arg2,std::vector<java_security_Principal> const& arg3);
+	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1,AndroidCXX::java_lang_ClassLoader const& arg2,std::vector<AndroidCXX::java_security_Principal> const& arg3);
 	java_security_ProtectionDomain(const java_security_ProtectionDomain& cc);
 	java_security_ProtectionDomain(Proxy proxy);
 	Proxy proxy() const;	
@@ -104,7 +104,7 @@ public:
 	virtual AndroidCXX::java_lang_ClassLoader * getClassLoader() ;
 	virtual AndroidCXX::java_security_CodeSource * getCodeSource() ;
 	virtual AndroidCXX::java_security_PermissionCollection * getPermissions() ;
-	virtual std::vector<java_security_Principal>  getPrincipals() ;
+	virtual std::vector<AndroidCXX::java_security_Principal>  getPrincipals() ;
 	virtual bool  implies(AndroidCXX::java_security_Permission const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 

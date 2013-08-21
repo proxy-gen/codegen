@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_CancellationSignal_OnCancelListener : public java_lang_Object
+class android_os_CancellationSignal_OnCancelListener : public AndroidCXX::java_lang_Object
 {
 public:
 

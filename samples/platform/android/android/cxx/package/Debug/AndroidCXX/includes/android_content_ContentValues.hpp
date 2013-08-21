@@ -183,7 +183,7 @@ class java_util_Map_Entry;
 
 class android_os_Parcel;
 
-class android_content_ContentValues : public android_os_Parcelable
+class android_content_ContentValues : public AndroidCXX::android_os_Parcelable
 {
 public:
 

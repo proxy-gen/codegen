@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_database_sqlite_SQLiteDatabase;
 
-class android_database_DatabaseErrorHandler : public java_lang_Object
+class android_database_DatabaseErrorHandler : public AndroidCXX::java_lang_Object
 {
 public:
 

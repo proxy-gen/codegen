@@ -50,7 +50,7 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class android_widget_SectionIndexer : public java_lang_Object
+class android_widget_SectionIndexer : public AndroidCXX::java_lang_Object
 {
 public:
 
@@ -62,7 +62,7 @@ public:
 	// Functions
 	virtual int  getPositionForSection(int const& arg0) ;
 	virtual int  getSectionForPosition(int const& arg0) ;
-	virtual std::vector<java_lang_Object>  getSections() ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  getSections() ;
 
 protected:
 	android_widget_SectionIndexer();

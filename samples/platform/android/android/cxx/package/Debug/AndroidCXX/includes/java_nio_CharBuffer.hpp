@@ -135,7 +135,7 @@ class java_nio_ByteOrder;
 
 class java_lang_String;
 
-class java_nio_CharBuffer : public java_lang_Appendable,public java_lang_CharSequence,public java_lang_Comparable,public java_lang_Readable
+class java_nio_CharBuffer : public AndroidCXX::java_lang_Appendable,public AndroidCXX::java_lang_CharSequence,public AndroidCXX::java_lang_Comparable,public AndroidCXX::java_lang_Readable
 {
 public:
 

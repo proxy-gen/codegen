@@ -66,7 +66,7 @@ class android_os_Parcel;
 
 class android_net_Uri;
 
-class android_content_ContentProviderResult : public android_os_Parcelable
+class android_content_ContentProviderResult : public AndroidCXX::android_os_Parcelable
 {
 public:
 

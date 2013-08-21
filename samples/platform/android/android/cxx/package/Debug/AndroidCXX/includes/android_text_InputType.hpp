@@ -44,7 +44,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_text_InputType : public java_lang_Object
+class android_text_InputType : public AndroidCXX::java_lang_Object
 {
 public:
 

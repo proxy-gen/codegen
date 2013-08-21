@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -35,6 +36,7 @@
 
 #include <com_facebook_model_GraphObject.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -55,19 +57,22 @@ namespace FacebookCXX {
 
 class com_facebook_model_GraphObject;
 
-class com_facebook_widget_GraphObjectAdapter_SectionAndItem
+class com_facebook_widget_GraphObjectAdapter_SectionAndItem 
 {
 public:
 
+	// Public ConstrucXXX
+	com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String const& arg0,FacebookCXX::com_facebook_model_GraphObject const& arg1);
 	com_facebook_widget_GraphObjectAdapter_SectionAndItem(const com_facebook_widget_GraphObjectAdapter_SectionAndItem& cc);
 	com_facebook_widget_GraphObjectAdapter_SectionAndItem(Proxy proxy);
-	// Public Constructors
-	com_facebook_widget_GraphObjectAdapter_SectionAndItem(AndroidCXX::java_lang_String const& arg0,FacebookCXX::com_facebook_model_GraphObject const& arg1);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_SectionAndItem();
 	// Functions
-	 com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type::com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type getType();
+	virtual com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type::com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type  getType() ;
+
+protected:
+
 };	
 
 } // namespace

@@ -86,7 +86,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_CompoundButton : public android_widget_Checkable
+class android_widget_CompoundButton : public AndroidCXX::android_widget_Checkable
 {
 public:
 

@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_support_v4_app_FragmentManager_OnBackStackChangedListener : public java_lang_Object
+class android_support_v4_app_FragmentManager_OnBackStackChangedListener : public AndroidCXX::java_lang_Object
 {
 public:
 

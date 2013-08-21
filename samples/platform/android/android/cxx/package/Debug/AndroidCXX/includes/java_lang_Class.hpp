@@ -288,7 +288,7 @@ class java_net_URL;
 
 class java_lang_reflect_TypeVariable;
 
-class java_lang_Class : public java_io_Serializable,public java_lang_reflect_AnnotatedElement,public java_lang_reflect_GenericDeclaration,public java_lang_reflect_Type
+class java_lang_Class : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_reflect_AnnotatedElement,public AndroidCXX::java_lang_reflect_GenericDeclaration,public AndroidCXX::java_lang_reflect_Type
 {
 public:
 
@@ -305,43 +305,43 @@ public:
 	static AndroidCXX::java_lang_Class * forName(AndroidCXX::java_lang_String const& arg0,bool const& arg1,AndroidCXX::java_lang_ClassLoader const& arg2) ;
 	static AndroidCXX::java_lang_Class * forName(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_annotation_Annotation * getAnnotation(AndroidCXX::java_lang_Class const& arg0) ;
-	virtual std::vector<java_lang_annotation_Annotation>  getAnnotations() ;
+	virtual std::vector<AndroidCXX::java_lang_annotation_Annotation>  getAnnotations() ;
 	virtual AndroidCXX::java_lang_String * getCanonicalName() ;
 	virtual AndroidCXX::java_lang_ClassLoader * getClassLoader() ;
-	virtual std::vector<java_lang_Class>  getClasses() ;
+	virtual std::vector<AndroidCXX::java_lang_Class>  getClasses() ;
 	virtual AndroidCXX::java_lang_Class * getComponentType() ;
-	virtual AndroidCXX::java_lang_reflect_Constructor * getConstructor(std::vector<java_lang_Class> const& arg0) ;
-	virtual std::vector<java_lang_reflect_Constructor>  getConstructors() ;
-	virtual std::vector<java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
-	virtual std::vector<java_lang_Class>  getDeclaredClasses() ;
-	virtual AndroidCXX::java_lang_reflect_Constructor * getDeclaredConstructor(std::vector<java_lang_Class> const& arg0) ;
-	virtual std::vector<java_lang_reflect_Constructor>  getDeclaredConstructors() ;
+	virtual AndroidCXX::java_lang_reflect_Constructor * getConstructor(std::vector<AndroidCXX::java_lang_Class> const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_Constructor>  getConstructors() ;
+	virtual std::vector<AndroidCXX::java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
+	virtual std::vector<AndroidCXX::java_lang_Class>  getDeclaredClasses() ;
+	virtual AndroidCXX::java_lang_reflect_Constructor * getDeclaredConstructor(std::vector<AndroidCXX::java_lang_Class> const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_Constructor>  getDeclaredConstructors() ;
 	virtual AndroidCXX::java_lang_reflect_Field * getDeclaredField(AndroidCXX::java_lang_String const& arg0) ;
-	virtual std::vector<java_lang_reflect_Field>  getDeclaredFields() ;
-	virtual AndroidCXX::java_lang_reflect_Method * getDeclaredMethod(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_Class> const& arg1) ;
-	virtual std::vector<java_lang_reflect_Method>  getDeclaredMethods() ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_Field>  getDeclaredFields() ;
+	virtual AndroidCXX::java_lang_reflect_Method * getDeclaredMethod(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Class> const& arg1) ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_Method>  getDeclaredMethods() ;
 	virtual AndroidCXX::java_lang_Class * getDeclaringClass() ;
 	virtual AndroidCXX::java_lang_Class * getEnclosingClass() ;
 	virtual AndroidCXX::java_lang_reflect_Constructor * getEnclosingConstructor() ;
 	virtual AndroidCXX::java_lang_reflect_Method * getEnclosingMethod() ;
-	virtual std::vector<java_lang_Object>  getEnumConstants() ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  getEnumConstants() ;
 	virtual AndroidCXX::java_lang_reflect_Field * getField(AndroidCXX::java_lang_String const& arg0) ;
-	virtual std::vector<java_lang_reflect_Field>  getFields() ;
-	virtual std::vector<java_lang_reflect_Type>  getGenericInterfaces() ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_Field>  getFields() ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_Type>  getGenericInterfaces() ;
 	virtual AndroidCXX::java_lang_reflect_Type * getGenericSuperclass() ;
-	virtual std::vector<java_lang_Class>  getInterfaces() ;
-	virtual AndroidCXX::java_lang_reflect_Method * getMethod(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_Class> const& arg1) ;
-	virtual std::vector<java_lang_reflect_Method>  getMethods() ;
+	virtual std::vector<AndroidCXX::java_lang_Class>  getInterfaces() ;
+	virtual AndroidCXX::java_lang_reflect_Method * getMethod(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Class> const& arg1) ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_Method>  getMethods() ;
 	virtual int  getModifiers() ;
 	virtual AndroidCXX::java_lang_String * getName() ;
 	virtual AndroidCXX::java_lang_Package * getPackage() ;
 	virtual AndroidCXX::java_security_ProtectionDomain * getProtectionDomain() ;
 	virtual AndroidCXX::java_io_InputStream * getResourceAsStream(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_net_URL * getResource(AndroidCXX::java_lang_String const& arg0) ;
-	virtual std::vector<java_lang_Object>  getSigners() ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  getSigners() ;
 	virtual AndroidCXX::java_lang_String * getSimpleName() ;
 	virtual AndroidCXX::java_lang_Class * getSuperclass() ;
-	virtual std::vector<java_lang_reflect_TypeVariable>  getTypeParameters() ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_TypeVariable>  getTypeParameters() ;
 	virtual bool  isAnnotationPresent(AndroidCXX::java_lang_Class const& arg0) ;
 	virtual bool  isAnnotation() ;
 	virtual bool  isAnonymousClass() ;

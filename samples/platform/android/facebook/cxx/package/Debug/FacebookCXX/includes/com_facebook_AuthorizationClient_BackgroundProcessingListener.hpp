@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -26,6 +27,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,19 +46,22 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_AuthorizationClient_BackgroundProcessingListener
+class com_facebook_AuthorizationClient_BackgroundProcessingListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_AuthorizationClient_BackgroundProcessingListener(const com_facebook_AuthorizationClient_BackgroundProcessingListener& cc);
 	com_facebook_AuthorizationClient_BackgroundProcessingListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_BackgroundProcessingListener();
 	// Functions
-	 void onBackgroundProcessingStarted();
-	 void onBackgroundProcessingStopped();
+	virtual void  onBackgroundProcessingStarted() ;
+	virtual void  onBackgroundProcessingStopped() ;
+
+protected:
+	com_facebook_AuthorizationClient_BackgroundProcessingListener();
+
 };	
 
 } // namespace

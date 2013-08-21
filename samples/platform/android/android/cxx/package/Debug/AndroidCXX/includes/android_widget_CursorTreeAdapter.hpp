@@ -108,7 +108,7 @@ class java_lang_CharSequence;
 
 class android_content_Context;
 
-class android_widget_CursorTreeAdapter : public android_widget_Filterable
+class android_widget_CursorTreeAdapter : public AndroidCXX::android_widget_Filterable
 {
 public:
 

@@ -58,7 +58,7 @@ class android_view_ViewGroup;
 
 class android_view_View;
 
-class android_animation_LayoutTransition_TransitionListener : public java_lang_Object
+class android_animation_LayoutTransition_TransitionListener : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -51,7 +51,7 @@ class android_webkit_WebView;
 
 class android_graphics_Picture;
 
-class android_webkit_WebView_PictureListener : public java_lang_Object
+class android_webkit_WebView_PictureListener : public AndroidCXX::java_lang_Object
 {
 public:
 

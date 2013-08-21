@@ -72,7 +72,7 @@ class java_util_Date;
 
 class java_lang_String;
 
-class java_security_Timestamp : public java_io_Serializable
+class java_security_Timestamp : public AndroidCXX::java_io_Serializable
 {
 public:
 

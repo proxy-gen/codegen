@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_view_ActionMode;
 
-class android_widget_AbsListView_MultiChoiceModeListener : public android_view_ActionMode_Callback
+class android_widget_AbsListView_MultiChoiceModeListener : public AndroidCXX::android_view_ActionMode_Callback
 {
 public:
 

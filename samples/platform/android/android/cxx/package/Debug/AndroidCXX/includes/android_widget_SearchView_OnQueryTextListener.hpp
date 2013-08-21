@@ -50,7 +50,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_widget_SearchView_OnQueryTextListener : public java_lang_Object
+class android_widget_SearchView_OnQueryTextListener : public AndroidCXX::java_lang_Object
 {
 public:
 

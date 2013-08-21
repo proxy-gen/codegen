@@ -74,7 +74,7 @@ class java_lang_String;
 
 class java_util_Iterator;
 
-class java_security_cert_CertPath : public java_io_Serializable
+class java_security_cert_CertPath : public AndroidCXX::java_io_Serializable
 {
 public:
 

@@ -67,7 +67,7 @@ class java_lang_CharSequence;
 class android_os_Parcel;
 
 
-class android_content_pm_ComponentInfo : public java_lang_Object
+class android_content_pm_ComponentInfo : public AndroidCXX::java_lang_Object
 {
 public:
 

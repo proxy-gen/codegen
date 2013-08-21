@@ -47,7 +47,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_content_res_XmlResourceParser : public android_util_AttributeSet,public org_xmlpull_v1_XmlPullParser
+class android_content_res_XmlResourceParser : public AndroidCXX::android_util_AttributeSet,public AndroidCXX::org_xmlpull_v1_XmlPullParser
 {
 public:
 

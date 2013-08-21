@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_widget_PopupMenu;
 
-class android_widget_PopupMenu_OnDismissListener : public java_lang_Object
+class android_widget_PopupMenu_OnDismissListener : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -105,7 +105,7 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_os_ParcelFileDescriptor : public android_os_Parcelable,public java_io_Closeable
+class android_os_ParcelFileDescriptor : public AndroidCXX::android_os_Parcelable,public AndroidCXX::java_io_Closeable
 {
 public:
 
@@ -118,7 +118,7 @@ public:
 	// Functions
 	static AndroidCXX::android_os_ParcelFileDescriptor * adoptFd(int const& arg0) ;
 	virtual void  close() ;
-	static std::vector<android_os_ParcelFileDescriptor>  createPipe() ;
+	static std::vector<AndroidCXX::android_os_ParcelFileDescriptor>  createPipe() ;
 	virtual int  describeContents() ;
 	virtual int  detachFd() ;
 	static AndroidCXX::android_os_ParcelFileDescriptor * dup(AndroidCXX::java_io_FileDescriptor const& arg0) ;

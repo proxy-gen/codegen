@@ -52,7 +52,7 @@ namespace AndroidCXX {
 
 class android_widget_SeekBar;
 
-class android_widget_SeekBar_OnSeekBarChangeListener : public java_lang_Object
+class android_widget_SeekBar_OnSeekBarChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -52,7 +52,7 @@ class android_view_Display;
 
 class android_view_View;
 
-class android_view_WindowManager : public android_view_ViewManager
+class android_view_WindowManager : public AndroidCXX::android_view_ViewManager
 {
 public:
 

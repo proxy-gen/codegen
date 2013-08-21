@@ -114,7 +114,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_TabWidget : public android_view_View_OnFocusChangeListener
+class android_widget_TabWidget : public AndroidCXX::android_view_View_OnFocusChangeListener
 {
 public:
 

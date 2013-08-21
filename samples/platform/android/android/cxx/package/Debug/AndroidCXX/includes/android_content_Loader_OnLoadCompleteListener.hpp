@@ -52,7 +52,7 @@ namespace AndroidCXX {
 class android_content_Loader;
 
 
-class android_content_Loader_OnLoadCompleteListener : public java_lang_Object
+class android_content_Loader_OnLoadCompleteListener : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -55,7 +55,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_MediaController_MediaPlayerControl : public java_lang_Object
+class android_widget_MediaController_MediaPlayerControl : public AndroidCXX::java_lang_Object
 {
 public:
 

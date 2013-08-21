@@ -50,7 +50,7 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class android_text_Spannable : public android_text_Spanned
+class android_text_Spannable : public AndroidCXX::android_text_Spanned
 {
 public:
 

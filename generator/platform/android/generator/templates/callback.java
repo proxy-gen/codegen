@@ -28,10 +28,9 @@ package ${package};
 #set $COMMA = ","
 #set $base_class = $callback_class['name'].replace('$','.')
 #set $is_interface = True if '_interface' in $callback_class['tags'] else False
-#set $is_instance = True if '_instance' in $callback_class['tags'] else False
 #if $is_interface
 public class $callback_class_name implements $base_class
-#elif $is_instance
+#else
 public class $callback_class_name extends $base_class
 #end if
 {

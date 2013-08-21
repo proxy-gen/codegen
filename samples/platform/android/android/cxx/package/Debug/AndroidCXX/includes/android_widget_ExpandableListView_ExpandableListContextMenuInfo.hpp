@@ -50,7 +50,7 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_widget_ExpandableListView_ExpandableListContextMenuInfo : public android_view_ContextMenu_ContextMenuInfo
+class android_widget_ExpandableListView_ExpandableListContextMenuInfo : public AndroidCXX::android_view_ContextMenu_ContextMenuInfo
 {
 public:
 

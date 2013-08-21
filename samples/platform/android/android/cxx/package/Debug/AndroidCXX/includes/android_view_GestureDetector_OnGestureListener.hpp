@@ -60,7 +60,7 @@ namespace AndroidCXX {
 
 class android_view_MotionEvent;
 
-class android_view_GestureDetector_OnGestureListener : public java_lang_Object
+class android_view_GestureDetector_OnGestureListener : public AndroidCXX::java_lang_Object
 {
 public:
 

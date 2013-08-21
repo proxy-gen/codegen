@@ -167,7 +167,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_AutoCompleteTextView : public android_widget_Filter_FilterListener
+class android_widget_AutoCompleteTextView : public AndroidCXX::android_widget_Filter_FilterListener
 {
 public:
 

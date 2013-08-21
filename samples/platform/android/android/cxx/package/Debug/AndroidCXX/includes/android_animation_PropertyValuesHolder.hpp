@@ -141,7 +141,7 @@ class android_animation_Keyframe;
 
 class android_animation_TypeEvaluator;
 
-class android_animation_PropertyValuesHolder : public java_lang_Cloneable
+class android_animation_PropertyValuesHolder : public AndroidCXX::java_lang_Cloneable
 {
 public:
 
@@ -158,15 +158,15 @@ public:
 	static AndroidCXX::android_animation_PropertyValuesHolder * ofFloat(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1) ;
 	static AndroidCXX::android_animation_PropertyValuesHolder * ofInt(AndroidCXX::android_util_Property const& arg0,std::vector<int> const& arg1) ;
 	static AndroidCXX::android_animation_PropertyValuesHolder * ofInt(AndroidCXX::java_lang_String const& arg0,std::vector<int> const& arg1) ;
-	static AndroidCXX::android_animation_PropertyValuesHolder * ofKeyframe(AndroidCXX::android_util_Property const& arg0,std::vector<android_animation_Keyframe> const& arg1) ;
-	static AndroidCXX::android_animation_PropertyValuesHolder * ofKeyframe(AndroidCXX::java_lang_String const& arg0,std::vector<android_animation_Keyframe> const& arg1) ;
-	static AndroidCXX::android_animation_PropertyValuesHolder * ofObject(AndroidCXX::android_util_Property const& arg0,AndroidCXX::android_animation_TypeEvaluator const& arg1,std::vector<java_lang_Object> const& arg2) ;
-	static AndroidCXX::android_animation_PropertyValuesHolder * ofObject(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_animation_TypeEvaluator const& arg1,std::vector<java_lang_Object> const& arg2) ;
+	static AndroidCXX::android_animation_PropertyValuesHolder * ofKeyframe(AndroidCXX::android_util_Property const& arg0,std::vector<AndroidCXX::android_animation_Keyframe> const& arg1) ;
+	static AndroidCXX::android_animation_PropertyValuesHolder * ofKeyframe(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::android_animation_Keyframe> const& arg1) ;
+	static AndroidCXX::android_animation_PropertyValuesHolder * ofObject(AndroidCXX::android_util_Property const& arg0,AndroidCXX::android_animation_TypeEvaluator const& arg1,std::vector<AndroidCXX::java_lang_Object> const& arg2) ;
+	static AndroidCXX::android_animation_PropertyValuesHolder * ofObject(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_animation_TypeEvaluator const& arg1,std::vector<AndroidCXX::java_lang_Object> const& arg2) ;
 	virtual void  setEvaluator(AndroidCXX::android_animation_TypeEvaluator const& arg0) ;
 	virtual void  setFloatValues(std::vector<float> const& arg0) ;
 	virtual void  setIntValues(std::vector<int> const& arg0) ;
-	virtual void  setKeyframes(std::vector<android_animation_Keyframe> const& arg0) ;
-	virtual void  setObjectValues(std::vector<java_lang_Object> const& arg0) ;
+	virtual void  setKeyframes(std::vector<AndroidCXX::android_animation_Keyframe> const& arg0) ;
+	virtual void  setObjectValues(std::vector<AndroidCXX::java_lang_Object> const& arg0) ;
 	virtual void  setPropertyName(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setProperty(AndroidCXX::android_util_Property const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;

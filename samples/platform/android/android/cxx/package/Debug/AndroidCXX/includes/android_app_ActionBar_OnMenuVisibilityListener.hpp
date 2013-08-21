@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_app_ActionBar_OnMenuVisibilityListener : public java_lang_Object
+class android_app_ActionBar_OnMenuVisibilityListener : public AndroidCXX::java_lang_Object
 {
 public:
 

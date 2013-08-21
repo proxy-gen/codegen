@@ -24,6 +24,7 @@
 #set $SPACE = " "
 #set $COMMA = ","
 #set $COLON = ":"  
+#set $DOUBLE_COLON = "::"
 #set $CONST = "const"
 #set $REF = "&"
 #set $config_module = $CONFIG.config_module
@@ -60,9 +61,9 @@
 #set $superclassProxyStr = $superclassProxyStr + COMMA
 #set $superclassDefaultStr = $superclassDefaultStr + COMMA
 #end if
-#set $superclassCCStr = $superclassCCStr + SPACE + $superclass_typeinfo['typename'] + '(cc)'
-#set $superclassProxyStr = $superclassProxyStr + SPACE + $superclass_typeinfo['typename'] + '(proxy)'
-#set $superclassDefaultStr = $superclassDefaultStr + SPACE + $superclass_typeinfo['typename'] + '()' 
+#set $superclassCCStr = $superclassCCStr + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename'] + '(cc)'
+#set $superclassProxyStr = $superclassProxyStr + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename'] + '(proxy)'
+#set $superclassDefaultStr = $superclassDefaultStr + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename'] + '()' 
 #end if
 #set $superclassIdx = $superclassIdx + 1
 #end for

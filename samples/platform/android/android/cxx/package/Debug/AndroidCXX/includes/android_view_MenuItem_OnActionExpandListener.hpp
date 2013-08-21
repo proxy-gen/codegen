@@ -50,7 +50,7 @@ namespace AndroidCXX {
 
 class android_view_MenuItem;
 
-class android_view_MenuItem_OnActionExpandListener : public java_lang_Object
+class android_view_MenuItem_OnActionExpandListener : public AndroidCXX::java_lang_Object
 {
 public:
 

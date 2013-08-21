@@ -50,7 +50,7 @@ namespace AndroidCXX {
 
 class java_nio_channels_spi_SelectorProvider;
 
-class java_nio_channels_spi_AbstractSelector : public java_lang_Object
+class java_nio_channels_spi_AbstractSelector : public AndroidCXX::java_lang_Object
 {
 public:
 

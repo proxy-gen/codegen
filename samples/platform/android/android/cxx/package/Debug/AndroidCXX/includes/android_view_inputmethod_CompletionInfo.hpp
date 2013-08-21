@@ -72,7 +72,7 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_view_inputmethod_CompletionInfo : public android_os_Parcelable
+class android_view_inputmethod_CompletionInfo : public AndroidCXX::android_os_Parcelable
 {
 public:
 

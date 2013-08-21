@@ -112,7 +112,7 @@ class android_widget_GridLayout_Spec;
 
 class android_content_Context;
 
-class android_widget_GridLayout : public java_lang_Object
+class android_widget_GridLayout : public AndroidCXX::java_lang_Object
 {
 public:
 

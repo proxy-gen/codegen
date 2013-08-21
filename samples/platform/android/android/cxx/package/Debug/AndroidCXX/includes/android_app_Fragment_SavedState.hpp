@@ -51,7 +51,7 @@ namespace AndroidCXX {
 
 class android_os_Parcel;
 
-class android_app_Fragment_SavedState : public android_os_Parcelable
+class android_app_Fragment_SavedState : public AndroidCXX::android_os_Parcelable
 {
 public:
 

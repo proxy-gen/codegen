@@ -175,7 +175,7 @@ class android_graphics_Canvas;
 
 class android_os_Parcel;
 
-class android_graphics_Bitmap : public android_os_Parcelable
+class android_graphics_Bitmap : public AndroidCXX::android_os_Parcelable
 {
 public:
 

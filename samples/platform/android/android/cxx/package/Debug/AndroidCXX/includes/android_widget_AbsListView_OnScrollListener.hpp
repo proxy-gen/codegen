@@ -50,7 +50,7 @@ namespace AndroidCXX {
 
 class android_widget_AbsListView;
 
-class android_widget_AbsListView_OnScrollListener : public java_lang_Object
+class android_widget_AbsListView_OnScrollListener : public AndroidCXX::java_lang_Object
 {
 public:
 

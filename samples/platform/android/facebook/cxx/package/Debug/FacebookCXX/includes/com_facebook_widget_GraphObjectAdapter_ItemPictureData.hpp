@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -28,6 +29,9 @@
 
 #include <java_lang_String.hpp>
 
+
+#include <com_facebook_model_GraphObject.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -45,18 +49,21 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_widget_GraphObjectAdapter_ItemPictureData
+class com_facebook_widget_GraphObjectAdapter_ItemPictureData : public FacebookCXX::com_facebook_model_GraphObject
 {
 public:
 
 	com_facebook_widget_GraphObjectAdapter_ItemPictureData(const com_facebook_widget_GraphObjectAdapter_ItemPictureData& cc);
 	com_facebook_widget_GraphObjectAdapter_ItemPictureData(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_ItemPictureData();
 	// Functions
-	 AndroidCXX::java_lang_String getUrl();
+	virtual AndroidCXX::java_lang_String * getUrl() ;
+
+protected:
+	com_facebook_widget_GraphObjectAdapter_ItemPictureData();
+
 };	
 
 } // namespace

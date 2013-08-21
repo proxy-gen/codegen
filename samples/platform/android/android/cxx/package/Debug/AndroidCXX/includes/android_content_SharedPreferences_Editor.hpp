@@ -78,7 +78,7 @@ class java_lang_String;
 
 class java_util_Set;
 
-class android_content_SharedPreferences_Editor : public java_lang_Object
+class android_content_SharedPreferences_Editor : public AndroidCXX::java_lang_Object
 {
 public:
 

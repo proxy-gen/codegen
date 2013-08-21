@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_channels_InterruptibleChannel : public java_nio_channels_Channel
+class java_nio_channels_InterruptibleChannel : public AndroidCXX::java_nio_channels_Channel
 {
 public:
 

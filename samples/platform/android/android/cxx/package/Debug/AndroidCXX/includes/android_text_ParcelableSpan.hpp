@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_text_ParcelableSpan : public android_os_Parcelable
+class android_text_ParcelableSpan : public AndroidCXX::android_os_Parcelable
 {
 public:
 

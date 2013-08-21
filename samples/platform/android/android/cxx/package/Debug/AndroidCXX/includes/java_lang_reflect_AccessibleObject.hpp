@@ -73,7 +73,7 @@ class java_lang_Class;
 class java_lang_annotation_Annotation;
 
 
-class java_lang_reflect_AccessibleObject : public java_lang_reflect_AnnotatedElement
+class java_lang_reflect_AccessibleObject : public AndroidCXX::java_lang_reflect_AnnotatedElement
 {
 public:
 
@@ -85,11 +85,11 @@ public:
 	virtual ~java_lang_reflect_AccessibleObject();
 	// Functions
 	virtual AndroidCXX::java_lang_annotation_Annotation * getAnnotation(AndroidCXX::java_lang_Class const& arg0) ;
-	virtual std::vector<java_lang_annotation_Annotation>  getAnnotations() ;
-	virtual std::vector<java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
+	virtual std::vector<AndroidCXX::java_lang_annotation_Annotation>  getAnnotations() ;
+	virtual std::vector<AndroidCXX::java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
 	virtual bool  isAccessible() ;
 	virtual bool  isAnnotationPresent(AndroidCXX::java_lang_Class const& arg0) ;
-	static void  setAccessible(std::vector<java_lang_reflect_AccessibleObject> const& arg0,bool const& arg1) ;
+	static void  setAccessible(std::vector<AndroidCXX::java_lang_reflect_AccessibleObject> const& arg0,bool const& arg1) ;
 	virtual void  setAccessible(bool const& arg0) ;
 
 protected:

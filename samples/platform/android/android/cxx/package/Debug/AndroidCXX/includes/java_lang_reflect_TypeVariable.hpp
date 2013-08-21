@@ -56,7 +56,7 @@ class java_lang_reflect_GenericDeclaration;
 
 class java_lang_String;
 
-class java_lang_reflect_TypeVariable : public java_lang_reflect_Type
+class java_lang_reflect_TypeVariable : public AndroidCXX::java_lang_reflect_Type
 {
 public:
 
@@ -66,7 +66,7 @@ public:
 	// Default Destructor
 	virtual ~java_lang_reflect_TypeVariable();
 	// Functions
-	virtual std::vector<java_lang_reflect_Type>  getBounds() ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_Type>  getBounds() ;
 	virtual AndroidCXX::java_lang_reflect_GenericDeclaration * getGenericDeclaration() ;
 	virtual AndroidCXX::java_lang_String * getName() ;
 

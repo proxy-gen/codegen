@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_widget_RadioGroup;
 
-class android_widget_RadioGroup_OnCheckedChangeListener : public java_lang_Object
+class android_widget_RadioGroup_OnCheckedChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 

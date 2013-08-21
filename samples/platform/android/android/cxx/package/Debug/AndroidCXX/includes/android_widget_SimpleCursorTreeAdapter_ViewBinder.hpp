@@ -51,7 +51,7 @@ class android_view_View;
 
 class android_database_Cursor;
 
-class android_widget_SimpleCursorTreeAdapter_ViewBinder : public java_lang_Object
+class android_widget_SimpleCursorTreeAdapter_ViewBinder : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -56,7 +56,7 @@ namespace AndroidCXX {
 
 class android_webkit_WebHistoryItem;
 
-class android_webkit_WebBackForwardList : public java_io_Serializable,public java_lang_Cloneable
+class android_webkit_WebBackForwardList : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Cloneable
 {
 public:
 

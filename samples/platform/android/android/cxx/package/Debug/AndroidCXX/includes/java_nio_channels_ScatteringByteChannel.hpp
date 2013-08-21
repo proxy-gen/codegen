@@ -52,7 +52,7 @@ namespace AndroidCXX {
 
 class java_nio_ByteBuffer;
 
-class java_nio_channels_ScatteringByteChannel : public java_nio_channels_ReadableByteChannel
+class java_nio_channels_ScatteringByteChannel : public AndroidCXX::java_nio_channels_ReadableByteChannel
 {
 public:
 
@@ -62,8 +62,8 @@ public:
 	// Default Destructor
 	virtual ~java_nio_channels_ScatteringByteChannel();
 	// Functions
-	virtual long  read(std::vector<java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
-	virtual long  read(std::vector<java_nio_ByteBuffer> const& arg0) ;
+	virtual long  read(std::vector<AndroidCXX::java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
+	virtual long  read(std::vector<AndroidCXX::java_nio_ByteBuffer> const& arg0) ;
 
 protected:
 	java_nio_channels_ScatteringByteChannel();

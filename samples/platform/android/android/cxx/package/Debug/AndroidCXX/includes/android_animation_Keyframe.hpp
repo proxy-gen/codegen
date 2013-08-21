@@ -80,7 +80,7 @@ class java_lang_Class;
 
 class java_lang_Object;
 
-class android_animation_Keyframe : public java_lang_Cloneable
+class android_animation_Keyframe : public AndroidCXX::java_lang_Cloneable
 {
 public:
 

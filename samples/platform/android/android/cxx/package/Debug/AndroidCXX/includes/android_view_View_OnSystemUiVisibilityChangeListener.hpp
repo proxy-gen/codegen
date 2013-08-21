@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_View_OnSystemUiVisibilityChangeListener : public java_lang_Object
+class android_view_View_OnSystemUiVisibilityChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 

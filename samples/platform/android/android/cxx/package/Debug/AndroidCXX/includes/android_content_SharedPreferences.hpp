@@ -88,7 +88,7 @@ class java_util_Set;
 
 class android_content_SharedPreferences_OnSharedPreferenceChangeListener;
 
-class android_content_SharedPreferences : public java_lang_Object
+class android_content_SharedPreferences : public AndroidCXX::java_lang_Object
 {
 public:
 

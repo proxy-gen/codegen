@@ -82,7 +82,7 @@ class java_lang_String;
 
 class android_graphics_SurfaceTexture;
 
-class android_view_Surface : public android_os_Parcelable
+class android_view_Surface : public AndroidCXX::android_os_Parcelable
 {
 public:
 

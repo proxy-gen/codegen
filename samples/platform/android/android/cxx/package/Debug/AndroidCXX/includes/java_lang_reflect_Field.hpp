@@ -132,7 +132,7 @@ class java_lang_reflect_Type;
 
 class java_lang_String;
 
-class java_lang_reflect_Field : public java_lang_reflect_Member
+class java_lang_reflect_Field : public AndroidCXX::java_lang_reflect_Member
 {
 public:
 
@@ -148,7 +148,7 @@ public:
 	virtual bool  getBoolean(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual byte  getByte(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual char  getChar(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual std::vector<java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
+	virtual std::vector<AndroidCXX::java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
 	virtual AndroidCXX::java_lang_Class * getDeclaringClass() ;
 	virtual double  getDouble(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual float  getFloat(AndroidCXX::java_lang_Object const& arg0) ;

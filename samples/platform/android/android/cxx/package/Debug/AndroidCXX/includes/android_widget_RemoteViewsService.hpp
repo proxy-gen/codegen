@@ -57,7 +57,7 @@ class android_os_IBinder;
 
 class android_widget_RemoteViewsService_RemoteViewsFactory;
 
-class android_widget_RemoteViewsService : public java_lang_Object
+class android_widget_RemoteViewsService : public AndroidCXX::java_lang_Object
 {
 public:
 

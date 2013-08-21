@@ -135,7 +135,7 @@ class android_animation_PropertyValuesHolder;
 
 class android_animation_TypeEvaluator;
 
-class android_animation_ValueAnimator : public java_lang_Object
+class android_animation_ValueAnimator : public AndroidCXX::java_lang_Object
 {
 public:
 
@@ -161,13 +161,13 @@ public:
 	virtual int  getRepeatCount() ;
 	virtual int  getRepeatMode() ;
 	virtual long  getStartDelay() ;
-	virtual std::vector<android_animation_PropertyValuesHolder>  getValues() ;
+	virtual std::vector<AndroidCXX::android_animation_PropertyValuesHolder>  getValues() ;
 	virtual bool  isRunning() ;
 	virtual bool  isStarted() ;
 	static AndroidCXX::android_animation_ValueAnimator * ofFloat(std::vector<float> const& arg0) ;
 	static AndroidCXX::android_animation_ValueAnimator * ofInt(std::vector<int> const& arg0) ;
-	static AndroidCXX::android_animation_ValueAnimator * ofObject(AndroidCXX::android_animation_TypeEvaluator const& arg0,std::vector<java_lang_Object> const& arg1) ;
-	static AndroidCXX::android_animation_ValueAnimator * ofPropertyValuesHolder(std::vector<android_animation_PropertyValuesHolder> const& arg0) ;
+	static AndroidCXX::android_animation_ValueAnimator * ofObject(AndroidCXX::android_animation_TypeEvaluator const& arg0,std::vector<AndroidCXX::java_lang_Object> const& arg1) ;
+	static AndroidCXX::android_animation_ValueAnimator * ofPropertyValuesHolder(std::vector<AndroidCXX::android_animation_PropertyValuesHolder> const& arg0) ;
 	virtual void  removeAllUpdateListeners() ;
 	virtual void  removeUpdateListener(AndroidCXX::android_animation_ValueAnimator_AnimatorUpdateListener const& arg0) ;
 	virtual void  reverse() ;
@@ -178,11 +178,11 @@ public:
 	static void  setFrameDelay(long const& arg0) ;
 	virtual void  setIntValues(std::vector<int> const& arg0) ;
 	virtual void  setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0) ;
-	virtual void  setObjectValues(std::vector<java_lang_Object> const& arg0) ;
+	virtual void  setObjectValues(std::vector<AndroidCXX::java_lang_Object> const& arg0) ;
 	virtual void  setRepeatCount(int const& arg0) ;
 	virtual void  setRepeatMode(int const& arg0) ;
 	virtual void  setStartDelay(long const& arg0) ;
-	virtual void  setValues(std::vector<android_animation_PropertyValuesHolder> const& arg0) ;
+	virtual void  setValues(std::vector<AndroidCXX::android_animation_PropertyValuesHolder> const& arg0) ;
 	virtual void  start() ;
 	virtual AndroidCXX::java_lang_String * toString() ;
 

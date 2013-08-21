@@ -126,12 +126,12 @@ class java_util_List;
 
 class java_util_Map;
 
-class android_widget_SimpleAdapter : public android_widget_Filterable
+class android_widget_SimpleAdapter : public AndroidCXX::android_widget_Filterable
 {
 public:
 
 	// Public ConstrucXXX
-	android_widget_SimpleAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,std::vector<java_lang_String> const& arg3,std::vector<int> const& arg4);
+	android_widget_SimpleAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3,std::vector<int> const& arg4);
 	android_widget_SimpleAdapter(const android_widget_SimpleAdapter& cc);
 	android_widget_SimpleAdapter(Proxy proxy);
 	Proxy proxy() const;	

@@ -134,7 +134,7 @@ class java_lang_String;
 class java_lang_reflect_TypeVariable;
 
 
-class java_lang_reflect_Method : public java_lang_reflect_GenericDeclaration,public java_lang_reflect_Member
+class java_lang_reflect_Method : public AndroidCXX::java_lang_reflect_GenericDeclaration,public AndroidCXX::java_lang_reflect_Member
 {
 public:
 
@@ -147,21 +147,21 @@ public:
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_lang_annotation_Annotation * getAnnotation(AndroidCXX::java_lang_Class const& arg0) ;
-	virtual std::vector<java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
+	virtual std::vector<AndroidCXX::java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
 	virtual AndroidCXX::java_lang_Class * getDeclaringClass() ;
 	virtual AndroidCXX::java_lang_Object * getDefaultValue() ;
-	virtual std::vector<java_lang_Class>  getExceptionTypes() ;
-	virtual std::vector<java_lang_reflect_Type>  getGenericExceptionTypes() ;
-	virtual std::vector<java_lang_reflect_Type>  getGenericParameterTypes() ;
+	virtual std::vector<AndroidCXX::java_lang_Class>  getExceptionTypes() ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_Type>  getGenericExceptionTypes() ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_Type>  getGenericParameterTypes() ;
 	virtual AndroidCXX::java_lang_reflect_Type * getGenericReturnType() ;
 	virtual int  getModifiers() ;
 	virtual AndroidCXX::java_lang_String * getName() ;
-	virtual std::vector<std::vector<java_lang_annotation_Annotation> >  getParameterAnnotations() ;
-	virtual std::vector<java_lang_Class>  getParameterTypes() ;
+	virtual std::vector<std::vector<AndroidCXX::java_lang_annotation_Annotation> >  getParameterAnnotations() ;
+	virtual std::vector<AndroidCXX::java_lang_Class>  getParameterTypes() ;
 	virtual AndroidCXX::java_lang_Class * getReturnType() ;
-	virtual std::vector<java_lang_reflect_TypeVariable>  getTypeParameters() ;
+	virtual std::vector<AndroidCXX::java_lang_reflect_TypeVariable>  getTypeParameters() ;
 	virtual int  hashCode() ;
-	virtual AndroidCXX::java_lang_Object * invoke(AndroidCXX::java_lang_Object const& arg0,std::vector<java_lang_Object> const& arg1) ;
+	virtual AndroidCXX::java_lang_Object * invoke(AndroidCXX::java_lang_Object const& arg0,std::vector<AndroidCXX::java_lang_Object> const& arg1) ;
 	virtual bool  isBridge() ;
 	virtual bool  isSynthetic() ;
 	virtual bool  isVarArgs() ;

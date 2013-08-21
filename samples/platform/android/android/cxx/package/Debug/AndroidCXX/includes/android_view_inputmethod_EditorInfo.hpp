@@ -66,7 +66,7 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_view_inputmethod_EditorInfo : public android_os_Parcelable,public android_text_InputType
+class android_view_inputmethod_EditorInfo : public AndroidCXX::android_os_Parcelable,public AndroidCXX::android_text_InputType
 {
 public:
 

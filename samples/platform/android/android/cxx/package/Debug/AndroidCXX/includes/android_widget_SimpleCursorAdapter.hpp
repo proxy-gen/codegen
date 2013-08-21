@@ -123,13 +123,13 @@ class android_widget_ImageView;
 
 class android_widget_TextView;
 
-class android_widget_SimpleCursorAdapter : public java_lang_Object
+class android_widget_SimpleCursorAdapter : public AndroidCXX::java_lang_Object
 {
 public:
 
 	// Public ConstrucXXX
-	android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2,std::vector<java_lang_String> const& arg3,std::vector<int> const& arg4);
-	android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2,std::vector<java_lang_String> const& arg3,std::vector<int> const& arg4,int const& arg5);
+	android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3,std::vector<int> const& arg4);
+	android_widget_SimpleCursorAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_database_Cursor const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3,std::vector<int> const& arg4,int const& arg5);
 	android_widget_SimpleCursorAdapter(const android_widget_SimpleCursorAdapter& cc);
 	android_widget_SimpleCursorAdapter(Proxy proxy);
 	Proxy proxy() const;	
@@ -137,7 +137,7 @@ public:
 	virtual ~android_widget_SimpleCursorAdapter();
 	// Functions
 	virtual void  bindView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_database_Cursor const& arg2) ;
-	virtual void  changeCursorAndColumns(AndroidCXX::android_database_Cursor const& arg0,std::vector<java_lang_String> const& arg1,std::vector<int> const& arg2) ;
+	virtual void  changeCursorAndColumns(AndroidCXX::android_database_Cursor const& arg0,std::vector<AndroidCXX::java_lang_String> const& arg1,std::vector<int> const& arg2) ;
 	virtual AndroidCXX::java_lang_CharSequence * convertToString(AndroidCXX::android_database_Cursor const& arg0) ;
 	virtual AndroidCXX::android_widget_SimpleCursorAdapter_CursorToStringConverter * getCursorToStringConverter() ;
 	virtual int  getStringConversionColumn() ;

@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_ViewTreeObserver_OnGlobalLayoutListener : public java_lang_Object
+class android_view_ViewTreeObserver_OnGlobalLayoutListener : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -46,7 +46,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_SlidingDrawer_OnDrawerScrollListener : public java_lang_Object
+class android_widget_SlidingDrawer_OnDrawerScrollListener : public AndroidCXX::java_lang_Object
 {
 public:
 

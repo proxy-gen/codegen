@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_channels_Pipe_SinkChannel : public java_nio_channels_GatheringByteChannel
+class java_nio_channels_Pipe_SinkChannel : public AndroidCXX::java_nio_channels_GatheringByteChannel
 {
 public:
 

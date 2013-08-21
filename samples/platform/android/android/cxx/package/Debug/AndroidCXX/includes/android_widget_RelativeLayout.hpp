@@ -89,7 +89,7 @@ class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_content_Context;
 
-class android_widget_RelativeLayout : public java_lang_Object
+class android_widget_RelativeLayout : public AndroidCXX::java_lang_Object
 {
 public:
 

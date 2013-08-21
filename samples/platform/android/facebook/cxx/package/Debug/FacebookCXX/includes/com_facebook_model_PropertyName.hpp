@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -28,6 +29,9 @@
 
 #include <java_lang_String.hpp>
 
+
+#include <java_lang_annotation_Annotation.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -45,18 +49,21 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_model_PropertyName
+class com_facebook_model_PropertyName : public AndroidCXX::java_lang_annotation_Annotation
 {
 public:
 
 	com_facebook_model_PropertyName(const com_facebook_model_PropertyName& cc);
 	com_facebook_model_PropertyName(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_PropertyName();
 	// Functions
-	 AndroidCXX::java_lang_String value();
+	virtual AndroidCXX::java_lang_String * value() ;
+
+protected:
+	com_facebook_model_PropertyName();
+
 };	
 
 } // namespace

@@ -100,7 +100,7 @@ class java_lang_String;
 
 class java_lang_Throwable;
 
-class java_lang_ThreadGroup : public java_lang_Thread_UncaughtExceptionHandler
+class java_lang_ThreadGroup : public AndroidCXX::java_lang_Thread_UncaughtExceptionHandler
 {
 public:
 
@@ -118,10 +118,10 @@ public:
 	virtual bool  allowThreadSuspension(bool const& arg0) ;
 	virtual void  checkAccess() ;
 	virtual void  destroy() ;
-	virtual int  enumerate(std::vector<java_lang_ThreadGroup> const& arg0,bool const& arg1) ;
-	virtual int  enumerate(std::vector<java_lang_ThreadGroup> const& arg0) ;
-	virtual int  enumerate(std::vector<java_lang_Thread> const& arg0,bool const& arg1) ;
-	virtual int  enumerate(std::vector<java_lang_Thread> const& arg0) ;
+	virtual int  enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup> const& arg0,bool const& arg1) ;
+	virtual int  enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup> const& arg0) ;
+	virtual int  enumerate(std::vector<AndroidCXX::java_lang_Thread> const& arg0,bool const& arg1) ;
+	virtual int  enumerate(std::vector<AndroidCXX::java_lang_Thread> const& arg0) ;
 	virtual int  getMaxPriority() ;
 	virtual AndroidCXX::java_lang_String * getName() ;
 	virtual AndroidCXX::java_lang_ThreadGroup * getParent() ;

@@ -549,7 +549,7 @@ class android_graphics_drawable_Drawable;
 
 class android_content_IntentSender;
 
-class android_app_Activity : public android_content_ComponentCallbacks2,public android_view_KeyEvent_Callback,public android_view_LayoutInflater_Factory2,public android_view_View_OnCreateContextMenuListener,public android_view_Window_Callback
+class android_app_Activity : public AndroidCXX::android_content_ComponentCallbacks2,public AndroidCXX::android_view_KeyEvent_Callback,public AndroidCXX::android_view_LayoutInflater_Factory2,public AndroidCXX::android_view_View_OnCreateContextMenuListener,public AndroidCXX::android_view_Window_Callback
 {
 public:
 
@@ -572,7 +572,7 @@ public:
 	virtual bool  dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual bool  dispatchTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual bool  dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
-	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<java_lang_String> const& arg3) ;
+	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3) ;
 	virtual AndroidCXX::android_view_View * findViewById(int const& arg0) ;
 	virtual void  finishActivityFromChild(AndroidCXX::android_app_Activity const& arg0,int const& arg1) ;
 	virtual void  finishActivity(int const& arg0) ;
@@ -612,7 +612,7 @@ public:
 	virtual bool  isFinishing() ;
 	virtual bool  isImmersive() ;
 	virtual bool  isTaskRoot() ;
-	virtual AndroidCXX::android_database_Cursor * managedQuery(AndroidCXX::android_net_Uri const& arg0,std::vector<java_lang_String> const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<java_lang_String> const& arg3,AndroidCXX::java_lang_String const& arg4) ;
+	virtual AndroidCXX::android_database_Cursor * managedQuery(AndroidCXX::android_net_Uri const& arg0,std::vector<AndroidCXX::java_lang_String> const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3,AndroidCXX::java_lang_String const& arg4) ;
 	virtual bool  moveTaskToBack(bool const& arg0) ;
 	virtual bool  navigateUpToFromChild(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_content_Intent const& arg1) ;
 	virtual bool  navigateUpTo(AndroidCXX::android_content_Intent const& arg0) ;
@@ -698,8 +698,8 @@ public:
 	virtual bool  showDialog(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
 	virtual void  showDialog(int const& arg0) ;
 	virtual AndroidCXX::android_view_ActionMode * startActionMode(AndroidCXX::android_view_ActionMode_Callback const& arg0) ;
-	virtual void  startActivities(std::vector<android_content_Intent> const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
-	virtual void  startActivities(std::vector<android_content_Intent> const& arg0) ;
+	virtual void  startActivities(std::vector<AndroidCXX::android_content_Intent> const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual void  startActivities(std::vector<AndroidCXX::android_content_Intent> const& arg0) ;
 	virtual void  startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
 	virtual void  startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1) ;
 	virtual void  startActivityFromChild(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_content_Intent const& arg1,int const& arg2,AndroidCXX::android_os_Bundle const& arg3) ;

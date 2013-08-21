@@ -73,7 +73,7 @@ class android_view_ViewGroup;
 
 class android_view_View;
 
-class android_widget_ResourceCursorAdapter : public java_lang_Object
+class android_widget_ResourceCursorAdapter : public AndroidCXX::java_lang_Object
 {
 public:
 

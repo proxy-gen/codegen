@@ -162,7 +162,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_ExpandableListView : public java_lang_Object
+class android_widget_ExpandableListView : public AndroidCXX::java_lang_Object
 {
 public:
 

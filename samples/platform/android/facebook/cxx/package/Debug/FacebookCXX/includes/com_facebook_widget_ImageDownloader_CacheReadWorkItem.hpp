@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Runnable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,21 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_widget_ImageDownloader_CacheReadWorkItem
+class com_facebook_widget_ImageDownloader_CacheReadWorkItem : public AndroidCXX::java_lang_Runnable
 {
 public:
 
+	// Public ConstrucXXX
 	com_facebook_widget_ImageDownloader_CacheReadWorkItem(const com_facebook_widget_ImageDownloader_CacheReadWorkItem& cc);
 	com_facebook_widget_ImageDownloader_CacheReadWorkItem(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageDownloader_CacheReadWorkItem();
 	// Functions
-	 void run();
+	virtual void  run() ;
+
+protected:
+
 };	
 
 } // namespace

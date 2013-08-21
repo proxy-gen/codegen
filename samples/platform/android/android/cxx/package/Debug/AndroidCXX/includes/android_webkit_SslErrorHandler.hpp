@@ -46,7 +46,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_webkit_SslErrorHandler : public java_lang_Object
+class android_webkit_SslErrorHandler : public AndroidCXX::java_lang_Object
 {
 public:
 

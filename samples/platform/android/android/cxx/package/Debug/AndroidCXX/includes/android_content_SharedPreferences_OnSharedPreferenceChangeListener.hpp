@@ -51,7 +51,7 @@ class android_content_SharedPreferences;
 
 class java_lang_String;
 
-class android_content_SharedPreferences_OnSharedPreferenceChangeListener : public java_lang_Object
+class android_content_SharedPreferences_OnSharedPreferenceChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 

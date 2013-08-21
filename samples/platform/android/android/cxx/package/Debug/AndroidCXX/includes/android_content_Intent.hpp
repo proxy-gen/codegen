@@ -530,7 +530,7 @@ class java_lang_Class;
 
 class java_lang_ClassLoader;
 
-class android_content_Intent : public android_os_Parcelable,public java_lang_Cloneable
+class android_content_Intent : public AndroidCXX::android_os_Parcelable,public AndroidCXX::java_lang_Cloneable
 {
 public:
 
@@ -564,7 +564,7 @@ public:
 	virtual AndroidCXX::java_util_Set * getCategories() ;
 	virtual std::vector<char>  getCharArrayExtra(AndroidCXX::java_lang_String const& arg0) ;
 	virtual char  getCharExtra(AndroidCXX::java_lang_String const& arg0,char const& arg1) ;
-	virtual std::vector<java_lang_CharSequence>  getCharSequenceArrayExtra(AndroidCXX::java_lang_String const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_CharSequence>  getCharSequenceArrayExtra(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_util_ArrayList * getCharSequenceArrayListExtra(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_CharSequence * getCharSequenceExtra(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_content_ClipData * getClipData() ;
@@ -585,7 +585,7 @@ public:
 	virtual std::vector<long>  getLongArrayExtra(AndroidCXX::java_lang_String const& arg0) ;
 	virtual long  getLongExtra(AndroidCXX::java_lang_String const& arg0,long const& arg1) ;
 	virtual AndroidCXX::java_lang_String * getPackage() ;
-	virtual std::vector<android_os_Parcelable>  getParcelableArrayExtra(AndroidCXX::java_lang_String const& arg0) ;
+	virtual std::vector<AndroidCXX::android_os_Parcelable>  getParcelableArrayExtra(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_util_ArrayList * getParcelableArrayListExtra(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::android_os_Parcelable * getParcelableExtra(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getScheme() ;
@@ -594,7 +594,7 @@ public:
 	virtual std::vector<short>  getShortArrayExtra(AndroidCXX::java_lang_String const& arg0) ;
 	virtual short  getShortExtra(AndroidCXX::java_lang_String const& arg0,short const& arg1) ;
 	virtual AndroidCXX::android_graphics_Rect * getSourceBounds() ;
-	virtual std::vector<java_lang_String>  getStringArrayExtra(AndroidCXX::java_lang_String const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_String>  getStringArrayExtra(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_util_ArrayList * getStringArrayListExtra(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getStringExtra(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getType() ;
@@ -615,9 +615,9 @@ public:
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<float> const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<int> const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<long> const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<android_os_Parcelable> const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_CharSequence> const& arg1) ;
-	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_String> const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::android_os_Parcelable> const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_CharSequence> const& arg1) ;
+	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_String> const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,std::vector<short> const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
 	virtual AndroidCXX::android_content_Intent * putExtra(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Parcelable const& arg1) ;

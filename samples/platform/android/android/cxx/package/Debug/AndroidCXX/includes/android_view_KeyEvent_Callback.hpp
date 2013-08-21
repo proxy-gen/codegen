@@ -54,7 +54,7 @@ namespace AndroidCXX {
 
 class android_view_KeyEvent;
 
-class android_view_KeyEvent_Callback : public java_lang_Object
+class android_view_KeyEvent_Callback : public AndroidCXX::java_lang_Object
 {
 public:
 

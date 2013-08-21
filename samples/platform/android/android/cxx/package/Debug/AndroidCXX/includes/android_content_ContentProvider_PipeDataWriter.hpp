@@ -59,7 +59,7 @@ class java_lang_String;
 class android_os_Bundle;
 
 
-class android_content_ContentProvider_PipeDataWriter : public java_lang_Object
+class android_content_ContentProvider_PipeDataWriter : public AndroidCXX::java_lang_Object
 {
 public:
 

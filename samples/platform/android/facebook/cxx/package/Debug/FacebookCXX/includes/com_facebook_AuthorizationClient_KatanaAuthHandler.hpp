@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +44,20 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_AuthorizationClient_KatanaAuthHandler
+class com_facebook_AuthorizationClient_KatanaAuthHandler : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_AuthorizationClient_KatanaAuthHandler(const com_facebook_AuthorizationClient_KatanaAuthHandler& cc);
 	com_facebook_AuthorizationClient_KatanaAuthHandler(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_KatanaAuthHandler();
 	// Functions
+
+protected:
+	com_facebook_AuthorizationClient_KatanaAuthHandler();
+
 };	
 
 } // namespace

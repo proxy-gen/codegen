@@ -143,7 +143,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_VideoView : public android_widget_MediaController_MediaPlayerControl
+class android_widget_VideoView : public AndroidCXX::android_widget_MediaController_MediaPlayerControl
 {
 public:
 

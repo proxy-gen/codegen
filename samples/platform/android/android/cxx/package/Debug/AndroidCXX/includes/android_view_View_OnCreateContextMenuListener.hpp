@@ -54,7 +54,7 @@ class android_view_View;
 
 class android_view_ContextMenu_ContextMenuInfo;
 
-class android_view_View_OnCreateContextMenuListener : public java_lang_Object
+class android_view_View_OnCreateContextMenuListener : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -59,7 +59,7 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_util_ListIterator : public java_util_Iterator
+class java_util_ListIterator : public AndroidCXX::java_util_Iterator
 {
 public:
 

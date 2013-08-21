@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_view_SurfaceHolder;
 
-class android_view_SurfaceHolder_Callback2 : public android_view_SurfaceHolder_Callback
+class android_view_SurfaceHolder_Callback2 : public AndroidCXX::android_view_SurfaceHolder_Callback
 {
 public:
 

@@ -52,7 +52,7 @@ namespace AndroidCXX {
 
 class java_nio_ByteBuffer;
 
-class java_nio_channels_GatheringByteChannel : public java_nio_channels_WritableByteChannel
+class java_nio_channels_GatheringByteChannel : public AndroidCXX::java_nio_channels_WritableByteChannel
 {
 public:
 
@@ -62,8 +62,8 @@ public:
 	// Default Destructor
 	virtual ~java_nio_channels_GatheringByteChannel();
 	// Functions
-	virtual long  write(std::vector<java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
-	virtual long  write(std::vector<java_nio_ByteBuffer> const& arg0) ;
+	virtual long  write(std::vector<AndroidCXX::java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
+	virtual long  write(std::vector<AndroidCXX::java_nio_ByteBuffer> const& arg0) ;
 
 protected:
 	java_nio_channels_GatheringByteChannel();

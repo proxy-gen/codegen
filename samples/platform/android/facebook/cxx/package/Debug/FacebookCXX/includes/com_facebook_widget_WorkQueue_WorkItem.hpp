@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -27,6 +28,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -43,20 +47,23 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_widget_WorkQueue_WorkItem
+class com_facebook_widget_WorkQueue_WorkItem : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_widget_WorkQueue_WorkItem(const com_facebook_widget_WorkQueue_WorkItem& cc);
 	com_facebook_widget_WorkQueue_WorkItem(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WorkQueue_WorkItem();
 	// Functions
-	 bool cancel();
-	 bool isRunning();
-	 void moveToFront();
+	virtual bool  cancel() ;
+	virtual bool  isRunning() ;
+	virtual void  moveToFront() ;
+
+protected:
+	com_facebook_widget_WorkQueue_WorkItem();
+
 };	
 
 } // namespace

@@ -85,7 +85,7 @@ class android_os_Message;
 
 class android_os_Handler;
 
-class android_os_Messenger : public android_os_Parcelable
+class android_os_Messenger : public AndroidCXX::android_os_Parcelable
 {
 public:
 

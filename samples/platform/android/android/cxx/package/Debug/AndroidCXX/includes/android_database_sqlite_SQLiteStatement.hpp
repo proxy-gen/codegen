@@ -62,7 +62,7 @@ class android_os_ParcelFileDescriptor;
 
 class java_lang_String;
 
-class android_database_sqlite_SQLiteStatement : public java_lang_Object
+class android_database_sqlite_SQLiteStatement : public AndroidCXX::java_lang_Object
 {
 public:
 

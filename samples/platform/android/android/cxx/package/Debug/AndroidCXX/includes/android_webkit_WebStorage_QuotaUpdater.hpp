@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_webkit_WebStorage_QuotaUpdater : public java_lang_Object
+class android_webkit_WebStorage_QuotaUpdater : public AndroidCXX::java_lang_Object
 {
 public:
 

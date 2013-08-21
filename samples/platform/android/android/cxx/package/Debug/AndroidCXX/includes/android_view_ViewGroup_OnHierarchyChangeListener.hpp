@@ -52,7 +52,7 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_view_ViewGroup_OnHierarchyChangeListener : public java_lang_Object
+class android_view_ViewGroup_OnHierarchyChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 

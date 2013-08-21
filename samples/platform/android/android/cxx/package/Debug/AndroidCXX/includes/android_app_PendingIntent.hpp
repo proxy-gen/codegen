@@ -156,7 +156,7 @@ class android_app_PendingIntent_OnFinished;
 
 class android_os_Handler;
 
-class android_app_PendingIntent : public android_os_Parcelable
+class android_app_PendingIntent : public AndroidCXX::android_os_Parcelable
 {
 public:
 
@@ -170,8 +170,8 @@ public:
 	virtual void  cancel() ;
 	virtual int  describeContents() ;
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	static AndroidCXX::android_app_PendingIntent * getActivities(AndroidCXX::android_content_Context const& arg0,int const& arg1,std::vector<android_content_Intent> const& arg2,int const& arg3,AndroidCXX::android_os_Bundle const& arg4) ;
-	static AndroidCXX::android_app_PendingIntent * getActivities(AndroidCXX::android_content_Context const& arg0,int const& arg1,std::vector<android_content_Intent> const& arg2,int const& arg3) ;
+	static AndroidCXX::android_app_PendingIntent * getActivities(AndroidCXX::android_content_Context const& arg0,int const& arg1,std::vector<AndroidCXX::android_content_Intent> const& arg2,int const& arg3,AndroidCXX::android_os_Bundle const& arg4) ;
+	static AndroidCXX::android_app_PendingIntent * getActivities(AndroidCXX::android_content_Context const& arg0,int const& arg1,std::vector<AndroidCXX::android_content_Intent> const& arg2,int const& arg3) ;
 	static AndroidCXX::android_app_PendingIntent * getActivity(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3,AndroidCXX::android_os_Bundle const& arg4) ;
 	static AndroidCXX::android_app_PendingIntent * getActivity(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3) ;
 	static AndroidCXX::android_app_PendingIntent * getBroadcast(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2,int const& arg3) ;

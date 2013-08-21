@@ -44,7 +44,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_text_style_UpdateAppearance : public java_lang_Object
+class android_text_style_UpdateAppearance : public AndroidCXX::java_lang_Object
 {
 public:
 

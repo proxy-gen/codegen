@@ -82,13 +82,13 @@ class java_lang_CharSequence;
 class android_os_Parcel;
 
 
-class android_content_ClipDescription : public android_os_Parcelable
+class android_content_ClipDescription : public AndroidCXX::android_os_Parcelable
 {
 public:
 
 	// Public ConstrucXXX
 	android_content_ClipDescription(AndroidCXX::android_content_ClipDescription const& arg0);
-	android_content_ClipDescription(AndroidCXX::java_lang_CharSequence const& arg0,std::vector<java_lang_String> const& arg1);
+	android_content_ClipDescription(AndroidCXX::java_lang_CharSequence const& arg0,std::vector<AndroidCXX::java_lang_String> const& arg1);
 	android_content_ClipDescription(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
@@ -96,7 +96,7 @@ public:
 	// Functions
 	static bool  compareMimeTypes(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 	virtual int  describeContents() ;
-	virtual std::vector<java_lang_String>  filterMimeTypes(AndroidCXX::java_lang_String const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_String>  filterMimeTypes(AndroidCXX::java_lang_String const& arg0) ;
 	virtual AndroidCXX::java_lang_CharSequence * getLabel() ;
 	virtual int  getMimeTypeCount() ;
 	virtual AndroidCXX::java_lang_String * getMimeType(int const& arg0) ;

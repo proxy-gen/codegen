@@ -99,7 +99,7 @@ public:
 	virtual AndroidCXX::android_content_ContentProviderOperation * build() ;
 	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withExpectedCount(int const& arg0) ;
 	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withSelectionBackReference(int const& arg0,int const& arg1) ;
-	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withSelection(AndroidCXX::java_lang_String const& arg0,std::vector<java_lang_String> const& arg1) ;
+	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withSelection(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_String> const& arg1) ;
 	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withValueBackReference(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
 	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withValueBackReferences(AndroidCXX::android_content_ContentValues const& arg0) ;
 	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withValue(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;

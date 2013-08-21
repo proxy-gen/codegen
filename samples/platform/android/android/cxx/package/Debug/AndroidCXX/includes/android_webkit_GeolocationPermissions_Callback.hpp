@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_webkit_GeolocationPermissions_Callback : public java_lang_Object
+class android_webkit_GeolocationPermissions_Callback : public AndroidCXX::java_lang_Object
 {
 public:
 

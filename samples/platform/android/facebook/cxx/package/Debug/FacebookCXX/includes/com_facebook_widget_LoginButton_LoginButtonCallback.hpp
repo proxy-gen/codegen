@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -34,6 +35,9 @@
 
 #include <java_lang_Exception.hpp>
 
+
+#include <com_facebook_Session_StatusCallback.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,18 +58,21 @@ class com_facebook_Session;
 
 
 
-class com_facebook_widget_LoginButton_LoginButtonCallback
+class com_facebook_widget_LoginButton_LoginButtonCallback : public FacebookCXX::com_facebook_Session_StatusCallback
 {
 public:
 
+	// Public ConstrucXXX
 	com_facebook_widget_LoginButton_LoginButtonCallback(const com_facebook_widget_LoginButton_LoginButtonCallback& cc);
 	com_facebook_widget_LoginButton_LoginButtonCallback(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_LoginButtonCallback();
 	// Functions
-	 void call(FacebookCXX::com_facebook_Session const& arg0,com_facebook_SessionState::com_facebook_SessionState const& arg1,AndroidCXX::java_lang_Exception const& arg2);
+	virtual void  call(FacebookCXX::com_facebook_Session const& arg0,com_facebook_SessionState::com_facebook_SessionState const& arg1,AndroidCXX::java_lang_Exception const& arg2) ;
+
+protected:
+
 };	
 
 } // namespace

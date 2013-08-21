@@ -73,7 +73,7 @@ class java_lang_String;
 
 class android_os_Bundle;
 
-class android_content_PeriodicSync : public android_os_Parcelable
+class android_content_PeriodicSync : public AndroidCXX::android_os_Parcelable
 {
 public:
 

@@ -105,7 +105,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_view_animation_Animation : public java_lang_Cloneable
+class android_view_animation_Animation : public AndroidCXX::java_lang_Cloneable
 {
 public:
 

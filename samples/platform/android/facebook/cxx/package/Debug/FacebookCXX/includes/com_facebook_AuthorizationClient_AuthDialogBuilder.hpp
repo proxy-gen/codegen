@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -38,6 +39,9 @@
 
 #include <android_os_Bundle.hpp>
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -59,19 +63,22 @@ class com_facebook_widget_WebDialog;
 
 
 
-class com_facebook_AuthorizationClient_AuthDialogBuilder
+class com_facebook_AuthorizationClient_AuthDialogBuilder : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public ConstrucXXX
+	com_facebook_AuthorizationClient_AuthDialogBuilder(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2);
 	com_facebook_AuthorizationClient_AuthDialogBuilder(const com_facebook_AuthorizationClient_AuthDialogBuilder& cc);
 	com_facebook_AuthorizationClient_AuthDialogBuilder(Proxy proxy);
-	// Public Constructors
-	com_facebook_AuthorizationClient_AuthDialogBuilder(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_AuthDialogBuilder();
 	// Functions
-	 FacebookCXX::com_facebook_widget_WebDialog build();
+	virtual FacebookCXX::com_facebook_widget_WebDialog * build() ;
+
+protected:
+
 };	
 
 } // namespace

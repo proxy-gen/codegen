@@ -175,7 +175,7 @@ class android_graphics_Matrix;
 
 class android_os_Parcel;
 
-class android_view_MotionEvent : public android_os_Parcelable
+class android_view_MotionEvent : public AndroidCXX::android_os_Parcelable
 {
 public:
 
@@ -186,7 +186,7 @@ public:
 	// Default Destructor
 	virtual ~android_view_MotionEvent();
 	// Functions
-	virtual void  addBatch(long const& arg0,std::vector<android_view_MotionEvent_PointerCoords> const& arg1,int const& arg2) ;
+	virtual void  addBatch(long const& arg0,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords> const& arg1,int const& arg2) ;
 	virtual void  addBatch(long const& arg0,float const& arg1,float const& arg2,float const& arg3,float const& arg4,int const& arg5) ;
 	static int  axisFromString(AndroidCXX::java_lang_String const& arg0) ;
 	static AndroidCXX::java_lang_String * axisToString(int const& arg0) ;
@@ -258,8 +258,8 @@ public:
 	static AndroidCXX::android_view_MotionEvent * obtain(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,float const& arg3,float const& arg4,float const& arg5,float const& arg6,int const& arg7,float const& arg8,float const& arg9,int const& arg10,int const& arg11) ;
 	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,float const& arg3,float const& arg4,int const& arg5) ;
-	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,int const& arg3,std::vector<int> const& arg4,std::vector<android_view_MotionEvent_PointerCoords> const& arg5,int const& arg6,float const& arg7,float const& arg8,int const& arg9,int const& arg10,int const& arg11,int const& arg12) ;
-	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,int const& arg3,std::vector<android_view_MotionEvent_PointerProperties> const& arg4,std::vector<android_view_MotionEvent_PointerCoords> const& arg5,int const& arg6,int const& arg7,float const& arg8,float const& arg9,int const& arg10,int const& arg11,int const& arg12,int const& arg13) ;
+	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,int const& arg3,std::vector<int> const& arg4,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords> const& arg5,int const& arg6,float const& arg7,float const& arg8,int const& arg9,int const& arg10,int const& arg11,int const& arg12) ;
+	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,int const& arg3,std::vector<AndroidCXX::android_view_MotionEvent_PointerProperties> const& arg4,std::vector<AndroidCXX::android_view_MotionEvent_PointerCoords> const& arg5,int const& arg6,int const& arg7,float const& arg8,float const& arg9,int const& arg10,int const& arg11,int const& arg12,int const& arg13) ;
 	static AndroidCXX::android_view_MotionEvent * obtain(long const& arg0,long const& arg1,int const& arg2,int const& arg3,float const& arg4,float const& arg5,float const& arg6,float const& arg7,int const& arg8,float const& arg9,float const& arg10,int const& arg11,int const& arg12) ;
 	virtual void  offsetLocation(float const& arg0,float const& arg1) ;
 	virtual void  recycle() ;

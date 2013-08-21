@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -43,13 +44,12 @@
 
 #include <java_lang_Object.hpp>
 
-#include <com_facebook_android_FacebookError.hpp>
-
 #include <java_io_FileNotFoundException.hpp>
+
+#include <java_io_IOException.hpp>
 
 #include <java_net_MalformedURLException.hpp>
 
-#include <java_io_IOException.hpp>
 
 #include <vector>
 #include <map>
@@ -74,22 +74,25 @@ class com_facebook_android_FacebookError;
 
 
 
-class com_facebook_android_AsyncFacebookRunner_RequestListener
+class com_facebook_android_AsyncFacebookRunner_RequestListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_android_AsyncFacebookRunner_RequestListener(const com_facebook_android_AsyncFacebookRunner_RequestListener& cc);
 	com_facebook_android_AsyncFacebookRunner_RequestListener(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_AsyncFacebookRunner_RequestListener();
 	// Functions
-	 void onComplete(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 void onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 void onFileNotFoundException(AndroidCXX::java_io_FileNotFoundException const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 void onMalformedURLException(AndroidCXX::java_net_MalformedURLException const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 void onIOException(AndroidCXX::java_io_IOException const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	virtual void  onComplete(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual void  onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual void  onFileNotFoundException(AndroidCXX::java_io_FileNotFoundException const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual void  onIOException(AndroidCXX::java_io_IOException const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual void  onMalformedURLException(AndroidCXX::java_net_MalformedURLException const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+
+protected:
+	com_facebook_android_AsyncFacebookRunner_RequestListener();
+
 };	
 
 } // namespace

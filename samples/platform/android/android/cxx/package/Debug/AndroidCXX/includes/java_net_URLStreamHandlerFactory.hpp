@@ -51,7 +51,7 @@ class java_lang_String;
 
 class java_net_URLStreamHandler;
 
-class java_net_URLStreamHandlerFactory : public java_lang_Object
+class java_net_URLStreamHandlerFactory : public AndroidCXX::java_lang_Object
 {
 public:
 

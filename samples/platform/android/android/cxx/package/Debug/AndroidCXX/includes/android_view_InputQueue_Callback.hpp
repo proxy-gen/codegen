@@ -50,7 +50,7 @@ namespace AndroidCXX {
 
 class android_view_InputQueue;
 
-class android_view_InputQueue_Callback : public java_lang_Object
+class android_view_InputQueue_Callback : public AndroidCXX::java_lang_Object
 {
 public:
 

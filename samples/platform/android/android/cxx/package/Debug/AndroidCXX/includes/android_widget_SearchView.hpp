@@ -149,7 +149,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_SearchView : public android_view_CollapsibleActionView
+class android_widget_SearchView : public AndroidCXX::android_view_CollapsibleActionView
 {
 public:
 

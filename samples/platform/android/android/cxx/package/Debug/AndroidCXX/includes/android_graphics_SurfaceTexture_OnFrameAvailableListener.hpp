@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_graphics_SurfaceTexture;
 
-class android_graphics_SurfaceTexture_OnFrameAvailableListener : public java_lang_Object
+class android_graphics_SurfaceTexture_OnFrameAvailableListener : public AndroidCXX::java_lang_Object
 {
 public:
 

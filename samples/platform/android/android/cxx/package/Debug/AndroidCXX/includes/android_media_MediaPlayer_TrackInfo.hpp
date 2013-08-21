@@ -58,7 +58,7 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_media_MediaPlayer_TrackInfo : public android_os_Parcelable
+class android_media_MediaPlayer_TrackInfo : public AndroidCXX::android_os_Parcelable
 {
 public:
 

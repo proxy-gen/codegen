@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -27,6 +28,9 @@
 //
 
 
+
+#include <com_facebook_widget_WorkQueue_WorkItem.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -43,20 +47,23 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_widget_WorkQueue_WorkNode
+class com_facebook_widget_WorkQueue_WorkNode : public FacebookCXX::com_facebook_widget_WorkQueue_WorkItem
 {
 public:
 
+	// Public ConstrucXXX
 	com_facebook_widget_WorkQueue_WorkNode(const com_facebook_widget_WorkQueue_WorkNode& cc);
 	com_facebook_widget_WorkQueue_WorkNode(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WorkQueue_WorkNode();
 	// Functions
-	 bool cancel();
-	 bool isRunning();
-	 void moveToFront();
+	virtual bool  cancel() ;
+	virtual bool  isRunning() ;
+	virtual void  moveToFront() ;
+
+protected:
+
 };	
 
 } // namespace

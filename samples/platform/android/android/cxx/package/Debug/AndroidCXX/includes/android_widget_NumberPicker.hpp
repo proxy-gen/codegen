@@ -131,7 +131,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_NumberPicker : public java_lang_Object
+class android_widget_NumberPicker : public AndroidCXX::java_lang_Object
 {
 public:
 
@@ -150,7 +150,7 @@ public:
 	virtual bool  dispatchTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual bool  dispatchTrackballEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual AndroidCXX::android_view_accessibility_AccessibilityNodeProvider * getAccessibilityNodeProvider() ;
-	virtual std::vector<java_lang_String>  getDisplayedValues() ;
+	virtual std::vector<AndroidCXX::java_lang_String>  getDisplayedValues() ;
 	virtual int  getMaxValue() ;
 	virtual int  getMinValue() ;
 	virtual int  getSolidColor() ;
@@ -160,7 +160,7 @@ public:
 	virtual bool  onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 	virtual void  scrollBy(int const& arg0,int const& arg1) ;
-	virtual void  setDisplayedValues(std::vector<java_lang_String> const& arg0) ;
+	virtual void  setDisplayedValues(std::vector<AndroidCXX::java_lang_String> const& arg0) ;
 	virtual void  setEnabled(bool const& arg0) ;
 	virtual void  setFormatter(AndroidCXX::android_widget_NumberPicker_Formatter const& arg0) ;
 	virtual void  setMaxValue(int const& arg0) ;

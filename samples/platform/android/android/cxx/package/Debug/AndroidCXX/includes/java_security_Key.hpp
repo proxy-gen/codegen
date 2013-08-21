@@ -52,7 +52,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_security_Key : public java_io_Serializable
+class java_security_Key : public AndroidCXX::java_io_Serializable
 {
 public:
 

@@ -77,7 +77,7 @@ class java_lang_Object;
 
 class java_lang_String;
 
-class java_lang_Boolean : public java_io_Serializable,public java_lang_Comparable
+class java_lang_Boolean : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Comparable
 {
 public:
 

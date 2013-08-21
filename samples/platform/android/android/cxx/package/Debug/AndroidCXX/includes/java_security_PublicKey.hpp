@@ -44,7 +44,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_security_PublicKey : public java_security_Key
+class java_security_PublicKey : public AndroidCXX::java_security_Key
 {
 public:
 

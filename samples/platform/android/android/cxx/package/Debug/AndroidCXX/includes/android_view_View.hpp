@@ -811,7 +811,7 @@ class java_lang_String;
 
 class android_util_AttributeSet;
 
-class android_view_View : public android_graphics_drawable_Drawable_Callback,public android_view_KeyEvent_Callback,public android_view_accessibility_AccessibilityEventSource
+class android_view_View : public AndroidCXX::android_graphics_drawable_Drawable_Callback,public AndroidCXX::android_view_KeyEvent_Callback,public AndroidCXX::android_view_accessibility_AccessibilityEventSource
 {
 public:
 

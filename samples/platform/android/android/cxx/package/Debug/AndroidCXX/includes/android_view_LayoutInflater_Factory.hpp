@@ -57,7 +57,7 @@ class android_util_AttributeSet;
 
 class android_view_View;
 
-class android_view_LayoutInflater_Factory : public java_lang_Object
+class android_view_LayoutInflater_Factory : public AndroidCXX::java_lang_Object
 {
 public:
 

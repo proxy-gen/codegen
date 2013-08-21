@@ -65,7 +65,7 @@ namespace AndroidCXX {
 
 class android_database_DataSetObserver;
 
-class android_widget_BaseExpandableListAdapter : public android_widget_ExpandableListAdapter,public android_widget_HeterogeneousExpandableList
+class android_widget_BaseExpandableListAdapter : public AndroidCXX::android_widget_ExpandableListAdapter,public AndroidCXX::android_widget_HeterogeneousExpandableList
 {
 public:
 

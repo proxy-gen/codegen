@@ -99,7 +99,7 @@ class java_lang_String;
 
 class java_net_NetworkInterface;
 
-class java_net_InetAddress : public java_io_Serializable
+class java_net_InetAddress : public AndroidCXX::java_io_Serializable
 {
 public:
 
@@ -112,7 +112,7 @@ public:
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual std::vector<byte>  getAddress() ;
-	static std::vector<java_net_InetAddress>  getAllByName(AndroidCXX::java_lang_String const& arg0) ;
+	static std::vector<AndroidCXX::java_net_InetAddress>  getAllByName(AndroidCXX::java_lang_String const& arg0) ;
 	static AndroidCXX::java_net_InetAddress * getByAddress(std::vector<byte> const& arg0) ;
 	static AndroidCXX::java_net_InetAddress * getByAddress(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1) ;
 	static AndroidCXX::java_net_InetAddress * getByName(AndroidCXX::java_lang_String const& arg0) ;

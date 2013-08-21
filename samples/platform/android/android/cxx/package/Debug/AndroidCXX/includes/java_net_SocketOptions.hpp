@@ -49,7 +49,7 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class java_net_SocketOptions : public java_lang_Object
+class java_net_SocketOptions : public AndroidCXX::java_lang_Object
 {
 public:
 

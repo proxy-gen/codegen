@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_webkit_WebChromeClient_CustomViewCallback : public java_lang_Object
+class android_webkit_WebChromeClient_CustomViewCallback : public AndroidCXX::java_lang_Object
 {
 public:
 

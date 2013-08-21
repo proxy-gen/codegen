@@ -60,7 +60,7 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class android_util_SparseBooleanArray : public java_lang_Cloneable
+class android_util_SparseBooleanArray : public AndroidCXX::java_lang_Cloneable
 {
 public:
 

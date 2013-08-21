@@ -66,7 +66,7 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_os_PatternMatcher : public android_os_Parcelable
+class android_os_PatternMatcher : public AndroidCXX::android_os_Parcelable
 {
 public:
 

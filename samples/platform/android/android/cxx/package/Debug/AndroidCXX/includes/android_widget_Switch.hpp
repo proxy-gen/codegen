@@ -127,7 +127,7 @@ class android_graphics_Typeface;
 
 class android_util_AttributeSet;
 
-class android_widget_Switch : public java_lang_Object
+class android_widget_Switch : public AndroidCXX::java_lang_Object
 {
 public:
 

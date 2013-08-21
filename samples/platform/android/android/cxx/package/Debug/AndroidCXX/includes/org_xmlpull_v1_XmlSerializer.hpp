@@ -116,7 +116,7 @@ class java_io_Writer;
 
 class java_lang_Boolean;
 
-class org_xmlpull_v1_XmlSerializer : public java_lang_Object
+class org_xmlpull_v1_XmlSerializer : public AndroidCXX::java_lang_Object
 {
 public:
 

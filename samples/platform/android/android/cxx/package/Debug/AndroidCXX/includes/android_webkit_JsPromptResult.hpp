@@ -50,7 +50,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_webkit_JsPromptResult : public java_lang_Object
+class android_webkit_JsPromptResult : public AndroidCXX::java_lang_Object
 {
 public:
 

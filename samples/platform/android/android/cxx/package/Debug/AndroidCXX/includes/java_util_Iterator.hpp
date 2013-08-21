@@ -49,7 +49,7 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class java_util_Iterator : public java_lang_Object
+class java_util_Iterator : public AndroidCXX::java_lang_Object
 {
 public:
 

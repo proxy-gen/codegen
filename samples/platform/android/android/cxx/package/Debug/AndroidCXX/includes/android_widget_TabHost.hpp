@@ -131,7 +131,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_TabHost : public android_view_ViewTreeObserver_OnTouchModeChangeListener
+class android_widget_TabHost : public AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener
 {
 public:
 

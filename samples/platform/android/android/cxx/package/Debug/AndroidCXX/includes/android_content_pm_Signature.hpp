@@ -76,7 +76,7 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_content_pm_Signature : public android_os_Parcelable
+class android_content_pm_Signature : public AndroidCXX::android_os_Parcelable
 {
 public:
 

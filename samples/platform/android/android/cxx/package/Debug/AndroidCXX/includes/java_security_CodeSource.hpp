@@ -88,13 +88,13 @@ class java_net_URL;
 
 class java_lang_String;
 
-class java_security_CodeSource : public java_io_Serializable
+class java_security_CodeSource : public AndroidCXX::java_io_Serializable
 {
 public:
 
 	// Public ConstrucXXX
-	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<java_security_CodeSigner> const& arg1);
-	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<java_security_cert_Certificate> const& arg1);
+	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_CodeSigner> const& arg1);
+	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_cert_Certificate> const& arg1);
 	java_security_CodeSource(const java_security_CodeSource& cc);
 	java_security_CodeSource(Proxy proxy);
 	Proxy proxy() const;	
@@ -102,8 +102,8 @@ public:
 	virtual ~java_security_CodeSource();
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual std::vector<java_security_cert_Certificate>  getCertificates() ;
-	virtual std::vector<java_security_CodeSigner>  getCodeSigners() ;
+	virtual std::vector<AndroidCXX::java_security_cert_Certificate>  getCertificates() ;
+	virtual std::vector<AndroidCXX::java_security_CodeSigner>  getCodeSigners() ;
 	virtual AndroidCXX::java_net_URL * getLocation() ;
 	virtual int  hashCode() ;
 	virtual bool  implies(AndroidCXX::java_security_CodeSource const& arg0) ;

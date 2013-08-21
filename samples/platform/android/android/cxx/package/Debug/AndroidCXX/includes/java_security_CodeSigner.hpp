@@ -72,7 +72,7 @@ class java_security_Timestamp;
 
 class java_lang_String;
 
-class java_security_CodeSigner : public java_io_Serializable
+class java_security_CodeSigner : public AndroidCXX::java_io_Serializable
 {
 public:
 

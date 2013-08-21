@@ -60,7 +60,7 @@ class android_graphics_Bitmap;
 
 class java_lang_String;
 
-class android_webkit_WebHistoryItem : public java_lang_Cloneable
+class android_webkit_WebHistoryItem : public AndroidCXX::java_lang_Cloneable
 {
 public:
 

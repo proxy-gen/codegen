@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +42,20 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_widget_UrlRedirectCache
+class com_facebook_widget_UrlRedirectCache 
 {
 public:
 
+	// Public ConstrucXXX
 	com_facebook_widget_UrlRedirectCache(const com_facebook_widget_UrlRedirectCache& cc);
 	com_facebook_widget_UrlRedirectCache(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_UrlRedirectCache();
 	// Functions
+
+protected:
+
 };	
 
 } // namespace

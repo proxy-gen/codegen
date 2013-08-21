@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_widget_NumberPicker;
 
-class android_widget_NumberPicker_OnScrollListener : public java_lang_Object
+class android_widget_NumberPicker_OnScrollListener : public AndroidCXX::java_lang_Object
 {
 public:
 

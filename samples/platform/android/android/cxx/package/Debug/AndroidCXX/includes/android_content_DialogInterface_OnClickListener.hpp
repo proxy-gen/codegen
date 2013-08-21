@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class android_content_DialogInterface;
 
-class android_content_DialogInterface_OnClickListener : public java_lang_Object
+class android_content_DialogInterface_OnClickListener : public AndroidCXX::java_lang_Object
 {
 public:
 

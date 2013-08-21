@@ -50,7 +50,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class org_json_JSONException : public java_lang_Object
+class org_json_JSONException : public AndroidCXX::java_lang_Object
 {
 public:
 

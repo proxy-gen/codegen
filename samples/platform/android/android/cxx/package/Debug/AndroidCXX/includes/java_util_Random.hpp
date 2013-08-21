@@ -56,7 +56,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_util_Random : public java_io_Serializable
+class java_util_Random : public AndroidCXX::java_io_Serializable
 {
 public:
 

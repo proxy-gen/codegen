@@ -58,7 +58,7 @@ class android_view_View;
 
 class android_graphics_Rect;
 
-class android_text_method_TransformationMethod : public java_lang_Object
+class android_text_method_TransformationMethod : public AndroidCXX::java_lang_Object
 {
 public:
 

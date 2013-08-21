@@ -122,7 +122,7 @@ class java_io_InputStream;
 
 class java_io_Reader;
 
-class org_xmlpull_v1_XmlPullParser : public java_lang_Object
+class org_xmlpull_v1_XmlPullParser : public AndroidCXX::java_lang_Object
 {
 public:
 

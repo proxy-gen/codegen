@@ -50,7 +50,7 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class java_nio_MappedByteBuffer : public java_lang_Object
+class java_nio_MappedByteBuffer : public AndroidCXX::java_lang_Object
 {
 public:
 

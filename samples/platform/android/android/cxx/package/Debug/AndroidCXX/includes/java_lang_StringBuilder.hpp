@@ -150,7 +150,7 @@ class java_lang_StringBuffer;
 
 class java_lang_String;
 
-class java_lang_StringBuilder : public java_io_Serializable,public java_lang_CharSequence
+class java_lang_StringBuilder : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_CharSequence
 {
 public:
 

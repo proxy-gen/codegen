@@ -82,7 +82,7 @@ class android_content_res_Configuration;
 
 class android_app_Notification;
 
-class android_app_Service : public android_content_ComponentCallbacks2
+class android_app_Service : public AndroidCXX::android_content_ComponentCallbacks2
 {
 public:
 

@@ -166,7 +166,7 @@ class java_net_URI;
 
 class java_net_URL;
 
-class java_io_File : public java_io_Serializable,public java_lang_Comparable
+class java_io_File : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Comparable
 {
 public:
 
@@ -210,12 +210,12 @@ public:
 	virtual bool  isHidden() ;
 	virtual long  lastModified() ;
 	virtual long  length() ;
-	virtual std::vector<java_io_File>  listFiles(AndroidCXX::java_io_FileFilter const& arg0) ;
-	virtual std::vector<java_io_File>  listFiles(AndroidCXX::java_io_FilenameFilter const& arg0) ;
-	virtual std::vector<java_io_File>  listFiles() ;
-	virtual std::vector<java_lang_String>  list(AndroidCXX::java_io_FilenameFilter const& arg0) ;
-	virtual std::vector<java_lang_String>  list() ;
-	static std::vector<java_io_File>  listRoots() ;
+	virtual std::vector<AndroidCXX::java_io_File>  listFiles(AndroidCXX::java_io_FileFilter const& arg0) ;
+	virtual std::vector<AndroidCXX::java_io_File>  listFiles(AndroidCXX::java_io_FilenameFilter const& arg0) ;
+	virtual std::vector<AndroidCXX::java_io_File>  listFiles() ;
+	virtual std::vector<AndroidCXX::java_lang_String>  list(AndroidCXX::java_io_FilenameFilter const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_String>  list() ;
+	static std::vector<AndroidCXX::java_io_File>  listRoots() ;
 	virtual bool  mkdir() ;
 	virtual bool  mkdirs() ;
 	virtual bool  renameTo(AndroidCXX::java_io_File const& arg0) ;

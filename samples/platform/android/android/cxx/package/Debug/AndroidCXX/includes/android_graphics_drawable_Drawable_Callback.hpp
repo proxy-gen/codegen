@@ -56,7 +56,7 @@ class android_graphics_drawable_Drawable;
 
 class java_lang_Runnable;
 
-class android_graphics_drawable_Drawable_Callback : public java_lang_Object
+class android_graphics_drawable_Drawable_Callback : public AndroidCXX::java_lang_Object
 {
 public:
 

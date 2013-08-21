@@ -51,7 +51,7 @@ namespace AndroidCXX {
 class android_content_Loader;
 
 
-class android_content_Loader_OnLoadCanceledListener : public java_lang_Object
+class android_content_Loader_OnLoadCanceledListener : public AndroidCXX::java_lang_Object
 {
 public:
 

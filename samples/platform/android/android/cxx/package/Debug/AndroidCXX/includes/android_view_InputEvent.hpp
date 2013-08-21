@@ -53,7 +53,7 @@ namespace AndroidCXX {
 
 class android_view_InputDevice;
 
-class android_view_InputEvent : public android_os_Parcelable
+class android_view_InputEvent : public AndroidCXX::android_os_Parcelable
 {
 public:
 

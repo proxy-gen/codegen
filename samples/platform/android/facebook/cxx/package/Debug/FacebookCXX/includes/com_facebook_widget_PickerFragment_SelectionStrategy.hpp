@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +42,20 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_widget_PickerFragment_SelectionStrategy
+class com_facebook_widget_PickerFragment_SelectionStrategy 
 {
 public:
 
 	com_facebook_widget_PickerFragment_SelectionStrategy(const com_facebook_widget_PickerFragment_SelectionStrategy& cc);
 	com_facebook_widget_PickerFragment_SelectionStrategy(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_SelectionStrategy();
 	// Functions
+
+protected:
+	com_facebook_widget_PickerFragment_SelectionStrategy();
+
 };	
 
 } // namespace

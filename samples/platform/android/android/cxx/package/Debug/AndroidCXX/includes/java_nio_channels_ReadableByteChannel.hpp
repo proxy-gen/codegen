@@ -48,7 +48,7 @@ namespace AndroidCXX {
 
 class java_nio_ByteBuffer;
 
-class java_nio_channels_ReadableByteChannel : public java_nio_channels_Channel
+class java_nio_channels_ReadableByteChannel : public AndroidCXX::java_nio_channels_Channel
 {
 public:
 

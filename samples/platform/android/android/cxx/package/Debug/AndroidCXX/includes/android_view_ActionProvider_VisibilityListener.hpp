@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_ActionProvider_VisibilityListener : public java_lang_Object
+class android_view_ActionProvider_VisibilityListener : public AndroidCXX::java_lang_Object
 {
 public:
 

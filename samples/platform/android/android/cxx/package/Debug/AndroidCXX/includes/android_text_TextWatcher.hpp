@@ -54,7 +54,7 @@ class android_text_Editable;
 
 class java_lang_CharSequence;
 
-class android_text_TextWatcher : public android_text_NoCopySpan
+class android_text_TextWatcher : public AndroidCXX::android_text_NoCopySpan
 {
 public:
 

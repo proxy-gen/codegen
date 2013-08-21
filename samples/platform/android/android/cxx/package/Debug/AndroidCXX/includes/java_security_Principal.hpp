@@ -54,7 +54,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_security_Principal : public java_lang_Object
+class java_security_Principal : public AndroidCXX::java_lang_Object
 {
 public:
 

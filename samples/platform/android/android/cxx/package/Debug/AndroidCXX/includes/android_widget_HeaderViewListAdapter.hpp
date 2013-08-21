@@ -114,7 +114,7 @@ class java_util_ArrayList;
 
 class android_widget_ListView_FixedViewInfo;
 
-class android_widget_HeaderViewListAdapter : public android_widget_Filterable,public android_widget_WrapperListAdapter
+class android_widget_HeaderViewListAdapter : public AndroidCXX::android_widget_Filterable,public AndroidCXX::android_widget_WrapperListAdapter
 {
 public:
 

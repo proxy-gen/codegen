@@ -110,7 +110,7 @@ class java_nio_charset_CharsetDecoder;
 
 class java_nio_charset_CharsetEncoder;
 
-class java_nio_charset_Charset : public java_lang_Comparable
+class java_nio_charset_Charset : public AndroidCXX::java_lang_Comparable
 {
 public:
 

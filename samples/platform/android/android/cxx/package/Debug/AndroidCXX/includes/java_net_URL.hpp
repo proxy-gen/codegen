@@ -147,7 +147,7 @@ class java_net_URI;
 
 class java_net_URLStreamHandler;
 
-class java_net_URL : public java_io_Serializable
+class java_net_URL : public AndroidCXX::java_io_Serializable
 {
 public:
 
@@ -166,7 +166,7 @@ public:
 	// Functions
 	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
 	virtual AndroidCXX::java_lang_String * getAuthority() ;
-	virtual AndroidCXX::java_lang_Object * getContent(std::vector<java_lang_Class> const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * getContent(std::vector<AndroidCXX::java_lang_Class> const& arg0) ;
 	virtual AndroidCXX::java_lang_Object * getContent() ;
 	virtual int  getDefaultPort() ;
 	virtual AndroidCXX::java_lang_String * getFile() ;

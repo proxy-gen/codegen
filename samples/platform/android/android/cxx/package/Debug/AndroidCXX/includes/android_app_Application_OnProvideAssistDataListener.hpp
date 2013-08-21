@@ -51,7 +51,7 @@ class android_app_Activity;
 
 class android_os_Bundle;
 
-class android_app_Application_OnProvideAssistDataListener : public java_lang_Object
+class android_app_Application_OnProvideAssistDataListener : public AndroidCXX::java_lang_Object
 {
 public:
 

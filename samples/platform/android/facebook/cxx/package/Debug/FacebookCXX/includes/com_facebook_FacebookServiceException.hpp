@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -31,9 +32,12 @@
 //
 
 
+#include <com_facebook_FacebookRequestError.hpp>
+
 #include <java_lang_String.hpp>
 
-#include <com_facebook_FacebookRequestError.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -51,23 +55,26 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-
 class com_facebook_FacebookRequestError;
 
-class com_facebook_FacebookServiceException
+
+class com_facebook_FacebookServiceException : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public ConstrucXXX
+	com_facebook_FacebookServiceException(FacebookCXX::com_facebook_FacebookRequestError const& arg0,AndroidCXX::java_lang_String const& arg1);
 	com_facebook_FacebookServiceException(const com_facebook_FacebookServiceException& cc);
 	com_facebook_FacebookServiceException(Proxy proxy);
-	// Public Constructors
-	com_facebook_FacebookServiceException(FacebookCXX::com_facebook_FacebookRequestError const& arg0,AndroidCXX::java_lang_String const& arg1);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookServiceException();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 FacebookCXX::com_facebook_FacebookRequestError getRequestError();
+	virtual FacebookCXX::com_facebook_FacebookRequestError * getRequestError() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
 };	
 
 } // namespace

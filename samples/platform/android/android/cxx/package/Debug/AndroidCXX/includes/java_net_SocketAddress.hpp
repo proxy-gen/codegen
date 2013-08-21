@@ -45,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_net_SocketAddress : public java_io_Serializable
+class java_net_SocketAddress : public AndroidCXX::java_io_Serializable
 {
 public:
 

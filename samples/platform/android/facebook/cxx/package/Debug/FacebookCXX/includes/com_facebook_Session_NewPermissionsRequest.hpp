@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,12 +8,13 @@
 //
 
 
+
  		 
 	
  		 
 	
-	
  		 
+	
 	
 
 
@@ -47,10 +48,9 @@
 
 #include <com_facebook_Session_StatusCallback.hpp>
 
+#include <com_facebook_SessionDefaultAudience.hpp>
 
 #include <com_facebook_SessionLoginBehavior.hpp>
-
-#include <com_facebook_SessionDefaultAudience.hpp>
 
 #include <android_app_Activity.hpp>
 
@@ -59,6 +59,9 @@
 #include <java_lang_String.hpp>
 
 #include <android_support_v4_app_Fragment.hpp>
+
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -78,7 +81,6 @@ namespace FacebookCXX {
 
 class com_facebook_Session_StatusCallback;
 
-class com_facebook_Session_NewPermissionsRequest;
 
 
 
@@ -86,23 +88,26 @@ class com_facebook_Session_NewPermissionsRequest;
 
 
 
-class com_facebook_Session_NewPermissionsRequest
+class com_facebook_Session_NewPermissionsRequest : public AndroidCXX::java_lang_Object
 {
 public:
 
-	com_facebook_Session_NewPermissionsRequest(const com_facebook_Session_NewPermissionsRequest& cc);
-	com_facebook_Session_NewPermissionsRequest(Proxy proxy);
-	// Public Constructors
+	// Public ConstrucXXX
 	com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::java_util_List const& arg1);
 	com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment const& arg0,AndroidCXX::java_util_List const& arg1);
+	com_facebook_Session_NewPermissionsRequest(const com_facebook_Session_NewPermissionsRequest& cc);
+	com_facebook_Session_NewPermissionsRequest(Proxy proxy);
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_NewPermissionsRequest();
 	// Functions
-	 FacebookCXX::com_facebook_Session_NewPermissionsRequest setCallback(FacebookCXX::com_facebook_Session_StatusCallback const& arg0);
-	 FacebookCXX::com_facebook_Session_NewPermissionsRequest setLoginBehavior(com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior const& arg0);
-	 FacebookCXX::com_facebook_Session_NewPermissionsRequest setRequestCode(int const& arg0);
-	 FacebookCXX::com_facebook_Session_NewPermissionsRequest setDefaultAudience(com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience const& arg0);
+	virtual FacebookCXX::com_facebook_Session_NewPermissionsRequest * setCallback(FacebookCXX::com_facebook_Session_StatusCallback const& arg0) ;
+	virtual FacebookCXX::com_facebook_Session_NewPermissionsRequest * setDefaultAudience(com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience const& arg0) ;
+	virtual FacebookCXX::com_facebook_Session_NewPermissionsRequest * setLoginBehavior(com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior const& arg0) ;
+	virtual FacebookCXX::com_facebook_Session_NewPermissionsRequest * setRequestCode(int const& arg0) ;
+
+protected:
+
 };	
 
 } // namespace

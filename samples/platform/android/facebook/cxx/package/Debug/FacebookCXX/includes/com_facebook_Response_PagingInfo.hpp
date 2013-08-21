@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -30,6 +31,9 @@
 
 #include <java_lang_String.hpp>
 
+
+#include <com_facebook_model_GraphObject.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -47,19 +51,22 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_Response_PagingInfo
+class com_facebook_Response_PagingInfo : public FacebookCXX::com_facebook_model_GraphObject
 {
 public:
 
 	com_facebook_Response_PagingInfo(const com_facebook_Response_PagingInfo& cc);
 	com_facebook_Response_PagingInfo(Proxy proxy);
-	// Public Constructors
 	Proxy proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Response_PagingInfo();
 	// Functions
-	 AndroidCXX::java_lang_String getNext();
-	 AndroidCXX::java_lang_String getPrevious();
+	virtual AndroidCXX::java_lang_String * getNext() ;
+	virtual AndroidCXX::java_lang_String * getPrevious() ;
+
+protected:
+	com_facebook_Response_PagingInfo();
+
 };	
 
 } // namespace

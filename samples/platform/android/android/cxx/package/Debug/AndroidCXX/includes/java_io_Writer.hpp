@@ -72,7 +72,7 @@ class java_lang_CharSequence;
 
 class java_lang_String;
 
-class java_io_Writer : public java_io_Closeable,public java_io_Flushable,public java_lang_Appendable
+class java_io_Writer : public AndroidCXX::java_io_Closeable,public AndroidCXX::java_io_Flushable,public AndroidCXX::java_lang_Appendable
 {
 public:
 
