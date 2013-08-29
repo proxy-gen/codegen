@@ -56,8 +56,8 @@ class com_facebook_model_GraphMultiResult : public FacebookCXX::com_facebook_mod
 public:
 
 	com_facebook_model_GraphMultiResult(const com_facebook_model_GraphMultiResult& cc);
-	com_facebook_model_GraphMultiResult(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_model_GraphMultiResult(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphMultiResult();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	com_facebook_model_GraphMultiResult();
+
+private:
+	Proxy * _proxy;
 
 };	
 

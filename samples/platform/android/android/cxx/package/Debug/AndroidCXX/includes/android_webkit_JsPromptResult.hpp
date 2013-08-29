@@ -54,16 +54,19 @@ class android_webkit_JsPromptResult : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_webkit_JsPromptResult(const android_webkit_JsPromptResult& cc);
-	android_webkit_JsPromptResult(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_JsPromptResult(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_JsPromptResult();
 	// Functions
 	virtual void  confirm(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

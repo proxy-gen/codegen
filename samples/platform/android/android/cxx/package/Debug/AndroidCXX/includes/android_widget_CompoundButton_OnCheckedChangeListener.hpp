@@ -53,8 +53,8 @@ class android_widget_CompoundButton_OnCheckedChangeListener : public AndroidCXX:
 public:
 
 	android_widget_CompoundButton_OnCheckedChangeListener(const android_widget_CompoundButton_OnCheckedChangeListener& cc);
-	android_widget_CompoundButton_OnCheckedChangeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_CompoundButton_OnCheckedChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CompoundButton_OnCheckedChangeListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_CompoundButton_OnCheckedChangeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

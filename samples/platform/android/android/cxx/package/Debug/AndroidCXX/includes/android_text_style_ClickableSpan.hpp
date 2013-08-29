@@ -58,8 +58,8 @@ class android_text_style_ClickableSpan : public AndroidCXX::android_text_style_U
 public:
 
 	android_text_style_ClickableSpan(const android_text_style_ClickableSpan& cc);
-	android_text_style_ClickableSpan(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_style_ClickableSpan(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_style_ClickableSpan();
 	// Functions
@@ -68,6 +68,9 @@ public:
 
 protected:
 	android_text_style_ClickableSpan();
+
+private:
+	Proxy * _proxy;
 
 };	
 

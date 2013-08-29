@@ -53,10 +53,10 @@ class android_widget_GridLayout_Spec
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_widget_GridLayout_Spec(const android_widget_GridLayout_Spec& cc);
-	android_widget_GridLayout_Spec(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_GridLayout_Spec(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_GridLayout_Spec();
 	// Functions
@@ -64,6 +64,9 @@ public:
 	virtual int  hashCode() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

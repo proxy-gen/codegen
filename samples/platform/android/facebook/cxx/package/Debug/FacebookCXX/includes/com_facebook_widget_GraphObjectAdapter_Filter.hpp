@@ -52,8 +52,8 @@ class com_facebook_widget_GraphObjectAdapter_Filter : public AndroidCXX::java_la
 public:
 
 	com_facebook_widget_GraphObjectAdapter_Filter(const com_facebook_widget_GraphObjectAdapter_Filter& cc);
-	com_facebook_widget_GraphObjectAdapter_Filter(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_GraphObjectAdapter_Filter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_Filter();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	com_facebook_widget_GraphObjectAdapter_Filter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

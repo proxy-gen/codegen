@@ -159,18 +159,18 @@ class java_io_PrintWriter : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	java_io_PrintWriter(AndroidCXX::java_io_File const& arg0);
-	java_io_PrintWriter(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1);
-	java_io_PrintWriter(AndroidCXX::java_io_OutputStream const& arg0);
-	java_io_PrintWriter(AndroidCXX::java_io_OutputStream const& arg0,bool const& arg1);
-	java_io_PrintWriter(AndroidCXX::java_io_Writer const& arg0);
-	java_io_PrintWriter(AndroidCXX::java_io_Writer const& arg0,bool const& arg1);
-	java_io_PrintWriter(AndroidCXX::java_lang_String const& arg0);
-	java_io_PrintWriter(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	// Public Constructor
+	java_io_PrintWriter(AndroidCXX::java_io_File const& arg0,Proxy * aProxy = new Proxy());
+	java_io_PrintWriter(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
+	java_io_PrintWriter(AndroidCXX::java_io_OutputStream const& arg0,Proxy * aProxy = new Proxy());
+	java_io_PrintWriter(AndroidCXX::java_io_OutputStream const& arg0,bool const& arg1,Proxy * aProxy = new Proxy());
+	java_io_PrintWriter(AndroidCXX::java_io_Writer const& arg0,Proxy * aProxy = new Proxy());
+	java_io_PrintWriter(AndroidCXX::java_io_Writer const& arg0,bool const& arg1,Proxy * aProxy = new Proxy());
+	java_io_PrintWriter(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_io_PrintWriter(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
 	java_io_PrintWriter(const java_io_PrintWriter& cc);
-	java_io_PrintWriter(Proxy proxy);
-	Proxy proxy() const;	
+	java_io_PrintWriter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_PrintWriter();
 	// Functions
@@ -210,6 +210,9 @@ public:
 	virtual void  write(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

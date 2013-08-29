@@ -135,12 +135,12 @@ class android_widget_TabHost : public AndroidCXX::android_view_ViewTreeObserver_
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_TabHost(AndroidCXX::android_content_Context const& arg0);
-	android_widget_TabHost(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	// Public Constructor
+	android_widget_TabHost(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_TabHost(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_TabHost(const android_widget_TabHost& cc);
-	android_widget_TabHost(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_TabHost(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TabHost();
 	// Functions
@@ -166,6 +166,9 @@ public:
 	virtual void  setup() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

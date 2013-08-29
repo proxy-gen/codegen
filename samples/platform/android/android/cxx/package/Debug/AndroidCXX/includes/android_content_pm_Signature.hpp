@@ -80,12 +80,12 @@ class android_content_pm_Signature : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_content_pm_Signature(std::vector<byte> const& arg0);
-	android_content_pm_Signature(AndroidCXX::java_lang_String const& arg0);
+	// Public Constructor
+	android_content_pm_Signature(std::vector<byte> const& arg0,Proxy * aProxy = new Proxy());
+	android_content_pm_Signature(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	android_content_pm_Signature(const android_content_pm_Signature& cc);
-	android_content_pm_Signature(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_pm_Signature(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_Signature();
 	// Functions
@@ -99,6 +99,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -111,11 +111,10 @@ class com_facebook_Settings
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_Settings();
+	// Public Constructor
+	com_facebook_Settings(Proxy * aProxy = new Proxy());
 	com_facebook_Settings(const com_facebook_Settings& cc);
-	com_facebook_Settings(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Settings();
 	// Functions
@@ -137,6 +136,9 @@ public:
 	static void  setShouldAutoPublishInstall(bool const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

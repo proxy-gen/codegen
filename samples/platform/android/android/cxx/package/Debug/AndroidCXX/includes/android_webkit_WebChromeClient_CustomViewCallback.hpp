@@ -50,8 +50,8 @@ class android_webkit_WebChromeClient_CustomViewCallback : public AndroidCXX::jav
 public:
 
 	android_webkit_WebChromeClient_CustomViewCallback(const android_webkit_WebChromeClient_CustomViewCallback& cc);
-	android_webkit_WebChromeClient_CustomViewCallback(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_WebChromeClient_CustomViewCallback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebChromeClient_CustomViewCallback();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_webkit_WebChromeClient_CustomViewCallback();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -82,13 +82,13 @@ class java_io_FileInputStream : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	java_io_FileInputStream(AndroidCXX::java_io_File const& arg0);
-	java_io_FileInputStream(AndroidCXX::java_io_FileDescriptor const& arg0);
-	java_io_FileInputStream(AndroidCXX::java_lang_String const& arg0);
+	// Public Constructor
+	java_io_FileInputStream(AndroidCXX::java_io_File const& arg0,Proxy * aProxy = new Proxy());
+	java_io_FileInputStream(AndroidCXX::java_io_FileDescriptor const& arg0,Proxy * aProxy = new Proxy());
+	java_io_FileInputStream(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	java_io_FileInputStream(const java_io_FileInputStream& cc);
-	java_io_FileInputStream(Proxy proxy);
-	Proxy proxy() const;	
+	java_io_FileInputStream(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FileInputStream();
 	// Functions
@@ -102,6 +102,9 @@ public:
 	virtual long  skip(long const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

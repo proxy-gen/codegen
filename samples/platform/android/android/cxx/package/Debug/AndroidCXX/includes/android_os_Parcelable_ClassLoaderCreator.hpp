@@ -59,8 +59,8 @@ class android_os_Parcelable_ClassLoaderCreator : public AndroidCXX::android_os_P
 public:
 
 	android_os_Parcelable_ClassLoaderCreator(const android_os_Parcelable_ClassLoaderCreator& cc);
-	android_os_Parcelable_ClassLoaderCreator(Proxy proxy);
-	Proxy proxy() const;	
+	android_os_Parcelable_ClassLoaderCreator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Parcelable_ClassLoaderCreator();
 	// Functions
@@ -68,6 +68,9 @@ public:
 
 protected:
 	android_os_Parcelable_ClassLoaderCreator();
+
+private:
+	Proxy * _proxy;
 
 };	
 

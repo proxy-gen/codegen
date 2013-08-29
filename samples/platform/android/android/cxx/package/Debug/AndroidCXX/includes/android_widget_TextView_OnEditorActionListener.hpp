@@ -56,8 +56,8 @@ class android_widget_TextView_OnEditorActionListener : public AndroidCXX::java_l
 public:
 
 	android_widget_TextView_OnEditorActionListener(const android_widget_TextView_OnEditorActionListener& cc);
-	android_widget_TextView_OnEditorActionListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_TextView_OnEditorActionListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TextView_OnEditorActionListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_widget_TextView_OnEditorActionListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

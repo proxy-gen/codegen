@@ -111,10 +111,10 @@ class android_content_res_TypedArray
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_content_res_TypedArray(const android_content_res_TypedArray& cc);
-	android_content_res_TypedArray(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_res_TypedArray(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_TypedArray();
 	// Functions
@@ -148,6 +148,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

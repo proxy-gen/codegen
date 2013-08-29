@@ -63,8 +63,8 @@ class com_facebook_android_Facebook_ServiceListener : public AndroidCXX::java_la
 public:
 
 	com_facebook_android_Facebook_ServiceListener(const com_facebook_android_Facebook_ServiceListener& cc);
-	com_facebook_android_Facebook_ServiceListener(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_android_Facebook_ServiceListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_ServiceListener();
 	// Functions
@@ -74,6 +74,9 @@ public:
 
 protected:
 	com_facebook_android_Facebook_ServiceListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

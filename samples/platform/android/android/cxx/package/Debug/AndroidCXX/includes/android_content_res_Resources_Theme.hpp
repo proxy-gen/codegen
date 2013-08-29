@@ -81,10 +81,10 @@ class android_content_res_Resources_Theme
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_content_res_Resources_Theme(const android_content_res_Resources_Theme& cc);
-	android_content_res_Resources_Theme(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_res_Resources_Theme(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_Resources_Theme();
 	// Functions
@@ -97,6 +97,9 @@ public:
 	virtual void  setTo(AndroidCXX::android_content_res_Resources_Theme const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

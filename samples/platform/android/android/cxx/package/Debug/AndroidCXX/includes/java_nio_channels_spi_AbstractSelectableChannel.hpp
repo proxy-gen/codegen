@@ -73,8 +73,8 @@ class java_nio_channels_spi_AbstractSelectableChannel : public AndroidCXX::java_
 public:
 
 	java_nio_channels_spi_AbstractSelectableChannel(const java_nio_channels_spi_AbstractSelectableChannel& cc);
-	java_nio_channels_spi_AbstractSelectableChannel(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_spi_AbstractSelectableChannel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_spi_AbstractSelectableChannel();
 	// Functions
@@ -88,6 +88,9 @@ public:
 
 protected:
 	java_nio_channels_spi_AbstractSelectableChannel();
+
+private:
+	Proxy * _proxy;
 
 };	
 

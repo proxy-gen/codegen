@@ -139,11 +139,10 @@ class android_animation_ValueAnimator : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_animation_ValueAnimator();
+	// Public Constructor
+	android_animation_ValueAnimator(Proxy * aProxy = new Proxy());
 	android_animation_ValueAnimator(const android_animation_ValueAnimator& cc);
-	android_animation_ValueAnimator(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_ValueAnimator();
 	// Functions
@@ -187,6 +186,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -55,11 +55,10 @@ class android_graphics_Shader
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_Shader();
+	// Public Constructor
+	android_graphics_Shader(Proxy * aProxy = new Proxy());
 	android_graphics_Shader(const android_graphics_Shader& cc);
-	android_graphics_Shader(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Shader();
 	// Functions
@@ -67,6 +66,9 @@ public:
 	virtual void  setLocalMatrix(AndroidCXX::android_graphics_Matrix const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

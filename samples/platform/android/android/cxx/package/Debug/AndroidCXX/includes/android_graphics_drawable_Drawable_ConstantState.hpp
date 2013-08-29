@@ -58,8 +58,8 @@ class android_graphics_drawable_Drawable_ConstantState
 public:
 
 	android_graphics_drawable_Drawable_ConstantState(const android_graphics_drawable_Drawable_ConstantState& cc);
-	android_graphics_drawable_Drawable_ConstantState(Proxy proxy);
-	Proxy proxy() const;	
+	android_graphics_drawable_Drawable_ConstantState(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_drawable_Drawable_ConstantState();
 	// Functions
@@ -69,6 +69,9 @@ public:
 
 protected:
 	android_graphics_drawable_Drawable_ConstantState();
+
+private:
+	Proxy * _proxy;
 
 };	
 

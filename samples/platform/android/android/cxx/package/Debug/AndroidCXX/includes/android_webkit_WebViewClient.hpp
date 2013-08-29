@@ -137,11 +137,10 @@ class android_webkit_WebViewClient
 {
 public:
 
-	// Public ConstrucXXX
-	android_webkit_WebViewClient();
+	// Public Constructor
+	android_webkit_WebViewClient(Proxy * aProxy = new Proxy());
 	android_webkit_WebViewClient(const android_webkit_WebViewClient& cc);
-	android_webkit_WebViewClient(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebViewClient();
 	// Functions
@@ -162,6 +161,9 @@ public:
 	virtual bool  shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

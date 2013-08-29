@@ -64,11 +64,11 @@ class android_util_Pair
 {
 public:
 
-	// Public ConstrucXXX
-	android_util_Pair(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1);
+	// Public Constructor
+	android_util_Pair(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1,Proxy * aProxy = new Proxy());
 	android_util_Pair(const android_util_Pair& cc);
-	android_util_Pair(Proxy proxy);
-	Proxy proxy() const;	
+	android_util_Pair(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_util_Pair();
 	// Functions
@@ -77,6 +77,9 @@ public:
 	virtual int  hashCode() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

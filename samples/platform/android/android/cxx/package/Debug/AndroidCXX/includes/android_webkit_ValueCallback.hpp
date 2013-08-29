@@ -52,8 +52,8 @@ class android_webkit_ValueCallback : public AndroidCXX::java_lang_Object
 public:
 
 	android_webkit_ValueCallback(const android_webkit_ValueCallback& cc);
-	android_webkit_ValueCallback(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_ValueCallback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_ValueCallback();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	android_webkit_ValueCallback();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -90,12 +90,12 @@ class java_lang_Byte : public AndroidCXX::java_lang_Comparable
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_Byte(byte const& arg0);
-	java_lang_Byte(AndroidCXX::java_lang_String const& arg0);
+	// Public Constructor
+	java_lang_Byte(byte const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_Byte(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	java_lang_Byte(const java_lang_Byte& cc);
-	java_lang_Byte(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Byte(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Byte();
 	// Functions
@@ -118,6 +118,9 @@ public:
 	static AndroidCXX::java_lang_Byte * valueOf(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

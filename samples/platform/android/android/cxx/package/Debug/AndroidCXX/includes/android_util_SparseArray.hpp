@@ -81,12 +81,11 @@ class android_util_SparseArray : public AndroidCXX::java_lang_Cloneable
 {
 public:
 
-	// Public ConstrucXXX
-	android_util_SparseArray();
-	android_util_SparseArray(int const& arg0);
+	// Public Constructor
+	android_util_SparseArray(Proxy * aProxy = new Proxy());
+	android_util_SparseArray(int const& arg0,Proxy * aProxy = new Proxy());
 	android_util_SparseArray(const android_util_SparseArray& cc);
-	android_util_SparseArray(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_util_SparseArray();
 	// Functions
@@ -107,6 +106,9 @@ public:
 	virtual AndroidCXX::java_lang_Object * valueAt(int const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

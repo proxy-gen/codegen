@@ -91,12 +91,12 @@ class java_lang_Short : public AndroidCXX::java_lang_Comparable
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_Short(AndroidCXX::java_lang_String const& arg0);
-	java_lang_Short(short const& arg0);
+	// Public Constructor
+	java_lang_Short(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_Short(short const& arg0,Proxy * aProxy = new Proxy());
 	java_lang_Short(const java_lang_Short& cc);
-	java_lang_Short(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Short(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Short();
 	// Functions
@@ -120,6 +120,9 @@ public:
 	static AndroidCXX::java_lang_Short * valueOf(short const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

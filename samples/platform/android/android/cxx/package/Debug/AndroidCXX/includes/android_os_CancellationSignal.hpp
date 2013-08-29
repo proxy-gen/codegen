@@ -56,11 +56,10 @@ class android_os_CancellationSignal
 {
 public:
 
-	// Public ConstrucXXX
-	android_os_CancellationSignal();
+	// Public Constructor
+	android_os_CancellationSignal(Proxy * aProxy = new Proxy());
 	android_os_CancellationSignal(const android_os_CancellationSignal& cc);
-	android_os_CancellationSignal(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_CancellationSignal();
 	// Functions
@@ -70,6 +69,9 @@ public:
 	virtual void  throwIfCanceled() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

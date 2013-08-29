@@ -56,8 +56,8 @@ class com_facebook_Response_PagingInfo : public FacebookCXX::com_facebook_model_
 public:
 
 	com_facebook_Response_PagingInfo(const com_facebook_Response_PagingInfo& cc);
-	com_facebook_Response_PagingInfo(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Response_PagingInfo(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Response_PagingInfo();
 	// Functions
@@ -66,6 +66,9 @@ public:
 
 protected:
 	com_facebook_Response_PagingInfo();
+
+private:
+	Proxy * _proxy;
 
 };	
 

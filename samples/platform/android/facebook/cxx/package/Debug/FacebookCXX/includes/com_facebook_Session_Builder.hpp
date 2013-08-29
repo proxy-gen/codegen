@@ -71,11 +71,11 @@ class com_facebook_Session_Builder
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_Session_Builder(AndroidCXX::android_content_Context const& arg0);
+	// Public Constructor
+	com_facebook_Session_Builder(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_Session_Builder(const com_facebook_Session_Builder& cc);
-	com_facebook_Session_Builder(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Session_Builder(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_Builder();
 	// Functions
@@ -84,6 +84,9 @@ public:
 	virtual FacebookCXX::com_facebook_Session_Builder * setTokenCachingStrategy(FacebookCXX::com_facebook_TokenCachingStrategy const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

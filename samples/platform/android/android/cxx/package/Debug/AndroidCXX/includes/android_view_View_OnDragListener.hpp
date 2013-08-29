@@ -56,8 +56,8 @@ class android_view_View_OnDragListener : public AndroidCXX::java_lang_Object
 public:
 
 	android_view_View_OnDragListener(const android_view_View_OnDragListener& cc);
-	android_view_View_OnDragListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_View_OnDragListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnDragListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_view_View_OnDragListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

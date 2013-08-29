@@ -86,11 +86,11 @@ class android_content_res_ColorStateList : public AndroidCXX::android_os_Parcela
 {
 public:
 
-	// Public ConstrucXXX
-	android_content_res_ColorStateList(std::vector<std::vector<int> > const& arg0,std::vector<int> const& arg1);
+	// Public Constructor
+	android_content_res_ColorStateList(std::vector<std::vector<int> > const& arg0,std::vector<int> const& arg1,Proxy * aProxy = new Proxy());
 	android_content_res_ColorStateList(const android_content_res_ColorStateList& cc);
-	android_content_res_ColorStateList(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_res_ColorStateList(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_ColorStateList();
 	// Functions
@@ -105,6 +105,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

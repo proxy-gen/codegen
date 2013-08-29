@@ -62,16 +62,19 @@ class com_facebook_widget_LoginButton_LoginButtonCallback : public FacebookCXX::
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_LoginButton_LoginButtonCallback(const com_facebook_widget_LoginButton_LoginButtonCallback& cc);
-	com_facebook_widget_LoginButton_LoginButtonCallback(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_LoginButton_LoginButtonCallback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_LoginButtonCallback();
 	// Functions
 	virtual void  call(FacebookCXX::com_facebook_Session const& arg0,com_facebook_SessionState::com_facebook_SessionState const& arg1,AndroidCXX::java_lang_Exception const& arg2) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

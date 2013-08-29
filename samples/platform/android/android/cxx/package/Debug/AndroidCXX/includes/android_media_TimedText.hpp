@@ -58,10 +58,10 @@ class android_media_TimedText
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_media_TimedText(const android_media_TimedText& cc);
-	android_media_TimedText(Proxy proxy);
-	Proxy proxy() const;	
+	android_media_TimedText(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_media_TimedText();
 	// Functions
@@ -69,6 +69,9 @@ public:
 	virtual AndroidCXX::java_lang_String * getText() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

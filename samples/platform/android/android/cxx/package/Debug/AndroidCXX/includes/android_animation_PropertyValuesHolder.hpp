@@ -145,10 +145,10 @@ class android_animation_PropertyValuesHolder : public AndroidCXX::java_lang_Clon
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_animation_PropertyValuesHolder(const android_animation_PropertyValuesHolder& cc);
-	android_animation_PropertyValuesHolder(Proxy proxy);
-	Proxy proxy() const;	
+	android_animation_PropertyValuesHolder(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_PropertyValuesHolder();
 	// Functions
@@ -172,6 +172,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

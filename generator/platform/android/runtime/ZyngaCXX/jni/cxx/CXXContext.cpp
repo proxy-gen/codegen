@@ -184,7 +184,7 @@ void CXXContext::deregisterProxyComponent(long contextAddress)
 	{
 		if ((*iter).first == contextAddress)
 		{
-			jobject externalObject = (jobject) (*iter).first;
+			jobject externalObject = (jobject) (*iter).second;
 			LOGV("deregisterProxyComponent erasing contextAddress %ld", contextAddress);
 			proxyComponentMap.erase(contextAddress);
 			proxyComponentRefCountMap[externalObject]--;

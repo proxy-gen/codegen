@@ -77,8 +77,8 @@ class java_nio_channels_SelectableChannel : public AndroidCXX::java_nio_channels
 public:
 
 	java_nio_channels_SelectableChannel(const java_nio_channels_SelectableChannel& cc);
-	java_nio_channels_SelectableChannel(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_SelectableChannel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_SelectableChannel();
 	// Functions
@@ -94,6 +94,9 @@ public:
 
 protected:
 	java_nio_channels_SelectableChannel();
+
+private:
+	Proxy * _proxy;
 
 };	
 

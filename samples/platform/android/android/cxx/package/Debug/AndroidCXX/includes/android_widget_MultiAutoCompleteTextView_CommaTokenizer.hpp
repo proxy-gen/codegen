@@ -60,11 +60,10 @@ class android_widget_MultiAutoCompleteTextView_CommaTokenizer : public AndroidCX
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_MultiAutoCompleteTextView_CommaTokenizer();
+	// Public Constructor
+	android_widget_MultiAutoCompleteTextView_CommaTokenizer(Proxy * aProxy = new Proxy());
 	android_widget_MultiAutoCompleteTextView_CommaTokenizer(const android_widget_MultiAutoCompleteTextView_CommaTokenizer& cc);
-	android_widget_MultiAutoCompleteTextView_CommaTokenizer(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_MultiAutoCompleteTextView_CommaTokenizer();
 	// Functions
@@ -73,6 +72,9 @@ public:
 	virtual AndroidCXX::java_lang_CharSequence * terminateToken(AndroidCXX::java_lang_CharSequence const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

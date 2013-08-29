@@ -51,8 +51,8 @@ class java_nio_channels_spi_AbstractInterruptibleChannel : public AndroidCXX::ja
 public:
 
 	java_nio_channels_spi_AbstractInterruptibleChannel(const java_nio_channels_spi_AbstractInterruptibleChannel& cc);
-	java_nio_channels_spi_AbstractInterruptibleChannel(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_spi_AbstractInterruptibleChannel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_spi_AbstractInterruptibleChannel();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	java_nio_channels_spi_AbstractInterruptibleChannel();
+
+private:
+	Proxy * _proxy;
 
 };	
 

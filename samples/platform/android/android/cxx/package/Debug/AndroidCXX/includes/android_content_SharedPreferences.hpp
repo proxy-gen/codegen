@@ -93,8 +93,8 @@ class android_content_SharedPreferences : public AndroidCXX::java_lang_Object
 public:
 
 	android_content_SharedPreferences(const android_content_SharedPreferences& cc);
-	android_content_SharedPreferences(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_SharedPreferences(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_SharedPreferences();
 	// Functions
@@ -112,6 +112,9 @@ public:
 
 protected:
 	android_content_SharedPreferences();
+
+private:
+	Proxy * _proxy;
 
 };	
 

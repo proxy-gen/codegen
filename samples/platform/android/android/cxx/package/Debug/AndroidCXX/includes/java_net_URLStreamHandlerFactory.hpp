@@ -56,8 +56,8 @@ class java_net_URLStreamHandlerFactory : public AndroidCXX::java_lang_Object
 public:
 
 	java_net_URLStreamHandlerFactory(const java_net_URLStreamHandlerFactory& cc);
-	java_net_URLStreamHandlerFactory(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_URLStreamHandlerFactory(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_URLStreamHandlerFactory();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	java_net_URLStreamHandlerFactory();
+
+private:
+	Proxy * _proxy;
 
 };	
 

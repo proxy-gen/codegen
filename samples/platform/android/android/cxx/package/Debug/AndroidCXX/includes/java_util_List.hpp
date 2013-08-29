@@ -126,8 +126,8 @@ class java_util_List : public AndroidCXX::java_util_Collection
 public:
 
 	java_util_List(const java_util_List& cc);
-	java_util_List(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_List(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_List();
 	// Functions
@@ -159,6 +159,9 @@ public:
 
 protected:
 	java_util_List();
+
+private:
+	Proxy * _proxy;
 
 };	
 

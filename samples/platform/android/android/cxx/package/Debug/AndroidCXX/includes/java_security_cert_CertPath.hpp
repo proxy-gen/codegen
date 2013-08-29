@@ -79,8 +79,8 @@ class java_security_cert_CertPath : public AndroidCXX::java_io_Serializable
 public:
 
 	java_security_cert_CertPath(const java_security_cert_CertPath& cc);
-	java_security_cert_CertPath(Proxy proxy);
-	Proxy proxy() const;	
+	java_security_cert_CertPath(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_cert_CertPath();
 	// Functions
@@ -95,6 +95,9 @@ public:
 
 protected:
 	java_security_cert_CertPath();
+
+private:
+	Proxy * _proxy;
 
 };	
 

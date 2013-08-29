@@ -61,11 +61,11 @@ class android_graphics_SurfaceTexture
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_SurfaceTexture(int const& arg0);
+	// Public Constructor
+	android_graphics_SurfaceTexture(int const& arg0,Proxy * aProxy = new Proxy());
 	android_graphics_SurfaceTexture(const android_graphics_SurfaceTexture& cc);
-	android_graphics_SurfaceTexture(Proxy proxy);
-	Proxy proxy() const;	
+	android_graphics_SurfaceTexture(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_SurfaceTexture();
 	// Functions
@@ -79,6 +79,9 @@ public:
 	virtual void  updateTexImage() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

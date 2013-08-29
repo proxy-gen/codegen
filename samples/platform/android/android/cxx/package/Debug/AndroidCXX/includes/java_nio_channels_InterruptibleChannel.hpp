@@ -50,8 +50,8 @@ class java_nio_channels_InterruptibleChannel : public AndroidCXX::java_nio_chann
 public:
 
 	java_nio_channels_InterruptibleChannel(const java_nio_channels_InterruptibleChannel& cc);
-	java_nio_channels_InterruptibleChannel(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_InterruptibleChannel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_InterruptibleChannel();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	java_nio_channels_InterruptibleChannel();
+
+private:
+	Proxy * _proxy;
 
 };	
 

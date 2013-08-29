@@ -91,10 +91,10 @@ class android_widget_TabHost_TabSpec
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_widget_TabHost_TabSpec(const android_widget_TabHost_TabSpec& cc);
-	android_widget_TabHost_TabSpec(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_TabHost_TabSpec(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TabHost_TabSpec();
 	// Functions
@@ -107,6 +107,9 @@ public:
 	virtual AndroidCXX::android_widget_TabHost_TabSpec * setIndicator(AndroidCXX::java_lang_CharSequence const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

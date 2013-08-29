@@ -66,11 +66,10 @@ class android_util_DisplayMetrics
 {
 public:
 
-	// Public ConstrucXXX
-	android_util_DisplayMetrics();
+	// Public Constructor
+	android_util_DisplayMetrics(Proxy * aProxy = new Proxy());
 	android_util_DisplayMetrics(const android_util_DisplayMetrics& cc);
-	android_util_DisplayMetrics(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_util_DisplayMetrics();
 	// Functions
@@ -82,6 +81,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

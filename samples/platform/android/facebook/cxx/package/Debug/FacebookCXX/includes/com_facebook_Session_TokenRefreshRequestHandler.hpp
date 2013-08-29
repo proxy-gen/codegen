@@ -53,16 +53,19 @@ class com_facebook_Session_TokenRefreshRequestHandler : public AndroidCXX::java_
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_Session_TokenRefreshRequestHandler(const com_facebook_Session_TokenRefreshRequestHandler& cc);
-	com_facebook_Session_TokenRefreshRequestHandler(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Session_TokenRefreshRequestHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_TokenRefreshRequestHandler();
 	// Functions
 	virtual void  handleMessage(AndroidCXX::android_os_Message const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

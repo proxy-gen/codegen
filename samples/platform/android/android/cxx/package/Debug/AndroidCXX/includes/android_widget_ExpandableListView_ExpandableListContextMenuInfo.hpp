@@ -54,16 +54,19 @@ class android_widget_ExpandableListView_ExpandableListContextMenuInfo : public A
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_ExpandableListView_ExpandableListContextMenuInfo(AndroidCXX::android_view_View const& arg0,long const& arg1,long const& arg2);
+	// Public Constructor
+	android_widget_ExpandableListView_ExpandableListContextMenuInfo(AndroidCXX::android_view_View const& arg0,long const& arg1,long const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_ExpandableListView_ExpandableListContextMenuInfo(const android_widget_ExpandableListView_ExpandableListContextMenuInfo& cc);
-	android_widget_ExpandableListView_ExpandableListContextMenuInfo(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_ExpandableListView_ExpandableListContextMenuInfo(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ExpandableListView_ExpandableListContextMenuInfo();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

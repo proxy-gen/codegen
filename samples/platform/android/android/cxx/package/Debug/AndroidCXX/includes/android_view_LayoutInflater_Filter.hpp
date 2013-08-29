@@ -53,8 +53,8 @@ class android_view_LayoutInflater_Filter : public AndroidCXX::java_lang_Object
 public:
 
 	android_view_LayoutInflater_Filter(const android_view_LayoutInflater_Filter& cc);
-	android_view_LayoutInflater_Filter(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_LayoutInflater_Filter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_LayoutInflater_Filter();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_view_LayoutInflater_Filter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

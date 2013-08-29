@@ -56,8 +56,8 @@ class android_widget_ExpandableListView_OnGroupClickListener : public AndroidCXX
 public:
 
 	android_widget_ExpandableListView_OnGroupClickListener(const android_widget_ExpandableListView_OnGroupClickListener& cc);
-	android_widget_ExpandableListView_OnGroupClickListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_ExpandableListView_OnGroupClickListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ExpandableListView_OnGroupClickListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_widget_ExpandableListView_OnGroupClickListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

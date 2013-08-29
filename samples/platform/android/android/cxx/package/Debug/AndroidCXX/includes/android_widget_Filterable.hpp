@@ -53,8 +53,8 @@ class android_widget_Filterable : public AndroidCXX::java_lang_Object
 public:
 
 	android_widget_Filterable(const android_widget_Filterable& cc);
-	android_widget_Filterable(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_Filterable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Filterable();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_Filterable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

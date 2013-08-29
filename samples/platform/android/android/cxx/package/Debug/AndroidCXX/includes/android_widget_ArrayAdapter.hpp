@@ -151,16 +151,16 @@ class android_widget_ArrayAdapter : public AndroidCXX::android_widget_Filterable
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,std::vector<AndroidCXX::java_lang_Object> const& arg2);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_Object> const& arg3);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_util_List const& arg3);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::java_util_List const& arg2);
+	// Public Constructor
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,std::vector<AndroidCXX::java_lang_Object> const& arg2,Proxy * aProxy = new Proxy());
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_Object> const& arg3,Proxy * aProxy = new Proxy());
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_util_List const& arg3,Proxy * aProxy = new Proxy());
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::java_util_List const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_ArrayAdapter(const android_widget_ArrayAdapter& cc);
-	android_widget_ArrayAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_ArrayAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ArrayAdapter();
 	// Functions
@@ -185,6 +185,9 @@ public:
 	virtual void  sort(AndroidCXX::java_util_Comparator const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -50,8 +50,8 @@ class android_os_CancellationSignal_OnCancelListener : public AndroidCXX::java_l
 public:
 
 	android_os_CancellationSignal_OnCancelListener(const android_os_CancellationSignal_OnCancelListener& cc);
-	android_os_CancellationSignal_OnCancelListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_os_CancellationSignal_OnCancelListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_CancellationSignal_OnCancelListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_os_CancellationSignal_OnCancelListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

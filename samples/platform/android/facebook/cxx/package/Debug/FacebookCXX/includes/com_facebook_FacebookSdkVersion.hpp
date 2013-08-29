@@ -46,15 +46,18 @@ class com_facebook_FacebookSdkVersion
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_FacebookSdkVersion(const com_facebook_FacebookSdkVersion& cc);
-	com_facebook_FacebookSdkVersion(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_FacebookSdkVersion(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookSdkVersion();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

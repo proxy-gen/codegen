@@ -66,8 +66,8 @@ class java_io_Reader : public AndroidCXX::java_io_Closeable,public AndroidCXX::j
 public:
 
 	java_io_Reader(const java_io_Reader& cc);
-	java_io_Reader(Proxy proxy);
-	Proxy proxy() const;	
+	java_io_Reader(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_Reader();
 	// Functions
@@ -84,6 +84,9 @@ public:
 
 protected:
 	java_io_Reader();
+
+private:
+	Proxy * _proxy;
 
 };	
 

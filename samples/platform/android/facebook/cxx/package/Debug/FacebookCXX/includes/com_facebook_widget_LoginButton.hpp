@@ -134,13 +134,13 @@ class com_facebook_widget_LoginButton : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_widget_LoginButton(AndroidCXX::android_content_Context const& arg0);
-	com_facebook_widget_LoginButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	com_facebook_widget_LoginButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	// Public Constructor
+	com_facebook_widget_LoginButton(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_widget_LoginButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	com_facebook_widget_LoginButton(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	com_facebook_widget_LoginButton(const com_facebook_widget_LoginButton& cc);
-	com_facebook_widget_LoginButton(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_LoginButton(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton();
 	// Functions
@@ -164,6 +164,9 @@ public:
 	virtual void  setUserInfoChangedCallback(FacebookCXX::com_facebook_widget_LoginButton_UserInfoChangedCallback const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -90,10 +90,10 @@ class com_facebook_InsightsLogger
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_InsightsLogger(const com_facebook_InsightsLogger& cc);
-	com_facebook_InsightsLogger(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_InsightsLogger(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_InsightsLogger();
 	// Functions
@@ -105,6 +105,9 @@ public:
 	static FacebookCXX::com_facebook_InsightsLogger * newLogger(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

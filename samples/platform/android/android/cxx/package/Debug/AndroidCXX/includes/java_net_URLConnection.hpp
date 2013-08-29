@@ -164,8 +164,8 @@ class java_net_URLConnection
 public:
 
 	java_net_URLConnection(const java_net_URLConnection& cc);
-	java_net_URLConnection(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_URLConnection(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_URLConnection();
 	// Functions
@@ -221,6 +221,9 @@ public:
 
 protected:
 	java_net_URLConnection();
+
+private:
+	Proxy * _proxy;
 
 };	
 

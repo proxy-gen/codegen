@@ -54,8 +54,8 @@ class android_view_accessibility_AccessibilityEventSource : public AndroidCXX::j
 public:
 
 	android_view_accessibility_AccessibilityEventSource(const android_view_accessibility_AccessibilityEventSource& cc);
-	android_view_accessibility_AccessibilityEventSource(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_accessibility_AccessibilityEventSource(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityEventSource();
 	// Functions
@@ -64,6 +64,9 @@ public:
 
 protected:
 	android_view_accessibility_AccessibilityEventSource();
+
+private:
+	Proxy * _proxy;
 
 };	
 

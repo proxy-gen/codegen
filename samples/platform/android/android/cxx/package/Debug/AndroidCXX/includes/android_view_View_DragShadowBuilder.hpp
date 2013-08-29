@@ -68,12 +68,11 @@ class android_view_View_DragShadowBuilder
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_View_DragShadowBuilder();
-	android_view_View_DragShadowBuilder(AndroidCXX::android_view_View const& arg0);
+	// Public Constructor
+	android_view_View_DragShadowBuilder(Proxy * aProxy = new Proxy());
+	android_view_View_DragShadowBuilder(AndroidCXX::android_view_View const& arg0,Proxy * aProxy = new Proxy());
 	android_view_View_DragShadowBuilder(const android_view_View_DragShadowBuilder& cc);
-	android_view_View_DragShadowBuilder(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_DragShadowBuilder();
 	// Functions
@@ -82,6 +81,9 @@ public:
 	virtual void  onProvideShadowMetrics(AndroidCXX::android_graphics_Point const& arg0,AndroidCXX::android_graphics_Point const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

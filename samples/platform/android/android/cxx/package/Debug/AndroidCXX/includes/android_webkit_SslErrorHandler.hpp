@@ -50,10 +50,10 @@ class android_webkit_SslErrorHandler : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_webkit_SslErrorHandler(const android_webkit_SslErrorHandler& cc);
-	android_webkit_SslErrorHandler(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_SslErrorHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_SslErrorHandler();
 	// Functions
@@ -61,6 +61,9 @@ public:
 	virtual void  proceed() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

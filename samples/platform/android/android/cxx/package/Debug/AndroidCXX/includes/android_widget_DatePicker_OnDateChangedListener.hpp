@@ -53,8 +53,8 @@ class android_widget_DatePicker_OnDateChangedListener : public AndroidCXX::java_
 public:
 
 	android_widget_DatePicker_OnDateChangedListener(const android_widget_DatePicker_OnDateChangedListener& cc);
-	android_widget_DatePicker_OnDateChangedListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_DatePicker_OnDateChangedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_DatePicker_OnDateChangedListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_DatePicker_OnDateChangedListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

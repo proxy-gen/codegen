@@ -53,8 +53,8 @@ class android_widget_TabHost_OnTabChangeListener : public AndroidCXX::java_lang_
 public:
 
 	android_widget_TabHost_OnTabChangeListener(const android_widget_TabHost_OnTabChangeListener& cc);
-	android_widget_TabHost_OnTabChangeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_TabHost_OnTabChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TabHost_OnTabChangeListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_TabHost_OnTabChangeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

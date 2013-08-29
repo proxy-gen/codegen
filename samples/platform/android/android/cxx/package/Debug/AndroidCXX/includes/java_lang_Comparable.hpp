@@ -52,8 +52,8 @@ class java_lang_Comparable : public AndroidCXX::java_lang_Object
 public:
 
 	java_lang_Comparable(const java_lang_Comparable& cc);
-	java_lang_Comparable(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Comparable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Comparable();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	java_lang_Comparable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -59,10 +59,10 @@ class com_facebook_widget_PickerFragment_SingleSelectionStrategy : public Androi
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_PickerFragment_SingleSelectionStrategy(const com_facebook_widget_PickerFragment_SingleSelectionStrategy& cc);
-	com_facebook_widget_PickerFragment_SingleSelectionStrategy(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_PickerFragment_SingleSelectionStrategy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_SingleSelectionStrategy();
 	// Functions
@@ -70,6 +70,9 @@ public:
 	virtual AndroidCXX::java_util_Collection * getSelectedIds() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

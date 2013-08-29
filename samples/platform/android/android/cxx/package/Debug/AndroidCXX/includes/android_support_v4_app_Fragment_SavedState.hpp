@@ -55,10 +55,10 @@ class android_support_v4_app_Fragment_SavedState : public AndroidCXX::android_os
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_support_v4_app_Fragment_SavedState(const android_support_v4_app_Fragment_SavedState& cc);
-	android_support_v4_app_Fragment_SavedState(Proxy proxy);
-	Proxy proxy() const;	
+	android_support_v4_app_Fragment_SavedState(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_app_Fragment_SavedState();
 	// Functions
@@ -66,6 +66,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

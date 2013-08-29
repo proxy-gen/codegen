@@ -81,10 +81,10 @@ class com_facebook_widget_WebDialog_DialogWebViewClient : public AndroidCXX::jav
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_WebDialog_DialogWebViewClient(const com_facebook_widget_WebDialog_DialogWebViewClient& cc);
-	com_facebook_widget_WebDialog_DialogWebViewClient(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_WebDialog_DialogWebViewClient(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_DialogWebViewClient();
 	// Functions
@@ -95,6 +95,9 @@ public:
 	virtual bool  shouldOverrideUrlLoading(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

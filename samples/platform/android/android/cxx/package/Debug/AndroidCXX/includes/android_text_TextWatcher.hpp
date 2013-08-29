@@ -59,8 +59,8 @@ class android_text_TextWatcher : public AndroidCXX::android_text_NoCopySpan
 public:
 
 	android_text_TextWatcher(const android_text_TextWatcher& cc);
-	android_text_TextWatcher(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_TextWatcher(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_TextWatcher();
 	// Functions
@@ -70,6 +70,9 @@ public:
 
 protected:
 	android_text_TextWatcher();
+
+private:
+	Proxy * _proxy;
 
 };	
 

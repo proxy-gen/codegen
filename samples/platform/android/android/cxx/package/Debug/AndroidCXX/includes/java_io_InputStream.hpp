@@ -61,8 +61,8 @@ class java_io_InputStream : public AndroidCXX::java_io_Closeable
 public:
 
 	java_io_InputStream(const java_io_InputStream& cc);
-	java_io_InputStream(Proxy proxy);
-	Proxy proxy() const;	
+	java_io_InputStream(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_InputStream();
 	// Functions
@@ -78,6 +78,9 @@ public:
 
 protected:
 	java_io_InputStream();
+
+private:
+	Proxy * _proxy;
 
 };	
 

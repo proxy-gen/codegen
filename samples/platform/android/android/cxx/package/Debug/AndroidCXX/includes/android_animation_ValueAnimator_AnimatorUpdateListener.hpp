@@ -53,8 +53,8 @@ class android_animation_ValueAnimator_AnimatorUpdateListener : public AndroidCXX
 public:
 
 	android_animation_ValueAnimator_AnimatorUpdateListener(const android_animation_ValueAnimator_AnimatorUpdateListener& cc);
-	android_animation_ValueAnimator_AnimatorUpdateListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_animation_ValueAnimator_AnimatorUpdateListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_ValueAnimator_AnimatorUpdateListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_animation_ValueAnimator_AnimatorUpdateListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

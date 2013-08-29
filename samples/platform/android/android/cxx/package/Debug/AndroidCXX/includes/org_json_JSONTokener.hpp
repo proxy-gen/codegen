@@ -85,11 +85,11 @@ class org_json_JSONTokener
 {
 public:
 
-	// Public ConstrucXXX
-	org_json_JSONTokener(AndroidCXX::java_lang_String const& arg0);
+	// Public Constructor
+	org_json_JSONTokener(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	org_json_JSONTokener(const org_json_JSONTokener& cc);
-	org_json_JSONTokener(Proxy proxy);
-	Proxy proxy() const;	
+	org_json_JSONTokener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~org_json_JSONTokener();
 	// Functions
@@ -110,6 +110,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

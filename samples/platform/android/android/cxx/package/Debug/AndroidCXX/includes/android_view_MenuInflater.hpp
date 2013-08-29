@@ -58,17 +58,20 @@ class android_view_MenuInflater
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_MenuInflater(AndroidCXX::android_content_Context const& arg0);
+	// Public Constructor
+	android_view_MenuInflater(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
 	android_view_MenuInflater(const android_view_MenuInflater& cc);
-	android_view_MenuInflater(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_MenuInflater(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_MenuInflater();
 	// Functions
 	virtual void  inflate(int const& arg0,AndroidCXX::android_view_Menu const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

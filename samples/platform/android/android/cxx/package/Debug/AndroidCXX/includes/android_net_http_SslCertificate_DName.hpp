@@ -65,11 +65,11 @@ class android_net_http_SslCertificate_DName
 {
 public:
 
-	// Public ConstrucXXX
-	android_net_http_SslCertificate_DName(AndroidCXX::android_net_http_SslCertificate const& arg0,AndroidCXX::java_lang_String const& arg1);
+	// Public Constructor
+	android_net_http_SslCertificate_DName(AndroidCXX::android_net_http_SslCertificate const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
 	android_net_http_SslCertificate_DName(const android_net_http_SslCertificate_DName& cc);
-	android_net_http_SslCertificate_DName(Proxy proxy);
-	Proxy proxy() const;	
+	android_net_http_SslCertificate_DName(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_net_http_SslCertificate_DName();
 	// Functions
@@ -79,6 +79,9 @@ public:
 	virtual AndroidCXX::java_lang_String * getUName() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -48,15 +48,18 @@ class com_facebook_AuthorizationClient_AuthorizationRequest : public AndroidCXX:
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_AuthorizationClient_AuthorizationRequest(const com_facebook_AuthorizationClient_AuthorizationRequest& cc);
-	com_facebook_AuthorizationClient_AuthorizationRequest(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_AuthorizationClient_AuthorizationRequest(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_AuthorizationRequest();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -106,12 +106,12 @@ class android_widget_RadioGroup : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0);
-	android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	// Public Constructor
+	android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_RadioGroup(const android_widget_RadioGroup& cc);
-	android_widget_RadioGroup(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_RadioGroup(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RadioGroup();
 	// Functions
@@ -126,6 +126,9 @@ public:
 	virtual void  setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

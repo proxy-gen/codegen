@@ -91,12 +91,12 @@ class com_facebook_Session_OpenRequest : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_Session_OpenRequest(AndroidCXX::android_app_Activity const& arg0);
-	com_facebook_Session_OpenRequest(AndroidCXX::android_support_v4_app_Fragment const& arg0);
+	// Public Constructor
+	com_facebook_Session_OpenRequest(AndroidCXX::android_app_Activity const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_Session_OpenRequest(AndroidCXX::android_support_v4_app_Fragment const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_Session_OpenRequest(const com_facebook_Session_OpenRequest& cc);
-	com_facebook_Session_OpenRequest(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Session_OpenRequest(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_OpenRequest();
 	// Functions
@@ -107,6 +107,9 @@ public:
 	virtual FacebookCXX::com_facebook_Session_OpenRequest * setRequestCode(int const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

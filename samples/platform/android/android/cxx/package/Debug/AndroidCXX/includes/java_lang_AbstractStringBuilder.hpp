@@ -162,8 +162,8 @@ class java_lang_AbstractStringBuilder : public AndroidCXX::java_lang_Appendable,
 public:
 
 	java_lang_AbstractStringBuilder(const java_lang_AbstractStringBuilder& cc);
-	java_lang_AbstractStringBuilder(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_AbstractStringBuilder(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_AbstractStringBuilder();
 	// Functions
@@ -220,6 +220,9 @@ public:
 
 protected:
 	java_lang_AbstractStringBuilder();
+
+private:
+	Proxy * _proxy;
 
 };	
 

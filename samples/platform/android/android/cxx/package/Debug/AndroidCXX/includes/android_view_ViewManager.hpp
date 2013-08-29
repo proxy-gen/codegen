@@ -61,8 +61,8 @@ class android_view_ViewManager : public AndroidCXX::java_lang_Object
 public:
 
 	android_view_ViewManager(const android_view_ViewManager& cc);
-	android_view_ViewManager(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ViewManager(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewManager();
 	// Functions
@@ -72,6 +72,9 @@ public:
 
 protected:
 	android_view_ViewManager();
+
+private:
+	Proxy * _proxy;
 
 };	
 

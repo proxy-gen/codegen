@@ -110,13 +110,12 @@ class java_util_ArrayList : public AndroidCXX::java_io_Serializable,public Andro
 {
 public:
 
-	// Public ConstrucXXX
-	java_util_ArrayList();
-	java_util_ArrayList(int const& arg0);
-	java_util_ArrayList(AndroidCXX::java_util_Collection const& arg0);
+	// Public Constructor
+	java_util_ArrayList(Proxy * aProxy = new Proxy());
+	java_util_ArrayList(int const& arg0,Proxy * aProxy = new Proxy());
+	java_util_ArrayList(AndroidCXX::java_util_Collection const& arg0,Proxy * aProxy = new Proxy());
 	java_util_ArrayList(const java_util_ArrayList& cc);
-	java_util_ArrayList(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_ArrayList();
 	// Functions
@@ -141,6 +140,9 @@ public:
 	virtual void  trimToSize() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

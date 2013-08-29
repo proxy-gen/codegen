@@ -63,8 +63,8 @@ class android_text_method_TransformationMethod : public AndroidCXX::java_lang_Ob
 public:
 
 	android_text_method_TransformationMethod(const android_text_method_TransformationMethod& cc);
-	android_text_method_TransformationMethod(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_method_TransformationMethod(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_method_TransformationMethod();
 	// Functions
@@ -73,6 +73,9 @@ public:
 
 protected:
 	android_text_method_TransformationMethod();
+
+private:
+	Proxy * _proxy;
 
 };	
 

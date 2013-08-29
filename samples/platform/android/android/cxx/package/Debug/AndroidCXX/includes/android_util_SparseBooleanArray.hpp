@@ -64,12 +64,11 @@ class android_util_SparseBooleanArray : public AndroidCXX::java_lang_Cloneable
 {
 public:
 
-	// Public ConstrucXXX
-	android_util_SparseBooleanArray();
-	android_util_SparseBooleanArray(int const& arg0);
+	// Public Constructor
+	android_util_SparseBooleanArray(Proxy * aProxy = new Proxy());
+	android_util_SparseBooleanArray(int const& arg0,Proxy * aProxy = new Proxy());
 	android_util_SparseBooleanArray(const android_util_SparseBooleanArray& cc);
-	android_util_SparseBooleanArray(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_util_SparseBooleanArray();
 	// Functions
@@ -87,6 +86,9 @@ public:
 	virtual bool  valueAt(int const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

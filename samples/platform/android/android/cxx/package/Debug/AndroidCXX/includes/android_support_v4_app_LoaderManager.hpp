@@ -91,8 +91,8 @@ class android_support_v4_app_LoaderManager
 public:
 
 	android_support_v4_app_LoaderManager(const android_support_v4_app_LoaderManager& cc);
-	android_support_v4_app_LoaderManager(Proxy proxy);
-	Proxy proxy() const;	
+	android_support_v4_app_LoaderManager(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_app_LoaderManager();
 	// Functions
@@ -106,6 +106,9 @@ public:
 
 protected:
 	android_support_v4_app_LoaderManager();
+
+private:
+	Proxy * _proxy;
 
 };	
 

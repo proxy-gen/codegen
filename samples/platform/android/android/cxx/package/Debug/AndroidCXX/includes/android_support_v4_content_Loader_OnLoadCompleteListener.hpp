@@ -57,8 +57,8 @@ class android_support_v4_content_Loader_OnLoadCompleteListener : public AndroidC
 public:
 
 	android_support_v4_content_Loader_OnLoadCompleteListener(const android_support_v4_content_Loader_OnLoadCompleteListener& cc);
-	android_support_v4_content_Loader_OnLoadCompleteListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_support_v4_content_Loader_OnLoadCompleteListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_content_Loader_OnLoadCompleteListener();
 	// Functions
@@ -66,6 +66,9 @@ public:
 
 protected:
 	android_support_v4_content_Loader_OnLoadCompleteListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

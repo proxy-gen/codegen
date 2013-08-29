@@ -50,8 +50,8 @@ class android_widget_SearchView_OnCloseListener : public AndroidCXX::java_lang_O
 public:
 
 	android_widget_SearchView_OnCloseListener(const android_widget_SearchView_OnCloseListener& cc);
-	android_widget_SearchView_OnCloseListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SearchView_OnCloseListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SearchView_OnCloseListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_widget_SearchView_OnCloseListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

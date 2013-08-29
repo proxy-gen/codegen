@@ -79,8 +79,8 @@ class com_facebook_android_AsyncFacebookRunner_RequestListener : public AndroidC
 public:
 
 	com_facebook_android_AsyncFacebookRunner_RequestListener(const com_facebook_android_AsyncFacebookRunner_RequestListener& cc);
-	com_facebook_android_AsyncFacebookRunner_RequestListener(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_android_AsyncFacebookRunner_RequestListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_AsyncFacebookRunner_RequestListener();
 	// Functions
@@ -92,6 +92,9 @@ public:
 
 protected:
 	com_facebook_android_AsyncFacebookRunner_RequestListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

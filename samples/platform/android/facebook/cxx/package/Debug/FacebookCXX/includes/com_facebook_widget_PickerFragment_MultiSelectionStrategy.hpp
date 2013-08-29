@@ -59,10 +59,10 @@ class com_facebook_widget_PickerFragment_MultiSelectionStrategy : public Android
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_PickerFragment_MultiSelectionStrategy(const com_facebook_widget_PickerFragment_MultiSelectionStrategy& cc);
-	com_facebook_widget_PickerFragment_MultiSelectionStrategy(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_PickerFragment_MultiSelectionStrategy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_MultiSelectionStrategy();
 	// Functions
@@ -70,6 +70,9 @@ public:
 	virtual AndroidCXX::java_util_Collection * getSelectedIds() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

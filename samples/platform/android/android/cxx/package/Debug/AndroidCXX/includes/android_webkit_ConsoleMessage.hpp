@@ -64,11 +64,11 @@ class android_webkit_ConsoleMessage
 {
 public:
 
-	// Public ConstrucXXX
-	android_webkit_ConsoleMessage(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel const& arg3);
+	// Public Constructor
+	android_webkit_ConsoleMessage(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel const& arg3,Proxy * aProxy = new Proxy());
 	android_webkit_ConsoleMessage(const android_webkit_ConsoleMessage& cc);
-	android_webkit_ConsoleMessage(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_ConsoleMessage(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_ConsoleMessage();
 	// Functions
@@ -78,6 +78,9 @@ public:
 	virtual AndroidCXX::java_lang_String * sourceId() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

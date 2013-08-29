@@ -46,15 +46,18 @@ class com_facebook_widget_UrlRedirectCache
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_UrlRedirectCache(const com_facebook_widget_UrlRedirectCache& cc);
-	com_facebook_widget_UrlRedirectCache(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_UrlRedirectCache(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_UrlRedirectCache();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

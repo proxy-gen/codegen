@@ -292,10 +292,10 @@ class java_lang_Class : public AndroidCXX::java_io_Serializable,public AndroidCX
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	java_lang_Class(const java_lang_Class& cc);
-	java_lang_Class(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Class(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Class();
 	// Functions
@@ -358,6 +358,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

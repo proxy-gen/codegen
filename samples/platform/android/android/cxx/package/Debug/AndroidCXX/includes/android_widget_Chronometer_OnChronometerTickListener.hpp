@@ -53,8 +53,8 @@ class android_widget_Chronometer_OnChronometerTickListener : public AndroidCXX::
 public:
 
 	android_widget_Chronometer_OnChronometerTickListener(const android_widget_Chronometer_OnChronometerTickListener& cc);
-	android_widget_Chronometer_OnChronometerTickListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_Chronometer_OnChronometerTickListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Chronometer_OnChronometerTickListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_Chronometer_OnChronometerTickListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -73,11 +73,11 @@ class java_net_Proxy
 {
 public:
 
-	// Public ConstrucXXX
-	java_net_Proxy(java_net_Proxy_Type::java_net_Proxy_Type const& arg0,AndroidCXX::java_net_SocketAddress const& arg1);
+	// Public Constructor
+	java_net_Proxy(java_net_Proxy_Type::java_net_Proxy_Type const& arg0,AndroidCXX::java_net_SocketAddress const& arg1,Proxy * aProxy = new Proxy());
 	java_net_Proxy(const java_net_Proxy& cc);
-	java_net_Proxy(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_Proxy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_Proxy();
 	// Functions
@@ -88,6 +88,9 @@ public:
 	virtual java_net_Proxy_Type::java_net_Proxy_Type  type() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

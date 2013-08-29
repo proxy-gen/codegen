@@ -47,14 +47,17 @@ class android_widget_GridLayout_Alignment
 public:
 
 	android_widget_GridLayout_Alignment(const android_widget_GridLayout_Alignment& cc);
-	android_widget_GridLayout_Alignment(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_GridLayout_Alignment(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_GridLayout_Alignment();
 	// Functions
 
 protected:
 	android_widget_GridLayout_Alignment();
+
+private:
+	Proxy * _proxy;
 
 };	
 

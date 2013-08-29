@@ -71,8 +71,8 @@ class java_security_cert_Certificate : public AndroidCXX::java_io_Serializable
 public:
 
 	java_security_cert_Certificate(const java_security_cert_Certificate& cc);
-	java_security_cert_Certificate(Proxy proxy);
-	Proxy proxy() const;	
+	java_security_cert_Certificate(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_cert_Certificate();
 	// Functions
@@ -87,6 +87,9 @@ public:
 
 protected:
 	java_security_cert_Certificate();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -71,11 +71,10 @@ class android_view_animation_Transformation
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_animation_Transformation();
+	// Public Constructor
+	android_view_animation_Transformation(Proxy * aProxy = new Proxy());
 	android_view_animation_Transformation(const android_view_animation_Transformation& cc);
-	android_view_animation_Transformation(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_Transformation();
 	// Functions
@@ -91,6 +90,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

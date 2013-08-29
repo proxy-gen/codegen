@@ -59,12 +59,12 @@ class com_facebook_android_FacebookError : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_android_FacebookError(AndroidCXX::java_lang_String const& arg0);
-	com_facebook_android_FacebookError(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2);
+	// Public Constructor
+	com_facebook_android_FacebookError(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_android_FacebookError(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	com_facebook_android_FacebookError(const com_facebook_android_FacebookError& cc);
-	com_facebook_android_FacebookError(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_android_FacebookError(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_FacebookError();
 	// Functions
@@ -72,6 +72,9 @@ public:
 	virtual AndroidCXX::java_lang_String * getErrorType() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

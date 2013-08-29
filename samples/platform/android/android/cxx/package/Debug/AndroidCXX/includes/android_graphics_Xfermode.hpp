@@ -47,16 +47,18 @@ class android_graphics_Xfermode
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_Xfermode();
+	// Public Constructor
+	android_graphics_Xfermode(Proxy * aProxy = new Proxy());
 	android_graphics_Xfermode(const android_graphics_Xfermode& cc);
-	android_graphics_Xfermode(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Xfermode();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

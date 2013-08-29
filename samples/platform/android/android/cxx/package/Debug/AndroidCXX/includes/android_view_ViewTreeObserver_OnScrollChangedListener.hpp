@@ -50,8 +50,8 @@ class android_view_ViewTreeObserver_OnScrollChangedListener : public AndroidCXX:
 public:
 
 	android_view_ViewTreeObserver_OnScrollChangedListener(const android_view_ViewTreeObserver_OnScrollChangedListener& cc);
-	android_view_ViewTreeObserver_OnScrollChangedListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ViewTreeObserver_OnScrollChangedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnScrollChangedListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_view_ViewTreeObserver_OnScrollChangedListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

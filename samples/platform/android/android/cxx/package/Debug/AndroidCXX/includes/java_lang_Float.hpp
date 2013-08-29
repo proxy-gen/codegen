@@ -93,13 +93,13 @@ class java_lang_Float : public AndroidCXX::java_lang_Comparable
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_Float(double const& arg0);
-	java_lang_Float(float const& arg0);
-	java_lang_Float(AndroidCXX::java_lang_String const& arg0);
+	// Public Constructor
+	java_lang_Float(double const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_Float(float const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_Float(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	java_lang_Float(const java_lang_Float& cc);
-	java_lang_Float(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Float(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Float();
 	// Functions
@@ -128,6 +128,9 @@ public:
 	static AndroidCXX::java_lang_Float * valueOf(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

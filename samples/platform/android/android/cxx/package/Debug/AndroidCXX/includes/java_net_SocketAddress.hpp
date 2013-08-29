@@ -50,14 +50,17 @@ class java_net_SocketAddress : public AndroidCXX::java_io_Serializable
 public:
 
 	java_net_SocketAddress(const java_net_SocketAddress& cc);
-	java_net_SocketAddress(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_SocketAddress(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_SocketAddress();
 	// Functions
 
 protected:
 	java_net_SocketAddress();
+
+private:
+	Proxy * _proxy;
 
 };	
 

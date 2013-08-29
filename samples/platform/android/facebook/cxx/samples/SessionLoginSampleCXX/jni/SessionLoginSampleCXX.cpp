@@ -40,17 +40,17 @@ MySessionStatusCallback::MySessionStatusCallback() : FacebookCXX::com_facebook_S
 void MySessionStatusCallback::call(FacebookCXX::com_facebook_Session const& arg0,com_facebook_SessionState::com_facebook_SessionState const& arg1,AndroidCXX::java_lang_Exception const& arg2)
 {
 	LOGV("MySessionStatusCallback::call invoked");
-	FacebookCXX::com_facebook_Session session = FacebookCXX::com_facebook_Session::getActiveSession();
-	if (session.isOpened())
-	{
-		LOGV("MySessionStatusCallback::call Session has been opened.");
-		toast("Session has been opened.");
-	}
-	else if (session.isClosed())
-	{
-		LOGV("MySessionStatusCallback::call Session has been closed.");
-		toast("Session has been closed.");
-	}
+//	FacebookCXX::com_facebook_Session session = FacebookCXX::com_facebook_Session::getActiveSession();
+//	if (session.isOpened())
+//	{
+//		LOGV("MySessionStatusCallback::call Session has been opened.");
+//		toast("Session has been opened.");
+//	}
+//	else if (session.isClosed())
+//	{
+//		LOGV("MySessionStatusCallback::call Session has been closed.");
+//		toast("Session has been closed.");
+//	}
 }
 
 MyRequestGraphUserListCallback::MyRequestGraphUserListCallback() : FacebookCXX::com_facebook_Request_GraphUserListCallback()
@@ -61,51 +61,52 @@ MyRequestGraphUserListCallback::MyRequestGraphUserListCallback() : FacebookCXX::
 void MyRequestGraphUserListCallback::onCompleted(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Response const& arg1)
 {
 	LOGV("MyRequestGraphUserListCallback::onCompleted invoked");
-	AndroidCXX::java_util_List l(arg0.proxy());
-	int count = l.size();
-	
-	std::stringstream strStream;
-	strStream << "You have " << count << " friends on Facebook :)";
-
-	toast(strStream.str().c_str());
+//	AndroidCXX::java_util_List l(arg0.proxy());
+//	int count = l.size();
+//
+//	std::stringstream strStream;
+//	strStream << "You have " << count << " friends on Facebook :)";
+//
+//	toast(strStream.str().c_str());
 }
 
 void Java_com_facebook_samples_sessionlogin_SessionLoginSampleActivity_nativeLogin(JNIEnv *env, jobject objectRef, jobject androidContext)
 {
 	LOGV("Java_com_facebook_samples_sessionlogin_SessionLoginSampleActivity_nativeLogin enter");
-	LOGV("androidContext %ld", (long) androidContext);
-	callback = (FacebookCXX::com_facebook_Session_StatusCallback *) new MySessionStatusCallback();;
-	LOGV("CALLBACK address %ld", (long) callback);
-	Proxy proxy;
-	proxy.address = (long) androidContext;
-	activity = new AndroidCXX::android_app_Activity(proxy);
+	Proxy *proxy = new Proxy();
+	proxy->address = (long) androidContext;
 	context = new AndroidCXX::android_content_Context(proxy);
-	bool allowLoginUI = true;
-	FacebookCXX::com_facebook_Session::openActiveSession(*activity, allowLoginUI, *callback);
+	LOGV("androidContext %ld", (long) androidContext);
+	toast("Native Login...");
+//	callback = (FacebookCXX::com_facebook_Session_StatusCallback *) new MySessionStatusCallback();;
+//	LOGV("CALLBACK address %ld", (long) callback);
+//	activity = new AndroidCXX::android_app_Activity(proxy);
+//	bool allowLoginUI = true;
+//	FacebookCXX::com_facebook_Session::openActiveSession(*activity, allowLoginUI, *callback);
 
 }
 
 void Java_com_facebook_samples_sessionlogin_SessionLoginSampleActivity_nativeLogout(JNIEnv *env, jobject objectRef, jobject androidContext)
 {
 	LOGV("Java_com_facebook_samples_sessionlogin_SessionLoginSampleActivity_nativeLogout enter");
-	LOGV("androidContext %ld", (long) androidContext);
-	callback = (FacebookCXX::com_facebook_Session_StatusCallback *) new MySessionStatusCallback();;
-	LOGV("CALLBACK address %ld", (long) callback);
-	FacebookCXX::com_facebook_Session session = FacebookCXX::com_facebook_Session::getActiveSession();
-	session.closeAndClearTokenInformation();
+//	LOGV("androidContext %ld", (long) androidContext);
+//	callback = (FacebookCXX::com_facebook_Session_StatusCallback *) new MySessionStatusCallback();;
+//	LOGV("CALLBACK address %ld", (long) callback);
+//	FacebookCXX::com_facebook_Session session = FacebookCXX::com_facebook_Session::getActiveSession();
+//	session.closeAndClearTokenInformation();
 }
 
 void Java_com_facebook_samples_sessionlogin_SessionLoginSampleActivity_nativeGetFriends(JNIEnv *env, jobject objectRef, jobject androidContext)
 {
 	LOGV("Java_com_facebook_samples_sessionlogin_SessionLoginSampleActivity_nativeGetFriends enter");
-	LOGV("androidContext %ld", (long) androidContext);
-	FacebookCXX::com_facebook_Session session = FacebookCXX::com_facebook_Session::getActiveSession();
-	callbackGraphUserList = (FacebookCXX::com_facebook_Request_GraphUserListCallback *) new MyRequestGraphUserListCallback();
-	LOGV("CALLBACK address %ld", (long) callbackGraphUserList);
-	FacebookCXX::com_facebook_Request request = FacebookCXX::com_facebook_Request::newMyFriendsRequest(session, *callbackGraphUserList);
-	AndroidCXX::java_util_ArrayList collection;
-	collection.add(AndroidCXX::java_lang_Object(request.proxy()));
-	FacebookCXX::com_facebook_Request::executeBatchAsync(AndroidCXX::java_util_Collection(collection.proxy()));
+//	LOGV("androidContext %ld", (long) androidContext);
+//	FacebookCXX::com_facebook_Session session = FacebookCXX::com_facebook_Session::getActiveSession();
+//	callbackGraphUserList = (FacebookCXX::com_facebook_Request_GraphUserListCallback *) new MyRequestGraphUserListCallback();
+//	LOGV("CALLBACK address %ld", (long) callbackGraphUserList);
+//	FacebookCXX::com_facebook_Request request = FacebookCXX::com_facebook_Request::newMyFriendsRequest(session, *callbackGraphUserList);
+//	AndroidCXX::java_util_ArrayList collection;
+//	collection.add(AndroidCXX::java_lang_Object(request.proxy()));
+//	FacebookCXX::com_facebook_Request::executeBatchAsync(AndroidCXX::java_util_Collection(collection.proxy()));
 }
 
 std::vector<char> to_std_vector(const char * str)
@@ -124,9 +125,8 @@ std::string to_std_string(std::vector<signed char> vec)
 
 void toast(const char * toastStr)
 {
-	AndroidCXX::java_lang_String str = AndroidCXX::java_lang_String(to_std_vector(toastStr));
-	AndroidCXX::java_lang_CharSequence char_sequence = AndroidCXX::java_lang_CharSequence(str.proxy());
-	AndroidCXX::android_widget_Toast toast = AndroidCXX::android_widget_Toast::makeText(*context, char_sequence, 2000);
-	toast.show(); // :)
+	AndroidCXX::java_lang_String *str = new AndroidCXX::java_lang_String(to_std_vector(toastStr));
+	AndroidCXX::android_widget_Toast *toast = AndroidCXX::android_widget_Toast::makeText(*context, *str, 2000);
+	toast->show(); // :)
 }
 

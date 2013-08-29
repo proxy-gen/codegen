@@ -86,13 +86,12 @@ class android_app_Notification : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_app_Notification();
-	android_app_Notification(AndroidCXX::android_os_Parcel const& arg0);
-	android_app_Notification(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,long const& arg2);
+	// Public Constructor
+	android_app_Notification(Proxy * aProxy = new Proxy());
+	android_app_Notification(AndroidCXX::android_os_Parcel const& arg0,Proxy * aProxy = new Proxy());
+	android_app_Notification(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,long const& arg2,Proxy * aProxy = new Proxy());
 	android_app_Notification(const android_app_Notification& cc);
-	android_app_Notification(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_Notification();
 	// Functions
@@ -103,6 +102,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

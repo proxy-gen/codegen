@@ -71,11 +71,10 @@ class android_content_pm_ComponentInfo : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_content_pm_ComponentInfo();
-	android_content_pm_ComponentInfo(AndroidCXX::android_content_pm_ComponentInfo const& arg0);
-	android_content_pm_ComponentInfo(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_content_pm_ComponentInfo(Proxy * aProxy = new Proxy());
+	android_content_pm_ComponentInfo(AndroidCXX::android_content_pm_ComponentInfo const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_ComponentInfo();
 	// Functions
@@ -85,6 +84,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -49,14 +49,17 @@ class java_lang_Cloneable : public AndroidCXX::java_lang_Object
 public:
 
 	java_lang_Cloneable(const java_lang_Cloneable& cc);
-	java_lang_Cloneable(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Cloneable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Cloneable();
 	// Functions
 
 protected:
 	java_lang_Cloneable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

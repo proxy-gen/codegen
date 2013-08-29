@@ -52,8 +52,8 @@ class android_os_Vibrator
 public:
 
 	android_os_Vibrator(const android_os_Vibrator& cc);
-	android_os_Vibrator(Proxy proxy);
-	Proxy proxy() const;	
+	android_os_Vibrator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Vibrator();
 	// Functions
@@ -64,6 +64,9 @@ public:
 
 protected:
 	android_os_Vibrator();
+
+private:
+	Proxy * _proxy;
 
 };	
 

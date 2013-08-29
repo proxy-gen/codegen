@@ -93,12 +93,12 @@ class com_facebook_widget_WebDialog_FeedDialogBuilder : public AndroidCXX::java_
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_widget_WebDialog_FeedDialogBuilder(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_Session const& arg1);
-	com_facebook_widget_WebDialog_FeedDialogBuilder(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_Session const& arg1,AndroidCXX::android_os_Bundle const& arg2);
+	// Public Constructor
+	com_facebook_widget_WebDialog_FeedDialogBuilder(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_Session const& arg1,Proxy * aProxy = new Proxy());
+	com_facebook_widget_WebDialog_FeedDialogBuilder(AndroidCXX::android_content_Context const& arg0,FacebookCXX::com_facebook_Session const& arg1,AndroidCXX::android_os_Bundle const& arg2,Proxy * aProxy = new Proxy());
 	com_facebook_widget_WebDialog_FeedDialogBuilder(const com_facebook_widget_WebDialog_FeedDialogBuilder& cc);
-	com_facebook_widget_WebDialog_FeedDialogBuilder(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_WebDialog_FeedDialogBuilder(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_FeedDialogBuilder();
 	// Functions
@@ -112,6 +112,9 @@ public:
 	virtual FacebookCXX::com_facebook_widget_WebDialog_FeedDialogBuilder * setTo(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

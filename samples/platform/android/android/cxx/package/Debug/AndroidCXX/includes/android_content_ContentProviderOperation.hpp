@@ -112,10 +112,10 @@ class android_content_ContentProviderOperation : public AndroidCXX::android_os_P
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_content_ContentProviderOperation(const android_content_ContentProviderOperation& cc);
-	android_content_ContentProviderOperation(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_ContentProviderOperation(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContentProviderOperation();
 	// Functions
@@ -135,6 +135,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

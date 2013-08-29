@@ -57,14 +57,17 @@ class com_facebook_widget_PickerFragment_PickerFragmentAdapter : public AndroidC
 public:
 
 	com_facebook_widget_PickerFragment_PickerFragmentAdapter(const com_facebook_widget_PickerFragment_PickerFragmentAdapter& cc);
-	com_facebook_widget_PickerFragment_PickerFragmentAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_PickerFragment_PickerFragmentAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_PickerFragmentAdapter();
 	// Functions
 
 protected:
 	com_facebook_widget_PickerFragment_PickerFragmentAdapter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -87,10 +87,10 @@ class android_view_KeyCharacterMap : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_view_KeyCharacterMap(const android_view_KeyCharacterMap& cc);
-	android_view_KeyCharacterMap(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_KeyCharacterMap(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_KeyCharacterMap();
 	// Functions
@@ -112,6 +112,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

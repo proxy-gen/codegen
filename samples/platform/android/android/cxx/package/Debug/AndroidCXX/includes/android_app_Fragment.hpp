@@ -288,11 +288,10 @@ class android_app_Fragment : public AndroidCXX::android_content_ComponentCallbac
 {
 public:
 
-	// Public ConstrucXXX
-	android_app_Fragment();
+	// Public Constructor
+	android_app_Fragment(Proxy * aProxy = new Proxy());
 	android_app_Fragment(const android_app_Fragment& cc);
-	android_app_Fragment(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_Fragment();
 	// Functions
@@ -370,6 +369,9 @@ public:
 	virtual void  unregisterForContextMenu(AndroidCXX::android_view_View const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

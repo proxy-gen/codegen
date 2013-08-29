@@ -54,8 +54,8 @@ class java_net_FileNameMap : public AndroidCXX::java_lang_Object
 public:
 
 	java_net_FileNameMap(const java_net_FileNameMap& cc);
-	java_net_FileNameMap(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_FileNameMap(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_FileNameMap();
 	// Functions
@@ -63,6 +63,9 @@ public:
 
 protected:
 	java_net_FileNameMap();
+
+private:
+	Proxy * _proxy;
 
 };	
 

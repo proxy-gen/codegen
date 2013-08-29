@@ -53,8 +53,8 @@ class com_facebook_widget_ImageRequest_Callback : public AndroidCXX::java_lang_O
 public:
 
 	com_facebook_widget_ImageRequest_Callback(const com_facebook_widget_ImageRequest_Callback& cc);
-	com_facebook_widget_ImageRequest_Callback(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_ImageRequest_Callback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageRequest_Callback();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	com_facebook_widget_ImageRequest_Callback();
+
+private:
+	Proxy * _proxy;
 
 };	
 

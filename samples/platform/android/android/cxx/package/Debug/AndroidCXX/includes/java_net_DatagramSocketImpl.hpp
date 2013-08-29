@@ -50,14 +50,17 @@ class java_net_DatagramSocketImpl : public AndroidCXX::java_net_SocketOptions
 public:
 
 	java_net_DatagramSocketImpl(const java_net_DatagramSocketImpl& cc);
-	java_net_DatagramSocketImpl(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_DatagramSocketImpl(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_DatagramSocketImpl();
 	// Functions
 
 protected:
 	java_net_DatagramSocketImpl();
+
+private:
+	Proxy * _proxy;
 
 };	
 

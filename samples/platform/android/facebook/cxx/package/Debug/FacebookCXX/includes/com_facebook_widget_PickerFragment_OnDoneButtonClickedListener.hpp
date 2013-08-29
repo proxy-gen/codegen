@@ -56,8 +56,8 @@ class com_facebook_widget_PickerFragment_OnDoneButtonClickedListener : public An
 public:
 
 	com_facebook_widget_PickerFragment_OnDoneButtonClickedListener(const com_facebook_widget_PickerFragment_OnDoneButtonClickedListener& cc);
-	com_facebook_widget_PickerFragment_OnDoneButtonClickedListener(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_PickerFragment_OnDoneButtonClickedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_OnDoneButtonClickedListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	com_facebook_widget_PickerFragment_OnDoneButtonClickedListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

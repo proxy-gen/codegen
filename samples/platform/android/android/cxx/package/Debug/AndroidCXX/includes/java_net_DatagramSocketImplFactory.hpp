@@ -53,8 +53,8 @@ class java_net_DatagramSocketImplFactory : public AndroidCXX::java_lang_Object
 public:
 
 	java_net_DatagramSocketImplFactory(const java_net_DatagramSocketImplFactory& cc);
-	java_net_DatagramSocketImplFactory(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_DatagramSocketImplFactory(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_DatagramSocketImplFactory();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	java_net_DatagramSocketImplFactory();
+
+private:
+	Proxy * _proxy;
 
 };	
 

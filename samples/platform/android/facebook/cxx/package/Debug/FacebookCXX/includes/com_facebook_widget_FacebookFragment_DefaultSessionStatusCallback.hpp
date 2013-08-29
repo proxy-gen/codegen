@@ -62,16 +62,19 @@ class com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback : public
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(const com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback& cc);
-	com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_FacebookFragment_DefaultSessionStatusCallback();
 	// Functions
 	virtual void  call(FacebookCXX::com_facebook_Session const& arg0,com_facebook_SessionState::com_facebook_SessionState const& arg1,AndroidCXX::java_lang_Exception const& arg2) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -89,10 +89,10 @@ class android_content_ContentProviderOperation_Builder
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_content_ContentProviderOperation_Builder(const android_content_ContentProviderOperation_Builder& cc);
-	android_content_ContentProviderOperation_Builder(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_ContentProviderOperation_Builder(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContentProviderOperation_Builder();
 	// Functions
@@ -107,6 +107,9 @@ public:
 	virtual AndroidCXX::android_content_ContentProviderOperation_Builder * withYieldAllowed(bool const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

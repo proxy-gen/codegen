@@ -54,16 +54,19 @@ class android_widget_AdapterView_AdapterContextMenuInfo : public AndroidCXX::and
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_AdapterView_AdapterContextMenuInfo(AndroidCXX::android_view_View const& arg0,int const& arg1,long const& arg2);
+	// Public Constructor
+	android_widget_AdapterView_AdapterContextMenuInfo(AndroidCXX::android_view_View const& arg0,int const& arg1,long const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_AdapterView_AdapterContextMenuInfo(const android_widget_AdapterView_AdapterContextMenuInfo& cc);
-	android_widget_AdapterView_AdapterContextMenuInfo(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AdapterView_AdapterContextMenuInfo(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterView_AdapterContextMenuInfo();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

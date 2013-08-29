@@ -90,10 +90,10 @@ class com_facebook_AccessToken : public AndroidCXX::java_io_Serializable
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_AccessToken(const com_facebook_AccessToken& cc);
-	com_facebook_AccessToken(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_AccessToken(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AccessToken();
 	// Functions
@@ -107,6 +107,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

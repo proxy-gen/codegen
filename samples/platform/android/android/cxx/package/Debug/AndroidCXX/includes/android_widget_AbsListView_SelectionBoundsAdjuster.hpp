@@ -53,8 +53,8 @@ class android_widget_AbsListView_SelectionBoundsAdjuster : public AndroidCXX::ja
 public:
 
 	android_widget_AbsListView_SelectionBoundsAdjuster(const android_widget_AbsListView_SelectionBoundsAdjuster& cc);
-	android_widget_AbsListView_SelectionBoundsAdjuster(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AbsListView_SelectionBoundsAdjuster(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsListView_SelectionBoundsAdjuster();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_AbsListView_SelectionBoundsAdjuster();
+
+private:
+	Proxy * _proxy;
 
 };	
 

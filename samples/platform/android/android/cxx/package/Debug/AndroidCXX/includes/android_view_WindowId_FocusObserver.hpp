@@ -54,8 +54,8 @@ class android_view_WindowId_FocusObserver
 public:
 
 	android_view_WindowId_FocusObserver(const android_view_WindowId_FocusObserver& cc);
-	android_view_WindowId_FocusObserver(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_WindowId_FocusObserver(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_WindowId_FocusObserver();
 	// Functions
@@ -64,6 +64,9 @@ public:
 
 protected:
 	android_view_WindowId_FocusObserver();
+
+private:
+	Proxy * _proxy;
 
 };	
 

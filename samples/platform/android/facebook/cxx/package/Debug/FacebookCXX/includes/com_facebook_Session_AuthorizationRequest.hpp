@@ -49,16 +49,19 @@ class com_facebook_Session_AuthorizationRequest : public AndroidCXX::java_io_Ser
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_Session_AuthorizationRequest(const com_facebook_Session_AuthorizationRequest& cc);
-	com_facebook_Session_AuthorizationRequest(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Session_AuthorizationRequest(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_AuthorizationRequest();
 	// Functions
 	virtual void  setIsLegacy(bool const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

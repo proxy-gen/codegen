@@ -50,8 +50,8 @@ class android_support_v4_app_FragmentManager_OnBackStackChangedListener : public
 public:
 
 	android_support_v4_app_FragmentManager_OnBackStackChangedListener(const android_support_v4_app_FragmentManager_OnBackStackChangedListener& cc);
-	android_support_v4_app_FragmentManager_OnBackStackChangedListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_support_v4_app_FragmentManager_OnBackStackChangedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_app_FragmentManager_OnBackStackChangedListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_support_v4_app_FragmentManager_OnBackStackChangedListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -90,8 +90,8 @@ class com_facebook_model_GraphUser : public FacebookCXX::com_facebook_model_Grap
 public:
 
 	com_facebook_model_GraphUser(const com_facebook_model_GraphUser& cc);
-	com_facebook_model_GraphUser(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_model_GraphUser(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphUser();
 	// Functions
@@ -116,6 +116,9 @@ public:
 
 protected:
 	com_facebook_model_GraphUser();
+
+private:
+	Proxy * _proxy;
 
 };	
 

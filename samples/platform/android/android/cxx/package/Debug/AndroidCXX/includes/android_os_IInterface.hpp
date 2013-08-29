@@ -53,8 +53,8 @@ class android_os_IInterface : public AndroidCXX::java_lang_Object
 public:
 
 	android_os_IInterface(const android_os_IInterface& cc);
-	android_os_IInterface(Proxy proxy);
-	Proxy proxy() const;	
+	android_os_IInterface(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_IInterface();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_os_IInterface();
+
+private:
+	Proxy * _proxy;
 
 };	
 

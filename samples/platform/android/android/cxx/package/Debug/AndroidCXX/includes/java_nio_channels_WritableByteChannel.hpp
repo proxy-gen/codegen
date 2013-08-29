@@ -53,8 +53,8 @@ class java_nio_channels_WritableByteChannel : public AndroidCXX::java_nio_channe
 public:
 
 	java_nio_channels_WritableByteChannel(const java_nio_channels_WritableByteChannel& cc);
-	java_nio_channels_WritableByteChannel(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_WritableByteChannel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_WritableByteChannel();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	java_nio_channels_WritableByteChannel();
+
+private:
+	Proxy * _proxy;
 
 };	
 

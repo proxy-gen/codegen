@@ -56,8 +56,8 @@ class android_widget_SimpleCursorTreeAdapter_ViewBinder : public AndroidCXX::jav
 public:
 
 	android_widget_SimpleCursorTreeAdapter_ViewBinder(const android_widget_SimpleCursorTreeAdapter_ViewBinder& cc);
-	android_widget_SimpleCursorTreeAdapter_ViewBinder(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SimpleCursorTreeAdapter_ViewBinder(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SimpleCursorTreeAdapter_ViewBinder();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_widget_SimpleCursorTreeAdapter_ViewBinder();
+
+private:
+	Proxy * _proxy;
 
 };	
 

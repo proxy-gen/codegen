@@ -67,8 +67,8 @@ class java_lang_Object
 public:
 
 	java_lang_Object(const java_lang_Object& cc);
-	java_lang_Object(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Object(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Object();
 	// Functions
@@ -84,6 +84,9 @@ public:
 
 protected:
 	java_lang_Object();
+
+private:
+	Proxy * _proxy;
 
 };	
 

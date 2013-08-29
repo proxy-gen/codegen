@@ -52,8 +52,8 @@ class com_facebook_widget_WorkQueue_WorkItem : public AndroidCXX::java_lang_Obje
 public:
 
 	com_facebook_widget_WorkQueue_WorkItem(const com_facebook_widget_WorkQueue_WorkItem& cc);
-	com_facebook_widget_WorkQueue_WorkItem(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_WorkQueue_WorkItem(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WorkQueue_WorkItem();
 	// Functions
@@ -63,6 +63,9 @@ public:
 
 protected:
 	com_facebook_widget_WorkQueue_WorkItem();
+
+private:
+	Proxy * _proxy;
 
 };	
 

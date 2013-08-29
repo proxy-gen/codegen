@@ -55,8 +55,8 @@ class android_view_View_OnAttachStateChangeListener : public AndroidCXX::java_la
 public:
 
 	android_view_View_OnAttachStateChangeListener(const android_view_View_OnAttachStateChangeListener& cc);
-	android_view_View_OnAttachStateChangeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_View_OnAttachStateChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnAttachStateChangeListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_view_View_OnAttachStateChangeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

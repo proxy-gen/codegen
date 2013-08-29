@@ -112,10 +112,10 @@ class java_net_NetworkInterface
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	java_net_NetworkInterface(const java_net_NetworkInterface& cc);
-	java_net_NetworkInterface(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_NetworkInterface(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_NetworkInterface();
 	// Functions
@@ -140,6 +140,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

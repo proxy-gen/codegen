@@ -97,8 +97,8 @@ class android_app_ActionBar_Tab
 public:
 
 	android_app_ActionBar_Tab(const android_app_ActionBar_Tab& cc);
-	android_app_ActionBar_Tab(Proxy proxy);
-	Proxy proxy() const;	
+	android_app_ActionBar_Tab(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_ActionBar_Tab();
 	// Functions
@@ -122,6 +122,9 @@ public:
 
 protected:
 	android_app_ActionBar_Tab();
+
+private:
+	Proxy * _proxy;
 
 };	
 

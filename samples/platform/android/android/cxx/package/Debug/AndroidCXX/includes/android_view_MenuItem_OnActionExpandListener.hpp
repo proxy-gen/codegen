@@ -55,8 +55,8 @@ class android_view_MenuItem_OnActionExpandListener : public AndroidCXX::java_lan
 public:
 
 	android_view_MenuItem_OnActionExpandListener(const android_view_MenuItem_OnActionExpandListener& cc);
-	android_view_MenuItem_OnActionExpandListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_MenuItem_OnActionExpandListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_MenuItem_OnActionExpandListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_view_MenuItem_OnActionExpandListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -60,8 +60,8 @@ class com_facebook_Response_PagedResults : public FacebookCXX::com_facebook_mode
 public:
 
 	com_facebook_Response_PagedResults(const com_facebook_Response_PagedResults& cc);
-	com_facebook_Response_PagedResults(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Response_PagedResults(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Response_PagedResults();
 	// Functions
@@ -70,6 +70,9 @@ public:
 
 protected:
 	com_facebook_Response_PagedResults();
+
+private:
+	Proxy * _proxy;
 
 };	
 

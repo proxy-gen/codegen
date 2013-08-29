@@ -60,8 +60,8 @@ class android_database_ContentObserver
 public:
 
 	android_database_ContentObserver(const android_database_ContentObserver& cc);
-	android_database_ContentObserver(Proxy proxy);
-	Proxy proxy() const;	
+	android_database_ContentObserver(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_database_ContentObserver();
 	// Functions
@@ -73,6 +73,9 @@ public:
 
 protected:
 	android_database_ContentObserver();
+
+private:
+	Proxy * _proxy;
 
 };	
 

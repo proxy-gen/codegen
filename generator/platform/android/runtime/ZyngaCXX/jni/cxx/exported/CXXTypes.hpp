@@ -23,9 +23,11 @@
 #ifndef _CXXTYPES_H
 #define _CXXTYPES_H
 
-typedef struct 
+typedef struct Proxy
 {
 	long address;
+	long refcount;
+	pthread_mutex_t mutex;
 } Proxy;
 
 typedef signed char byte;

@@ -48,15 +48,18 @@ class com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy : public
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy(const com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy& cc);
-	com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

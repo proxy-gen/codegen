@@ -57,8 +57,8 @@ class android_widget_SpinnerAdapter : public AndroidCXX::android_widget_Adapter
 public:
 
 	android_widget_SpinnerAdapter(const android_widget_SpinnerAdapter& cc);
-	android_widget_SpinnerAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SpinnerAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SpinnerAdapter();
 	// Functions
@@ -66,6 +66,9 @@ public:
 
 protected:
 	android_widget_SpinnerAdapter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

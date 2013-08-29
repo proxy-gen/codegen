@@ -93,11 +93,11 @@ class com_facebook_widget_GraphObjectPagingLoader : public AndroidCXX::java_lang
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1);
+	// Public Constructor
+	com_facebook_widget_GraphObjectPagingLoader(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1,Proxy * aProxy = new Proxy());
 	com_facebook_widget_GraphObjectPagingLoader(const com_facebook_widget_GraphObjectPagingLoader& cc);
-	com_facebook_widget_GraphObjectPagingLoader(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_GraphObjectPagingLoader(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectPagingLoader();
 	// Functions
@@ -112,6 +112,9 @@ public:
 	virtual void  startLoading(FacebookCXX::com_facebook_Request const& arg0,bool const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

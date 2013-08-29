@@ -62,11 +62,11 @@ class android_content_IntentFilter_AuthorityEntry
 {
 public:
 
-	// Public ConstrucXXX
-	android_content_IntentFilter_AuthorityEntry(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	// Public Constructor
+	android_content_IntentFilter_AuthorityEntry(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
 	android_content_IntentFilter_AuthorityEntry(const android_content_IntentFilter_AuthorityEntry& cc);
-	android_content_IntentFilter_AuthorityEntry(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_IntentFilter_AuthorityEntry(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_IntentFilter_AuthorityEntry();
 	// Functions
@@ -75,6 +75,9 @@ public:
 	virtual int  match(AndroidCXX::android_net_Uri const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

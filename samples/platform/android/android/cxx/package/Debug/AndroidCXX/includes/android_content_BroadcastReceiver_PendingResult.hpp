@@ -71,10 +71,10 @@ class android_content_BroadcastReceiver_PendingResult
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_content_BroadcastReceiver_PendingResult(const android_content_BroadcastReceiver_PendingResult& cc);
-	android_content_BroadcastReceiver_PendingResult(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_BroadcastReceiver_PendingResult(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_BroadcastReceiver_PendingResult();
 	// Functions
@@ -91,6 +91,9 @@ public:
 	virtual void  setResult(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

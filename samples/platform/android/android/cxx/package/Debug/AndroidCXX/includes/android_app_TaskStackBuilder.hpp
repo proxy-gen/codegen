@@ -113,10 +113,10 @@ class android_app_TaskStackBuilder
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_app_TaskStackBuilder(const android_app_TaskStackBuilder& cc);
-	android_app_TaskStackBuilder(Proxy proxy);
-	Proxy proxy() const;	
+	android_app_TaskStackBuilder(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_TaskStackBuilder();
 	// Functions
@@ -135,6 +135,9 @@ public:
 	virtual void  startActivities() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -97,14 +97,14 @@ class javax_security_auth_x500_X500Principal : public AndroidCXX::java_io_Serial
 {
 public:
 
-	// Public ConstrucXXX
-	javax_security_auth_x500_X500Principal(std::vector<byte> const& arg0);
-	javax_security_auth_x500_X500Principal(AndroidCXX::java_io_InputStream const& arg0);
-	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0);
-	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1);
+	// Public Constructor
+	javax_security_auth_x500_X500Principal(std::vector<byte> const& arg0,Proxy * aProxy = new Proxy());
+	javax_security_auth_x500_X500Principal(AndroidCXX::java_io_InputStream const& arg0,Proxy * aProxy = new Proxy());
+	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1,Proxy * aProxy = new Proxy());
 	javax_security_auth_x500_X500Principal(const javax_security_auth_x500_X500Principal& cc);
-	javax_security_auth_x500_X500Principal(Proxy proxy);
-	Proxy proxy() const;	
+	javax_security_auth_x500_X500Principal(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~javax_security_auth_x500_X500Principal();
 	// Functions
@@ -117,6 +117,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

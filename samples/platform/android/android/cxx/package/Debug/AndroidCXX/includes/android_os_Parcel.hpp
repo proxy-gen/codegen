@@ -351,10 +351,10 @@ class android_os_Parcel
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_os_Parcel(const android_os_Parcel& cc);
-	android_os_Parcel(Proxy proxy);
-	Proxy proxy() const;	
+	android_os_Parcel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Parcel();
 	// Functions
@@ -459,6 +459,9 @@ public:
 	virtual void  writeValue(AndroidCXX::java_lang_Object const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

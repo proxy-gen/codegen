@@ -73,11 +73,11 @@ class android_view_inputmethod_CorrectionInfo : public AndroidCXX::android_os_Pa
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_inputmethod_CorrectionInfo(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,AndroidCXX::java_lang_CharSequence const& arg2);
+	// Public Constructor
+	android_view_inputmethod_CorrectionInfo(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,Proxy * aProxy = new Proxy());
 	android_view_inputmethod_CorrectionInfo(const android_view_inputmethod_CorrectionInfo& cc);
-	android_view_inputmethod_CorrectionInfo(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_inputmethod_CorrectionInfo(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_CorrectionInfo();
 	// Functions
@@ -89,6 +89,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

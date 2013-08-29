@@ -77,11 +77,11 @@ class android_os_UserHandle : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_os_UserHandle(AndroidCXX::android_os_Parcel const& arg0);
+	// Public Constructor
+	android_os_UserHandle(AndroidCXX::android_os_Parcel const& arg0,Proxy * aProxy = new Proxy());
 	android_os_UserHandle(const android_os_UserHandle& cc);
-	android_os_UserHandle(Proxy proxy);
-	Proxy proxy() const;	
+	android_os_UserHandle(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_UserHandle();
 	// Functions
@@ -94,6 +94,9 @@ public:
 	static void  writeToParcel(AndroidCXX::android_os_UserHandle const& arg0,AndroidCXX::android_os_Parcel const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

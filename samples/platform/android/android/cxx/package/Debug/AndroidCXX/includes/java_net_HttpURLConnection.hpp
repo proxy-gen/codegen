@@ -80,8 +80,8 @@ class java_net_HttpURLConnection : public AndroidCXX::java_lang_Object
 public:
 
 	java_net_HttpURLConnection(const java_net_HttpURLConnection& cc);
-	java_net_HttpURLConnection(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_HttpURLConnection(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_HttpURLConnection();
 	// Functions
@@ -105,6 +105,9 @@ public:
 
 protected:
 	java_net_HttpURLConnection();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -56,8 +56,8 @@ class android_widget_TabHost_TabContentFactory : public AndroidCXX::java_lang_Ob
 public:
 
 	android_widget_TabHost_TabContentFactory(const android_widget_TabHost_TabContentFactory& cc);
-	android_widget_TabHost_TabContentFactory(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_TabHost_TabContentFactory(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TabHost_TabContentFactory();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_widget_TabHost_TabContentFactory();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -163,13 +163,13 @@ class android_widget_SimpleExpandableListAdapter : public AndroidCXX::java_lang_
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_SimpleExpandableListAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3,std::vector<int> const& arg4,AndroidCXX::java_util_List const& arg5,int const& arg6,std::vector<AndroidCXX::java_lang_String> const& arg7,std::vector<int> const& arg8);
-	android_widget_SimpleExpandableListAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,int const& arg3,std::vector<AndroidCXX::java_lang_String> const& arg4,std::vector<int> const& arg5,AndroidCXX::java_util_List const& arg6,int const& arg7,std::vector<AndroidCXX::java_lang_String> const& arg8,std::vector<int> const& arg9);
-	android_widget_SimpleExpandableListAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,int const& arg3,std::vector<AndroidCXX::java_lang_String> const& arg4,std::vector<int> const& arg5,AndroidCXX::java_util_List const& arg6,int const& arg7,int const& arg8,std::vector<AndroidCXX::java_lang_String> const& arg9,std::vector<int> const& arg10);
+	// Public Constructor
+	android_widget_SimpleExpandableListAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3,std::vector<int> const& arg4,AndroidCXX::java_util_List const& arg5,int const& arg6,std::vector<AndroidCXX::java_lang_String> const& arg7,std::vector<int> const& arg8,Proxy * aProxy = new Proxy());
+	android_widget_SimpleExpandableListAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,int const& arg3,std::vector<AndroidCXX::java_lang_String> const& arg4,std::vector<int> const& arg5,AndroidCXX::java_util_List const& arg6,int const& arg7,std::vector<AndroidCXX::java_lang_String> const& arg8,std::vector<int> const& arg9,Proxy * aProxy = new Proxy());
+	android_widget_SimpleExpandableListAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,int const& arg3,std::vector<AndroidCXX::java_lang_String> const& arg4,std::vector<int> const& arg5,AndroidCXX::java_util_List const& arg6,int const& arg7,int const& arg8,std::vector<AndroidCXX::java_lang_String> const& arg9,std::vector<int> const& arg10,Proxy * aProxy = new Proxy());
 	android_widget_SimpleExpandableListAdapter(const android_widget_SimpleExpandableListAdapter& cc);
-	android_widget_SimpleExpandableListAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SimpleExpandableListAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SimpleExpandableListAdapter();
 	// Functions
@@ -187,6 +187,9 @@ public:
 	virtual AndroidCXX::android_view_View * newGroupView(bool const& arg0,AndroidCXX::android_view_ViewGroup const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

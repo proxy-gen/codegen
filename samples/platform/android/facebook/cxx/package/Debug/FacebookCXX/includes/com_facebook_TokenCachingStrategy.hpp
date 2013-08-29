@@ -112,8 +112,8 @@ class com_facebook_TokenCachingStrategy
 public:
 
 	com_facebook_TokenCachingStrategy(const com_facebook_TokenCachingStrategy& cc);
-	com_facebook_TokenCachingStrategy(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_TokenCachingStrategy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_TokenCachingStrategy();
 	// Functions
@@ -138,6 +138,9 @@ public:
 
 protected:
 	com_facebook_TokenCachingStrategy();
+
+private:
+	Proxy * _proxy;
 
 };	
 

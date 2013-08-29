@@ -115,12 +115,11 @@ class android_graphics_Rect : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_Rect();
-	android_graphics_Rect(AndroidCXX::android_graphics_Rect const& arg0);
-	android_graphics_Rect(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
-	android_graphics_Rect(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_graphics_Rect(Proxy * aProxy = new Proxy());
+	android_graphics_Rect(AndroidCXX::android_graphics_Rect const& arg0,Proxy * aProxy = new Proxy());
+	android_graphics_Rect(int const& arg0,int const& arg1,int const& arg2,int const& arg3,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Rect();
 	// Functions
@@ -160,6 +159,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

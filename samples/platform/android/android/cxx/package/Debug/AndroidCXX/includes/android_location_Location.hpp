@@ -123,11 +123,11 @@ class android_location_Location : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_location_Location(AndroidCXX::android_location_Location const& arg0);
-	android_location_Location(AndroidCXX::java_lang_String const& arg0);
-	android_location_Location(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_location_Location(AndroidCXX::android_location_Location const& arg0,Proxy * aProxy = new Proxy());
+	android_location_Location(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	android_location_Location(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_location_Location();
 	// Functions
@@ -173,6 +173,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

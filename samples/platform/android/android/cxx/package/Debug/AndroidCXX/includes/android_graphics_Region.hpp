@@ -135,13 +135,12 @@ class android_graphics_Region : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_Region();
-	android_graphics_Region(AndroidCXX::android_graphics_Rect const& arg0);
-	android_graphics_Region(AndroidCXX::android_graphics_Region const& arg0);
-	android_graphics_Region(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
-	android_graphics_Region(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_graphics_Region(Proxy * aProxy = new Proxy());
+	android_graphics_Region(AndroidCXX::android_graphics_Rect const& arg0,Proxy * aProxy = new Proxy());
+	android_graphics_Region(AndroidCXX::android_graphics_Region const& arg0,Proxy * aProxy = new Proxy());
+	android_graphics_Region(int const& arg0,int const& arg1,int const& arg2,int const& arg3,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Region();
 	// Functions
@@ -177,6 +176,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

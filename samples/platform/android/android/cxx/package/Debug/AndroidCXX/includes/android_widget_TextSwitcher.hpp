@@ -92,12 +92,12 @@ class android_widget_TextSwitcher : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_TextSwitcher(AndroidCXX::android_content_Context const& arg0);
-	android_widget_TextSwitcher(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	// Public Constructor
+	android_widget_TextSwitcher(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_TextSwitcher(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_TextSwitcher(const android_widget_TextSwitcher& cc);
-	android_widget_TextSwitcher(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_TextSwitcher(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TextSwitcher();
 	// Functions
@@ -108,6 +108,9 @@ public:
 	virtual void  setText(AndroidCXX::java_lang_CharSequence const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

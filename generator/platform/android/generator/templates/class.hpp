@@ -37,20 +37,21 @@
 #set $class_name = $CONFIG.class_name
 #set $entity_head_file_name = $CONFIG.entity_head_file_name
 #set $entity_namespace = $entity_class_info['namespace']
-#set $entity_marker = $entity_class_info['isinterface'] or $entity_class_info['isabstract'] or $entity_class_info['typename'] == 'java_lang_Object' 
-#set $entity_virtual = $entity_marker or '_callback' in $entity_class_config['tags']
+#set $entity_interface = $entity_class_info['isinterface']
+#set $entity_abstract = $entity_class_info['isabstract']
+#set $entity_object = $entity_class_info['typename'] == 'java_lang_Object' 
+#set $entity_virtual = $entity_interface or $entity_abstract or $entity_object
+#set $entity_callback = '_callback' in $entity_class_config['tags']
 #set $superclass_typeinfos = $entity_class_info['superclasses'] if 'superclasses' in $entity_class_info else None
 
 #set $superclassStr = ""
 #set $superclassCCStr = ""
 #set $superclassProxyStr = "" 
-#set $superclassDefaultStr = ""  
 #if $superclass_typeinfos is not None
 #set $superclassIdx = 0
 #set $superclassStr = $COLON + $SPACE
 #set $superclassCCStr = $COLON
 #set $superclassProxyStr = $COLON
-#set $superclassDefaultStr = $COLON
 #for $superclass_typeinfo in $superclass_typeinfos
 #set $superclass_marker = $superclass_typeinfo['isinterface'] or $superclass_typeinfo['isabstract'] or $superclass_typeinfo['typename'] == 'java_lang_Object'
 #if $superclass_marker
@@ -58,12 +59,10 @@
 #set $superclassStr = $superclassStr + COMMA
 #set $superclassCCStr = $superclassCCStr + COMMA
 #set $superclassProxyStr = $superclassProxyStr + COMMA
-#set $superclassDefaultStr = $superclassDefaultStr + COMMA
 #end if
 #set $superclassStr = $superclassStr + $PUBLIC + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename']
 #set $superclassCCStr = $superclassCCStr + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename'] + '(cc)'
 #set $superclassProxyStr = $superclassProxyStr + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename'] + '(proxy)'
-#set $superclassDefaultStr = $superclassDefaultStr + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename'] + '()' 
 #end if
 #set $superclassIdx = $superclassIdx + 1
 #end for
@@ -183,6 +182,10 @@
  	$child_type_stack.extend($param['children'])
  	#end if
 #end for
+#if $param_idx > 0
+ 	#set $param_str = $param_str + $COMMA 
+#end if
+#set $param_str = $param_str + "Proxy * aProxy = new Proxy()"
 #set $constructor['param_str'] = $param_str
 #while $len(child_type_stack) > 0
  	#set $current_child_type = $child_type_stack.pop()
@@ -197,7 +200,8 @@
 #set $constructor['proxied_typeinfo_list'] = $proxied_typeinfo_list
 #end for
 
-#set $no_copy_constructor = True if $entity_class_info['no_copy_constructor'] else False
+#set $no_copy_constructor = $entity_class_info['no_copy_constructor'] or $entity_virtual
+#set $no_default_constructor = $entity_class_info['no_default_constructor'] or $entity_virtual
 
 #set $proxied_typeinfos = list()
 
@@ -306,7 +310,7 @@ public:
 
 	#if not $entity_virtual
 	#if not '_static' in $entity_class_config['tags']
-	// Public ConstrucXXX
+	// Public Constructor
 	#for $constructor in $constructors
 	${entity_class_name}($constructor['param_str']);
 	#end for
@@ -318,10 +322,12 @@ public:
 	#end if
 	#end if
 	#if not '_static' in $entity_class_config['tags']
-	${entity_class_name}(Proxy proxy);
+	#if $no_default_constructor
+	${entity_class_name}(Proxy * aProxy);
+	#end if
 	#end if
 	#if not '_static' in $entity_class_config['tags']
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	#end if
 	#if not '_static' in $entity_class_config['tags']
 	// Default Destructor
@@ -333,11 +339,15 @@ public:
 	#end for
 
 protected:
-	#if $entity_virtual
-	#if not '_static' in $entity_class_config['tags']
+	#if $entity_virtual or $entity_callback
 	${entity_class_name}();
 	#end if
+	#if $entity_callback
+	void setCXXCallbackPtr(void * callbackPtr);
 	#end if
+
+private:
+	Proxy * _proxy;
 
 };	
 

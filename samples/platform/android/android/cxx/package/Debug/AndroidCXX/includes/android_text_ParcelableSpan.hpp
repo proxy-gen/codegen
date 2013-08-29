@@ -50,8 +50,8 @@ class android_text_ParcelableSpan : public AndroidCXX::android_os_Parcelable
 public:
 
 	android_text_ParcelableSpan(const android_text_ParcelableSpan& cc);
-	android_text_ParcelableSpan(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_ParcelableSpan(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_ParcelableSpan();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_text_ParcelableSpan();
+
+private:
+	Proxy * _proxy;
 
 };	
 

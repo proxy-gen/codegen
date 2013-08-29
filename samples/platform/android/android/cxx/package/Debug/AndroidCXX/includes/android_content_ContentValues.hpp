@@ -187,12 +187,11 @@ class android_content_ContentValues : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_content_ContentValues();
-	android_content_ContentValues(AndroidCXX::android_content_ContentValues const& arg0);
-	android_content_ContentValues(int const& arg0);
-	android_content_ContentValues(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_content_ContentValues(Proxy * aProxy = new Proxy());
+	android_content_ContentValues(AndroidCXX::android_content_ContentValues const& arg0,Proxy * aProxy = new Proxy());
+	android_content_ContentValues(int const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContentValues();
 	// Functions
@@ -230,6 +229,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

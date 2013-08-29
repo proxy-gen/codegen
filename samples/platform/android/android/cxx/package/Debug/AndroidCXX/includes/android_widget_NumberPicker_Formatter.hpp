@@ -53,8 +53,8 @@ class android_widget_NumberPicker_Formatter : public AndroidCXX::java_lang_Objec
 public:
 
 	android_widget_NumberPicker_Formatter(const android_widget_NumberPicker_Formatter& cc);
-	android_widget_NumberPicker_Formatter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_NumberPicker_Formatter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_NumberPicker_Formatter();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_NumberPicker_Formatter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

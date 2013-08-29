@@ -61,8 +61,8 @@ class java_lang_reflect_TypeVariable : public AndroidCXX::java_lang_reflect_Type
 public:
 
 	java_lang_reflect_TypeVariable(const java_lang_reflect_TypeVariable& cc);
-	java_lang_reflect_TypeVariable(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_reflect_TypeVariable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_reflect_TypeVariable();
 	// Functions
@@ -72,6 +72,9 @@ public:
 
 protected:
 	java_lang_reflect_TypeVariable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

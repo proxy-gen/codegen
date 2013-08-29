@@ -85,14 +85,14 @@ class android_widget_OverScroller
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0);
-	android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1);
-	android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,float const& arg2,float const& arg3);
-	android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,float const& arg2,float const& arg3,bool const& arg4);
+	// Public Constructor
+	android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,float const& arg2,float const& arg3,Proxy * aProxy = new Proxy());
+	android_widget_OverScroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,float const& arg2,float const& arg3,bool const& arg4,Proxy * aProxy = new Proxy());
 	android_widget_OverScroller(const android_widget_OverScroller& cc);
-	android_widget_OverScroller(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_OverScroller(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_OverScroller();
 	// Functions
@@ -118,6 +118,9 @@ public:
 	virtual void  startScroll(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

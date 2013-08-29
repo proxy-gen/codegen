@@ -76,11 +76,11 @@ class java_security_CodeSigner : public AndroidCXX::java_io_Serializable
 {
 public:
 
-	// Public ConstrucXXX
-	java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath const& arg0,AndroidCXX::java_security_Timestamp const& arg1);
+	// Public Constructor
+	java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath const& arg0,AndroidCXX::java_security_Timestamp const& arg1,Proxy * aProxy = new Proxy());
 	java_security_CodeSigner(const java_security_CodeSigner& cc);
-	java_security_CodeSigner(Proxy proxy);
-	Proxy proxy() const;	
+	java_security_CodeSigner(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_CodeSigner();
 	// Functions
@@ -91,6 +91,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

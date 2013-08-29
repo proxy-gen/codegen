@@ -56,8 +56,8 @@ class android_media_MediaPlayer_OnTimedTextListener : public AndroidCXX::java_la
 public:
 
 	android_media_MediaPlayer_OnTimedTextListener(const android_media_MediaPlayer_OnTimedTextListener& cc);
-	android_media_MediaPlayer_OnTimedTextListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_media_MediaPlayer_OnTimedTextListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnTimedTextListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_media_MediaPlayer_OnTimedTextListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

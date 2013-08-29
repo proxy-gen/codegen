@@ -57,8 +57,8 @@ class android_view_ViewGroup_OnHierarchyChangeListener : public AndroidCXX::java
 public:
 
 	android_view_ViewGroup_OnHierarchyChangeListener(const android_view_ViewGroup_OnHierarchyChangeListener& cc);
-	android_view_ViewGroup_OnHierarchyChangeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ViewGroup_OnHierarchyChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewGroup_OnHierarchyChangeListener();
 	// Functions
@@ -67,6 +67,9 @@ public:
 
 protected:
 	android_view_ViewGroup_OnHierarchyChangeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

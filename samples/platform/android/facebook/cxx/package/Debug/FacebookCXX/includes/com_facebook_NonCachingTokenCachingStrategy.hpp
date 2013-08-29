@@ -57,11 +57,10 @@ class com_facebook_NonCachingTokenCachingStrategy : public AndroidCXX::java_lang
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_NonCachingTokenCachingStrategy();
+	// Public Constructor
+	com_facebook_NonCachingTokenCachingStrategy(Proxy * aProxy = new Proxy());
 	com_facebook_NonCachingTokenCachingStrategy(const com_facebook_NonCachingTokenCachingStrategy& cc);
-	com_facebook_NonCachingTokenCachingStrategy(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_NonCachingTokenCachingStrategy();
 	// Functions
@@ -70,6 +69,9 @@ public:
 	virtual void  save(AndroidCXX::android_os_Bundle const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -203,8 +203,8 @@ class android_view_Window
 public:
 
 	android_view_Window(const android_view_Window& cc);
-	android_view_Window(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_Window(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_Window();
 	// Functions
@@ -282,6 +282,9 @@ public:
 
 protected:
 	android_view_Window();
+
+private:
+	Proxy * _proxy;
 
 };	
 

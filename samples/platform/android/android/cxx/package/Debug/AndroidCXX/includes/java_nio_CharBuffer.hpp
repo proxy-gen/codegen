@@ -140,8 +140,8 @@ class java_nio_CharBuffer : public AndroidCXX::java_lang_Appendable,public Andro
 public:
 
 	java_nio_CharBuffer(const java_nio_CharBuffer& cc);
-	java_nio_CharBuffer(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_CharBuffer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_CharBuffer();
 	// Functions
@@ -184,6 +184,9 @@ public:
 
 protected:
 	java_nio_CharBuffer();
+
+private:
+	Proxy * _proxy;
 
 };	
 

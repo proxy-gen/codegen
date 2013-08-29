@@ -88,10 +88,10 @@ class android_view_Display
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_view_Display(const android_view_Display& cc);
-	android_view_Display(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_Display(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_Display();
 	// Functions
@@ -114,6 +114,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

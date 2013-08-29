@@ -72,8 +72,8 @@ class android_widget_Adapter : public AndroidCXX::java_lang_Object
 public:
 
 	android_widget_Adapter(const android_widget_Adapter& cc);
-	android_widget_Adapter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_Adapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Adapter();
 	// Functions
@@ -90,6 +90,9 @@ public:
 
 protected:
 	android_widget_Adapter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

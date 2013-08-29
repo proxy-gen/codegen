@@ -60,8 +60,8 @@ class android_widget_MediaController_MediaPlayerControl : public AndroidCXX::jav
 public:
 
 	android_widget_MediaController_MediaPlayerControl(const android_widget_MediaController_MediaPlayerControl& cc);
-	android_widget_MediaController_MediaPlayerControl(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_MediaController_MediaPlayerControl(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_MediaController_MediaPlayerControl();
 	// Functions
@@ -79,6 +79,9 @@ public:
 
 protected:
 	android_widget_MediaController_MediaPlayerControl();
+
+private:
+	Proxy * _proxy;
 
 };	
 

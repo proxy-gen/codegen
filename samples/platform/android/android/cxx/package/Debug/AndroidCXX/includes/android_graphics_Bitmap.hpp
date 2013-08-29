@@ -179,10 +179,10 @@ class android_graphics_Bitmap : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_graphics_Bitmap(const android_graphics_Bitmap& cc);
-	android_graphics_Bitmap(Proxy proxy);
-	Proxy proxy() const;	
+	android_graphics_Bitmap(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Bitmap();
 	// Functions
@@ -236,6 +236,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

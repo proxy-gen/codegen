@@ -59,10 +59,10 @@ class com_facebook_GetTokenClient : public AndroidCXX::android_content_ServiceCo
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_GetTokenClient(const com_facebook_GetTokenClient& cc);
-	com_facebook_GetTokenClient(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_GetTokenClient(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_GetTokenClient();
 	// Functions
@@ -70,6 +70,9 @@ public:
 	virtual void  onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -51,8 +51,8 @@ class android_content_DialogInterface : public AndroidCXX::java_lang_Object
 public:
 
 	android_content_DialogInterface(const android_content_DialogInterface& cc);
-	android_content_DialogInterface(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_DialogInterface(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_DialogInterface();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	android_content_DialogInterface();
+
+private:
+	Proxy * _proxy;
 
 };	
 

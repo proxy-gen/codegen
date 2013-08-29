@@ -153,12 +153,12 @@ class android_widget_SearchView : public AndroidCXX::android_view_CollapsibleAct
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_SearchView(AndroidCXX::android_content_Context const& arg0);
-	android_widget_SearchView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	// Public Constructor
+	android_widget_SearchView(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_SearchView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_SearchView(const android_widget_SearchView& cc);
-	android_widget_SearchView(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SearchView(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SearchView();
 	// Functions
@@ -197,6 +197,9 @@ public:
 	virtual void  setSuggestionsAdapter(AndroidCXX::android_widget_CursorAdapter const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

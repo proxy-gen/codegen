@@ -172,11 +172,11 @@ class com_facebook_Session : public AndroidCXX::java_io_Serializable
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_Session(AndroidCXX::android_content_Context const& arg0);
+	// Public Constructor
+	com_facebook_Session(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_Session(const com_facebook_Session& cc);
-	com_facebook_Session(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Session(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session();
 	// Functions
@@ -211,6 +211,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

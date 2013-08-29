@@ -298,12 +298,11 @@ class android_graphics_Canvas
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_Canvas();
-	android_graphics_Canvas(AndroidCXX::android_graphics_Bitmap const& arg0);
+	// Public Constructor
+	android_graphics_Canvas(Proxy * aProxy = new Proxy());
+	android_graphics_Canvas(AndroidCXX::android_graphics_Bitmap const& arg0,Proxy * aProxy = new Proxy());
 	android_graphics_Canvas(const android_graphics_Canvas& cc);
-	android_graphics_Canvas(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Canvas();
 	// Functions
@@ -393,6 +392,9 @@ public:
 	virtual void  translate(float const& arg0,float const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

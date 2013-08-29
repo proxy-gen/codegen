@@ -190,8 +190,8 @@ class android_content_ContentProvider : public AndroidCXX::android_content_Compo
 public:
 
 	android_content_ContentProvider(const android_content_ContentProvider& cc);
-	android_content_ContentProvider(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_ContentProvider(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContentProvider();
 	// Functions
@@ -223,6 +223,9 @@ public:
 
 protected:
 	android_content_ContentProvider();
+
+private:
+	Proxy * _proxy;
 
 };	
 

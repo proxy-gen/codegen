@@ -121,8 +121,8 @@ class android_widget_AdapterViewAnimator : public AndroidCXX::android_widget_Adv
 public:
 
 	android_widget_AdapterViewAnimator(const android_widget_AdapterViewAnimator& cc);
-	android_widget_AdapterViewAnimator(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AdapterViewAnimator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterViewAnimator();
 	// Functions
@@ -157,6 +157,9 @@ public:
 
 protected:
 	android_widget_AdapterViewAnimator();
+
+private:
+	Proxy * _proxy;
 
 };	
 

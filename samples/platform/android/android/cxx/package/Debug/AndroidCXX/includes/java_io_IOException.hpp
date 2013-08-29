@@ -64,19 +64,21 @@ class java_io_IOException : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	java_io_IOException();
-	java_io_IOException(AndroidCXX::java_lang_String const& arg0);
-	java_io_IOException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
-	java_io_IOException(AndroidCXX::java_lang_Throwable const& arg0);
+	// Public Constructor
+	java_io_IOException(Proxy * aProxy = new Proxy());
+	java_io_IOException(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_io_IOException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1,Proxy * aProxy = new Proxy());
+	java_io_IOException(AndroidCXX::java_lang_Throwable const& arg0,Proxy * aProxy = new Proxy());
 	java_io_IOException(const java_io_IOException& cc);
-	java_io_IOException(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_IOException();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

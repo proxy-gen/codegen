@@ -62,10 +62,10 @@ class android_media_MediaPlayer_TrackInfo : public AndroidCXX::android_os_Parcel
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_media_MediaPlayer_TrackInfo(const android_media_MediaPlayer_TrackInfo& cc);
-	android_media_MediaPlayer_TrackInfo(Proxy proxy);
-	Proxy proxy() const;	
+	android_media_MediaPlayer_TrackInfo(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_TrackInfo();
 	// Functions
@@ -75,6 +75,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

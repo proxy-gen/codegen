@@ -64,10 +64,10 @@ class java_nio_charset_CoderResult
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	java_nio_charset_CoderResult(const java_nio_charset_CoderResult& cc);
-	java_nio_charset_CoderResult(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_charset_CoderResult(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_CoderResult();
 	// Functions
@@ -83,6 +83,9 @@ public:
 	static AndroidCXX::java_nio_charset_CoderResult * unmappableForLength(int const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

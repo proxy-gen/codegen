@@ -107,8 +107,8 @@ class java_nio_ShortBuffer : public AndroidCXX::java_lang_Comparable
 public:
 
 	java_nio_ShortBuffer(const java_nio_ShortBuffer& cc);
-	java_nio_ShortBuffer(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_ShortBuffer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_ShortBuffer();
 	// Functions
@@ -140,6 +140,9 @@ public:
 
 protected:
 	java_nio_ShortBuffer();
+
+private:
+	Proxy * _proxy;
 
 };	
 

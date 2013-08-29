@@ -159,8 +159,8 @@ class com_facebook_widget_PickerFragment : public AndroidCXX::java_lang_Object
 public:
 
 	com_facebook_widget_PickerFragment(const com_facebook_widget_PickerFragment& cc);
-	com_facebook_widget_PickerFragment(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_PickerFragment(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment();
 	// Functions
@@ -198,6 +198,9 @@ public:
 
 protected:
 	com_facebook_widget_PickerFragment();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -50,8 +50,8 @@ class android_webkit_WebStorage_QuotaUpdater : public AndroidCXX::java_lang_Obje
 public:
 
 	android_webkit_WebStorage_QuotaUpdater(const android_webkit_WebStorage_QuotaUpdater& cc);
-	android_webkit_WebStorage_QuotaUpdater(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_WebStorage_QuotaUpdater(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebStorage_QuotaUpdater();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_webkit_WebStorage_QuotaUpdater();
+
+private:
+	Proxy * _proxy;
 
 };	
 

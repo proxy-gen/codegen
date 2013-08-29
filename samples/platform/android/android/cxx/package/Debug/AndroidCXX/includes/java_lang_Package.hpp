@@ -108,10 +108,10 @@ class java_lang_Package : public AndroidCXX::java_lang_reflect_AnnotatedElement
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	java_lang_Package(const java_lang_Package& cc);
-	java_lang_Package(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Package(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Package();
 	// Functions
@@ -135,6 +135,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

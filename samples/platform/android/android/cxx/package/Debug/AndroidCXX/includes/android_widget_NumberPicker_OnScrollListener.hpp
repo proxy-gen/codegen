@@ -53,8 +53,8 @@ class android_widget_NumberPicker_OnScrollListener : public AndroidCXX::java_lan
 public:
 
 	android_widget_NumberPicker_OnScrollListener(const android_widget_NumberPicker_OnScrollListener& cc);
-	android_widget_NumberPicker_OnScrollListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_NumberPicker_OnScrollListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_NumberPicker_OnScrollListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_NumberPicker_OnScrollListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

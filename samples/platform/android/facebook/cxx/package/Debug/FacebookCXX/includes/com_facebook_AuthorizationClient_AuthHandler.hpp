@@ -49,14 +49,17 @@ class com_facebook_AuthorizationClient_AuthHandler : public AndroidCXX::java_io_
 public:
 
 	com_facebook_AuthorizationClient_AuthHandler(const com_facebook_AuthorizationClient_AuthHandler& cc);
-	com_facebook_AuthorizationClient_AuthHandler(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_AuthorizationClient_AuthHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_AuthHandler();
 	// Functions
 
 protected:
 	com_facebook_AuthorizationClient_AuthHandler();
+
+private:
+	Proxy * _proxy;
 
 };	
 

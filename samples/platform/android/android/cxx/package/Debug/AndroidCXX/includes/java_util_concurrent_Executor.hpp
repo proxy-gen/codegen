@@ -53,8 +53,8 @@ class java_util_concurrent_Executor : public AndroidCXX::java_lang_Object
 public:
 
 	java_util_concurrent_Executor(const java_util_concurrent_Executor& cc);
-	java_util_concurrent_Executor(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_concurrent_Executor(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_concurrent_Executor();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	java_util_concurrent_Executor();
+
+private:
+	Proxy * _proxy;
 
 };	
 

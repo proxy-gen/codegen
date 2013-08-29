@@ -60,12 +60,11 @@ class java_util_Random : public AndroidCXX::java_io_Serializable
 {
 public:
 
-	// Public ConstrucXXX
-	java_util_Random();
-	java_util_Random(long const& arg0);
+	// Public Constructor
+	java_util_Random(Proxy * aProxy = new Proxy());
+	java_util_Random(long const& arg0,Proxy * aProxy = new Proxy());
 	java_util_Random(const java_util_Random& cc);
-	java_util_Random(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Random();
 	// Functions
@@ -80,6 +79,9 @@ public:
 	virtual void  setSeed(long const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

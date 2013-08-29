@@ -81,12 +81,12 @@ class java_lang_Boolean : public AndroidCXX::java_io_Serializable,public Android
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_Boolean(bool const& arg0);
-	java_lang_Boolean(AndroidCXX::java_lang_String const& arg0);
+	// Public Constructor
+	java_lang_Boolean(bool const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_Boolean(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	java_lang_Boolean(const java_lang_Boolean& cc);
-	java_lang_Boolean(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Boolean(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Boolean();
 	// Functions
@@ -102,6 +102,9 @@ public:
 	static AndroidCXX::java_lang_Boolean * valueOf(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -95,13 +95,13 @@ class android_view_animation_LayoutAnimationController
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_animation_LayoutAnimationController(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_view_animation_LayoutAnimationController(AndroidCXX::android_view_animation_Animation const& arg0);
-	android_view_animation_LayoutAnimationController(AndroidCXX::android_view_animation_Animation const& arg0,float const& arg1);
+	// Public Constructor
+	android_view_animation_LayoutAnimationController(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_view_animation_LayoutAnimationController(AndroidCXX::android_view_animation_Animation const& arg0,Proxy * aProxy = new Proxy());
+	android_view_animation_LayoutAnimationController(AndroidCXX::android_view_animation_Animation const& arg0,float const& arg1,Proxy * aProxy = new Proxy());
 	android_view_animation_LayoutAnimationController(const android_view_animation_LayoutAnimationController& cc);
-	android_view_animation_LayoutAnimationController(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_animation_LayoutAnimationController(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_LayoutAnimationController();
 	// Functions
@@ -121,6 +121,9 @@ public:
 	virtual bool  willOverlap() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

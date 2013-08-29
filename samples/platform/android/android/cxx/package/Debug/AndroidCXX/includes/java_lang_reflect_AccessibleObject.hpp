@@ -77,10 +77,10 @@ class java_lang_reflect_AccessibleObject : public AndroidCXX::java_lang_reflect_
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	java_lang_reflect_AccessibleObject(const java_lang_reflect_AccessibleObject& cc);
-	java_lang_reflect_AccessibleObject(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_reflect_AccessibleObject(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_reflect_AccessibleObject();
 	// Functions
@@ -93,6 +93,9 @@ public:
 	virtual void  setAccessible(bool const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

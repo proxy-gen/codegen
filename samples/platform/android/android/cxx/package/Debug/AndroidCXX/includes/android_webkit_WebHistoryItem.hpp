@@ -64,10 +64,10 @@ class android_webkit_WebHistoryItem : public AndroidCXX::java_lang_Cloneable
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_webkit_WebHistoryItem(const android_webkit_WebHistoryItem& cc);
-	android_webkit_WebHistoryItem(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_WebHistoryItem(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebHistoryItem();
 	// Functions
@@ -77,6 +77,9 @@ public:
 	virtual AndroidCXX::java_lang_String * getUrl() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

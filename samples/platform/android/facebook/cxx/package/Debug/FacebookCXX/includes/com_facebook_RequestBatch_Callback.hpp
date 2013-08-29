@@ -53,8 +53,8 @@ class com_facebook_RequestBatch_Callback : public AndroidCXX::java_lang_Object
 public:
 
 	com_facebook_RequestBatch_Callback(const com_facebook_RequestBatch_Callback& cc);
-	com_facebook_RequestBatch_Callback(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_RequestBatch_Callback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_RequestBatch_Callback();
 	// Functions
@@ -62,6 +62,10 @@ public:
 
 protected:
 	com_facebook_RequestBatch_Callback();
+	void setCXXCallbackPtr(void * callbackPtr);
+
+private:
+	Proxy * _proxy;
 
 };	
 

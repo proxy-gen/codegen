@@ -58,8 +58,8 @@ class android_view_InputEvent : public AndroidCXX::android_os_Parcelable
 public:
 
 	android_view_InputEvent(const android_view_InputEvent& cc);
-	android_view_InputEvent(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_InputEvent(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_InputEvent();
 	// Functions
@@ -72,6 +72,9 @@ public:
 
 protected:
 	android_view_InputEvent();
+
+private:
+	Proxy * _proxy;
 
 };	
 

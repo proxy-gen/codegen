@@ -59,8 +59,8 @@ class android_view_KeyEvent_Callback : public AndroidCXX::java_lang_Object
 public:
 
 	android_view_KeyEvent_Callback(const android_view_KeyEvent_Callback& cc);
-	android_view_KeyEvent_Callback(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_KeyEvent_Callback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_KeyEvent_Callback();
 	// Functions
@@ -71,6 +71,9 @@ public:
 
 protected:
 	android_view_KeyEvent_Callback();
+
+private:
+	Proxy * _proxy;
 
 };	
 

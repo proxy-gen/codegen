@@ -57,8 +57,8 @@ class java_security_Key : public AndroidCXX::java_io_Serializable
 public:
 
 	java_security_Key(const java_security_Key& cc);
-	java_security_Key(Proxy proxy);
-	Proxy proxy() const;	
+	java_security_Key(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_Key();
 	// Functions
@@ -68,6 +68,9 @@ public:
 
 protected:
 	java_security_Key();
+
+private:
+	Proxy * _proxy;
 
 };	
 

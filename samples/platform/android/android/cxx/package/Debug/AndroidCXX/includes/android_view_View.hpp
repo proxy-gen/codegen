@@ -815,13 +815,13 @@ class android_view_View : public AndroidCXX::android_graphics_drawable_Drawable_
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_View(AndroidCXX::android_content_Context const& arg0);
-	android_view_View(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_view_View(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	// Public Constructor
+	android_view_View(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_view_View(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_view_View(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	android_view_View(const android_view_View& cc);
-	android_view_View(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_View(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View();
 	// Functions
@@ -1193,6 +1193,9 @@ public:
 	virtual bool  willNotDraw() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

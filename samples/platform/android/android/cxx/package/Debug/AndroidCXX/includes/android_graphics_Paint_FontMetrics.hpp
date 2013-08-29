@@ -47,16 +47,18 @@ class android_graphics_Paint_FontMetrics
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_Paint_FontMetrics();
+	// Public Constructor
+	android_graphics_Paint_FontMetrics(Proxy * aProxy = new Proxy());
 	android_graphics_Paint_FontMetrics(const android_graphics_Paint_FontMetrics& cc);
-	android_graphics_Paint_FontMetrics(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Paint_FontMetrics();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

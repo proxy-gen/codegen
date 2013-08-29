@@ -534,15 +534,14 @@ class android_content_Intent : public AndroidCXX::android_os_Parcelable,public A
 {
 public:
 
-	// Public ConstrucXXX
-	android_content_Intent();
-	android_content_Intent(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1);
-	android_content_Intent(AndroidCXX::android_content_Intent const& arg0);
-	android_content_Intent(AndroidCXX::java_lang_String const& arg0);
-	android_content_Intent(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_net_Uri const& arg1);
-	android_content_Intent(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::android_content_Context const& arg2,AndroidCXX::java_lang_Class const& arg3);
-	android_content_Intent(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_content_Intent(Proxy * aProxy = new Proxy());
+	android_content_Intent(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1,Proxy * aProxy = new Proxy());
+	android_content_Intent(AndroidCXX::android_content_Intent const& arg0,Proxy * aProxy = new Proxy());
+	android_content_Intent(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	android_content_Intent(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_net_Uri const& arg1,Proxy * aProxy = new Proxy());
+	android_content_Intent(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_net_Uri const& arg1,AndroidCXX::android_content_Context const& arg2,AndroidCXX::java_lang_Class const& arg3,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_Intent();
 	// Functions
@@ -670,6 +669,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

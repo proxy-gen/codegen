@@ -252,24 +252,23 @@ class java_lang_String : public AndroidCXX::java_io_Serializable,public AndroidC
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_String();
-	java_lang_String(std::vector<byte> const& arg0);
-	java_lang_String(std::vector<byte> const& arg0,int const& arg1);
-	java_lang_String(std::vector<byte> const& arg0,int const& arg1,int const& arg2);
-	java_lang_String(std::vector<byte> const& arg0,int const& arg1,int const& arg2,int const& arg3);
-	java_lang_String(std::vector<byte> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_lang_String const& arg3);
-	java_lang_String(std::vector<byte> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_nio_charset_Charset const& arg3);
-	java_lang_String(std::vector<byte> const& arg0,AndroidCXX::java_lang_String const& arg1);
-	java_lang_String(std::vector<byte> const& arg0,AndroidCXX::java_nio_charset_Charset const& arg1);
-	java_lang_String(std::vector<char> const& arg0);
-	java_lang_String(std::vector<char> const& arg0,int const& arg1,int const& arg2);
-	java_lang_String(std::vector<int> const& arg0,int const& arg1,int const& arg2);
-	java_lang_String(AndroidCXX::java_lang_String const& arg0);
-	java_lang_String(AndroidCXX::java_lang_StringBuffer const& arg0);
-	java_lang_String(AndroidCXX::java_lang_StringBuilder const& arg0);
-	java_lang_String(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	java_lang_String(Proxy * aProxy = new Proxy());
+	java_lang_String(std::vector<byte> const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_String(std::vector<byte> const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
+	java_lang_String(std::vector<byte> const& arg0,int const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
+	java_lang_String(std::vector<byte> const& arg0,int const& arg1,int const& arg2,int const& arg3,Proxy * aProxy = new Proxy());
+	java_lang_String(std::vector<byte> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_lang_String const& arg3,Proxy * aProxy = new Proxy());
+	java_lang_String(std::vector<byte> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_nio_charset_Charset const& arg3,Proxy * aProxy = new Proxy());
+	java_lang_String(std::vector<byte> const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
+	java_lang_String(std::vector<byte> const& arg0,AndroidCXX::java_nio_charset_Charset const& arg1,Proxy * aProxy = new Proxy());
+	java_lang_String(std::vector<char> const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_String(std::vector<char> const& arg0,int const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
+	java_lang_String(std::vector<int> const& arg0,int const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
+	java_lang_String(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_String(AndroidCXX::java_lang_StringBuffer const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_String(AndroidCXX::java_lang_StringBuilder const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_String();
 	// Functions
@@ -340,6 +339,9 @@ public:
 	static AndroidCXX::java_lang_String * valueOf(long const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

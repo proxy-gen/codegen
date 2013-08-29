@@ -57,8 +57,8 @@ class android_widget_SeekBar_OnSeekBarChangeListener : public AndroidCXX::java_l
 public:
 
 	android_widget_SeekBar_OnSeekBarChangeListener(const android_widget_SeekBar_OnSeekBarChangeListener& cc);
-	android_widget_SeekBar_OnSeekBarChangeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SeekBar_OnSeekBarChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SeekBar_OnSeekBarChangeListener();
 	// Functions
@@ -68,6 +68,9 @@ public:
 
 protected:
 	android_widget_SeekBar_OnSeekBarChangeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

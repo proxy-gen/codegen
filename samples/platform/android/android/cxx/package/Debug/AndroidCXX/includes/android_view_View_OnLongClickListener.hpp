@@ -53,8 +53,8 @@ class android_view_View_OnLongClickListener : public AndroidCXX::java_lang_Objec
 public:
 
 	android_view_View_OnLongClickListener(const android_view_View_OnLongClickListener& cc);
-	android_view_View_OnLongClickListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_View_OnLongClickListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnLongClickListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_view_View_OnLongClickListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

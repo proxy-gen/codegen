@@ -105,8 +105,8 @@ class android_view_LayoutInflater
 public:
 
 	android_view_LayoutInflater(const android_view_LayoutInflater& cc);
-	android_view_LayoutInflater(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_LayoutInflater(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_LayoutInflater();
 	// Functions
@@ -127,6 +127,9 @@ public:
 
 protected:
 	android_view_LayoutInflater();
+
+private:
+	Proxy * _proxy;
 
 };	
 

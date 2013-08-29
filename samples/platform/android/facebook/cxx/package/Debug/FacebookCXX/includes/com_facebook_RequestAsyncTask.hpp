@@ -88,22 +88,25 @@ class com_facebook_RequestAsyncTask : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_RequestAsyncTask(std::vector<FacebookCXX::com_facebook_Request> const& arg0);
-	com_facebook_RequestAsyncTask(FacebookCXX::com_facebook_RequestBatch const& arg0);
-	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection const& arg0,std::vector<FacebookCXX::com_facebook_Request> const& arg1);
-	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection const& arg0,FacebookCXX::com_facebook_RequestBatch const& arg1);
-	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection const& arg0,AndroidCXX::java_util_Collection const& arg1);
-	com_facebook_RequestAsyncTask(AndroidCXX::java_util_Collection const& arg0);
+	// Public Constructor
+	com_facebook_RequestAsyncTask(std::vector<FacebookCXX::com_facebook_Request> const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_RequestAsyncTask(FacebookCXX::com_facebook_RequestBatch const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection const& arg0,std::vector<FacebookCXX::com_facebook_Request> const& arg1,Proxy * aProxy = new Proxy());
+	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection const& arg0,FacebookCXX::com_facebook_RequestBatch const& arg1,Proxy * aProxy = new Proxy());
+	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection const& arg0,AndroidCXX::java_util_Collection const& arg1,Proxy * aProxy = new Proxy());
+	com_facebook_RequestAsyncTask(AndroidCXX::java_util_Collection const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_RequestAsyncTask(const com_facebook_RequestAsyncTask& cc);
-	com_facebook_RequestAsyncTask(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_RequestAsyncTask(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_RequestAsyncTask();
 	// Functions
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

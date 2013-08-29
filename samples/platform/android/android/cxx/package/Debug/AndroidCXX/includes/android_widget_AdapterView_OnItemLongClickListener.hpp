@@ -59,8 +59,8 @@ class android_widget_AdapterView_OnItemLongClickListener : public AndroidCXX::ja
 public:
 
 	android_widget_AdapterView_OnItemLongClickListener(const android_widget_AdapterView_OnItemLongClickListener& cc);
-	android_widget_AdapterView_OnItemLongClickListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AdapterView_OnItemLongClickListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterView_OnItemLongClickListener();
 	// Functions
@@ -68,6 +68,9 @@ public:
 
 protected:
 	android_widget_AdapterView_OnItemLongClickListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -53,8 +53,8 @@ class android_widget_AbsListView_MultiChoiceModeListener : public AndroidCXX::an
 public:
 
 	android_widget_AbsListView_MultiChoiceModeListener(const android_widget_AbsListView_MultiChoiceModeListener& cc);
-	android_widget_AbsListView_MultiChoiceModeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AbsListView_MultiChoiceModeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsListView_MultiChoiceModeListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_AbsListView_MultiChoiceModeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

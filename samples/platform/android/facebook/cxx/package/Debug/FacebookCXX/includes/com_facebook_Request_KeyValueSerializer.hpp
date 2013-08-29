@@ -55,8 +55,8 @@ class com_facebook_Request_KeyValueSerializer : public AndroidCXX::java_lang_Obj
 public:
 
 	com_facebook_Request_KeyValueSerializer(const com_facebook_Request_KeyValueSerializer& cc);
-	com_facebook_Request_KeyValueSerializer(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Request_KeyValueSerializer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Request_KeyValueSerializer();
 	// Functions
@@ -64,6 +64,9 @@ public:
 
 protected:
 	com_facebook_Request_KeyValueSerializer();
+
+private:
+	Proxy * _proxy;
 
 };	
 

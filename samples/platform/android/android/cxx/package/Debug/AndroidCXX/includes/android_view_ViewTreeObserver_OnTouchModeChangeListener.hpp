@@ -50,8 +50,8 @@ class android_view_ViewTreeObserver_OnTouchModeChangeListener : public AndroidCX
 public:
 
 	android_view_ViewTreeObserver_OnTouchModeChangeListener(const android_view_ViewTreeObserver_OnTouchModeChangeListener& cc);
-	android_view_ViewTreeObserver_OnTouchModeChangeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ViewTreeObserver_OnTouchModeChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnTouchModeChangeListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_view_ViewTreeObserver_OnTouchModeChangeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

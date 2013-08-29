@@ -55,8 +55,8 @@ class java_util_Comparator : public AndroidCXX::java_lang_Object
 public:
 
 	java_util_Comparator(const java_util_Comparator& cc);
-	java_util_Comparator(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_Comparator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Comparator();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	java_util_Comparator();
+
+private:
+	Proxy * _proxy;
 
 };	
 

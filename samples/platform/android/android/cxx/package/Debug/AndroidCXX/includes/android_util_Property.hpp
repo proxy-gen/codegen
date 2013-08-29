@@ -84,8 +84,8 @@ class android_util_Property
 public:
 
 	android_util_Property(const android_util_Property& cc);
-	android_util_Property(Proxy proxy);
-	Proxy proxy() const;	
+	android_util_Property(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_util_Property();
 	// Functions
@@ -98,6 +98,9 @@ public:
 
 protected:
 	android_util_Property();
+
+private:
+	Proxy * _proxy;
 
 };	
 

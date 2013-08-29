@@ -50,8 +50,8 @@ class android_app_ActionBar_OnMenuVisibilityListener : public AndroidCXX::java_l
 public:
 
 	android_app_ActionBar_OnMenuVisibilityListener(const android_app_ActionBar_OnMenuVisibilityListener& cc);
-	android_app_ActionBar_OnMenuVisibilityListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_app_ActionBar_OnMenuVisibilityListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_ActionBar_OnMenuVisibilityListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_app_ActionBar_OnMenuVisibilityListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

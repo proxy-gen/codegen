@@ -56,10 +56,10 @@ class android_view_ViewGroupOverlay : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_view_ViewGroupOverlay(const android_view_ViewGroupOverlay& cc);
-	android_view_ViewGroupOverlay(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ViewGroupOverlay(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewGroupOverlay();
 	// Functions
@@ -67,6 +67,9 @@ public:
 	virtual void  remove(AndroidCXX::android_view_View const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

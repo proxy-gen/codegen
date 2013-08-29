@@ -61,11 +61,11 @@ class java_io_FilterOutputStream : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	java_io_FilterOutputStream(AndroidCXX::java_io_OutputStream const& arg0);
+	// Public Constructor
+	java_io_FilterOutputStream(AndroidCXX::java_io_OutputStream const& arg0,Proxy * aProxy = new Proxy());
 	java_io_FilterOutputStream(const java_io_FilterOutputStream& cc);
-	java_io_FilterOutputStream(Proxy proxy);
-	Proxy proxy() const;	
+	java_io_FilterOutputStream(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FilterOutputStream();
 	// Functions
@@ -76,6 +76,9 @@ public:
 	virtual void  write(int const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

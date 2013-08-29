@@ -50,8 +50,8 @@ class java_lang_Runnable : public AndroidCXX::java_lang_Object
 public:
 
 	java_lang_Runnable(const java_lang_Runnable& cc);
-	java_lang_Runnable(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Runnable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Runnable();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	java_lang_Runnable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

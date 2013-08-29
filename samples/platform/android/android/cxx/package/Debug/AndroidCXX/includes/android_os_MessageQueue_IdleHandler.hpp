@@ -50,8 +50,8 @@ class android_os_MessageQueue_IdleHandler : public AndroidCXX::java_lang_Object
 public:
 
 	android_os_MessageQueue_IdleHandler(const android_os_MessageQueue_IdleHandler& cc);
-	android_os_MessageQueue_IdleHandler(Proxy proxy);
-	Proxy proxy() const;	
+	android_os_MessageQueue_IdleHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_MessageQueue_IdleHandler();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_os_MessageQueue_IdleHandler();
+
+private:
+	Proxy * _proxy;
 
 };	
 

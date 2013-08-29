@@ -284,8 +284,8 @@ class android_view_ViewGroup : public AndroidCXX::android_view_ViewManager,publi
 public:
 
 	android_view_ViewGroup(const android_view_ViewGroup& cc);
-	android_view_ViewGroup(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ViewGroup(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewGroup();
 	// Functions
@@ -390,6 +390,9 @@ public:
 
 protected:
 	android_view_ViewGroup();
+
+private:
+	Proxy * _proxy;
 
 };	
 

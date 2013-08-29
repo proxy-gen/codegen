@@ -170,14 +170,14 @@ class java_io_File : public AndroidCXX::java_io_Serializable,public AndroidCXX::
 {
 public:
 
-	// Public ConstrucXXX
-	java_io_File(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1);
-	java_io_File(AndroidCXX::java_lang_String const& arg0);
-	java_io_File(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
-	java_io_File(AndroidCXX::java_net_URI const& arg0);
+	// Public Constructor
+	java_io_File(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
+	java_io_File(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_io_File(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
+	java_io_File(AndroidCXX::java_net_URI const& arg0,Proxy * aProxy = new Proxy());
 	java_io_File(const java_io_File& cc);
-	java_io_File(Proxy proxy);
-	Proxy proxy() const;	
+	java_io_File(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_File();
 	// Functions
@@ -232,6 +232,9 @@ public:
 	virtual AndroidCXX::java_net_URL * toURL() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

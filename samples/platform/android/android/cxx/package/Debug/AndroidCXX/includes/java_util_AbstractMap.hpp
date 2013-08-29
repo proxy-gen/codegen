@@ -102,8 +102,8 @@ class java_util_AbstractMap : public AndroidCXX::java_util_Map
 public:
 
 	java_util_AbstractMap(const java_util_AbstractMap& cc);
-	java_util_AbstractMap(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_AbstractMap(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_AbstractMap();
 	// Functions
@@ -125,6 +125,9 @@ public:
 
 protected:
 	java_util_AbstractMap();
+
+private:
+	Proxy * _proxy;
 
 };	
 

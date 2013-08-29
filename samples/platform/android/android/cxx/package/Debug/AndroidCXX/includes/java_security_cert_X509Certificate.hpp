@@ -116,8 +116,8 @@ class java_security_cert_X509Certificate : public AndroidCXX::java_security_cert
 public:
 
 	java_security_cert_X509Certificate(const java_security_cert_X509Certificate& cc);
-	java_security_cert_X509Certificate(Proxy proxy);
-	Proxy proxy() const;	
+	java_security_cert_X509Certificate(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_cert_X509Certificate();
 	// Functions
@@ -146,6 +146,9 @@ public:
 
 protected:
 	java_security_cert_X509Certificate();
+
+private:
+	Proxy * _proxy;
 
 };	
 

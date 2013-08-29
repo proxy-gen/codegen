@@ -50,8 +50,8 @@ class java_io_Flushable : public AndroidCXX::java_lang_Object
 public:
 
 	java_io_Flushable(const java_io_Flushable& cc);
-	java_io_Flushable(Proxy proxy);
-	Proxy proxy() const;	
+	java_io_Flushable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_Flushable();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	java_io_Flushable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

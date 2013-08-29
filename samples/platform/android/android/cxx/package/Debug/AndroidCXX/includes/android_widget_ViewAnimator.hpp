@@ -117,12 +117,12 @@ class android_widget_ViewAnimator : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_ViewAnimator(AndroidCXX::android_content_Context const& arg0);
-	android_widget_ViewAnimator(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	// Public Constructor
+	android_widget_ViewAnimator(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_ViewAnimator(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_ViewAnimator(const android_widget_ViewAnimator& cc);
-	android_widget_ViewAnimator(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_ViewAnimator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ViewAnimator();
 	// Functions
@@ -151,6 +151,9 @@ public:
 	virtual void  showPrevious() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

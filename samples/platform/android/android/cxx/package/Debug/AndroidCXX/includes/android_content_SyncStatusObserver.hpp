@@ -50,8 +50,8 @@ class android_content_SyncStatusObserver : public AndroidCXX::java_lang_Object
 public:
 
 	android_content_SyncStatusObserver(const android_content_SyncStatusObserver& cc);
-	android_content_SyncStatusObserver(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_SyncStatusObserver(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_SyncStatusObserver();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_content_SyncStatusObserver();
+
+private:
+	Proxy * _proxy;
 
 };	
 

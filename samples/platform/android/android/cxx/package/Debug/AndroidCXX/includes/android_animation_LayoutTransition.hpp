@@ -118,11 +118,10 @@ class android_animation_LayoutTransition
 {
 public:
 
-	// Public ConstrucXXX
-	android_animation_LayoutTransition();
+	// Public Constructor
+	android_animation_LayoutTransition(Proxy * aProxy = new Proxy());
 	android_animation_LayoutTransition(const android_animation_LayoutTransition& cc);
-	android_animation_LayoutTransition(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_LayoutTransition();
 	// Functions
@@ -154,6 +153,9 @@ public:
 	virtual void  showChild(AndroidCXX::android_view_ViewGroup const& arg0,AndroidCXX::android_view_View const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

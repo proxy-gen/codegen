@@ -73,11 +73,11 @@ class java_lang_StackTraceElement : public AndroidCXX::java_io_Serializable
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_StackTraceElement(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3);
+	// Public Constructor
+	java_lang_StackTraceElement(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3,Proxy * aProxy = new Proxy());
 	java_lang_StackTraceElement(const java_lang_StackTraceElement& cc);
-	java_lang_StackTraceElement(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_StackTraceElement(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_StackTraceElement();
 	// Functions
@@ -91,6 +91,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

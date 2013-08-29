@@ -55,8 +55,8 @@ class android_widget_SearchView_OnQueryTextListener : public AndroidCXX::java_la
 public:
 
 	android_widget_SearchView_OnQueryTextListener(const android_widget_SearchView_OnQueryTextListener& cc);
-	android_widget_SearchView_OnQueryTextListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SearchView_OnQueryTextListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SearchView_OnQueryTextListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_widget_SearchView_OnQueryTextListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

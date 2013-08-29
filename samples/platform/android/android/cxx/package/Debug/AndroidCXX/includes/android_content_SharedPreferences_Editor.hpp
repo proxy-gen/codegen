@@ -83,8 +83,8 @@ class android_content_SharedPreferences_Editor : public AndroidCXX::java_lang_Ob
 public:
 
 	android_content_SharedPreferences_Editor(const android_content_SharedPreferences_Editor& cc);
-	android_content_SharedPreferences_Editor(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_SharedPreferences_Editor(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_SharedPreferences_Editor();
 	// Functions
@@ -101,6 +101,9 @@ public:
 
 protected:
 	android_content_SharedPreferences_Editor();
+
+private:
+	Proxy * _proxy;
 
 };	
 

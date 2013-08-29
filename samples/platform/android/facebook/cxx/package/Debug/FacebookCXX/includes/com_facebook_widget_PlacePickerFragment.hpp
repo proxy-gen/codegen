@@ -97,12 +97,11 @@ class com_facebook_widget_PlacePickerFragment : public AndroidCXX::java_lang_Obj
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_widget_PlacePickerFragment();
-	com_facebook_widget_PlacePickerFragment(AndroidCXX::android_os_Bundle const& arg0);
+	// Public Constructor
+	com_facebook_widget_PlacePickerFragment(Proxy * aProxy = new Proxy());
+	com_facebook_widget_PlacePickerFragment(AndroidCXX::android_os_Bundle const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_widget_PlacePickerFragment(const com_facebook_widget_PlacePickerFragment& cc);
-	com_facebook_widget_PlacePickerFragment(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PlacePickerFragment();
 	// Functions
@@ -123,6 +122,9 @@ public:
 	virtual void  setSettingsFromBundle(AndroidCXX::android_os_Bundle const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

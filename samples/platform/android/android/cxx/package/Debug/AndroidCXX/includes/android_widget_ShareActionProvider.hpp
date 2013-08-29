@@ -85,11 +85,11 @@ class android_widget_ShareActionProvider : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_ShareActionProvider(AndroidCXX::android_content_Context const& arg0);
+	// Public Constructor
+	android_widget_ShareActionProvider(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
 	android_widget_ShareActionProvider(const android_widget_ShareActionProvider& cc);
-	android_widget_ShareActionProvider(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_ShareActionProvider(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ShareActionProvider();
 	// Functions
@@ -101,6 +101,9 @@ public:
 	virtual void  setShareIntent(AndroidCXX::android_content_Intent const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

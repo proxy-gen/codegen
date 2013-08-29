@@ -63,8 +63,8 @@ class com_facebook_android_Facebook_DialogListener : public AndroidCXX::java_lan
 public:
 
 	com_facebook_android_Facebook_DialogListener(const com_facebook_android_Facebook_DialogListener& cc);
-	com_facebook_android_Facebook_DialogListener(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_android_Facebook_DialogListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_DialogListener();
 	// Functions
@@ -75,6 +75,9 @@ public:
 
 protected:
 	com_facebook_android_Facebook_DialogListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

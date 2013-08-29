@@ -85,8 +85,8 @@ class android_animation_Keyframe : public AndroidCXX::java_lang_Cloneable
 public:
 
 	android_animation_Keyframe(const android_animation_Keyframe& cc);
-	android_animation_Keyframe(Proxy proxy);
-	Proxy proxy() const;	
+	android_animation_Keyframe(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_Keyframe();
 	// Functions
@@ -108,6 +108,9 @@ public:
 
 protected:
 	android_animation_Keyframe();
+
+private:
+	Proxy * _proxy;
 
 };	
 

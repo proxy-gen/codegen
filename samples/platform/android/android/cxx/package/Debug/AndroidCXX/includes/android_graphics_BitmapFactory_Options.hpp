@@ -48,17 +48,19 @@ class android_graphics_BitmapFactory_Options
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_BitmapFactory_Options();
+	// Public Constructor
+	android_graphics_BitmapFactory_Options(Proxy * aProxy = new Proxy());
 	android_graphics_BitmapFactory_Options(const android_graphics_BitmapFactory_Options& cc);
-	android_graphics_BitmapFactory_Options(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_BitmapFactory_Options();
 	// Functions
 	virtual void  requestCancelDecode() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -47,16 +47,18 @@ class android_view_KeyCharacterMap_KeyData
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_KeyCharacterMap_KeyData();
+	// Public Constructor
+	android_view_KeyCharacterMap_KeyData(Proxy * aProxy = new Proxy());
 	android_view_KeyCharacterMap_KeyData(const android_view_KeyCharacterMap_KeyData& cc);
-	android_view_KeyCharacterMap_KeyData(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_KeyCharacterMap_KeyData();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

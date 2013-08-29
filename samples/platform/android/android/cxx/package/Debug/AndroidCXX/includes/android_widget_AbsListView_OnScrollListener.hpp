@@ -55,8 +55,8 @@ class android_widget_AbsListView_OnScrollListener : public AndroidCXX::java_lang
 public:
 
 	android_widget_AbsListView_OnScrollListener(const android_widget_AbsListView_OnScrollListener& cc);
-	android_widget_AbsListView_OnScrollListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AbsListView_OnScrollListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsListView_OnScrollListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_widget_AbsListView_OnScrollListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

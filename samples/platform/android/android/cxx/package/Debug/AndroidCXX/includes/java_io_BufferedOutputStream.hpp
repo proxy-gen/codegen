@@ -60,12 +60,12 @@ class java_io_BufferedOutputStream : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream const& arg0);
-	java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream const& arg0,int const& arg1);
+	// Public Constructor
+	java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream const& arg0,Proxy * aProxy = new Proxy());
+	java_io_BufferedOutputStream(AndroidCXX::java_io_OutputStream const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
 	java_io_BufferedOutputStream(const java_io_BufferedOutputStream& cc);
-	java_io_BufferedOutputStream(Proxy proxy);
-	Proxy proxy() const;	
+	java_io_BufferedOutputStream(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_BufferedOutputStream();
 	// Functions
@@ -74,6 +74,9 @@ public:
 	virtual void  write(int const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

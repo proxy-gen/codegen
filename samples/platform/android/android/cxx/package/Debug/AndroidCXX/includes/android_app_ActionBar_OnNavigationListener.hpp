@@ -50,8 +50,8 @@ class android_app_ActionBar_OnNavigationListener : public AndroidCXX::java_lang_
 public:
 
 	android_app_ActionBar_OnNavigationListener(const android_app_ActionBar_OnNavigationListener& cc);
-	android_app_ActionBar_OnNavigationListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_app_ActionBar_OnNavigationListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_ActionBar_OnNavigationListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_app_ActionBar_OnNavigationListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

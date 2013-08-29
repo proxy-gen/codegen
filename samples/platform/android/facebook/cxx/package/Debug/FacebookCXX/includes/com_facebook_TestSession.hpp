@@ -89,10 +89,10 @@ class com_facebook_TestSession : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_TestSession(const com_facebook_TestSession& cc);
-	com_facebook_TestSession(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_TestSession(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_TestSession();
 	// Functions
@@ -107,6 +107,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

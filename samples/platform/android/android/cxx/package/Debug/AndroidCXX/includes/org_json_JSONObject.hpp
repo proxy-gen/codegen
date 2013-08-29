@@ -187,15 +187,14 @@ class org_json_JSONObject
 {
 public:
 
-	// Public ConstrucXXX
-	org_json_JSONObject();
-	org_json_JSONObject(AndroidCXX::java_lang_String const& arg0);
-	org_json_JSONObject(AndroidCXX::java_util_Map const& arg0);
-	org_json_JSONObject(AndroidCXX::org_json_JSONObject const& arg0,std::vector<AndroidCXX::java_lang_String> const& arg1);
-	org_json_JSONObject(AndroidCXX::org_json_JSONTokener const& arg0);
+	// Public Constructor
+	org_json_JSONObject(Proxy * aProxy = new Proxy());
+	org_json_JSONObject(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	org_json_JSONObject(AndroidCXX::java_util_Map const& arg0,Proxy * aProxy = new Proxy());
+	org_json_JSONObject(AndroidCXX::org_json_JSONObject const& arg0,std::vector<AndroidCXX::java_lang_String> const& arg1,Proxy * aProxy = new Proxy());
+	org_json_JSONObject(AndroidCXX::org_json_JSONTokener const& arg0,Proxy * aProxy = new Proxy());
 	org_json_JSONObject(const org_json_JSONObject& cc);
-	org_json_JSONObject(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~org_json_JSONObject();
 	// Functions
@@ -240,6 +239,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

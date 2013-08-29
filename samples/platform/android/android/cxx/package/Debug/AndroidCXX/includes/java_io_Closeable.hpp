@@ -50,8 +50,8 @@ class java_io_Closeable : public AndroidCXX::java_lang_Object
 public:
 
 	java_io_Closeable(const java_io_Closeable& cc);
-	java_io_Closeable(Proxy proxy);
-	Proxy proxy() const;	
+	java_io_Closeable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_Closeable();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	java_io_Closeable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

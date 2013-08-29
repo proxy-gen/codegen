@@ -84,17 +84,16 @@ class android_view_WindowManager_LayoutParams : public AndroidCXX::android_os_Pa
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_WindowManager_LayoutParams();
-	android_view_WindowManager_LayoutParams(AndroidCXX::android_os_Parcel const& arg0);
-	android_view_WindowManager_LayoutParams(int const& arg0);
-	android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1);
-	android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2);
-	android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4);
-	android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6);
+	// Public Constructor
+	android_view_WindowManager_LayoutParams(Proxy * aProxy = new Proxy());
+	android_view_WindowManager_LayoutParams(AndroidCXX::android_os_Parcel const& arg0,Proxy * aProxy = new Proxy());
+	android_view_WindowManager_LayoutParams(int const& arg0,Proxy * aProxy = new Proxy());
+	android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
+	android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
+	android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,Proxy * aProxy = new Proxy());
+	android_view_WindowManager_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3,int const& arg4,int const& arg5,int const& arg6,Proxy * aProxy = new Proxy());
 	android_view_WindowManager_LayoutParams(const android_view_WindowManager_LayoutParams& cc);
-	android_view_WindowManager_LayoutParams(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_WindowManager_LayoutParams();
 	// Functions
@@ -108,6 +107,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

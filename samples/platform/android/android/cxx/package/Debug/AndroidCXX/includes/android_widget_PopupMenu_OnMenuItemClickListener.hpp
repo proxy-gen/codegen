@@ -53,8 +53,8 @@ class android_widget_PopupMenu_OnMenuItemClickListener : public AndroidCXX::java
 public:
 
 	android_widget_PopupMenu_OnMenuItemClickListener(const android_widget_PopupMenu_OnMenuItemClickListener& cc);
-	android_widget_PopupMenu_OnMenuItemClickListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_PopupMenu_OnMenuItemClickListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_PopupMenu_OnMenuItemClickListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_PopupMenu_OnMenuItemClickListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

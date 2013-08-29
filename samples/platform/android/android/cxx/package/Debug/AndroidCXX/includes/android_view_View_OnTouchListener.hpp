@@ -56,8 +56,8 @@ class android_view_View_OnTouchListener : public AndroidCXX::java_lang_Object
 public:
 
 	android_view_View_OnTouchListener(const android_view_View_OnTouchListener& cc);
-	android_view_View_OnTouchListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_View_OnTouchListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnTouchListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_view_View_OnTouchListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -71,11 +71,11 @@ class com_facebook_UiLifecycleHelper
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity const& arg0,FacebookCXX::com_facebook_Session_StatusCallback const& arg1);
+	// Public Constructor
+	com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity const& arg0,FacebookCXX::com_facebook_Session_StatusCallback const& arg1,Proxy * aProxy = new Proxy());
 	com_facebook_UiLifecycleHelper(const com_facebook_UiLifecycleHelper& cc);
-	com_facebook_UiLifecycleHelper(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_UiLifecycleHelper(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_UiLifecycleHelper();
 	// Functions
@@ -87,6 +87,9 @@ public:
 	virtual void  onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

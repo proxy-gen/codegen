@@ -57,8 +57,8 @@ class android_view_AbsSavedState : public AndroidCXX::android_os_Parcelable
 public:
 
 	android_view_AbsSavedState(const android_view_AbsSavedState& cc);
-	android_view_AbsSavedState(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_AbsSavedState(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_AbsSavedState();
 	// Functions
@@ -68,6 +68,9 @@ public:
 
 protected:
 	android_view_AbsSavedState();
+
+private:
+	Proxy * _proxy;
 
 };	
 

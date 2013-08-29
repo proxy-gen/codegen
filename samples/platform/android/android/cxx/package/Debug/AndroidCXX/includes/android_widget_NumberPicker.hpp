@@ -135,13 +135,13 @@ class android_widget_NumberPicker : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0);
-	android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	// Public Constructor
+	android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_NumberPicker(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_NumberPicker(const android_widget_NumberPicker& cc);
-	android_widget_NumberPicker(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_NumberPicker(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_NumberPicker();
 	// Functions
@@ -172,6 +172,9 @@ public:
 	virtual void  setWrapSelectorWheel(bool const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

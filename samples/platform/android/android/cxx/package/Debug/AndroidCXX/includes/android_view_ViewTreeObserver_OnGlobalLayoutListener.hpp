@@ -50,8 +50,8 @@ class android_view_ViewTreeObserver_OnGlobalLayoutListener : public AndroidCXX::
 public:
 
 	android_view_ViewTreeObserver_OnGlobalLayoutListener(const android_view_ViewTreeObserver_OnGlobalLayoutListener& cc);
-	android_view_ViewTreeObserver_OnGlobalLayoutListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ViewTreeObserver_OnGlobalLayoutListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnGlobalLayoutListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_view_ViewTreeObserver_OnGlobalLayoutListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

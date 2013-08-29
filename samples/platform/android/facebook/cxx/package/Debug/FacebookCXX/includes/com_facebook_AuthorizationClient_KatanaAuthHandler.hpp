@@ -49,14 +49,17 @@ class com_facebook_AuthorizationClient_KatanaAuthHandler : public AndroidCXX::ja
 public:
 
 	com_facebook_AuthorizationClient_KatanaAuthHandler(const com_facebook_AuthorizationClient_KatanaAuthHandler& cc);
-	com_facebook_AuthorizationClient_KatanaAuthHandler(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_AuthorizationClient_KatanaAuthHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_KatanaAuthHandler();
 	// Functions
 
 protected:
 	com_facebook_AuthorizationClient_KatanaAuthHandler();
+
+private:
+	Proxy * _proxy;
 
 };	
 

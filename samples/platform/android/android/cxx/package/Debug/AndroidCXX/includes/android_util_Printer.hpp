@@ -53,8 +53,8 @@ class android_util_Printer : public AndroidCXX::java_lang_Object
 public:
 
 	android_util_Printer(const android_util_Printer& cc);
-	android_util_Printer(Proxy proxy);
-	Proxy proxy() const;	
+	android_util_Printer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_util_Printer();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_util_Printer();
+
+private:
+	Proxy * _proxy;
 
 };	
 

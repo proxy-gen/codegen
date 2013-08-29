@@ -147,11 +147,11 @@ class com_facebook_widget_GraphObjectAdapter : public AndroidCXX::android_widget
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_widget_GraphObjectAdapter(AndroidCXX::android_content_Context const& arg0);
+	// Public Constructor
+	com_facebook_widget_GraphObjectAdapter(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_widget_GraphObjectAdapter(const com_facebook_widget_GraphObjectAdapter& cc);
-	com_facebook_widget_GraphObjectAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_GraphObjectAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter();
 	// Functions
@@ -187,6 +187,9 @@ public:
 	virtual void  setSortFields(AndroidCXX::java_util_List const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

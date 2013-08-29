@@ -74,11 +74,11 @@ class com_facebook_model_GraphObject_Factory_GraphObjectProxy : public AndroidCX
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_model_GraphObject_Factory_GraphObjectProxy(AndroidCXX::org_json_JSONObject const& arg0,AndroidCXX::java_lang_Class const& arg1);
+	// Public Constructor
+	com_facebook_model_GraphObject_Factory_GraphObjectProxy(AndroidCXX::org_json_JSONObject const& arg0,AndroidCXX::java_lang_Class const& arg1,Proxy * aProxy = new Proxy());
 	com_facebook_model_GraphObject_Factory_GraphObjectProxy(const com_facebook_model_GraphObject_Factory_GraphObjectProxy& cc);
-	com_facebook_model_GraphObject_Factory_GraphObjectProxy(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_model_GraphObject_Factory_GraphObjectProxy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject_Factory_GraphObjectProxy();
 	// Functions
@@ -86,6 +86,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

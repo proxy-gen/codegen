@@ -87,10 +87,10 @@ class android_graphics_Typeface
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_graphics_Typeface(const android_graphics_Typeface& cc);
-	android_graphics_Typeface(Proxy proxy);
-	Proxy proxy() const;	
+	android_graphics_Typeface(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Typeface();
 	// Functions
@@ -107,6 +107,9 @@ public:
 	virtual bool  isItalic() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

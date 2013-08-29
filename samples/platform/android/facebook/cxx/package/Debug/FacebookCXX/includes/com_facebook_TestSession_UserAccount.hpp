@@ -58,8 +58,8 @@ class com_facebook_TestSession_UserAccount : public FacebookCXX::com_facebook_mo
 public:
 
 	com_facebook_TestSession_UserAccount(const com_facebook_TestSession_UserAccount& cc);
-	com_facebook_TestSession_UserAccount(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_TestSession_UserAccount(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_TestSession_UserAccount();
 	// Functions
@@ -69,6 +69,9 @@ public:
 
 protected:
 	com_facebook_TestSession_UserAccount();
+
+private:
+	Proxy * _proxy;
 
 };	
 

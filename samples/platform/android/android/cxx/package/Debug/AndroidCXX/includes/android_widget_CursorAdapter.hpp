@@ -120,8 +120,8 @@ class android_widget_CursorAdapter : public AndroidCXX::android_widget_Filterabl
 public:
 
 	android_widget_CursorAdapter(const android_widget_CursorAdapter& cc);
-	android_widget_CursorAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_CursorAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CursorAdapter();
 	// Functions
@@ -145,6 +145,9 @@ public:
 
 protected:
 	android_widget_CursorAdapter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

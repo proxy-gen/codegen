@@ -54,8 +54,8 @@ class android_view_ViewTreeObserver_OnGlobalFocusChangeListener : public Android
 public:
 
 	android_view_ViewTreeObserver_OnGlobalFocusChangeListener(const android_view_ViewTreeObserver_OnGlobalFocusChangeListener& cc);
-	android_view_ViewTreeObserver_OnGlobalFocusChangeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ViewTreeObserver_OnGlobalFocusChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnGlobalFocusChangeListener();
 	// Functions
@@ -63,6 +63,9 @@ public:
 
 protected:
 	android_view_ViewTreeObserver_OnGlobalFocusChangeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

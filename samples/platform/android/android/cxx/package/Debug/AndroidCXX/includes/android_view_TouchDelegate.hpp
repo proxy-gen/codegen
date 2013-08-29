@@ -63,17 +63,20 @@ class android_view_TouchDelegate
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_TouchDelegate(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_view_View const& arg1);
+	// Public Constructor
+	android_view_TouchDelegate(AndroidCXX::android_graphics_Rect const& arg0,AndroidCXX::android_view_View const& arg1,Proxy * aProxy = new Proxy());
 	android_view_TouchDelegate(const android_view_TouchDelegate& cc);
-	android_view_TouchDelegate(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_TouchDelegate(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_TouchDelegate();
 	// Functions
 	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

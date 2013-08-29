@@ -73,12 +73,12 @@ class android_accounts_Account : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_accounts_Account(AndroidCXX::android_os_Parcel const& arg0);
-	android_accounts_Account(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	// Public Constructor
+	android_accounts_Account(AndroidCXX::android_os_Parcel const& arg0,Proxy * aProxy = new Proxy());
+	android_accounts_Account(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
 	android_accounts_Account(const android_accounts_Account& cc);
-	android_accounts_Account(Proxy proxy);
-	Proxy proxy() const;	
+	android_accounts_Account(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_accounts_Account();
 	// Functions
@@ -89,6 +89,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

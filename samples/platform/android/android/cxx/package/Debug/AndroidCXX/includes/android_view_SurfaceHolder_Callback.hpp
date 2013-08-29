@@ -57,8 +57,8 @@ class android_view_SurfaceHolder_Callback : public AndroidCXX::java_lang_Object
 public:
 
 	android_view_SurfaceHolder_Callback(const android_view_SurfaceHolder_Callback& cc);
-	android_view_SurfaceHolder_Callback(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_SurfaceHolder_Callback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_SurfaceHolder_Callback();
 	// Functions
@@ -68,6 +68,9 @@ public:
 
 protected:
 	android_view_SurfaceHolder_Callback();
+
+private:
+	Proxy * _proxy;
 
 };	
 

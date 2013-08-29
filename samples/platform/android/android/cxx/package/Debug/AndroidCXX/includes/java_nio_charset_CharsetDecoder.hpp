@@ -95,8 +95,8 @@ class java_nio_charset_CharsetDecoder
 public:
 
 	java_nio_charset_CharsetDecoder(const java_nio_charset_CharsetDecoder& cc);
-	java_nio_charset_CharsetDecoder(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_charset_CharsetDecoder(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_CharsetDecoder();
 	// Functions
@@ -119,6 +119,9 @@ public:
 
 protected:
 	java_nio_charset_CharsetDecoder();
+
+private:
+	Proxy * _proxy;
 
 };	
 

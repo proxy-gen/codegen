@@ -50,8 +50,8 @@ class android_view_View_OnSystemUiVisibilityChangeListener : public AndroidCXX::
 public:
 
 	android_view_View_OnSystemUiVisibilityChangeListener(const android_view_View_OnSystemUiVisibilityChangeListener& cc);
-	android_view_View_OnSystemUiVisibilityChangeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_View_OnSystemUiVisibilityChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnSystemUiVisibilityChangeListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_view_View_OnSystemUiVisibilityChangeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

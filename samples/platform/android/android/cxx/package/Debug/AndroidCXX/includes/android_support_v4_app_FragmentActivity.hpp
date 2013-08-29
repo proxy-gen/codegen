@@ -150,11 +150,10 @@ class android_support_v4_app_FragmentActivity : public AndroidCXX::java_lang_Obj
 {
 public:
 
-	// Public ConstrucXXX
-	android_support_v4_app_FragmentActivity();
+	// Public Constructor
+	android_support_v4_app_FragmentActivity(Proxy * aProxy = new Proxy());
 	android_support_v4_app_FragmentActivity(const android_support_v4_app_FragmentActivity& cc);
-	android_support_v4_app_FragmentActivity(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_app_FragmentActivity();
 	// Functions
@@ -179,6 +178,9 @@ public:
 	virtual void  supportInvalidateOptionsMenu() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

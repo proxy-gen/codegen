@@ -46,15 +46,18 @@ class com_facebook_FacebookRequestError_Range
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_FacebookRequestError_Range(const com_facebook_FacebookRequestError_Range& cc);
-	com_facebook_FacebookRequestError_Range(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_FacebookRequestError_Range(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookRequestError_Range();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

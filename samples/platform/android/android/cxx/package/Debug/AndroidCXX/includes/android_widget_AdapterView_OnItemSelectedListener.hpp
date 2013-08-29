@@ -63,8 +63,8 @@ class android_widget_AdapterView_OnItemSelectedListener : public AndroidCXX::jav
 public:
 
 	android_widget_AdapterView_OnItemSelectedListener(const android_widget_AdapterView_OnItemSelectedListener& cc);
-	android_widget_AdapterView_OnItemSelectedListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AdapterView_OnItemSelectedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterView_OnItemSelectedListener();
 	// Functions
@@ -73,6 +73,9 @@ public:
 
 protected:
 	android_widget_AdapterView_OnItemSelectedListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

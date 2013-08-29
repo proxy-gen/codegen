@@ -78,8 +78,8 @@ class java_lang_Enum : public AndroidCXX::java_io_Serializable,public AndroidCXX
 public:
 
 	java_lang_Enum(const java_lang_Enum& cc);
-	java_lang_Enum(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Enum(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Enum();
 	// Functions
@@ -94,6 +94,9 @@ public:
 
 protected:
 	java_lang_Enum();
+
+private:
+	Proxy * _proxy;
 
 };	
 

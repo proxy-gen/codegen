@@ -54,10 +54,10 @@ class android_os_MessageQueue
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_os_MessageQueue(const android_os_MessageQueue& cc);
-	android_os_MessageQueue(Proxy proxy);
-	Proxy proxy() const;	
+	android_os_MessageQueue(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_MessageQueue();
 	// Functions
@@ -65,6 +65,9 @@ public:
 	virtual void  removeIdleHandler(AndroidCXX::android_os_MessageQueue_IdleHandler const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

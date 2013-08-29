@@ -118,12 +118,12 @@ class java_lang_Long : public AndroidCXX::java_lang_Comparable
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_Long(AndroidCXX::java_lang_String const& arg0);
-	java_lang_Long(long const& arg0);
+	// Public Constructor
+	java_lang_Long(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_Long(long const& arg0,Proxy * aProxy = new Proxy());
 	java_lang_Long(const java_lang_Long& cc);
-	java_lang_Long(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Long(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Long();
 	// Functions
@@ -163,6 +163,9 @@ public:
 	static AndroidCXX::java_lang_Long * valueOf(long const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

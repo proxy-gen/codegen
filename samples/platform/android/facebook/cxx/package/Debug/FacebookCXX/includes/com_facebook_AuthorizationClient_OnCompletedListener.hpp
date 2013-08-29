@@ -53,8 +53,8 @@ class com_facebook_AuthorizationClient_OnCompletedListener : public AndroidCXX::
 public:
 
 	com_facebook_AuthorizationClient_OnCompletedListener(const com_facebook_AuthorizationClient_OnCompletedListener& cc);
-	com_facebook_AuthorizationClient_OnCompletedListener(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_AuthorizationClient_OnCompletedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_OnCompletedListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	com_facebook_AuthorizationClient_OnCompletedListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

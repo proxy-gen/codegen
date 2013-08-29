@@ -60,17 +60,20 @@ class android_view_View_BaseSavedState : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_View_BaseSavedState(AndroidCXX::android_os_Parcel const& arg0);
-	android_view_View_BaseSavedState(AndroidCXX::android_os_Parcelable const& arg0);
+	// Public Constructor
+	android_view_View_BaseSavedState(AndroidCXX::android_os_Parcel const& arg0,Proxy * aProxy = new Proxy());
+	android_view_View_BaseSavedState(AndroidCXX::android_os_Parcelable const& arg0,Proxy * aProxy = new Proxy());
 	android_view_View_BaseSavedState(const android_view_View_BaseSavedState& cc);
-	android_view_View_BaseSavedState(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_View_BaseSavedState(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_BaseSavedState();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

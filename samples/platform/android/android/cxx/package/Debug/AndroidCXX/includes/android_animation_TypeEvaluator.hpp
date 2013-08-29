@@ -54,8 +54,8 @@ class android_animation_TypeEvaluator : public AndroidCXX::java_lang_Object
 public:
 
 	android_animation_TypeEvaluator(const android_animation_TypeEvaluator& cc);
-	android_animation_TypeEvaluator(Proxy proxy);
-	Proxy proxy() const;	
+	android_animation_TypeEvaluator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_TypeEvaluator();
 	// Functions
@@ -63,6 +63,9 @@ public:
 
 protected:
 	android_animation_TypeEvaluator();
+
+private:
+	Proxy * _proxy;
 
 };	
 

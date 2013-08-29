@@ -59,8 +59,8 @@ class java_security_Principal : public AndroidCXX::java_lang_Object
 public:
 
 	java_security_Principal(const java_security_Principal& cc);
-	java_security_Principal(Proxy proxy);
-	Proxy proxy() const;	
+	java_security_Principal(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_Principal();
 	// Functions
@@ -71,6 +71,9 @@ public:
 
 protected:
 	java_security_Principal();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -51,8 +51,8 @@ class com_facebook_AuthorizationClient_BackgroundProcessingListener : public And
 public:
 
 	com_facebook_AuthorizationClient_BackgroundProcessingListener(const com_facebook_AuthorizationClient_BackgroundProcessingListener& cc);
-	com_facebook_AuthorizationClient_BackgroundProcessingListener(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_AuthorizationClient_BackgroundProcessingListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_BackgroundProcessingListener();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	com_facebook_AuthorizationClient_BackgroundProcessingListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

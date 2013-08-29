@@ -187,8 +187,8 @@ class android_webkit_WebSettings
 public:
 
 	android_webkit_WebSettings(const android_webkit_WebSettings& cc);
-	android_webkit_WebSettings(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_WebSettings(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebSettings();
 	// Functions
@@ -285,6 +285,9 @@ public:
 
 protected:
 	android_webkit_WebSettings();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -61,11 +61,10 @@ class android_text_Editable_Factory
 {
 public:
 
-	// Public ConstrucXXX
-	android_text_Editable_Factory();
+	// Public Constructor
+	android_text_Editable_Factory(Proxy * aProxy = new Proxy());
 	android_text_Editable_Factory(const android_text_Editable_Factory& cc);
-	android_text_Editable_Factory(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_Editable_Factory();
 	// Functions
@@ -73,6 +72,9 @@ public:
 	virtual AndroidCXX::android_text_Editable * newEditable(AndroidCXX::java_lang_CharSequence const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

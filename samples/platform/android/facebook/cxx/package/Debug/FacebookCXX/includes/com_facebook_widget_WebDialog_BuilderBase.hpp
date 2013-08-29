@@ -69,10 +69,10 @@ class com_facebook_widget_WebDialog_BuilderBase
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_WebDialog_BuilderBase(const com_facebook_widget_WebDialog_BuilderBase& cc);
-	com_facebook_widget_WebDialog_BuilderBase(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_WebDialog_BuilderBase(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_BuilderBase();
 	// Functions
@@ -81,6 +81,9 @@ public:
 	virtual FacebookCXX::com_facebook_widget_WebDialog_BuilderBase * setTheme(int const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

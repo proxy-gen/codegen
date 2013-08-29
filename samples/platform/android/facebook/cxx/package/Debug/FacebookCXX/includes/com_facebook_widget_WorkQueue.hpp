@@ -46,15 +46,18 @@ class com_facebook_widget_WorkQueue
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_WorkQueue(const com_facebook_widget_WorkQueue& cc);
-	com_facebook_widget_WorkQueue(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_WorkQueue(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WorkQueue();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

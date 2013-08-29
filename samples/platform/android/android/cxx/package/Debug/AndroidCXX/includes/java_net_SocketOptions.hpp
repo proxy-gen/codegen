@@ -54,8 +54,8 @@ class java_net_SocketOptions : public AndroidCXX::java_lang_Object
 public:
 
 	java_net_SocketOptions(const java_net_SocketOptions& cc);
-	java_net_SocketOptions(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_SocketOptions(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_SocketOptions();
 	// Functions
@@ -64,6 +64,9 @@ public:
 
 protected:
 	java_net_SocketOptions();
+
+private:
+	Proxy * _proxy;
 
 };	
 

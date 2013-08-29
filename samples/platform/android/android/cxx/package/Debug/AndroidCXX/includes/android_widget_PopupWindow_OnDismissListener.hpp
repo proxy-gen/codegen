@@ -50,8 +50,8 @@ class android_widget_PopupWindow_OnDismissListener : public AndroidCXX::java_lan
 public:
 
 	android_widget_PopupWindow_OnDismissListener(const android_widget_PopupWindow_OnDismissListener& cc);
-	android_widget_PopupWindow_OnDismissListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_PopupWindow_OnDismissListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_PopupWindow_OnDismissListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_widget_PopupWindow_OnDismissListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

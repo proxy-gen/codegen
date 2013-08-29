@@ -144,19 +144,18 @@ class android_widget_PopupWindow
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_PopupWindow();
-	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0);
-	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
-	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,int const& arg3);
-	android_widget_PopupWindow(AndroidCXX::android_view_View const& arg0);
-	android_widget_PopupWindow(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2);
-	android_widget_PopupWindow(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2,bool const& arg3);
-	android_widget_PopupWindow(int const& arg0,int const& arg1);
+	// Public Constructor
+	android_widget_PopupWindow(Proxy * aProxy = new Proxy());
+	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
+	android_widget_PopupWindow(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,int const& arg3,Proxy * aProxy = new Proxy());
+	android_widget_PopupWindow(AndroidCXX::android_view_View const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_PopupWindow(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
+	android_widget_PopupWindow(AndroidCXX::android_view_View const& arg0,int const& arg1,int const& arg2,bool const& arg3,Proxy * aProxy = new Proxy());
+	android_widget_PopupWindow(int const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_PopupWindow(const android_widget_PopupWindow& cc);
-	android_widget_PopupWindow(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_PopupWindow();
 	// Functions
@@ -204,6 +203,9 @@ public:
 	virtual void  update() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

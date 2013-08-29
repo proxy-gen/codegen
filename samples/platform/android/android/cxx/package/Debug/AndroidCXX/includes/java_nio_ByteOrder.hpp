@@ -55,10 +55,10 @@ class java_nio_ByteOrder
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	java_nio_ByteOrder(const java_nio_ByteOrder& cc);
-	java_nio_ByteOrder(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_ByteOrder(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_ByteOrder();
 	// Functions
@@ -66,6 +66,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

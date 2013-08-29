@@ -113,10 +113,10 @@ class android_content_IntentSender : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_content_IntentSender(const android_content_IntentSender& cc);
-	android_content_IntentSender(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_IntentSender(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_IntentSender();
 	// Functions
@@ -135,6 +135,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

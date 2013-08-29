@@ -107,8 +107,8 @@ class java_nio_LongBuffer : public AndroidCXX::java_lang_Comparable
 public:
 
 	java_nio_LongBuffer(const java_nio_LongBuffer& cc);
-	java_nio_LongBuffer(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_LongBuffer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_LongBuffer();
 	// Functions
@@ -140,6 +140,9 @@ public:
 
 protected:
 	java_nio_LongBuffer();
+
+private:
+	Proxy * _proxy;
 
 };	
 

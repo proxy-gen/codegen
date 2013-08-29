@@ -47,16 +47,18 @@ class android_graphics_MaskFilter
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_MaskFilter();
+	// Public Constructor
+	android_graphics_MaskFilter(Proxy * aProxy = new Proxy());
 	android_graphics_MaskFilter(const android_graphics_MaskFilter& cc);
-	android_graphics_MaskFilter(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_MaskFilter();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

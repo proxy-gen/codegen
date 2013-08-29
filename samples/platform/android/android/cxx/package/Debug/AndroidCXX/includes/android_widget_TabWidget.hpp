@@ -118,13 +118,13 @@ class android_widget_TabWidget : public AndroidCXX::android_view_View_OnFocusCha
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_TabWidget(AndroidCXX::android_content_Context const& arg0);
-	android_widget_TabWidget(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_TabWidget(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	// Public Constructor
+	android_widget_TabWidget(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_TabWidget(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_TabWidget(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_TabWidget(const android_widget_TabWidget& cc);
-	android_widget_TabWidget(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_TabWidget(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TabWidget();
 	// Functions
@@ -152,6 +152,9 @@ public:
 	virtual void  setStripEnabled(bool const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

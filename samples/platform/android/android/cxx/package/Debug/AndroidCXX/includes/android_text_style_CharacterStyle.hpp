@@ -58,8 +58,8 @@ class android_text_style_CharacterStyle
 public:
 
 	android_text_style_CharacterStyle(const android_text_style_CharacterStyle& cc);
-	android_text_style_CharacterStyle(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_style_CharacterStyle(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_style_CharacterStyle();
 	// Functions
@@ -69,6 +69,9 @@ public:
 
 protected:
 	android_text_style_CharacterStyle();
+
+private:
+	Proxy * _proxy;
 
 };	
 

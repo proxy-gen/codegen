@@ -98,8 +98,8 @@ class android_view_inputmethod_InputConnection : public AndroidCXX::java_lang_Ob
 public:
 
 	android_view_inputmethod_InputConnection(const android_view_inputmethod_InputConnection& cc);
-	android_view_inputmethod_InputConnection(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_inputmethod_InputConnection(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_InputConnection();
 	// Functions
@@ -127,6 +127,9 @@ public:
 
 protected:
 	android_view_inputmethod_InputConnection();
+
+private:
+	Proxy * _proxy;
 
 };	
 

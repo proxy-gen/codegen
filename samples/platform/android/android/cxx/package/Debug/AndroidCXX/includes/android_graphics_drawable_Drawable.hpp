@@ -169,8 +169,8 @@ class android_graphics_drawable_Drawable
 public:
 
 	android_graphics_drawable_Drawable(const android_graphics_drawable_Drawable& cc);
-	android_graphics_drawable_Drawable(Proxy proxy);
-	Proxy proxy() const;	
+	android_graphics_drawable_Drawable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_drawable_Drawable();
 	// Functions
@@ -222,6 +222,9 @@ public:
 
 protected:
 	android_graphics_drawable_Drawable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

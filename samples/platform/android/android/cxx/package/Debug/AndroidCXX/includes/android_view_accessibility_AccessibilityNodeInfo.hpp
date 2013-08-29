@@ -210,10 +210,10 @@ class android_view_accessibility_AccessibilityNodeInfo : public AndroidCXX::andr
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_view_accessibility_AccessibilityNodeInfo(const android_view_accessibility_AccessibilityNodeInfo& cc);
-	android_view_accessibility_AccessibilityNodeInfo(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_accessibility_AccessibilityNodeInfo(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityNodeInfo();
 	// Functions
@@ -299,6 +299,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

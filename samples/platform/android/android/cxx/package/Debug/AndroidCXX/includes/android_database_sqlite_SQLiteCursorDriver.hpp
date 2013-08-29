@@ -67,8 +67,8 @@ class android_database_sqlite_SQLiteCursorDriver : public AndroidCXX::java_lang_
 public:
 
 	android_database_sqlite_SQLiteCursorDriver(const android_database_sqlite_SQLiteCursorDriver& cc);
-	android_database_sqlite_SQLiteCursorDriver(Proxy proxy);
-	Proxy proxy() const;	
+	android_database_sqlite_SQLiteCursorDriver(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteCursorDriver();
 	// Functions
@@ -80,6 +80,9 @@ public:
 
 protected:
 	android_database_sqlite_SQLiteCursorDriver();
+
+private:
+	Proxy * _proxy;
 
 };	
 

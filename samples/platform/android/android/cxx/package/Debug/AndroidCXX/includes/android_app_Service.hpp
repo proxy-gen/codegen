@@ -87,8 +87,8 @@ class android_app_Service : public AndroidCXX::android_content_ComponentCallback
 public:
 
 	android_app_Service(const android_app_Service& cc);
-	android_app_Service(Proxy proxy);
-	Proxy proxy() const;	
+	android_app_Service(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_Service();
 	// Functions
@@ -112,6 +112,9 @@ public:
 
 protected:
 	android_app_Service();
+
+private:
+	Proxy * _proxy;
 
 };	
 

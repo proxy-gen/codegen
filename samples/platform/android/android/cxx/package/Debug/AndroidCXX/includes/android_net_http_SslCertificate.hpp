@@ -99,13 +99,13 @@ class android_net_http_SslCertificate
 {
 public:
 
-	// Public ConstrucXXX
-	android_net_http_SslCertificate(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3);
-	android_net_http_SslCertificate(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_util_Date const& arg2,AndroidCXX::java_util_Date const& arg3);
-	android_net_http_SslCertificate(AndroidCXX::java_security_cert_X509Certificate const& arg0);
+	// Public Constructor
+	android_net_http_SslCertificate(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,Proxy * aProxy = new Proxy());
+	android_net_http_SslCertificate(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_util_Date const& arg2,AndroidCXX::java_util_Date const& arg3,Proxy * aProxy = new Proxy());
+	android_net_http_SslCertificate(AndroidCXX::java_security_cert_X509Certificate const& arg0,Proxy * aProxy = new Proxy());
 	android_net_http_SslCertificate(const android_net_http_SslCertificate& cc);
-	android_net_http_SslCertificate(Proxy proxy);
-	Proxy proxy() const;	
+	android_net_http_SslCertificate(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_net_http_SslCertificate();
 	// Functions
@@ -120,6 +120,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

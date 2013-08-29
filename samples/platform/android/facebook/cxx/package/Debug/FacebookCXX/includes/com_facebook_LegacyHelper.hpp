@@ -57,17 +57,19 @@ class com_facebook_LegacyHelper
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_LegacyHelper();
+	// Public Constructor
+	com_facebook_LegacyHelper(Proxy * aProxy = new Proxy());
 	com_facebook_LegacyHelper(const com_facebook_LegacyHelper& cc);
-	com_facebook_LegacyHelper(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_LegacyHelper();
 	// Functions
 	static void  extendTokenCompleted(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

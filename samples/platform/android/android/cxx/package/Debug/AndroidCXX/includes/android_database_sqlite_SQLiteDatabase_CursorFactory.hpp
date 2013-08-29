@@ -65,8 +65,8 @@ class android_database_sqlite_SQLiteDatabase_CursorFactory : public AndroidCXX::
 public:
 
 	android_database_sqlite_SQLiteDatabase_CursorFactory(const android_database_sqlite_SQLiteDatabase_CursorFactory& cc);
-	android_database_sqlite_SQLiteDatabase_CursorFactory(Proxy proxy);
-	Proxy proxy() const;	
+	android_database_sqlite_SQLiteDatabase_CursorFactory(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteDatabase_CursorFactory();
 	// Functions
@@ -74,6 +74,9 @@ public:
 
 protected:
 	android_database_sqlite_SQLiteDatabase_CursorFactory();
+
+private:
+	Proxy * _proxy;
 
 };	
 

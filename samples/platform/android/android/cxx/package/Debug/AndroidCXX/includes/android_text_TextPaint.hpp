@@ -59,19 +59,21 @@ class android_text_TextPaint : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_text_TextPaint();
-	android_text_TextPaint(AndroidCXX::android_graphics_Paint const& arg0);
-	android_text_TextPaint(int const& arg0);
+	// Public Constructor
+	android_text_TextPaint(Proxy * aProxy = new Proxy());
+	android_text_TextPaint(AndroidCXX::android_graphics_Paint const& arg0,Proxy * aProxy = new Proxy());
+	android_text_TextPaint(int const& arg0,Proxy * aProxy = new Proxy());
 	android_text_TextPaint(const android_text_TextPaint& cc);
-	android_text_TextPaint(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_TextPaint();
 	// Functions
 	virtual void  set(AndroidCXX::android_text_TextPaint const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -93,8 +93,8 @@ class java_nio_channels_DatagramChannel : public AndroidCXX::java_nio_channels_B
 public:
 
 	java_nio_channels_DatagramChannel(const java_nio_channels_DatagramChannel& cc);
-	java_nio_channels_DatagramChannel(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_DatagramChannel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_DatagramChannel();
 	// Functions
@@ -115,6 +115,9 @@ public:
 
 protected:
 	java_nio_channels_DatagramChannel();
+
+private:
+	Proxy * _proxy;
 
 };	
 

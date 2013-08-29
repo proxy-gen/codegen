@@ -54,8 +54,8 @@ class java_util_Iterator : public AndroidCXX::java_lang_Object
 public:
 
 	java_util_Iterator(const java_util_Iterator& cc);
-	java_util_Iterator(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_Iterator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Iterator();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	java_util_Iterator();
+
+private:
+	Proxy * _proxy;
 
 };	
 

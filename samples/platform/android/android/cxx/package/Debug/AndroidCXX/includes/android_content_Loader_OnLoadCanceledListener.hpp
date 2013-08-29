@@ -56,8 +56,8 @@ class android_content_Loader_OnLoadCanceledListener : public AndroidCXX::java_la
 public:
 
 	android_content_Loader_OnLoadCanceledListener(const android_content_Loader_OnLoadCanceledListener& cc);
-	android_content_Loader_OnLoadCanceledListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_Loader_OnLoadCanceledListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_Loader_OnLoadCanceledListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_content_Loader_OnLoadCanceledListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

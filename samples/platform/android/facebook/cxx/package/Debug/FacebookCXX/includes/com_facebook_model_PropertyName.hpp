@@ -54,8 +54,8 @@ class com_facebook_model_PropertyName : public AndroidCXX::java_lang_annotation_
 public:
 
 	com_facebook_model_PropertyName(const com_facebook_model_PropertyName& cc);
-	com_facebook_model_PropertyName(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_model_PropertyName(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_PropertyName();
 	// Functions
@@ -63,6 +63,9 @@ public:
 
 protected:
 	com_facebook_model_PropertyName();
+
+private:
+	Proxy * _proxy;
 
 };	
 

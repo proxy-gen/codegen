@@ -420,11 +420,11 @@ class android_content_ContextWrapper : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_content_ContextWrapper(AndroidCXX::android_content_Context const& arg0);
+	// Public Constructor
+	android_content_ContextWrapper(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
 	android_content_ContextWrapper(const android_content_ContextWrapper& cc);
-	android_content_ContextWrapper(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_ContextWrapper(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContextWrapper();
 	// Functions
@@ -516,6 +516,9 @@ public:
 	virtual void  unregisterReceiver(AndroidCXX::android_content_BroadcastReceiver const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

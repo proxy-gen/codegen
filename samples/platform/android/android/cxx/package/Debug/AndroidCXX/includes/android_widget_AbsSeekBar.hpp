@@ -94,8 +94,8 @@ class android_widget_AbsSeekBar : public AndroidCXX::java_lang_Object
 public:
 
 	android_widget_AbsSeekBar(const android_widget_AbsSeekBar& cc);
-	android_widget_AbsSeekBar(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AbsSeekBar(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsSeekBar();
 	// Functions
@@ -116,6 +116,9 @@ public:
 
 protected:
 	android_widget_AbsSeekBar();
+
+private:
+	Proxy * _proxy;
 
 };	
 

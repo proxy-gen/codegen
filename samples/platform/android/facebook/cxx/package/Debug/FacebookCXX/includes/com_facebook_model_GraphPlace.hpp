@@ -70,8 +70,8 @@ class com_facebook_model_GraphPlace : public FacebookCXX::com_facebook_model_Gra
 public:
 
 	com_facebook_model_GraphPlace(const com_facebook_model_GraphPlace& cc);
-	com_facebook_model_GraphPlace(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_model_GraphPlace(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphPlace();
 	// Functions
@@ -86,6 +86,9 @@ public:
 
 protected:
 	com_facebook_model_GraphPlace();
+
+private:
+	Proxy * _proxy;
 
 };	
 

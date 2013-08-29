@@ -547,13 +547,13 @@ class android_widget_TextView : public AndroidCXX::android_view_ViewTreeObserver
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_TextView(AndroidCXX::android_content_Context const& arg0);
-	android_widget_TextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_TextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	// Public Constructor
+	android_widget_TextView(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_TextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_TextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_TextView(const android_widget_TextView& cc);
-	android_widget_TextView(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_TextView(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TextView();
 	// Functions
@@ -773,6 +773,9 @@ public:
 	virtual void  setWidth(int const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

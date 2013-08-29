@@ -49,14 +49,17 @@ class android_view_animation_Interpolator : public AndroidCXX::android_animation
 public:
 
 	android_view_animation_Interpolator(const android_view_animation_Interpolator& cc);
-	android_view_animation_Interpolator(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_animation_Interpolator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_Interpolator();
 	// Functions
 
 protected:
 	android_view_animation_Interpolator();
+
+private:
+	Proxy * _proxy;
 
 };	
 

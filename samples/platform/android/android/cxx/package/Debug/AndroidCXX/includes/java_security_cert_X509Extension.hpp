@@ -65,8 +65,8 @@ class java_security_cert_X509Extension : public AndroidCXX::java_lang_Object
 public:
 
 	java_security_cert_X509Extension(const java_security_cert_X509Extension& cc);
-	java_security_cert_X509Extension(Proxy proxy);
-	Proxy proxy() const;	
+	java_security_cert_X509Extension(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_cert_X509Extension();
 	// Functions
@@ -77,6 +77,9 @@ public:
 
 protected:
 	java_security_cert_X509Extension();
+
+private:
+	Proxy * _proxy;
 
 };	
 

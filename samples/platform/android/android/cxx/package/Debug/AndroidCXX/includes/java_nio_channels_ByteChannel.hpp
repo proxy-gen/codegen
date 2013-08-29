@@ -51,14 +51,17 @@ class java_nio_channels_ByteChannel : public AndroidCXX::java_nio_channels_Reada
 public:
 
 	java_nio_channels_ByteChannel(const java_nio_channels_ByteChannel& cc);
-	java_nio_channels_ByteChannel(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_ByteChannel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_ByteChannel();
 	// Functions
 
 protected:
 	java_nio_channels_ByteChannel();
+
+private:
+	Proxy * _proxy;
 
 };	
 

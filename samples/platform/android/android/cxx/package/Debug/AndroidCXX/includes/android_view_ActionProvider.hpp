@@ -73,8 +73,8 @@ class android_view_ActionProvider
 public:
 
 	android_view_ActionProvider(const android_view_ActionProvider& cc);
-	android_view_ActionProvider(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ActionProvider(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ActionProvider();
 	// Functions
@@ -90,6 +90,9 @@ public:
 
 protected:
 	android_view_ActionProvider();
+
+private:
+	Proxy * _proxy;
 
 };	
 

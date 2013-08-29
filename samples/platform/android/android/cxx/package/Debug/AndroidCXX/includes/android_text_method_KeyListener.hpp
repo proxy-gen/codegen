@@ -71,8 +71,8 @@ class android_text_method_KeyListener : public AndroidCXX::java_lang_Object
 public:
 
 	android_text_method_KeyListener(const android_text_method_KeyListener& cc);
-	android_text_method_KeyListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_method_KeyListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_method_KeyListener();
 	// Functions
@@ -84,6 +84,9 @@ public:
 
 protected:
 	android_text_method_KeyListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

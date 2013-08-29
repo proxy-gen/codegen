@@ -60,8 +60,8 @@ class java_lang_Appendable : public AndroidCXX::java_lang_Object
 public:
 
 	java_lang_Appendable(const java_lang_Appendable& cc);
-	java_lang_Appendable(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Appendable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Appendable();
 	// Functions
@@ -71,6 +71,9 @@ public:
 
 protected:
 	java_lang_Appendable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

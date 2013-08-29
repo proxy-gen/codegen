@@ -64,11 +64,11 @@ class android_widget_EdgeEffect
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_EdgeEffect(AndroidCXX::android_content_Context const& arg0);
+	// Public Constructor
+	android_widget_EdgeEffect(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
 	android_widget_EdgeEffect(const android_widget_EdgeEffect& cc);
-	android_widget_EdgeEffect(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_EdgeEffect(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_EdgeEffect();
 	// Functions
@@ -81,6 +81,9 @@ public:
 	virtual void  setSize(int const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

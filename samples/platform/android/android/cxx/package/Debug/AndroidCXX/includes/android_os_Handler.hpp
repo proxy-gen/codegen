@@ -153,17 +153,16 @@ class android_os_Handler
 {
 public:
 
-	// Public ConstrucXXX
-	android_os_Handler();
-	android_os_Handler(AndroidCXX::android_os_Handler_Callback const& arg0);
-	android_os_Handler(AndroidCXX::android_os_Handler_Callback const& arg0,bool const& arg1);
-	android_os_Handler(AndroidCXX::android_os_Looper const& arg0);
-	android_os_Handler(AndroidCXX::android_os_Looper const& arg0,AndroidCXX::android_os_Handler_Callback const& arg1);
-	android_os_Handler(AndroidCXX::android_os_Looper const& arg0,AndroidCXX::android_os_Handler_Callback const& arg1,bool const& arg2);
-	android_os_Handler(bool const& arg0);
+	// Public Constructor
+	android_os_Handler(Proxy * aProxy = new Proxy());
+	android_os_Handler(AndroidCXX::android_os_Handler_Callback const& arg0,Proxy * aProxy = new Proxy());
+	android_os_Handler(AndroidCXX::android_os_Handler_Callback const& arg0,bool const& arg1,Proxy * aProxy = new Proxy());
+	android_os_Handler(AndroidCXX::android_os_Looper const& arg0,Proxy * aProxy = new Proxy());
+	android_os_Handler(AndroidCXX::android_os_Looper const& arg0,AndroidCXX::android_os_Handler_Callback const& arg1,Proxy * aProxy = new Proxy());
+	android_os_Handler(AndroidCXX::android_os_Looper const& arg0,AndroidCXX::android_os_Handler_Callback const& arg1,bool const& arg2,Proxy * aProxy = new Proxy());
+	android_os_Handler(bool const& arg0,Proxy * aProxy = new Proxy());
 	android_os_Handler(const android_os_Handler& cc);
-	android_os_Handler(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Handler();
 	// Functions
@@ -201,6 +200,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

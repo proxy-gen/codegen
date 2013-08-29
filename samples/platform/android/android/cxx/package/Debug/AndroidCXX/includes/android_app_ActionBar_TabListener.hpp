@@ -62,8 +62,8 @@ class android_app_ActionBar_TabListener : public AndroidCXX::java_lang_Object
 public:
 
 	android_app_ActionBar_TabListener(const android_app_ActionBar_TabListener& cc);
-	android_app_ActionBar_TabListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_app_ActionBar_TabListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_ActionBar_TabListener();
 	// Functions
@@ -73,6 +73,9 @@ public:
 
 protected:
 	android_app_ActionBar_TabListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

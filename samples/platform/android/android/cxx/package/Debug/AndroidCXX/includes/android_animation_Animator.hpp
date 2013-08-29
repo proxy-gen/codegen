@@ -88,8 +88,8 @@ class android_animation_Animator : public AndroidCXX::java_lang_Cloneable
 public:
 
 	android_animation_Animator(const android_animation_Animator& cc);
-	android_animation_Animator(Proxy proxy);
-	Proxy proxy() const;	
+	android_animation_Animator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_Animator();
 	// Functions
@@ -115,6 +115,9 @@ public:
 
 protected:
 	android_animation_Animator();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -49,14 +49,17 @@ class android_text_NoCopySpan : public AndroidCXX::java_lang_Object
 public:
 
 	android_text_NoCopySpan(const android_text_NoCopySpan& cc);
-	android_text_NoCopySpan(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_NoCopySpan(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_NoCopySpan();
 	// Functions
 
 protected:
 	android_text_NoCopySpan();
+
+private:
+	Proxy * _proxy;
 
 };	
 

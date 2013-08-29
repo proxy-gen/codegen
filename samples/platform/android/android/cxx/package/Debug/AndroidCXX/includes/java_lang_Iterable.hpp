@@ -56,8 +56,8 @@ class java_lang_Iterable : public AndroidCXX::java_lang_Object
 public:
 
 	java_lang_Iterable(const java_lang_Iterable& cc);
-	java_lang_Iterable(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Iterable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Iterable();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	java_lang_Iterable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

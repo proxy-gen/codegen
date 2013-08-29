@@ -100,10 +100,10 @@ class com_facebook_model_GraphObject_Factory
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_model_GraphObject_Factory(const com_facebook_model_GraphObject_Factory& cc);
-	com_facebook_model_GraphObject_Factory(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_model_GraphObject_Factory(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject_Factory();
 	// Functions
@@ -116,6 +116,9 @@ public:
 	static bool  hasSameId(FacebookCXX::com_facebook_model_GraphObject const& arg0,FacebookCXX::com_facebook_model_GraphObject const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

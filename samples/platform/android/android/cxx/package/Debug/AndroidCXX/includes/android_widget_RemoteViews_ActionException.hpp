@@ -60,17 +60,20 @@ class android_widget_RemoteViews_ActionException : public AndroidCXX::java_lang_
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_Exception const& arg0);
-	android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_String const& arg0);
+	// Public Constructor
+	android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_Exception const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	android_widget_RemoteViews_ActionException(const android_widget_RemoteViews_ActionException& cc);
-	android_widget_RemoteViews_ActionException(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_RemoteViews_ActionException(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RemoteViews_ActionException();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

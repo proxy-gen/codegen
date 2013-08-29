@@ -55,10 +55,10 @@ class android_view_InputDevice_MotionRange
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_view_InputDevice_MotionRange(const android_view_InputDevice_MotionRange& cc);
-	android_view_InputDevice_MotionRange(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_InputDevice_MotionRange(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_InputDevice_MotionRange();
 	// Functions
@@ -73,6 +73,9 @@ public:
 	virtual bool  isFromSource(int const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

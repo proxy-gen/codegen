@@ -553,11 +553,10 @@ class android_app_Activity : public AndroidCXX::android_content_ComponentCallbac
 {
 public:
 
-	// Public ConstrucXXX
-	android_app_Activity();
+	// Public Constructor
+	android_app_Activity(Proxy * aProxy = new Proxy());
 	android_app_Activity(const android_app_Activity& cc);
-	android_app_Activity(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_Activity();
 	// Functions
@@ -726,6 +725,9 @@ public:
 	virtual void  unregisterForContextMenu(AndroidCXX::android_view_View const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

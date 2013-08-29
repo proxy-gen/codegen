@@ -67,11 +67,10 @@ class android_view_KeyEvent_DispatcherState
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_KeyEvent_DispatcherState();
+	// Public Constructor
+	android_view_KeyEvent_DispatcherState(Proxy * aProxy = new Proxy());
 	android_view_KeyEvent_DispatcherState(const android_view_KeyEvent_DispatcherState& cc);
-	android_view_KeyEvent_DispatcherState(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_KeyEvent_DispatcherState();
 	// Functions
@@ -83,6 +82,9 @@ public:
 	virtual void  startTracking(AndroidCXX::android_view_KeyEvent const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

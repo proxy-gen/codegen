@@ -59,8 +59,8 @@ class android_view_View_OnCreateContextMenuListener : public AndroidCXX::java_la
 public:
 
 	android_view_View_OnCreateContextMenuListener(const android_view_View_OnCreateContextMenuListener& cc);
-	android_view_View_OnCreateContextMenuListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_View_OnCreateContextMenuListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnCreateContextMenuListener();
 	// Functions
@@ -68,6 +68,9 @@ public:
 
 protected:
 	android_view_View_OnCreateContextMenuListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

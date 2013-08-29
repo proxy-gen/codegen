@@ -74,11 +74,10 @@ class android_graphics_Picture
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_Picture();
-	android_graphics_Picture(AndroidCXX::android_graphics_Picture const& arg0);
-	android_graphics_Picture(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_graphics_Picture(Proxy * aProxy = new Proxy());
+	android_graphics_Picture(AndroidCXX::android_graphics_Picture const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Picture();
 	// Functions
@@ -91,6 +90,9 @@ public:
 	virtual void  writeToStream(AndroidCXX::java_io_OutputStream const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

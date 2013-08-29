@@ -149,18 +149,17 @@ class java_net_Socket
 {
 public:
 
-	// Public ConstrucXXX
-	java_net_Socket();
-	java_net_Socket(AndroidCXX::java_lang_String const& arg0,int const& arg1);
-	java_net_Socket(AndroidCXX::java_lang_String const& arg0,int const& arg1,bool const& arg2);
-	java_net_Socket(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2,int const& arg3);
-	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1);
-	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1,bool const& arg2);
-	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2,int const& arg3);
-	java_net_Socket(AndroidCXX::java_net_Proxy const& arg0);
+	// Public Constructor
+	java_net_Socket(Proxy * aProxy = new Proxy());
+	java_net_Socket(AndroidCXX::java_lang_String const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
+	java_net_Socket(AndroidCXX::java_lang_String const& arg0,int const& arg1,bool const& arg2,Proxy * aProxy = new Proxy());
+	java_net_Socket(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2,int const& arg3,Proxy * aProxy = new Proxy());
+	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
+	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1,bool const& arg2,Proxy * aProxy = new Proxy());
+	java_net_Socket(AndroidCXX::java_net_InetAddress const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2,int const& arg3,Proxy * aProxy = new Proxy());
+	java_net_Socket(AndroidCXX::java_net_Proxy const& arg0,Proxy * aProxy = new Proxy());
 	java_net_Socket(const java_net_Socket& cc);
-	java_net_Socket(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_Socket();
 	// Functions
@@ -208,6 +207,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

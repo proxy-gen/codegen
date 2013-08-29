@@ -49,11 +49,10 @@ class java_io_FileDescriptor
 {
 public:
 
-	// Public ConstrucXXX
-	java_io_FileDescriptor();
+	// Public Constructor
+	java_io_FileDescriptor(Proxy * aProxy = new Proxy());
 	java_io_FileDescriptor(const java_io_FileDescriptor& cc);
-	java_io_FileDescriptor(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FileDescriptor();
 	// Functions
@@ -61,6 +60,9 @@ public:
 	virtual bool  valid() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

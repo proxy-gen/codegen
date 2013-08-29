@@ -57,10 +57,10 @@ class android_webkit_HttpAuthHandler : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_webkit_HttpAuthHandler(const android_webkit_HttpAuthHandler& cc);
-	android_webkit_HttpAuthHandler(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_HttpAuthHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_HttpAuthHandler();
 	// Functions
@@ -69,6 +69,9 @@ public:
 	virtual bool  useHttpAuthUsernamePassword() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

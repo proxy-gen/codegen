@@ -84,11 +84,10 @@ class android_util_TypedValue
 {
 public:
 
-	// Public ConstrucXXX
-	android_util_TypedValue();
+	// Public Constructor
+	android_util_TypedValue(Proxy * aProxy = new Proxy());
 	android_util_TypedValue(const android_util_TypedValue& cc);
-	android_util_TypedValue(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_util_TypedValue();
 	// Functions
@@ -108,6 +107,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

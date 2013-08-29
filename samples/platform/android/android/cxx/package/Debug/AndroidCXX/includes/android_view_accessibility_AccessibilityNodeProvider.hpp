@@ -65,8 +65,8 @@ class android_view_accessibility_AccessibilityNodeProvider
 public:
 
 	android_view_accessibility_AccessibilityNodeProvider(const android_view_accessibility_AccessibilityNodeProvider& cc);
-	android_view_accessibility_AccessibilityNodeProvider(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_accessibility_AccessibilityNodeProvider(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityNodeProvider();
 	// Functions
@@ -76,6 +76,9 @@ public:
 
 protected:
 	android_view_accessibility_AccessibilityNodeProvider();
+
+private:
+	Proxy * _proxy;
 
 };	
 

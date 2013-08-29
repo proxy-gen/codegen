@@ -56,8 +56,8 @@ class java_lang_Thread_UncaughtExceptionHandler : public AndroidCXX::java_lang_O
 public:
 
 	java_lang_Thread_UncaughtExceptionHandler(const java_lang_Thread_UncaughtExceptionHandler& cc);
-	java_lang_Thread_UncaughtExceptionHandler(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Thread_UncaughtExceptionHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Thread_UncaughtExceptionHandler();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	java_lang_Thread_UncaughtExceptionHandler();
+
+private:
+	Proxy * _proxy;
 
 };	
 

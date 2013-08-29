@@ -51,8 +51,8 @@ class android_widget_SearchView_OnSuggestionListener : public AndroidCXX::java_l
 public:
 
 	android_widget_SearchView_OnSuggestionListener(const android_widget_SearchView_OnSuggestionListener& cc);
-	android_widget_SearchView_OnSuggestionListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SearchView_OnSuggestionListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SearchView_OnSuggestionListener();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	android_widget_SearchView_OnSuggestionListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

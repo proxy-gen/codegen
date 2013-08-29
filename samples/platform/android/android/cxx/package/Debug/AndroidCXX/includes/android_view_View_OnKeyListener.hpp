@@ -56,8 +56,8 @@ class android_view_View_OnKeyListener : public AndroidCXX::java_lang_Object
 public:
 
 	android_view_View_OnKeyListener(const android_view_View_OnKeyListener& cc);
-	android_view_View_OnKeyListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_View_OnKeyListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnKeyListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_view_View_OnKeyListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

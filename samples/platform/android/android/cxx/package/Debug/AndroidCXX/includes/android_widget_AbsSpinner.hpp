@@ -90,8 +90,8 @@ class android_widget_AbsSpinner : public AndroidCXX::java_lang_Object
 public:
 
 	android_widget_AbsSpinner(const android_widget_AbsSpinner& cc);
-	android_widget_AbsSpinner(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AbsSpinner(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsSpinner();
 	// Functions
@@ -110,6 +110,9 @@ public:
 
 protected:
 	android_widget_AbsSpinner();
+
+private:
+	Proxy * _proxy;
 
 };	
 

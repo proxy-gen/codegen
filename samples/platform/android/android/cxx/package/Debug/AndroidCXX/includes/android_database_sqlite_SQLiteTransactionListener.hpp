@@ -52,8 +52,8 @@ class android_database_sqlite_SQLiteTransactionListener : public AndroidCXX::jav
 public:
 
 	android_database_sqlite_SQLiteTransactionListener(const android_database_sqlite_SQLiteTransactionListener& cc);
-	android_database_sqlite_SQLiteTransactionListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_database_sqlite_SQLiteTransactionListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteTransactionListener();
 	// Functions
@@ -63,6 +63,9 @@ public:
 
 protected:
 	android_database_sqlite_SQLiteTransactionListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -144,8 +144,8 @@ class android_view_MenuItem : public AndroidCXX::java_lang_Object
 public:
 
 	android_view_MenuItem(const android_view_MenuItem& cc);
-	android_view_MenuItem(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_MenuItem(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_MenuItem();
 	// Functions
@@ -193,6 +193,9 @@ public:
 
 protected:
 	android_view_MenuItem();
+
+private:
+	Proxy * _proxy;
 
 };	
 

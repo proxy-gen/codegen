@@ -57,8 +57,8 @@ class java_nio_channels_ScatteringByteChannel : public AndroidCXX::java_nio_chan
 public:
 
 	java_nio_channels_ScatteringByteChannel(const java_nio_channels_ScatteringByteChannel& cc);
-	java_nio_channels_ScatteringByteChannel(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_ScatteringByteChannel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_ScatteringByteChannel();
 	// Functions
@@ -67,6 +67,9 @@ public:
 
 protected:
 	java_nio_channels_ScatteringByteChannel();
+
+private:
+	Proxy * _proxy;
 
 };	
 

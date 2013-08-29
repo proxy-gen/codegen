@@ -50,8 +50,8 @@ class android_view_ActionProvider_VisibilityListener : public AndroidCXX::java_l
 public:
 
 	android_view_ActionProvider_VisibilityListener(const android_view_ActionProvider_VisibilityListener& cc);
-	android_view_ActionProvider_VisibilityListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ActionProvider_VisibilityListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ActionProvider_VisibilityListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_view_ActionProvider_VisibilityListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

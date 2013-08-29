@@ -50,8 +50,8 @@ class android_widget_Filter_FilterListener : public AndroidCXX::java_lang_Object
 public:
 
 	android_widget_Filter_FilterListener(const android_widget_Filter_FilterListener& cc);
-	android_widget_Filter_FilterListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_Filter_FilterListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Filter_FilterListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_widget_Filter_FilterListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

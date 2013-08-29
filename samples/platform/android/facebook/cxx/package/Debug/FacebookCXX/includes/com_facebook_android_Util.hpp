@@ -84,11 +84,10 @@ class com_facebook_android_Util
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_android_Util();
+	// Public Constructor
+	com_facebook_android_Util(Proxy * aProxy = new Proxy());
 	com_facebook_android_Util(const com_facebook_android_Util& cc);
-	com_facebook_android_Util(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_Util();
 	// Functions
@@ -101,6 +100,9 @@ public:
 	static void  showAlert(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

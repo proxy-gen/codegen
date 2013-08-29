@@ -51,8 +51,8 @@ class java_nio_channels_Channel : public AndroidCXX::java_io_Closeable
 public:
 
 	java_nio_channels_Channel(const java_nio_channels_Channel& cc);
-	java_nio_channels_Channel(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_Channel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_Channel();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	java_nio_channels_Channel();
+
+private:
+	Proxy * _proxy;
 
 };	
 

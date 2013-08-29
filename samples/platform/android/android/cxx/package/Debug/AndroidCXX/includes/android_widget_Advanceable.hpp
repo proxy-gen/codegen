@@ -51,8 +51,8 @@ class android_widget_Advanceable : public AndroidCXX::java_lang_Object
 public:
 
 	android_widget_Advanceable(const android_widget_Advanceable& cc);
-	android_widget_Advanceable(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_Advanceable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Advanceable();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	android_widget_Advanceable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -62,19 +62,21 @@ class com_facebook_FacebookGraphObjectException : public AndroidCXX::java_lang_O
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_FacebookGraphObjectException();
-	com_facebook_FacebookGraphObjectException(AndroidCXX::java_lang_String const& arg0);
-	com_facebook_FacebookGraphObjectException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
-	com_facebook_FacebookGraphObjectException(AndroidCXX::java_lang_Throwable const& arg0);
+	// Public Constructor
+	com_facebook_FacebookGraphObjectException(Proxy * aProxy = new Proxy());
+	com_facebook_FacebookGraphObjectException(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_FacebookGraphObjectException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1,Proxy * aProxy = new Proxy());
+	com_facebook_FacebookGraphObjectException(AndroidCXX::java_lang_Throwable const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_FacebookGraphObjectException(const com_facebook_FacebookGraphObjectException& cc);
-	com_facebook_FacebookGraphObjectException(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookGraphObjectException();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

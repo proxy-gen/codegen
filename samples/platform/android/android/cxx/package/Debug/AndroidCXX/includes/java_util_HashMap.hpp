@@ -116,14 +116,13 @@ class java_util_HashMap : public AndroidCXX::java_io_Serializable,public Android
 {
 public:
 
-	// Public ConstrucXXX
-	java_util_HashMap();
-	java_util_HashMap(int const& arg0);
-	java_util_HashMap(int const& arg0,float const& arg1);
-	java_util_HashMap(AndroidCXX::java_util_Map const& arg0);
+	// Public Constructor
+	java_util_HashMap(Proxy * aProxy = new Proxy());
+	java_util_HashMap(int const& arg0,Proxy * aProxy = new Proxy());
+	java_util_HashMap(int const& arg0,float const& arg1,Proxy * aProxy = new Proxy());
+	java_util_HashMap(AndroidCXX::java_util_Map const& arg0,Proxy * aProxy = new Proxy());
 	java_util_HashMap(const java_util_HashMap& cc);
-	java_util_HashMap(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_HashMap();
 	// Functions
@@ -142,6 +141,9 @@ public:
 	virtual AndroidCXX::java_util_Collection * values() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

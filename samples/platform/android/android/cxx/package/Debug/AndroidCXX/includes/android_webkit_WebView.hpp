@@ -365,14 +365,14 @@ class android_webkit_WebView : public AndroidCXX::android_view_ViewGroup_OnHiera
 {
 public:
 
-	// Public ConstrucXXX
-	android_webkit_WebView(AndroidCXX::android_content_Context const& arg0);
-	android_webkit_WebView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_webkit_WebView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
-	android_webkit_WebView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,bool const& arg3);
+	// Public Constructor
+	android_webkit_WebView(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_webkit_WebView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_webkit_WebView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
+	android_webkit_WebView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,bool const& arg3,Proxy * aProxy = new Proxy());
 	android_webkit_WebView(const android_webkit_WebView& cc);
-	android_webkit_WebView(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_WebView(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebView();
 	// Functions
@@ -480,6 +480,9 @@ public:
 	virtual bool  zoomOut() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

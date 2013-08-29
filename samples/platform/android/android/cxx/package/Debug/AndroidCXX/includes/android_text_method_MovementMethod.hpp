@@ -88,8 +88,8 @@ class android_text_method_MovementMethod : public AndroidCXX::java_lang_Object
 public:
 
 	android_text_method_MovementMethod(const android_text_method_MovementMethod& cc);
-	android_text_method_MovementMethod(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_method_MovementMethod(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_method_MovementMethod();
 	// Functions
@@ -105,6 +105,9 @@ public:
 
 protected:
 	android_text_method_MovementMethod();
+
+private:
+	Proxy * _proxy;
 
 };	
 

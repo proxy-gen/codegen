@@ -138,10 +138,10 @@ class java_lang_reflect_Method : public AndroidCXX::java_lang_reflect_GenericDec
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	java_lang_reflect_Method(const java_lang_reflect_Method& cc);
-	java_lang_reflect_Method(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_reflect_Method(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_reflect_Method();
 	// Functions
@@ -169,6 +169,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

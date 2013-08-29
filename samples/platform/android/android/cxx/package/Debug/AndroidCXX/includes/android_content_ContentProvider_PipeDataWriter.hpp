@@ -64,8 +64,8 @@ class android_content_ContentProvider_PipeDataWriter : public AndroidCXX::java_l
 public:
 
 	android_content_ContentProvider_PipeDataWriter(const android_content_ContentProvider_PipeDataWriter& cc);
-	android_content_ContentProvider_PipeDataWriter(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_ContentProvider_PipeDataWriter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContentProvider_PipeDataWriter();
 	// Functions
@@ -73,6 +73,9 @@ public:
 
 protected:
 	android_content_ContentProvider_PipeDataWriter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

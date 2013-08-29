@@ -52,8 +52,8 @@ class android_widget_Checkable : public AndroidCXX::java_lang_Object
 public:
 
 	android_widget_Checkable(const android_widget_Checkable& cc);
-	android_widget_Checkable(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_Checkable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Checkable();
 	// Functions
@@ -63,6 +63,9 @@ public:
 
 protected:
 	android_widget_Checkable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

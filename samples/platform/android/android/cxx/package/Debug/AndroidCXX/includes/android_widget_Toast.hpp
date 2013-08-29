@@ -86,11 +86,11 @@ class android_widget_Toast
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_Toast(AndroidCXX::android_content_Context const& arg0);
+	// Public Constructor
+	android_widget_Toast(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
 	android_widget_Toast(const android_widget_Toast& cc);
-	android_widget_Toast(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_Toast(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Toast();
 	// Functions
@@ -113,6 +113,9 @@ public:
 	virtual void  show() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -58,8 +58,8 @@ class java_lang_CharSequence : public AndroidCXX::java_lang_Object
 public:
 
 	java_lang_CharSequence(const java_lang_CharSequence& cc);
-	java_lang_CharSequence(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_CharSequence(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_CharSequence();
 	// Functions
@@ -70,6 +70,9 @@ public:
 
 protected:
 	java_lang_CharSequence();
+
+private:
+	Proxy * _proxy;
 
 };	
 

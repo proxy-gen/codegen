@@ -93,8 +93,8 @@ class android_widget_SimpleCursorTreeAdapter : public AndroidCXX::java_lang_Obje
 public:
 
 	android_widget_SimpleCursorTreeAdapter(const android_widget_SimpleCursorTreeAdapter& cc);
-	android_widget_SimpleCursorTreeAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SimpleCursorTreeAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SimpleCursorTreeAdapter();
 	// Functions
@@ -104,6 +104,9 @@ public:
 
 protected:
 	android_widget_SimpleCursorTreeAdapter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

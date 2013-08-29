@@ -94,8 +94,8 @@ class java_util_Set : public AndroidCXX::java_util_Collection
 public:
 
 	java_util_Set(const java_util_Set& cc);
-	java_util_Set(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_Set(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Set();
 	// Functions
@@ -117,6 +117,9 @@ public:
 
 protected:
 	java_util_Set();
+
+private:
+	Proxy * _proxy;
 
 };	
 

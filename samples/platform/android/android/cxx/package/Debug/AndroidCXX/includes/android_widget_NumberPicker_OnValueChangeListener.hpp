@@ -53,8 +53,8 @@ class android_widget_NumberPicker_OnValueChangeListener : public AndroidCXX::jav
 public:
 
 	android_widget_NumberPicker_OnValueChangeListener(const android_widget_NumberPicker_OnValueChangeListener& cc);
-	android_widget_NumberPicker_OnValueChangeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_NumberPicker_OnValueChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_NumberPicker_OnValueChangeListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_NumberPicker_OnValueChangeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

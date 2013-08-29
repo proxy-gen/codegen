@@ -64,8 +64,8 @@ class java_lang_annotation_Annotation : public AndroidCXX::java_lang_Object
 public:
 
 	java_lang_annotation_Annotation(const java_lang_annotation_Annotation& cc);
-	java_lang_annotation_Annotation(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_annotation_Annotation(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_annotation_Annotation();
 	// Functions
@@ -76,6 +76,9 @@ public:
 
 protected:
 	java_lang_annotation_Annotation();
+
+private:
+	Proxy * _proxy;
 
 };	
 

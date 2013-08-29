@@ -97,13 +97,12 @@ class java_lang_Throwable : public AndroidCXX::java_io_Serializable
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_Throwable();
-	java_lang_Throwable(AndroidCXX::java_lang_String const& arg0);
-	java_lang_Throwable(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
-	java_lang_Throwable(AndroidCXX::java_lang_Throwable const& arg0);
-	java_lang_Throwable(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	java_lang_Throwable(Proxy * aProxy = new Proxy());
+	java_lang_Throwable(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_Throwable(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1,Proxy * aProxy = new Proxy());
+	java_lang_Throwable(AndroidCXX::java_lang_Throwable const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Throwable();
 	// Functions
@@ -120,6 +119,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -64,19 +64,21 @@ class java_lang_RuntimeException : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_RuntimeException();
-	java_lang_RuntimeException(AndroidCXX::java_lang_String const& arg0);
-	java_lang_RuntimeException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
-	java_lang_RuntimeException(AndroidCXX::java_lang_Throwable const& arg0);
+	// Public Constructor
+	java_lang_RuntimeException(Proxy * aProxy = new Proxy());
+	java_lang_RuntimeException(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_RuntimeException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1,Proxy * aProxy = new Proxy());
+	java_lang_RuntimeException(AndroidCXX::java_lang_Throwable const& arg0,Proxy * aProxy = new Proxy());
 	java_lang_RuntimeException(const java_lang_RuntimeException& cc);
-	java_lang_RuntimeException(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_RuntimeException();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

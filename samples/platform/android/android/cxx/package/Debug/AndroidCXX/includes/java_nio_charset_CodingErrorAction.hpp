@@ -52,16 +52,19 @@ class java_nio_charset_CodingErrorAction
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	java_nio_charset_CodingErrorAction(const java_nio_charset_CodingErrorAction& cc);
-	java_nio_charset_CodingErrorAction(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_charset_CodingErrorAction(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_CodingErrorAction();
 	// Functions
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

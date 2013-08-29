@@ -48,15 +48,18 @@ class com_facebook_AuthorizationClient_GetTokenAuthHandler : public AndroidCXX::
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_AuthorizationClient_GetTokenAuthHandler(const com_facebook_AuthorizationClient_GetTokenAuthHandler& cc);
-	com_facebook_AuthorizationClient_GetTokenAuthHandler(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_AuthorizationClient_GetTokenAuthHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_GetTokenAuthHandler();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

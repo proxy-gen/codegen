@@ -77,11 +77,11 @@ class android_content_PeriodicSync : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_content_PeriodicSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,long const& arg3);
+	// Public Constructor
+	android_content_PeriodicSync(AndroidCXX::android_accounts_Account const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,long const& arg3,Proxy * aProxy = new Proxy());
 	android_content_PeriodicSync(const android_content_PeriodicSync& cc);
-	android_content_PeriodicSync(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_PeriodicSync(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_PeriodicSync();
 	// Functions
@@ -90,6 +90,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

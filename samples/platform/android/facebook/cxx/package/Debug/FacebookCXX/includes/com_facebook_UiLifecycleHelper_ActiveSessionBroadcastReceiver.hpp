@@ -57,16 +57,19 @@ class com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver : public And
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver(const com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver& cc);
-	com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver();
 	// Functions
 	virtual void  onReceive(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_content_Intent const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -51,8 +51,8 @@ class android_widget_SlidingDrawer_OnDrawerScrollListener : public AndroidCXX::j
 public:
 
 	android_widget_SlidingDrawer_OnDrawerScrollListener(const android_widget_SlidingDrawer_OnDrawerScrollListener& cc);
-	android_widget_SlidingDrawer_OnDrawerScrollListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SlidingDrawer_OnDrawerScrollListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SlidingDrawer_OnDrawerScrollListener();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	android_widget_SlidingDrawer_OnDrawerScrollListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

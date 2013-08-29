@@ -68,8 +68,8 @@ class java_security_PermissionCollection : public AndroidCXX::java_io_Serializab
 public:
 
 	java_security_PermissionCollection(const java_security_PermissionCollection& cc);
-	java_security_PermissionCollection(Proxy proxy);
-	Proxy proxy() const;	
+	java_security_PermissionCollection(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_PermissionCollection();
 	// Functions
@@ -82,6 +82,9 @@ public:
 
 protected:
 	java_security_PermissionCollection();
+
+private:
+	Proxy * _proxy;
 
 };	
 

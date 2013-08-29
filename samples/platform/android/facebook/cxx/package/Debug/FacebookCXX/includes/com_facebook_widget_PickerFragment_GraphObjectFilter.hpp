@@ -52,8 +52,8 @@ class com_facebook_widget_PickerFragment_GraphObjectFilter : public AndroidCXX::
 public:
 
 	com_facebook_widget_PickerFragment_GraphObjectFilter(const com_facebook_widget_PickerFragment_GraphObjectFilter& cc);
-	com_facebook_widget_PickerFragment_GraphObjectFilter(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_PickerFragment_GraphObjectFilter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_GraphObjectFilter();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	com_facebook_widget_PickerFragment_GraphObjectFilter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

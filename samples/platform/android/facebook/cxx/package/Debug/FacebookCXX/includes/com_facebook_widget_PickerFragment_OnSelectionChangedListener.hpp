@@ -56,8 +56,8 @@ class com_facebook_widget_PickerFragment_OnSelectionChangedListener : public And
 public:
 
 	com_facebook_widget_PickerFragment_OnSelectionChangedListener(const com_facebook_widget_PickerFragment_OnSelectionChangedListener& cc);
-	com_facebook_widget_PickerFragment_OnSelectionChangedListener(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_PickerFragment_OnSelectionChangedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_OnSelectionChangedListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	com_facebook_widget_PickerFragment_OnSelectionChangedListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

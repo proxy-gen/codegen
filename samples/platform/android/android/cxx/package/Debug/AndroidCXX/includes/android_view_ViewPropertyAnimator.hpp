@@ -123,10 +123,10 @@ class android_view_ViewPropertyAnimator
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_view_ViewPropertyAnimator(const android_view_ViewPropertyAnimator& cc);
-	android_view_ViewPropertyAnimator(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ViewPropertyAnimator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewPropertyAnimator();
 	// Functions
@@ -164,6 +164,9 @@ public:
 	virtual AndroidCXX::android_view_ViewPropertyAnimator * y(float const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -57,8 +57,8 @@ class java_lang_reflect_GenericDeclaration : public AndroidCXX::java_lang_Object
 public:
 
 	java_lang_reflect_GenericDeclaration(const java_lang_reflect_GenericDeclaration& cc);
-	java_lang_reflect_GenericDeclaration(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_reflect_GenericDeclaration(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_reflect_GenericDeclaration();
 	// Functions
@@ -66,6 +66,9 @@ public:
 
 protected:
 	java_lang_reflect_GenericDeclaration();
+
+private:
+	Proxy * _proxy;
 
 };	
 

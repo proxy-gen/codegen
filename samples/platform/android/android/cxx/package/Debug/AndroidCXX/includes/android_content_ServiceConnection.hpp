@@ -58,8 +58,8 @@ class android_content_ServiceConnection : public AndroidCXX::java_lang_Object
 public:
 
 	android_content_ServiceConnection(const android_content_ServiceConnection& cc);
-	android_content_ServiceConnection(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_ServiceConnection(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ServiceConnection();
 	// Functions
@@ -68,6 +68,9 @@ public:
 
 protected:
 	android_content_ServiceConnection();
+
+private:
+	Proxy * _proxy;
 
 };	
 

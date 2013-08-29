@@ -53,16 +53,19 @@ class com_facebook_android_Facebook_TokenRefreshConnectionHandler : public Andro
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_android_Facebook_TokenRefreshConnectionHandler(const com_facebook_android_Facebook_TokenRefreshConnectionHandler& cc);
-	com_facebook_android_Facebook_TokenRefreshConnectionHandler(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_android_Facebook_TokenRefreshConnectionHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_TokenRefreshConnectionHandler();
 	// Functions
 	virtual void  handleMessage(AndroidCXX::android_os_Message const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -63,8 +63,8 @@ class android_database_sqlite_SQLiteProgram : public AndroidCXX::java_lang_Objec
 public:
 
 	android_database_sqlite_SQLiteProgram(const android_database_sqlite_SQLiteProgram& cc);
-	android_database_sqlite_SQLiteProgram(Proxy proxy);
-	Proxy proxy() const;	
+	android_database_sqlite_SQLiteProgram(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteProgram();
 	// Functions
@@ -79,6 +79,9 @@ public:
 
 protected:
 	android_database_sqlite_SQLiteProgram();
+
+private:
+	Proxy * _proxy;
 
 };	
 

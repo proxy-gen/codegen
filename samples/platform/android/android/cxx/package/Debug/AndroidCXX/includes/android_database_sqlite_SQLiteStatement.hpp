@@ -66,10 +66,10 @@ class android_database_sqlite_SQLiteStatement : public AndroidCXX::java_lang_Obj
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_database_sqlite_SQLiteStatement(const android_database_sqlite_SQLiteStatement& cc);
-	android_database_sqlite_SQLiteStatement(Proxy proxy);
-	Proxy proxy() const;	
+	android_database_sqlite_SQLiteStatement(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteStatement();
 	// Functions
@@ -82,6 +82,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

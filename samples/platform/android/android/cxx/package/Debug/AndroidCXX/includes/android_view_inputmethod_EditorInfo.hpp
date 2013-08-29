@@ -70,11 +70,10 @@ class android_view_inputmethod_EditorInfo : public AndroidCXX::android_os_Parcel
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_inputmethod_EditorInfo();
+	// Public Constructor
+	android_view_inputmethod_EditorInfo(Proxy * aProxy = new Proxy());
 	android_view_inputmethod_EditorInfo(const android_view_inputmethod_EditorInfo& cc);
-	android_view_inputmethod_EditorInfo(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_EditorInfo();
 	// Functions
@@ -84,6 +83,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

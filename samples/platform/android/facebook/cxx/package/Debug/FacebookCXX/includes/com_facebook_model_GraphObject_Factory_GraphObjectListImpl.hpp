@@ -106,11 +106,11 @@ class com_facebook_model_GraphObject_Factory_GraphObjectListImpl : public Facebo
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_model_GraphObject_Factory_GraphObjectListImpl(AndroidCXX::org_json_JSONArray const& arg0,AndroidCXX::java_lang_Class const& arg1);
+	// Public Constructor
+	com_facebook_model_GraphObject_Factory_GraphObjectListImpl(AndroidCXX::org_json_JSONArray const& arg0,AndroidCXX::java_lang_Class const& arg1,Proxy * aProxy = new Proxy());
 	com_facebook_model_GraphObject_Factory_GraphObjectListImpl(const com_facebook_model_GraphObject_Factory_GraphObjectListImpl& cc);
-	com_facebook_model_GraphObject_Factory_GraphObjectListImpl(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_model_GraphObject_Factory_GraphObjectListImpl(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject_Factory_GraphObjectListImpl();
 	// Functions
@@ -129,6 +129,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

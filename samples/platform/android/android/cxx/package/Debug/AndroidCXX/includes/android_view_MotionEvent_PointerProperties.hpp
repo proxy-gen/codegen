@@ -60,11 +60,10 @@ class android_view_MotionEvent_PointerProperties
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_MotionEvent_PointerProperties();
-	android_view_MotionEvent_PointerProperties(AndroidCXX::android_view_MotionEvent_PointerProperties const& arg0);
-	android_view_MotionEvent_PointerProperties(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_view_MotionEvent_PointerProperties(Proxy * aProxy = new Proxy());
+	android_view_MotionEvent_PointerProperties(AndroidCXX::android_view_MotionEvent_PointerProperties const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_MotionEvent_PointerProperties();
 	// Functions
@@ -74,6 +73,9 @@ public:
 	virtual int  hashCode() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

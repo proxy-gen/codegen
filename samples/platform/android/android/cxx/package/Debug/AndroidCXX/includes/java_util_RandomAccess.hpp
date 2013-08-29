@@ -49,14 +49,17 @@ class java_util_RandomAccess : public AndroidCXX::java_lang_Object
 public:
 
 	java_util_RandomAccess(const java_util_RandomAccess& cc);
-	java_util_RandomAccess(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_RandomAccess(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_RandomAccess();
 	// Functions
 
 protected:
 	java_util_RandomAccess();
+
+private:
+	Proxy * _proxy;
 
 };	
 

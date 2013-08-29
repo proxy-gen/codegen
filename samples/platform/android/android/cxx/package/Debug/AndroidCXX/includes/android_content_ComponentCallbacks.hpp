@@ -54,8 +54,8 @@ class android_content_ComponentCallbacks : public AndroidCXX::java_lang_Object
 public:
 
 	android_content_ComponentCallbacks(const android_content_ComponentCallbacks& cc);
-	android_content_ComponentCallbacks(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_ComponentCallbacks(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ComponentCallbacks();
 	// Functions
@@ -64,6 +64,9 @@ public:
 
 protected:
 	android_content_ComponentCallbacks();
+
+private:
+	Proxy * _proxy;
 
 };	
 

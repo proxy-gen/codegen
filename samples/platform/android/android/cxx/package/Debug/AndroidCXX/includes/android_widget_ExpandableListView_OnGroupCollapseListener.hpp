@@ -50,8 +50,8 @@ class android_widget_ExpandableListView_OnGroupCollapseListener : public Android
 public:
 
 	android_widget_ExpandableListView_OnGroupCollapseListener(const android_widget_ExpandableListView_OnGroupCollapseListener& cc);
-	android_widget_ExpandableListView_OnGroupCollapseListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_ExpandableListView_OnGroupCollapseListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ExpandableListView_OnGroupCollapseListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_widget_ExpandableListView_OnGroupCollapseListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

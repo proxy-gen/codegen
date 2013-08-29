@@ -54,8 +54,8 @@ class com_facebook_GetTokenClient_CompletedListener : public AndroidCXX::java_la
 public:
 
 	com_facebook_GetTokenClient_CompletedListener(const com_facebook_GetTokenClient_CompletedListener& cc);
-	com_facebook_GetTokenClient_CompletedListener(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_GetTokenClient_CompletedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_GetTokenClient_CompletedListener();
 	// Functions
@@ -63,6 +63,9 @@ public:
 
 protected:
 	com_facebook_GetTokenClient_CompletedListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

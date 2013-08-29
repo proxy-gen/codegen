@@ -118,11 +118,11 @@ class android_widget_HeaderViewListAdapter : public AndroidCXX::android_widget_F
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_HeaderViewListAdapter(AndroidCXX::java_util_ArrayList const& arg0,AndroidCXX::java_util_ArrayList const& arg1,AndroidCXX::android_widget_ListAdapter const& arg2);
+	// Public Constructor
+	android_widget_HeaderViewListAdapter(AndroidCXX::java_util_ArrayList const& arg0,AndroidCXX::java_util_ArrayList const& arg1,AndroidCXX::android_widget_ListAdapter const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_HeaderViewListAdapter(const android_widget_HeaderViewListAdapter& cc);
-	android_widget_HeaderViewListAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_HeaderViewListAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_HeaderViewListAdapter();
 	// Functions
@@ -146,6 +146,9 @@ public:
 	virtual void  unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

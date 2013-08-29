@@ -62,8 +62,8 @@ class android_widget_RemoteViewsService_RemoteViewsFactory : public AndroidCXX::
 public:
 
 	android_widget_RemoteViewsService_RemoteViewsFactory(const android_widget_RemoteViewsService_RemoteViewsFactory& cc);
-	android_widget_RemoteViewsService_RemoteViewsFactory(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_RemoteViewsService_RemoteViewsFactory(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RemoteViewsService_RemoteViewsFactory();
 	// Functions
@@ -79,6 +79,9 @@ public:
 
 protected:
 	android_widget_RemoteViewsService_RemoteViewsFactory();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -107,8 +107,8 @@ class java_nio_FloatBuffer : public AndroidCXX::java_lang_Comparable
 public:
 
 	java_nio_FloatBuffer(const java_nio_FloatBuffer& cc);
-	java_nio_FloatBuffer(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_FloatBuffer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_FloatBuffer();
 	// Functions
@@ -140,6 +140,9 @@ public:
 
 protected:
 	java_nio_FloatBuffer();
+
+private:
+	Proxy * _proxy;
 
 };	
 

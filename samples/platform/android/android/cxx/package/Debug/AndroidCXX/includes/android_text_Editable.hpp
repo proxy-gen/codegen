@@ -88,8 +88,8 @@ class android_text_Editable : public AndroidCXX::android_text_GetChars,public An
 public:
 
 	android_text_Editable(const android_text_Editable& cc);
-	android_text_Editable(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_Editable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_Editable();
 	// Functions
@@ -108,6 +108,9 @@ public:
 
 protected:
 	android_text_Editable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

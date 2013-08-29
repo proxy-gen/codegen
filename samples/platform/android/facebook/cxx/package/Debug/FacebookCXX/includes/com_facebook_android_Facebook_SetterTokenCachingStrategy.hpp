@@ -56,10 +56,10 @@ class com_facebook_android_Facebook_SetterTokenCachingStrategy : public AndroidC
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_android_Facebook_SetterTokenCachingStrategy(const com_facebook_android_Facebook_SetterTokenCachingStrategy& cc);
-	com_facebook_android_Facebook_SetterTokenCachingStrategy(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_android_Facebook_SetterTokenCachingStrategy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_SetterTokenCachingStrategy();
 	// Functions
@@ -68,6 +68,9 @@ public:
 	virtual void  save(AndroidCXX::android_os_Bundle const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

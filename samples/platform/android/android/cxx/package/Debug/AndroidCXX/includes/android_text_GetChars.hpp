@@ -51,8 +51,8 @@ class android_text_GetChars : public AndroidCXX::java_lang_CharSequence
 public:
 
 	android_text_GetChars(const android_text_GetChars& cc);
-	android_text_GetChars(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_GetChars(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_GetChars();
 	// Functions
@@ -60,6 +60,9 @@ public:
 
 protected:
 	android_text_GetChars();
+
+private:
+	Proxy * _proxy;
 
 };	
 

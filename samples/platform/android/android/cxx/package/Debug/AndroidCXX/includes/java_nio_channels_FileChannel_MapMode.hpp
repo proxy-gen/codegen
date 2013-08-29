@@ -52,16 +52,19 @@ class java_nio_channels_FileChannel_MapMode
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	java_nio_channels_FileChannel_MapMode(const java_nio_channels_FileChannel_MapMode& cc);
-	java_nio_channels_FileChannel_MapMode(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_FileChannel_MapMode(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_FileChannel_MapMode();
 	// Functions
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

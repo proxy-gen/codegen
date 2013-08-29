@@ -109,10 +109,10 @@ class android_os_ParcelFileDescriptor : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_os_ParcelFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor const& arg0);
-	android_os_ParcelFileDescriptor(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_os_ParcelFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor const& arg0,Proxy * aProxy = new Proxy());
+	android_os_ParcelFileDescriptor(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_ParcelFileDescriptor();
 	// Functions
@@ -134,6 +134,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

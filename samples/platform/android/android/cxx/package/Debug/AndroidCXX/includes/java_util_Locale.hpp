@@ -118,13 +118,13 @@ class java_util_Locale : public AndroidCXX::java_io_Serializable,public AndroidC
 {
 public:
 
-	// Public ConstrucXXX
-	java_util_Locale(AndroidCXX::java_lang_String const& arg0);
-	java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
-	java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
+	// Public Constructor
+	java_util_Locale(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
+	java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,Proxy * aProxy = new Proxy());
 	java_util_Locale(const java_util_Locale& cc);
-	java_util_Locale(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_Locale(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Locale();
 	// Functions
@@ -152,6 +152,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

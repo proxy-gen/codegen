@@ -52,8 +52,8 @@ class android_content_res_XmlResourceParser : public AndroidCXX::android_util_At
 public:
 
 	android_content_res_XmlResourceParser(const android_content_res_XmlResourceParser& cc);
-	android_content_res_XmlResourceParser(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_res_XmlResourceParser(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_XmlResourceParser();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	android_content_res_XmlResourceParser();
+
+private:
+	Proxy * _proxy;
 
 };	
 

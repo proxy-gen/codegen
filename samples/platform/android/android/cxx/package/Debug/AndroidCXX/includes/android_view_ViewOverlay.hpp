@@ -55,10 +55,10 @@ class android_view_ViewOverlay
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_view_ViewOverlay(const android_view_ViewOverlay& cc);
-	android_view_ViewOverlay(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ViewOverlay(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewOverlay();
 	// Functions
@@ -67,6 +67,9 @@ public:
 	virtual void  remove(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

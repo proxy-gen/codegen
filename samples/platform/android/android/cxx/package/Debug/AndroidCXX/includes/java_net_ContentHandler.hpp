@@ -62,8 +62,8 @@ class java_net_ContentHandler
 public:
 
 	java_net_ContentHandler(const java_net_ContentHandler& cc);
-	java_net_ContentHandler(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_ContentHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_ContentHandler();
 	// Functions
@@ -72,6 +72,9 @@ public:
 
 protected:
 	java_net_ContentHandler();
+
+private:
+	Proxy * _proxy;
 
 };	
 

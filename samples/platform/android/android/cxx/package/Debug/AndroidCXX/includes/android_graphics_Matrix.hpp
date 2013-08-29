@@ -141,11 +141,10 @@ class android_graphics_Matrix
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_Matrix();
-	android_graphics_Matrix(AndroidCXX::android_graphics_Matrix const& arg0);
-	android_graphics_Matrix(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_graphics_Matrix(Proxy * aProxy = new Proxy());
+	android_graphics_Matrix(AndroidCXX::android_graphics_Matrix const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Matrix();
 	// Functions
@@ -198,6 +197,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

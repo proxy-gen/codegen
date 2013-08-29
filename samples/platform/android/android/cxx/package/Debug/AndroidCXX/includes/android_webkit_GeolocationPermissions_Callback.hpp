@@ -53,8 +53,8 @@ class android_webkit_GeolocationPermissions_Callback : public AndroidCXX::java_l
 public:
 
 	android_webkit_GeolocationPermissions_Callback(const android_webkit_GeolocationPermissions_Callback& cc);
-	android_webkit_GeolocationPermissions_Callback(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_GeolocationPermissions_Callback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_GeolocationPermissions_Callback();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_webkit_GeolocationPermissions_Callback();
+
+private:
+	Proxy * _proxy;
 
 };	
 

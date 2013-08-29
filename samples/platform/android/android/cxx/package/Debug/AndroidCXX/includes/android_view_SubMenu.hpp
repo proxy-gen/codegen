@@ -79,8 +79,8 @@ class android_view_SubMenu : public AndroidCXX::android_view_Menu
 public:
 
 	android_view_SubMenu(const android_view_SubMenu& cc);
-	android_view_SubMenu(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_SubMenu(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_SubMenu();
 	// Functions
@@ -96,6 +96,9 @@ public:
 
 protected:
 	android_view_SubMenu();
+
+private:
+	Proxy * _proxy;
 
 };	
 

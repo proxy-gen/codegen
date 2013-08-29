@@ -128,11 +128,10 @@ class android_graphics_Path
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_Path();
-	android_graphics_Path(AndroidCXX::android_graphics_Path const& arg0);
-	android_graphics_Path(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_graphics_Path(Proxy * aProxy = new Proxy());
+	android_graphics_Path(AndroidCXX::android_graphics_Path const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Path();
 	// Functions
@@ -175,6 +174,9 @@ public:
 	virtual void  transform(AndroidCXX::android_graphics_Matrix const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

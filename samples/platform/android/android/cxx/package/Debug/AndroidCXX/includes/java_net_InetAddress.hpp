@@ -103,10 +103,10 @@ class java_net_InetAddress : public AndroidCXX::java_io_Serializable
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	java_net_InetAddress(const java_net_InetAddress& cc);
-	java_net_InetAddress(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_InetAddress(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_InetAddress();
 	// Functions
@@ -136,6 +136,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

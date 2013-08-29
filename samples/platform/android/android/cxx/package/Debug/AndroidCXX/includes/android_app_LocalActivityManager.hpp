@@ -91,11 +91,11 @@ class android_app_LocalActivityManager
 {
 public:
 
-	// Public ConstrucXXX
-	android_app_LocalActivityManager(AndroidCXX::android_app_Activity const& arg0,bool const& arg1);
+	// Public Constructor
+	android_app_LocalActivityManager(AndroidCXX::android_app_Activity const& arg0,bool const& arg1,Proxy * aProxy = new Proxy());
 	android_app_LocalActivityManager(const android_app_LocalActivityManager& cc);
-	android_app_LocalActivityManager(Proxy proxy);
-	Proxy proxy() const;	
+	android_app_LocalActivityManager(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_LocalActivityManager();
 	// Functions
@@ -113,6 +113,9 @@ public:
 	virtual AndroidCXX::android_view_Window * startActivity(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_content_Intent const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

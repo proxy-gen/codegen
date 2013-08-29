@@ -115,8 +115,8 @@ class android_support_v4_app_FragmentManager
 public:
 
 	android_support_v4_app_FragmentManager(const android_support_v4_app_FragmentManager& cc);
-	android_support_v4_app_FragmentManager(Proxy proxy);
-	Proxy proxy() const;	
+	android_support_v4_app_FragmentManager(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_app_FragmentManager();
 	// Functions
@@ -144,6 +144,9 @@ public:
 
 protected:
 	android_support_v4_app_FragmentManager();
+
+private:
+	Proxy * _proxy;
 
 };	
 

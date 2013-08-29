@@ -70,12 +70,12 @@ class android_os_PatternMatcher : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_os_PatternMatcher(AndroidCXX::android_os_Parcel const& arg0);
-	android_os_PatternMatcher(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	// Public Constructor
+	android_os_PatternMatcher(AndroidCXX::android_os_Parcel const& arg0,Proxy * aProxy = new Proxy());
+	android_os_PatternMatcher(AndroidCXX::java_lang_String const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
 	android_os_PatternMatcher(const android_os_PatternMatcher& cc);
-	android_os_PatternMatcher(Proxy proxy);
-	Proxy proxy() const;	
+	android_os_PatternMatcher(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_PatternMatcher();
 	// Functions
@@ -87,6 +87,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -55,8 +55,8 @@ class android_text_Spannable : public AndroidCXX::android_text_Spanned
 public:
 
 	android_text_Spannable(const android_text_Spannable& cc);
-	android_text_Spannable(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_Spannable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_Spannable();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_text_Spannable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

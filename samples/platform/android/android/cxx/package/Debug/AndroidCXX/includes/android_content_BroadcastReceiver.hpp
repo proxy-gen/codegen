@@ -90,8 +90,8 @@ class android_content_BroadcastReceiver
 public:
 
 	android_content_BroadcastReceiver(const android_content_BroadcastReceiver& cc);
-	android_content_BroadcastReceiver(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_BroadcastReceiver(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_BroadcastReceiver();
 	// Functions
@@ -116,6 +116,9 @@ public:
 
 protected:
 	android_content_BroadcastReceiver();
+
+private:
+	Proxy * _proxy;
 
 };	
 

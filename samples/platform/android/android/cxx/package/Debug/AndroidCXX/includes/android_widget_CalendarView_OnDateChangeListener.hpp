@@ -53,8 +53,8 @@ class android_widget_CalendarView_OnDateChangeListener : public AndroidCXX::java
 public:
 
 	android_widget_CalendarView_OnDateChangeListener(const android_widget_CalendarView_OnDateChangeListener& cc);
-	android_widget_CalendarView_OnDateChangeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_CalendarView_OnDateChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CalendarView_OnDateChangeListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_CalendarView_OnDateChangeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

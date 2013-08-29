@@ -50,8 +50,8 @@ class android_animation_TimeInterpolator : public AndroidCXX::java_lang_Object
 public:
 
 	android_animation_TimeInterpolator(const android_animation_TimeInterpolator& cc);
-	android_animation_TimeInterpolator(Proxy proxy);
-	Proxy proxy() const;	
+	android_animation_TimeInterpolator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_TimeInterpolator();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_animation_TimeInterpolator();
+
+private:
+	Proxy * _proxy;
 
 };	
 

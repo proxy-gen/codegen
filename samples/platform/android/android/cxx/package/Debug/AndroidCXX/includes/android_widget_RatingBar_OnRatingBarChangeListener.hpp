@@ -53,8 +53,8 @@ class android_widget_RatingBar_OnRatingBarChangeListener : public AndroidCXX::ja
 public:
 
 	android_widget_RatingBar_OnRatingBarChangeListener(const android_widget_RatingBar_OnRatingBarChangeListener& cc);
-	android_widget_RatingBar_OnRatingBarChangeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_RatingBar_OnRatingBarChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RatingBar_OnRatingBarChangeListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_RatingBar_OnRatingBarChangeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

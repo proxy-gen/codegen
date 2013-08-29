@@ -49,14 +49,17 @@ class java_io_Serializable : public AndroidCXX::java_lang_Object
 public:
 
 	java_io_Serializable(const java_io_Serializable& cc);
-	java_io_Serializable(Proxy proxy);
-	Proxy proxy() const;	
+	java_io_Serializable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_Serializable();
 	// Functions
 
 protected:
 	java_io_Serializable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -104,10 +104,10 @@ class com_facebook_Response
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_Response(const com_facebook_Response& cc);
-	com_facebook_Response(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Response(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Response();
 	// Functions
@@ -123,6 +123,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

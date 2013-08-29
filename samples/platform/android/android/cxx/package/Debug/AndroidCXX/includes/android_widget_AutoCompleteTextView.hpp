@@ -171,13 +171,13 @@ class android_widget_AutoCompleteTextView : public AndroidCXX::android_widget_Fi
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0);
-	android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	// Public Constructor
+	android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_AutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_AutoCompleteTextView(const android_widget_AutoCompleteTextView& cc);
-	android_widget_AutoCompleteTextView(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AutoCompleteTextView(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AutoCompleteTextView();
 	// Functions
@@ -229,6 +229,9 @@ public:
 	virtual void  showDropDown() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

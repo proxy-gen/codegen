@@ -65,8 +65,8 @@ class android_view_GestureDetector_OnGestureListener : public AndroidCXX::java_l
 public:
 
 	android_view_GestureDetector_OnGestureListener(const android_view_GestureDetector_OnGestureListener& cc);
-	android_view_GestureDetector_OnGestureListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_GestureDetector_OnGestureListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_GestureDetector_OnGestureListener();
 	// Functions
@@ -79,6 +79,9 @@ public:
 
 protected:
 	android_view_GestureDetector_OnGestureListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

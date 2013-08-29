@@ -104,12 +104,12 @@ class java_lang_ThreadGroup : public AndroidCXX::java_lang_Thread_UncaughtExcept
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_ThreadGroup(AndroidCXX::java_lang_String const& arg0);
-	java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1);
+	// Public Constructor
+	java_lang_ThreadGroup(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
 	java_lang_ThreadGroup(const java_lang_ThreadGroup& cc);
-	java_lang_ThreadGroup(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_ThreadGroup(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_ThreadGroup();
 	// Functions
@@ -139,6 +139,9 @@ public:
 	virtual void  uncaughtException(AndroidCXX::java_lang_Thread const& arg0,AndroidCXX::java_lang_Throwable const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

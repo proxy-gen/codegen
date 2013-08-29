@@ -83,11 +83,10 @@ class android_app_Application : public AndroidCXX::android_content_ComponentCall
 {
 public:
 
-	// Public ConstrucXXX
-	android_app_Application();
+	// Public Constructor
+	android_app_Application(Proxy * aProxy = new Proxy());
 	android_app_Application(const android_app_Application& cc);
-	android_app_Application(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_Application();
 	// Functions
@@ -104,6 +103,9 @@ public:
 	virtual void  unregisterOnProvideAssistDataListener(AndroidCXX::android_app_Application_OnProvideAssistDataListener const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -128,8 +128,8 @@ class android_text_Layout
 public:
 
 	android_text_Layout(const android_text_Layout& cc);
-	android_text_Layout(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_Layout(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_Layout();
 	// Functions
@@ -183,6 +183,9 @@ public:
 
 protected:
 	android_text_Layout();
+
+private:
+	Proxy * _proxy;
 
 };	
 

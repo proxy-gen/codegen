@@ -56,8 +56,8 @@ class com_facebook_widget_PickerFragment_OnDataChangedListener : public AndroidC
 public:
 
 	com_facebook_widget_PickerFragment_OnDataChangedListener(const com_facebook_widget_PickerFragment_OnDataChangedListener& cc);
-	com_facebook_widget_PickerFragment_OnDataChangedListener(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_PickerFragment_OnDataChangedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_OnDataChangedListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	com_facebook_widget_PickerFragment_OnDataChangedListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

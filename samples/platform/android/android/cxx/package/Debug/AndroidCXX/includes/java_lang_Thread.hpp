@@ -172,18 +172,17 @@ class java_lang_Thread : public AndroidCXX::java_lang_Runnable
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_Thread();
-	java_lang_Thread(AndroidCXX::java_lang_Runnable const& arg0);
-	java_lang_Thread(AndroidCXX::java_lang_Runnable const& arg0,AndroidCXX::java_lang_String const& arg1);
-	java_lang_Thread(AndroidCXX::java_lang_String const& arg0);
-	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1);
-	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1,AndroidCXX::java_lang_String const& arg2);
-	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1,AndroidCXX::java_lang_String const& arg2,long const& arg3);
-	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1);
+	// Public Constructor
+	java_lang_Thread(Proxy * aProxy = new Proxy());
+	java_lang_Thread(AndroidCXX::java_lang_Runnable const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_Thread(AndroidCXX::java_lang_Runnable const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
+	java_lang_Thread(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1,Proxy * aProxy = new Proxy());
+	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1,AndroidCXX::java_lang_String const& arg2,Proxy * aProxy = new Proxy());
+	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_Runnable const& arg1,AndroidCXX::java_lang_String const& arg2,long const& arg3,Proxy * aProxy = new Proxy());
+	java_lang_Thread(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
 	java_lang_Thread(const java_lang_Thread& cc);
-	java_lang_Thread(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Thread();
 	// Functions
@@ -231,6 +230,9 @@ public:
 	static void  yield() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

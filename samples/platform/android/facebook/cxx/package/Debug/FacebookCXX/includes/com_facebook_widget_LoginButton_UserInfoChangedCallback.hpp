@@ -53,8 +53,8 @@ class com_facebook_widget_LoginButton_UserInfoChangedCallback : public AndroidCX
 public:
 
 	com_facebook_widget_LoginButton_UserInfoChangedCallback(const com_facebook_widget_LoginButton_UserInfoChangedCallback& cc);
-	com_facebook_widget_LoginButton_UserInfoChangedCallback(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_LoginButton_UserInfoChangedCallback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_UserInfoChangedCallback();
 	// Functions
@@ -62,6 +62,10 @@ public:
 
 protected:
 	com_facebook_widget_LoginButton_UserInfoChangedCallback();
+	void setCXXCallbackPtr(void * callbackPtr);
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -60,10 +60,10 @@ class com_facebook_Session_TokenRefreshRequest : public AndroidCXX::android_cont
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_Session_TokenRefreshRequest(const com_facebook_Session_TokenRefreshRequest& cc);
-	com_facebook_Session_TokenRefreshRequest(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Session_TokenRefreshRequest(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_TokenRefreshRequest();
 	// Functions
@@ -72,6 +72,9 @@ public:
 	virtual void  onServiceDisconnected(AndroidCXX::android_content_ComponentName const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

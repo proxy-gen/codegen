@@ -48,15 +48,18 @@ class com_facebook_Session_SerializationProxyV1 : public AndroidCXX::java_io_Ser
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_Session_SerializationProxyV1(const com_facebook_Session_SerializationProxyV1& cc);
-	com_facebook_Session_SerializationProxyV1(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Session_SerializationProxyV1(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_SerializationProxyV1();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

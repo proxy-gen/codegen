@@ -55,8 +55,8 @@ class android_widget_SectionIndexer : public AndroidCXX::java_lang_Object
 public:
 
 	android_widget_SectionIndexer(const android_widget_SectionIndexer& cc);
-	android_widget_SectionIndexer(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SectionIndexer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SectionIndexer();
 	// Functions
@@ -66,6 +66,9 @@ public:
 
 protected:
 	android_widget_SectionIndexer();
+
+private:
+	Proxy * _proxy;
 
 };	
 

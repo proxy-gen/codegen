@@ -54,8 +54,8 @@ class android_database_sqlite_SQLiteClosable : public AndroidCXX::java_io_Closea
 public:
 
 	android_database_sqlite_SQLiteClosable(const android_database_sqlite_SQLiteClosable& cc);
-	android_database_sqlite_SQLiteClosable(Proxy proxy);
-	Proxy proxy() const;	
+	android_database_sqlite_SQLiteClosable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteClosable();
 	// Functions
@@ -66,6 +66,9 @@ public:
 
 protected:
 	android_database_sqlite_SQLiteClosable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

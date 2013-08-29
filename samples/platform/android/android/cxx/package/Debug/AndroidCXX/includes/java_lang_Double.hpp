@@ -92,12 +92,12 @@ class java_lang_Double : public AndroidCXX::java_lang_Comparable
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_Double(double const& arg0);
-	java_lang_Double(AndroidCXX::java_lang_String const& arg0);
+	// Public Constructor
+	java_lang_Double(double const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_Double(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	java_lang_Double(const java_lang_Double& cc);
-	java_lang_Double(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Double(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Double();
 	// Functions
@@ -126,6 +126,9 @@ public:
 	static AndroidCXX::java_lang_Double * valueOf(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

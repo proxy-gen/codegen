@@ -53,8 +53,8 @@ class android_database_DatabaseErrorHandler : public AndroidCXX::java_lang_Objec
 public:
 
 	android_database_DatabaseErrorHandler(const android_database_DatabaseErrorHandler& cc);
-	android_database_DatabaseErrorHandler(Proxy proxy);
-	Proxy proxy() const;	
+	android_database_DatabaseErrorHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_database_DatabaseErrorHandler();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_database_DatabaseErrorHandler();
+
+private:
+	Proxy * _proxy;
 
 };	
 

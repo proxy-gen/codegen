@@ -93,13 +93,13 @@ class android_widget_RelativeLayout : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_RelativeLayout(AndroidCXX::android_content_Context const& arg0);
-	android_widget_RelativeLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_RelativeLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	// Public Constructor
+	android_widget_RelativeLayout(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_RelativeLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_RelativeLayout(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_RelativeLayout(const android_widget_RelativeLayout& cc);
-	android_widget_RelativeLayout(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_RelativeLayout(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RelativeLayout();
 	// Functions
@@ -117,6 +117,9 @@ public:
 	virtual bool  shouldDelayChildPressedState() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

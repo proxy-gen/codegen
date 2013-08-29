@@ -74,8 +74,8 @@ class android_widget_BaseAdapter : public AndroidCXX::android_widget_ListAdapter
 public:
 
 	android_widget_BaseAdapter(const android_widget_BaseAdapter& cc);
-	android_widget_BaseAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_BaseAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_BaseAdapter();
 	// Functions
@@ -93,6 +93,9 @@ public:
 
 protected:
 	android_widget_BaseAdapter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -84,11 +84,11 @@ class android_widget_PopupMenu
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_PopupMenu(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_View const& arg1);
+	// Public Constructor
+	android_widget_PopupMenu(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_View const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_PopupMenu(const android_widget_PopupMenu& cc);
-	android_widget_PopupMenu(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_PopupMenu(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_PopupMenu();
 	// Functions
@@ -101,6 +101,9 @@ public:
 	virtual void  show() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

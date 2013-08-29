@@ -89,8 +89,8 @@ class java_nio_channels_SocketChannel : public AndroidCXX::java_nio_channels_Byt
 public:
 
 	java_nio_channels_SocketChannel(const java_nio_channels_SocketChannel& cc);
-	java_nio_channels_SocketChannel(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_SocketChannel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_SocketChannel();
 	// Functions
@@ -111,6 +111,9 @@ public:
 
 protected:
 	java_nio_channels_SocketChannel();
+
+private:
+	Proxy * _proxy;
 
 };	
 

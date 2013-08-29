@@ -56,8 +56,8 @@ class android_content_SharedPreferences_OnSharedPreferenceChangeListener : publi
 public:
 
 	android_content_SharedPreferences_OnSharedPreferenceChangeListener(const android_content_SharedPreferences_OnSharedPreferenceChangeListener& cc);
-	android_content_SharedPreferences_OnSharedPreferenceChangeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_SharedPreferences_OnSharedPreferenceChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_SharedPreferences_OnSharedPreferenceChangeListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_content_SharedPreferences_OnSharedPreferenceChangeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

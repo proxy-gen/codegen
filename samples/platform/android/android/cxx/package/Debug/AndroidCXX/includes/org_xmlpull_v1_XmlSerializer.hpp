@@ -121,8 +121,8 @@ class org_xmlpull_v1_XmlSerializer : public AndroidCXX::java_lang_Object
 public:
 
 	org_xmlpull_v1_XmlSerializer(const org_xmlpull_v1_XmlSerializer& cc);
-	org_xmlpull_v1_XmlSerializer(Proxy proxy);
-	Proxy proxy() const;	
+	org_xmlpull_v1_XmlSerializer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~org_xmlpull_v1_XmlSerializer();
 	// Functions
@@ -154,6 +154,9 @@ public:
 
 protected:
 	org_xmlpull_v1_XmlSerializer();
+
+private:
+	Proxy * _proxy;
 
 };	
 

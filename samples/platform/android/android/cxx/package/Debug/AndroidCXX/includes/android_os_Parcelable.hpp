@@ -54,8 +54,8 @@ class android_os_Parcelable : public AndroidCXX::java_lang_Object
 public:
 
 	android_os_Parcelable(const android_os_Parcelable& cc);
-	android_os_Parcelable(Proxy proxy);
-	Proxy proxy() const;	
+	android_os_Parcelable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Parcelable();
 	// Functions
@@ -64,6 +64,9 @@ public:
 
 protected:
 	android_os_Parcelable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -81,13 +81,13 @@ class com_facebook_widget_ProfilePictureView : public AndroidCXX::java_lang_Obje
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0);
-	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	// Public Constructor
+	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	com_facebook_widget_ProfilePictureView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	com_facebook_widget_ProfilePictureView(const com_facebook_widget_ProfilePictureView& cc);
-	com_facebook_widget_ProfilePictureView(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_ProfilePictureView(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ProfilePictureView();
 	// Functions
@@ -101,6 +101,9 @@ public:
 	virtual void  setProfileId(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

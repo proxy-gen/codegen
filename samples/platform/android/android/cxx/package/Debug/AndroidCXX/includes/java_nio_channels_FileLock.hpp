@@ -61,8 +61,8 @@ class java_nio_channels_FileLock
 public:
 
 	java_nio_channels_FileLock(const java_nio_channels_FileLock& cc);
-	java_nio_channels_FileLock(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_FileLock(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_FileLock();
 	// Functions
@@ -77,6 +77,9 @@ public:
 
 protected:
 	java_nio_channels_FileLock();
+
+private:
+	Proxy * _proxy;
 
 };	
 

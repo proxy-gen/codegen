@@ -247,26 +247,26 @@ class java_math_BigDecimal : public AndroidCXX::java_lang_Comparable
 {
 public:
 
-	// Public ConstrucXXX
-	java_math_BigDecimal(std::vector<char> const& arg0);
-	java_math_BigDecimal(std::vector<char> const& arg0,int const& arg1,int const& arg2);
-	java_math_BigDecimal(std::vector<char> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_math_MathContext const& arg3);
-	java_math_BigDecimal(std::vector<char> const& arg0,AndroidCXX::java_math_MathContext const& arg1);
-	java_math_BigDecimal(double const& arg0);
-	java_math_BigDecimal(double const& arg0,AndroidCXX::java_math_MathContext const& arg1);
-	java_math_BigDecimal(int const& arg0);
-	java_math_BigDecimal(int const& arg0,AndroidCXX::java_math_MathContext const& arg1);
-	java_math_BigDecimal(AndroidCXX::java_lang_String const& arg0);
-	java_math_BigDecimal(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_math_MathContext const& arg1);
-	java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0);
-	java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,int const& arg1);
-	java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,int const& arg1,AndroidCXX::java_math_MathContext const& arg2);
-	java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,AndroidCXX::java_math_MathContext const& arg1);
-	java_math_BigDecimal(long const& arg0);
-	java_math_BigDecimal(long const& arg0,AndroidCXX::java_math_MathContext const& arg1);
+	// Public Constructor
+	java_math_BigDecimal(std::vector<char> const& arg0,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(std::vector<char> const& arg0,int const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(std::vector<char> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_math_MathContext const& arg3,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(std::vector<char> const& arg0,AndroidCXX::java_math_MathContext const& arg1,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(double const& arg0,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(double const& arg0,AndroidCXX::java_math_MathContext const& arg1,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(int const& arg0,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(int const& arg0,AndroidCXX::java_math_MathContext const& arg1,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_math_MathContext const& arg1,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,int const& arg1,AndroidCXX::java_math_MathContext const& arg2,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(AndroidCXX::java_math_BigInteger const& arg0,AndroidCXX::java_math_MathContext const& arg1,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(long const& arg0,Proxy * aProxy = new Proxy());
+	java_math_BigDecimal(long const& arg0,AndroidCXX::java_math_MathContext const& arg1,Proxy * aProxy = new Proxy());
 	java_math_BigDecimal(const java_math_BigDecimal& cc);
-	java_math_BigDecimal(Proxy proxy);
-	Proxy proxy() const;	
+	java_math_BigDecimal(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_math_BigDecimal();
 	// Functions
@@ -332,6 +332,9 @@ public:
 	static AndroidCXX::java_math_BigDecimal * valueOf(long const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

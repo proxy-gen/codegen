@@ -55,8 +55,8 @@ class android_view_InputQueue_Callback : public AndroidCXX::java_lang_Object
 public:
 
 	android_view_InputQueue_Callback(const android_view_InputQueue_Callback& cc);
-	android_view_InputQueue_Callback(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_InputQueue_Callback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_InputQueue_Callback();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_view_InputQueue_Callback();
+
+private:
+	Proxy * _proxy;
 
 };	
 

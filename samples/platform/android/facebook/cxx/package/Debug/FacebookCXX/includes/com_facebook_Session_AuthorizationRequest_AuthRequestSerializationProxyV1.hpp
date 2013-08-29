@@ -48,15 +48,18 @@ class com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1 
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1(const com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1& cc);
-	com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_AuthorizationRequest_AuthRequestSerializationProxyV1();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

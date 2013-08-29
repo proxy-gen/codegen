@@ -48,15 +48,18 @@ class com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler : public And
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler(const com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler& cc);
-	com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

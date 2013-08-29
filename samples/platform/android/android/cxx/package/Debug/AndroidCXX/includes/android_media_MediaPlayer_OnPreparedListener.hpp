@@ -53,8 +53,8 @@ class android_media_MediaPlayer_OnPreparedListener : public AndroidCXX::java_lan
 public:
 
 	android_media_MediaPlayer_OnPreparedListener(const android_media_MediaPlayer_OnPreparedListener& cc);
-	android_media_MediaPlayer_OnPreparedListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_media_MediaPlayer_OnPreparedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnPreparedListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_media_MediaPlayer_OnPreparedListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

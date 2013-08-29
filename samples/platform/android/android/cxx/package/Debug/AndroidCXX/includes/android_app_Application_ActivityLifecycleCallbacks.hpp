@@ -69,8 +69,8 @@ class android_app_Application_ActivityLifecycleCallbacks : public AndroidCXX::ja
 public:
 
 	android_app_Application_ActivityLifecycleCallbacks(const android_app_Application_ActivityLifecycleCallbacks& cc);
-	android_app_Application_ActivityLifecycleCallbacks(Proxy proxy);
-	Proxy proxy() const;	
+	android_app_Application_ActivityLifecycleCallbacks(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_Application_ActivityLifecycleCallbacks();
 	// Functions
@@ -84,6 +84,9 @@ public:
 
 protected:
 	android_app_Application_ActivityLifecycleCallbacks();
+
+private:
+	Proxy * _proxy;
 
 };	
 

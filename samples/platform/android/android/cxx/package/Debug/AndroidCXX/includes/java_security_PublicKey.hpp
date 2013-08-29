@@ -49,14 +49,17 @@ class java_security_PublicKey : public AndroidCXX::java_security_Key
 public:
 
 	java_security_PublicKey(const java_security_PublicKey& cc);
-	java_security_PublicKey(Proxy proxy);
-	Proxy proxy() const;	
+	java_security_PublicKey(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_PublicKey();
 	// Functions
 
 protected:
 	java_security_PublicKey();
+
+private:
+	Proxy * _proxy;
 
 };	
 

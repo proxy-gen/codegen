@@ -119,14 +119,14 @@ class android_content_ComponentName : public AndroidCXX::android_os_Parcelable,p
 {
 public:
 
-	// Public ConstrucXXX
-	android_content_ComponentName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1);
-	android_content_ComponentName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
-	android_content_ComponentName(AndroidCXX::android_os_Parcel const& arg0);
-	android_content_ComponentName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
+	// Public Constructor
+	android_content_ComponentName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_Class const& arg1,Proxy * aProxy = new Proxy());
+	android_content_ComponentName(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
+	android_content_ComponentName(AndroidCXX::android_os_Parcel const& arg0,Proxy * aProxy = new Proxy());
+	android_content_ComponentName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
 	android_content_ComponentName(const android_content_ComponentName& cc);
-	android_content_ComponentName(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_ComponentName(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ComponentName();
 	// Functions
@@ -148,6 +148,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

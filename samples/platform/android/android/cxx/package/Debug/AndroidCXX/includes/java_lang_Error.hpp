@@ -64,19 +64,21 @@ class java_lang_Error : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_Error();
-	java_lang_Error(AndroidCXX::java_lang_String const& arg0);
-	java_lang_Error(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
-	java_lang_Error(AndroidCXX::java_lang_Throwable const& arg0);
+	// Public Constructor
+	java_lang_Error(Proxy * aProxy = new Proxy());
+	java_lang_Error(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_Error(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1,Proxy * aProxy = new Proxy());
+	java_lang_Error(AndroidCXX::java_lang_Throwable const& arg0,Proxy * aProxy = new Proxy());
 	java_lang_Error(const java_lang_Error& cc);
-	java_lang_Error(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Error();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -92,12 +92,12 @@ class java_security_CodeSource : public AndroidCXX::java_io_Serializable
 {
 public:
 
-	// Public ConstrucXXX
-	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_CodeSigner> const& arg1);
-	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_cert_Certificate> const& arg1);
+	// Public Constructor
+	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_CodeSigner> const& arg1,Proxy * aProxy = new Proxy());
+	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_cert_Certificate> const& arg1,Proxy * aProxy = new Proxy());
 	java_security_CodeSource(const java_security_CodeSource& cc);
-	java_security_CodeSource(Proxy proxy);
-	Proxy proxy() const;	
+	java_security_CodeSource(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_CodeSource();
 	// Functions
@@ -110,6 +110,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -70,8 +70,8 @@ class android_view_ContextMenu : public AndroidCXX::android_view_Menu
 public:
 
 	android_view_ContextMenu(const android_view_ContextMenu& cc);
-	android_view_ContextMenu(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ContextMenu(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ContextMenu();
 	// Functions
@@ -84,6 +84,9 @@ public:
 
 protected:
 	android_view_ContextMenu();
+
+private:
+	Proxy * _proxy;
 
 };	
 

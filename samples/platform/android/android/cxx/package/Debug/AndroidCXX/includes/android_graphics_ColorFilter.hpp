@@ -47,16 +47,18 @@ class android_graphics_ColorFilter
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_ColorFilter();
+	// Public Constructor
+	android_graphics_ColorFilter(Proxy * aProxy = new Proxy());
 	android_graphics_ColorFilter(const android_graphics_ColorFilter& cc);
-	android_graphics_ColorFilter(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_ColorFilter();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -53,8 +53,8 @@ class android_media_MediaPlayer_OnSeekCompleteListener : public AndroidCXX::java
 public:
 
 	android_media_MediaPlayer_OnSeekCompleteListener(const android_media_MediaPlayer_OnSeekCompleteListener& cc);
-	android_media_MediaPlayer_OnSeekCompleteListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_media_MediaPlayer_OnSeekCompleteListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnSeekCompleteListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_media_MediaPlayer_OnSeekCompleteListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

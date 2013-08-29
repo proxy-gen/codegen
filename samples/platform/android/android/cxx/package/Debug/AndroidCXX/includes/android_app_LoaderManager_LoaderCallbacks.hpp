@@ -68,8 +68,8 @@ class android_app_LoaderManager_LoaderCallbacks : public AndroidCXX::java_lang_O
 public:
 
 	android_app_LoaderManager_LoaderCallbacks(const android_app_LoaderManager_LoaderCallbacks& cc);
-	android_app_LoaderManager_LoaderCallbacks(Proxy proxy);
-	Proxy proxy() const;	
+	android_app_LoaderManager_LoaderCallbacks(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_LoaderManager_LoaderCallbacks();
 	// Functions
@@ -79,6 +79,9 @@ public:
 
 protected:
 	android_app_LoaderManager_LoaderCallbacks();
+
+private:
+	Proxy * _proxy;
 
 };	
 

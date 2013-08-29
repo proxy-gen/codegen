@@ -98,11 +98,10 @@ class android_view_View_AccessibilityDelegate
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_View_AccessibilityDelegate();
+	// Public Constructor
+	android_view_View_AccessibilityDelegate(Proxy * aProxy = new Proxy());
 	android_view_View_AccessibilityDelegate(const android_view_View_AccessibilityDelegate& cc);
-	android_view_View_AccessibilityDelegate(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_AccessibilityDelegate();
 	// Functions
@@ -117,6 +116,9 @@ public:
 	virtual void  sendAccessibilityEventUnchecked(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -62,8 +62,8 @@ class android_content_IntentSender_OnFinished : public AndroidCXX::java_lang_Obj
 public:
 
 	android_content_IntentSender_OnFinished(const android_content_IntentSender_OnFinished& cc);
-	android_content_IntentSender_OnFinished(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_IntentSender_OnFinished(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_IntentSender_OnFinished();
 	// Functions
@@ -71,6 +71,9 @@ public:
 
 protected:
 	android_content_IntentSender_OnFinished();
+
+private:
+	Proxy * _proxy;
 
 };	
 

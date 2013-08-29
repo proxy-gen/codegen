@@ -56,8 +56,8 @@ class android_view_View_OnHoverListener : public AndroidCXX::java_lang_Object
 public:
 
 	android_view_View_OnHoverListener(const android_view_View_OnHoverListener& cc);
-	android_view_View_OnHoverListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_View_OnHoverListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnHoverListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_view_View_OnHoverListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

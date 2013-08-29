@@ -73,10 +73,10 @@ class java_util_Currency : public AndroidCXX::java_io_Serializable
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	java_util_Currency(const java_util_Currency& cc);
-	java_util_Currency(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_Currency(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Currency();
 	// Functions
@@ -89,6 +89,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

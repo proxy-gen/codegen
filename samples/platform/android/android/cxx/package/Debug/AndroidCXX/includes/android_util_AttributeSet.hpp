@@ -97,8 +97,8 @@ class android_util_AttributeSet : public AndroidCXX::java_lang_Object
 public:
 
 	android_util_AttributeSet(const android_util_AttributeSet& cc);
-	android_util_AttributeSet(Proxy proxy);
-	Proxy proxy() const;	
+	android_util_AttributeSet(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_util_AttributeSet();
 	// Functions
@@ -127,6 +127,9 @@ public:
 
 protected:
 	android_util_AttributeSet();
+
+private:
+	Proxy * _proxy;
 
 };	
 

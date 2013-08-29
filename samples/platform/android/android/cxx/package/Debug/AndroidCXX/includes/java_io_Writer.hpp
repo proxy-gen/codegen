@@ -77,8 +77,8 @@ class java_io_Writer : public AndroidCXX::java_io_Closeable,public AndroidCXX::j
 public:
 
 	java_io_Writer(const java_io_Writer& cc);
-	java_io_Writer(Proxy proxy);
-	Proxy proxy() const;	
+	java_io_Writer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_Writer();
 	// Functions
@@ -95,6 +95,9 @@ public:
 
 protected:
 	java_io_Writer();
+
+private:
+	Proxy * _proxy;
 
 };	
 

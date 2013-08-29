@@ -150,8 +150,8 @@ class android_app_ActionBar
 public:
 
 	android_app_ActionBar(const android_app_ActionBar& cc);
-	android_app_ActionBar(Proxy proxy);
-	Proxy proxy() const;	
+	android_app_ActionBar(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_ActionBar();
 	// Functions
@@ -213,6 +213,9 @@ public:
 
 protected:
 	android_app_ActionBar();
+
+private:
+	Proxy * _proxy;
 
 };	
 

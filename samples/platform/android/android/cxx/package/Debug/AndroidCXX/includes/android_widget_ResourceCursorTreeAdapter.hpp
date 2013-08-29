@@ -76,8 +76,8 @@ class android_widget_ResourceCursorTreeAdapter : public AndroidCXX::java_lang_Ob
 public:
 
 	android_widget_ResourceCursorTreeAdapter(const android_widget_ResourceCursorTreeAdapter& cc);
-	android_widget_ResourceCursorTreeAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_ResourceCursorTreeAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ResourceCursorTreeAdapter();
 	// Functions
@@ -86,6 +86,9 @@ public:
 
 protected:
 	android_widget_ResourceCursorTreeAdapter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

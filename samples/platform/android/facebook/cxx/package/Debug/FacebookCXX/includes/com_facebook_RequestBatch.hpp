@@ -106,13 +106,12 @@ class com_facebook_RequestBatch : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_RequestBatch();
-	com_facebook_RequestBatch(std::vector<FacebookCXX::com_facebook_Request> const& arg0);
-	com_facebook_RequestBatch(FacebookCXX::com_facebook_RequestBatch const& arg0);
-	com_facebook_RequestBatch(AndroidCXX::java_util_Collection const& arg0);
-	com_facebook_RequestBatch(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	com_facebook_RequestBatch(Proxy * aProxy = new Proxy());
+	com_facebook_RequestBatch(std::vector<FacebookCXX::com_facebook_Request> const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_RequestBatch(FacebookCXX::com_facebook_RequestBatch const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_RequestBatch(AndroidCXX::java_util_Collection const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_RequestBatch();
 	// Functions
@@ -131,6 +130,9 @@ public:
 	virtual int  size() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

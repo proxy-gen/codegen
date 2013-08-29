@@ -86,11 +86,11 @@ class android_view_Surface : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_Surface(AndroidCXX::android_graphics_SurfaceTexture const& arg0);
+	// Public Constructor
+	android_view_Surface(AndroidCXX::android_graphics_SurfaceTexture const& arg0,Proxy * aProxy = new Proxy());
 	android_view_Surface(const android_view_Surface& cc);
-	android_view_Surface(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_Surface(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_Surface();
 	// Functions
@@ -105,6 +105,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

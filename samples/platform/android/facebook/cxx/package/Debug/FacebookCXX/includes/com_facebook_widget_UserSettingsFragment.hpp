@@ -120,11 +120,10 @@ class com_facebook_widget_UserSettingsFragment : public AndroidCXX::java_lang_Ob
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_widget_UserSettingsFragment();
+	// Public Constructor
+	com_facebook_widget_UserSettingsFragment(Proxy * aProxy = new Proxy());
 	com_facebook_widget_UserSettingsFragment(const com_facebook_widget_UserSettingsFragment& cc);
-	com_facebook_widget_UserSettingsFragment(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_UserSettingsFragment();
 	// Functions
@@ -145,6 +144,9 @@ public:
 	virtual void  setSessionStatusCallback(FacebookCXX::com_facebook_Session_StatusCallback const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

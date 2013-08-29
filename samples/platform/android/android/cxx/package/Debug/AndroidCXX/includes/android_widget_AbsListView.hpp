@@ -251,8 +251,8 @@ class android_widget_AbsListView : public AndroidCXX::android_text_TextWatcher,p
 public:
 
 	android_widget_AbsListView(const android_widget_AbsListView& cc);
-	android_widget_AbsListView(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AbsListView(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsListView();
 	// Functions
@@ -352,6 +352,9 @@ public:
 
 protected:
 	android_widget_AbsListView();
+
+private:
+	Proxy * _proxy;
 
 };	
 

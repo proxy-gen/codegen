@@ -59,8 +59,8 @@ class android_widget_AdapterView_OnItemClickListener : public AndroidCXX::java_l
 public:
 
 	android_widget_AdapterView_OnItemClickListener(const android_widget_AdapterView_OnItemClickListener& cc);
-	android_widget_AdapterView_OnItemClickListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AdapterView_OnItemClickListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterView_OnItemClickListener();
 	// Functions
@@ -68,6 +68,9 @@ public:
 
 protected:
 	android_widget_AdapterView_OnItemClickListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

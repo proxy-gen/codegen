@@ -56,8 +56,8 @@ class java_io_FilenameFilter : public AndroidCXX::java_lang_Object
 public:
 
 	java_io_FilenameFilter(const java_io_FilenameFilter& cc);
-	java_io_FilenameFilter(Proxy proxy);
-	Proxy proxy() const;	
+	java_io_FilenameFilter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FilenameFilter();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	java_io_FilenameFilter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -51,10 +51,10 @@ class com_facebook_widget_WorkQueue_WorkNode : public FacebookCXX::com_facebook_
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_WorkQueue_WorkNode(const com_facebook_widget_WorkQueue_WorkNode& cc);
-	com_facebook_widget_WorkQueue_WorkNode(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_WorkQueue_WorkNode(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WorkQueue_WorkNode();
 	// Functions
@@ -63,6 +63,9 @@ public:
 	virtual void  moveToFront() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

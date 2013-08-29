@@ -47,16 +47,18 @@ class android_graphics_Rasterizer
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_Rasterizer();
+	// Public Constructor
+	android_graphics_Rasterizer(Proxy * aProxy = new Proxy());
 	android_graphics_Rasterizer(const android_graphics_Rasterizer& cc);
-	android_graphics_Rasterizer(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Rasterizer();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

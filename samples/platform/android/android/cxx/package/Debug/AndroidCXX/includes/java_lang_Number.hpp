@@ -56,8 +56,8 @@ class java_lang_Number : public AndroidCXX::java_io_Serializable
 public:
 
 	java_lang_Number(const java_lang_Number& cc);
-	java_lang_Number(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Number(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Number();
 	// Functions
@@ -70,6 +70,9 @@ public:
 
 protected:
 	java_lang_Number();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -58,8 +58,8 @@ class android_widget_SimpleAdapter_ViewBinder : public AndroidCXX::java_lang_Obj
 public:
 
 	android_widget_SimpleAdapter_ViewBinder(const android_widget_SimpleAdapter_ViewBinder& cc);
-	android_widget_SimpleAdapter_ViewBinder(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SimpleAdapter_ViewBinder(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SimpleAdapter_ViewBinder();
 	// Functions
@@ -67,6 +67,9 @@ public:
 
 protected:
 	android_widget_SimpleAdapter_ViewBinder();
+
+private:
+	Proxy * _proxy;
 
 };	
 

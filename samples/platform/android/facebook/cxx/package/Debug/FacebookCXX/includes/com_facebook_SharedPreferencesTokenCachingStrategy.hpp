@@ -67,12 +67,12 @@ class com_facebook_SharedPreferencesTokenCachingStrategy : public AndroidCXX::ja
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context const& arg0);
-	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1);
+	// Public Constructor
+	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
 	com_facebook_SharedPreferencesTokenCachingStrategy(const com_facebook_SharedPreferencesTokenCachingStrategy& cc);
-	com_facebook_SharedPreferencesTokenCachingStrategy(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_SharedPreferencesTokenCachingStrategy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_SharedPreferencesTokenCachingStrategy();
 	// Functions
@@ -81,6 +81,9 @@ public:
 	virtual void  save(AndroidCXX::android_os_Bundle const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

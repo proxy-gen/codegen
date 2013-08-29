@@ -85,8 +85,8 @@ class android_view_ActionMode
 public:
 
 	android_view_ActionMode(const android_view_ActionMode& cc);
-	android_view_ActionMode(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ActionMode(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ActionMode();
 	// Functions
@@ -110,6 +110,9 @@ public:
 
 protected:
 	android_view_ActionMode();
+
+private:
+	Proxy * _proxy;
 
 };	
 

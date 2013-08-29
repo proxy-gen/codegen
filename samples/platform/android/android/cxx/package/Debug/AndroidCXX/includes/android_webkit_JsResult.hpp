@@ -48,10 +48,10 @@ class android_webkit_JsResult
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_webkit_JsResult(const android_webkit_JsResult& cc);
-	android_webkit_JsResult(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_JsResult(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_JsResult();
 	// Functions
@@ -59,6 +59,9 @@ public:
 	virtual void  confirm() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -115,8 +115,8 @@ class java_nio_charset_Charset : public AndroidCXX::java_lang_Comparable
 public:
 
 	java_nio_charset_Charset(const java_nio_charset_Charset& cc);
-	java_nio_charset_Charset(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_charset_Charset(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_Charset();
 	// Functions
@@ -143,6 +143,9 @@ public:
 
 protected:
 	java_nio_charset_Charset();
+
+private:
+	Proxy * _proxy;
 
 };	
 

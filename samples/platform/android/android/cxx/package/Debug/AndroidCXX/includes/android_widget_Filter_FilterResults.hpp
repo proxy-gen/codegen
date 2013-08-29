@@ -47,16 +47,18 @@ class android_widget_Filter_FilterResults
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_Filter_FilterResults();
+	// Public Constructor
+	android_widget_Filter_FilterResults(Proxy * aProxy = new Proxy());
 	android_widget_Filter_FilterResults(const android_widget_Filter_FilterResults& cc);
-	android_widget_Filter_FilterResults(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Filter_FilterResults();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

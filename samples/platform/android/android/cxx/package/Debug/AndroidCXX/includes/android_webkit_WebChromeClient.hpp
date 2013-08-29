@@ -166,11 +166,10 @@ class android_webkit_WebChromeClient
 {
 public:
 
-	// Public ConstrucXXX
-	android_webkit_WebChromeClient();
+	// Public Constructor
+	android_webkit_WebChromeClient(Proxy * aProxy = new Proxy());
 	android_webkit_WebChromeClient(const android_webkit_WebChromeClient& cc);
-	android_webkit_WebChromeClient(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebChromeClient();
 	// Functions
@@ -200,6 +199,9 @@ public:
 	virtual void  onShowCustomView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_webkit_WebChromeClient_CustomViewCallback const& arg2) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

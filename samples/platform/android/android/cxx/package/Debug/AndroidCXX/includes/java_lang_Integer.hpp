@@ -118,12 +118,12 @@ class java_lang_Integer : public AndroidCXX::java_lang_Comparable
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_Integer(int const& arg0);
-	java_lang_Integer(AndroidCXX::java_lang_String const& arg0);
+	// Public Constructor
+	java_lang_Integer(int const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_Integer(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	java_lang_Integer(const java_lang_Integer& cc);
-	java_lang_Integer(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Integer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Integer();
 	// Functions
@@ -163,6 +163,9 @@ public:
 	static AndroidCXX::java_lang_Integer * valueOf(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

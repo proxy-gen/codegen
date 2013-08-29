@@ -115,8 +115,8 @@ class android_view_ViewParent : public AndroidCXX::java_lang_Object
 public:
 
 	android_view_ViewParent(const android_view_ViewParent& cc);
-	android_view_ViewParent(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ViewParent(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewParent();
 	// Functions
@@ -145,6 +145,9 @@ public:
 
 protected:
 	android_view_ViewParent();
+
+private:
+	Proxy * _proxy;
 
 };	
 

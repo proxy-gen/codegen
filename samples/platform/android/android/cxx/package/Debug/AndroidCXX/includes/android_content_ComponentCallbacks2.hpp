@@ -50,8 +50,8 @@ class android_content_ComponentCallbacks2 : public AndroidCXX::android_content_C
 public:
 
 	android_content_ComponentCallbacks2(const android_content_ComponentCallbacks2& cc);
-	android_content_ComponentCallbacks2(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_ComponentCallbacks2(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ComponentCallbacks2();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_content_ComponentCallbacks2();
+
+private:
+	Proxy * _proxy;
 
 };	
 

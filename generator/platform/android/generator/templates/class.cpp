@@ -41,13 +41,16 @@
 #set $include_headers = $CONFIG.include_headers
 #set $safe_package_name = Utils.to_safe_jni_name($package)
 #set $safe_class_name = Utils.to_safe_jni_name($entity_class_name)
-#set $entity_marker = $entity_class_info['isinterface'] or $entity_class_info['isabstract'] or $entity_class_info['typename'] == 'java_lang_Object'
-#set $entity_virtual = $entity_marker or '_callback' in $entity_class_config['tags']
+#set $entity_interface = $entity_class_info['isinterface']
+#set $entity_abstract = $entity_class_info['isabstract']
+#set $entity_object = $entity_class_info['typename'] == 'java_lang_Object' 
+#set $entity_virtual = $entity_interface or $entity_abstract or $entity_object
+#set $entity_callback = '_callback' in $entity_class_config['tags']
 #set $superclass_typeinfos = $entity_class_info['superclasses'] if 'superclasses' in $entity_class_info else None
 
 #set $superclassCCStr = ""
 #set $superclassProxyStr = "" 
-#set $superclassDefaultStr = ""  
+#set $superclassDefaultStr = ""
 #if $superclass_typeinfos is not None
 #set $superclassIdx = 0
 #set $superclassCCStr = $COLON
@@ -62,7 +65,7 @@
 #set $superclassDefaultStr = $superclassDefaultStr + COMMA
 #end if
 #set $superclassCCStr = $superclassCCStr + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename'] + '(cc)'
-#set $superclassProxyStr = $superclassProxyStr + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename'] + '(proxy)'
+#set $superclassProxyStr = $superclassProxyStr + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename'] + '(aProxy)'
 #set $superclassDefaultStr = $superclassDefaultStr + SPACE + $superclass_typeinfo['namespace'] + $DOUBLE_COLON + $superclass_typeinfo['typename'] + '()' 
 #end if
 #set $superclassIdx = $superclassIdx + 1
@@ -164,6 +167,10 @@
  	$child_type_stack.extend($param['children'])
  	#end if
 #end for
+#if $param_idx > 0
+ 	#set $param_str = $param_str + $COMMA 
+#end if
+#set $param_str = $param_str + "Proxy * aProxy"
 #set $constructor['param_str'] = $param_str
 #while $len(child_type_stack) > 0
  	#set $current_child_type = $child_type_stack.pop()
@@ -178,7 +185,8 @@
 #set $constructor['proxied_typeinfo_list'] = $proxied_typeinfo_list
 #end for
 
-#set $no_copy_constructor = True if $entity_class_info['no_copy_constructor'] else False
+#set $no_copy_constructor = $entity_class_info['no_copy_constructor'] or $entity_virtual
+#set $no_default_constructor = $entity_class_info['no_default_constructor'] or $entity_virtual
 
 #set $proxied_typeinfos = list()
 
@@ -196,8 +204,9 @@ $proxied_typeinfos.extend(constructor['proxied_typeinfo_list'])
 \#include <$entity_callback_file_name>
 #end if
 \#include <$entity_head_file_name>
+\#include <android/log.h>
+\#include <pthread.h>
 \#include <jni.h>
-\#include <CXXContext.hpp>
 \#include <JNIContext.hpp>
 \#include <CXXConverter.hpp>
 \#include <${package}Converter.hpp>
@@ -221,9 +230,6 @@ using namespace ${namespace};
 // #end if
 // #end for
 
-static long static_obj;
-static long static_address = (long) &static_obj;
-
 #if '_callback' in $entity_class_config['tags']
 #set $callback_functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_callback','_proxy'],function_xtags=None,function_name=None)	
 // JNI callbacks
@@ -233,15 +239,20 @@ $function['jni_retrn_type'] Java_${safe_package_name}_${safe_class_name}_${safe_
 {
 	LOGV("$function['jni_retrn_type'] $Utils.to_safe_cxx_name(function['name'])(JNIEnv *env, jobject objectRef$function['jni_param_str']) enter");
 
-	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
+
+	const char *className = "$class_jnidata['jnisignature']";
+	const char *methodName = "getCXXCallbackPtr";
+	const char *methodSignature = "()L";
 
 	jobject javaObject = objectRef;
 	LOGV("callback javaObject address %ld", (long) javaObject);
 
-	long contextAddress = ctx->findProxiedComponent(javaObject);
-	LOGV("contextAddress for ${entity_class_name} %ld", contextAddress);
-	${entity_class_name} *callback = (${entity_class_name} *) reinterpret_cast<${entity_class_name} *>(contextAddress);
+	jlong jcallbackAddress = (jlong) jni->invokeLongMethod(javaObject,className,methodName,methodSignature);
+	long callbackAddress = (long) jcallbackAddress;
+
+	LOGV("callbackAddress for ${entity_class_name} %ld", callbackAddress);
+	${entity_class_name} *callback = (${entity_class_name} *) reinterpret_cast<${entity_class_name} *>(callbackAddress);
 
 	long cxx_value = (long) 0;
 	long java_value = (long) 0;
@@ -399,90 +410,82 @@ $function['jni_retrn_type'] Java_${safe_package_name}_${safe_class_name}_${safe_
 }
 #end for
 #end if
-#if $entity_virtual
-#if not '_static' in $entity_class_config['tags']
-${entity_class_name}::${entity_class_name}()
+#if $entity_virtual or $entity_callback
+${entity_class_name}::${entity_class_name}() $superclassDefaultStr
 {
-	LOGV("${entity_class_name}::${entity_class_name}() is a no-op");
+	LOGV("${entity_class_name}::${entity_class_name}() enter");	
+	jobject proxiedComponent = 0;
+
+	#if $entity_callback or $entity_object
+	const char *methodName = "<init>";
+	const char *methodSignature = "()V";
+	const char *className = "$class_jnidata['jnisignature']";
+
+	LOGV("${entity_class_name} className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	jni->pushLocalFrame();
+
+	#set methodvararg = ""
+		
+	jclass clazz = jni->getClassRef(className);
+
+	proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature)$methodvararg);
+	proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+	jni->popLocalFrame();
+	#end if
+
+	this->_proxy = new Proxy();
+	this->_proxy->address = (long) proxiedComponent;
+	this->_proxy->refcount = 1;
+
+	LOGV("${entity_class_name}::${entity_class_name}() exit");	
 }
 #end if
-#end if
+
 #if not '_static' in $entity_class_config['tags']
 #if $no_copy_constructor
 ${entity_class_name}::${entity_class_name}(const ${entity_class_name}& cc) $superclassCCStr
 {
 	LOGV("${entity_class_name}::${entity_class_name}(const ${entity_class_name}& cc) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long ccaddress = (long) &cc;
-	LOGV("registerProxyComponent ccaddress %ld", ccaddress);
-	jobject proxiedCCComponent = ctx->findProxyComponent(ccaddress);
-	LOGV("registerProxyComponent proxiedCCComponent %ld", (long) proxiedCCComponent);
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %ld", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		proxiedComponent = proxiedCCComponent;
-		LOGV("registerProxyComponent registering proxied component %ld using %ld", proxiedComponent, address);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
+	this->_proxy = cc.proxy();
+	pthread_mutex_lock(&this->_proxy->mutex);
+	this->_proxy->refcount++;
+	pthread_mutex_unlock(&this->_proxy->mutex);
 	LOGV("${entity_class_name}::${entity_class_name}(const ${entity_class_name}& cc) exit");
 }
 #end if
 #end if
+
 #if not '_static' in $entity_class_config['tags']
-${entity_class_name}::${entity_class_name}(Proxy proxy) $superclassProxyStr
+#if $no_default_constructor
+${entity_class_name}::${entity_class_name}(Proxy * aProxy) $superclassProxyStr
 {
 	LOGV("${entity_class_name}::${entity_class_name}(Proxy proxy) enter");
-
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long address = (long) this;
-	LOGV("registerProxyComponent address %ld", address);
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	LOGV("registerProxyComponent proxiedComponent %ld", proxiedComponent);
-	if (proxiedComponent == 0)
-	{
-		JNIContext *jni = JNIContext::sharedInstance();
-		// ensure local ref
-		jobject proxyref = jni->newLocalRef((jobject) proxy.address);
-		proxiedComponent = jni->localToGlobalRef(proxyref);
-		ctx->registerProxyComponent(address, proxiedComponent);
-	}
-
+	this->_proxy = aProxy;
+	pthread_mutex_lock(&this->_proxy->mutex);
+	this->_proxy->refcount++;
+	pthread_mutex_unlock(&this->_proxy->mutex);
 	LOGV("${entity_class_name}::${entity_class_name}(Proxy proxy) exit");
 }
 #end if
+#end if
 #if not '_static' in $entity_class_config['tags']
-Proxy ${entity_class_name}::proxy() const
+Proxy * ${entity_class_name}::proxy() const
 {	
-	LOGV("${entity_class_name}::proxy() enter");	
-	CXXContext *ctx = CXXContext::sharedInstance();
-
-	long cxxAddress = (long) this;
-	LOGV("${entity_class_name} cxx address %ld", cxxAddress);
-	long proxiedComponent = (long) ctx->findProxyComponent(cxxAddress);
-	LOGV("${entity_class_name} jni address %ld", proxiedComponent);
-
-	Proxy proxy;
-	proxy.address = proxiedComponent;	
-
-	LOGV("${entity_class_name}::proxy() exit");	
-
-	return proxy;
+	return this->_proxy;
 }
 #end if
 #if not $entity_virtual
 #if not '_static' in $entity_class_config['tags']
 // Public Constructors
 #for $constructor in $constructors
-${entity_class_name}::${entity_class_name}($constructor['param_str']) $superclassDefaultStr
+${entity_class_name}::${entity_class_name}($constructor['param_str']) $superclassProxyStr
 {
 	LOGV("${entity_class_name}::${entity_class_name}($constructor['param_str']) enter");	
-
+	jobject proxiedComponent = 0;
 	#set $cons_jnidata = $constructor['deriveddata']['jnidata']
 	const char *methodName = "<init>";
 	const char *methodSignature = "$cons_jnidata['jnisignature']";
@@ -490,94 +493,88 @@ ${entity_class_name}::${entity_class_name}($constructor['param_str']) $superclas
 
 	LOGV("${entity_class_name} className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
 	jni->pushLocalFrame();
 
-	long cxxAddress = (long) this;
-	LOGV("${entity_class_name} cxx address %ld", cxxAddress);
-	jobject proxiedComponent = ctx->findProxyComponent(cxxAddress);
-	LOGV("${entity_class_name} jni address %ld", proxiedComponent);
-
-	if (proxiedComponent == 0)
+	#set methodvararg = ""
+	#set $param_idx = 0
+	#for $param in $constructor['params']
+	#set $arg = "arg" + str($param_idx)
+	#set $jarg = "jarg" + str($param_idx)
+	#set $param_jnidata = $param['deriveddata']['jnidata']
+	#set $param_typeinfo = $param['deriveddata']['targetdata']['typeinfo']
+	#set $isenum = $param_typeinfo['isenum'] == True
+	#set $isproxied = 'isproxied' in $param_typeinfo
+	$param_jnidata['jnitypename'] $jarg;
 	{
+		long cxx_value = (long) & $arg;
+		long java_value = 0;
 
-		#set methodvararg = ""
-		#set $param_idx = 0
-		#for $param in $constructor['params']
-		#set $arg = "arg" + str($param_idx)
-		#set $jarg = "jarg" + str($param_idx)
-		#set $param_jnidata = $param['deriveddata']['jnidata']
-		#set $param_typeinfo = $param['deriveddata']['targetdata']['typeinfo']
-		$param_jnidata['jnitypename'] $jarg;
+		## Create CXXTypeHierarchy
+		CXXTypeHierarchy cxx_type_hierarchy;
+		std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
+		#set $type_stack = list()
+		$type_stack.append($param)
+		cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
+		#while $len(type_stack) > 0
 		{
-			long cxx_value = (long) & $arg;
-			long java_value = 0;
-
-			## Create CXXTypeHierarchy
-			CXXTypeHierarchy cxx_type_hierarchy;
-			std::stack<CXXTypeHierarchy> cxx_type_hierarchy_stack;
-			#set $type_stack = list()
-			$type_stack.append($param)
-			cxx_type_hierarchy_stack.push(cxx_type_hierarchy);
-			#while $len(type_stack) > 0
+			#set $current_type = $type_stack.pop()
+			CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
+			cxx_type_hierarchy_stack.pop();
+			cxx_type_hierarchy.type_name = std::string("$current_type['type']");
+			#if 'children' in $current_type	
+			#for $child_type in $current_type['children']
 			{
-				#set $current_type = $type_stack.pop()
-				CXXTypeHierarchy cxx_type_hierarchy = cxx_type_hierarchy_stack.top();
-				cxx_type_hierarchy_stack.pop();
-				cxx_type_hierarchy.type_name = std::string("$current_type['type']");
-				#if 'children' in $current_type	
-				#for $child_type in $current_type['children']
-				{
-					CXXTypeHierarchy child_cxx_type_hierarchy;
-					cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
-					cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
-					$type_stack.append(child_type)
-				}
-				#end for
-				#end if	
+				CXXTypeHierarchy child_cxx_type_hierarchy;
+				cxx_type_hierarchy.child_types.push_back(child_cxx_type_hierarchy);
+				cxx_type_hierarchy_stack.push(child_cxx_type_hierarchy);
+				$type_stack.append(child_type)
 			}
-			#end while	
-			## Create Converter Stack
-			std::stack<long> converter_stack;
-			#set $type_stack = list()
-			#if 'children' in $param
-			$type_stack.append($param)
-			#end if
-			#while $len(type_stack) > 0
-			{
-				#set $current_type = $type_stack.pop()
-				#for $idx in $range(0,len(current_type['children']))
-				{
-					#set $child_type = $current_type['children'][idx]
-					#set $child_type_typeinfo = $child_type['deriveddata']['targetdata']['typeinfo']
-					converter_stack.push((long) &${child_type_typeinfo['typeconverter']});				
-
-					#if 'children' in $child_type
-						$type_stack.append($child_type)
-					#end if
-				}
-				#end for
-			}
-			#end while
-			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
-			${param_typeinfo['typeconverter']}(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
-			// Convert to JNI
-			$jarg = ${param_jnidata['jniconverter']}_to_jni(java_value);
-			#set $methodvararg = $methodvararg + "," + $jarg
+			#end for
+			#end if	
 		}
-		#set $param_idx = $param_idx + 1
-		#end for
-			
-		jclass clazz = jni->getClassRef(className);
+		#end while	
+		## Create Converter Stack
+		std::stack<long> converter_stack;
+		#set $type_stack = list()
+		#if 'children' in $param
+		$type_stack.append($param)
+		#end if
+		#while $len(type_stack) > 0
+		{
+			#set $current_type = $type_stack.pop()
+			#for $idx in $range(0,len(current_type['children']))
+			{
+				#set $child_type = $current_type['children'][idx]
+				#set $child_type_typeinfo = $child_type['deriveddata']['targetdata']['typeinfo']
+				converter_stack.push((long) &${child_type_typeinfo['typeconverter']});				
 
-		proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature)$methodvararg);
-		proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+				#if 'children' in $child_type
+					$type_stack.append($child_type)
+				#end if
+			}
+			#end for
+		}
+		#end while
+		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
+		${param_typeinfo['typeconverter']}(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
 
-		ctx->registerProxyComponent(cxxAddress, proxiedComponent);
+		// Convert to JNI
+		$jarg = ${param_jnidata['jniconverter']}_to_jni(java_value);
+		#set $methodvararg = $methodvararg + "," + $jarg
 	}
+	#set $param_idx = $param_idx + 1
+	#end for
+		
+	jclass clazz = jni->getClassRef(className);
+
+	proxiedComponent = jni->createNewObject(clazz,jni->getMethodID(clazz, methodName, methodSignature)$methodvararg);
+	proxiedComponent = jni->localToGlobalRef(proxiedComponent);
+
+	this->_proxy = aProxy;
+	this->_proxy->address = (long) proxiedComponent;
+	this->_proxy->refcount = 1;
 
 	jni->popLocalFrame();
 
@@ -591,15 +588,46 @@ ${entity_class_name}::${entity_class_name}($constructor['param_str']) $superclas
 ${entity_class_name}::~${entity_class_name}()
 {
 	LOGV("${entity_class_name}::~${entity_class_name}() enter");
-	CXXContext *ctx = CXXContext::sharedInstance();
-	long address = (long) this;
-	jobject proxiedComponent = ctx->findProxyComponent(address);
-	if (proxiedComponent != 0)
+	bool destroy = false;
+	long refcount = 0;
+	pthread_mutex_lock(&this->_proxy->mutex);
+	this->_proxy->refcount--;
+	destroy = this->_proxy->refcount <= 0;
+	pthread_mutex_unlock(&this->_proxy->mutex);
+
+	LOGV("${entity_class_name} refcount %ld",this->_proxy->refcount);
+
+	if (destroy) 
 	{
+		LOGV("${entity_class_name} will be destroyed");
 		JNIContext *jni = JNIContext::sharedInstance();
-		ctx->deregisterProxyComponent(address);
-	}			
+		jni->deleteGlobalRef((jobject)this->_proxy->address);
+		delete this->_proxy;
+	}
 	LOGV("${entity_class_name}::~${entity_class_name}() exit");
+}
+#end if
+#if $entity_callback
+void ${entity_class_name}::setCXXCallbackPtr(void * callbackPtr) 
+{
+	LOGV("$function['retrn_type'] ${entity_class_name}::setCXXCallbackPtr enter");
+
+	const char *methodName = "setCXXCallbackPtr";
+	const char *methodSignature = "(L)V";
+	const char *className = "$class_jnidata['jnisignature']";
+
+	LOGV("${entity_class_name} className %s methodName %s methodSignature %s", className, methodName, methodSignature);
+
+	JNIContext *jni = JNIContext::sharedInstance();
+
+	long callbackAddress = (long) callbackPtr;
+	jlong jcallbackAddress = (jlong) callbackAddress;
+
+	jobject javaObject = (jobject) this->_proxy->address;
+	LOGV("${entity_class_name} jni address %ld", javaObject);	
+	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature, jcallbackAddress);
+
+	LOGV("$function['retrn_type'] ${entity_class_name}::setCXXCallbackPtr exit");
 }
 #end if
 // Functions
@@ -615,17 +643,7 @@ $function['retrn_type'] $function['retrn_type_modifier'] ${entity_class_name}::$
 
 	LOGV("${entity_class_name} className %s methodName %s methodSignature %s", className, methodName, methodSignature);
 
-	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
-
-	#if '_static' in $function['tags']
-	long cxxAddress = (long) static_address; // _static function
-	#else
-	long cxxAddress = (long) this;
-	#end if
-	LOGV("${entity_class_name} cxx address %ld", cxxAddress);
-	jobject javaObject = ctx->findProxyComponent(cxxAddress);
-	LOGV("${entity_class_name} jni address %ld", javaObject);
 
 	#set methodvararg = ""
 	#set $param_idx = 0
@@ -687,7 +705,7 @@ $function['retrn_type'] $function['retrn_type_modifier'] ${entity_class_name}::$
 		#end while
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
 		${param_typeinfo['typeconverter']}(java_value,cxx_value,cxx_type_hierarchy,converter_type,converter_stack);
-
+		LOGV("$jarg java_value=%ld",(long) java_value);
 		// Convert to JNI
 		$jarg = ${param_jnidata['jniconverter']}_to_jni(java_value);
 		#set $methodvararg = $methodvararg + "," + $jarg
@@ -703,6 +721,8 @@ $function['retrn_type'] $function['retrn_type_modifier'] ${entity_class_name}::$
 	#if '_static' in $function['tags']
 	$retrn_jnidata['jnitypename'] jni_result = ($retrn_jnidata['jnitypename']) jni->invokeStatic${func_jnidata['jniinvokeid']}Method(className,methodName,methodSignature$methodvararg);
 	#else
+	jobject javaObject = (jobject) this->_proxy->address;
+	LOGV("${entity_class_name} jni address %ld", javaObject);	
 	$retrn_jnidata['jnitypename'] jni_result = ($retrn_jnidata['jnitypename']) jni->invoke${func_jnidata['jniinvokeid']}Method(javaObject,className,methodName,methodSignature$methodvararg);
 	#end if
 	long cxx_value = (long) 0;
@@ -769,6 +789,7 @@ $function['retrn_type'] $function['retrn_type_modifier'] ${entity_class_name}::$
 	#if '_static' in $function['tags']
 	jni->invokeStatic${func_jnidata['jniinvokeid']}Method(className,methodName,methodSignature$methodvararg);
 	#else
+	jobject javaObject = (jobject) this->_proxy->address;
 	jni->invoke${func_jnidata['jniinvokeid']}Method(javaObject,className,methodName,methodSignature$methodvararg);
 	#end if
 	#end if

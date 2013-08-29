@@ -56,8 +56,8 @@ class com_facebook_TestSession_FqlResult : public FacebookCXX::com_facebook_mode
 public:
 
 	com_facebook_TestSession_FqlResult(const com_facebook_TestSession_FqlResult& cc);
-	com_facebook_TestSession_FqlResult(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_TestSession_FqlResult(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_TestSession_FqlResult();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	com_facebook_TestSession_FqlResult();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -90,8 +90,8 @@ class android_app_LoaderManager
 public:
 
 	android_app_LoaderManager(const android_app_LoaderManager& cc);
-	android_app_LoaderManager(Proxy proxy);
-	Proxy proxy() const;	
+	android_app_LoaderManager(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_LoaderManager();
 	// Functions
@@ -104,6 +104,9 @@ public:
 
 protected:
 	android_app_LoaderManager();
+
+private:
+	Proxy * _proxy;
 
 };	
 

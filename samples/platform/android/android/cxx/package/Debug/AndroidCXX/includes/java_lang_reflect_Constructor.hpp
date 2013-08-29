@@ -130,10 +130,10 @@ class java_lang_reflect_Constructor : public AndroidCXX::java_lang_reflect_Gener
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	java_lang_reflect_Constructor(const java_lang_reflect_Constructor& cc);
-	java_lang_reflect_Constructor(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_reflect_Constructor(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_reflect_Constructor();
 	// Functions
@@ -157,6 +157,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

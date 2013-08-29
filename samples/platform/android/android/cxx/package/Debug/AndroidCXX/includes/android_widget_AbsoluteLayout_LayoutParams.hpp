@@ -73,19 +73,22 @@ class android_widget_AbsoluteLayout_LayoutParams : public AndroidCXX::java_lang_
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
-	android_widget_AbsoluteLayout_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	// Public Constructor
+	android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_AbsoluteLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_AbsoluteLayout_LayoutParams(int const& arg0,int const& arg1,int const& arg2,int const& arg3,Proxy * aProxy = new Proxy());
 	android_widget_AbsoluteLayout_LayoutParams(const android_widget_AbsoluteLayout_LayoutParams& cc);
-	android_widget_AbsoluteLayout_LayoutParams(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AbsoluteLayout_LayoutParams(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsoluteLayout_LayoutParams();
 	// Functions
 	virtual AndroidCXX::java_lang_String * debug(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

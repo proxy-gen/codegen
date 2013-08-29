@@ -51,8 +51,8 @@ class android_view_ViewTreeObserver_OnWindowAttachListener : public AndroidCXX::
 public:
 
 	android_view_ViewTreeObserver_OnWindowAttachListener(const android_view_ViewTreeObserver_OnWindowAttachListener& cc);
-	android_view_ViewTreeObserver_OnWindowAttachListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ViewTreeObserver_OnWindowAttachListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnWindowAttachListener();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	android_view_ViewTreeObserver_OnWindowAttachListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

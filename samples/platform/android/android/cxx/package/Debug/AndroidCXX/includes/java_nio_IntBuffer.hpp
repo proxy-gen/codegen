@@ -107,8 +107,8 @@ class java_nio_IntBuffer : public AndroidCXX::java_lang_Comparable
 public:
 
 	java_nio_IntBuffer(const java_nio_IntBuffer& cc);
-	java_nio_IntBuffer(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_IntBuffer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_IntBuffer();
 	// Functions
@@ -140,6 +140,9 @@ public:
 
 protected:
 	java_nio_IntBuffer();
+
+private:
+	Proxy * _proxy;
 
 };	
 

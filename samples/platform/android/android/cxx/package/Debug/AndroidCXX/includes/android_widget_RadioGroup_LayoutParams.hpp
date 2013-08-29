@@ -73,20 +73,23 @@ class android_widget_RadioGroup_LayoutParams : public AndroidCXX::java_lang_Obje
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_RadioGroup_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_RadioGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
-	android_widget_RadioGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0);
-	android_widget_RadioGroup_LayoutParams(int const& arg0,int const& arg1);
-	android_widget_RadioGroup_LayoutParams(int const& arg0,int const& arg1,float const& arg2);
+	// Public Constructor
+	android_widget_RadioGroup_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_RadioGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_RadioGroup_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_RadioGroup_LayoutParams(int const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_RadioGroup_LayoutParams(int const& arg0,int const& arg1,float const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_RadioGroup_LayoutParams(const android_widget_RadioGroup_LayoutParams& cc);
-	android_widget_RadioGroup_LayoutParams(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_RadioGroup_LayoutParams(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RadioGroup_LayoutParams();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

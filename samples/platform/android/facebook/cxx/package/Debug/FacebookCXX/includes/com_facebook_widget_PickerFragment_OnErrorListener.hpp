@@ -59,8 +59,8 @@ class com_facebook_widget_PickerFragment_OnErrorListener : public AndroidCXX::ja
 public:
 
 	com_facebook_widget_PickerFragment_OnErrorListener(const com_facebook_widget_PickerFragment_OnErrorListener& cc);
-	com_facebook_widget_PickerFragment_OnErrorListener(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_PickerFragment_OnErrorListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_OnErrorListener();
 	// Functions
@@ -68,6 +68,9 @@ public:
 
 protected:
 	com_facebook_widget_PickerFragment_OnErrorListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

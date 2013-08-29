@@ -50,8 +50,8 @@ class android_webkit_WebView_FindListener : public AndroidCXX::java_lang_Object
 public:
 
 	android_webkit_WebView_FindListener(const android_webkit_WebView_FindListener& cc);
-	android_webkit_WebView_FindListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_WebView_FindListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebView_FindListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_webkit_WebView_FindListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

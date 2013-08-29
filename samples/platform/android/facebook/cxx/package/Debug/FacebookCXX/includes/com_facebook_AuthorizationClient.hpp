@@ -48,15 +48,18 @@ class com_facebook_AuthorizationClient : public AndroidCXX::java_io_Serializable
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_AuthorizationClient(const com_facebook_AuthorizationClient& cc);
-	com_facebook_AuthorizationClient(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_AuthorizationClient(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

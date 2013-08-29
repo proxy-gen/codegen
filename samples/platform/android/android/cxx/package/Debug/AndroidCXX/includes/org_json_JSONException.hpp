@@ -54,16 +54,19 @@ class org_json_JSONException : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	org_json_JSONException(AndroidCXX::java_lang_String const& arg0);
+	// Public Constructor
+	org_json_JSONException(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	org_json_JSONException(const org_json_JSONException& cc);
-	org_json_JSONException(Proxy proxy);
-	Proxy proxy() const;	
+	org_json_JSONException(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~org_json_JSONException();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

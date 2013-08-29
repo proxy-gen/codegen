@@ -46,15 +46,18 @@ class com_facebook_NativeProtocol
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_NativeProtocol(const com_facebook_NativeProtocol& cc);
-	com_facebook_NativeProtocol(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_NativeProtocol(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_NativeProtocol();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

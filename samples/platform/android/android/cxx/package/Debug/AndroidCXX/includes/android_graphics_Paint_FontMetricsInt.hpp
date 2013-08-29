@@ -53,17 +53,19 @@ class android_graphics_Paint_FontMetricsInt
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_Paint_FontMetricsInt();
+	// Public Constructor
+	android_graphics_Paint_FontMetricsInt(Proxy * aProxy = new Proxy());
 	android_graphics_Paint_FontMetricsInt(const android_graphics_Paint_FontMetricsInt& cc);
-	android_graphics_Paint_FontMetricsInt(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Paint_FontMetricsInt();
 	// Functions
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

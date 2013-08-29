@@ -69,8 +69,8 @@ class com_facebook_widget_GraphObjectCursor : public AndroidCXX::java_lang_Objec
 public:
 
 	com_facebook_widget_GraphObjectCursor(const com_facebook_widget_GraphObjectCursor& cc);
-	com_facebook_widget_GraphObjectCursor(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_GraphObjectCursor(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectCursor();
 	// Functions
@@ -94,6 +94,9 @@ public:
 
 protected:
 	com_facebook_widget_GraphObjectCursor();
+
+private:
+	Proxy * _proxy;
 
 };	
 

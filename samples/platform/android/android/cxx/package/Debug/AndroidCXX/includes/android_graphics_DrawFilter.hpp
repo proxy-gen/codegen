@@ -47,16 +47,18 @@ class android_graphics_DrawFilter
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_DrawFilter();
+	// Public Constructor
+	android_graphics_DrawFilter(Proxy * aProxy = new Proxy());
 	android_graphics_DrawFilter(const android_graphics_DrawFilter& cc);
-	android_graphics_DrawFilter(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_DrawFilter();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

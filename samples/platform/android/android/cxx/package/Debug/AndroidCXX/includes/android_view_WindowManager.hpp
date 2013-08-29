@@ -57,8 +57,8 @@ class android_view_WindowManager : public AndroidCXX::android_view_ViewManager
 public:
 
 	android_view_WindowManager(const android_view_WindowManager& cc);
-	android_view_WindowManager(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_WindowManager(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_WindowManager();
 	// Functions
@@ -67,6 +67,9 @@ public:
 
 protected:
 	android_view_WindowManager();
+
+private:
+	Proxy * _proxy;
 
 };	
 

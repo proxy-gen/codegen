@@ -83,8 +83,8 @@ class com_facebook_model_GraphObject : public AndroidCXX::java_lang_Object
 public:
 
 	com_facebook_model_GraphObject(const com_facebook_model_GraphObject& cc);
-	com_facebook_model_GraphObject(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_model_GraphObject(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject();
 	// Functions
@@ -97,6 +97,9 @@ public:
 
 protected:
 	com_facebook_model_GraphObject();
+
+private:
+	Proxy * _proxy;
 
 };	
 

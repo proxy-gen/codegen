@@ -91,10 +91,10 @@ class android_content_res_AssetManager
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_content_res_AssetManager(const android_content_res_AssetManager& cc);
-	android_content_res_AssetManager(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_res_AssetManager(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_AssetManager();
 	// Functions
@@ -110,6 +110,9 @@ public:
 	virtual AndroidCXX::android_content_res_XmlResourceParser * openXmlResourceParser(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

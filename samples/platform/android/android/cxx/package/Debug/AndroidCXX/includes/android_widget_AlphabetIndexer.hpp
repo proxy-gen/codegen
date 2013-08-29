@@ -72,11 +72,11 @@ class android_widget_AlphabetIndexer : public AndroidCXX::android_widget_Section
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_AlphabetIndexer(AndroidCXX::android_database_Cursor const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2);
+	// Public Constructor
+	android_widget_AlphabetIndexer(AndroidCXX::android_database_Cursor const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_AlphabetIndexer(const android_widget_AlphabetIndexer& cc);
-	android_widget_AlphabetIndexer(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AlphabetIndexer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AlphabetIndexer();
 	// Functions
@@ -88,6 +88,9 @@ public:
 	virtual void  setCursor(AndroidCXX::android_database_Cursor const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -61,8 +61,8 @@ class com_facebook_Session_StatusCallback : public AndroidCXX::java_lang_Object
 public:
 
 	com_facebook_Session_StatusCallback(const com_facebook_Session_StatusCallback& cc);
-	com_facebook_Session_StatusCallback(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Session_StatusCallback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_StatusCallback();
 	// Functions
@@ -70,6 +70,10 @@ public:
 
 protected:
 	com_facebook_Session_StatusCallback();
+	void setCXXCallbackPtr(void * callbackPtr);
+
+private:
+	Proxy * _proxy;
 
 };	
 

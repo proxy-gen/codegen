@@ -83,10 +83,10 @@ class android_os_Looper
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_os_Looper(const android_os_Looper& cc);
-	android_os_Looper(Proxy proxy);
-	Proxy proxy() const;	
+	android_os_Looper(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Looper();
 	// Functions
@@ -104,6 +104,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

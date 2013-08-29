@@ -102,8 +102,8 @@ class java_util_SortedMap : public AndroidCXX::java_util_Map
 public:
 
 	java_util_SortedMap(const java_util_SortedMap& cc);
-	java_util_SortedMap(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_SortedMap(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_SortedMap();
 	// Functions
@@ -119,6 +119,9 @@ public:
 
 protected:
 	java_util_SortedMap();
+
+private:
+	Proxy * _proxy;
 
 };	
 

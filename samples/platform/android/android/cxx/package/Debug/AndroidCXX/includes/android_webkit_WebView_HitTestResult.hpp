@@ -53,10 +53,10 @@ class android_webkit_WebView_HitTestResult
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_webkit_WebView_HitTestResult(const android_webkit_WebView_HitTestResult& cc);
-	android_webkit_WebView_HitTestResult(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_WebView_HitTestResult(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebView_HitTestResult();
 	// Functions
@@ -64,6 +64,9 @@ public:
 	virtual int  getType() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

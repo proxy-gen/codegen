@@ -75,22 +75,24 @@ class android_widget_TableRow_LayoutParams : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_TableRow_LayoutParams();
-	android_widget_TableRow_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_TableRow_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
-	android_widget_TableRow_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0);
-	android_widget_TableRow_LayoutParams(int const& arg0);
-	android_widget_TableRow_LayoutParams(int const& arg0,int const& arg1);
-	android_widget_TableRow_LayoutParams(int const& arg0,int const& arg1,float const& arg2);
+	// Public Constructor
+	android_widget_TableRow_LayoutParams(Proxy * aProxy = new Proxy());
+	android_widget_TableRow_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_TableRow_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_TableRow_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_TableRow_LayoutParams(int const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_TableRow_LayoutParams(int const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_TableRow_LayoutParams(int const& arg0,int const& arg1,float const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_TableRow_LayoutParams(const android_widget_TableRow_LayoutParams& cc);
-	android_widget_TableRow_LayoutParams(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TableRow_LayoutParams();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

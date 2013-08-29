@@ -89,16 +89,16 @@ class java_net_DatagramPacket
 {
 public:
 
-	// Public ConstrucXXX
-	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1);
-	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,int const& arg2);
-	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_net_InetAddress const& arg3,int const& arg4);
-	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_net_SocketAddress const& arg3);
-	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2,int const& arg3);
-	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,AndroidCXX::java_net_SocketAddress const& arg2);
+	// Public Constructor
+	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
+	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
+	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_net_InetAddress const& arg3,int const& arg4,Proxy * aProxy = new Proxy());
+	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_net_SocketAddress const& arg3,Proxy * aProxy = new Proxy());
+	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2,int const& arg3,Proxy * aProxy = new Proxy());
+	java_net_DatagramPacket(std::vector<byte> const& arg0,int const& arg1,AndroidCXX::java_net_SocketAddress const& arg2,Proxy * aProxy = new Proxy());
 	java_net_DatagramPacket(const java_net_DatagramPacket& cc);
-	java_net_DatagramPacket(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_DatagramPacket(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_DatagramPacket();
 	// Functions
@@ -116,6 +116,9 @@ public:
 	virtual void  setSocketAddress(AndroidCXX::java_net_SocketAddress const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

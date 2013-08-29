@@ -56,8 +56,8 @@ class android_view_View_OnGenericMotionListener : public AndroidCXX::java_lang_O
 public:
 
 	android_view_View_OnGenericMotionListener(const android_view_View_OnGenericMotionListener& cc);
-	android_view_View_OnGenericMotionListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_View_OnGenericMotionListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnGenericMotionListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_view_View_OnGenericMotionListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

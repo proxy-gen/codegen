@@ -53,8 +53,8 @@ class java_io_FileFilter : public AndroidCXX::java_lang_Object
 public:
 
 	java_io_FileFilter(const java_io_FileFilter& cc);
-	java_io_FileFilter(Proxy proxy);
-	Proxy proxy() const;	
+	java_io_FileFilter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FileFilter();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	java_io_FileFilter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -154,11 +154,11 @@ class com_facebook_android_Facebook
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_android_Facebook(AndroidCXX::java_lang_String const& arg0);
+	// Public Constructor
+	com_facebook_android_Facebook(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_android_Facebook(const com_facebook_android_Facebook& cc);
-	com_facebook_android_Facebook(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_android_Facebook(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook();
 	// Functions
@@ -194,6 +194,9 @@ public:
 	virtual bool  shouldExtendAccessToken() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

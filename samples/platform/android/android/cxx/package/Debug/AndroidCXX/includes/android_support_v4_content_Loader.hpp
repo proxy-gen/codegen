@@ -108,11 +108,11 @@ class android_support_v4_content_Loader
 {
 public:
 
-	// Public ConstrucXXX
-	android_support_v4_content_Loader(AndroidCXX::android_content_Context const& arg0);
+	// Public Constructor
+	android_support_v4_content_Loader(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
 	android_support_v4_content_Loader(const android_support_v4_content_Loader& cc);
-	android_support_v4_content_Loader(Proxy proxy);
-	Proxy proxy() const;	
+	android_support_v4_content_Loader(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_content_Loader();
 	// Functions
@@ -138,6 +138,9 @@ public:
 	virtual void  unregisterListener(AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

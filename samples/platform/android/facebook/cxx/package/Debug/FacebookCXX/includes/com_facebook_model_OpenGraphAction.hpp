@@ -134,8 +134,8 @@ class com_facebook_model_OpenGraphAction : public FacebookCXX::com_facebook_mode
 public:
 
 	com_facebook_model_OpenGraphAction(const com_facebook_model_OpenGraphAction& cc);
-	com_facebook_model_OpenGraphAction(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_model_OpenGraphAction(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_OpenGraphAction();
 	// Functions
@@ -172,6 +172,9 @@ public:
 
 protected:
 	com_facebook_model_OpenGraphAction();
+
+private:
+	Proxy * _proxy;
 
 };	
 

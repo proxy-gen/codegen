@@ -57,8 +57,8 @@ class com_facebook_widget_WebDialog_OnCompleteListener : public AndroidCXX::java
 public:
 
 	com_facebook_widget_WebDialog_OnCompleteListener(const com_facebook_widget_WebDialog_OnCompleteListener& cc);
-	com_facebook_widget_WebDialog_OnCompleteListener(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_WebDialog_OnCompleteListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_OnCompleteListener();
 	// Functions
@@ -66,6 +66,9 @@ public:
 
 protected:
 	com_facebook_widget_WebDialog_OnCompleteListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

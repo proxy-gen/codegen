@@ -56,8 +56,8 @@ class java_net_ContentHandlerFactory : public AndroidCXX::java_lang_Object
 public:
 
 	java_net_ContentHandlerFactory(const java_net_ContentHandlerFactory& cc);
-	java_net_ContentHandlerFactory(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_ContentHandlerFactory(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_ContentHandlerFactory();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	java_net_ContentHandlerFactory();
+
+private:
+	Proxy * _proxy;
 
 };	
 

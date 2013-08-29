@@ -53,8 +53,8 @@ class android_widget_AbsListView_RecyclerListener : public AndroidCXX::java_lang
 public:
 
 	android_widget_AbsListView_RecyclerListener(const android_widget_AbsListView_RecyclerListener& cc);
-	android_widget_AbsListView_RecyclerListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AbsListView_RecyclerListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsListView_RecyclerListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_AbsListView_RecyclerListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

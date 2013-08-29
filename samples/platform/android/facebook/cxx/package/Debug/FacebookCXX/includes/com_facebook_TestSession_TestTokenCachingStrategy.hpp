@@ -56,10 +56,10 @@ class com_facebook_TestSession_TestTokenCachingStrategy : public AndroidCXX::jav
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_TestSession_TestTokenCachingStrategy(const com_facebook_TestSession_TestTokenCachingStrategy& cc);
-	com_facebook_TestSession_TestTokenCachingStrategy(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_TestSession_TestTokenCachingStrategy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_TestSession_TestTokenCachingStrategy();
 	// Functions
@@ -68,6 +68,9 @@ public:
 	virtual void  save(AndroidCXX::android_os_Bundle const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

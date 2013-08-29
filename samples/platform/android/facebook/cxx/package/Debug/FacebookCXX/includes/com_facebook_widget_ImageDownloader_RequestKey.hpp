@@ -52,10 +52,10 @@ class com_facebook_widget_ImageDownloader_RequestKey
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_ImageDownloader_RequestKey(const com_facebook_widget_ImageDownloader_RequestKey& cc);
-	com_facebook_widget_ImageDownloader_RequestKey(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_ImageDownloader_RequestKey(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageDownloader_RequestKey();
 	// Functions
@@ -63,6 +63,9 @@ public:
 	virtual int  hashCode() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

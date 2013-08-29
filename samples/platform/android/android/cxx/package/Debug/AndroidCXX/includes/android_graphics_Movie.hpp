@@ -82,10 +82,10 @@ class android_graphics_Movie
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_graphics_Movie(const android_graphics_Movie& cc);
-	android_graphics_Movie(Proxy proxy);
-	Proxy proxy() const;	
+	android_graphics_Movie(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Movie();
 	// Functions
@@ -101,6 +101,9 @@ public:
 	virtual int  width() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

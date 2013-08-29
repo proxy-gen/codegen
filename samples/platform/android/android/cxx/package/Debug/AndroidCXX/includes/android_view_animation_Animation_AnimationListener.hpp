@@ -57,8 +57,8 @@ class android_view_animation_Animation_AnimationListener : public AndroidCXX::ja
 public:
 
 	android_view_animation_Animation_AnimationListener(const android_view_animation_Animation_AnimationListener& cc);
-	android_view_animation_Animation_AnimationListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_animation_Animation_AnimationListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_Animation_AnimationListener();
 	// Functions
@@ -68,6 +68,9 @@ public:
 
 protected:
 	android_view_animation_Animation_AnimationListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

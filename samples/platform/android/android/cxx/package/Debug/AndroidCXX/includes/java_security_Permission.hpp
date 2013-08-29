@@ -75,8 +75,8 @@ class java_security_Permission : public AndroidCXX::java_io_Serializable,public 
 public:
 
 	java_security_Permission(const java_security_Permission& cc);
-	java_security_Permission(Proxy proxy);
-	Proxy proxy() const;	
+	java_security_Permission(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_Permission();
 	// Functions
@@ -91,6 +91,9 @@ public:
 
 protected:
 	java_security_Permission();
+
+private:
+	Proxy * _proxy;
 
 };	
 

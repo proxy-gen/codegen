@@ -130,11 +130,11 @@ class android_widget_SimpleAdapter : public AndroidCXX::android_widget_Filterabl
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_SimpleAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3,std::vector<int> const& arg4);
+	// Public Constructor
+	android_widget_SimpleAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_util_List const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3,std::vector<int> const& arg4,Proxy * aProxy = new Proxy());
 	android_widget_SimpleAdapter(const android_widget_SimpleAdapter& cc);
-	android_widget_SimpleAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SimpleAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SimpleAdapter();
 	// Functions
@@ -152,6 +152,9 @@ public:
 	virtual void  setViewText(AndroidCXX::android_widget_TextView const& arg0,AndroidCXX::java_lang_String const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

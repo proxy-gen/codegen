@@ -56,8 +56,8 @@ class android_widget_AutoCompleteTextView_Validator : public AndroidCXX::java_la
 public:
 
 	android_widget_AutoCompleteTextView_Validator(const android_widget_AutoCompleteTextView_Validator& cc);
-	android_widget_AutoCompleteTextView_Validator(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AutoCompleteTextView_Validator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AutoCompleteTextView_Validator();
 	// Functions
@@ -66,6 +66,9 @@ public:
 
 protected:
 	android_widget_AutoCompleteTextView_Validator();
+
+private:
+	Proxy * _proxy;
 
 };	
 

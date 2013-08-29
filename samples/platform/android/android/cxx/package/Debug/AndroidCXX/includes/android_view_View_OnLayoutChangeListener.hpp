@@ -53,8 +53,8 @@ class android_view_View_OnLayoutChangeListener : public AndroidCXX::java_lang_Ob
 public:
 
 	android_view_View_OnLayoutChangeListener(const android_view_View_OnLayoutChangeListener& cc);
-	android_view_View_OnLayoutChangeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_View_OnLayoutChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnLayoutChangeListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_view_View_OnLayoutChangeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

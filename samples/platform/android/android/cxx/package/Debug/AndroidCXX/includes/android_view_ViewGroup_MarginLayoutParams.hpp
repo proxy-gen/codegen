@@ -78,13 +78,13 @@ class android_view_ViewGroup_MarginLayoutParams : public AndroidCXX::java_lang_O
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_ViewGroup_MarginLayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_view_ViewGroup_MarginLayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
-	android_view_ViewGroup_MarginLayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0);
-	android_view_ViewGroup_MarginLayoutParams(int const& arg0,int const& arg1);
-	android_view_ViewGroup_MarginLayoutParams(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_view_ViewGroup_MarginLayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_view_ViewGroup_MarginLayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0,Proxy * aProxy = new Proxy());
+	android_view_ViewGroup_MarginLayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0,Proxy * aProxy = new Proxy());
+	android_view_ViewGroup_MarginLayoutParams(int const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
+	android_view_ViewGroup_MarginLayoutParams(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewGroup_MarginLayoutParams();
 	// Functions
@@ -99,6 +99,9 @@ public:
 	virtual void  setMargins(int const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

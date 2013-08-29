@@ -56,8 +56,8 @@ class android_webkit_DownloadListener : public AndroidCXX::java_lang_Object
 public:
 
 	android_webkit_DownloadListener(const android_webkit_DownloadListener& cc);
-	android_webkit_DownloadListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_DownloadListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_DownloadListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_webkit_DownloadListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

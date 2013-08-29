@@ -56,8 +56,8 @@ class android_widget_ShareActionProvider_OnShareTargetSelectedListener : public 
 public:
 
 	android_widget_ShareActionProvider_OnShareTargetSelectedListener(const android_widget_ShareActionProvider_OnShareTargetSelectedListener& cc);
-	android_widget_ShareActionProvider_OnShareTargetSelectedListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_ShareActionProvider_OnShareTargetSelectedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ShareActionProvider_OnShareTargetSelectedListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_widget_ShareActionProvider_OnShareTargetSelectedListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

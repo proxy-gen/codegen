@@ -51,8 +51,8 @@ class android_widget_ZoomButtonsController_OnZoomListener : public AndroidCXX::j
 public:
 
 	android_widget_ZoomButtonsController_OnZoomListener(const android_widget_ZoomButtonsController_OnZoomListener& cc);
-	android_widget_ZoomButtonsController_OnZoomListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_ZoomButtonsController_OnZoomListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ZoomButtonsController_OnZoomListener();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	android_widget_ZoomButtonsController_OnZoomListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

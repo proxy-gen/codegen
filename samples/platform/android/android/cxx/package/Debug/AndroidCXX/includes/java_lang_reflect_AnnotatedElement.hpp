@@ -68,8 +68,8 @@ class java_lang_reflect_AnnotatedElement : public AndroidCXX::java_lang_Object
 public:
 
 	java_lang_reflect_AnnotatedElement(const java_lang_reflect_AnnotatedElement& cc);
-	java_lang_reflect_AnnotatedElement(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_reflect_AnnotatedElement(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_reflect_AnnotatedElement();
 	// Functions
@@ -80,6 +80,9 @@ public:
 
 protected:
 	java_lang_reflect_AnnotatedElement();
+
+private:
+	Proxy * _proxy;
 
 };	
 

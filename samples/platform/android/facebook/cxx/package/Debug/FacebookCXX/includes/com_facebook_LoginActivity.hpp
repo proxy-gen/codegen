@@ -58,11 +58,10 @@ class com_facebook_LoginActivity : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_LoginActivity();
+	// Public Constructor
+	com_facebook_LoginActivity(Proxy * aProxy = new Proxy());
 	com_facebook_LoginActivity(const com_facebook_LoginActivity& cc);
-	com_facebook_LoginActivity(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_LoginActivity();
 	// Functions
@@ -72,6 +71,9 @@ public:
 	virtual void  onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

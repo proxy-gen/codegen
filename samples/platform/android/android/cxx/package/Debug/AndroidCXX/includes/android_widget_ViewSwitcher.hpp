@@ -93,12 +93,12 @@ class android_widget_ViewSwitcher : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_ViewSwitcher(AndroidCXX::android_content_Context const& arg0);
-	android_widget_ViewSwitcher(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	// Public Constructor
+	android_widget_ViewSwitcher(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_ViewSwitcher(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_ViewSwitcher(const android_widget_ViewSwitcher& cc);
-	android_widget_ViewSwitcher(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_ViewSwitcher(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ViewSwitcher();
 	// Functions
@@ -110,6 +110,9 @@ public:
 	virtual void  setFactory(AndroidCXX::android_widget_ViewSwitcher_ViewFactory const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -53,8 +53,8 @@ class android_view_View_OnFocusChangeListener : public AndroidCXX::java_lang_Obj
 public:
 
 	android_view_View_OnFocusChangeListener(const android_view_View_OnFocusChangeListener& cc);
-	android_view_View_OnFocusChangeListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_View_OnFocusChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnFocusChangeListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_view_View_OnFocusChangeListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

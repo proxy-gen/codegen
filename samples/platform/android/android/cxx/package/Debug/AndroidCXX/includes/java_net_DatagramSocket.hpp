@@ -113,14 +113,13 @@ class java_net_DatagramSocket
 {
 public:
 
-	// Public ConstrucXXX
-	java_net_DatagramSocket();
-	java_net_DatagramSocket(int const& arg0);
-	java_net_DatagramSocket(int const& arg0,AndroidCXX::java_net_InetAddress const& arg1);
-	java_net_DatagramSocket(AndroidCXX::java_net_SocketAddress const& arg0);
+	// Public Constructor
+	java_net_DatagramSocket(Proxy * aProxy = new Proxy());
+	java_net_DatagramSocket(int const& arg0,Proxy * aProxy = new Proxy());
+	java_net_DatagramSocket(int const& arg0,AndroidCXX::java_net_InetAddress const& arg1,Proxy * aProxy = new Proxy());
+	java_net_DatagramSocket(AndroidCXX::java_net_SocketAddress const& arg0,Proxy * aProxy = new Proxy());
 	java_net_DatagramSocket(const java_net_DatagramSocket& cc);
-	java_net_DatagramSocket(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_DatagramSocket();
 	// Functions
@@ -156,6 +155,9 @@ public:
 	virtual void  setTrafficClass(int const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

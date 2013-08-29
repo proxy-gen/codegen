@@ -154,14 +154,13 @@ class java_lang_StringBuilder : public AndroidCXX::java_io_Serializable,public A
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_StringBuilder();
-	java_lang_StringBuilder(int const& arg0);
-	java_lang_StringBuilder(AndroidCXX::java_lang_CharSequence const& arg0);
-	java_lang_StringBuilder(AndroidCXX::java_lang_String const& arg0);
+	// Public Constructor
+	java_lang_StringBuilder(Proxy * aProxy = new Proxy());
+	java_lang_StringBuilder(int const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_StringBuilder(AndroidCXX::java_lang_CharSequence const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_StringBuilder(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	java_lang_StringBuilder(const java_lang_StringBuilder& cc);
-	java_lang_StringBuilder(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_StringBuilder();
 	// Functions
@@ -202,6 +201,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

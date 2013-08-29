@@ -99,10 +99,10 @@ class android_view_accessibility_AccessibilityEvent : public AndroidCXX::android
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_view_accessibility_AccessibilityEvent(const android_view_accessibility_AccessibilityEvent& cc);
-	android_view_accessibility_AccessibilityEvent(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_accessibility_AccessibilityEvent(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityEvent();
 	// Functions
@@ -130,6 +130,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

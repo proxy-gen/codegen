@@ -46,15 +46,18 @@ class com_facebook_widget_ImageDownloader_DownloaderContext
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_ImageDownloader_DownloaderContext(const com_facebook_widget_ImageDownloader_DownloaderContext& cc);
-	com_facebook_widget_ImageDownloader_DownloaderContext(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_ImageDownloader_DownloaderContext(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageDownloader_DownloaderContext();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

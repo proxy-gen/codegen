@@ -91,11 +91,11 @@ class android_content_res_AssetFileDescriptor : public AndroidCXX::android_os_Pa
 {
 public:
 
-	// Public ConstrucXXX
-	android_content_res_AssetFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor const& arg0,long const& arg1,long const& arg2);
+	// Public Constructor
+	android_content_res_AssetFileDescriptor(AndroidCXX::android_os_ParcelFileDescriptor const& arg0,long const& arg1,long const& arg2,Proxy * aProxy = new Proxy());
 	android_content_res_AssetFileDescriptor(const android_content_res_AssetFileDescriptor& cc);
-	android_content_res_AssetFileDescriptor(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_res_AssetFileDescriptor(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_AssetFileDescriptor();
 	// Functions
@@ -112,6 +112,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

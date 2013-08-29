@@ -50,8 +50,8 @@ class android_os_IBinder_DeathRecipient : public AndroidCXX::java_lang_Object
 public:
 
 	android_os_IBinder_DeathRecipient(const android_os_IBinder_DeathRecipient& cc);
-	android_os_IBinder_DeathRecipient(Proxy proxy);
-	Proxy proxy() const;	
+	android_os_IBinder_DeathRecipient(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_IBinder_DeathRecipient();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_os_IBinder_DeathRecipient();
+
+private:
+	Proxy * _proxy;
 
 };	
 

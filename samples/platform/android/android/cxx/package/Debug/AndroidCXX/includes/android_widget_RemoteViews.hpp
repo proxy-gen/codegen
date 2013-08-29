@@ -195,13 +195,13 @@ class android_widget_RemoteViews : public AndroidCXX::android_os_Parcelable,publ
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_RemoteViews(AndroidCXX::android_os_Parcel const& arg0);
-	android_widget_RemoteViews(AndroidCXX::android_widget_RemoteViews const& arg0,AndroidCXX::android_widget_RemoteViews const& arg1);
-	android_widget_RemoteViews(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	// Public Constructor
+	android_widget_RemoteViews(AndroidCXX::android_os_Parcel const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_RemoteViews(AndroidCXX::android_widget_RemoteViews const& arg0,AndroidCXX::android_widget_RemoteViews const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_RemoteViews(AndroidCXX::java_lang_String const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_RemoteViews(const android_widget_RemoteViews& cc);
-	android_widget_RemoteViews(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_RemoteViews(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RemoteViews();
 	// Functions
@@ -256,6 +256,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

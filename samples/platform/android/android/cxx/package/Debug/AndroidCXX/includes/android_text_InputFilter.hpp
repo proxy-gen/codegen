@@ -57,8 +57,8 @@ class android_text_InputFilter : public AndroidCXX::java_lang_Object
 public:
 
 	android_text_InputFilter(const android_text_InputFilter& cc);
-	android_text_InputFilter(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_InputFilter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_InputFilter();
 	// Functions
@@ -66,6 +66,9 @@ public:
 
 protected:
 	android_text_InputFilter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

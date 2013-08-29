@@ -96,8 +96,8 @@ class java_nio_charset_CharsetEncoder
 public:
 
 	java_nio_charset_CharsetEncoder(const java_nio_charset_CharsetEncoder& cc);
-	java_nio_charset_CharsetEncoder(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_charset_CharsetEncoder(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_CharsetEncoder();
 	// Functions
@@ -120,6 +120,9 @@ public:
 
 protected:
 	java_nio_charset_CharsetEncoder();
+
+private:
+	Proxy * _proxy;
 
 };	
 

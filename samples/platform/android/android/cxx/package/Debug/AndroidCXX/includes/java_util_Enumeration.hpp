@@ -53,8 +53,8 @@ class java_util_Enumeration : public AndroidCXX::java_lang_Object
 public:
 
 	java_util_Enumeration(const java_util_Enumeration& cc);
-	java_util_Enumeration(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_Enumeration(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Enumeration();
 	// Functions
@@ -63,6 +63,9 @@ public:
 
 protected:
 	java_util_Enumeration();
+
+private:
+	Proxy * _proxy;
 
 };	
 

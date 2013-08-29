@@ -52,8 +52,8 @@ class java_security_Guard : public AndroidCXX::java_lang_Object
 public:
 
 	java_security_Guard(const java_security_Guard& cc);
-	java_security_Guard(Proxy proxy);
-	Proxy proxy() const;	
+	java_security_Guard(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_Guard();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	java_security_Guard();
+
+private:
+	Proxy * _proxy;
 
 };	
 

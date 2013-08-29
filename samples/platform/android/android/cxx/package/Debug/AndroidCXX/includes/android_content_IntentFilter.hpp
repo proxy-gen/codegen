@@ -214,13 +214,12 @@ class android_content_IntentFilter : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_content_IntentFilter();
-	android_content_IntentFilter(AndroidCXX::android_content_IntentFilter const& arg0);
-	android_content_IntentFilter(AndroidCXX::java_lang_String const& arg0);
-	android_content_IntentFilter(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
-	android_content_IntentFilter(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_content_IntentFilter(Proxy * aProxy = new Proxy());
+	android_content_IntentFilter(AndroidCXX::android_content_IntentFilter const& arg0,Proxy * aProxy = new Proxy());
+	android_content_IntentFilter(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	android_content_IntentFilter(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_IntentFilter();
 	// Functions
@@ -270,6 +269,9 @@ public:
 	virtual void  writeToXml(AndroidCXX::org_xmlpull_v1_XmlSerializer const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

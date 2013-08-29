@@ -62,8 +62,8 @@ class android_widget_Filter
 public:
 
 	android_widget_Filter(const android_widget_Filter& cc);
-	android_widget_Filter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_Filter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Filter();
 	// Functions
@@ -73,6 +73,9 @@ public:
 
 protected:
 	android_widget_Filter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

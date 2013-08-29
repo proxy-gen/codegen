@@ -55,8 +55,8 @@ class java_nio_MappedByteBuffer : public AndroidCXX::java_lang_Object
 public:
 
 	java_nio_MappedByteBuffer(const java_nio_MappedByteBuffer& cc);
-	java_nio_MappedByteBuffer(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_MappedByteBuffer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_MappedByteBuffer();
 	// Functions
@@ -66,6 +66,9 @@ public:
 
 protected:
 	java_nio_MappedByteBuffer();
+
+private:
+	Proxy * _proxy;
 
 };	
 

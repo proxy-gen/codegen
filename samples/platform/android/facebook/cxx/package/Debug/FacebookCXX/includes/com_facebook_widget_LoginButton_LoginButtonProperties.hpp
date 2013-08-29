@@ -97,10 +97,10 @@ class com_facebook_widget_LoginButton_LoginButtonProperties
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_LoginButton_LoginButtonProperties(const com_facebook_widget_LoginButton_LoginButtonProperties& cc);
-	com_facebook_widget_LoginButton_LoginButtonProperties(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_LoginButton_LoginButtonProperties(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_LoginButtonProperties();
 	// Functions
@@ -117,6 +117,9 @@ public:
 	virtual void  setSessionStatusCallback(FacebookCXX::com_facebook_Session_StatusCallback const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

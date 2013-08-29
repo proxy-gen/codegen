@@ -53,8 +53,8 @@ class android_os_Handler_Callback : public AndroidCXX::java_lang_Object
 public:
 
 	android_os_Handler_Callback(const android_os_Handler_Callback& cc);
-	android_os_Handler_Callback(Proxy proxy);
-	Proxy proxy() const;	
+	android_os_Handler_Callback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Handler_Callback();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_os_Handler_Callback();
+
+private:
+	Proxy * _proxy;
 
 };	
 

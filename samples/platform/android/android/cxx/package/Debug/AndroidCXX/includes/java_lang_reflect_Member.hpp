@@ -62,8 +62,8 @@ class java_lang_reflect_Member : public AndroidCXX::java_lang_Object
 public:
 
 	java_lang_reflect_Member(const java_lang_reflect_Member& cc);
-	java_lang_reflect_Member(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_reflect_Member(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_reflect_Member();
 	// Functions
@@ -74,6 +74,9 @@ public:
 
 protected:
 	java_lang_reflect_Member();
+
+private:
+	Proxy * _proxy;
 
 };	
 

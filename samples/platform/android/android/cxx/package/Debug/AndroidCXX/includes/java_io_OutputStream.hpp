@@ -59,8 +59,8 @@ class java_io_OutputStream : public AndroidCXX::java_io_Closeable,public Android
 public:
 
 	java_io_OutputStream(const java_io_OutputStream& cc);
-	java_io_OutputStream(Proxy proxy);
-	Proxy proxy() const;	
+	java_io_OutputStream(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_OutputStream();
 	// Functions
@@ -72,6 +72,9 @@ public:
 
 protected:
 	java_io_OutputStream();
+
+private:
+	Proxy * _proxy;
 
 };	
 

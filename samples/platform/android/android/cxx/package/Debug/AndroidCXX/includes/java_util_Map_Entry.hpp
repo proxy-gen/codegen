@@ -60,8 +60,8 @@ class java_util_Map_Entry : public AndroidCXX::java_lang_Object
 public:
 
 	java_util_Map_Entry(const java_util_Map_Entry& cc);
-	java_util_Map_Entry(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_Map_Entry(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Map_Entry();
 	// Functions
@@ -73,6 +73,9 @@ public:
 
 protected:
 	java_util_Map_Entry();
+
+private:
+	Proxy * _proxy;
 
 };	
 

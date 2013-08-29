@@ -50,8 +50,8 @@ class com_facebook_widget_GraphObjectAdapter_DataNeededListener : public Android
 public:
 
 	com_facebook_widget_GraphObjectAdapter_DataNeededListener(const com_facebook_widget_GraphObjectAdapter_DataNeededListener& cc);
-	com_facebook_widget_GraphObjectAdapter_DataNeededListener(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_GraphObjectAdapter_DataNeededListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_DataNeededListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	com_facebook_widget_GraphObjectAdapter_DataNeededListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

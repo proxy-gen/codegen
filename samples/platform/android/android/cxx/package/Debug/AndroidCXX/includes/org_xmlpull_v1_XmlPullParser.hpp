@@ -127,8 +127,8 @@ class org_xmlpull_v1_XmlPullParser : public AndroidCXX::java_lang_Object
 public:
 
 	org_xmlpull_v1_XmlPullParser(const org_xmlpull_v1_XmlPullParser& cc);
-	org_xmlpull_v1_XmlPullParser(Proxy proxy);
-	Proxy proxy() const;	
+	org_xmlpull_v1_XmlPullParser(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~org_xmlpull_v1_XmlPullParser();
 	// Functions
@@ -172,6 +172,9 @@ public:
 
 protected:
 	org_xmlpull_v1_XmlPullParser();
+
+private:
+	Proxy * _proxy;
 
 };	
 

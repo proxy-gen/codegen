@@ -102,10 +102,10 @@ class android_view_InputDevice : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_view_InputDevice(const android_view_InputDevice& cc);
-	android_view_InputDevice(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_InputDevice(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_InputDevice();
 	// Functions
@@ -127,6 +127,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -50,8 +50,8 @@ class android_view_ViewTreeObserver_OnDrawListener : public AndroidCXX::java_lan
 public:
 
 	android_view_ViewTreeObserver_OnDrawListener(const android_view_ViewTreeObserver_OnDrawListener& cc);
-	android_view_ViewTreeObserver_OnDrawListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ViewTreeObserver_OnDrawListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnDrawListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_view_ViewTreeObserver_OnDrawListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -145,15 +145,15 @@ class java_net_URI : public AndroidCXX::java_io_Serializable,public AndroidCXX::
 {
 public:
 
-	// Public ConstrucXXX
-	java_net_URI(AndroidCXX::java_lang_String const& arg0);
-	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
-	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,AndroidCXX::java_lang_String const& arg5,AndroidCXX::java_lang_String const& arg6);
-	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3);
-	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::java_lang_String const& arg4);
+	// Public Constructor
+	java_net_URI(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,Proxy * aProxy = new Proxy());
+	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,AndroidCXX::java_lang_String const& arg5,AndroidCXX::java_lang_String const& arg6,Proxy * aProxy = new Proxy());
+	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,Proxy * aProxy = new Proxy());
+	java_net_URI(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::java_lang_String const& arg4,Proxy * aProxy = new Proxy());
 	java_net_URI(const java_net_URI& cc);
-	java_net_URI(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_URI(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_URI();
 	// Functions
@@ -188,6 +188,9 @@ public:
 	virtual AndroidCXX::java_net_URL * toURL() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

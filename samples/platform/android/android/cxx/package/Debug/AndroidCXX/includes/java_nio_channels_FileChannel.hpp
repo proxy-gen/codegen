@@ -108,8 +108,8 @@ class java_nio_channels_FileChannel : public AndroidCXX::java_nio_channels_ByteC
 public:
 
 	java_nio_channels_FileChannel(const java_nio_channels_FileChannel& cc);
-	java_nio_channels_FileChannel(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_FileChannel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_FileChannel();
 	// Functions
@@ -136,6 +136,9 @@ public:
 
 protected:
 	java_nio_channels_FileChannel();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -56,8 +56,8 @@ class android_app_Application_OnProvideAssistDataListener : public AndroidCXX::j
 public:
 
 	android_app_Application_OnProvideAssistDataListener(const android_app_Application_OnProvideAssistDataListener& cc);
-	android_app_Application_OnProvideAssistDataListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_app_Application_OnProvideAssistDataListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_Application_OnProvideAssistDataListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_app_Application_OnProvideAssistDataListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

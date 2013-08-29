@@ -147,13 +147,13 @@ class android_widget_VideoView : public AndroidCXX::android_widget_MediaControll
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_VideoView(AndroidCXX::android_content_Context const& arg0);
-	android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
+	// Public Constructor
+	android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_VideoView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_VideoView(const android_widget_VideoView& cc);
-	android_widget_VideoView(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_VideoView(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_VideoView();
 	// Functions
@@ -186,6 +186,9 @@ public:
 	virtual void  suspend() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

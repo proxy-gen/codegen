@@ -116,10 +116,10 @@ class android_view_ViewTreeObserver
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_view_ViewTreeObserver(const android_view_ViewTreeObserver& cc);
-	android_view_ViewTreeObserver(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ViewTreeObserver(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver();
 	// Functions
@@ -146,6 +146,9 @@ public:
 	virtual void  removeOnWindowFocusChangeListener(AndroidCXX::android_view_ViewTreeObserver_OnWindowFocusChangeListener const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -68,8 +68,8 @@ class android_support_v4_app_LoaderManager_LoaderCallbacks : public AndroidCXX::
 public:
 
 	android_support_v4_app_LoaderManager_LoaderCallbacks(const android_support_v4_app_LoaderManager_LoaderCallbacks& cc);
-	android_support_v4_app_LoaderManager_LoaderCallbacks(Proxy proxy);
-	Proxy proxy() const;	
+	android_support_v4_app_LoaderManager_LoaderCallbacks(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_app_LoaderManager_LoaderCallbacks();
 	// Functions
@@ -79,6 +79,9 @@ public:
 
 protected:
 	android_support_v4_app_LoaderManager_LoaderCallbacks();
+
+private:
+	Proxy * _proxy;
 
 };	
 

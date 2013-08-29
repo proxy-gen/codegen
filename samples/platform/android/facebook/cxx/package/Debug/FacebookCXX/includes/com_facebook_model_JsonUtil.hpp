@@ -46,15 +46,18 @@ class com_facebook_model_JsonUtil
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_model_JsonUtil(const com_facebook_model_JsonUtil& cc);
-	com_facebook_model_JsonUtil(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_model_JsonUtil(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_JsonUtil();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

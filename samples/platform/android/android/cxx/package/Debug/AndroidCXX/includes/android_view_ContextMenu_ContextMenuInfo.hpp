@@ -49,14 +49,17 @@ class android_view_ContextMenu_ContextMenuInfo : public AndroidCXX::java_lang_Ob
 public:
 
 	android_view_ContextMenu_ContextMenuInfo(const android_view_ContextMenu_ContextMenuInfo& cc);
-	android_view_ContextMenu_ContextMenuInfo(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_ContextMenu_ContextMenuInfo(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ContextMenu_ContextMenuInfo();
 	// Functions
 
 protected:
 	android_view_ContextMenu_ContextMenuInfo();
+
+private:
+	Proxy * _proxy;
 
 };	
 

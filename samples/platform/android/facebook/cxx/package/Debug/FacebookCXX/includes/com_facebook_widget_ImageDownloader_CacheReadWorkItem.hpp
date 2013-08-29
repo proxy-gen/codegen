@@ -49,16 +49,19 @@ class com_facebook_widget_ImageDownloader_CacheReadWorkItem : public AndroidCXX:
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_ImageDownloader_CacheReadWorkItem(const com_facebook_widget_ImageDownloader_CacheReadWorkItem& cc);
-	com_facebook_widget_ImageDownloader_CacheReadWorkItem(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_ImageDownloader_CacheReadWorkItem(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageDownloader_CacheReadWorkItem();
 	// Functions
 	virtual void  run() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

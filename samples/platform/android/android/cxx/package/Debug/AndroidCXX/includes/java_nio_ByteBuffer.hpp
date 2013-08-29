@@ -172,8 +172,8 @@ class java_nio_ByteBuffer : public AndroidCXX::java_lang_Comparable
 public:
 
 	java_nio_ByteBuffer(const java_nio_ByteBuffer& cc);
-	java_nio_ByteBuffer(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_ByteBuffer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_ByteBuffer();
 	// Functions
@@ -237,6 +237,9 @@ public:
 
 protected:
 	java_nio_ByteBuffer();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -136,10 +136,10 @@ class android_view_accessibility_AccessibilityRecord
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_view_accessibility_AccessibilityRecord(const android_view_accessibility_AccessibilityRecord& cc);
-	android_view_accessibility_AccessibilityRecord(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_accessibility_AccessibilityRecord(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityRecord();
 	// Functions
@@ -192,6 +192,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

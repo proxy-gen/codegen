@@ -48,15 +48,18 @@ class com_facebook_AuthorizationClient_WebViewAuthHandler : public AndroidCXX::j
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_AuthorizationClient_WebViewAuthHandler(const com_facebook_AuthorizationClient_WebViewAuthHandler& cc);
-	com_facebook_AuthorizationClient_WebViewAuthHandler(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_AuthorizationClient_WebViewAuthHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_WebViewAuthHandler();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

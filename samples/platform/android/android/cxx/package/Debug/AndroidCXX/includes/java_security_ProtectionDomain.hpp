@@ -92,12 +92,12 @@ class java_security_ProtectionDomain
 {
 public:
 
-	// Public ConstrucXXX
-	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1);
-	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1,AndroidCXX::java_lang_ClassLoader const& arg2,std::vector<AndroidCXX::java_security_Principal> const& arg3);
+	// Public Constructor
+	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1,Proxy * aProxy = new Proxy());
+	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1,AndroidCXX::java_lang_ClassLoader const& arg2,std::vector<AndroidCXX::java_security_Principal> const& arg3,Proxy * aProxy = new Proxy());
 	java_security_ProtectionDomain(const java_security_ProtectionDomain& cc);
-	java_security_ProtectionDomain(Proxy proxy);
-	Proxy proxy() const;	
+	java_security_ProtectionDomain(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_ProtectionDomain();
 	// Functions
@@ -109,6 +109,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

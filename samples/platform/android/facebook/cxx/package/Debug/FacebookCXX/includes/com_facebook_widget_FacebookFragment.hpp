@@ -65,10 +65,10 @@ class com_facebook_widget_FacebookFragment : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_FacebookFragment(const com_facebook_widget_FacebookFragment& cc);
-	com_facebook_widget_FacebookFragment(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_FacebookFragment(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_FacebookFragment();
 	// Functions
@@ -78,6 +78,9 @@ public:
 	virtual void  setSession(FacebookCXX::com_facebook_Session const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

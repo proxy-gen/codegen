@@ -313,8 +313,8 @@ class android_content_pm_PackageManager
 public:
 
 	android_content_pm_PackageManager(const android_content_pm_PackageManager& cc);
-	android_content_pm_PackageManager(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_pm_PackageManager(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_PackageManager();
 	// Functions
@@ -391,6 +391,9 @@ public:
 
 protected:
 	android_content_pm_PackageManager();
+
+private:
+	Proxy * _proxy;
 
 };	
 

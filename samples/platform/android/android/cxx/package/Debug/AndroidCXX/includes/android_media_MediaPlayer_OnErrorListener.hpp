@@ -53,8 +53,8 @@ class android_media_MediaPlayer_OnErrorListener : public AndroidCXX::java_lang_O
 public:
 
 	android_media_MediaPlayer_OnErrorListener(const android_media_MediaPlayer_OnErrorListener& cc);
-	android_media_MediaPlayer_OnErrorListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_media_MediaPlayer_OnErrorListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnErrorListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_media_MediaPlayer_OnErrorListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

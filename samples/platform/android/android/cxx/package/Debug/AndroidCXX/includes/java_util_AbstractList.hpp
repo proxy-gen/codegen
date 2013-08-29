@@ -97,8 +97,8 @@ class java_util_AbstractList : public AndroidCXX::java_util_List
 public:
 
 	java_util_AbstractList(const java_util_AbstractList& cc);
-	java_util_AbstractList(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_AbstractList(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_AbstractList();
 	// Functions
@@ -120,6 +120,9 @@ public:
 
 protected:
 	java_util_AbstractList();
+
+private:
+	Proxy * _proxy;
 
 };	
 

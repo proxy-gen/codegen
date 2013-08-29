@@ -351,13 +351,12 @@ class android_os_Bundle : public AndroidCXX::android_os_Parcelable,public Androi
 {
 public:
 
-	// Public ConstrucXXX
-	android_os_Bundle();
-	android_os_Bundle(AndroidCXX::android_os_Bundle const& arg0);
-	android_os_Bundle(int const& arg0);
-	android_os_Bundle(AndroidCXX::java_lang_ClassLoader const& arg0);
-	android_os_Bundle(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_os_Bundle(Proxy * aProxy = new Proxy());
+	android_os_Bundle(AndroidCXX::android_os_Bundle const& arg0,Proxy * aProxy = new Proxy());
+	android_os_Bundle(int const& arg0,Proxy * aProxy = new Proxy());
+	android_os_Bundle(AndroidCXX::java_lang_ClassLoader const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Bundle();
 	// Functions
@@ -449,6 +448,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

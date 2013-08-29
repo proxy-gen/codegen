@@ -89,12 +89,12 @@ class android_widget_AdapterViewFlipper : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_AdapterViewFlipper(AndroidCXX::android_content_Context const& arg0);
-	android_widget_AdapterViewFlipper(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
+	// Public Constructor
+	android_widget_AdapterViewFlipper(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_AdapterViewFlipper(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_AdapterViewFlipper(const android_widget_AdapterViewFlipper& cc);
-	android_widget_AdapterViewFlipper(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AdapterViewFlipper(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterViewFlipper();
 	// Functions
@@ -113,6 +113,9 @@ public:
 	virtual void  stopFlipping() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

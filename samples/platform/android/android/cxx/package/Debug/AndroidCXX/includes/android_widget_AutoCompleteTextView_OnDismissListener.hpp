@@ -50,8 +50,8 @@ class android_widget_AutoCompleteTextView_OnDismissListener : public AndroidCXX:
 public:
 
 	android_widget_AutoCompleteTextView_OnDismissListener(const android_widget_AutoCompleteTextView_OnDismissListener& cc);
-	android_widget_AutoCompleteTextView_OnDismissListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_AutoCompleteTextView_OnDismissListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AutoCompleteTextView_OnDismissListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_widget_AutoCompleteTextView_OnDismissListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

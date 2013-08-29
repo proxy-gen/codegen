@@ -53,8 +53,8 @@ class android_view_View_OnClickListener : public AndroidCXX::java_lang_Object
 public:
 
 	android_view_View_OnClickListener(const android_view_View_OnClickListener& cc);
-	android_view_View_OnClickListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_View_OnClickListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnClickListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_view_View_OnClickListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

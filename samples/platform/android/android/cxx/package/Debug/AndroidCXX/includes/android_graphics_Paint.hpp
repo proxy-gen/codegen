@@ -269,12 +269,11 @@ class android_graphics_Paint
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_Paint();
-	android_graphics_Paint(AndroidCXX::android_graphics_Paint const& arg0);
-	android_graphics_Paint(int const& arg0);
-	android_graphics_Paint(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_graphics_Paint(Proxy * aProxy = new Proxy());
+	android_graphics_Paint(AndroidCXX::android_graphics_Paint const& arg0,Proxy * aProxy = new Proxy());
+	android_graphics_Paint(int const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Paint();
 	// Functions
@@ -366,6 +365,9 @@ public:
 	virtual AndroidCXX::android_graphics_Xfermode * setXfermode(AndroidCXX::android_graphics_Xfermode const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

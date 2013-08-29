@@ -48,14 +48,17 @@ class java_net_URLStreamHandler
 public:
 
 	java_net_URLStreamHandler(const java_net_URLStreamHandler& cc);
-	java_net_URLStreamHandler(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_URLStreamHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_URLStreamHandler();
 	// Functions
 
 protected:
 	java_net_URLStreamHandler();
+
+private:
+	Proxy * _proxy;
 
 };	
 

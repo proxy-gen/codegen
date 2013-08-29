@@ -91,8 +91,8 @@ class android_widget_CompoundButton : public AndroidCXX::android_widget_Checkabl
 public:
 
 	android_widget_CompoundButton(const android_widget_CompoundButton& cc);
-	android_widget_CompoundButton(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_CompoundButton(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CompoundButton();
 	// Functions
@@ -113,6 +113,9 @@ public:
 
 protected:
 	android_widget_CompoundButton();
+
+private:
+	Proxy * _proxy;
 
 };	
 

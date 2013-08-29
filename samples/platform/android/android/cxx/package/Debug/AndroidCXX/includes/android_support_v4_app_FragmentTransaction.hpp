@@ -115,8 +115,8 @@ class android_support_v4_app_FragmentTransaction
 public:
 
 	android_support_v4_app_FragmentTransaction(const android_support_v4_app_FragmentTransaction& cc);
-	android_support_v4_app_FragmentTransaction(Proxy proxy);
-	Proxy proxy() const;	
+	android_support_v4_app_FragmentTransaction(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_app_FragmentTransaction();
 	// Functions
@@ -147,6 +147,9 @@ public:
 
 protected:
 	android_support_v4_app_FragmentTransaction();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -68,10 +68,10 @@ class java_net_InterfaceAddress
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	java_net_InterfaceAddress(const java_net_InterfaceAddress& cc);
-	java_net_InterfaceAddress(Proxy proxy);
-	Proxy proxy() const;	
+	java_net_InterfaceAddress(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_InterfaceAddress();
 	// Functions
@@ -83,6 +83,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

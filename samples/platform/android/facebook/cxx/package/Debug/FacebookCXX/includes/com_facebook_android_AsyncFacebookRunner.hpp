@@ -104,11 +104,11 @@ class com_facebook_android_AsyncFacebookRunner
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_android_AsyncFacebookRunner(FacebookCXX::com_facebook_android_Facebook const& arg0);
+	// Public Constructor
+	com_facebook_android_AsyncFacebookRunner(FacebookCXX::com_facebook_android_Facebook const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_android_AsyncFacebookRunner(const com_facebook_android_AsyncFacebookRunner& cc);
-	com_facebook_android_AsyncFacebookRunner(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_android_AsyncFacebookRunner(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_AsyncFacebookRunner();
 	// Functions
@@ -123,6 +123,9 @@ public:
 	virtual void  request(AndroidCXX::java_lang_String const& arg0,FacebookCXX::com_facebook_android_AsyncFacebookRunner_RequestListener const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -69,10 +69,10 @@ class android_text_AlteredCharSequence : public AndroidCXX::android_text_GetChar
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_text_AlteredCharSequence(const android_text_AlteredCharSequence& cc);
-	android_text_AlteredCharSequence(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_AlteredCharSequence(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_AlteredCharSequence();
 	// Functions
@@ -84,6 +84,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

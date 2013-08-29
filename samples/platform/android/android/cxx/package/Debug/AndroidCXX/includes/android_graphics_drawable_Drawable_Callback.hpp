@@ -61,8 +61,8 @@ class android_graphics_drawable_Drawable_Callback : public AndroidCXX::java_lang
 public:
 
 	android_graphics_drawable_Drawable_Callback(const android_graphics_drawable_Drawable_Callback& cc);
-	android_graphics_drawable_Drawable_Callback(Proxy proxy);
-	Proxy proxy() const;	
+	android_graphics_drawable_Drawable_Callback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_drawable_Drawable_Callback();
 	// Functions
@@ -72,6 +72,9 @@ public:
 
 protected:
 	android_graphics_drawable_Drawable_Callback();
+
+private:
+	Proxy * _proxy;
 
 };	
 

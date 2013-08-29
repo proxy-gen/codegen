@@ -53,8 +53,8 @@ class android_media_MediaPlayer_OnBufferingUpdateListener : public AndroidCXX::j
 public:
 
 	android_media_MediaPlayer_OnBufferingUpdateListener(const android_media_MediaPlayer_OnBufferingUpdateListener& cc);
-	android_media_MediaPlayer_OnBufferingUpdateListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_media_MediaPlayer_OnBufferingUpdateListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnBufferingUpdateListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_media_MediaPlayer_OnBufferingUpdateListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

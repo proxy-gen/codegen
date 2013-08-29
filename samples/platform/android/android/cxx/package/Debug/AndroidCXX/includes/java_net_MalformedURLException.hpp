@@ -55,17 +55,19 @@ class java_net_MalformedURLException : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	java_net_MalformedURLException();
-	java_net_MalformedURLException(AndroidCXX::java_lang_String const& arg0);
+	// Public Constructor
+	java_net_MalformedURLException(Proxy * aProxy = new Proxy());
+	java_net_MalformedURLException(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	java_net_MalformedURLException(const java_net_MalformedURLException& cc);
-	java_net_MalformedURLException(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_MalformedURLException();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

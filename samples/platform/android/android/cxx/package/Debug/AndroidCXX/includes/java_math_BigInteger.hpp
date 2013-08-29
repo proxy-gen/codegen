@@ -169,16 +169,16 @@ class java_math_BigInteger : public AndroidCXX::java_lang_Comparable
 {
 public:
 
-	// Public ConstrucXXX
-	java_math_BigInteger(std::vector<byte> const& arg0);
-	java_math_BigInteger(int const& arg0,std::vector<byte> const& arg1);
-	java_math_BigInteger(int const& arg0,int const& arg1,AndroidCXX::java_util_Random const& arg2);
-	java_math_BigInteger(int const& arg0,AndroidCXX::java_util_Random const& arg1);
-	java_math_BigInteger(AndroidCXX::java_lang_String const& arg0);
-	java_math_BigInteger(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	// Public Constructor
+	java_math_BigInteger(std::vector<byte> const& arg0,Proxy * aProxy = new Proxy());
+	java_math_BigInteger(int const& arg0,std::vector<byte> const& arg1,Proxy * aProxy = new Proxy());
+	java_math_BigInteger(int const& arg0,int const& arg1,AndroidCXX::java_util_Random const& arg2,Proxy * aProxy = new Proxy());
+	java_math_BigInteger(int const& arg0,AndroidCXX::java_util_Random const& arg1,Proxy * aProxy = new Proxy());
+	java_math_BigInteger(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_math_BigInteger(AndroidCXX::java_lang_String const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
 	java_math_BigInteger(const java_math_BigInteger& cc);
-	java_math_BigInteger(Proxy proxy);
-	Proxy proxy() const;	
+	java_math_BigInteger(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_math_BigInteger();
 	// Functions
@@ -228,6 +228,9 @@ public:
 	virtual AndroidCXX::java_math_BigInteger * _xor(AndroidCXX::java_math_BigInteger const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

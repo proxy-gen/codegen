@@ -102,14 +102,13 @@ class java_net_ServerSocket
 {
 public:
 
-	// Public ConstrucXXX
-	java_net_ServerSocket();
-	java_net_ServerSocket(int const& arg0);
-	java_net_ServerSocket(int const& arg0,int const& arg1);
-	java_net_ServerSocket(int const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2);
+	// Public Constructor
+	java_net_ServerSocket(Proxy * aProxy = new Proxy());
+	java_net_ServerSocket(int const& arg0,Proxy * aProxy = new Proxy());
+	java_net_ServerSocket(int const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
+	java_net_ServerSocket(int const& arg0,int const& arg1,AndroidCXX::java_net_InetAddress const& arg2,Proxy * aProxy = new Proxy());
 	java_net_ServerSocket(const java_net_ServerSocket& cc);
-	java_net_ServerSocket(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_ServerSocket();
 	// Functions
@@ -134,6 +133,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

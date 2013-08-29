@@ -205,11 +205,10 @@ class android_media_MediaPlayer
 {
 public:
 
-	// Public ConstrucXXX
-	android_media_MediaPlayer();
+	// Public Constructor
+	android_media_MediaPlayer(Proxy * aProxy = new Proxy());
 	android_media_MediaPlayer(const android_media_MediaPlayer& cc);
-	android_media_MediaPlayer(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer();
 	// Functions
@@ -265,6 +264,9 @@ public:
 	virtual void  stop() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

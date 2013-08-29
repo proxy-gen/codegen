@@ -81,8 +81,8 @@ class android_os_IBinder : public AndroidCXX::java_lang_Object
 public:
 
 	android_os_IBinder(const android_os_IBinder& cc);
-	android_os_IBinder(Proxy proxy);
-	Proxy proxy() const;	
+	android_os_IBinder(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_IBinder();
 	// Functions
@@ -98,6 +98,9 @@ public:
 
 protected:
 	android_os_IBinder();
+
+private:
+	Proxy * _proxy;
 
 };	
 

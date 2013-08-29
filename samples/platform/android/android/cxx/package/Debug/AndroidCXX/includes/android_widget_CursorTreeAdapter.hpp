@@ -113,8 +113,8 @@ class android_widget_CursorTreeAdapter : public AndroidCXX::android_widget_Filte
 public:
 
 	android_widget_CursorTreeAdapter(const android_widget_CursorTreeAdapter& cc);
-	android_widget_CursorTreeAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_CursorTreeAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CursorTreeAdapter();
 	// Functions
@@ -144,6 +144,9 @@ public:
 
 protected:
 	android_widget_CursorTreeAdapter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

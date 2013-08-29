@@ -50,8 +50,8 @@ class java_nio_channels_Pipe_SourceChannel : public AndroidCXX::java_nio_channel
 public:
 
 	java_nio_channels_Pipe_SourceChannel(const java_nio_channels_Pipe_SourceChannel& cc);
-	java_nio_channels_Pipe_SourceChannel(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_Pipe_SourceChannel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_Pipe_SourceChannel();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	java_nio_channels_Pipe_SourceChannel();
+
+private:
+	Proxy * _proxy;
 
 };	
 

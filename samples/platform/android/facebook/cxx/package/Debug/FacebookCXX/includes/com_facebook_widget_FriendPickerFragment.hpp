@@ -86,12 +86,11 @@ class com_facebook_widget_FriendPickerFragment : public AndroidCXX::java_lang_Ob
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_widget_FriendPickerFragment();
-	com_facebook_widget_FriendPickerFragment(AndroidCXX::android_os_Bundle const& arg0);
+	// Public Constructor
+	com_facebook_widget_FriendPickerFragment(Proxy * aProxy = new Proxy());
+	com_facebook_widget_FriendPickerFragment(AndroidCXX::android_os_Bundle const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_widget_FriendPickerFragment(const com_facebook_widget_FriendPickerFragment& cc);
-	com_facebook_widget_FriendPickerFragment(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_FriendPickerFragment();
 	// Functions
@@ -104,6 +103,9 @@ public:
 	virtual void  setUserId(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

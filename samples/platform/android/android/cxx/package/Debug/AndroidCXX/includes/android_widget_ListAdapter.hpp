@@ -51,8 +51,8 @@ class android_widget_ListAdapter : public AndroidCXX::android_widget_Adapter
 public:
 
 	android_widget_ListAdapter(const android_widget_ListAdapter& cc);
-	android_widget_ListAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_ListAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ListAdapter();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	android_widget_ListAdapter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

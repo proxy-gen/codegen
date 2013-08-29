@@ -56,8 +56,8 @@ class android_widget_FilterQueryProvider : public AndroidCXX::java_lang_Object
 public:
 
 	android_widget_FilterQueryProvider(const android_widget_FilterQueryProvider& cc);
-	android_widget_FilterQueryProvider(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_FilterQueryProvider(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_FilterQueryProvider();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_widget_FilterQueryProvider();
+
+private:
+	Proxy * _proxy;
 
 };	
 

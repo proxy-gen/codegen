@@ -56,8 +56,8 @@ class android_webkit_WebView_PictureListener : public AndroidCXX::java_lang_Obje
 public:
 
 	android_webkit_WebView_PictureListener(const android_webkit_WebView_PictureListener& cc);
-	android_webkit_WebView_PictureListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_WebView_PictureListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebView_PictureListener();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_webkit_WebView_PictureListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

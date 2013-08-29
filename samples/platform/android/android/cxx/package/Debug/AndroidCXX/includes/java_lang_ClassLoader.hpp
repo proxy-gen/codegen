@@ -97,8 +97,8 @@ class java_lang_ClassLoader
 public:
 
 	java_lang_ClassLoader(const java_lang_ClassLoader& cc);
-	java_lang_ClassLoader(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_ClassLoader(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_ClassLoader();
 	// Functions
@@ -118,6 +118,9 @@ public:
 
 protected:
 	java_lang_ClassLoader();
+
+private:
+	Proxy * _proxy;
 
 };	
 

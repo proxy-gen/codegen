@@ -53,8 +53,8 @@ class java_lang_Readable : public AndroidCXX::java_lang_Object
 public:
 
 	java_lang_Readable(const java_lang_Readable& cc);
-	java_lang_Readable(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_Readable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Readable();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	java_lang_Readable();
+
+private:
+	Proxy * _proxy;
 
 };	
 

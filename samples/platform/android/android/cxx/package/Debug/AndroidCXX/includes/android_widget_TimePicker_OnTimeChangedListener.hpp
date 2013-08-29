@@ -53,8 +53,8 @@ class android_widget_TimePicker_OnTimeChangedListener : public AndroidCXX::java_
 public:
 
 	android_widget_TimePicker_OnTimeChangedListener(const android_widget_TimePicker_OnTimeChangedListener& cc);
-	android_widget_TimePicker_OnTimeChangedListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_TimePicker_OnTimeChangedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TimePicker_OnTimeChangedListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_widget_TimePicker_OnTimeChangedListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

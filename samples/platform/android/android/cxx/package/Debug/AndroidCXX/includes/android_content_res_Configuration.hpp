@@ -98,11 +98,10 @@ class android_content_res_Configuration : public AndroidCXX::android_os_Parcelab
 {
 public:
 
-	// Public ConstrucXXX
-	android_content_res_Configuration();
-	android_content_res_Configuration(AndroidCXX::android_content_res_Configuration const& arg0);
-	android_content_res_Configuration(Proxy proxy);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_content_res_Configuration(Proxy * aProxy = new Proxy());
+	android_content_res_Configuration(AndroidCXX::android_content_res_Configuration const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_Configuration();
 	// Functions
@@ -125,6 +124,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

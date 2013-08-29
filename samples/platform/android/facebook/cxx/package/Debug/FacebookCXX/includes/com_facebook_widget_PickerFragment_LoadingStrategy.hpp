@@ -62,8 +62,8 @@ class com_facebook_widget_PickerFragment_LoadingStrategy
 public:
 
 	com_facebook_widget_PickerFragment_LoadingStrategy(const com_facebook_widget_PickerFragment_LoadingStrategy& cc);
-	com_facebook_widget_PickerFragment_LoadingStrategy(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_PickerFragment_LoadingStrategy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_LoadingStrategy();
 	// Functions
@@ -75,6 +75,9 @@ public:
 
 protected:
 	com_facebook_widget_PickerFragment_LoadingStrategy();
+
+private:
+	Proxy * _proxy;
 
 };	
 

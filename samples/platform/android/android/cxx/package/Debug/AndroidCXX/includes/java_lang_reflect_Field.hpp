@@ -136,10 +136,10 @@ class java_lang_reflect_Field : public AndroidCXX::java_lang_reflect_Member
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	java_lang_reflect_Field(const java_lang_reflect_Field& cc);
-	java_lang_reflect_Field(Proxy proxy);
-	Proxy proxy() const;	
+	java_lang_reflect_Field(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_reflect_Field();
 	// Functions
@@ -176,6 +176,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

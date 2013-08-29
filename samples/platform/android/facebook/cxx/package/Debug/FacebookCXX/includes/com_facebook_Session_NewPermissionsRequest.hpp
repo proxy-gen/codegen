@@ -92,12 +92,12 @@ class com_facebook_Session_NewPermissionsRequest : public AndroidCXX::java_lang_
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::java_util_List const& arg1);
-	com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment const& arg0,AndroidCXX::java_util_List const& arg1);
+	// Public Constructor
+	com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::java_util_List const& arg1,Proxy * aProxy = new Proxy());
+	com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment const& arg0,AndroidCXX::java_util_List const& arg1,Proxy * aProxy = new Proxy());
 	com_facebook_Session_NewPermissionsRequest(const com_facebook_Session_NewPermissionsRequest& cc);
-	com_facebook_Session_NewPermissionsRequest(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Session_NewPermissionsRequest(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_NewPermissionsRequest();
 	// Functions
@@ -107,6 +107,9 @@ public:
 	virtual FacebookCXX::com_facebook_Session_NewPermissionsRequest * setRequestCode(int const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

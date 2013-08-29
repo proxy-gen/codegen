@@ -47,16 +47,18 @@ class android_graphics_PathEffect
 {
 public:
 
-	// Public ConstrucXXX
-	android_graphics_PathEffect();
+	// Public Constructor
+	android_graphics_PathEffect(Proxy * aProxy = new Proxy());
 	android_graphics_PathEffect(const android_graphics_PathEffect& cc);
-	android_graphics_PathEffect(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_PathEffect();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -63,8 +63,8 @@ class android_animation_LayoutTransition_TransitionListener : public AndroidCXX:
 public:
 
 	android_animation_LayoutTransition_TransitionListener(const android_animation_LayoutTransition_TransitionListener& cc);
-	android_animation_LayoutTransition_TransitionListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_animation_LayoutTransition_TransitionListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_LayoutTransition_TransitionListener();
 	// Functions
@@ -73,6 +73,9 @@ public:
 
 protected:
 	android_animation_LayoutTransition_TransitionListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

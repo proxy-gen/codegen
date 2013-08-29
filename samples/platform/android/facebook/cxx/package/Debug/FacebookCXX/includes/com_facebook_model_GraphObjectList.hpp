@@ -67,8 +67,8 @@ class com_facebook_model_GraphObjectList : public AndroidCXX::java_util_List
 public:
 
 	com_facebook_model_GraphObjectList(const com_facebook_model_GraphObjectList& cc);
-	com_facebook_model_GraphObjectList(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_model_GraphObjectList(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObjectList();
 	// Functions
@@ -77,6 +77,9 @@ public:
 
 protected:
 	com_facebook_model_GraphObjectList();
+
+private:
+	Proxy * _proxy;
 
 };	
 

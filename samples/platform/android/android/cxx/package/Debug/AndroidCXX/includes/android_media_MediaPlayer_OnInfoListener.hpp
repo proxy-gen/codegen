@@ -53,8 +53,8 @@ class android_media_MediaPlayer_OnInfoListener : public AndroidCXX::java_lang_Ob
 public:
 
 	android_media_MediaPlayer_OnInfoListener(const android_media_MediaPlayer_OnInfoListener& cc);
-	android_media_MediaPlayer_OnInfoListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_media_MediaPlayer_OnInfoListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnInfoListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_media_MediaPlayer_OnInfoListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

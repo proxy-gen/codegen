@@ -56,8 +56,8 @@ class android_widget_SimpleCursorAdapter_CursorToStringConverter : public Androi
 public:
 
 	android_widget_SimpleCursorAdapter_CursorToStringConverter(const android_widget_SimpleCursorAdapter_CursorToStringConverter& cc);
-	android_widget_SimpleCursorAdapter_CursorToStringConverter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SimpleCursorAdapter_CursorToStringConverter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SimpleCursorAdapter_CursorToStringConverter();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	android_widget_SimpleCursorAdapter_CursorToStringConverter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

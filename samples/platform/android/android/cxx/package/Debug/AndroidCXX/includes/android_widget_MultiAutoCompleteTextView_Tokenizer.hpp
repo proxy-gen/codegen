@@ -58,8 +58,8 @@ class android_widget_MultiAutoCompleteTextView_Tokenizer : public AndroidCXX::ja
 public:
 
 	android_widget_MultiAutoCompleteTextView_Tokenizer(const android_widget_MultiAutoCompleteTextView_Tokenizer& cc);
-	android_widget_MultiAutoCompleteTextView_Tokenizer(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_MultiAutoCompleteTextView_Tokenizer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_MultiAutoCompleteTextView_Tokenizer();
 	// Functions
@@ -69,6 +69,9 @@ public:
 
 protected:
 	android_widget_MultiAutoCompleteTextView_Tokenizer();
+
+private:
+	Proxy * _proxy;
 
 };	
 

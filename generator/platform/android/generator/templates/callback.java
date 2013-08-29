@@ -34,6 +34,8 @@ public class $callback_class_name implements $base_class
 public class $callback_class_name extends $base_class
 #end if
 {
+	// CXX Callback Pointer
+	private long cxxCallbackPtr = 0L;
 #set $constructors = $callback_class['constructors']
 #for $constructor in $constructors
 	#set $param_str = ""
@@ -85,4 +87,15 @@ public class $callback_class_name extends $base_class
 	#end if
 	public native ${retrninfo['javatypename']} ${Utils.to_safe_cxx_name(function['name'])}($param_str);
 #end for
+// Returns the registered CXX callback Pointer
+long getCXXCallbackPtr() 
+{
+	return cxxCallbackPtr;
+}
+// Registers the CXX callback Pointer
+void setCXXCallbackPtr(long cxxCallbackPtr) 
+{
+	this.cxxCallbackPtr = cxxCallbackPtr;
+}
+
 }

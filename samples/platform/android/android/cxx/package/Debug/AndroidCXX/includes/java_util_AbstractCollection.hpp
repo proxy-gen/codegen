@@ -95,8 +95,8 @@ class java_util_AbstractCollection : public AndroidCXX::java_util_Collection
 public:
 
 	java_util_AbstractCollection(const java_util_AbstractCollection& cc);
-	java_util_AbstractCollection(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_AbstractCollection(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_AbstractCollection();
 	// Functions
@@ -117,6 +117,9 @@ public:
 
 protected:
 	java_util_AbstractCollection();
+
+private:
+	Proxy * _proxy;
 
 };	
 

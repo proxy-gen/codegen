@@ -56,11 +56,10 @@ class android_view_inputmethod_ExtractedText : public AndroidCXX::android_os_Par
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_inputmethod_ExtractedText();
+	// Public Constructor
+	android_view_inputmethod_ExtractedText(Proxy * aProxy = new Proxy());
 	android_view_inputmethod_ExtractedText(const android_view_inputmethod_ExtractedText& cc);
-	android_view_inputmethod_ExtractedText(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_ExtractedText();
 	// Functions
@@ -68,6 +67,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

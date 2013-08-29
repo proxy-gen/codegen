@@ -46,15 +46,18 @@ class com_facebook_widget_ImageRequest
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_ImageRequest(const com_facebook_widget_ImageRequest& cc);
-	com_facebook_widget_ImageRequest(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_ImageRequest(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageRequest();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -221,11 +221,11 @@ class android_content_res_Resources
 {
 public:
 
-	// Public ConstrucXXX
-	android_content_res_Resources(AndroidCXX::android_content_res_AssetManager const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1,AndroidCXX::android_content_res_Configuration const& arg2);
+	// Public Constructor
+	android_content_res_Resources(AndroidCXX::android_content_res_AssetManager const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1,AndroidCXX::android_content_res_Configuration const& arg2,Proxy * aProxy = new Proxy());
 	android_content_res_Resources(const android_content_res_Resources& cc);
-	android_content_res_Resources(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_res_Resources(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_Resources();
 	// Functions
@@ -278,6 +278,9 @@ public:
 	virtual void  updateConfiguration(AndroidCXX::android_content_res_Configuration const& arg0,AndroidCXX::android_util_DisplayMetrics const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -55,8 +55,8 @@ class java_nio_channels_spi_AbstractSelector : public AndroidCXX::java_lang_Obje
 public:
 
 	java_nio_channels_spi_AbstractSelector(const java_nio_channels_spi_AbstractSelector& cc);
-	java_nio_channels_spi_AbstractSelector(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_spi_AbstractSelector(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_spi_AbstractSelector();
 	// Functions
@@ -66,6 +66,9 @@ public:
 
 protected:
 	java_nio_channels_spi_AbstractSelector();
+
+private:
+	Proxy * _proxy;
 
 };	
 

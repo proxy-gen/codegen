@@ -50,8 +50,8 @@ class android_widget_SlidingDrawer_OnDrawerCloseListener : public AndroidCXX::ja
 public:
 
 	android_widget_SlidingDrawer_OnDrawerCloseListener(const android_widget_SlidingDrawer_OnDrawerCloseListener& cc);
-	android_widget_SlidingDrawer_OnDrawerCloseListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_SlidingDrawer_OnDrawerCloseListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SlidingDrawer_OnDrawerCloseListener();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	android_widget_SlidingDrawer_OnDrawerCloseListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

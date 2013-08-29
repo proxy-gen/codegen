@@ -79,10 +79,10 @@ class com_facebook_widget_SimpleGraphObjectCursor : public FacebookCXX::com_face
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_SimpleGraphObjectCursor(const com_facebook_widget_SimpleGraphObjectCursor& cc);
-	com_facebook_widget_SimpleGraphObjectCursor(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_SimpleGraphObjectCursor(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_SimpleGraphObjectCursor();
 	// Functions
@@ -108,6 +108,9 @@ public:
 	virtual void  setMoreObjectsAvailable(bool const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -83,11 +83,11 @@ class android_widget_ZoomButtonsController : public AndroidCXX::android_view_Vie
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_ZoomButtonsController(AndroidCXX::android_view_View const& arg0);
+	// Public Constructor
+	android_widget_ZoomButtonsController(AndroidCXX::android_view_View const& arg0,Proxy * aProxy = new Proxy());
 	android_widget_ZoomButtonsController(const android_widget_ZoomButtonsController& cc);
-	android_widget_ZoomButtonsController(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_ZoomButtonsController(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ZoomButtonsController();
 	// Functions
@@ -105,6 +105,9 @@ public:
 	virtual void  setZoomSpeed(long const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

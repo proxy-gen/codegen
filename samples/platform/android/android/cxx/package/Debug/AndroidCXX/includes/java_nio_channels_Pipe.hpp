@@ -58,8 +58,8 @@ class java_nio_channels_Pipe
 public:
 
 	java_nio_channels_Pipe(const java_nio_channels_Pipe& cc);
-	java_nio_channels_Pipe(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_Pipe(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_Pipe();
 	// Functions
@@ -69,6 +69,9 @@ public:
 
 protected:
 	java_nio_channels_Pipe();
+
+private:
+	Proxy * _proxy;
 
 };	
 

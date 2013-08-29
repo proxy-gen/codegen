@@ -167,10 +167,10 @@ class android_content_ContentProviderClient
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_content_ContentProviderClient(const android_content_ContentProviderClient& cc);
-	android_content_ContentProviderClient(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_ContentProviderClient(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContentProviderClient();
 	// Functions
@@ -191,6 +191,9 @@ public:
 	virtual int  update(AndroidCXX::android_net_Uri const& arg0,AndroidCXX::android_content_ContentValues const& arg1,AndroidCXX::java_lang_String const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

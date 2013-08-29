@@ -169,14 +169,13 @@ class java_lang_StringBuffer : public AndroidCXX::java_io_Serializable,public An
 {
 public:
 
-	// Public ConstrucXXX
-	java_lang_StringBuffer();
-	java_lang_StringBuffer(int const& arg0);
-	java_lang_StringBuffer(AndroidCXX::java_lang_CharSequence const& arg0);
-	java_lang_StringBuffer(AndroidCXX::java_lang_String const& arg0);
+	// Public Constructor
+	java_lang_StringBuffer(Proxy * aProxy = new Proxy());
+	java_lang_StringBuffer(int const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_StringBuffer(AndroidCXX::java_lang_CharSequence const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_StringBuffer(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	java_lang_StringBuffer(const java_lang_StringBuffer& cc);
-	java_lang_StringBuffer(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_StringBuffer();
 	// Functions
@@ -232,6 +231,9 @@ public:
 	virtual void  trimToSize() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

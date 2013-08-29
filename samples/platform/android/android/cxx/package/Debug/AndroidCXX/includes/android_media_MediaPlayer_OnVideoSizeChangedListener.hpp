@@ -53,8 +53,8 @@ class android_media_MediaPlayer_OnVideoSizeChangedListener : public AndroidCXX::
 public:
 
 	android_media_MediaPlayer_OnVideoSizeChangedListener(const android_media_MediaPlayer_OnVideoSizeChangedListener& cc);
-	android_media_MediaPlayer_OnVideoSizeChangedListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_media_MediaPlayer_OnVideoSizeChangedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnVideoSizeChangedListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_media_MediaPlayer_OnVideoSizeChangedListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -36,7 +36,6 @@
 #set $classes = $config_module.list_classes(tags=None,xtags=['_static','_no_proxy'],name=None)	
 
 \#include <CXXConverter.hpp>
-\#include <CXXContext.hpp>
 \#include <CXXTypeHierarchy.hpp>
 \#include <CXXTypes.hpp>
 \#include <JNIContext.hpp>
@@ -66,15 +65,19 @@ void convert_${entity_class_name}(long& java_value, long& cxx_value, const CXXTy
 // Array Converter Types
 #for $class_config in $classes
 #set $classinfo = $class_config['deriveddata']['targetdata']['classinfo']
+#if 'usedinarray' in $classinfo
 #set $entity_class_name = $classinfo['typename']
 void convert_${entity_class_name}_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+#end if
 #end for
 
 // Array Of Array Converter Types
 #for $class_config in $classes
 #set $classinfo = $class_config['deriveddata']['targetdata']['classinfo']
+#if 'usedinarrayarray' in $classinfo
 #set $entity_class_name = $classinfo['typename']
 void convert_${entity_class_name}_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+#end if
 #end for
 
 #endif // _${package}Converter

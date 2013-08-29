@@ -62,8 +62,8 @@ class android_view_LayoutInflater_Factory : public AndroidCXX::java_lang_Object
 public:
 
 	android_view_LayoutInflater_Factory(const android_view_LayoutInflater_Factory& cc);
-	android_view_LayoutInflater_Factory(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_LayoutInflater_Factory(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_LayoutInflater_Factory();
 	// Functions
@@ -71,6 +71,9 @@ public:
 
 protected:
 	android_view_LayoutInflater_Factory();
+
+private:
+	Proxy * _proxy;
 
 };	
 

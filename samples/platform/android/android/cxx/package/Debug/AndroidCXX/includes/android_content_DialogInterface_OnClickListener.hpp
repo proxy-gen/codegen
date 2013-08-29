@@ -53,8 +53,8 @@ class android_content_DialogInterface_OnClickListener : public AndroidCXX::java_
 public:
 
 	android_content_DialogInterface_OnClickListener(const android_content_DialogInterface_OnClickListener& cc);
-	android_content_DialogInterface_OnClickListener(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_DialogInterface_OnClickListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_DialogInterface_OnClickListener();
 	// Functions
@@ -62,6 +62,9 @@ public:
 
 protected:
 	android_content_DialogInterface_OnClickListener();
+
+private:
+	Proxy * _proxy;
 
 };	
 

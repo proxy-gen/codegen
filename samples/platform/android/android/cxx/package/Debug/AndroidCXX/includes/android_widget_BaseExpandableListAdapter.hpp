@@ -70,8 +70,8 @@ class android_widget_BaseExpandableListAdapter : public AndroidCXX::android_widg
 public:
 
 	android_widget_BaseExpandableListAdapter(const android_widget_BaseExpandableListAdapter& cc);
-	android_widget_BaseExpandableListAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_BaseExpandableListAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_BaseExpandableListAdapter();
 	// Functions
@@ -92,6 +92,9 @@ public:
 
 protected:
 	android_widget_BaseExpandableListAdapter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -91,11 +91,11 @@ class com_facebook_FacebookRequestError
 {
 public:
 
-	// Public ConstrucXXX
-	com_facebook_FacebookRequestError(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
+	// Public Constructor
+	com_facebook_FacebookRequestError(int const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,Proxy * aProxy = new Proxy());
 	com_facebook_FacebookRequestError(const com_facebook_FacebookRequestError& cc);
-	com_facebook_FacebookRequestError(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_FacebookRequestError(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookRequestError();
 	// Functions
@@ -115,6 +115,9 @@ public:
 	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

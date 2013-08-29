@@ -49,14 +49,17 @@ class android_text_style_UpdateAppearance : public AndroidCXX::java_lang_Object
 public:
 
 	android_text_style_UpdateAppearance(const android_text_style_UpdateAppearance& cc);
-	android_text_style_UpdateAppearance(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_style_UpdateAppearance(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_style_UpdateAppearance();
 	// Functions
 
 protected:
 	android_text_style_UpdateAppearance();
+
+private:
+	Proxy * _proxy;
 
 };	
 

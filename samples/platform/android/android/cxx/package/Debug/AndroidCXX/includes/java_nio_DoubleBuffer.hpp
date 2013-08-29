@@ -107,8 +107,8 @@ class java_nio_DoubleBuffer : public AndroidCXX::java_lang_Comparable
 public:
 
 	java_nio_DoubleBuffer(const java_nio_DoubleBuffer& cc);
-	java_nio_DoubleBuffer(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_DoubleBuffer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_DoubleBuffer();
 	// Functions
@@ -140,6 +140,9 @@ public:
 
 protected:
 	java_nio_DoubleBuffer();
+
+private:
+	Proxy * _proxy;
 
 };	
 

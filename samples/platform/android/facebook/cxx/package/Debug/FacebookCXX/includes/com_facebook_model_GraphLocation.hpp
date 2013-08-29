@@ -76,8 +76,8 @@ class com_facebook_model_GraphLocation : public FacebookCXX::com_facebook_model_
 public:
 
 	com_facebook_model_GraphLocation(const com_facebook_model_GraphLocation& cc);
-	com_facebook_model_GraphLocation(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_model_GraphLocation(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphLocation();
 	// Functions
@@ -98,6 +98,9 @@ public:
 
 protected:
 	com_facebook_model_GraphLocation();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -54,8 +54,8 @@ class com_facebook_widget_GraphObjectAdapter_ItemPictureData : public FacebookCX
 public:
 
 	com_facebook_widget_GraphObjectAdapter_ItemPictureData(const com_facebook_widget_GraphObjectAdapter_ItemPictureData& cc);
-	com_facebook_widget_GraphObjectAdapter_ItemPictureData(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_GraphObjectAdapter_ItemPictureData(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_ItemPictureData();
 	// Functions
@@ -63,6 +63,9 @@ public:
 
 protected:
 	com_facebook_widget_GraphObjectAdapter_ItemPictureData();
+
+private:
+	Proxy * _proxy;
 
 };	
 

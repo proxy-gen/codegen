@@ -122,11 +122,10 @@ class android_os_Message : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_os_Message();
+	// Public Constructor
+	android_os_Message(Proxy * aProxy = new Proxy());
 	android_os_Message(const android_os_Message& cc);
-	android_os_Message(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Message();
 	// Functions
@@ -153,6 +152,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

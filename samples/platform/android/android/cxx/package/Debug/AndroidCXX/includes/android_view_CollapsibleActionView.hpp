@@ -51,8 +51,8 @@ class android_view_CollapsibleActionView : public AndroidCXX::java_lang_Object
 public:
 
 	android_view_CollapsibleActionView(const android_view_CollapsibleActionView& cc);
-	android_view_CollapsibleActionView(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_CollapsibleActionView(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_CollapsibleActionView();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	android_view_CollapsibleActionView();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -59,8 +59,8 @@ class com_facebook_Session_StartActivityDelegate : public AndroidCXX::java_lang_
 public:
 
 	com_facebook_Session_StartActivityDelegate(const com_facebook_Session_StartActivityDelegate& cc);
-	com_facebook_Session_StartActivityDelegate(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_Session_StartActivityDelegate(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_StartActivityDelegate();
 	// Functions
@@ -69,6 +69,9 @@ public:
 
 protected:
 	com_facebook_Session_StartActivityDelegate();
+
+private:
+	Proxy * _proxy;
 
 };	
 

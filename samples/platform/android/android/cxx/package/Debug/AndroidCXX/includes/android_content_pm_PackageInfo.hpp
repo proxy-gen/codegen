@@ -62,11 +62,10 @@ class android_content_pm_PackageInfo : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	// Public ConstrucXXX
-	android_content_pm_PackageInfo();
+	// Public Constructor
+	android_content_pm_PackageInfo(Proxy * aProxy = new Proxy());
 	android_content_pm_PackageInfo(const android_content_pm_PackageInfo& cc);
-	android_content_pm_PackageInfo(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_PackageInfo();
 	// Functions
@@ -75,6 +74,9 @@ public:
 	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

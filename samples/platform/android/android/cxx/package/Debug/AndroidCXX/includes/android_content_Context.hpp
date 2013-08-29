@@ -386,8 +386,8 @@ class android_content_Context
 public:
 
 	android_content_Context(const android_content_Context& cc);
-	android_content_Context(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_Context(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_Context();
 	// Functions
@@ -488,6 +488,9 @@ public:
 
 protected:
 	android_content_Context();
+
+private:
+	Proxy * _proxy;
 
 };	
 

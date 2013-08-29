@@ -73,8 +73,8 @@ class java_nio_channels_Selector
 public:
 
 	java_nio_channels_Selector(const java_nio_channels_Selector& cc);
-	java_nio_channels_Selector(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_Selector(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_Selector();
 	// Functions
@@ -91,6 +91,9 @@ public:
 
 protected:
 	java_nio_channels_Selector();
+
+private:
+	Proxy * _proxy;
 
 };	
 

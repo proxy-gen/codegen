@@ -97,8 +97,8 @@ class java_util_Map : public AndroidCXX::java_lang_Object
 public:
 
 	java_util_Map(const java_util_Map& cc);
-	java_util_Map(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_Map(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Map();
 	// Functions
@@ -119,6 +119,9 @@ public:
 
 protected:
 	java_util_Map();
+
+private:
+	Proxy * _proxy;
 
 };	
 

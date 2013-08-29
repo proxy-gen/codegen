@@ -49,14 +49,17 @@ class android_text_InputType : public AndroidCXX::java_lang_Object
 public:
 
 	android_text_InputType(const android_text_InputType& cc);
-	android_text_InputType(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_InputType(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_InputType();
 	// Functions
 
 protected:
 	android_text_InputType();
+
+private:
+	Proxy * _proxy;
 
 };	
 

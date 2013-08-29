@@ -52,8 +52,8 @@ class android_widget_WrapperListAdapter : public AndroidCXX::android_widget_List
 public:
 
 	android_widget_WrapperListAdapter(const android_widget_WrapperListAdapter& cc);
-	android_widget_WrapperListAdapter(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_WrapperListAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_WrapperListAdapter();
 	// Functions
@@ -61,6 +61,9 @@ public:
 
 protected:
 	android_widget_WrapperListAdapter();
+
+private:
+	Proxy * _proxy;
 
 };	
 

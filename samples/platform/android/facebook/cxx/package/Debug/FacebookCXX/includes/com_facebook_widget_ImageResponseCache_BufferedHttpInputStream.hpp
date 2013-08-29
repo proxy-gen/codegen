@@ -49,16 +49,19 @@ class com_facebook_widget_ImageResponseCache_BufferedHttpInputStream : public An
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(const com_facebook_widget_ImageResponseCache_BufferedHttpInputStream& cc);
-	com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_ImageResponseCache_BufferedHttpInputStream(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageResponseCache_BufferedHttpInputStream();
 	// Functions
 	virtual void  close() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -70,11 +70,11 @@ class android_webkit_WebResourceResponse
 {
 public:
 
-	// Public ConstrucXXX
-	android_webkit_WebResourceResponse(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_io_InputStream const& arg2);
+	// Public Constructor
+	android_webkit_WebResourceResponse(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_io_InputStream const& arg2,Proxy * aProxy = new Proxy());
 	android_webkit_WebResourceResponse(const android_webkit_WebResourceResponse& cc);
-	android_webkit_WebResourceResponse(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_WebResourceResponse(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebResourceResponse();
 	// Functions
@@ -86,6 +86,9 @@ public:
 	virtual void  setMimeType(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

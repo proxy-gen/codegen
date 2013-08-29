@@ -29,6 +29,7 @@
 #set $classes = $config_module.list_classes(tags=None,xtags=['_static', '_no_proxy'],name=None)	
 
 \#include <${package}Converter.hpp>
+\#include <android/log.h>
 
 \#define LOG_TAG "${package}Converter"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -42,7 +43,6 @@
 #set $entity_qualified_name = $entity_namespace_name + '::' + $entity_class_name
 void convert_${entity_class_name}(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
-	CXXContext *ctx = CXXContext::sharedInstance();
 	JNIContext *jni = JNIContext::sharedInstance();
 
 	if (converter_type == CONVERT_TO_JAVA)
@@ -64,7 +64,10 @@ void convert_${entity_class_name}(long& java_value, long& cxx_value, const CXXTy
 		while(0);
 		java_value = (long) jni->toJEnum(jni->getClassRef("${class_jni_name}"), enum_string);
 		#else
-		java_value = (long) ctx->findProxyComponent(cxx_value);
+		${entity_qualified_name} *cxx_object = (${entity_qualified_name} *) cxx_value;
+		Proxy *proxy = cxx_object->proxy();
+		LOGV("convert_${entity_class_name} CONVERT_TO_JAVA proxy address is %ld", (long) proxy->address);
+		java_value = (long) proxy->address;
 		#end if
 	}
 	else if (converter_type == CONVERT_TO_CXX)
@@ -86,8 +89,10 @@ void convert_${entity_class_name}(long& java_value, long& cxx_value, const CXXTy
 		} 
 		while (0);		
 		#else
-		Proxy proxy;
-		proxy.address = (long) java_value;
+		Proxy * proxy = new Proxy();
+		proxy->refcount = 0;
+		proxy->address = (long) java_value;
+		LOGV("convert_${entity_class_name} CONVERT_TO_CXX proxy address is %ld", (long) proxy->address);
 		${entity_qualified_name} *cxx_object = new ${entity_qualified_name}(proxy);
 		cxx_value = (long) cxx_object;
 		#end if
@@ -98,6 +103,7 @@ void convert_${entity_class_name}(long& java_value, long& cxx_value, const CXXTy
 // Array Converter Types
 #for $class_config in $classes
 #set $class_classinfo = $class_config['deriveddata']['targetdata']['classinfo']
+#if 'usedinarray' in $class_classinfo
 #set $entity_class_name = $class_classinfo['typename']
 #set $entity_namespace_name = $class_classinfo['namespace']
 #set $entity_qualified_name = $entity_namespace_name + '::' + $entity_class_name
@@ -165,11 +171,13 @@ void convert_${entity_class_name}_array(long& java_value, long& cxx_value, const
 		jni->popLocalFrame();
 	}
 }
-#end for 
+#end if
+#end for
 
 // Array Of Array Converter Types
 #for $class_config in $classes
 #set $class_classinfo = $class_config['deriveddata']['targetdata']['classinfo']
+#if 'usedinarrayarray' in $class_classinfo
 #set $entity_class_name = $class_classinfo['typename']
 #set $entity_namespace_name = $class_classinfo['namespace']
 #set $entity_qualified_name = $entity_namespace_name + '::' + $entity_class_name
@@ -249,5 +257,6 @@ void convert_${entity_class_name}_array_array(long& java_value, long& cxx_value,
 		jni->popLocalFrame();
 	}
 }
-#end for  
+#end if
+#end for
 

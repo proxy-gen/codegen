@@ -94,8 +94,8 @@ class java_util_Collection : public AndroidCXX::java_lang_Iterable
 public:
 
 	java_util_Collection(const java_util_Collection& cc);
-	java_util_Collection(Proxy proxy);
-	Proxy proxy() const;	
+	java_util_Collection(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Collection();
 	// Functions
@@ -117,6 +117,9 @@ public:
 
 protected:
 	java_util_Collection();
+
+private:
+	Proxy * _proxy;
 
 };	
 

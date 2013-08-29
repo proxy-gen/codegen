@@ -262,8 +262,8 @@ class android_content_ContentResolver
 public:
 
 	android_content_ContentResolver(const android_content_ContentResolver& cc);
-	android_content_ContentResolver(Proxy proxy);
-	Proxy proxy() const;	
+	android_content_ContentResolver(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ContentResolver();
 	// Functions
@@ -315,6 +315,9 @@ public:
 
 protected:
 	android_content_ContentResolver();
+
+private:
+	Proxy * _proxy;
 
 };	
 

@@ -149,8 +149,8 @@ class android_net_Uri
 public:
 
 	android_net_Uri(const android_net_Uri& cc);
-	android_net_Uri(Proxy proxy);
-	Proxy proxy() const;	
+	android_net_Uri(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_net_Uri();
 	// Functions
@@ -196,6 +196,9 @@ public:
 
 protected:
 	android_net_Uri();
+
+private:
+	Proxy * _proxy;
 
 };	
 

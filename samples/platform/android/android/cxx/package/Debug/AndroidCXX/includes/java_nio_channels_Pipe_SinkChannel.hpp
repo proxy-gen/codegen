@@ -50,8 +50,8 @@ class java_nio_channels_Pipe_SinkChannel : public AndroidCXX::java_nio_channels_
 public:
 
 	java_nio_channels_Pipe_SinkChannel(const java_nio_channels_Pipe_SinkChannel& cc);
-	java_nio_channels_Pipe_SinkChannel(Proxy proxy);
-	Proxy proxy() const;	
+	java_nio_channels_Pipe_SinkChannel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_Pipe_SinkChannel();
 	// Functions
@@ -59,6 +59,9 @@ public:
 
 protected:
 	java_nio_channels_Pipe_SinkChannel();
+
+private:
+	Proxy * _proxy;
 
 };	
 

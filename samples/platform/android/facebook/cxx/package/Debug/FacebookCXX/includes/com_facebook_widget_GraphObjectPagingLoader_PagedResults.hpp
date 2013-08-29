@@ -56,8 +56,8 @@ class com_facebook_widget_GraphObjectPagingLoader_PagedResults : public Facebook
 public:
 
 	com_facebook_widget_GraphObjectPagingLoader_PagedResults(const com_facebook_widget_GraphObjectPagingLoader_PagedResults& cc);
-	com_facebook_widget_GraphObjectPagingLoader_PagedResults(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_GraphObjectPagingLoader_PagedResults(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectPagingLoader_PagedResults();
 	// Functions
@@ -65,6 +65,9 @@ public:
 
 protected:
 	com_facebook_widget_GraphObjectPagingLoader_PagedResults();
+
+private:
+	Proxy * _proxy;
 
 };	
 

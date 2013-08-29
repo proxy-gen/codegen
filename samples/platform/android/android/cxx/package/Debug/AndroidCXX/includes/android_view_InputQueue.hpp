@@ -46,15 +46,18 @@ class android_view_InputQueue
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_view_InputQueue(const android_view_InputQueue& cc);
-	android_view_InputQueue(Proxy proxy);
-	Proxy proxy() const;	
+	android_view_InputQueue(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_InputQueue();
 	// Functions
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

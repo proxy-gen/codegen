@@ -82,12 +82,11 @@ class android_view_ContextThemeWrapper : public AndroidCXX::java_lang_Object
 {
 public:
 
-	// Public ConstrucXXX
-	android_view_ContextThemeWrapper();
-	android_view_ContextThemeWrapper(AndroidCXX::android_content_Context const& arg0,int const& arg1);
+	// Public Constructor
+	android_view_ContextThemeWrapper(Proxy * aProxy = new Proxy());
+	android_view_ContextThemeWrapper(AndroidCXX::android_content_Context const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
 	android_view_ContextThemeWrapper(const android_view_ContextThemeWrapper& cc);
-	android_view_ContextThemeWrapper(Proxy proxy);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ContextThemeWrapper();
 	// Functions
@@ -98,6 +97,9 @@ public:
 	virtual void  setTheme(int const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

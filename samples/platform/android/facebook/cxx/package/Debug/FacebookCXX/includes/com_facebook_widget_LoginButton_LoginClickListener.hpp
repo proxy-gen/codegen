@@ -53,16 +53,19 @@ class com_facebook_widget_LoginButton_LoginClickListener : public AndroidCXX::an
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_widget_LoginButton_LoginClickListener(const com_facebook_widget_LoginButton_LoginClickListener& cc);
-	com_facebook_widget_LoginButton_LoginClickListener(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_widget_LoginButton_LoginClickListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_LoginClickListener();
 	// Functions
 	virtual void  onClick(AndroidCXX::android_view_View const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

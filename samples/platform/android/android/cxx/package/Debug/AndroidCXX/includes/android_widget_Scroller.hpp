@@ -82,13 +82,13 @@ class android_widget_Scroller
 {
 public:
 
-	// Public ConstrucXXX
-	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0);
-	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1);
-	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,bool const& arg2);
+	// Public Constructor
+	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_Scroller(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_view_animation_Interpolator const& arg1,bool const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_Scroller(const android_widget_Scroller& cc);
-	android_widget_Scroller(Proxy proxy);
-	Proxy proxy() const;	
+	android_widget_Scroller(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Scroller();
 	// Functions
@@ -114,6 +114,9 @@ public:
 	virtual int  timePassed() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

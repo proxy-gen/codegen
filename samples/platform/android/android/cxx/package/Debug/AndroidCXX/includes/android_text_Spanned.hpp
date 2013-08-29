@@ -67,8 +67,8 @@ class android_text_Spanned : public AndroidCXX::java_lang_CharSequence
 public:
 
 	android_text_Spanned(const android_text_Spanned& cc);
-	android_text_Spanned(Proxy proxy);
-	Proxy proxy() const;	
+	android_text_Spanned(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_Spanned();
 	// Functions
@@ -80,6 +80,9 @@ public:
 
 protected:
 	android_text_Spanned();
+
+private:
+	Proxy * _proxy;
 
 };	
 

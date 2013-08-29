@@ -58,10 +58,10 @@ class com_facebook_model_JsonUtil_JSONObjectEntry : public AndroidCXX::java_util
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	com_facebook_model_JsonUtil_JSONObjectEntry(const com_facebook_model_JsonUtil_JSONObjectEntry& cc);
-	com_facebook_model_JsonUtil_JSONObjectEntry(Proxy proxy);
-	Proxy proxy() const;	
+	com_facebook_model_JsonUtil_JSONObjectEntry(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_JsonUtil_JSONObjectEntry();
 	// Functions
@@ -70,6 +70,9 @@ public:
 	virtual AndroidCXX::java_lang_Object * setValue(AndroidCXX::java_lang_Object const& arg0) ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

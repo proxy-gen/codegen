@@ -60,10 +60,10 @@ class android_webkit_WebBackForwardList : public AndroidCXX::java_io_Serializabl
 {
 public:
 
-	// Public ConstrucXXX
+	// Public Constructor
 	android_webkit_WebBackForwardList(const android_webkit_WebBackForwardList& cc);
-	android_webkit_WebBackForwardList(Proxy proxy);
-	Proxy proxy() const;	
+	android_webkit_WebBackForwardList(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebBackForwardList();
 	// Functions
@@ -73,6 +73,9 @@ public:
 	virtual int  getSize() ;
 
 protected:
+
+private:
+	Proxy * _proxy;
 
 };	
 

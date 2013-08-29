@@ -62,8 +62,8 @@ class android_app_PendingIntent_OnFinished : public AndroidCXX::java_lang_Object
 public:
 
 	android_app_PendingIntent_OnFinished(const android_app_PendingIntent_OnFinished& cc);
-	android_app_PendingIntent_OnFinished(Proxy proxy);
-	Proxy proxy() const;	
+	android_app_PendingIntent_OnFinished(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_PendingIntent_OnFinished();
 	// Functions
@@ -71,6 +71,9 @@ public:
 
 protected:
 	android_app_PendingIntent_OnFinished();
+
+private:
+	Proxy * _proxy;
 
 };	
 
