@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,6 +29,7 @@
 //
 
 
+
 #include <java_lang_Object.hpp>
 
 #include <vector>
@@ -46,20 +48,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
-class android_animation_TypeEvaluator
+class android_animation_TypeEvaluator : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_animation_TypeEvaluator(const android_animation_TypeEvaluator& cc);
-	android_animation_TypeEvaluator(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_animation_TypeEvaluator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_TypeEvaluator();
 	// Functions
-	 AndroidCXX::java_lang_Object evaluate(float const& arg0,AndroidCXX::java_lang_Object const& arg1,AndroidCXX::java_lang_Object const& arg2);
+	virtual AndroidCXX::java_lang_Object * evaluate(float const& arg0,AndroidCXX::java_lang_Object const& arg1,AndroidCXX::java_lang_Object const& arg2) ;
+
+protected:
+	android_animation_TypeEvaluator();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

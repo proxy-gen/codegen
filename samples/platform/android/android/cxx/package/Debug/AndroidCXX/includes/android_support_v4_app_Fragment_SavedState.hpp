@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -29,6 +30,9 @@
 
 #include <android_os_Parcel.hpp>
 
+
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -47,19 +51,25 @@ namespace AndroidCXX {
 
 class android_os_Parcel;
 
-class android_support_v4_app_Fragment_SavedState
+class android_support_v4_app_Fragment_SavedState : public AndroidCXX::android_os_Parcelable
 {
 public:
 
+	// Public Constructor
 	android_support_v4_app_Fragment_SavedState(const android_support_v4_app_Fragment_SavedState& cc);
-	android_support_v4_app_Fragment_SavedState(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_support_v4_app_Fragment_SavedState(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_app_Fragment_SavedState();
 	// Functions
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

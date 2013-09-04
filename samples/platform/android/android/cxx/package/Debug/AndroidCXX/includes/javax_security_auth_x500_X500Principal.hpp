@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,28 +8,29 @@
 //
 
 
- 		 
-	
- 		 
- 		 
- 	
-	
- 		 
- 		 
-	
- 		 
-	
- 	
-
 
  		 
+ 	
+ 		 
+ 		 
+ 	
+	
+ 		 
+ 		 
+ 		 
+	
+	
+	
+
+
+ 	
+ 		 
  		 
  		 
  		 
  	
  		 
  		 
- 	
 
 
 
@@ -63,6 +64,11 @@
 
 #include <java_io_InputStream.hpp>
 
+
+#include <java_io_Serializable.hpp>
+
+#include <java_security_Principal.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -87,28 +93,34 @@ class java_util_Map;
 
 class java_io_InputStream;
 
-class javax_security_auth_x500_X500Principal
+class javax_security_auth_x500_X500Principal : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_security_Principal
 {
 public:
 
+	// Public Constructor
+	javax_security_auth_x500_X500Principal(std::vector<byte> const& arg0,Proxy * aProxy = new Proxy());
+	javax_security_auth_x500_X500Principal(AndroidCXX::java_io_InputStream const& arg0,Proxy * aProxy = new Proxy());
+	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1,Proxy * aProxy = new Proxy());
 	javax_security_auth_x500_X500Principal(const javax_security_auth_x500_X500Principal& cc);
-	javax_security_auth_x500_X500Principal(Proxy proxy);
-	// Public Constructors
-	javax_security_auth_x500_X500Principal(AndroidCXX::java_io_InputStream const& arg0);
-	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0);
-	javax_security_auth_x500_X500Principal(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1);
-	javax_security_auth_x500_X500Principal(std::vector<byte> const& arg0);
-	Proxy proxy() const;	
+	javax_security_auth_x500_X500Principal(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~javax_security_auth_x500_X500Principal();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_lang_String getName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1);
-	 AndroidCXX::java_lang_String getName();
-	 AndroidCXX::java_lang_String getName(AndroidCXX::java_lang_String const& arg0);
-	 std::vector<byte> getEncoded();
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual std::vector<byte>  getEncoded() ;
+	virtual AndroidCXX::java_lang_String * getName(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_util_Map const& arg1) ;
+	virtual AndroidCXX::java_lang_String * getName(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

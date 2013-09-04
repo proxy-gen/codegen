@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -11,6 +11,7 @@
 
  			
 		
+	
 
 
 #ifndef _java_lang_Thread_State
@@ -34,12 +35,12 @@ namespace java_lang_Thread_State {
 
 enum java_lang_Thread_State
 {
+	BLOCKED,
 	NEW,
 	RUNNABLE,
-	BLOCKED,
-	WAITING,
-	TIMED_WAITING,
 	TERMINATED,
+	TIMED_WAITING,
+	WAITING,
 };
 
 } // namespace

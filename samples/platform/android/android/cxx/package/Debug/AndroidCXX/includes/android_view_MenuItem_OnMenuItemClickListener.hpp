@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <android_view_MenuItem.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class android_view_MenuItem;
 
-class android_view_MenuItem_OnMenuItemClickListener
+class android_view_MenuItem_OnMenuItemClickListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_MenuItem_OnMenuItemClickListener(const android_view_MenuItem_OnMenuItemClickListener& cc);
-	android_view_MenuItem_OnMenuItemClickListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_MenuItem_OnMenuItemClickListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_MenuItem_OnMenuItemClickListener();
 	// Functions
-	 bool onMenuItemClick(AndroidCXX::android_view_MenuItem const& arg0);
+	virtual bool  onMenuItemClick(AndroidCXX::android_view_MenuItem const& arg0) ;
+
+protected:
+	android_view_MenuItem_OnMenuItemClickListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

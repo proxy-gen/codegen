@@ -66,32 +66,35 @@
 #define convert_jni_string_to_jni(value) ((jstring) value)           
 #define convert_jni_string_to_java(value) ((long) value) 
 
-#define convert_jni__object_array_type_to_jni(value) ((jobjectArray) value)           
-#define convert_jni__object_array_type_to_java(value) ((long) value) 
+#define convert_jni__array_array_to_jni(value) ((jobjectArray) value)
+#define convert_jni__array_array_to_java(value) ((long) value)
 
-#define convert_jni__byte_array_type_to_jni(value) ((jbyteArray) value)           
-#define convert_jni__byte_array_type_to_java(value) ((long) value) 
+#define convert_jni__object_array_to_jni(value) ((jobjectArray) value)           
+#define convert_jni__object_array_to_java(value) ((long) value) 
 
-#define convert_jni__short_array_type_to_jni(value) ((jshortArray) value)
-#define convert_jni__short_array_type_to_java(value) ((long) value) 
+#define convert_jni__byte_array_to_jni(value) ((jbyteArray) value)           
+#define convert_jni__byte_array_to_java(value) ((long) value) 
 
-#define convert_jni__int_array_type_to_jni(value) ((jintArray) value)
-#define convert_jni__int_array_type_to_java(value) ((long) value) 
+#define convert_jni__short_array_to_jni(value) ((jshortArray) value)
+#define convert_jni__short_array_to_java(value) ((long) value) 
 
-#define convert_jni__long_array_type_to_jni(value) ((jlongArray) value)
-#define convert_jni__long_array_type_to_java(value) ((long) value) 
+#define convert_jni__int_array_to_jni(value) ((jintArray) value)
+#define convert_jni__int_array_to_java(value) ((long) value) 
 
-#define convert_jni__float_array_type_to_jni(value) ((jfloatArray) value)
-#define convert_jni__float_array_type_to_java(value) ((long) value) 
+#define convert_jni__long_array_to_jni(value) ((jlongArray) value)
+#define convert_jni__long_array_to_java(value) ((long) value) 
 
-#define convert_jni__double_array_type_to_jni(value) ((jdoubleArray) value)
-#define convert_jni__double_array_type_to_java(value) ((long) value) 
+#define convert_jni__float_array_to_jni(value) ((jfloatArray) value)
+#define convert_jni__float_array_to_java(value) ((long) value) 
 
-#define convert_jni__boolean_array_type_to_jni(value) ((jbooleanArray) value)
-#define convert_jni__boolean_array_type_to_java(value) ((long) value) 
+#define convert_jni__double_array_to_jni(value) ((jdoubleArray) value)
+#define convert_jni__double_array_to_java(value) ((long) value) 
 
-#define convert_jni__char_array_type_to_jni(value) ((jcharArray) value)           
-#define convert_jni__char_array_type_to_java(value) ((long) value) 
+#define convert_jni__boolean_array_to_jni(value) ((jbooleanArray) value)
+#define convert_jni__boolean_array_to_java(value) ((long) value) 
+
+#define convert_jni__char_array_to_jni(value) ((jcharArray) value)           
+#define convert_jni__char_array_to_java(value) ((long) value) 
 
 #define LOG_ENABLED 1
 #define log(...) if (LOG_ENABLED) fprintf(stderr, __VA_ARGS__)
@@ -118,23 +121,37 @@ void convert_float(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx
 
 void convert_double(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-void convert__object_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert__boolean_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-void convert__byte_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert__byte_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-void convert__char_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert__char_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-void convert__short_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert__short_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-void convert__int_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert__int_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-void convert__long_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert__long_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-void convert__float_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert__float_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-void convert__double_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert__double_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
-void convert__boolean_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+void convert__boolean_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__byte_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__char_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__short_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__int_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__long_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__float_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+
+void convert__double_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 
 #endif /* CXXCONVERTER_H_ */
 

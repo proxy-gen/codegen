@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -46,9 +47,10 @@
 
 #include <java_lang_String.hpp>
 
+#include <android_os_Bundle.hpp>
+
 #include <com_facebook_android_Facebook_DialogListener.hpp>
 
-#include <android_os_Bundle.hpp>
 
 #include <vector>
 #include <map>
@@ -68,24 +70,30 @@ namespace FacebookCXX {
 
 
 
+
 class com_facebook_android_Facebook_DialogListener;
 
-
-class com_facebook_android_FbDialog
+class com_facebook_android_FbDialog 
 {
 public:
 
+	// Public Constructor
+	com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3,Proxy * aProxy = new Proxy());
+	com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3,int const& arg4,Proxy * aProxy = new Proxy());
+	com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2,Proxy * aProxy = new Proxy());
+	com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2,int const& arg3,Proxy * aProxy = new Proxy());
 	com_facebook_android_FbDialog(const com_facebook_android_FbDialog& cc);
-	com_facebook_android_FbDialog(Proxy proxy);
-	// Public Constructors
-	com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2);
-	com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg2,int const& arg3);
-	com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3);
-	com_facebook_android_FbDialog(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,FacebookCXX::com_facebook_android_Facebook_DialogListener const& arg3,int const& arg4);
-	Proxy proxy() const;	
+	com_facebook_android_FbDialog(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_FbDialog();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

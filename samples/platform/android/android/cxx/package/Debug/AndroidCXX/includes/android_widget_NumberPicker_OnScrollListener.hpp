@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <android_widget_NumberPicker.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class android_widget_NumberPicker;
 
-class android_widget_NumberPicker_OnScrollListener
+class android_widget_NumberPicker_OnScrollListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_NumberPicker_OnScrollListener(const android_widget_NumberPicker_OnScrollListener& cc);
-	android_widget_NumberPicker_OnScrollListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_NumberPicker_OnScrollListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_NumberPicker_OnScrollListener();
 	// Functions
-	 void onScrollStateChange(AndroidCXX::android_widget_NumberPicker const& arg0,int const& arg1);
+	virtual void  onScrollStateChange(AndroidCXX::android_widget_NumberPicker const& arg0,int const& arg1) ;
+
+protected:
+	android_widget_NumberPicker_OnScrollListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

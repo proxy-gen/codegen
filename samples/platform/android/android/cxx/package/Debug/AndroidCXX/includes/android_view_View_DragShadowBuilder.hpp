@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -36,9 +37,12 @@
 
 #include <android_view_View.hpp>
 
+#include <android_graphics_Canvas.hpp>
+
 #include <android_graphics_Point.hpp>
 
-#include <android_graphics_Canvas.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -58,26 +62,31 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_graphics_Point;
-
 class android_graphics_Canvas;
 
-class android_view_View_DragShadowBuilder
+class android_graphics_Point;
+
+class android_view_View_DragShadowBuilder : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	android_view_View_DragShadowBuilder(Proxy * aProxy = new Proxy());
+	android_view_View_DragShadowBuilder(AndroidCXX::android_view_View const& arg0,Proxy * aProxy = new Proxy());
 	android_view_View_DragShadowBuilder(const android_view_View_DragShadowBuilder& cc);
-	android_view_View_DragShadowBuilder(Proxy proxy);
-	// Public Constructors
-	android_view_View_DragShadowBuilder(AndroidCXX::android_view_View const& arg0);
-	android_view_View_DragShadowBuilder();
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_DragShadowBuilder();
 	// Functions
-	 AndroidCXX::android_view_View getView();
-	 void onProvideShadowMetrics(AndroidCXX::android_graphics_Point const& arg0,AndroidCXX::android_graphics_Point const& arg1);
-	 void onDrawShadow(AndroidCXX::android_graphics_Canvas const& arg0);
+	virtual AndroidCXX::android_view_View * getView() ;
+	virtual void  onDrawShadow(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual void  onProvideShadowMetrics(AndroidCXX::android_graphics_Point const& arg0,AndroidCXX::android_graphics_Point const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

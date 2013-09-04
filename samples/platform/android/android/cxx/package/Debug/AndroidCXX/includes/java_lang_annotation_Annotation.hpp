@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,11 +8,12 @@
 //
 
 
- 		 
-	
+
 	
  	
  		 
+ 		 
+	
 
 
 
@@ -33,12 +34,8 @@
 //
 
 
+
 #include <java_lang_Object.hpp>
-
-#include <java_lang_String.hpp>
-
-#include <java_lang_Class.hpp>
-
 
 #include <vector>
 #include <map>
@@ -56,29 +53,33 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
+class java_lang_Class;
+
+
 
 class java_lang_String;
 
-class java_lang_Class;
-
-class java_lang_annotation_Annotation;
-
-class java_lang_annotation_Annotation
+class java_lang_annotation_Annotation : public AndroidCXX::java_lang_Object
 {
 public:
 
 	java_lang_annotation_Annotation(const java_lang_annotation_Annotation& cc);
-	java_lang_annotation_Annotation(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_lang_annotation_Annotation(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_annotation_Annotation();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_lang_Class annotationType();
+	virtual AndroidCXX::java_lang_Class * annotationType() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+	java_lang_annotation_Annotation();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

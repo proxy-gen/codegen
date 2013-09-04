@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <java_lang_String.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_widget_TabHost_OnTabChangeListener
+class android_widget_TabHost_OnTabChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_TabHost_OnTabChangeListener(const android_widget_TabHost_OnTabChangeListener& cc);
-	android_widget_TabHost_OnTabChangeListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_TabHost_OnTabChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TabHost_OnTabChangeListener();
 	// Functions
-	 void onTabChanged(AndroidCXX::java_lang_String const& arg0);
+	virtual void  onTabChanged(AndroidCXX::java_lang_String const& arg0) ;
+
+protected:
+	android_widget_TabHost_OnTabChangeListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -31,6 +32,9 @@
 
 #include <android_os_Bundle.hpp>
 
+
+#include <com_facebook_TokenCachingStrategy.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -48,20 +52,26 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_android_Facebook_SetterTokenCachingStrategy
+class com_facebook_android_Facebook_SetterTokenCachingStrategy : public FacebookCXX::com_facebook_TokenCachingStrategy
 {
 public:
 
+	// Public Constructor
 	com_facebook_android_Facebook_SetterTokenCachingStrategy(const com_facebook_android_Facebook_SetterTokenCachingStrategy& cc);
-	com_facebook_android_Facebook_SetterTokenCachingStrategy(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_android_Facebook_SetterTokenCachingStrategy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_SetterTokenCachingStrategy();
 	// Functions
-	 void clear();
-	 AndroidCXX::android_os_Bundle load();
-	 void save(AndroidCXX::android_os_Bundle const& arg0);
+	virtual void  clear() ;
+	virtual AndroidCXX::android_os_Bundle * load() ;
+	virtual void  save(AndroidCXX::android_os_Bundle const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

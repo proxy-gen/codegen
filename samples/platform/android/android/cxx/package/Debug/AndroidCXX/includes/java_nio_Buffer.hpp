@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,15 +8,14 @@
 //
 
 
-	
-	
-	
-	
-	
-	
-	
-	
 
+	
+	
+	
+	
+	
+	
+	
 
 
 
@@ -68,38 +67,40 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_Buffer;
 
-class java_lang_Object;
-
-class java_nio_Buffer
+class java_nio_Buffer : public AndroidCXX::java_lang_Object
 {
 public:
 
 	java_nio_Buffer(const java_nio_Buffer& cc);
-	java_nio_Buffer(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_nio_Buffer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_Buffer();
 	// Functions
-	 int limit();
-	 AndroidCXX::java_nio_Buffer limit(int const& arg0);
-	 AndroidCXX::java_nio_Buffer clear();
-	 int remaining();
-	 bool isDirect();
-	 bool hasArray();
-	 AndroidCXX::java_lang_Object array();
-	 AndroidCXX::java_nio_Buffer position(int const& arg0);
-	 int position();
-	 int arrayOffset();
-	 int capacity();
-	 AndroidCXX::java_nio_Buffer mark();
-	 AndroidCXX::java_nio_Buffer reset();
-	 AndroidCXX::java_nio_Buffer flip();
-	 AndroidCXX::java_nio_Buffer rewind();
-	 bool hasRemaining();
-	 bool isReadOnly();
+	virtual int  arrayOffset() ;
+	virtual int  capacity() ;
+	virtual AndroidCXX::java_nio_Buffer * clear() ;
+	virtual AndroidCXX::java_nio_Buffer * flip() ;
+	virtual bool  hasArray() ;
+	virtual bool  hasRemaining() ;
+	virtual bool  isDirect() ;
+	virtual bool  isReadOnly() ;
+	virtual AndroidCXX::java_nio_Buffer * limit(int const& arg0) ;
+	virtual int  limit() ;
+	virtual AndroidCXX::java_nio_Buffer * mark() ;
+	virtual AndroidCXX::java_nio_Buffer * position(int const& arg0) ;
+	virtual int  position() ;
+	virtual int  remaining() ;
+	virtual AndroidCXX::java_nio_Buffer * reset() ;
+	virtual AndroidCXX::java_nio_Buffer * rewind() ;
+
+protected:
+	java_nio_Buffer();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

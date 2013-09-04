@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -26,7 +27,8 @@
 //
 
 
-#include <com_facebook_widget_GraphObjectAdapter_ItemPictureData.hpp>
+
+#include <com_facebook_model_GraphObject.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace FacebookCXX {
 
 class com_facebook_widget_GraphObjectAdapter_ItemPictureData;
 
-class com_facebook_widget_GraphObjectAdapter_ItemPicture
+class com_facebook_widget_GraphObjectAdapter_ItemPicture : public FacebookCXX::com_facebook_model_GraphObject
 {
 public:
 
 	com_facebook_widget_GraphObjectAdapter_ItemPicture(const com_facebook_widget_GraphObjectAdapter_ItemPicture& cc);
-	com_facebook_widget_GraphObjectAdapter_ItemPicture(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_widget_GraphObjectAdapter_ItemPicture(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_ItemPicture();
 	// Functions
-	 FacebookCXX::com_facebook_widget_GraphObjectAdapter_ItemPictureData getData();
+	virtual FacebookCXX::com_facebook_widget_GraphObjectAdapter_ItemPictureData * getData() ;
+
+protected:
+	com_facebook_widget_GraphObjectAdapter_ItemPicture();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

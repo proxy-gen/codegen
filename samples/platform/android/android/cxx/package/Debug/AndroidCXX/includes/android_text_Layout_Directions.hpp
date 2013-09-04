@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +44,23 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_text_Layout_Directions
+class android_text_Layout_Directions : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
 	android_text_Layout_Directions(const android_text_Layout_Directions& cc);
-	android_text_Layout_Directions(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_text_Layout_Directions(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_Layout_Directions();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

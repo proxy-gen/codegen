@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -35,10 +36,10 @@
 
 #include <java_lang_Class.hpp>
 
-
-#include <com_facebook_model_GraphObject.hpp>
-
 #include <org_json_JSONArray.hpp>
+
+
+#include <java_util_List.hpp>
 
 #include <vector>
 #include <map>
@@ -57,24 +58,29 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_model_GraphObjectList;
 
 class com_facebook_model_GraphObject;
 
 
-class com_facebook_model_GraphObjectList
+class com_facebook_model_GraphObjectList : public AndroidCXX::java_util_List
 {
 public:
 
 	com_facebook_model_GraphObjectList(const com_facebook_model_GraphObjectList& cc);
-	com_facebook_model_GraphObjectList(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_model_GraphObjectList(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObjectList();
 	// Functions
-	 FacebookCXX::com_facebook_model_GraphObjectList castToListOf(AndroidCXX::java_lang_Class const& arg0);
-	 AndroidCXX::org_json_JSONArray getInnerJSONArray();
+	virtual FacebookCXX::com_facebook_model_GraphObjectList * castToListOf(AndroidCXX::java_lang_Class const& arg0) ;
+	virtual AndroidCXX::org_json_JSONArray * getInnerJSONArray() ;
+
+protected:
+	com_facebook_model_GraphObjectList();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

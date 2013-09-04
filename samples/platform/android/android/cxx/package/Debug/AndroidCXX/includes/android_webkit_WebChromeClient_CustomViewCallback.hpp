@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_webkit_WebChromeClient_CustomViewCallback
+class android_webkit_WebChromeClient_CustomViewCallback : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_webkit_WebChromeClient_CustomViewCallback(const android_webkit_WebChromeClient_CustomViewCallback& cc);
-	android_webkit_WebChromeClient_CustomViewCallback(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_webkit_WebChromeClient_CustomViewCallback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebChromeClient_CustomViewCallback();
 	// Functions
-	 void onCustomViewHidden();
+	virtual void  onCustomViewHidden() ;
+
+protected:
+	android_webkit_WebChromeClient_CustomViewCallback();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

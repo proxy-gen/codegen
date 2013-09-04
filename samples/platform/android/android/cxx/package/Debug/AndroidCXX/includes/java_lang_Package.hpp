@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,31 +8,32 @@
 //
 
 
-	
-	
- 		 
-	
+
  		 
  	
 	
- 		 
  		 
  	
  		 
  	
  		 
+	
+	
+	
+	
+ 		 
+	
  	
  		 
+	
+	
+	
+ 		 
  	
  		 
  		 
-	
-	
-	
-	
-	
-	
  		 
+	
 
 
 
@@ -67,14 +68,16 @@
 //
 
 
-#include <java_lang_String.hpp>
-
-
 #include <java_lang_Class.hpp>
 
 #include <java_lang_annotation_Annotation.hpp>
 
+#include <java_lang_String.hpp>
+
 #include <java_net_URL.hpp>
+
+
+#include <java_lang_reflect_AnnotatedElement.hpp>
 
 #include <vector>
 #include <map>
@@ -92,45 +95,50 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
-class java_lang_Package;
-
 class java_lang_Class;
 
 class java_lang_annotation_Annotation;
 
+class java_lang_String;
+
+
 class java_net_URL;
 
-class java_lang_Package
+class java_lang_Package : public AndroidCXX::java_lang_reflect_AnnotatedElement
 {
 public:
 
+	// Public Constructor
 	java_lang_Package(const java_lang_Package& cc);
-	java_lang_Package(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_lang_Package(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Package();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_lang_String getName();
-	static AndroidCXX::java_lang_Package getPackage(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_annotation_Annotation getAnnotation(AndroidCXX::java_lang_Class const& arg0);
-	 bool isAnnotationPresent(AndroidCXX::java_lang_Class const& arg0);
-	 std::vector<AndroidCXX::java_lang_annotation_Annotation > getAnnotations();
-	 std::vector<AndroidCXX::java_lang_annotation_Annotation > getDeclaredAnnotations();
-	static std::vector<AndroidCXX::java_lang_Package > getPackages();
-	 bool isSealed();
-	 bool isSealed(AndroidCXX::java_net_URL const& arg0);
-	 AndroidCXX::java_lang_String getSpecificationTitle();
-	 AndroidCXX::java_lang_String getSpecificationVersion();
-	 AndroidCXX::java_lang_String getSpecificationVendor();
-	 AndroidCXX::java_lang_String getImplementationTitle();
-	 AndroidCXX::java_lang_String getImplementationVersion();
-	 AndroidCXX::java_lang_String getImplementationVendor();
-	 bool isCompatibleWith(AndroidCXX::java_lang_String const& arg0);
+	virtual AndroidCXX::java_lang_annotation_Annotation * getAnnotation(AndroidCXX::java_lang_Class const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_annotation_Annotation>  getAnnotations() ;
+	virtual std::vector<AndroidCXX::java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
+	virtual AndroidCXX::java_lang_String * getImplementationTitle() ;
+	virtual AndroidCXX::java_lang_String * getImplementationVendor() ;
+	virtual AndroidCXX::java_lang_String * getImplementationVersion() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+	static AndroidCXX::java_lang_Package * getPackage(AndroidCXX::java_lang_String const& arg0) ;
+	static std::vector<AndroidCXX::java_lang_Package>  getPackages() ;
+	virtual AndroidCXX::java_lang_String * getSpecificationTitle() ;
+	virtual AndroidCXX::java_lang_String * getSpecificationVendor() ;
+	virtual AndroidCXX::java_lang_String * getSpecificationVersion() ;
+	virtual int  hashCode() ;
+	virtual bool  isAnnotationPresent(AndroidCXX::java_lang_Class const& arg0) ;
+	virtual bool  isCompatibleWith(AndroidCXX::java_lang_String const& arg0) ;
+	virtual bool  isSealed(AndroidCXX::java_net_URL const& arg0) ;
+	virtual bool  isSealed() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

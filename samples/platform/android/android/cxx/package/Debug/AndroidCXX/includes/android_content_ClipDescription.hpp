@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,21 +8,22 @@
 //
 
 
-	
+
  		 
- 		 
- 		 
-	
  		 
  		 
  	
  		 
 	
+	
+ 		 
+	
+ 		 
 
 
+ 		 
  		 
  	
- 		 
  		 
 
 
@@ -51,10 +52,12 @@
 
 #include <java_lang_String.hpp>
 
-#include <android_os_Parcel.hpp>
-
 #include <java_lang_CharSequence.hpp>
 
+#include <android_os_Parcel.hpp>
+
+
+#include <android_os_Parcelable.hpp>
 
 #include <vector>
 #include <map>
@@ -74,33 +77,38 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_os_Parcel;
-
 class java_lang_CharSequence;
 
-class android_content_ClipDescription;
+class android_os_Parcel;
 
-class android_content_ClipDescription
+
+class android_content_ClipDescription : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	android_content_ClipDescription(Proxy proxy);
-	// Public Constructors
-	android_content_ClipDescription(AndroidCXX::java_lang_CharSequence const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1);
-	android_content_ClipDescription(AndroidCXX::android_content_ClipDescription const& arg0);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_content_ClipDescription(AndroidCXX::android_content_ClipDescription const& arg0,Proxy * aProxy = new Proxy());
+	android_content_ClipDescription(AndroidCXX::java_lang_CharSequence const& arg0,std::vector<AndroidCXX::java_lang_String> const& arg1,Proxy * aProxy = new Proxy());
+	android_content_ClipDescription(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ClipDescription();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	static bool compareMimeTypes(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
-	 AndroidCXX::java_lang_CharSequence getLabel();
-	 bool hasMimeType(AndroidCXX::java_lang_String const& arg0);
-	 std::vector<AndroidCXX::java_lang_String > filterMimeTypes(AndroidCXX::java_lang_String const& arg0);
-	 int getMimeTypeCount();
-	 AndroidCXX::java_lang_String getMimeType(int const& arg0);
+	static bool  compareMimeTypes(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual int  describeContents() ;
+	virtual std::vector<AndroidCXX::java_lang_String>  filterMimeTypes(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_CharSequence * getLabel() ;
+	virtual int  getMimeTypeCount() ;
+	virtual AndroidCXX::java_lang_String * getMimeType(int const& arg0) ;
+	virtual bool  hasMimeType(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

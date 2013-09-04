@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,11 +8,13 @@
 //
 
 
+
+	
+	
+	
 	
  		 
  		 
-	
-	
  		 
  		 
  	
@@ -23,7 +25,6 @@
  		 
  		 
  		 
-	
 
 
 
@@ -51,11 +52,13 @@
 //
 
 
-#include <com_facebook_SessionLoginBehavior.hpp>
-
 #include <com_facebook_SessionDefaultAudience.hpp>
 
+#include <com_facebook_SessionLoginBehavior.hpp>
+
 #include <com_facebook_widget_LoginButton_OnErrorListener.hpp>
+
+#include <com_facebook_Session_StatusCallback.hpp>
 
 #include <java_util_List.hpp>
 
@@ -63,7 +66,8 @@
 
 #include <java_lang_String.hpp>
 
-#include <com_facebook_Session_StatusCallback.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -85,34 +89,40 @@ namespace FacebookCXX {
 
 class com_facebook_widget_LoginButton_OnErrorListener;
 
+class com_facebook_Session_StatusCallback;
+
 
 class com_facebook_Session;
 
 
-class com_facebook_Session_StatusCallback;
-
-class com_facebook_widget_LoginButton_LoginButtonProperties
+class com_facebook_widget_LoginButton_LoginButtonProperties : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
 	com_facebook_widget_LoginButton_LoginButtonProperties(const com_facebook_widget_LoginButton_LoginButtonProperties& cc);
-	com_facebook_widget_LoginButton_LoginButtonProperties(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_widget_LoginButton_LoginButtonProperties(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_LoginButtonProperties();
 	// Functions
-	 com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior getLoginBehavior();
-	 void setLoginBehavior(com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior const& arg0);
-	 void setDefaultAudience(com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience const& arg0);
-	 com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience getDefaultAudience();
-	 FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener getOnErrorListener();
-	 void setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener const& arg0);
-	 void setReadPermissions(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Session const& arg1);
-	 void setPublishPermissions(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Session const& arg1);
-	 void clearPermissions();
-	 void setSessionStatusCallback(FacebookCXX::com_facebook_Session_StatusCallback const& arg0);
-	 FacebookCXX::com_facebook_Session_StatusCallback getSessionStatusCallback();
+	virtual void  clearPermissions() ;
+	virtual com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience  getDefaultAudience() ;
+	virtual com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior  getLoginBehavior() ;
+	virtual FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener * getOnErrorListener() ;
+	virtual FacebookCXX::com_facebook_Session_StatusCallback * getSessionStatusCallback() ;
+	virtual void  setDefaultAudience(com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience const& arg0) ;
+	virtual void  setLoginBehavior(com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior const& arg0) ;
+	virtual void  setOnErrorListener(FacebookCXX::com_facebook_widget_LoginButton_OnErrorListener const& arg0) ;
+	virtual void  setPublishPermissions(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Session const& arg1) ;
+	virtual void  setReadPermissions(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Session const& arg1) ;
+	virtual void  setSessionStatusCallback(FacebookCXX::com_facebook_Session_StatusCallback const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

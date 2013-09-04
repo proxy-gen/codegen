@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -32,9 +33,12 @@
 //
 
 
+#include <android_graphics_Bitmap.hpp>
+
 #include <java_lang_String.hpp>
 
-#include <android_graphics_Bitmap.hpp>
+
+#include <java_lang_Cloneable.hpp>
 
 #include <vector>
 #include <map>
@@ -52,25 +56,31 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 class android_graphics_Bitmap;
 
-class android_webkit_WebHistoryItem
+class java_lang_String;
+
+class android_webkit_WebHistoryItem : public AndroidCXX::java_lang_Cloneable
 {
 public:
 
+	// Public Constructor
 	android_webkit_WebHistoryItem(const android_webkit_WebHistoryItem& cc);
-	android_webkit_WebHistoryItem(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_webkit_WebHistoryItem(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebHistoryItem();
 	// Functions
-	 AndroidCXX::java_lang_String getUrl();
-	 AndroidCXX::java_lang_String getTitle();
-	 AndroidCXX::java_lang_String getOriginalUrl();
-	 AndroidCXX::android_graphics_Bitmap getFavicon();
+	virtual AndroidCXX::android_graphics_Bitmap * getFavicon() ;
+	virtual AndroidCXX::java_lang_String * getOriginalUrl() ;
+	virtual AndroidCXX::java_lang_String * getTitle() ;
+	virtual AndroidCXX::java_lang_String * getUrl() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

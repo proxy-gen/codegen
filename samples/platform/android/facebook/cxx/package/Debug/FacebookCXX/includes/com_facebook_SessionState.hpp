@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -11,6 +11,7 @@
 
  			
 		
+	
 
 
 #ifndef _com_facebook_SessionState
@@ -36,13 +37,13 @@ namespace com_facebook_SessionState {
 
 enum com_facebook_SessionState
 {
+	CLOSED,
+	CLOSED_LOGIN_FAILED,
 	CREATED,
 	CREATED_TOKEN_LOADED,
-	OPENING,
 	OPENED,
 	OPENED_TOKEN_UPDATED,
-	CLOSED_LOGIN_FAILED,
-	CLOSED,
+	OPENING,
 };
 
 } // namespace

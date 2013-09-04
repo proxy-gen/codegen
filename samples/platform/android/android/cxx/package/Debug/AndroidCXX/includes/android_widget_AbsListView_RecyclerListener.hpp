@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <android_view_View.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_widget_AbsListView_RecyclerListener
+class android_widget_AbsListView_RecyclerListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_AbsListView_RecyclerListener(const android_widget_AbsListView_RecyclerListener& cc);
-	android_widget_AbsListView_RecyclerListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_AbsListView_RecyclerListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsListView_RecyclerListener();
 	// Functions
-	 void onMovedToScrapHeap(AndroidCXX::android_view_View const& arg0);
+	virtual void  onMovedToScrapHeap(AndroidCXX::android_view_View const& arg0) ;
+
+protected:
+	android_widget_AbsListView_RecyclerListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

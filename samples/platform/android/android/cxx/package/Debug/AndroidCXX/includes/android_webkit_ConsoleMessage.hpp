@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -35,9 +36,12 @@
 //
 
 
+#include <android_webkit_ConsoleMessage_MessageLevel.hpp>
+
 #include <java_lang_String.hpp>
 
-#include <android_webkit_ConsoleMessage_MessageLevel.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -55,25 +59,31 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+
 class java_lang_String;
 
-
-class android_webkit_ConsoleMessage
+class android_webkit_ConsoleMessage : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	android_webkit_ConsoleMessage(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel const& arg3,Proxy * aProxy = new Proxy());
 	android_webkit_ConsoleMessage(const android_webkit_ConsoleMessage& cc);
-	android_webkit_ConsoleMessage(Proxy proxy);
-	// Public Constructors
-	android_webkit_ConsoleMessage(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,int const& arg2,android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel const& arg3);
-	Proxy proxy() const;	
+	android_webkit_ConsoleMessage(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_ConsoleMessage();
 	// Functions
-	 int lineNumber();
-	 AndroidCXX::java_lang_String message();
-	 AndroidCXX::java_lang_String sourceId();
-	 android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel messageLevel();
+	virtual int  lineNumber() ;
+	virtual android_webkit_ConsoleMessage_MessageLevel::android_webkit_ConsoleMessage_MessageLevel  messageLevel() ;
+	virtual AndroidCXX::java_lang_String * message() ;
+	virtual AndroidCXX::java_lang_String * sourceId() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

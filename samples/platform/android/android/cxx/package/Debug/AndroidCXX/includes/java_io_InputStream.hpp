@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  	
@@ -36,6 +37,9 @@
 //
 
 
+
+#include <java_io_Closeable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -52,27 +56,32 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_io_InputStream
+class java_io_InputStream : public AndroidCXX::java_io_Closeable
 {
 public:
 
 	java_io_InputStream(const java_io_InputStream& cc);
-	java_io_InputStream(Proxy proxy);
-	// Public Constructors
-	java_io_InputStream();
-	Proxy proxy() const;	
+	java_io_InputStream(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_InputStream();
 	// Functions
-	 void close();
-	 void mark(int const& arg0);
-	 void reset();
-	 int read(std::vector<byte> const& arg0,int const& arg1,int const& arg2);
-	 int read(std::vector<byte> const& arg0);
-	 int read();
-	 long skip(long const& arg0);
-	 int available();
-	 bool markSupported();
+	virtual int  available() ;
+	virtual void  close() ;
+	virtual void  mark(int const& arg0) ;
+	virtual bool  markSupported() ;
+	virtual int  read(std::vector<byte> const& arg0,int const& arg1,int const& arg2) ;
+	virtual int  read(std::vector<byte> const& arg0) ;
+	virtual int  read() ;
+	virtual void  reset() ;
+	virtual long  skip(long const& arg0) ;
+
+protected:
+	java_io_InputStream();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -51,6 +52,7 @@
 
 #include <android_view_ViewGroup_MarginLayoutParams.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -77,27 +79,33 @@ class android_view_ViewGroup_LayoutParams;
 
 class android_view_ViewGroup_MarginLayoutParams;
 
-class android_widget_RelativeLayout_LayoutParams
+class android_widget_RelativeLayout_LayoutParams 
 {
 public:
 
+	// Public Constructor
+	android_widget_RelativeLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_RelativeLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_RelativeLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_RelativeLayout_LayoutParams(int const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_RelativeLayout_LayoutParams(const android_widget_RelativeLayout_LayoutParams& cc);
-	android_widget_RelativeLayout_LayoutParams(Proxy proxy);
-	// Public Constructors
-	android_widget_RelativeLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_RelativeLayout_LayoutParams(int const& arg0,int const& arg1);
-	android_widget_RelativeLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
-	android_widget_RelativeLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0);
-	Proxy proxy() const;	
+	android_widget_RelativeLayout_LayoutParams(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RelativeLayout_LayoutParams();
 	// Functions
-	 AndroidCXX::java_lang_String debug(AndroidCXX::java_lang_String const& arg0);
-	 void resolveLayoutDirection(int const& arg0);
-	 void addRule(int const& arg0,int const& arg1);
-	 void addRule(int const& arg0);
-	 void removeRule(int const& arg0);
-	 std::vector<int> getRules();
+	virtual void  addRule(int const& arg0,int const& arg1) ;
+	virtual void  addRule(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * debug(AndroidCXX::java_lang_String const& arg0) ;
+	virtual std::vector<int>  getRules() ;
+	virtual void  removeRule(int const& arg0) ;
+	virtual void  resolveLayoutDirection(int const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

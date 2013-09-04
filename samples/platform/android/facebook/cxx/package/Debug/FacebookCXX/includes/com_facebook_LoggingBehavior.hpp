@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -11,6 +11,7 @@
 
  			
 		
+	
 
 
 #ifndef _com_facebook_LoggingBehavior
@@ -34,11 +35,11 @@ namespace com_facebook_LoggingBehavior {
 
 enum com_facebook_LoggingBehavior
 {
-	REQUESTS,
-	INCLUDE_ACCESS_TOKENS,
-	INCLUDE_RAW_RESPONSES,
 	CACHE,
 	DEVELOPER_ERRORS,
+	INCLUDE_ACCESS_TOKENS,
+	INCLUDE_RAW_RESPONSES,
+	REQUESTS,
 };
 
 } // namespace

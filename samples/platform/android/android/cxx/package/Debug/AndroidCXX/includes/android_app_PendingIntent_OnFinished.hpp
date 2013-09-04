@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -29,13 +30,8 @@
 //
 
 
-#include <android_app_PendingIntent.hpp>
 
-#include <android_content_Intent.hpp>
-
-#include <java_lang_String.hpp>
-
-#include <android_os_Bundle.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -61,18 +57,24 @@ class java_lang_String;
 
 class android_os_Bundle;
 
-class android_app_PendingIntent_OnFinished
+class android_app_PendingIntent_OnFinished : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_app_PendingIntent_OnFinished(const android_app_PendingIntent_OnFinished& cc);
-	android_app_PendingIntent_OnFinished(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_app_PendingIntent_OnFinished(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_PendingIntent_OnFinished();
 	// Functions
-	 void onSendFinished(AndroidCXX::android_app_PendingIntent const& arg0,AndroidCXX::android_content_Intent const& arg1,int const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::android_os_Bundle const& arg4);
+	virtual void  onSendFinished(AndroidCXX::android_app_PendingIntent const& arg0,AndroidCXX::android_content_Intent const& arg1,int const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::android_os_Bundle const& arg4) ;
+
+protected:
+	android_app_PendingIntent_OnFinished();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

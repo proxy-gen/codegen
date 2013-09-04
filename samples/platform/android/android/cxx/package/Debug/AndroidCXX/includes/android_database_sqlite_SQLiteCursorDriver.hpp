@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,10 +8,11 @@
 //
 
 
+
+ 		 
  		 
  	
 	
- 		 
  		 
  	
  		 
@@ -36,11 +37,8 @@
 //
 
 
-#include <android_database_sqlite_SQLiteDatabase_CursorFactory.hpp>
 
-#include <android_database_Cursor.hpp>
-
-#include <java_lang_String.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -58,28 +56,34 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_database_sqlite_SQLiteDatabase_CursorFactory;
-
 class android_database_Cursor;
+
+class android_database_sqlite_SQLiteDatabase_CursorFactory;
 
 class java_lang_String;
 
-class android_database_sqlite_SQLiteCursorDriver
+class android_database_sqlite_SQLiteCursorDriver : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_database_sqlite_SQLiteCursorDriver(const android_database_sqlite_SQLiteCursorDriver& cc);
-	android_database_sqlite_SQLiteCursorDriver(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_database_sqlite_SQLiteCursorDriver(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteCursorDriver();
 	// Functions
-	 AndroidCXX::android_database_Cursor query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg0,std::vector<AndroidCXX::java_lang_String > const& arg1);
-	 void cursorDeactivated();
-	 void cursorRequeried(AndroidCXX::android_database_Cursor const& arg0);
-	 void cursorClosed();
-	 void setBindArguments(std::vector<AndroidCXX::java_lang_String > const& arg0);
+	virtual void  cursorClosed() ;
+	virtual void  cursorDeactivated() ;
+	virtual void  cursorRequeried(AndroidCXX::android_database_Cursor const& arg0) ;
+	virtual AndroidCXX::android_database_Cursor * query(AndroidCXX::android_database_sqlite_SQLiteDatabase_CursorFactory const& arg0,std::vector<AndroidCXX::java_lang_String> const& arg1) ;
+	virtual void  setBindArguments(std::vector<AndroidCXX::java_lang_String> const& arg0) ;
+
+protected:
+	android_database_sqlite_SQLiteCursorDriver();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,6 +8,9 @@
 //
 
 
+
+	
+	
 	
  		 
  		 
@@ -15,9 +18,7 @@
  		 
  		 
  		 
-	
  		 
-	
  		 
  		 
 
@@ -56,15 +57,18 @@
 
 #include <android_location_Location.hpp>
 
+#include <java_lang_String.hpp>
+
+#include <com_facebook_model_GraphPlace.hpp>
+
+#include <android_os_Bundle.hpp>
+
 #include <android_app_Activity.hpp>
 
 #include <android_util_AttributeSet.hpp>
 
-#include <android_os_Bundle.hpp>
 
-#include <com_facebook_model_GraphPlace.hpp>
-
-#include <java_lang_String.hpp>
+#include <com_facebook_widget_PickerFragment.hpp>
 
 #include <vector>
 #include <map>
@@ -84,39 +88,44 @@ namespace FacebookCXX {
 
 
 
-
-
 class com_facebook_model_GraphPlace;
 
 
-class com_facebook_widget_PlacePickerFragment
+
+
+class com_facebook_widget_PlacePickerFragment : public FacebookCXX::com_facebook_widget_PickerFragment
 {
 public:
 
+	// Public Constructor
+	com_facebook_widget_PlacePickerFragment(Proxy * aProxy = new Proxy());
+	com_facebook_widget_PlacePickerFragment(AndroidCXX::android_os_Bundle const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_widget_PlacePickerFragment(const com_facebook_widget_PlacePickerFragment& cc);
-	com_facebook_widget_PlacePickerFragment(Proxy proxy);
-	// Public Constructors
-	com_facebook_widget_PlacePickerFragment();
-	com_facebook_widget_PlacePickerFragment(AndroidCXX::android_os_Bundle const& arg0);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PlacePickerFragment();
 	// Functions
-	 AndroidCXX::android_location_Location getLocation();
-	 void onInflate(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,AndroidCXX::android_os_Bundle const& arg2);
-	 void onAttach(AndroidCXX::android_app_Activity const& arg0);
-	 void onActivityCreated(AndroidCXX::android_os_Bundle const& arg0);
-	 void onDetach();
-	 void setLocation(AndroidCXX::android_location_Location const& arg0);
-	 FacebookCXX::com_facebook_model_GraphPlace getSelection();
-	 void setSettingsFromBundle(AndroidCXX::android_os_Bundle const& arg0);
-	 int getRadiusInMeters();
-	 void setRadiusInMeters(int const& arg0);
-	 int getResultsLimit();
-	 void setResultsLimit(int const& arg0);
-	 AndroidCXX::java_lang_String getSearchText();
-	 void setSearchText(AndroidCXX::java_lang_String const& arg0);
-	 void onSearchBoxTextChanged(AndroidCXX::java_lang_String const& arg0,bool const& arg1);
+	virtual AndroidCXX::android_location_Location * getLocation() ;
+	virtual int  getRadiusInMeters() ;
+	virtual int  getResultsLimit() ;
+	virtual AndroidCXX::java_lang_String * getSearchText() ;
+	virtual FacebookCXX::com_facebook_model_GraphPlace * getSelection() ;
+	virtual void  onActivityCreated(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual void  onAttach(AndroidCXX::android_app_Activity const& arg0) ;
+	virtual void  onDetach() ;
+	virtual void  onInflate(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
+	virtual void  onSearchBoxTextChanged(AndroidCXX::java_lang_String const& arg0,bool const& arg1) ;
+	virtual void  setLocation(AndroidCXX::android_location_Location const& arg0) ;
+	virtual void  setRadiusInMeters(int const& arg0) ;
+	virtual void  setResultsLimit(int const& arg0) ;
+	virtual void  setSearchText(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setSettingsFromBundle(AndroidCXX::android_os_Bundle const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

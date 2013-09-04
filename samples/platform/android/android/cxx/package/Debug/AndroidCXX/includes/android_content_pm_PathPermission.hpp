@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,9 +8,10 @@
 //
 
 
+
+	
+	
  		 
-	
-	
 
 
  		 
@@ -36,9 +37,10 @@
 //
 
 
+#include <java_lang_String.hpp>
+
 #include <android_os_Parcel.hpp>
 
-#include <java_lang_String.hpp>
 
 #include <vector>
 #include <map>
@@ -56,26 +58,32 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_Parcel;
-
 class java_lang_String;
 
-class android_content_pm_PathPermission
+class android_os_Parcel;
+
+class android_content_pm_PathPermission 
 {
 public:
 
+	// Public Constructor
+	android_content_pm_PathPermission(AndroidCXX::android_os_Parcel const& arg0,Proxy * aProxy = new Proxy());
+	android_content_pm_PathPermission(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,Proxy * aProxy = new Proxy());
 	android_content_pm_PathPermission(const android_content_pm_PathPermission& cc);
-	android_content_pm_PathPermission(Proxy proxy);
-	// Public Constructors
-	android_content_pm_PathPermission(AndroidCXX::java_lang_String const& arg0,int const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3);
-	android_content_pm_PathPermission(AndroidCXX::android_os_Parcel const& arg0);
-	Proxy proxy() const;	
+	android_content_pm_PathPermission(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_PathPermission();
 	// Functions
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 AndroidCXX::java_lang_String getReadPermission();
-	 AndroidCXX::java_lang_String getWritePermission();
+	virtual AndroidCXX::java_lang_String * getReadPermission() ;
+	virtual AndroidCXX::java_lang_String * getWritePermission() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

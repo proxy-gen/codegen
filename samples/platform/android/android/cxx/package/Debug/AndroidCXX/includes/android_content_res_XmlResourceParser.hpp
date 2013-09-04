@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,11 @@
 //
 
 
+
+#include <android_util_AttributeSet.hpp>
+
+#include <org_xmlpull_v1_XmlPullParser.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +47,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_content_res_XmlResourceParser
+class android_content_res_XmlResourceParser : public AndroidCXX::android_util_AttributeSet,public AndroidCXX::org_xmlpull_v1_XmlPullParser
 {
 public:
 
 	android_content_res_XmlResourceParser(const android_content_res_XmlResourceParser& cc);
-	android_content_res_XmlResourceParser(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_content_res_XmlResourceParser(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_res_XmlResourceParser();
 	// Functions
-	 void close();
+	virtual void  close() ;
+
+protected:
+	android_content_res_XmlResourceParser();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

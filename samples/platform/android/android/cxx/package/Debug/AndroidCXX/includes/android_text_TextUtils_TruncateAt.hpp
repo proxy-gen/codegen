@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -11,6 +11,7 @@
 
  			
 		
+	
 
 
 #ifndef _android_text_TextUtils_TruncateAt
@@ -34,11 +35,11 @@ namespace android_text_TextUtils_TruncateAt {
 
 enum android_text_TextUtils_TruncateAt
 {
-	START,
-	MIDDLE,
 	END,
-	MARQUEE,
 	END_SMALL,
+	MARQUEE,
+	MIDDLE,
+	START,
 };
 
 } // namespace

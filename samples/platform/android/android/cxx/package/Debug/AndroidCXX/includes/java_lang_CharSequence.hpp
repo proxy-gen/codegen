@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -30,8 +31,8 @@
 //
 
 
-#include <java_lang_String.hpp>
 
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -49,25 +50,30 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+
 class java_lang_String;
 
-class java_lang_CharSequence;
-
-class java_lang_CharSequence
+class java_lang_CharSequence : public AndroidCXX::java_lang_Object
 {
 public:
 
 	java_lang_CharSequence(const java_lang_CharSequence& cc);
-	java_lang_CharSequence(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_lang_CharSequence(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_CharSequence();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 int length();
-	 char charAt(int const& arg0);
-	 AndroidCXX::java_lang_CharSequence subSequence(int const& arg0,int const& arg1);
+	virtual char  charAt(int const& arg0) ;
+	virtual int  length() ;
+	virtual AndroidCXX::java_lang_CharSequence * subSequence(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+	java_lang_CharSequence();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -11,6 +11,7 @@
 
  			
 		
+	
 
 
 #ifndef _com_facebook_SessionLoginBehavior
@@ -34,8 +35,8 @@ namespace com_facebook_SessionLoginBehavior {
 
 enum com_facebook_SessionLoginBehavior
 {
-	SSO_WITH_FALLBACK,
 	SSO_ONLY,
+	SSO_WITH_FALLBACK,
 	SUPPRESS_SSO,
 };
 

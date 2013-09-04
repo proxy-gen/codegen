@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,20 +8,21 @@
 //
 
 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
+
 	
- 		 
+	
 	
 	
  		 
-	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
  		 
 
 
@@ -75,21 +76,24 @@
 //
 
 
-#include <android_view_MotionEvent.hpp>
+#include <java_lang_CharSequence.hpp>
+
+#include <android_graphics_drawable_Drawable.hpp>
 
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
+#include <android_view_MotionEvent.hpp>
+
 #include <android_content_Context.hpp>
 
 #include <android_graphics_Typeface.hpp>
 
-#include <android_graphics_drawable_Drawable.hpp>
-
-#include <java_lang_CharSequence.hpp>
-
 #include <android_util_AttributeSet.hpp>
+
+
+#include <android_widget_CompoundButton.hpp>
 
 #include <vector>
 #include <map>
@@ -107,64 +111,70 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_MotionEvent;
+class java_lang_CharSequence;
+
+class android_graphics_drawable_Drawable;
 
 class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
+class android_view_MotionEvent;
+
 class android_content_Context;
 
 class android_graphics_Typeface;
 
-class android_graphics_drawable_Drawable;
-
-class java_lang_CharSequence;
-
 class android_util_AttributeSet;
 
-class android_widget_Switch
+class android_widget_Switch : public AndroidCXX::android_widget_CompoundButton
 {
 public:
 
+	// Public Constructor
+	android_widget_Switch(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_Switch(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_Switch(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_Switch(const android_widget_Switch& cc);
-	android_widget_Switch(Proxy proxy);
-	// Public Constructors
-	android_widget_Switch(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_Switch(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
-	android_widget_Switch(AndroidCXX::android_content_Context const& arg0);
-	Proxy proxy() const;	
+	android_widget_Switch(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Switch();
 	// Functions
-	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
-	 void jumpDrawablesToCurrentState();
-	 void onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
-	 void onMeasure(int const& arg0,int const& arg1);
-	 void setChecked(bool const& arg0);
-	 int getCompoundPaddingLeft();
-	 int getCompoundPaddingRight();
-	 void setSwitchTextAppearance(AndroidCXX::android_content_Context const& arg0,int const& arg1);
-	 void setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1);
-	 void setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0);
-	 void setSwitchPadding(int const& arg0);
-	 int getSwitchPadding();
-	 void setSwitchMinWidth(int const& arg0);
-	 int getSwitchMinWidth();
-	 void setThumbTextPadding(int const& arg0);
-	 int getThumbTextPadding();
-	 void setTrackDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
-	 void setTrackResource(int const& arg0);
-	 AndroidCXX::android_graphics_drawable_Drawable getTrackDrawable();
-	 void setThumbDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
-	 void setThumbResource(int const& arg0);
-	 AndroidCXX::android_graphics_drawable_Drawable getThumbDrawable();
-	 AndroidCXX::java_lang_CharSequence getTextOn();
-	 void setTextOn(AndroidCXX::java_lang_CharSequence const& arg0);
-	 AndroidCXX::java_lang_CharSequence getTextOff();
-	 void setTextOff(AndroidCXX::java_lang_CharSequence const& arg0);
+	virtual int  getCompoundPaddingLeft() ;
+	virtual int  getCompoundPaddingRight() ;
+	virtual int  getSwitchMinWidth() ;
+	virtual int  getSwitchPadding() ;
+	virtual AndroidCXX::java_lang_CharSequence * getTextOff() ;
+	virtual AndroidCXX::java_lang_CharSequence * getTextOn() ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getThumbDrawable() ;
+	virtual int  getThumbTextPadding() ;
+	virtual AndroidCXX::android_graphics_drawable_Drawable * getTrackDrawable() ;
+	virtual void  jumpDrawablesToCurrentState() ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  onMeasure(int const& arg0,int const& arg1) ;
+	virtual void  onPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual void  setChecked(bool const& arg0) ;
+	virtual void  setSwitchMinWidth(int const& arg0) ;
+	virtual void  setSwitchPadding(int const& arg0) ;
+	virtual void  setSwitchTextAppearance(AndroidCXX::android_content_Context const& arg0,int const& arg1) ;
+	virtual void  setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0,int const& arg1) ;
+	virtual void  setSwitchTypeface(AndroidCXX::android_graphics_Typeface const& arg0) ;
+	virtual void  setTextOff(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  setTextOn(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  setThumbDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  setThumbResource(int const& arg0) ;
+	virtual void  setThumbTextPadding(int const& arg0) ;
+	virtual void  setTrackDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  setTrackResource(int const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

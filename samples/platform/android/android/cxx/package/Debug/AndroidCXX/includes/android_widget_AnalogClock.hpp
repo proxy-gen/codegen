@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -36,6 +37,7 @@
 
 #include <android_util_AttributeSet.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -56,20 +58,26 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_AnalogClock
+class android_widget_AnalogClock 
 {
 public:
 
+	// Public Constructor
+	android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_AnalogClock(const android_widget_AnalogClock& cc);
-	android_widget_AnalogClock(Proxy proxy);
-	// Public Constructors
-	android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0);
-	android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_AnalogClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
-	Proxy proxy() const;	
+	android_widget_AnalogClock(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AnalogClock();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

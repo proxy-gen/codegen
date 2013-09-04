@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,8 @@
 //
 
 
-#include <android_content_SharedPreferences.hpp>
 
-#include <java_lang_String.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +51,24 @@ class android_content_SharedPreferences;
 
 class java_lang_String;
 
-class android_content_SharedPreferences_OnSharedPreferenceChangeListener
+class android_content_SharedPreferences_OnSharedPreferenceChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_content_SharedPreferences_OnSharedPreferenceChangeListener(const android_content_SharedPreferences_OnSharedPreferenceChangeListener& cc);
-	android_content_SharedPreferences_OnSharedPreferenceChangeListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_content_SharedPreferences_OnSharedPreferenceChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_SharedPreferences_OnSharedPreferenceChangeListener();
 	// Functions
-	 void onSharedPreferenceChanged(AndroidCXX::android_content_SharedPreferences const& arg0,AndroidCXX::java_lang_String const& arg1);
+	virtual void  onSharedPreferenceChanged(AndroidCXX::android_content_SharedPreferences const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+
+protected:
+	android_content_SharedPreferences_OnSharedPreferenceChangeListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -28,6 +29,9 @@
 
 #include <java_lang_String.hpp>
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,18 +50,24 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_nio_charset_CodingErrorAction
+class java_nio_charset_CodingErrorAction : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
 	java_nio_charset_CodingErrorAction(const java_nio_charset_CodingErrorAction& cc);
-	java_nio_charset_CodingErrorAction(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_nio_charset_CodingErrorAction(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_CodingErrorAction();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

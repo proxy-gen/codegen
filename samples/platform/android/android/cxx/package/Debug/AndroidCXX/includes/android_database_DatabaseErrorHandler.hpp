@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <android_database_sqlite_SQLiteDatabase.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class android_database_sqlite_SQLiteDatabase;
 
-class android_database_DatabaseErrorHandler
+class android_database_DatabaseErrorHandler : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_database_DatabaseErrorHandler(const android_database_DatabaseErrorHandler& cc);
-	android_database_DatabaseErrorHandler(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_database_DatabaseErrorHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_database_DatabaseErrorHandler();
 	// Functions
-	 void onCorruption(AndroidCXX::android_database_sqlite_SQLiteDatabase const& arg0);
+	virtual void  onCorruption(AndroidCXX::android_database_sqlite_SQLiteDatabase const& arg0) ;
+
+protected:
+	android_database_DatabaseErrorHandler();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

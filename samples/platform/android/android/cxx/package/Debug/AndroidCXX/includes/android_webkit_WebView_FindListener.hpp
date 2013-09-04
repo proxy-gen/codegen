@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_webkit_WebView_FindListener
+class android_webkit_WebView_FindListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_webkit_WebView_FindListener(const android_webkit_WebView_FindListener& cc);
-	android_webkit_WebView_FindListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_webkit_WebView_FindListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebView_FindListener();
 	// Functions
-	 void onFindResultReceived(int const& arg0,int const& arg1,bool const& arg2);
+	virtual void  onFindResultReceived(int const& arg0,int const& arg1,bool const& arg2) ;
+
+protected:
+	android_webkit_WebView_FindListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

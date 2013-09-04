@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -26,7 +27,8 @@
 //
 
 
-#include <java_net_DatagramSocketImpl.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class java_net_DatagramSocketImpl;
 
-class java_net_DatagramSocketImplFactory
+class java_net_DatagramSocketImplFactory : public AndroidCXX::java_lang_Object
 {
 public:
 
 	java_net_DatagramSocketImplFactory(const java_net_DatagramSocketImplFactory& cc);
-	java_net_DatagramSocketImplFactory(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_net_DatagramSocketImplFactory(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_DatagramSocketImplFactory();
 	// Functions
-	 AndroidCXX::java_net_DatagramSocketImpl createDatagramSocketImpl();
+	virtual AndroidCXX::java_net_DatagramSocketImpl * createDatagramSocketImpl() ;
+
+protected:
+	java_net_DatagramSocketImplFactory();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

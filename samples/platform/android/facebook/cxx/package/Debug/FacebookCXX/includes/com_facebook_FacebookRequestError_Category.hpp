@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -11,6 +11,7 @@
 
  			
 		
+	
 
 
 #ifndef _com_facebook_FacebookRequestError_Category
@@ -34,14 +35,14 @@ namespace com_facebook_FacebookRequestError_Category {
 
 enum com_facebook_FacebookRequestError_Category
 {
-	AUTHENTICATION_RETRY,
 	AUTHENTICATION_REOPEN_SESSION,
+	AUTHENTICATION_RETRY,
+	BAD_REQUEST,
+	CLIENT,
+	OTHER,
 	PERMISSION,
 	SERVER,
 	THROTTLING,
-	OTHER,
-	BAD_REQUEST,
-	CLIENT,
 };
 
 } // namespace

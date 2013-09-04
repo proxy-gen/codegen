@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -36,6 +37,7 @@
 
 #include <java_lang_Throwable.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,21 +56,26 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_FacebookAuthorizationException
+class com_facebook_FacebookAuthorizationException 
 {
 public:
 
+	// Public Constructor
+	com_facebook_FacebookAuthorizationException(Proxy * aProxy = new Proxy());
+	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1,Proxy * aProxy = new Proxy());
+	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_Throwable const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_FacebookAuthorizationException(const com_facebook_FacebookAuthorizationException& cc);
-	com_facebook_FacebookAuthorizationException(Proxy proxy);
-	// Public Constructors
-	com_facebook_FacebookAuthorizationException();
-	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String const& arg0);
-	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
-	com_facebook_FacebookAuthorizationException(AndroidCXX::java_lang_Throwable const& arg0);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookAuthorizationException();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

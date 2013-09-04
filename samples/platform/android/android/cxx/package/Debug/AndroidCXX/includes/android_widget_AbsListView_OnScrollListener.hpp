@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,7 +29,8 @@
 //
 
 
-#include <android_widget_AbsListView.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -48,19 +50,25 @@ namespace AndroidCXX {
 
 class android_widget_AbsListView;
 
-class android_widget_AbsListView_OnScrollListener
+class android_widget_AbsListView_OnScrollListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_AbsListView_OnScrollListener(const android_widget_AbsListView_OnScrollListener& cc);
-	android_widget_AbsListView_OnScrollListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_AbsListView_OnScrollListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsListView_OnScrollListener();
 	// Functions
-	 void onScrollStateChanged(AndroidCXX::android_widget_AbsListView const& arg0,int const& arg1);
-	 void onScroll(AndroidCXX::android_widget_AbsListView const& arg0,int const& arg1,int const& arg2,int const& arg3);
+	virtual void  onScroll(AndroidCXX::android_widget_AbsListView const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  onScrollStateChanged(AndroidCXX::android_widget_AbsListView const& arg0,int const& arg1) ;
+
+protected:
+	android_widget_AbsListView_OnScrollListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

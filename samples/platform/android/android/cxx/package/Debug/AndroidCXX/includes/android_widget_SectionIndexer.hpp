@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  	
@@ -29,6 +30,7 @@
 //
 
 
+
 #include <java_lang_Object.hpp>
 
 #include <vector>
@@ -47,22 +49,27 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
-class android_widget_SectionIndexer
+class android_widget_SectionIndexer : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_SectionIndexer(const android_widget_SectionIndexer& cc);
-	android_widget_SectionIndexer(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_SectionIndexer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SectionIndexer();
 	// Functions
-	 std::vector<AndroidCXX::java_lang_Object > getSections();
-	 int getPositionForSection(int const& arg0);
-	 int getSectionForPosition(int const& arg0);
+	virtual int  getPositionForSection(int const& arg0) ;
+	virtual int  getSectionForPosition(int const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  getSections() ;
+
+protected:
+	android_widget_SectionIndexer();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

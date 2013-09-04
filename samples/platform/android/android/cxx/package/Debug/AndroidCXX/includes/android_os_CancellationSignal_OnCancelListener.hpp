@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_CancellationSignal_OnCancelListener
+class android_os_CancellationSignal_OnCancelListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_os_CancellationSignal_OnCancelListener(const android_os_CancellationSignal_OnCancelListener& cc);
-	android_os_CancellationSignal_OnCancelListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_os_CancellationSignal_OnCancelListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_CancellationSignal_OnCancelListener();
 	// Functions
-	 void onCancel();
+	virtual void  onCancel() ;
+
+protected:
+	android_os_CancellationSignal_OnCancelListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

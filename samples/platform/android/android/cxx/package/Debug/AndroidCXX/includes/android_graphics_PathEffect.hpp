@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,23 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_graphics_PathEffect
+class android_graphics_PathEffect : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	android_graphics_PathEffect(Proxy * aProxy = new Proxy());
 	android_graphics_PathEffect(const android_graphics_PathEffect& cc);
-	android_graphics_PathEffect(Proxy proxy);
-	// Public Constructors
-	android_graphics_PathEffect();
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_PathEffect();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

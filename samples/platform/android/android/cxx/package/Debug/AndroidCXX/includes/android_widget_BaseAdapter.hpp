@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,11 +8,12 @@
 //
 
 
- 		 
- 		 
+
  		 
  		 
 	
+ 		 
+ 		 
 
 
 
@@ -41,11 +42,10 @@
 //
 
 
-#include <android_database_DataSetObserver.hpp>
 
-#include <android_view_View.hpp>
+#include <android_widget_ListAdapter.hpp>
 
-#include <android_view_ViewGroup.hpp>
+#include <android_widget_SpinnerAdapter.hpp>
 
 #include <vector>
 #include <map>
@@ -63,35 +63,40 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_database_DataSetObserver;
-
 class android_view_View;
 
 class android_view_ViewGroup;
 
-class android_widget_BaseAdapter
+class android_database_DataSetObserver;
+
+class android_widget_BaseAdapter : public AndroidCXX::android_widget_ListAdapter,public AndroidCXX::android_widget_SpinnerAdapter
 {
 public:
 
 	android_widget_BaseAdapter(const android_widget_BaseAdapter& cc);
-	android_widget_BaseAdapter(Proxy proxy);
-	// Public Constructors
-	android_widget_BaseAdapter();
-	Proxy proxy() const;	
+	android_widget_BaseAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_BaseAdapter();
 	// Functions
-	 bool isEmpty();
-	 bool isEnabled(int const& arg0);
-	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
-	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
-	 AndroidCXX::android_view_View getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
-	 bool hasStableIds();
-	 int getItemViewType(int const& arg0);
-	 int getViewTypeCount();
-	 bool areAllItemsEnabled();
-	 void notifyDataSetChanged();
-	 void notifyDataSetInvalidated();
+	virtual bool  areAllItemsEnabled() ;
+	virtual AndroidCXX::android_view_View * getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
+	virtual int  getItemViewType(int const& arg0) ;
+	virtual int  getViewTypeCount() ;
+	virtual bool  hasStableIds() ;
+	virtual bool  isEmpty() ;
+	virtual bool  isEnabled(int const& arg0) ;
+	virtual void  notifyDataSetChanged() ;
+	virtual void  notifyDataSetInvalidated() ;
+	virtual void  registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
+	virtual void  unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
+
+protected:
+	android_widget_BaseAdapter();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

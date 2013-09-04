@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -32,6 +33,9 @@
 
 #include <com_facebook_model_GraphPlace.hpp>
 
+
+#include <com_facebook_widget_PickerFragment_LoadingStrategy.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -52,18 +56,24 @@ class com_facebook_widget_GraphObjectAdapter;
 
 class com_facebook_model_GraphPlace;
 
-class com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy
+class com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy : public FacebookCXX::com_facebook_widget_PickerFragment_LoadingStrategy
 {
 public:
 
+	// Public Constructor
 	com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy(const com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy& cc);
-	com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy();
 	// Functions
-	 void attach(FacebookCXX::com_facebook_widget_GraphObjectAdapter const& arg0);
+	virtual void  attach(FacebookCXX::com_facebook_widget_GraphObjectAdapter const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

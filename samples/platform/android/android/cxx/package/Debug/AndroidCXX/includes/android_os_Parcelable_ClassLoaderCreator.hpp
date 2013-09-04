@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,11 +29,8 @@
 //
 
 
-#include <android_os_Parcel.hpp>
 
-#include <java_lang_ClassLoader.hpp>
-
-#include <java_lang_Object.hpp>
+#include <android_os_Parcelable_Creator.hpp>
 
 #include <vector>
 #include <map>
@@ -56,18 +54,24 @@ class java_lang_ClassLoader;
 
 class java_lang_Object;
 
-class android_os_Parcelable_ClassLoaderCreator
+class android_os_Parcelable_ClassLoaderCreator : public AndroidCXX::android_os_Parcelable_Creator
 {
 public:
 
 	android_os_Parcelable_ClassLoaderCreator(const android_os_Parcelable_ClassLoaderCreator& cc);
-	android_os_Parcelable_ClassLoaderCreator(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_os_Parcelable_ClassLoaderCreator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Parcelable_ClassLoaderCreator();
 	// Functions
-	 AndroidCXX::java_lang_Object createFromParcel(AndroidCXX::android_os_Parcel const& arg0,AndroidCXX::java_lang_ClassLoader const& arg1);
+	virtual AndroidCXX::java_lang_Object * createFromParcel(AndroidCXX::android_os_Parcel const& arg0,AndroidCXX::java_lang_ClassLoader const& arg1) ;
+
+protected:
+	android_os_Parcelable_ClassLoaderCreator();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

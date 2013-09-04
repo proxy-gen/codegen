@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,8 @@
 //
 
 
-#include <android_media_MediaPlayer.hpp>
 
-#include <android_media_TimedText.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +51,24 @@ class android_media_MediaPlayer;
 
 class android_media_TimedText;
 
-class android_media_MediaPlayer_OnTimedTextListener
+class android_media_MediaPlayer_OnTimedTextListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_media_MediaPlayer_OnTimedTextListener(const android_media_MediaPlayer_OnTimedTextListener& cc);
-	android_media_MediaPlayer_OnTimedTextListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_media_MediaPlayer_OnTimedTextListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnTimedTextListener();
 	// Functions
-	 void onTimedText(AndroidCXX::android_media_MediaPlayer const& arg0,AndroidCXX::android_media_TimedText const& arg1);
+	virtual void  onTimedText(AndroidCXX::android_media_MediaPlayer const& arg0,AndroidCXX::android_media_TimedText const& arg1) ;
+
+protected:
+	android_media_MediaPlayer_OnTimedTextListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

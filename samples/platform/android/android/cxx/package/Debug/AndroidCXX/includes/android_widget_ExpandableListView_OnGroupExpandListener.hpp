@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_ExpandableListView_OnGroupExpandListener
+class android_widget_ExpandableListView_OnGroupExpandListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_ExpandableListView_OnGroupExpandListener(const android_widget_ExpandableListView_OnGroupExpandListener& cc);
-	android_widget_ExpandableListView_OnGroupExpandListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_ExpandableListView_OnGroupExpandListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ExpandableListView_OnGroupExpandListener();
 	// Functions
-	 void onGroupExpand(int const& arg0);
+	virtual void  onGroupExpand(int const& arg0) ;
+
+protected:
+	android_widget_ExpandableListView_OnGroupExpandListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

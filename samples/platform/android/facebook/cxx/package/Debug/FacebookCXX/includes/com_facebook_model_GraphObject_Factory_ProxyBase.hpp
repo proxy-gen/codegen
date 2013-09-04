@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +44,23 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_model_GraphObject_Factory_ProxyBase
+class com_facebook_model_GraphObject_Factory_ProxyBase : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_model_GraphObject_Factory_ProxyBase(const com_facebook_model_GraphObject_Factory_ProxyBase& cc);
-	com_facebook_model_GraphObject_Factory_ProxyBase(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_model_GraphObject_Factory_ProxyBase(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject_Factory_ProxyBase();
 	// Functions
+
+protected:
+	com_facebook_model_GraphObject_Factory_ProxyBase();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,8 @@
 //
 
 
-#include <android_webkit_WebView.hpp>
 
-#include <android_graphics_Picture.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +51,24 @@ class android_webkit_WebView;
 
 class android_graphics_Picture;
 
-class android_webkit_WebView_PictureListener
+class android_webkit_WebView_PictureListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_webkit_WebView_PictureListener(const android_webkit_WebView_PictureListener& cc);
-	android_webkit_WebView_PictureListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_webkit_WebView_PictureListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebView_PictureListener();
 	// Functions
-	 void onNewPicture(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_graphics_Picture const& arg1);
+	virtual void  onNewPicture(AndroidCXX::android_webkit_WebView const& arg0,AndroidCXX::android_graphics_Picture const& arg1) ;
+
+protected:
+	android_webkit_WebView_PictureListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

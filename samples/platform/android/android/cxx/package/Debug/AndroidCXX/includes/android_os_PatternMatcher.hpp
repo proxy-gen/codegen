@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,9 +8,10 @@
 //
 
 
-	
+
 	
  		 
+	
  		 
 
 
@@ -42,6 +43,9 @@
 
 #include <android_os_Parcel.hpp>
 
+
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -62,25 +66,31 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_os_PatternMatcher
+class android_os_PatternMatcher : public AndroidCXX::android_os_Parcelable
 {
 public:
 
+	// Public Constructor
+	android_os_PatternMatcher(AndroidCXX::android_os_Parcel const& arg0,Proxy * aProxy = new Proxy());
+	android_os_PatternMatcher(AndroidCXX::java_lang_String const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
 	android_os_PatternMatcher(const android_os_PatternMatcher& cc);
-	android_os_PatternMatcher(Proxy proxy);
-	// Public Constructors
-	android_os_PatternMatcher(AndroidCXX::java_lang_String const& arg0,int const& arg1);
-	android_os_PatternMatcher(AndroidCXX::android_os_Parcel const& arg0);
-	Proxy proxy() const;	
+	android_os_PatternMatcher(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_PatternMatcher();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 int getType();
-	 AndroidCXX::java_lang_String getPath();
-	 bool match(AndroidCXX::java_lang_String const& arg0);
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	virtual int  describeContents() ;
+	virtual AndroidCXX::java_lang_String * getPath() ;
+	virtual int  getType() ;
+	virtual bool  match(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -11,6 +11,7 @@
 
  			
 		
+	
 
 
 #ifndef _com_facebook_HttpMethod
@@ -34,9 +35,9 @@ namespace com_facebook_HttpMethod {
 
 enum com_facebook_HttpMethod
 {
+	DELETE,
 	GET,
 	POST,
-	DELETE,
 };
 
 } // namespace

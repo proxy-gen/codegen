@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,10 +8,11 @@
 //
 
 
-	
+
  		 
  	
  		 
+	
 
 
 
@@ -48,9 +49,12 @@
 //
 
 
+#include <java_util_Collection.hpp>
+
 #include <com_facebook_model_GraphObject.hpp>
 
-#include <java_util_Collection.hpp>
+
+#include <com_facebook_widget_GraphObjectCursor.hpp>
 
 #include <vector>
 #include <map>
@@ -68,40 +72,46 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
+
 class com_facebook_model_GraphObject;
 
-
-class com_facebook_widget_SimpleGraphObjectCursor
+class com_facebook_widget_SimpleGraphObjectCursor : public FacebookCXX::com_facebook_widget_GraphObjectCursor
 {
 public:
 
+	// Public Constructor
 	com_facebook_widget_SimpleGraphObjectCursor(const com_facebook_widget_SimpleGraphObjectCursor& cc);
-	com_facebook_widget_SimpleGraphObjectCursor(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_widget_SimpleGraphObjectCursor(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_SimpleGraphObjectCursor();
 	// Functions
-	 void close();
-	 bool isFirst();
-	 bool isClosed();
-	 int getPosition();
-	 bool isFromCache();
-	 FacebookCXX::com_facebook_model_GraphObject getGraphObject();
-	 bool moveToFirst();
-	 int getCount();
-	 bool areMoreObjectsAvailable();
-	 bool moveToNext();
-	 bool move(int const& arg0);
-	 bool moveToPosition(int const& arg0);
-	 bool moveToLast();
-	 bool moveToPrevious();
-	 bool isLast();
-	 bool isBeforeFirst();
-	 bool isAfterLast();
-	 void addGraphObjects(AndroidCXX::java_util_Collection const& arg0,bool const& arg1);
-	 void setMoreObjectsAvailable(bool const& arg0);
-	 void setFromCache(bool const& arg0);
+	virtual void  addGraphObjects(AndroidCXX::java_util_Collection const& arg0,bool const& arg1) ;
+	virtual bool  areMoreObjectsAvailable() ;
+	virtual void  close() ;
+	virtual int  getCount() ;
+	virtual FacebookCXX::com_facebook_model_GraphObject * getGraphObject() ;
+	virtual int  getPosition() ;
+	virtual bool  isAfterLast() ;
+	virtual bool  isBeforeFirst() ;
+	virtual bool  isClosed() ;
+	virtual bool  isFirst() ;
+	virtual bool  isFromCache() ;
+	virtual bool  isLast() ;
+	virtual bool  move(int const& arg0) ;
+	virtual bool  moveToFirst() ;
+	virtual bool  moveToLast() ;
+	virtual bool  moveToNext() ;
+	virtual bool  moveToPosition(int const& arg0) ;
+	virtual bool  moveToPrevious() ;
+	virtual void  setFromCache(bool const& arg0) ;
+	virtual void  setMoreObjectsAvailable(bool const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

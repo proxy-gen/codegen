@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -26,7 +27,8 @@
 //
 
 
-#include <java_net_SocketImpl.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class java_net_SocketImpl;
 
-class java_net_SocketImplFactory
+class java_net_SocketImplFactory : public AndroidCXX::java_lang_Object
 {
 public:
 
 	java_net_SocketImplFactory(const java_net_SocketImplFactory& cc);
-	java_net_SocketImplFactory(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_net_SocketImplFactory(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_SocketImplFactory();
 	// Functions
-	 AndroidCXX::java_net_SocketImpl createSocketImpl();
+	virtual AndroidCXX::java_net_SocketImpl * createSocketImpl() ;
+
+protected:
+	java_net_SocketImplFactory();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -32,6 +33,7 @@
 
 #include <java_lang_String.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -52,19 +54,25 @@ class java_lang_Exception;
 
 class java_lang_String;
 
-class android_widget_RemoteViews_ActionException
+class android_widget_RemoteViews_ActionException 
 {
 public:
 
+	// Public Constructor
+	android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_Exception const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	android_widget_RemoteViews_ActionException(const android_widget_RemoteViews_ActionException& cc);
-	android_widget_RemoteViews_ActionException(Proxy proxy);
-	// Public Constructors
-	android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_Exception const& arg0);
-	android_widget_RemoteViews_ActionException(AndroidCXX::java_lang_String const& arg0);
-	Proxy proxy() const;	
+	android_widget_RemoteViews_ActionException(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RemoteViews_ActionException();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

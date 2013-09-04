@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -27,6 +28,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -43,20 +47,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_io_FileDescriptor
+class java_io_FileDescriptor : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	java_io_FileDescriptor(Proxy * aProxy = new Proxy());
 	java_io_FileDescriptor(const java_io_FileDescriptor& cc);
-	java_io_FileDescriptor(Proxy proxy);
-	// Public Constructors
-	java_io_FileDescriptor();
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FileDescriptor();
 	// Functions
-	 bool valid();
-	 void sync();
+	virtual void  sync() ;
+	virtual bool  valid() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

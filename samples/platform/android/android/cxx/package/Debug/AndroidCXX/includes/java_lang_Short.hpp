@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,6 +8,12 @@
 //
 
 
+
+ 		 
+ 		 
+	
+ 		 
+ 		 
  		 
 	
 	
@@ -15,12 +21,7 @@
 	
  		 
 	
- 		 
 	
- 		 
-	
- 		 
- 		 
 
 
  		 
@@ -58,10 +59,14 @@
 //
 
 
-#include <java_lang_Object.hpp>
-
 #include <java_lang_String.hpp>
 
+#include <java_lang_Object.hpp>
+
+
+#include <java_lang_Number.hpp>
+
+#include <java_lang_Comparable.hpp>
 
 #include <vector>
 #include <map>
@@ -79,43 +84,48 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
 class java_lang_String;
 
-class java_lang_Short;
+class java_lang_Object;
 
-class java_lang_Short
+class java_lang_Short : public AndroidCXX::java_lang_Number,public AndroidCXX::java_lang_Comparable
 {
 public:
 
+	// Public Constructor
+	java_lang_Short(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_Short(short const& arg0,Proxy * aProxy = new Proxy());
 	java_lang_Short(const java_lang_Short& cc);
-	java_lang_Short(Proxy proxy);
-	// Public Constructors
-	java_lang_Short(short const& arg0);
-	java_lang_Short(AndroidCXX::java_lang_String const& arg0);
-	Proxy proxy() const;	
+	java_lang_Short(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Short();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	static AndroidCXX::java_lang_String toString(short const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	static short reverseBytes(short const& arg0);
-	 int compareTo(AndroidCXX::java_lang_Short const& arg0);
-	 byte byteValue();
-	 short shortValue();
-	 int intValue();
-	 long longValue();
-	 float floatValue();
-	 double doubleValue();
-	static AndroidCXX::java_lang_Short valueOf(short const& arg0);
-	static AndroidCXX::java_lang_Short valueOf(AndroidCXX::java_lang_String const& arg0);
-	static AndroidCXX::java_lang_Short valueOf(AndroidCXX::java_lang_String const& arg0,int const& arg1);
-	static AndroidCXX::java_lang_Short decode(AndroidCXX::java_lang_String const& arg0);
-	static short parseShort(AndroidCXX::java_lang_String const& arg0,int const& arg1);
-	static short parseShort(AndroidCXX::java_lang_String const& arg0);
+	virtual byte  byteValue() ;
+	virtual int  compareTo(AndroidCXX::java_lang_Short const& arg0) ;
+	static AndroidCXX::java_lang_Short * decode(AndroidCXX::java_lang_String const& arg0) ;
+	virtual double  doubleValue() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual float  floatValue() ;
+	virtual int  hashCode() ;
+	virtual int  intValue() ;
+	virtual long  longValue() ;
+	static short  parseShort(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	static short  parseShort(AndroidCXX::java_lang_String const& arg0) ;
+	static short  reverseBytes(short const& arg0) ;
+	virtual short  shortValue() ;
+	static AndroidCXX::java_lang_String * toString(short const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	static AndroidCXX::java_lang_Short * valueOf(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	static AndroidCXX::java_lang_Short * valueOf(AndroidCXX::java_lang_String const& arg0) ;
+	static AndroidCXX::java_lang_Short * valueOf(short const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -38,9 +39,6 @@
 //
 
 
-#include <android_os_Bundle.hpp>
-
-#include <android_support_v4_content_Loader.hpp>
 
 #include <java_lang_Object.hpp>
 
@@ -64,22 +62,27 @@ class android_os_Bundle;
 
 class android_support_v4_content_Loader;
 
-class java_lang_Object;
 
-class android_support_v4_app_LoaderManager_LoaderCallbacks
+class android_support_v4_app_LoaderManager_LoaderCallbacks : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_support_v4_app_LoaderManager_LoaderCallbacks(const android_support_v4_app_LoaderManager_LoaderCallbacks& cc);
-	android_support_v4_app_LoaderManager_LoaderCallbacks(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_support_v4_app_LoaderManager_LoaderCallbacks(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_app_LoaderManager_LoaderCallbacks();
 	// Functions
-	 AndroidCXX::android_support_v4_content_Loader onCreateLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1);
-	 void onLoadFinished(AndroidCXX::android_support_v4_content_Loader const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 void onLoaderReset(AndroidCXX::android_support_v4_content_Loader const& arg0);
+	virtual AndroidCXX::android_support_v4_content_Loader * onCreateLoader(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual void  onLoadFinished(AndroidCXX::android_support_v4_content_Loader const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual void  onLoaderReset(AndroidCXX::android_support_v4_content_Loader const& arg0) ;
+
+protected:
+	android_support_v4_app_LoaderManager_LoaderCallbacks();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

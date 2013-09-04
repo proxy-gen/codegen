@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -59,6 +60,9 @@
 
 #include <android_util_AttributeSet.hpp>
 
+
+#include <android_widget_AdapterViewAnimator.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -87,29 +91,35 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_StackView
+class android_widget_StackView : public AndroidCXX::android_widget_AdapterViewAnimator
 {
 public:
 
+	// Public Constructor
+	android_widget_StackView(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_StackView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_StackView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_StackView(const android_widget_StackView& cc);
-	android_widget_StackView(Proxy proxy);
-	// Public Constructors
-	android_widget_StackView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_StackView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
-	android_widget_StackView(AndroidCXX::android_content_Context const& arg0);
-	Proxy proxy() const;	
+	android_widget_StackView(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_StackView();
 	// Functions
-	 void advance();
-	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
-	 bool onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0);
-	 bool onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
-	 bool performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1);
-	 void showNext();
-	 void showPrevious();
+	virtual void  advance() ;
+	virtual bool  onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual bool  onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual bool  performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual void  showNext() ;
+	virtual void  showPrevious() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

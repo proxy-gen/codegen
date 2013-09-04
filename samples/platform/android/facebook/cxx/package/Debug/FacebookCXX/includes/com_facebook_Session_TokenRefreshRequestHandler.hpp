@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,6 +29,7 @@
 
 #include <android_os_Message.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -45,18 +47,24 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_Session_TokenRefreshRequestHandler
+class com_facebook_Session_TokenRefreshRequestHandler 
 {
 public:
 
+	// Public Constructor
 	com_facebook_Session_TokenRefreshRequestHandler(const com_facebook_Session_TokenRefreshRequestHandler& cc);
-	com_facebook_Session_TokenRefreshRequestHandler(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_Session_TokenRefreshRequestHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_TokenRefreshRequestHandler();
 	// Functions
-	 void handleMessage(AndroidCXX::android_os_Message const& arg0);
+	virtual void  handleMessage(AndroidCXX::android_os_Message const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

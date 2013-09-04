@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,16 +8,17 @@
 //
 
 
- 		 
- 		 
- 		 
- 		 
- 		 
+
  		 
  		 
  		 
  		 
 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
  		 
  		 
 
@@ -68,9 +69,9 @@
 
 #include <android_view_View.hpp>
 
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-
 #include <android_graphics_Canvas.hpp>
+
+#include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
@@ -79,6 +80,9 @@
 #include <android_content_Context.hpp>
 
 #include <android_util_AttributeSet.hpp>
+
+
+#include <android_view_View_OnFocusChangeListener.hpp>
 
 #include <vector>
 #include <map>
@@ -98,9 +102,9 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_view_accessibility_AccessibilityEvent;
-
 class android_graphics_Canvas;
+
+class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
@@ -110,42 +114,48 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_TabWidget
+class android_widget_TabWidget : public AndroidCXX::android_view_View_OnFocusChangeListener
 {
 public:
 
+	// Public Constructor
+	android_widget_TabWidget(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_TabWidget(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_TabWidget(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_TabWidget(const android_widget_TabWidget& cc);
-	android_widget_TabWidget(Proxy proxy);
-	// Public Constructors
-	android_widget_TabWidget(AndroidCXX::android_content_Context const& arg0);
-	android_widget_TabWidget(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_TabWidget(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
-	Proxy proxy() const;	
+	android_widget_TabWidget(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TabWidget();
 	// Functions
-	 void addView(AndroidCXX::android_view_View const& arg0);
-	 bool dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void dispatchDraw(AndroidCXX::android_graphics_Canvas const& arg0);
-	 void removeAllViews();
-	 void childDrawableStateChanged(AndroidCXX::android_view_View const& arg0);
-	 void sendAccessibilityEventUnchecked(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
-	 void setEnabled(bool const& arg0);
-	 void onFocusChange(AndroidCXX::android_view_View const& arg0,bool const& arg1);
-	 int getTabCount();
-	 void setDividerDrawable(int const& arg0);
-	 void setDividerDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
-	 void setCurrentTab(int const& arg0);
-	 AndroidCXX::android_view_View getChildTabViewAt(int const& arg0);
-	 void setLeftStripDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
-	 void setLeftStripDrawable(int const& arg0);
-	 void setRightStripDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
-	 void setRightStripDrawable(int const& arg0);
-	 void setStripEnabled(bool const& arg0);
-	 bool isStripEnabled();
-	 void focusCurrentTab(int const& arg0);
+	virtual void  addView(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  childDrawableStateChanged(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  dispatchDraw(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual bool  dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  focusCurrentTab(int const& arg0) ;
+	virtual AndroidCXX::android_view_View * getChildTabViewAt(int const& arg0) ;
+	virtual int  getTabCount() ;
+	virtual bool  isStripEnabled() ;
+	virtual void  onFocusChange(AndroidCXX::android_view_View const& arg0,bool const& arg1) ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  removeAllViews() ;
+	virtual void  sendAccessibilityEventUnchecked(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  setCurrentTab(int const& arg0) ;
+	virtual void  setDividerDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  setDividerDrawable(int const& arg0) ;
+	virtual void  setEnabled(bool const& arg0) ;
+	virtual void  setLeftStripDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  setLeftStripDrawable(int const& arg0) ;
+	virtual void  setRightStripDrawable(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  setRightStripDrawable(int const& arg0) ;
+	virtual void  setStripEnabled(bool const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

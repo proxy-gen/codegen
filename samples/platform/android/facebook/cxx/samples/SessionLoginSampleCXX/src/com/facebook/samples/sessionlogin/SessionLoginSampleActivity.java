@@ -29,6 +29,7 @@ public class SessionLoginSampleActivity extends Activity {
 
     private Button buttonLoginActivity;
     private Button buttonGetFriendsActivity;
+    private Button buttonPublishStory;
     private Button buttonLogoutActivity;
 
     public void onCreate(Bundle savedInstanceState) {

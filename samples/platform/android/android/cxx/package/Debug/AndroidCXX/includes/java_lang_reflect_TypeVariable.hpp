@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,9 +8,10 @@
 //
 
 
-	
+
  	
  		 
+	
 	
 
 
@@ -31,11 +32,8 @@
 //
 
 
-#include <java_lang_String.hpp>
 
 #include <java_lang_reflect_Type.hpp>
-
-#include <java_lang_reflect_GenericDeclaration.hpp>
 
 #include <vector>
 #include <map>
@@ -53,26 +51,31 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
-class java_lang_reflect_Type;
 
 class java_lang_reflect_GenericDeclaration;
 
-class java_lang_reflect_TypeVariable
+class java_lang_String;
+
+class java_lang_reflect_TypeVariable : public AndroidCXX::java_lang_reflect_Type
 {
 public:
 
 	java_lang_reflect_TypeVariable(const java_lang_reflect_TypeVariable& cc);
-	java_lang_reflect_TypeVariable(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_lang_reflect_TypeVariable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_reflect_TypeVariable();
 	// Functions
-	 AndroidCXX::java_lang_String getName();
-	 std::vector<AndroidCXX::java_lang_reflect_Type > getBounds();
-	 AndroidCXX::java_lang_reflect_GenericDeclaration getGenericDeclaration();
+	virtual std::vector<AndroidCXX::java_lang_reflect_Type>  getBounds() ;
+	virtual AndroidCXX::java_lang_reflect_GenericDeclaration * getGenericDeclaration() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+
+protected:
+	java_lang_reflect_TypeVariable();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

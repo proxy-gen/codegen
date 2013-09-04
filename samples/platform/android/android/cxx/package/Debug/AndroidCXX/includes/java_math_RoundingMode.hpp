@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -9,9 +9,10 @@
 
 
 
+		
  			
 		
-		
+	
 
 
 #ifndef _java_math_RoundingMode
@@ -36,14 +37,14 @@ namespace java_math_RoundingMode {
 
 enum java_math_RoundingMode
 {
-	UP,
-	DOWN,
 	CEILING,
+	DOWN,
 	FLOOR,
-	HALF_UP,
 	HALF_DOWN,
 	HALF_EVEN,
+	HALF_UP,
 	UNNECESSARY,
+	UP,
 };
 
 } // namespace

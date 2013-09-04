@@ -32,21 +32,21 @@ android_generator_dir=$android_dir/generator
 android_generator_runtime_dir=$android_generator_dir/runtime
 android_indexer=$android_generator_dir/indexer
 android_indexer_cxx=$android_indexer/cxx
-codegen_base_config_file=./base.config.py
-codegen_config_file=./generated/config/$CODEGEN_TARGET/config.py
+codegen_config_file=./config.py
 
 configure_flag=0
 generate_flag=0
 package_flag=0
+update_config_flag=0
+update_tag=_proxy
 
 function usage
 {
-	echo "Usage: $0 [--configure [--base-config-file <base-config-file>]] | [--generate  [--config-file <config-file>]] | [--package [--config-file <config-file>]]"
+	echo "Usage: $0 [--configure [--config-file <config-file>]] | [--generate  [--config-file <config-file>]] | [--package [--config-file <config-file>]] ]"
     echo "--help: Usage"
-    echo "--configure: Generate config file (using a base config file)"
+    echo "--configure: Generate config file (using a config file)"
     echo "--generate: Generate code (using a config file)"
     echo "--package: Package generated code"
-    echo "--base-config-file: Base config file"
     echo "--config-file: Config file used to generate code"
 }
 
@@ -65,7 +65,7 @@ function setup
 function configure
 {
 	# Generate Config
-	LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $codegen_base_config_file --platform android --generate-config --namespace $CODEGEN_TARGET --output-dir $my_dir/generated --package $CODEGEN_TARGET --log info
+	LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $codegen_config_file --platform android --generate-config --namespace $CODEGEN_TARGET --output-dir $my_dir/generated --package $CODEGEN_TARGET --log info
 }
 
 function generate
@@ -74,15 +74,14 @@ function generate
 	LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $codegen_config_file --platform android --generate-code --namespace $CODEGEN_TARGET --output-dir $my_dir/generated --package $CODEGEN_TARGET --log info
 	# Generate Projects
 	LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $codegen_config_file --platform android --generate-projects --namespace $CODEGEN_TARGET --output-dir $my_dir/generated --package $CODEGEN_TARGET --log info
-
-	pushd $my_project_dir > /dev/null
-	ant debug
-	ndk-build NDK_DEBUG=$DEBUG
-	popd
 }
 
 function package
 {
+	pushd $my_project_dir > /dev/null
+	ant debug
+	ndk-build NDK_DEBUG=$DEBUG
+	popd
 	DEPLOY_TARGET=Release
 	if [ $DEBUG -ne 0 ]
 	then
@@ -118,9 +117,6 @@ do
 	--config-file) shift
 			codegen_config_file=$1
 			;;
-	--base-config-file) shift
-			codegen_base_config_file=$1
-			;;
 	--help) usage
         exit;;
 	*)  
@@ -138,9 +134,8 @@ export CXX_JVM_CLASSPATH=$android_generator_runtime_dir/bin:$sdk_dir/platforms/a
 if [ $configure_flag -ne 0 ]
 then
 	setup
-	echo "using base config file " $codegen_base_config_file
+	echo "using config file " $codegen_config_file
 	configure
-	echo "generated config file " $codegen_config_file
 	echo "configure complete"
 fi
 

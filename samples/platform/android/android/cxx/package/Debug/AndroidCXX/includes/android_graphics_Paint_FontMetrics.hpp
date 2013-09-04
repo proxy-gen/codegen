@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,23 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_graphics_Paint_FontMetrics
+class android_graphics_Paint_FontMetrics : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	android_graphics_Paint_FontMetrics(Proxy * aProxy = new Proxy());
 	android_graphics_Paint_FontMetrics(const android_graphics_Paint_FontMetrics& cc);
-	android_graphics_Paint_FontMetrics(Proxy proxy);
-	// Public Constructors
-	android_graphics_Paint_FontMetrics();
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Paint_FontMetrics();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

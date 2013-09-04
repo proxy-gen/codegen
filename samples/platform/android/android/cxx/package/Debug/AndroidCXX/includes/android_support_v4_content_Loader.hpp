@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,22 +8,23 @@
 //
 
 
+
+ 		 
 	
-	
+ 		 
  		 
  		 
  		 
  	
  		 
- 		 
- 		 
- 	
- 		 
+	
  		 
  	
- 		 
  		 
 	
+ 		 
+ 	
+ 		 
 
 
  		 
@@ -62,17 +63,18 @@
 //
 
 
-#include <java_lang_String.hpp>
+#include <java_lang_Object.hpp>
 
-#include <android_content_Context.hpp>
+#include <java_lang_String.hpp>
 
 #include <java_io_FileDescriptor.hpp>
 
 #include <java_io_PrintWriter.hpp>
 
-#include <java_lang_Object.hpp>
+#include <android_content_Context.hpp>
 
 #include <android_support_v4_content_Loader_OnLoadCompleteListener.hpp>
+
 
 #include <vector>
 #include <map>
@@ -90,50 +92,55 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
 
-class android_content_Context;
+class java_lang_String;
 
 class java_io_FileDescriptor;
 
 class java_io_PrintWriter;
 
-class java_lang_Object;
+class android_content_Context;
 
 class android_support_v4_content_Loader_OnLoadCompleteListener;
 
-class android_support_v4_content_Loader
+class android_support_v4_content_Loader : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	android_support_v4_content_Loader(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
 	android_support_v4_content_Loader(const android_support_v4_content_Loader& cc);
-	android_support_v4_content_Loader(Proxy proxy);
-	// Public Constructors
-	android_support_v4_content_Loader(AndroidCXX::android_content_Context const& arg0);
-	Proxy proxy() const;	
+	android_support_v4_content_Loader(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_support_v4_content_Loader();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 AndroidCXX::android_content_Context getContext();
-	 int getId();
-	 void reset();
-	 void dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String > const& arg3);
-	 void abandon();
-	 void onContentChanged();
-	 bool isStarted();
-	 void deliverResult(AndroidCXX::java_lang_Object const& arg0);
-	 void registerListener(int const& arg0,AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener const& arg1);
-	 void unregisterListener(AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener const& arg0);
-	 bool isAbandoned();
-	 bool isReset();
-	 void startLoading();
-	 void forceLoad();
-	 void stopLoading();
-	 bool takeContentChanged();
-	 void commitContentChanged();
-	 void rollbackContentChanged();
-	 AndroidCXX::java_lang_String dataToString(AndroidCXX::java_lang_Object const& arg0);
+	virtual void  abandon() ;
+	virtual void  commitContentChanged() ;
+	virtual AndroidCXX::java_lang_String * dataToString(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  deliverResult(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  dump(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_io_FileDescriptor const& arg1,AndroidCXX::java_io_PrintWriter const& arg2,std::vector<AndroidCXX::java_lang_String> const& arg3) ;
+	virtual void  forceLoad() ;
+	virtual AndroidCXX::android_content_Context * getContext() ;
+	virtual int  getId() ;
+	virtual bool  isAbandoned() ;
+	virtual bool  isReset() ;
+	virtual bool  isStarted() ;
+	virtual void  onContentChanged() ;
+	virtual void  registerListener(int const& arg0,AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener const& arg1) ;
+	virtual void  reset() ;
+	virtual void  rollbackContentChanged() ;
+	virtual void  startLoading() ;
+	virtual void  stopLoading() ;
+	virtual bool  takeContentChanged() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  unregisterListener(AndroidCXX::android_support_v4_content_Loader_OnLoadCompleteListener const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

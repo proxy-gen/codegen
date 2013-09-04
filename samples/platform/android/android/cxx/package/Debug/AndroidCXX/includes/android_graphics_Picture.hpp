@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,10 +8,11 @@
 //
 
 
- 		 
+
+	
  		 
 	
-	
+ 		 
  		 
 
 
@@ -43,8 +44,10 @@
 
 #include <java_io_InputStream.hpp>
 
-
 #include <java_io_OutputStream.hpp>
+
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -66,29 +69,33 @@ class android_graphics_Canvas;
 
 class java_io_InputStream;
 
-class android_graphics_Picture;
 
 class java_io_OutputStream;
 
-class android_graphics_Picture
+class android_graphics_Picture : public AndroidCXX::java_lang_Object
 {
 public:
 
-	android_graphics_Picture(Proxy proxy);
-	// Public Constructors
-	android_graphics_Picture();
-	android_graphics_Picture(AndroidCXX::android_graphics_Picture const& arg0);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_graphics_Picture(Proxy * aProxy = new Proxy());
+	android_graphics_Picture(AndroidCXX::android_graphics_Picture const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Picture();
 	// Functions
-	 int getWidth();
-	 int getHeight();
-	 void draw(AndroidCXX::android_graphics_Canvas const& arg0);
-	static AndroidCXX::android_graphics_Picture createFromStream(AndroidCXX::java_io_InputStream const& arg0);
-	 AndroidCXX::android_graphics_Canvas beginRecording(int const& arg0,int const& arg1);
-	 void endRecording();
-	 void writeToStream(AndroidCXX::java_io_OutputStream const& arg0);
+	virtual AndroidCXX::android_graphics_Canvas * beginRecording(int const& arg0,int const& arg1) ;
+	static AndroidCXX::android_graphics_Picture * createFromStream(AndroidCXX::java_io_InputStream const& arg0) ;
+	virtual void  draw(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual void  endRecording() ;
+	virtual int  getHeight() ;
+	virtual int  getWidth() ;
+	virtual void  writeToStream(AndroidCXX::java_io_OutputStream const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

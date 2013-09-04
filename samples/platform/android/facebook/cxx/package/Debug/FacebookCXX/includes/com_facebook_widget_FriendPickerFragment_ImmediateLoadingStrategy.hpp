@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,9 @@
 //
 
 
+
+#include <com_facebook_widget_PickerFragment_LoadingStrategy.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +44,23 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy
+class com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy : public FacebookCXX::com_facebook_widget_PickerFragment_LoadingStrategy
 {
 public:
 
+	// Public Constructor
 	com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy(const com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy& cc);
-	com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_FriendPickerFragment_ImmediateLoadingStrategy();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

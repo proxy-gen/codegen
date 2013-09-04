@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,33 +8,34 @@
 //
 
 
- 		 
-	
-	
-	
+
 	
  		 
  	
  		 
+	
+	
+ 		 
+	
+	
+ 		 
+	
+	
+ 		 
+	
+	
+ 		 
+	
+	
+	
+	
  	
  		 
  	
  		 
 	
 	
-	
-	
  		 
-	
-	
- 		 
-	
-	
-	
- 		 
-	
- 		 
-	
 	
 
 
@@ -88,6 +89,10 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_io_Serializable.hpp>
+
+#include <java_lang_Cloneable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -106,46 +111,51 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
+
 class java_lang_String;
 
-class java_util_Locale;
-
-class java_util_Locale
+class java_util_Locale : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Cloneable
 {
 public:
 
+	// Public Constructor
+	java_util_Locale(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
+	java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,Proxy * aProxy = new Proxy());
 	java_util_Locale(const java_util_Locale& cc);
-	java_util_Locale(Proxy proxy);
-	// Public Constructors
-	java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2);
-	java_util_Locale(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
-	java_util_Locale(AndroidCXX::java_lang_String const& arg0);
-	Proxy proxy() const;	
+	java_util_Locale(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Locale();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_lang_Object clone();
-	 AndroidCXX::java_lang_String getLanguage();
-	static AndroidCXX::java_util_Locale getDefault();
-	static void setDefault(AndroidCXX::java_util_Locale const& arg0);
-	static std::vector<AndroidCXX::java_util_Locale > getAvailableLocales();
-	static std::vector<AndroidCXX::java_lang_String > getISOCountries();
-	static std::vector<AndroidCXX::java_lang_String > getISOLanguages();
-	 AndroidCXX::java_lang_String getCountry();
-	 AndroidCXX::java_lang_String getVariant();
-	 AndroidCXX::java_lang_String getISO3Language();
-	 AndroidCXX::java_lang_String getISO3Country();
-	 AndroidCXX::java_lang_String getDisplayLanguage(AndroidCXX::java_util_Locale const& arg0);
-	 AndroidCXX::java_lang_String getDisplayLanguage();
-	 AndroidCXX::java_lang_String getDisplayCountry(AndroidCXX::java_util_Locale const& arg0);
-	 AndroidCXX::java_lang_String getDisplayCountry();
-	 AndroidCXX::java_lang_String getDisplayVariant();
-	 AndroidCXX::java_lang_String getDisplayVariant(AndroidCXX::java_util_Locale const& arg0);
-	 AndroidCXX::java_lang_String getDisplayName(AndroidCXX::java_util_Locale const& arg0);
-	 AndroidCXX::java_lang_String getDisplayName();
+	virtual AndroidCXX::java_lang_Object * clone() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	static std::vector<AndroidCXX::java_util_Locale>  getAvailableLocales() ;
+	virtual AndroidCXX::java_lang_String * getCountry() ;
+	static AndroidCXX::java_util_Locale * getDefault() ;
+	virtual AndroidCXX::java_lang_String * getDisplayCountry(AndroidCXX::java_util_Locale const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getDisplayCountry() ;
+	virtual AndroidCXX::java_lang_String * getDisplayLanguage(AndroidCXX::java_util_Locale const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getDisplayLanguage() ;
+	virtual AndroidCXX::java_lang_String * getDisplayName(AndroidCXX::java_util_Locale const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getDisplayName() ;
+	virtual AndroidCXX::java_lang_String * getDisplayVariant(AndroidCXX::java_util_Locale const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getDisplayVariant() ;
+	virtual AndroidCXX::java_lang_String * getISO3Country() ;
+	virtual AndroidCXX::java_lang_String * getISO3Language() ;
+	static std::vector<AndroidCXX::java_lang_String>  getISOCountries() ;
+	static std::vector<AndroidCXX::java_lang_String>  getISOLanguages() ;
+	virtual AndroidCXX::java_lang_String * getLanguage() ;
+	virtual AndroidCXX::java_lang_String * getVariant() ;
+	virtual int  hashCode() ;
+	static void  setDefault(AndroidCXX::java_util_Locale const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

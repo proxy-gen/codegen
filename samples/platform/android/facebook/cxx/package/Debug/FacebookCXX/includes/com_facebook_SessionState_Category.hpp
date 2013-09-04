@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -11,6 +11,7 @@
 
  			
 		
+	
 
 
 #ifndef _com_facebook_SessionState_Category
@@ -34,9 +35,9 @@ namespace com_facebook_SessionState_Category {
 
 enum com_facebook_SessionState_Category
 {
+	CLOSED_CATEGORY,
 	CREATED_CATEGORY,
 	OPENED_CATEGORY,
-	CLOSED_CATEGORY,
 };
 
 } // namespace

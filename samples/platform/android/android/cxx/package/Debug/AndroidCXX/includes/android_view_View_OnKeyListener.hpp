@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,8 @@
 //
 
 
-#include <android_view_View.hpp>
 
-#include <android_view_KeyEvent.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +51,24 @@ class android_view_View;
 
 class android_view_KeyEvent;
 
-class android_view_View_OnKeyListener
+class android_view_View_OnKeyListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_View_OnKeyListener(const android_view_View_OnKeyListener& cc);
-	android_view_View_OnKeyListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_View_OnKeyListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnKeyListener();
 	// Functions
-	 bool onKey(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2);
+	virtual bool  onKey(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
+
+protected:
+	android_view_View_OnKeyListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

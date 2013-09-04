@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,8 +8,9 @@
 //
 
 
-	
+
  		 
+	
 	
  		 
  		 
@@ -40,15 +41,8 @@
 //
 
 
-#include <android_view_View.hpp>
 
-#include <android_view_MenuItem.hpp>
-
-#include <android_view_SubMenu.hpp>
-
-#include <android_view_ActionProvider_VisibilityListener.hpp>
-
-#include <android_content_Context.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -66,9 +60,9 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_View;
-
 class android_view_MenuItem;
+
+class android_view_View;
 
 class android_view_SubMenu;
 
@@ -76,27 +70,32 @@ class android_view_ActionProvider_VisibilityListener;
 
 class android_content_Context;
 
-class android_view_ActionProvider
+class android_view_ActionProvider : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_ActionProvider(const android_view_ActionProvider& cc);
-	android_view_ActionProvider(Proxy proxy);
-	// Public Constructors
-	android_view_ActionProvider(AndroidCXX::android_content_Context const& arg0);
-	Proxy proxy() const;	
+	android_view_ActionProvider(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ActionProvider();
 	// Functions
-	 bool isVisible();
-	 bool hasSubMenu();
-	 AndroidCXX::android_view_View onCreateActionView();
-	 AndroidCXX::android_view_View onCreateActionView(AndroidCXX::android_view_MenuItem const& arg0);
-	 bool overridesItemVisibility();
-	 void refreshVisibility();
-	 bool onPerformDefaultAction();
-	 void onPrepareSubMenu(AndroidCXX::android_view_SubMenu const& arg0);
-	 void setVisibilityListener(AndroidCXX::android_view_ActionProvider_VisibilityListener const& arg0);
+	virtual bool  hasSubMenu() ;
+	virtual bool  isVisible() ;
+	virtual AndroidCXX::android_view_View * onCreateActionView(AndroidCXX::android_view_MenuItem const& arg0) ;
+	virtual AndroidCXX::android_view_View * onCreateActionView() ;
+	virtual bool  onPerformDefaultAction() ;
+	virtual void  onPrepareSubMenu(AndroidCXX::android_view_SubMenu const& arg0) ;
+	virtual bool  overridesItemVisibility() ;
+	virtual void  refreshVisibility() ;
+	virtual void  setVisibilityListener(AndroidCXX::android_view_ActionProvider_VisibilityListener const& arg0) ;
+
+protected:
+	android_view_ActionProvider();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -22,6 +22,7 @@
 #include <CXXGenerator.h>
 #include <JNIContext.hpp>
 #include <sys/resource.h>
+#include <stack>
 
 #define LOG_ENABLED 0
 #define log(...) if (LOG_ENABLED) fprintf(stderr, __VA_ARGS__)
@@ -67,6 +68,9 @@
 #define CXX_TYPE_CLASS_GET_CHILD_TYPES_JNI_SIG "()Ljava/util/List;"
 #define CXX_TYPE_ARRAY_CLASS_NAME "com.zynga.sdk.cxx.CXXType$Array"
 
+#define EXTENDS "extends"
+#define IMPLEMENTS "implements"
+
 JNIContext *jni = 0;
 JavaVM *m_jvm = 0;
 
@@ -79,6 +83,17 @@ std::string WILDCARD_TYPE = std::string("java.lang.reflect.WildcardType");
 void checkException(CXXIndex * index);
 int createJVM(JavaVM **m_jvm, char * optionString);
 int destroyJVM(JavaVM *m_jvm);
+
+typedef struct ProcessClass
+{
+	std::string class_name;
+	jclass clazz;
+	ProcessorContext *ctx;
+} ProcessClass;
+
+static std::stack<ProcessClass> process_class_stack;
+
+void process_classes();
 
 CXXIndex::CXXIndex(char * optionString)
 {
@@ -171,8 +186,9 @@ void visitTranslationUnitClasses(char packages[MAX_PACKAGE_COUNT][STR_ATTR_SIZE]
 		std::string class_name = std::string(classes[idx]);
 		std::string jni_name = jni->getJNIName(class_name);
 		jclass clazz = (jclass) jni->getClassRef(jni_name.c_str());
-		process_class(class_name, clazz, *ctx);		
+		add_to_process_class(class_name, clazz, *ctx);		
 	}
+	process_classes();
 	delete ctx;
 	jni->popLocalFrame();
 	log("visitTranslationUnitClasses exit\n");
@@ -237,6 +253,27 @@ bool canCastClass1ToClass2(char clazz1_name[STR_ATTR_SIZE], char clazz2_name[STR
 	return (bool) jni->canCastClass1ToClass2(clazz1_jni_str.c_str(), clazz2_jni_str.c_str());
 }
 
+void add_to_process_class(std::string class_name, jclass clazz, ProcessorContext& ctx)
+{
+	ProcessClass process_class;
+	process_class.class_name = class_name;
+	process_class.clazz = (jclass) jni->localToGlobalRef(clazz);
+	process_class.ctx = &ctx;
+
+	process_class_stack.push(process_class);
+}
+
+void process_classes()
+{
+	while (process_class_stack.empty() == false)
+	{
+		ProcessClass item = process_class_stack.top();
+		process_class_stack.pop();
+		process_class(item.class_name, item.clazz, *item.ctx);
+		jni->deleteGlobalRef(item.clazz);
+	}
+}
+
 void process_class(std::string class_name, jclass clazz, ProcessorContext& ctx)
 {
 	log("process_class enter\n");
@@ -250,11 +287,13 @@ void process_class(std::string class_name, jclass clazz, ProcessorContext& ctx)
 	jni->pushLocalFrame();
 	int modifiers = (int) jni->invokeIntMethod(clazz, "java/lang/Class", "getModifiers", "()I");
 	int type = find_class_type(clazz);
+	CXXStringAttributes class_attributes;
+	class_attributes._count = 0;
+	process_class_attributes(class_name, clazz, class_attributes, ctx);
 	{
 		char name[STR_ATTR_SIZE];
 		strcpy(name, class_name.c_str());
-		ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_CLASS_DECL, type, modifiers, name, 0, 0 /* type id */, ctx.host_object);
-
+		ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_CLASS_DECL, type, modifiers, name, 0, 0 /* type id */, class_attributes, ctx.host_object);
 	}
 	jobjectArray jconstructors = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredConstructors", "()[Ljava/lang/reflect/Constructor;");
 	int constructorCount = (int) jni->getArrayLength(jconstructors);
@@ -304,19 +343,20 @@ void process_class(std::string class_name, jclass clazz, ProcessorContext& ctx)
 		jni->popLocalFrame();
 	}
 	{
-		char str_attrs[ATTR_COUNT][STR_ATTR_SIZE];
-		int int_attrs[ATTR_COUNT];
 		char name[STR_ATTR_SIZE];
 		strcpy(name, class_name.c_str());
-		ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_CLASS_DECL, type, modifiers, name, 0 /* index */, 0 /*type class */, ctx.host_object);	
+		CXXStringAttributes str_attributes;	
+		str_attributes._count = 0;
+		ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_CLASS_DECL, type, modifiers, name, 0 /* index */, 0 /*type class */, str_attributes, ctx.host_object);	
 	}	
 	{
 		char name[STR_ATTR_SIZE];
 		strcpy(name, class_name.c_str());
-		ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_CLASS_DECL, type, modifiers, name, 0, 0 /* type id */, ctx.host_object);
+		CXXStringAttributes str_attributes;
+		str_attributes._count = 0;
+		ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_CLASS_DECL, type, modifiers, name, 0, 0 /* type id */, str_attributes, ctx.host_object);
 
 	}
-
 	jni->popLocalFrame();
 	log("process_class exit\n");
 }
@@ -333,7 +373,9 @@ void process_field(std::string class_name, jclass clazz, std::string field_name,
 		{
 			char name[STR_ATTR_SIZE];
 			strcpy(name, field_name.c_str());
-			ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_FIELD_DECL, field_type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
+			CXXStringAttributes str_attributes;
+			str_attributes._count = 0;
+			ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_FIELD_DECL, field_type, modifiers, name, idx, 0 /* type id */, str_attributes, ctx.host_object);
 		}
 		{
 			jobject type = (jobject) jni->invokeObjectMethod(field, "java/lang/reflect/Field", "getGenericType", "()Ljava/lang/reflect/Type;");
@@ -355,12 +397,16 @@ void process_field(std::string class_name, jclass clazz, std::string field_name,
 		{
 			char name[STR_ATTR_SIZE];
 			strcpy(name, field_name.c_str());
-			ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_FIELD_DECL, field_type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
+			CXXStringAttributes str_attributes;
+			str_attributes._count = 0;
+			ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_FIELD_DECL, field_type, modifiers, name, idx, 0 /* type id */, str_attributes, ctx.host_object);
 		}
 		{
 			char name[STR_ATTR_SIZE];
 			strcpy(name, field_name.c_str());
-			ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_FIELD_DECL, field_type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
+			CXXStringAttributes str_attributes;
+			str_attributes._count = 0;
+			ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_FIELD_DECL, field_type, modifiers, name, idx, 0 /* type id */, str_attributes, ctx.host_object);
 		}					
 	}
 	jni->popLocalFrame();
@@ -379,7 +425,9 @@ void process_method(std::string class_name, jclass clazz, std::string method_nam
 		{
 			char name[STR_ATTR_SIZE];
 			strcpy(name, method_name.c_str());
-			ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_FUNCTION_DECL, type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
+			CXXStringAttributes str_attributes;
+			str_attributes._count = 0;
+			ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_FUNCTION_DECL, type, modifiers, name, idx, 0 /* type id */, str_attributes, ctx.host_object);
 		}
 		jobjectArray params = (jobjectArray) jni->invokeObjectMethod(method, "java/lang/reflect/Method", "getGenericParameterTypes", "()[Ljava/lang/reflect/Type;");
 		if (params != 0)
@@ -420,12 +468,16 @@ void process_method(std::string class_name, jclass clazz, std::string method_nam
 		{
 			char name[STR_ATTR_SIZE];
 			strcpy(name, method_name.c_str());
-			ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_FUNCTION_DECL, type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
+			CXXStringAttributes str_attributes;
+			str_attributes._count = 0;
+			ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_FUNCTION_DECL, type, modifiers, name, idx, 0 /* type id */, str_attributes, ctx.host_object);
 		}
 		{
 			char name[STR_ATTR_SIZE];
 			strcpy(name, method_name.c_str());
-			ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_FUNCTION_DECL, type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
+			CXXStringAttributes str_attributes;
+			str_attributes._count = 0;
+			ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_FUNCTION_DECL, type, modifiers, name, idx, 0 /* type id */, str_attributes, ctx.host_object);
 
 		}
 	}
@@ -444,7 +496,9 @@ void process_constructor(std::string class_name, jclass clazz, std::string const
 		{
 			char name[STR_ATTR_SIZE];
 			strcpy(name, constructor_name.c_str());
-			ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_CONSTRUCTOR_DECL, type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
+			CXXStringAttributes str_attributes;
+			str_attributes._count = 0;
+			ctx.callback(CALLBACK_TYPE_ENTER, CURSOR_CONSTRUCTOR_DECL, type, modifiers, name, idx, 0 /* type id */, str_attributes, ctx.host_object);
 		}
 		jobjectArray params = (jobjectArray) jni->invokeObjectMethod(constructor, "java/lang/reflect/Constructor", "getGenericParameterTypes", "()[Ljava/lang/reflect/Type;");
 		if (params != 0)
@@ -470,12 +524,16 @@ void process_constructor(std::string class_name, jclass clazz, std::string const
 		{
 			char name[STR_ATTR_SIZE];
 			strcpy(name, constructor_name.c_str());
-			ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_CONSTRUCTOR_DECL, type, modifiers, name, idx, 0 /* type id */, ctx.host_object);		
+			CXXStringAttributes str_attributes;
+			str_attributes._count = 0;
+			ctx.callback(CALLBACK_TYPE_PROCESS, CURSOR_CONSTRUCTOR_DECL, type, modifiers, name, idx, 0 /* type id */, str_attributes, ctx.host_object);		
 		}
 		{
 			char name[STR_ATTR_SIZE];
 			strcpy(name, constructor_name.c_str());
-			ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_CONSTRUCTOR_DECL, type, modifiers, name, idx, 0 /* type id */, ctx.host_object);
+			CXXStringAttributes str_attributes;
+			str_attributes._count = 0;
+			ctx.callback(CALLBACK_TYPE_EXIT, CURSOR_CONSTRUCTOR_DECL, type, modifiers, name, idx, 0 /* type id */, str_attributes, ctx.host_object);
 
 		}
 	}
@@ -493,12 +551,16 @@ void process_type(std::string parent_name, jobject parent, jobject type, int idx
 	{
 		char name[STR_ATTR_SIZE];
 		strcpy(name, type_name.c_str());
-		ctx.callback(CALLBACK_TYPE_ENTER, cursor_type, arg_type, modifiers, name, idx, (long) type /* type id */, ctx.host_object);
+		CXXStringAttributes str_attributes;
+		str_attributes._count = 0;
+		ctx.callback(CALLBACK_TYPE_ENTER, cursor_type, arg_type, modifiers, name, idx, (long) type /* type id */, str_attributes, ctx.host_object);
 	}
 	{
 		char name[STR_ATTR_SIZE];
 		strcpy(name, type_name.c_str());
-		ctx.callback(CALLBACK_TYPE_EXIT, cursor_type, arg_type, modifiers, name, idx, (long) type /* type id */, ctx.host_object);
+		CXXStringAttributes str_attributes;
+		str_attributes._count = 0;
+		ctx.callback(CALLBACK_TYPE_EXIT, cursor_type, arg_type, modifiers, name, idx, (long) type /* type id */, str_attributes, ctx.host_object);
 
 	}
 	jni->popLocalFrame();
@@ -517,7 +579,7 @@ void process_type_hierarchy(jobject& cxx_type, ProcessorContext& ctx)
 		std::string type_class_name = find_type_class_name(cxx_type);
 		std::string type_class_jni_name = jni->getJNIName(type_class_name);
 		jclass type_class = jni->getClassRef(type_class_jni_name.c_str());
-		process_class(type_class_name, type_class, ctx);
+		add_to_process_class(type_class_name, type_class, ctx);
 	}
 	jobject jchild_cxx_types = jni->invokeObjectMethod(cxx_type, CXX_TYPE_CLASS_JNI_NAME, "getChildTypes", CXX_TYPE_CLASS_GET_CHILD_TYPES_JNI_SIG);
 	int size = jni->invokeIntMethod(jchild_cxx_types, "java/util/List", "size", "()I");
@@ -851,6 +913,95 @@ jobject to_cxx_type(jobject arg)
 	cxx_param = jni->popLocalFrame(cxx_param);
 	log("to_cxx_type exit \n");
 	return cxx_param;
+}
+
+void process_class_attributes(std::string class_name, jclass clazz, CXXStringAttributes& str_attributes, ProcessorContext& ctx)
+{
+	log("process_class_attributes enter\n");
+	jni->pushLocalFrame();
+	long str_attribute_keys[MAX_ATTR_COUNT] = 	
+										{ 	
+											(long) str_attributes._key_0, 
+											(long) str_attributes._key_1, 
+											(long) str_attributes._key_2, 
+											(long) str_attributes._key_3, 
+											(long) str_attributes._key_4, 
+											(long) str_attributes._key_5, 
+											(long) str_attributes._key_6, 
+											(long) str_attributes._key_7, 
+											(long) str_attributes._key_8, 
+											(long) str_attributes._key_9, 
+											(long) str_attributes._key_10,
+											(long) str_attributes._key_11, 
+											(long) str_attributes._key_12, 
+											(long) str_attributes._key_13,
+											(long) str_attributes._key_14, 
+											(long) str_attributes._key_15
+										};
+	long str_attribute_values[MAX_ATTR_COUNT] = 	
+										{	
+											(long) str_attributes._value_0, 
+											(long) str_attributes._value_1, 
+											(long) str_attributes._value_2, 
+											(long) str_attributes._value_3, 
+											(long) str_attributes._value_4, 
+											(long) str_attributes._value_5, 
+											(long) str_attributes._value_6, 
+											(long) str_attributes._value_7, 
+											(long) str_attributes._value_8, 
+											(long) str_attributes._value_9, 
+											(long) str_attributes._value_10,
+											(long) str_attributes._value_11, 
+											(long) str_attributes._value_12, 
+											(long) str_attributes._value_13,
+											(long) str_attributes._value_14, 
+											(long) str_attributes._value_15
+										};
+	str_attributes._count = 0;
+	int attribute_idx = 0;
+	jobjectArray jinterfacesTypesArray = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getInterfaces", "()[Ljava/lang/Class;");
+	int interfaceTypesCount = (int) jni->getArrayLength(jinterfacesTypesArray);
+	for (attribute_idx = 0; attribute_idx < interfaceTypesCount; attribute_idx++)
+	{
+		jni->pushLocalFrame();
+		str_attributes._count += 1;
+		jclass jinterface = (jclass) jni->getObjectArrayElement(jinterfacesTypesArray, attribute_idx);
+		jstring jinterfaceName = jni->invokeStringMethod(jinterface, "java/lang/Class", "getName", "()Ljava/lang/String;");
+		std::string interfaceName = jni->getUTFString(jinterfaceName);
+		strcpy((char *) str_attribute_keys[attribute_idx], IMPLEMENTS);
+		strcpy((char *) str_attribute_values[attribute_idx], interfaceName.c_str());
+		jobject jpackage = jni->invokeObjectMethod(jinterface, "java/lang/Class", "getPackage", "()Ljava/lang/Package;");		
+		jstring jpackageName = jni->invokeStringMethod(jpackage, "java/lang/Package", "getName", "()Ljava/lang/String;");
+		std::string package_name = jni->getUTFString(jpackageName);
+		char package[STR_ATTR_SIZE];
+		strcpy(package, package_name.c_str());
+		if (in_packages(package, ctx.packages, ctx.package_count))
+		{
+			add_to_process_class(interfaceName, jinterface, ctx);
+		}
+		jni->popLocalFrame();
+	}
+	jclass jsuperclass = (jclass) jni->invokeObjectMethod(clazz, "java/lang/Class", "getSuperclass", "()Ljava/lang/Class;");
+	if (jsuperclass != 0)
+	{
+		jni->pushLocalFrame();
+		str_attributes._count += 1;
+		jstring jsuperclassName = jni->invokeStringMethod(jsuperclass, "java/lang/Class", "getName", "()Ljava/lang/String;");
+		std::string superclassName = jni->getUTFString(jsuperclassName);
+		strcpy((char *) str_attribute_keys[attribute_idx], EXTENDS);
+		strcpy((char *) str_attribute_values[attribute_idx], superclassName.c_str());		
+		jobject jpackage = jni->invokeObjectMethod(jsuperclass, "java/lang/Class", "getPackage", "()Ljava/lang/Package;");		
+		jstring jpackageName = jni->invokeStringMethod(jpackage, "java/lang/Package", "getName", "()Ljava/lang/String;");
+		std::string package_name = jni->getUTFString(jpackageName);
+		char package[STR_ATTR_SIZE];
+		strcpy(package, package_name.c_str());
+		if (in_packages(package, ctx.packages, ctx.package_count))
+		{
+			add_to_process_class(superclassName, jsuperclass, ctx);			
+		}
+		jni->popLocalFrame();
+	}
+	jni->popLocalFrame();
 }
 
 std::vector<std::string> find_generic_array_name(jobject param)
@@ -1382,4 +1533,3 @@ int destroyJVM(JavaVM *a_jvm)
 
 	return status;
 }
-

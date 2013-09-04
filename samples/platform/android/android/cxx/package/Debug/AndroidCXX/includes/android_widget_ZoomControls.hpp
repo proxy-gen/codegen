@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -45,17 +46,18 @@
 //
 
 
-#include <android_view_MotionEvent.hpp>
-
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
+
+#include <android_view_MotionEvent.hpp>
 
 #include <android_view_View_OnClickListener.hpp>
 
 #include <android_content_Context.hpp>
 
 #include <android_util_AttributeSet.hpp>
+
 
 #include <vector>
 #include <map>
@@ -73,11 +75,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_MotionEvent;
-
 class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
+
+class android_view_MotionEvent;
 
 class android_view_View_OnClickListener;
 
@@ -85,30 +87,36 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_ZoomControls
+class android_widget_ZoomControls 
 {
 public:
 
+	// Public Constructor
+	android_widget_ZoomControls(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_ZoomControls(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_ZoomControls(const android_widget_ZoomControls& cc);
-	android_widget_ZoomControls(Proxy proxy);
-	// Public Constructors
-	android_widget_ZoomControls(AndroidCXX::android_content_Context const& arg0);
-	android_widget_ZoomControls(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	Proxy proxy() const;	
+	android_widget_ZoomControls(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ZoomControls();
 	// Functions
-	 void show();
-	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
-	 bool hasFocus();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
-	 void hide();
-	 void setZoomSpeed(long const& arg0);
-	 void setOnZoomInClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0);
-	 void setOnZoomOutClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0);
-	 void setIsZoomInEnabled(bool const& arg0);
-	 void setIsZoomOutEnabled(bool const& arg0);
+	virtual bool  hasFocus() ;
+	virtual void  hide() ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual void  setIsZoomInEnabled(bool const& arg0) ;
+	virtual void  setIsZoomOutEnabled(bool const& arg0) ;
+	virtual void  setOnZoomInClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0) ;
+	virtual void  setOnZoomOutClickListener(AndroidCXX::android_view_View_OnClickListener const& arg0) ;
+	virtual void  setZoomSpeed(long const& arg0) ;
+	virtual void  show() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

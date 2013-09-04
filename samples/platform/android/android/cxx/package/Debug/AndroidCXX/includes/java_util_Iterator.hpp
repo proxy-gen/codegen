@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -28,6 +29,7 @@
 //
 
 
+
 #include <java_lang_Object.hpp>
 
 #include <vector>
@@ -46,22 +48,27 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
-class java_util_Iterator
+class java_util_Iterator : public AndroidCXX::java_lang_Object
 {
 public:
 
 	java_util_Iterator(const java_util_Iterator& cc);
-	java_util_Iterator(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_util_Iterator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Iterator();
 	// Functions
-	 bool hasNext();
-	 AndroidCXX::java_lang_Object next();
-	 void remove();
+	virtual bool  hasNext() ;
+	virtual AndroidCXX::java_lang_Object * next() ;
+	virtual void  remove() ;
+
+protected:
+	java_util_Iterator();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

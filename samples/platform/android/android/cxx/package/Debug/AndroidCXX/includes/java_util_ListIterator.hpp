@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,10 +8,11 @@
 //
 
 
+
  		 
 	
- 		 
 	
+ 		 
 
 
 
@@ -37,7 +38,8 @@
 //
 
 
-#include <java_lang_Object.hpp>
+
+#include <java_util_Iterator.hpp>
 
 #include <vector>
 #include <map>
@@ -57,26 +59,32 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_util_ListIterator
+class java_util_ListIterator : public AndroidCXX::java_util_Iterator
 {
 public:
 
 	java_util_ListIterator(const java_util_ListIterator& cc);
-	java_util_ListIterator(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_util_ListIterator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_ListIterator();
 	// Functions
-	 void add(AndroidCXX::java_lang_Object const& arg0);
-	 bool hasNext();
-	 AndroidCXX::java_lang_Object next();
-	 void remove();
-	 void set(AndroidCXX::java_lang_Object const& arg0);
-	 int nextIndex();
-	 AndroidCXX::java_lang_Object previous();
-	 int previousIndex();
-	 bool hasPrevious();
+	virtual void  add(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual bool  hasNext() ;
+	virtual bool  hasPrevious() ;
+	virtual int  nextIndex() ;
+	virtual AndroidCXX::java_lang_Object * next() ;
+	virtual int  previousIndex() ;
+	virtual AndroidCXX::java_lang_Object * previous() ;
+	virtual void  remove() ;
+	virtual void  set(AndroidCXX::java_lang_Object const& arg0) ;
+
+protected:
+	java_util_ListIterator();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

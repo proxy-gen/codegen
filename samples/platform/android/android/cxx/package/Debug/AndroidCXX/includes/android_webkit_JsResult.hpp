@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -26,6 +27,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,19 +46,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_webkit_JsResult
+class android_webkit_JsResult : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
 	android_webkit_JsResult(const android_webkit_JsResult& cc);
-	android_webkit_JsResult(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_webkit_JsResult(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_JsResult();
 	// Functions
-	 void cancel();
-	 void confirm();
+	virtual void  cancel() ;
+	virtual void  confirm() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

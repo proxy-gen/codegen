@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,11 +8,12 @@
 //
 
 
- 		 
- 		 
+
+	
 	
  		 
-	
+ 		 
+ 		 
 
 
  		 
@@ -43,13 +44,16 @@
 //
 
 
+#include <android_view_ViewGroup.hpp>
+
 #include <android_view_View.hpp>
 
 #include <android_view_MotionEvent.hpp>
 
-#include <android_view_ViewGroup.hpp>
-
 #include <android_widget_ZoomButtonsController_OnZoomListener.hpp>
+
+
+#include <android_view_View_OnTouchListener.hpp>
 
 #include <vector>
 #include <map>
@@ -67,38 +71,44 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_view_ViewGroup;
+
 class android_view_View;
 
 class android_view_MotionEvent;
 
-class android_view_ViewGroup;
-
 class android_widget_ZoomButtonsController_OnZoomListener;
 
-class android_widget_ZoomButtonsController
+class android_widget_ZoomButtonsController : public AndroidCXX::android_view_View_OnTouchListener
 {
 public:
 
+	// Public Constructor
+	android_widget_ZoomButtonsController(AndroidCXX::android_view_View const& arg0,Proxy * aProxy = new Proxy());
 	android_widget_ZoomButtonsController(const android_widget_ZoomButtonsController& cc);
-	android_widget_ZoomButtonsController(Proxy proxy);
-	// Public Constructors
-	android_widget_ZoomButtonsController(AndroidCXX::android_view_View const& arg0);
-	Proxy proxy() const;	
+	android_widget_ZoomButtonsController(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ZoomButtonsController();
 	// Functions
-	 bool isVisible();
-	 void setVisible(bool const& arg0);
-	 void setFocusable(bool const& arg0);
-	 bool onTouch(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1);
-	 AndroidCXX::android_view_ViewGroup getContainer();
-	 void setZoomSpeed(long const& arg0);
-	 void setZoomInEnabled(bool const& arg0);
-	 void setZoomOutEnabled(bool const& arg0);
-	 void setOnZoomListener(AndroidCXX::android_widget_ZoomButtonsController_OnZoomListener const& arg0);
-	 bool isAutoDismissed();
-	 void setAutoDismissed(bool const& arg0);
-	 AndroidCXX::android_view_View getZoomControls();
+	virtual AndroidCXX::android_view_ViewGroup * getContainer() ;
+	virtual AndroidCXX::android_view_View * getZoomControls() ;
+	virtual bool  isAutoDismissed() ;
+	virtual bool  isVisible() ;
+	virtual bool  onTouch(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1) ;
+	virtual void  setAutoDismissed(bool const& arg0) ;
+	virtual void  setFocusable(bool const& arg0) ;
+	virtual void  setOnZoomListener(AndroidCXX::android_widget_ZoomButtonsController_OnZoomListener const& arg0) ;
+	virtual void  setVisible(bool const& arg0) ;
+	virtual void  setZoomInEnabled(bool const& arg0) ;
+	virtual void  setZoomOutEnabled(bool const& arg0) ;
+	virtual void  setZoomSpeed(long const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

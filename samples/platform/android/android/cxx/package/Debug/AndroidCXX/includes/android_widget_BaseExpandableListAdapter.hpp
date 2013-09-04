@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -41,7 +42,10 @@
 //
 
 
-#include <android_database_DataSetObserver.hpp>
+
+#include <android_widget_ExpandableListAdapter.hpp>
+
+#include <android_widget_HeterogeneousExpandableList.hpp>
 
 #include <vector>
 #include <map>
@@ -61,32 +65,37 @@ namespace AndroidCXX {
 
 class android_database_DataSetObserver;
 
-class android_widget_BaseExpandableListAdapter
+class android_widget_BaseExpandableListAdapter : public AndroidCXX::android_widget_ExpandableListAdapter,public AndroidCXX::android_widget_HeterogeneousExpandableList
 {
 public:
 
 	android_widget_BaseExpandableListAdapter(const android_widget_BaseExpandableListAdapter& cc);
-	android_widget_BaseExpandableListAdapter(Proxy proxy);
-	// Public Constructors
-	android_widget_BaseExpandableListAdapter();
-	Proxy proxy() const;	
+	android_widget_BaseExpandableListAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_BaseExpandableListAdapter();
 	// Functions
-	 bool isEmpty();
-	 void registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
-	 void unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0);
-	 bool areAllItemsEnabled();
-	 void onGroupExpanded(int const& arg0);
-	 void onGroupCollapsed(int const& arg0);
-	 long getCombinedChildId(long const& arg0,long const& arg1);
-	 long getCombinedGroupId(long const& arg0);
-	 int getGroupType(int const& arg0);
-	 int getChildType(int const& arg0,int const& arg1);
-	 int getGroupTypeCount();
-	 int getChildTypeCount();
-	 void notifyDataSetChanged();
-	 void notifyDataSetInvalidated();
+	virtual bool  areAllItemsEnabled() ;
+	virtual int  getChildTypeCount() ;
+	virtual int  getChildType(int const& arg0,int const& arg1) ;
+	virtual long  getCombinedChildId(long const& arg0,long const& arg1) ;
+	virtual long  getCombinedGroupId(long const& arg0) ;
+	virtual int  getGroupTypeCount() ;
+	virtual int  getGroupType(int const& arg0) ;
+	virtual bool  isEmpty() ;
+	virtual void  notifyDataSetChanged() ;
+	virtual void  notifyDataSetInvalidated() ;
+	virtual void  onGroupCollapsed(int const& arg0) ;
+	virtual void  onGroupExpanded(int const& arg0) ;
+	virtual void  registerDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
+	virtual void  unregisterDataSetObserver(AndroidCXX::android_database_DataSetObserver const& arg0) ;
+
+protected:
+	android_widget_BaseExpandableListAdapter();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

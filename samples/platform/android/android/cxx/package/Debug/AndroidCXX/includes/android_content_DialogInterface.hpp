@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -26,6 +27,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,19 +46,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_content_DialogInterface
+class android_content_DialogInterface : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_content_DialogInterface(const android_content_DialogInterface& cc);
-	android_content_DialogInterface(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_content_DialogInterface(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_DialogInterface();
 	// Functions
-	 void cancel();
-	 void dismiss();
+	virtual void  cancel() ;
+	virtual void  dismiss() ;
+
+protected:
+	android_content_DialogInterface();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

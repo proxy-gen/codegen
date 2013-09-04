@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,21 +8,7 @@
 //
 
 
-	
- 		 
-	
- 		 
-	
- 		 
- 		 
- 		 
-	
- 		 
-	
- 		 
-	
- 		 
-	
+
 	
  	
  		 
@@ -30,8 +16,23 @@
  	
  		 
  		 
+ 		 
+ 		 
+ 		 
+	
 	
  		 
+	
+	
+ 		 
+	
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+	
 	
 	
 	
@@ -71,24 +72,8 @@
 //
 
 
-#include <java_lang_String.hpp>
 
-
-#include <java_lang_Object.hpp>
-
-#include <java_nio_ByteBuffer.hpp>
-
-#include <java_nio_CharBuffer.hpp>
-
-#include <java_util_Set.hpp>
-
-#include <java_util_SortedMap.hpp>
-
-#include <java_util_Locale.hpp>
-
-#include <java_nio_charset_CharsetDecoder.hpp>
-
-#include <java_nio_charset_CharsetEncoder.hpp>
+#include <java_lang_Comparable.hpp>
 
 #include <vector>
 #include <map>
@@ -106,57 +91,62 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_util_Set;
+
 class java_lang_String;
 
-class java_nio_charset_Charset;
+class java_util_SortedMap;
 
-class java_lang_Object;
 
 class java_nio_ByteBuffer;
 
 class java_nio_CharBuffer;
 
-class java_util_Set;
-
-class java_util_SortedMap;
-
 class java_util_Locale;
+
+class java_lang_Object;
 
 class java_nio_charset_CharsetDecoder;
 
 class java_nio_charset_CharsetEncoder;
 
-class java_nio_charset_Charset
+class java_nio_charset_Charset : public AndroidCXX::java_lang_Comparable
 {
 public:
 
 	java_nio_charset_Charset(const java_nio_charset_Charset& cc);
-	java_nio_charset_Charset(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_nio_charset_Charset(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_Charset();
 	// Functions
-	 AndroidCXX::java_lang_String name();
-	static AndroidCXX::java_nio_charset_Charset forName(AndroidCXX::java_lang_String const& arg0);
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 int compareTo(AndroidCXX::java_nio_charset_Charset const& arg0);
-	 bool contains(AndroidCXX::java_nio_charset_Charset const& arg0);
-	 AndroidCXX::java_nio_CharBuffer decode(AndroidCXX::java_nio_ByteBuffer const& arg0);
-	 AndroidCXX::java_nio_ByteBuffer encode(AndroidCXX::java_nio_CharBuffer const& arg0);
-	 AndroidCXX::java_nio_ByteBuffer encode(AndroidCXX::java_lang_String const& arg0);
-	static bool isSupported(AndroidCXX::java_lang_String const& arg0);
-	static AndroidCXX::java_nio_charset_Charset defaultCharset();
-	 AndroidCXX::java_util_Set aliases();
-	static AndroidCXX::java_util_SortedMap availableCharsets();
-	 AndroidCXX::java_lang_String displayName();
-	 AndroidCXX::java_lang_String displayName(AndroidCXX::java_util_Locale const& arg0);
-	 bool isRegistered();
-	 AndroidCXX::java_nio_charset_CharsetDecoder newDecoder();
-	 AndroidCXX::java_nio_charset_CharsetEncoder newEncoder();
-	 bool canEncode();
+	virtual AndroidCXX::java_util_Set * aliases() ;
+	static AndroidCXX::java_util_SortedMap * availableCharsets() ;
+	virtual bool  canEncode() ;
+	virtual int  compareTo(AndroidCXX::java_nio_charset_Charset const& arg0) ;
+	virtual bool  contains(AndroidCXX::java_nio_charset_Charset const& arg0) ;
+	virtual AndroidCXX::java_nio_CharBuffer * decode(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
+	static AndroidCXX::java_nio_charset_Charset * defaultCharset() ;
+	virtual AndroidCXX::java_lang_String * displayName(AndroidCXX::java_util_Locale const& arg0) ;
+	virtual AndroidCXX::java_lang_String * displayName() ;
+	virtual AndroidCXX::java_nio_ByteBuffer * encode(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_nio_ByteBuffer * encode(AndroidCXX::java_nio_CharBuffer const& arg0) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	static AndroidCXX::java_nio_charset_Charset * forName(AndroidCXX::java_lang_String const& arg0) ;
+	virtual int  hashCode() ;
+	virtual bool  isRegistered() ;
+	static bool  isSupported(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * name() ;
+	virtual AndroidCXX::java_nio_charset_CharsetDecoder * newDecoder() ;
+	virtual AndroidCXX::java_nio_charset_CharsetEncoder * newEncoder() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+	java_nio_charset_Charset();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

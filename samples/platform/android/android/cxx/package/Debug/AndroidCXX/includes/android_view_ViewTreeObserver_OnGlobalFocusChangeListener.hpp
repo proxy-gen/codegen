@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,7 +28,8 @@
 //
 
 
-#include <android_view_View.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -47,18 +49,24 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_view_ViewTreeObserver_OnGlobalFocusChangeListener
+class android_view_ViewTreeObserver_OnGlobalFocusChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_ViewTreeObserver_OnGlobalFocusChangeListener(const android_view_ViewTreeObserver_OnGlobalFocusChangeListener& cc);
-	android_view_ViewTreeObserver_OnGlobalFocusChangeListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_ViewTreeObserver_OnGlobalFocusChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnGlobalFocusChangeListener();
 	// Functions
-	 void onGlobalFocusChanged(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1);
+	virtual void  onGlobalFocusChanged(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;
+
+protected:
+	android_view_ViewTreeObserver_OnGlobalFocusChangeListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -11,6 +11,7 @@
 
  			
 		
+	
 
 
 #ifndef _com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type
@@ -34,9 +35,9 @@ namespace com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type {
 
 enum com_facebook_widget_GraphObjectAdapter_SectionAndItem_Type
 {
+	ACTIVITY_CIRCLE,
 	GRAPH_OBJECT,
 	SECTION_HEADER,
-	ACTIVITY_CIRCLE,
 };
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <java_lang_String.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_util_Printer
+class android_util_Printer : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_util_Printer(const android_util_Printer& cc);
-	android_util_Printer(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_util_Printer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_util_Printer();
 	// Functions
-	 void println(AndroidCXX::java_lang_String const& arg0);
+	virtual void  println(AndroidCXX::java_lang_String const& arg0) ;
+
+protected:
+	android_util_Printer();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

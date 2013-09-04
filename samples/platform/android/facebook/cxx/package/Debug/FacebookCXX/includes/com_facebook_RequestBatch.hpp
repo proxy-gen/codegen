@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,28 +8,25 @@
 //
 
 
+
  		 
  		 
-	
-	
- 		 
-	
-	
  		 
 	
  	
  		 
+	
  		 
+ 		 
+	
 
 
+ 	
+ 		 
+ 		 
  		 
  	
  		 
- 	
- 		 
- 		 
-
-
 
 
 
@@ -59,18 +56,20 @@
 //
 
 
-#include <com_facebook_Request.hpp>
-
-#include <com_facebook_RequestAsyncTask.hpp>
-
 #include <com_facebook_RequestBatch_Callback.hpp>
+
+#include <com_facebook_Request.hpp>
 
 #include <java_util_List.hpp>
 
 #include <com_facebook_Response.hpp>
 
+#include <com_facebook_RequestAsyncTask.hpp>
+
 #include <java_util_Collection.hpp>
 
+
+#include <java_util_AbstractList.hpp>
 
 #include <vector>
 #include <map>
@@ -88,45 +87,47 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_Request;
-
-class com_facebook_RequestAsyncTask;
-
 class com_facebook_RequestBatch_Callback;
+
+class com_facebook_Request;
 
 
 class com_facebook_Response;
 
+class com_facebook_RequestAsyncTask;
 
-class com_facebook_RequestBatch;
 
-class com_facebook_RequestBatch
+
+class com_facebook_RequestBatch : public AndroidCXX::java_util_AbstractList
 {
 public:
 
-	com_facebook_RequestBatch(Proxy proxy);
-	// Public Constructors
-	com_facebook_RequestBatch();
-	com_facebook_RequestBatch(AndroidCXX::java_util_Collection const& arg0);
-	com_facebook_RequestBatch(std::vector<FacebookCXX::com_facebook_Request > const& arg0);
-	com_facebook_RequestBatch(FacebookCXX::com_facebook_RequestBatch const& arg0);
-	Proxy proxy() const;	
+	// Public Constructor
+	com_facebook_RequestBatch(Proxy * aProxy = new Proxy());
+	com_facebook_RequestBatch(std::vector<FacebookCXX::com_facebook_Request> const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_RequestBatch(FacebookCXX::com_facebook_RequestBatch const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_RequestBatch(AndroidCXX::java_util_Collection const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_RequestBatch();
 	// Functions
-	 bool add(FacebookCXX::com_facebook_Request const& arg0);
-	 void add(int const& arg0,FacebookCXX::com_facebook_Request const& arg1);
-	 FacebookCXX::com_facebook_Request get(int const& arg0);
-	 void clear();
-	 int size();
-	 FacebookCXX::com_facebook_Request remove(int const& arg0);
-	 FacebookCXX::com_facebook_Request set(int const& arg0,FacebookCXX::com_facebook_Request const& arg1);
-	 void setTimeout(int const& arg0);
-	 FacebookCXX::com_facebook_RequestAsyncTask executeAsync();
-	 void addCallback(FacebookCXX::com_facebook_RequestBatch_Callback const& arg0);
-	 AndroidCXX::java_util_List executeAndWait();
-	 int getTimeout();
-	 void removeCallback(FacebookCXX::com_facebook_RequestBatch_Callback const& arg0);
+	virtual void  addCallback(FacebookCXX::com_facebook_RequestBatch_Callback const& arg0) ;
+	virtual bool  add(FacebookCXX::com_facebook_Request const& arg0) ;
+	virtual void  add(int const& arg0,FacebookCXX::com_facebook_Request const& arg1) ;
+	virtual void  clear() ;
+	virtual AndroidCXX::java_util_List * executeAndWait() ;
+	virtual FacebookCXX::com_facebook_RequestAsyncTask * executeAsync() ;
+	virtual int  getTimeout() ;
+	virtual void  removeCallback(FacebookCXX::com_facebook_RequestBatch_Callback const& arg0) ;
+	virtual FacebookCXX::com_facebook_Request * set(int const& arg0,FacebookCXX::com_facebook_Request const& arg1) ;
+	virtual void  setTimeout(int const& arg0) ;
+	virtual int  size() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

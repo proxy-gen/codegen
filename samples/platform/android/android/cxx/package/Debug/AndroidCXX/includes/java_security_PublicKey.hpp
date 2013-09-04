@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,9 @@
 //
 
 
+
+#include <java_security_Key.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +44,23 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_security_PublicKey
+class java_security_PublicKey : public AndroidCXX::java_security_Key
 {
 public:
 
 	java_security_PublicKey(const java_security_PublicKey& cc);
-	java_security_PublicKey(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_security_PublicKey(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_PublicKey();
 	// Functions
+
+protected:
+	java_security_PublicKey();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

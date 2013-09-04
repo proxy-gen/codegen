@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -11,6 +11,7 @@
 
  			
 		
+	
 
 
 #ifndef _com_facebook_SessionDefaultAudience
@@ -34,10 +35,10 @@ namespace com_facebook_SessionDefaultAudience {
 
 enum com_facebook_SessionDefaultAudience
 {
+	EVERYONE,
+	FRIENDS,
 	NONE,
 	ONLY_ME,
-	FRIENDS,
-	EVERYONE,
 };
 
 } // namespace

@@ -14,7 +14,7 @@
 ##
 /*
  * Implementation (Java)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 #from Utils import Utils
 #set $config_module = $CONFIG.config_module
@@ -28,13 +28,14 @@ package ${package};
 #set $COMMA = ","
 #set $base_class = $callback_class['name'].replace('$','.')
 #set $is_interface = True if '_interface' in $callback_class['tags'] else False
-#set $is_instance = True if '_instance' in $callback_class['tags'] else False
 #if $is_interface
 public class $callback_class_name implements $base_class
-#elif $is_instance
+#else
 public class $callback_class_name extends $base_class
 #end if
 {
+	// CXX Callback Pointer
+	private long cxxCallbackPtr = 0L;
 #set $constructors = $callback_class['constructors']
 #for $constructor in $constructors
 	#set $param_str = ""
@@ -86,4 +87,15 @@ public class $callback_class_name extends $base_class
 	#end if
 	public native ${retrninfo['javatypename']} ${Utils.to_safe_cxx_name(function['name'])}($param_str);
 #end for
+// Returns the registered CXX callback Pointer
+long getCXXCallbackPtr() 
+{
+	return cxxCallbackPtr;
+}
+// Registers the CXX callback Pointer
+void setCXXCallbackPtr(long cxxCallbackPtr) 
+{
+	this.cxxCallbackPtr = cxxCallbackPtr;
+}
+
 }

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,9 @@
 //
 
 
+
+#include <com_facebook_AuthorizationClient_AuthHandler.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +44,23 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_AuthorizationClient_WebViewAuthHandler
+class com_facebook_AuthorizationClient_WebViewAuthHandler : public FacebookCXX::com_facebook_AuthorizationClient_AuthHandler
 {
 public:
 
+	// Public Constructor
 	com_facebook_AuthorizationClient_WebViewAuthHandler(const com_facebook_AuthorizationClient_WebViewAuthHandler& cc);
-	com_facebook_AuthorizationClient_WebViewAuthHandler(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_AuthorizationClient_WebViewAuthHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_WebViewAuthHandler();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

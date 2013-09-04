@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <java_io_File.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class java_io_File;
 
-class java_io_FileFilter
+class java_io_FileFilter : public AndroidCXX::java_lang_Object
 {
 public:
 
 	java_io_FileFilter(const java_io_FileFilter& cc);
-	java_io_FileFilter(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_io_FileFilter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_FileFilter();
 	// Functions
-	 bool accept(AndroidCXX::java_io_File const& arg0);
+	virtual bool  accept(AndroidCXX::java_io_File const& arg0) ;
+
+protected:
+	java_io_FileFilter();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

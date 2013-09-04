@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +44,23 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_ContextMenu_ContextMenuInfo
+class android_view_ContextMenu_ContextMenuInfo : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_ContextMenu_ContextMenuInfo(const android_view_ContextMenu_ContextMenuInfo& cc);
-	android_view_ContextMenu_ContextMenuInfo(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_ContextMenu_ContextMenuInfo(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ContextMenu_ContextMenuInfo();
 	// Functions
+
+protected:
+	android_view_ContextMenu_ContextMenuInfo();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

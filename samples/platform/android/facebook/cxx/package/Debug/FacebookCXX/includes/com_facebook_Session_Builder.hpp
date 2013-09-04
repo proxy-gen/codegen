@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -38,10 +39,12 @@
 
 #include <java_lang_String.hpp>
 
-
 #include <com_facebook_TokenCachingStrategy.hpp>
 
 #include <android_content_Context.hpp>
+
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -62,26 +65,31 @@ namespace FacebookCXX {
 class com_facebook_Session;
 
 
-class com_facebook_Session_Builder;
 
 class com_facebook_TokenCachingStrategy;
 
 
-class com_facebook_Session_Builder
+class com_facebook_Session_Builder : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	com_facebook_Session_Builder(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_Session_Builder(const com_facebook_Session_Builder& cc);
-	com_facebook_Session_Builder(Proxy proxy);
-	// Public Constructors
-	com_facebook_Session_Builder(AndroidCXX::android_content_Context const& arg0);
-	Proxy proxy() const;	
+	com_facebook_Session_Builder(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_Builder();
 	// Functions
-	 FacebookCXX::com_facebook_Session build();
-	 FacebookCXX::com_facebook_Session_Builder setApplicationId(AndroidCXX::java_lang_String const& arg0);
-	 FacebookCXX::com_facebook_Session_Builder setTokenCachingStrategy(FacebookCXX::com_facebook_TokenCachingStrategy const& arg0);
+	virtual FacebookCXX::com_facebook_Session * build() ;
+	virtual FacebookCXX::com_facebook_Session_Builder * setApplicationId(AndroidCXX::java_lang_String const& arg0) ;
+	virtual FacebookCXX::com_facebook_Session_Builder * setTokenCachingStrategy(FacebookCXX::com_facebook_TokenCachingStrategy const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

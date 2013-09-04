@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,18 +8,19 @@
 //
 
 
+
+ 	
  		 
+ 	
+ 		 
+ 	
+ 		 
+ 	
  		 
 	
 	
+ 		 
 	
- 	
- 		 
- 	
- 		 
- 	
- 		 
- 	
  		 
  		 
 
@@ -69,10 +70,12 @@
 
 #include <java_lang_Thread.hpp>
 
-#include <java_lang_Throwable.hpp>
-
 #include <java_lang_String.hpp>
 
+#include <java_lang_Throwable.hpp>
+
+
+#include <java_lang_Thread_UncaughtExceptionHandler.hpp>
 
 #include <vector>
 #include <map>
@@ -90,51 +93,56 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Thread;
 
-class java_lang_Throwable;
+class java_lang_Thread;
 
 class java_lang_String;
 
-class java_lang_ThreadGroup;
+class java_lang_Throwable;
 
-class java_lang_ThreadGroup
+class java_lang_ThreadGroup : public AndroidCXX::java_lang_Thread_UncaughtExceptionHandler
 {
 public:
 
+	// Public Constructor
+	java_lang_ThreadGroup(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
 	java_lang_ThreadGroup(const java_lang_ThreadGroup& cc);
-	java_lang_ThreadGroup(Proxy proxy);
-	// Public Constructors
-	java_lang_ThreadGroup(AndroidCXX::java_lang_String const& arg0);
-	java_lang_ThreadGroup(AndroidCXX::java_lang_ThreadGroup const& arg0,AndroidCXX::java_lang_String const& arg1);
-	Proxy proxy() const;	
+	java_lang_ThreadGroup(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_ThreadGroup();
 	// Functions
-	 void uncaughtException(AndroidCXX::java_lang_Thread const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
-	 AndroidCXX::java_lang_String toString();
-	 AndroidCXX::java_lang_String getName();
-	 AndroidCXX::java_lang_ThreadGroup getParent();
-	 void setDaemon(bool const& arg0);
-	 void stop();
-	 void interrupt();
-	 void destroy();
-	 void suspend();
-	 void resume();
-	 int activeCount();
-	 int enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup > const& arg0);
-	 int enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup > const& arg0,bool const& arg1);
-	 int enumerate(std::vector<AndroidCXX::java_lang_Thread > const& arg0,bool const& arg1);
-	 int enumerate(std::vector<AndroidCXX::java_lang_Thread > const& arg0);
-	 bool isDaemon();
-	 void checkAccess();
-	 int getMaxPriority();
-	 bool isDestroyed();
-	 void setMaxPriority(int const& arg0);
-	 bool parentOf(AndroidCXX::java_lang_ThreadGroup const& arg0);
-	 int activeGroupCount();
-	 void list();
-	 bool allowThreadSuspension(bool const& arg0);
+	virtual int  activeCount() ;
+	virtual int  activeGroupCount() ;
+	virtual bool  allowThreadSuspension(bool const& arg0) ;
+	virtual void  checkAccess() ;
+	virtual void  destroy() ;
+	virtual int  enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup> const& arg0,bool const& arg1) ;
+	virtual int  enumerate(std::vector<AndroidCXX::java_lang_ThreadGroup> const& arg0) ;
+	virtual int  enumerate(std::vector<AndroidCXX::java_lang_Thread> const& arg0,bool const& arg1) ;
+	virtual int  enumerate(std::vector<AndroidCXX::java_lang_Thread> const& arg0) ;
+	virtual int  getMaxPriority() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+	virtual AndroidCXX::java_lang_ThreadGroup * getParent() ;
+	virtual void  interrupt() ;
+	virtual bool  isDaemon() ;
+	virtual bool  isDestroyed() ;
+	virtual void  list() ;
+	virtual bool  parentOf(AndroidCXX::java_lang_ThreadGroup const& arg0) ;
+	virtual void  resume() ;
+	virtual void  setDaemon(bool const& arg0) ;
+	virtual void  setMaxPriority(int const& arg0) ;
+	virtual void  stop() ;
+	virtual void  suspend() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  uncaughtException(AndroidCXX::java_lang_Thread const& arg0,AndroidCXX::java_lang_Throwable const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

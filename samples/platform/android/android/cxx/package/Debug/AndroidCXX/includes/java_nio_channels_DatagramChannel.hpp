@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,25 +8,26 @@
 //
 
 
+
+ 		 
+	
+	
+	
+ 	
+ 		 
  	
  		 
  		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 	
+ 		 
  	
  		 
  		 
- 		 
- 	
- 		 
- 		 
- 	
- 		 
-	
- 		 
-	
-	
-	
- 		 
-	
 
 
 
@@ -57,12 +58,14 @@
 //
 
 
-#include <java_nio_ByteBuffer.hpp>
 
-#include <java_net_SocketAddress.hpp>
+#include <java_nio_channels_spi_AbstractSelectableChannel.hpp>
 
+#include <java_nio_channels_ByteChannel.hpp>
 
-#include <java_net_DatagramSocket.hpp>
+#include <java_nio_channels_GatheringByteChannel.hpp>
+
+#include <java_nio_channels_ScatteringByteChannel.hpp>
 
 #include <vector>
 #include <map>
@@ -80,39 +83,44 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_ByteBuffer;
-
 class java_net_SocketAddress;
 
-class java_nio_channels_DatagramChannel;
+
+class java_nio_ByteBuffer;
 
 class java_net_DatagramSocket;
 
-class java_nio_channels_DatagramChannel
+class java_nio_channels_DatagramChannel : public AndroidCXX::java_nio_channels_spi_AbstractSelectableChannel,public AndroidCXX::java_nio_channels_ByteChannel,public AndroidCXX::java_nio_channels_GatheringByteChannel,public AndroidCXX::java_nio_channels_ScatteringByteChannel
 {
 public:
 
 	java_nio_channels_DatagramChannel(const java_nio_channels_DatagramChannel& cc);
-	java_nio_channels_DatagramChannel(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_nio_channels_DatagramChannel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_DatagramChannel();
 	// Functions
-	 long write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0);
-	 int write(AndroidCXX::java_nio_ByteBuffer const& arg0);
-	 long write(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2);
-	 int send(AndroidCXX::java_nio_ByteBuffer const& arg0,AndroidCXX::java_net_SocketAddress const& arg1);
-	 long read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0,int const& arg1,int const& arg2);
-	 int read(AndroidCXX::java_nio_ByteBuffer const& arg0);
-	 long read(std::vector<AndroidCXX::java_nio_ByteBuffer > const& arg0);
-	static AndroidCXX::java_nio_channels_DatagramChannel open();
-	 AndroidCXX::java_nio_channels_DatagramChannel connect(AndroidCXX::java_net_SocketAddress const& arg0);
-	 AndroidCXX::java_nio_channels_DatagramChannel disconnect();
-	 AndroidCXX::java_net_DatagramSocket socket();
-	 bool isConnected();
-	 AndroidCXX::java_net_SocketAddress receive(AndroidCXX::java_nio_ByteBuffer const& arg0);
-	 int validOps();
+	virtual AndroidCXX::java_nio_channels_DatagramChannel * connect(AndroidCXX::java_net_SocketAddress const& arg0) ;
+	virtual AndroidCXX::java_nio_channels_DatagramChannel * disconnect() ;
+	virtual bool  isConnected() ;
+	static AndroidCXX::java_nio_channels_DatagramChannel * open() ;
+	virtual long  read(std::vector<AndroidCXX::java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
+	virtual long  read(std::vector<AndroidCXX::java_nio_ByteBuffer> const& arg0) ;
+	virtual int  read(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
+	virtual AndroidCXX::java_net_SocketAddress * receive(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
+	virtual int  send(AndroidCXX::java_nio_ByteBuffer const& arg0,AndroidCXX::java_net_SocketAddress const& arg1) ;
+	virtual AndroidCXX::java_net_DatagramSocket * socket() ;
+	virtual int  validOps() ;
+	virtual long  write(std::vector<AndroidCXX::java_nio_ByteBuffer> const& arg0,int const& arg1,int const& arg2) ;
+	virtual long  write(std::vector<AndroidCXX::java_nio_ByteBuffer> const& arg0) ;
+	virtual int  write(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
+
+protected:
+	java_nio_channels_DatagramChannel();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

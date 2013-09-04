@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,8 @@
 //
 
 
-#include <android_widget_TextView.hpp>
 
-#include <android_view_KeyEvent.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +51,24 @@ class android_widget_TextView;
 
 class android_view_KeyEvent;
 
-class android_widget_TextView_OnEditorActionListener
+class android_widget_TextView_OnEditorActionListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_TextView_OnEditorActionListener(const android_widget_TextView_OnEditorActionListener& cc);
-	android_widget_TextView_OnEditorActionListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_TextView_OnEditorActionListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TextView_OnEditorActionListener();
 	// Functions
-	 bool onEditorAction(AndroidCXX::android_widget_TextView const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2);
+	virtual bool  onEditorAction(AndroidCXX::android_widget_TextView const& arg0,int const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
+
+protected:
+	android_widget_TextView_OnEditorActionListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

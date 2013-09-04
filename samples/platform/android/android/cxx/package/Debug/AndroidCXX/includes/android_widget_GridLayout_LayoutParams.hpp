@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -43,16 +44,16 @@
 
 #include <java_lang_Object.hpp>
 
-#include <android_widget_GridLayout_Spec.hpp>
+#include <android_content_Context.hpp>
+
+#include <android_util_AttributeSet.hpp>
 
 #include <android_view_ViewGroup_LayoutParams.hpp>
 
 #include <android_view_ViewGroup_MarginLayoutParams.hpp>
 
+#include <android_widget_GridLayout_Spec.hpp>
 
-#include <android_content_Context.hpp>
-
-#include <android_util_AttributeSet.hpp>
 
 #include <vector>
 #include <map>
@@ -72,37 +73,41 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class android_widget_GridLayout_Spec;
+class android_content_Context;
+
+class android_util_AttributeSet;
 
 class android_view_ViewGroup_LayoutParams;
 
 class android_view_ViewGroup_MarginLayoutParams;
 
-class android_widget_GridLayout_LayoutParams;
 
-class android_content_Context;
+class android_widget_GridLayout_Spec;
 
-class android_util_AttributeSet;
-
-class android_widget_GridLayout_LayoutParams
+class android_widget_GridLayout_LayoutParams 
 {
 public:
 
-	android_widget_GridLayout_LayoutParams(Proxy proxy);
-	// Public Constructors
-	android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_Spec const& arg0,AndroidCXX::android_widget_GridLayout_Spec const& arg1);
-	android_widget_GridLayout_LayoutParams();
-	android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
-	android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0);
-	android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_LayoutParams const& arg0);
-	android_widget_GridLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_widget_GridLayout_LayoutParams(Proxy * aProxy = new Proxy());
+	android_widget_GridLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_GridLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_LayoutParams const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_GridLayout_LayoutParams(AndroidCXX::android_widget_GridLayout_Spec const& arg0,AndroidCXX::android_widget_GridLayout_Spec const& arg1,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_GridLayout_LayoutParams();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 int hashCode();
-	 void setGravity(int const& arg0);
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	virtual void  setGravity(int const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

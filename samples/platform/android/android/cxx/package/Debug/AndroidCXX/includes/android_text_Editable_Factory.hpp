@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -30,10 +31,12 @@
 //
 
 
-
 #include <java_lang_CharSequence.hpp>
 
 #include <android_text_Editable.hpp>
+
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -51,26 +54,30 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_text_Editable_Factory;
 
 class java_lang_CharSequence;
 
 class android_text_Editable;
 
-class android_text_Editable_Factory
+class android_text_Editable_Factory : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	android_text_Editable_Factory(Proxy * aProxy = new Proxy());
 	android_text_Editable_Factory(const android_text_Editable_Factory& cc);
-	android_text_Editable_Factory(Proxy proxy);
-	// Public Constructors
-	android_text_Editable_Factory();
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_Editable_Factory();
 	// Functions
-	static AndroidCXX::android_text_Editable_Factory getInstance();
-	 AndroidCXX::android_text_Editable newEditable(AndroidCXX::java_lang_CharSequence const& arg0);
+	static AndroidCXX::android_text_Editable_Factory * getInstance() ;
+	virtual AndroidCXX::android_text_Editable * newEditable(AndroidCXX::java_lang_CharSequence const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,29 +8,30 @@
 //
 
 
+
+ 		 
+ 	
+ 		 
+ 		 
+ 	
+ 		 
  		 
  		 
 	
-	
- 		 
- 		 
- 		 
- 		 
- 	
- 		 
- 		 
- 	
- 		 
- 	
- 	
- 		 
- 		 
- 	
  		 
 	
  		 
  		 
 	
+ 		 
+ 		 
+	
+ 	
+ 	
+ 		 
+ 		 
+ 	
+ 		 
 
 
  		 
@@ -72,9 +73,18 @@
 //
 
 
+#include <java_util_Collection.hpp>
+
 #include <java_lang_Object.hpp>
 
-#include <java_util_Collection.hpp>
+
+#include <java_util_AbstractList.hpp>
+
+#include <java_io_Serializable.hpp>
+
+#include <java_lang_Cloneable.hpp>
+
+#include <java_util_RandomAccess.hpp>
 
 #include <vector>
 #include <map>
@@ -92,43 +102,48 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
-
 class java_util_Collection;
 
-class java_util_ArrayList
+class java_lang_Object;
+
+class java_util_ArrayList : public AndroidCXX::java_util_AbstractList,public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Cloneable,public AndroidCXX::java_util_RandomAccess
 {
 public:
 
+	// Public Constructor
+	java_util_ArrayList(Proxy * aProxy = new Proxy());
+	java_util_ArrayList(int const& arg0,Proxy * aProxy = new Proxy());
+	java_util_ArrayList(AndroidCXX::java_util_Collection const& arg0,Proxy * aProxy = new Proxy());
 	java_util_ArrayList(const java_util_ArrayList& cc);
-	java_util_ArrayList(Proxy proxy);
-	// Public Constructors
-	java_util_ArrayList(int const& arg0);
-	java_util_ArrayList();
-	java_util_ArrayList(AndroidCXX::java_util_Collection const& arg0);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_ArrayList();
 	// Functions
-	 void add(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 bool add(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_Object get(int const& arg0);
-	 AndroidCXX::java_lang_Object clone();
-	 int indexOf(AndroidCXX::java_lang_Object const& arg0);
-	 void clear();
-	 bool isEmpty();
-	 int lastIndexOf(AndroidCXX::java_lang_Object const& arg0);
-	 bool contains(AndroidCXX::java_lang_Object const& arg0);
-	 bool addAll(AndroidCXX::java_util_Collection const& arg0);
-	 bool addAll(int const& arg0,AndroidCXX::java_util_Collection const& arg1);
-	 int size();
-	 std::vector<AndroidCXX::java_lang_Object > toArray(std::vector<AndroidCXX::java_lang_Object > const& arg0);
-	 std::vector<AndroidCXX::java_lang_Object > toArray();
-	 AndroidCXX::java_lang_Object remove(int const& arg0);
-	 bool remove(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_Object set(int const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 void ensureCapacity(int const& arg0);
-	 void trimToSize();
+	virtual bool  addAll(int const& arg0,AndroidCXX::java_util_Collection const& arg1) ;
+	virtual bool  addAll(AndroidCXX::java_util_Collection const& arg0) ;
+	virtual void  add(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual bool  add(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  clear() ;
+	virtual AndroidCXX::java_lang_Object * clone() ;
+	virtual bool  contains(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  ensureCapacity(int const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * get(int const& arg0) ;
+	virtual int  indexOf(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual bool  isEmpty() ;
+	virtual int  lastIndexOf(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * remove(int const& arg0) ;
+	virtual bool  remove(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * set(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual int  size() ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  toArray(std::vector<AndroidCXX::java_lang_Object> const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  toArray() ;
+	virtual void  trimToSize() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,23 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_Filter_FilterResults
+class android_widget_Filter_FilterResults : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	android_widget_Filter_FilterResults(Proxy * aProxy = new Proxy());
 	android_widget_Filter_FilterResults(const android_widget_Filter_FilterResults& cc);
-	android_widget_Filter_FilterResults(Proxy proxy);
-	// Public Constructors
-	android_widget_Filter_FilterResults();
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Filter_FilterResults();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

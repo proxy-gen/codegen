@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -11,6 +11,7 @@
 
  			
 		
+	
 
 
 #ifndef _com_facebook_AuthorizationClient_Result_Code
@@ -34,9 +35,9 @@ namespace com_facebook_AuthorizationClient_Result_Code {
 
 enum com_facebook_AuthorizationClient_Result_Code
 {
-	SUCCESS,
 	CANCEL,
 	ERROR,
+	SUCCESS,
 };
 
 } // namespace

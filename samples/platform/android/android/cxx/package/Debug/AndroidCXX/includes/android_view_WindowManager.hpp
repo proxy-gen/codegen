@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -28,9 +29,8 @@
 //
 
 
-#include <android_view_Display.hpp>
 
-#include <android_view_View.hpp>
+#include <android_view_ViewManager.hpp>
 
 #include <vector>
 #include <map>
@@ -52,19 +52,25 @@ class android_view_Display;
 
 class android_view_View;
 
-class android_view_WindowManager
+class android_view_WindowManager : public AndroidCXX::android_view_ViewManager
 {
 public:
 
 	android_view_WindowManager(const android_view_WindowManager& cc);
-	android_view_WindowManager(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_WindowManager(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_WindowManager();
 	// Functions
-	 AndroidCXX::android_view_Display getDefaultDisplay();
-	 void removeViewImmediate(AndroidCXX::android_view_View const& arg0);
+	virtual AndroidCXX::android_view_Display * getDefaultDisplay() ;
+	virtual void  removeViewImmediate(AndroidCXX::android_view_View const& arg0) ;
+
+protected:
+	android_view_WindowManager();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

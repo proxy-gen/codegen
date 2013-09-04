@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -31,11 +32,8 @@
 //
 
 
-#include <android_content_Intent.hpp>
 
-#include <android_os_IBinder.hpp>
-
-#include <android_widget_RemoteViewsService_RemoteViewsFactory.hpp>
+#include <android_app_Service.hpp>
 
 #include <vector>
 #include <map>
@@ -59,20 +57,25 @@ class android_os_IBinder;
 
 class android_widget_RemoteViewsService_RemoteViewsFactory;
 
-class android_widget_RemoteViewsService
+class android_widget_RemoteViewsService : public AndroidCXX::android_app_Service
 {
 public:
 
 	android_widget_RemoteViewsService(const android_widget_RemoteViewsService& cc);
-	android_widget_RemoteViewsService(Proxy proxy);
-	// Public Constructors
-	android_widget_RemoteViewsService();
-	Proxy proxy() const;	
+	android_widget_RemoteViewsService(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RemoteViewsService();
 	// Functions
-	 AndroidCXX::android_os_IBinder onBind(AndroidCXX::android_content_Intent const& arg0);
-	 AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory onGetViewFactory(AndroidCXX::android_content_Intent const& arg0);
+	virtual AndroidCXX::android_os_IBinder * onBind(AndroidCXX::android_content_Intent const& arg0) ;
+	virtual AndroidCXX::android_widget_RemoteViewsService_RemoteViewsFactory * onGetViewFactory(AndroidCXX::android_content_Intent const& arg0) ;
+
+protected:
+	android_widget_RemoteViewsService();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

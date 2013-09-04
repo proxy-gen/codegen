@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,11 +8,10 @@
 //
 
 
+
  		 
  		 
  		 
- 		 
-	
  		 
  		 
  		 
@@ -21,7 +20,6 @@
  		 
  		 
  		 
-
 
 
 
@@ -50,19 +48,18 @@
 
 #include <android_view_ViewGroup_LayoutParams.hpp>
 
-#include <android_view_ViewGroup_OnHierarchyChangeListener.hpp>
-
-#include <android_util_AttributeSet.hpp>
-
-#include <android_widget_RadioGroup_LayoutParams.hpp>
-
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_widget_RadioGroup_OnCheckedChangeListener.hpp>
 
+#include <android_view_ViewGroup_OnHierarchyChangeListener.hpp>
+
 #include <android_content_Context.hpp>
+
+#include <android_util_AttributeSet.hpp>
+
 
 #include <vector>
 #include <map>
@@ -84,42 +81,45 @@ class android_view_View;
 
 class android_view_ViewGroup_LayoutParams;
 
-class android_view_ViewGroup_OnHierarchyChangeListener;
-
-class android_util_AttributeSet;
-
-class android_widget_RadioGroup_LayoutParams;
-
 class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_widget_RadioGroup_OnCheckedChangeListener;
 
+class android_view_ViewGroup_OnHierarchyChangeListener;
+
 class android_content_Context;
 
-class android_widget_RadioGroup
+class android_util_AttributeSet;
+
+class android_widget_RadioGroup 
 {
 public:
 
+	// Public Constructor
+	android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_RadioGroup(const android_widget_RadioGroup& cc);
-	android_widget_RadioGroup(Proxy proxy);
-	// Public Constructors
-	android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_RadioGroup(AndroidCXX::android_content_Context const& arg0);
-	Proxy proxy() const;	
+	android_widget_RadioGroup(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RadioGroup();
 	// Functions
-	 void check(int const& arg0);
-	 void addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2);
-	 void setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0);
-	 AndroidCXX::android_widget_RadioGroup_LayoutParams generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0);
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
-	 void setOnCheckedChangeListener(AndroidCXX::android_widget_RadioGroup_OnCheckedChangeListener const& arg0);
-	 int getCheckedRadioButtonId();
-	 void clearCheck();
+	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
+	virtual void  check(int const& arg0) ;
+	virtual void  clearCheck() ;
+	virtual int  getCheckedRadioButtonId() ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  setOnCheckedChangeListener(AndroidCXX::android_widget_RadioGroup_OnCheckedChangeListener const& arg0) ;
+	virtual void  setOnHierarchyChangeListener(AndroidCXX::android_view_ViewGroup_OnHierarchyChangeListener const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

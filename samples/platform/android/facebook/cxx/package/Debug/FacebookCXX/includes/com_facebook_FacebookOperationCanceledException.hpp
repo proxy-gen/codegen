@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -36,6 +37,7 @@
 
 #include <java_lang_Throwable.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,21 +56,26 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_FacebookOperationCanceledException
+class com_facebook_FacebookOperationCanceledException 
 {
 public:
 
+	// Public Constructor
+	com_facebook_FacebookOperationCanceledException(Proxy * aProxy = new Proxy());
+	com_facebook_FacebookOperationCanceledException(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_FacebookOperationCanceledException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1,Proxy * aProxy = new Proxy());
+	com_facebook_FacebookOperationCanceledException(AndroidCXX::java_lang_Throwable const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_FacebookOperationCanceledException(const com_facebook_FacebookOperationCanceledException& cc);
-	com_facebook_FacebookOperationCanceledException(Proxy proxy);
-	// Public Constructors
-	com_facebook_FacebookOperationCanceledException();
-	com_facebook_FacebookOperationCanceledException(AndroidCXX::java_lang_String const& arg0);
-	com_facebook_FacebookOperationCanceledException(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Throwable const& arg1);
-	com_facebook_FacebookOperationCanceledException(AndroidCXX::java_lang_Throwable const& arg0);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_FacebookOperationCanceledException();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

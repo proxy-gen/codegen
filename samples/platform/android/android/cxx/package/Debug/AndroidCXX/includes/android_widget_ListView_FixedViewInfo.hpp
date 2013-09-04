@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -28,6 +29,9 @@
 
 #include <android_widget_ListView.hpp>
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,18 +50,24 @@ namespace AndroidCXX {
 
 class android_widget_ListView;
 
-class android_widget_ListView_FixedViewInfo
+class android_widget_ListView_FixedViewInfo : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	android_widget_ListView_FixedViewInfo(AndroidCXX::android_widget_ListView const& arg0,Proxy * aProxy = new Proxy());
 	android_widget_ListView_FixedViewInfo(const android_widget_ListView_FixedViewInfo& cc);
-	android_widget_ListView_FixedViewInfo(Proxy proxy);
-	// Public Constructors
-	android_widget_ListView_FixedViewInfo(AndroidCXX::android_widget_ListView const& arg0);
-	Proxy proxy() const;	
+	android_widget_ListView_FixedViewInfo(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ListView_FixedViewInfo();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

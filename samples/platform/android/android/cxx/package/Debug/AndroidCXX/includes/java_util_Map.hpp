@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,14 +8,8 @@
 //
 
 
+
  		 
-	
- 		 
- 		 
-	
- 		 
-	
- 	
  		 
 	
  	
@@ -24,15 +18,22 @@
  		 
  		 
  		 
- 	
- 		 
- 		 
  		 
 	
 	
  	
  		 
  		 
+ 	
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+	
+	
+ 	
  		 
 
 
@@ -64,14 +65,8 @@
 //
 
 
+
 #include <java_lang_Object.hpp>
-
-#include <java_util_Collection.hpp>
-
-#include <java_util_Set.hpp>
-
-#include <java_util_Map_Entry.hpp>
-
 
 #include <vector>
 #include <map>
@@ -89,41 +84,45 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
-
-class java_util_Collection;
 
 class java_util_Set;
 
 class java_util_Map_Entry;
 
-class java_util_Map;
 
-class java_util_Map
+class java_util_Collection;
+
+class java_util_Map : public AndroidCXX::java_lang_Object
 {
 public:
 
 	java_util_Map(const java_util_Map& cc);
-	java_util_Map(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_util_Map(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Map();
 	// Functions
-	 AndroidCXX::java_lang_Object get(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_Object put(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_util_Collection values();
-	 int hashCode();
-	 void clear();
-	 bool isEmpty();
-	 int size();
-	 AndroidCXX::java_util_Set entrySet();
-	 void putAll(AndroidCXX::java_util_Map const& arg0);
-	 AndroidCXX::java_lang_Object remove(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_util_Set keySet();
-	 bool containsValue(AndroidCXX::java_lang_Object const& arg0);
-	 bool containsKey(AndroidCXX::java_lang_Object const& arg0);
+	virtual void  clear() ;
+	virtual bool  containsKey(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual bool  containsValue(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_util_Set * entrySet() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * get(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	virtual bool  isEmpty() ;
+	virtual AndroidCXX::java_util_Set * keySet() ;
+	virtual void  putAll(AndroidCXX::java_util_Map const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * put(AndroidCXX::java_lang_Object const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+	virtual AndroidCXX::java_lang_Object * remove(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  size() ;
+	virtual AndroidCXX::java_util_Collection * values() ;
+
+protected:
+	java_util_Map();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

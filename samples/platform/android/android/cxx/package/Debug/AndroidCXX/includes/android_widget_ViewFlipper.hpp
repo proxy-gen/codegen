@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -47,6 +48,7 @@
 
 #include <android_util_AttributeSet.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -71,27 +73,33 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_ViewFlipper
+class android_widget_ViewFlipper 
 {
 public:
 
+	// Public Constructor
+	android_widget_ViewFlipper(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_ViewFlipper(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_ViewFlipper(const android_widget_ViewFlipper& cc);
-	android_widget_ViewFlipper(Proxy proxy);
-	// Public Constructors
-	android_widget_ViewFlipper(AndroidCXX::android_content_Context const& arg0);
-	android_widget_ViewFlipper(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	Proxy proxy() const;	
+	android_widget_ViewFlipper(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ViewFlipper();
 	// Functions
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
-	 void setFlipInterval(int const& arg0);
-	 void startFlipping();
-	 void stopFlipping();
-	 bool isFlipping();
-	 void setAutoStart(bool const& arg0);
-	 bool isAutoStart();
+	virtual bool  isAutoStart() ;
+	virtual bool  isFlipping() ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  setAutoStart(bool const& arg0) ;
+	virtual void  setFlipInterval(int const& arg0) ;
+	virtual void  startFlipping() ;
+	virtual void  stopFlipping() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

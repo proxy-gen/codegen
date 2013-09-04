@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -31,9 +32,8 @@
 
 #include <java_util_List.hpp>
 
-#include <com_facebook_Response.hpp>
 
-#include <com_facebook_model_GraphPlace.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -56,19 +56,26 @@ class com_facebook_Response;
 
 class com_facebook_model_GraphPlace;
 
-class com_facebook_Request_GraphPlaceListCallback
+class com_facebook_Request_GraphPlaceListCallback : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
 	com_facebook_Request_GraphPlaceListCallback(const com_facebook_Request_GraphPlaceListCallback& cc);
-	com_facebook_Request_GraphPlaceListCallback(Proxy proxy);
-	// Public Constructors
-	com_facebook_Request_GraphPlaceListCallback();
-	Proxy proxy() const;	
+	com_facebook_Request_GraphPlaceListCallback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Request_GraphPlaceListCallback();
 	// Functions
-	virtual void onCompleted(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Response const& arg1);
+	virtual void  onCompleted(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Response const& arg1) ;
+
+protected:
+	void setCXXCallbackPtr(void * callbackPtr);
+	com_facebook_Request_GraphPlaceListCallback();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

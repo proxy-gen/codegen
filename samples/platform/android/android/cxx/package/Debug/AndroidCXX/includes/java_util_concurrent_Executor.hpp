@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <java_lang_Runnable.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class java_lang_Runnable;
 
-class java_util_concurrent_Executor
+class java_util_concurrent_Executor : public AndroidCXX::java_lang_Object
 {
 public:
 
 	java_util_concurrent_Executor(const java_util_concurrent_Executor& cc);
-	java_util_concurrent_Executor(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_util_concurrent_Executor(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_concurrent_Executor();
 	// Functions
-	 void execute(AndroidCXX::java_lang_Runnable const& arg0);
+	virtual void  execute(AndroidCXX::java_lang_Runnable const& arg0) ;
+
+protected:
+	java_util_concurrent_Executor();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

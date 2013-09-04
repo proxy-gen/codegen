@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,10 +8,11 @@
 //
 
 
+
+	
+	
 	
  		 
-	
-	
 
 
  		 
@@ -37,11 +38,14 @@
 //
 
 
+#include <java_lang_CharSequence.hpp>
+
 #include <java_lang_String.hpp>
 
 #include <android_os_Parcel.hpp>
 
-#include <java_lang_CharSequence.hpp>
+
+#include <android_os_Parcelable.hpp>
 
 #include <vector>
 #include <map>
@@ -59,30 +63,36 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_lang_CharSequence;
+
 class java_lang_String;
 
 class android_os_Parcel;
 
-class java_lang_CharSequence;
-
-class android_view_inputmethod_CorrectionInfo
+class android_view_inputmethod_CorrectionInfo : public AndroidCXX::android_os_Parcelable
 {
 public:
 
+	// Public Constructor
+	android_view_inputmethod_CorrectionInfo(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,Proxy * aProxy = new Proxy());
 	android_view_inputmethod_CorrectionInfo(const android_view_inputmethod_CorrectionInfo& cc);
-	android_view_inputmethod_CorrectionInfo(Proxy proxy);
-	// Public Constructors
-	android_view_inputmethod_CorrectionInfo(int const& arg0,AndroidCXX::java_lang_CharSequence const& arg1,AndroidCXX::java_lang_CharSequence const& arg2);
-	Proxy proxy() const;	
+	android_view_inputmethod_CorrectionInfo(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_CorrectionInfo();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 int getOffset();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 AndroidCXX::java_lang_CharSequence getOldText();
-	 AndroidCXX::java_lang_CharSequence getNewText();
+	virtual int  describeContents() ;
+	virtual AndroidCXX::java_lang_CharSequence * getNewText() ;
+	virtual int  getOffset() ;
+	virtual AndroidCXX::java_lang_CharSequence * getOldText() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,9 +8,10 @@
 //
 
 
+
+	
 	
  		 
-	
 
 
  		 
@@ -39,6 +40,8 @@
 #include <android_os_Parcel.hpp>
 
 
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -59,24 +62,28 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_content_pm_FeatureInfo;
 
-class android_content_pm_FeatureInfo
+class android_content_pm_FeatureInfo : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	android_content_pm_FeatureInfo(Proxy proxy);
-	// Public Constructors
-	android_content_pm_FeatureInfo();
-	android_content_pm_FeatureInfo(AndroidCXX::android_content_pm_FeatureInfo const& arg0);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_content_pm_FeatureInfo(Proxy * aProxy = new Proxy());
+	android_content_pm_FeatureInfo(AndroidCXX::android_content_pm_FeatureInfo const& arg0,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_pm_FeatureInfo();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 AndroidCXX::java_lang_String getGlEsVersion();
+	virtual int  describeContents() ;
+	virtual AndroidCXX::java_lang_String * getGlEsVersion() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

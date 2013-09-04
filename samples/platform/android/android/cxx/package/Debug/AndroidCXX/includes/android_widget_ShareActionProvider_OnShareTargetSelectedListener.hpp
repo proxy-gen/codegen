@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,8 @@
 //
 
 
-#include <android_widget_ShareActionProvider.hpp>
 
-#include <android_content_Intent.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +51,24 @@ class android_widget_ShareActionProvider;
 
 class android_content_Intent;
 
-class android_widget_ShareActionProvider_OnShareTargetSelectedListener
+class android_widget_ShareActionProvider_OnShareTargetSelectedListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_ShareActionProvider_OnShareTargetSelectedListener(const android_widget_ShareActionProvider_OnShareTargetSelectedListener& cc);
-	android_widget_ShareActionProvider_OnShareTargetSelectedListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_ShareActionProvider_OnShareTargetSelectedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ShareActionProvider_OnShareTargetSelectedListener();
 	// Functions
-	 bool onShareTargetSelected(AndroidCXX::android_widget_ShareActionProvider const& arg0,AndroidCXX::android_content_Intent const& arg1);
+	virtual bool  onShareTargetSelected(AndroidCXX::android_widget_ShareActionProvider const& arg0,AndroidCXX::android_content_Intent const& arg1) ;
+
+protected:
+	android_widget_ShareActionProvider_OnShareTargetSelectedListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -50,6 +51,7 @@
 
 #include <android_util_AttributeSet.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -76,25 +78,31 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_MultiAutoCompleteTextView
+class android_widget_MultiAutoCompleteTextView 
 {
 public:
 
+	// Public Constructor
+	android_widget_MultiAutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_MultiAutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_MultiAutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_MultiAutoCompleteTextView(const android_widget_MultiAutoCompleteTextView& cc);
-	android_widget_MultiAutoCompleteTextView(Proxy proxy);
-	// Public Constructors
-	android_widget_MultiAutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_MultiAutoCompleteTextView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
-	android_widget_MultiAutoCompleteTextView(AndroidCXX::android_content_Context const& arg0);
-	Proxy proxy() const;	
+	android_widget_MultiAutoCompleteTextView(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_MultiAutoCompleteTextView();
 	// Functions
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
-	 bool enoughToFilter();
-	 void performValidation();
-	 void setTokenizer(AndroidCXX::android_widget_MultiAutoCompleteTextView_Tokenizer const& arg0);
+	virtual bool  enoughToFilter() ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  performValidation() ;
+	virtual void  setTokenizer(AndroidCXX::android_widget_MultiAutoCompleteTextView_Tokenizer const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

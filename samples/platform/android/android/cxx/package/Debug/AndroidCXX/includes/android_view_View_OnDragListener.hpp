@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,8 @@
 //
 
 
-#include <android_view_View.hpp>
 
-#include <android_view_DragEvent.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +51,24 @@ class android_view_View;
 
 class android_view_DragEvent;
 
-class android_view_View_OnDragListener
+class android_view_View_OnDragListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_View_OnDragListener(const android_view_View_OnDragListener& cc);
-	android_view_View_OnDragListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_View_OnDragListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnDragListener();
 	// Functions
-	 bool onDrag(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_DragEvent const& arg1);
+	virtual bool  onDrag(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_DragEvent const& arg1) ;
+
+protected:
+	android_view_View_OnDragListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

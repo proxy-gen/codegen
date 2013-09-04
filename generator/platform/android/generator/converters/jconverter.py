@@ -15,15 +15,16 @@
 #
 #	Default converters 
 # 	Special Type Markers
-#		_object_array_type		 							Object array type
-#		_byte_array_type									byte array type
-#		_short_array_type									short array type
-#		_int_array_type										int array type
-#		_long_array_type									long array type
-#		_float_array_type									float array type
-#		_double_array_type									double array type
-#		_boolean_array_type									boolean array type
-#		_char_array_type									char array type
+#		_array_array                					Array of array type
+#		_object_array		 							Object array type
+#		_byte_array									byte array type
+#		_short_array									short array type
+#		_int_array										int array type
+#		_long_array									long array type
+#		_float_array									float array type
+#		_double_array									double array type
+#		_boolean_array									boolean array type
+#		_char_array									char array type
 
 config = {
 	"converters" : [
@@ -127,81 +128,90 @@ config = {
 							},
 		},
 		{
-			"name"					:	"convert_jni__object_array_type",
+			"name"					: 	"convert_jni__array_array",
 			"java"					:	{
-											"type"	:	"_object_array_type",
+											"type"	: 	"_array_array",
+										},
+			"jni"					:	{
+											"type"	:	"jobjectArray",
+										},
+		},		
+		{
+			"name"					:	"convert_jni__object_array",
+			"java"					:	{
+											"type"	:	"_object_array",
 										},
 			"jni"					:	{
 											"type"	: "jobjectArray",
 										},
 		},
 		{
-			"name"					:	"convert_jni__byte_array_type",
+			"name"					:	"convert_jni__byte_array",
 			"java"					:	{
-											"type"	:	"_byte_array_type",
+											"type"	:	"_byte_array",
 										},
 			"jni"					:	{
 											"type"	: "jbyteArray",
 										},
 		},
 		{
-			"name"					:	"convert_jni__short_array_type",
+			"name"					:	"convert_jni__short_array",
 			"java"					:	{
-											"type"	:	"_short_array_type",
+											"type"	:	"_short_array",
 										},
 			"jni"					:	{
 											"type"	: "jshortArray",
 										},
 		},
 		{
-			"name"					:	"convert_jni__int_array_type",
+			"name"					:	"convert_jni__int_array",
 			"java"					:	{
-											"type"	:	"_int_array_type",
+											"type"	:	"_int_array",
 										},
 			"jni"					:	{
 											"type"	: "jintArray",
 										},
 		},
 		{
-			"name"					:	"convert_jni__long_array_type",
+			"name"					:	"convert_jni__long_array",
 			"java"					:	{
-											"type"	:	"_long_array_type",
+											"type"	:	"_long_array",
 										},
 			"jni"					:	{
 											"type"	: "jlongArray",
 										},
 		},
 		{
-			"name"					:	"convert_jni__float_array_type",
+			"name"					:	"convert_jni__float_array",
 			"java"					:	{
-											"type"	:	"_float_array_type",
+											"type"	:	"_float_array",
 										},
 			"jni"					:	{
 											"type"	: "jfloatArray",
 										},
 		},
 		{
-			"name"					:	"convert_jni__double_array_type",
+			"name"					:	"convert_jni__double_array",
 			"java"					:	{
-											"type"	:	"_double_array_type",
+											"type"	:	"_double_array",
 										},
 			"jni"					:	{
 											"type"	: "jdoubleArray",
 										},
 		},
 		{
-			"name"					:	"convert_jni__boolean_array_type",
+			"name"					:	"convert_jni__boolean_array",
 			"java"					:	{
-											"type"	:	"_boolean_array_type",
+											"type"	:	"_boolean_array",
 										},
 			"jni"					:	{
 											"type"	: "jbooleanArray",
 										},
 		},
 		{
-			"name"					:	"convert_jni__char_array_type",
+			"name"					:	"convert_jni__char_array",
 			"java"					:	{
-											"type"	:	"_char_array_type",
+											"type"	:	"_char_array",
 										},
 			"jni"					:	{
 											"type"	: "jcharArray",
@@ -289,86 +299,76 @@ config = {
 							},
 		},
 		{
-			"name"					:	"convert__object_array_type",
+			"name"					:	"convert__char_array",
 			"java"					:	{
-											"type"	:	"_object_array_type",
+											"type"	:	"_char_array",
 										},
 			"cxx"					:	{
-											"type"	: "std::vector<long>",
+											"type"	: "std::vector<char>",
 										},
 		},
 		{
-			"name"					:	"convert__byte_array_type",
+			"name"					:	"convert__boolean_array",
 			"java"					:	{
-											"type"	:	"_byte_array_type",
-										},
-			"cxx"					:	{
-											"type"	: "std::vector<byte>",
-										},
-		},
-		{
-			"name"					:	"convert__short_array_type",
-			"java"					:	{
-											"type"	:	"_short_array_type",
-										},
-			"cxx"					:	{
-											"type"	: "std::vector<short>",
-										},
-		},
-		{
-			"name"					:	"convert__int_array_type",
-			"java"					:	{
-											"type"	:	"_int_array_type",
-										},
-			"cxx"					:	{
-											"type"	: "std::vector<int>",
-										},
-		},
-		{
-			"name"					:	"convert__long_array_type",
-			"java"					:	{
-											"type"	:	"_long_array_type",
-										},
-			"cxx"					:	{
-											"type"	: "std::vector<long>",
-										},
-		},
-		{
-			"name"					:	"convert__float_array_type",
-			"java"					:	{
-											"type"	:	"_float_array_type",
-										},
-			"cxx"					:	{
-											"type"	: "std::vector<float>",
-										},
-		},
-		{
-			"name"					:	"convert__double_array_type",
-			"java"					:	{
-											"type"	:	"_double_array_type",
-										},
-			"cxx"					:	{
-											"type"	: "std::vector<double>",
-										},
-		},
-		{
-			"name"					:	"convert__boolean_array_type",
-			"java"					:	{
-											"type"	:	"_boolean_array_type",
+											"type"	:	"_boolean_array",
 										},
 			"cxx"					:	{
 											"type"	: "std::vector<bool>",
 										},
 		},
 		{
-			"name"					:	"convert__char_array_type",
+			"name"					:	"convert__byte_array",
 			"java"					:	{
-											"type"	:	"_char_array_type",
+											"type"	:	"_byte_array",
 										},
 			"cxx"					:	{
-											"type"	: "std::vector<char>",
+											"type"	: "std::vector<byte>",
 										},
 		},
-
+		{
+			"name"					:	"convert__short_array",
+			"java"					:	{
+											"type"	:	"_short_array",
+										},
+			"cxx"					:	{
+											"type"	: "std::vector<short>",
+										},
+		},
+		{
+			"name"					:	"convert__int_array",
+			"java"					:	{
+											"type"	:	"_int_array",
+										},
+			"cxx"					:	{
+											"type"	: "std::vector<int>",
+										},
+		},
+		{
+			"name"					:	"convert__long_array",
+			"java"					:	{
+											"type"	:	"_long_array",
+										},
+			"cxx"					:	{
+											"type"	: "std::vector<long>",
+										},
+		},
+		{
+			"name"					:	"convert__float_array",
+			"java"					:	{
+											"type"	:	"_float_array",
+										},
+			"cxx"					:	{
+											"type"	: "std::vector<float>",
+										},
+		},
+		{
+			"name"					:	"convert__double_array",
+			"java"					:	{
+											"type"	:	"_double_array",
+										},
+			"cxx"					:	{
+											"type"	: "std::vector<double>",
+										},
+		},
 	],
 }

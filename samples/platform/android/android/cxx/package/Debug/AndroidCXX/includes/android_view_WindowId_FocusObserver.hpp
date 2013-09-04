@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -29,7 +30,8 @@
 //
 
 
-#include <android_view_WindowId.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -49,20 +51,25 @@ namespace AndroidCXX {
 
 class android_view_WindowId;
 
-class android_view_WindowId_FocusObserver
+class android_view_WindowId_FocusObserver : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_WindowId_FocusObserver(const android_view_WindowId_FocusObserver& cc);
-	android_view_WindowId_FocusObserver(Proxy proxy);
-	// Public Constructors
-	android_view_WindowId_FocusObserver();
-	Proxy proxy() const;	
+	android_view_WindowId_FocusObserver(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_WindowId_FocusObserver();
 	// Functions
-	 void onFocusGained(AndroidCXX::android_view_WindowId const& arg0);
-	 void onFocusLost(AndroidCXX::android_view_WindowId const& arg0);
+	virtual void  onFocusGained(AndroidCXX::android_view_WindowId const& arg0) ;
+	virtual void  onFocusLost(AndroidCXX::android_view_WindowId const& arg0) ;
+
+protected:
+	android_view_WindowId_FocusObserver();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

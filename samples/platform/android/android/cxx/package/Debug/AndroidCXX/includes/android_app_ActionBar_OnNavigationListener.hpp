@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_app_ActionBar_OnNavigationListener
+class android_app_ActionBar_OnNavigationListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_app_ActionBar_OnNavigationListener(const android_app_ActionBar_OnNavigationListener& cc);
-	android_app_ActionBar_OnNavigationListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_app_ActionBar_OnNavigationListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_ActionBar_OnNavigationListener();
 	// Functions
-	 bool onNavigationItemSelected(int const& arg0,long const& arg1);
+	virtual bool  onNavigationItemSelected(int const& arg0,long const& arg1) ;
+
+protected:
+	android_app_ActionBar_OnNavigationListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

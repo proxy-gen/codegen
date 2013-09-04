@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,18 +8,19 @@
 //
 
 
-	
-	
+
  		 
 	
 	
- 		 
-	
- 		 
 	
  		 
  		 
 	
+	
+	
+ 		 
+	
+ 		 
 
 
 
@@ -58,6 +59,8 @@
 //
 
 
+#include <android_view_accessibility_AccessibilityRecord.hpp>
+
 #include <java_lang_String.hpp>
 
 #include <java_lang_CharSequence.hpp>
@@ -65,7 +68,7 @@
 #include <android_os_Parcel.hpp>
 
 
-#include <android_view_accessibility_AccessibilityRecord.hpp>
+#include <android_os_Parcelable.hpp>
 
 #include <vector>
 #include <map>
@@ -83,49 +86,54 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_view_accessibility_AccessibilityRecord;
+
 class java_lang_String;
 
 class java_lang_CharSequence;
 
 class android_os_Parcel;
 
-class android_view_accessibility_AccessibilityEvent;
 
-class android_view_accessibility_AccessibilityRecord;
-
-class android_view_accessibility_AccessibilityEvent
+class android_view_accessibility_AccessibilityEvent : public AndroidCXX::android_os_Parcelable
 {
 public:
 
+	// Public Constructor
 	android_view_accessibility_AccessibilityEvent(const android_view_accessibility_AccessibilityEvent& cc);
-	android_view_accessibility_AccessibilityEvent(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_accessibility_AccessibilityEvent(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityEvent();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 AndroidCXX::java_lang_CharSequence getPackageName();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	static AndroidCXX::android_view_accessibility_AccessibilityEvent obtain(int const& arg0);
-	static AndroidCXX::android_view_accessibility_AccessibilityEvent obtain();
-	static AndroidCXX::android_view_accessibility_AccessibilityEvent obtain(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void recycle();
-	 int getAction();
-	 void setAction(int const& arg0);
-	 int getEventType();
-	 long getEventTime();
-	 int getRecordCount();
-	 void appendRecord(AndroidCXX::android_view_accessibility_AccessibilityRecord const& arg0);
-	 AndroidCXX::android_view_accessibility_AccessibilityRecord getRecord(int const& arg0);
-	 void setEventType(int const& arg0);
-	 void setEventTime(long const& arg0);
-	 void setPackageName(AndroidCXX::java_lang_CharSequence const& arg0);
-	 void setMovementGranularity(int const& arg0);
-	 int getMovementGranularity();
-	 void initFromParcel(AndroidCXX::android_os_Parcel const& arg0);
-	static AndroidCXX::java_lang_String eventTypeToString(int const& arg0);
+	virtual void  appendRecord(AndroidCXX::android_view_accessibility_AccessibilityRecord const& arg0) ;
+	virtual int  describeContents() ;
+	static AndroidCXX::java_lang_String * eventTypeToString(int const& arg0) ;
+	virtual int  getAction() ;
+	virtual long  getEventTime() ;
+	virtual int  getEventType() ;
+	virtual int  getMovementGranularity() ;
+	virtual AndroidCXX::java_lang_CharSequence * getPackageName() ;
+	virtual int  getRecordCount() ;
+	virtual AndroidCXX::android_view_accessibility_AccessibilityRecord * getRecord(int const& arg0) ;
+	virtual void  initFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
+	static AndroidCXX::android_view_accessibility_AccessibilityEvent * obtain(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	static AndroidCXX::android_view_accessibility_AccessibilityEvent * obtain(int const& arg0) ;
+	static AndroidCXX::android_view_accessibility_AccessibilityEvent * obtain() ;
+	virtual void  recycle() ;
+	virtual void  setAction(int const& arg0) ;
+	virtual void  setEventTime(long const& arg0) ;
+	virtual void  setEventType(int const& arg0) ;
+	virtual void  setMovementGranularity(int const& arg0) ;
+	virtual void  setPackageName(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,11 +8,12 @@
 //
 
 
+
+	
+	
 	
 	
  		 
-	
-	
  		 
  		 
  		 
@@ -42,7 +43,8 @@
 
 #include <java_lang_String.hpp>
 
-#include <com_facebook_model_GraphLocation.hpp>
+
+#include <com_facebook_model_GraphObject.hpp>
 
 #include <vector>
 #include <map>
@@ -63,25 +65,31 @@ namespace FacebookCXX {
 
 class com_facebook_model_GraphLocation;
 
-class com_facebook_model_GraphPlace
+class com_facebook_model_GraphPlace : public FacebookCXX::com_facebook_model_GraphObject
 {
 public:
 
 	com_facebook_model_GraphPlace(const com_facebook_model_GraphPlace& cc);
-	com_facebook_model_GraphPlace(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_model_GraphPlace(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphPlace();
 	// Functions
-	 AndroidCXX::java_lang_String getName();
-	 FacebookCXX::com_facebook_model_GraphLocation getLocation();
-	 void setName(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_String getId();
-	 AndroidCXX::java_lang_String getCategory();
-	 void setId(AndroidCXX::java_lang_String const& arg0);
-	 void setLocation(FacebookCXX::com_facebook_model_GraphLocation const& arg0);
-	 void setCategory(AndroidCXX::java_lang_String const& arg0);
+	virtual AndroidCXX::java_lang_String * getCategory() ;
+	virtual AndroidCXX::java_lang_String * getId() ;
+	virtual FacebookCXX::com_facebook_model_GraphLocation * getLocation() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+	virtual void  setCategory(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setId(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setLocation(FacebookCXX::com_facebook_model_GraphLocation const& arg0) ;
+	virtual void  setName(AndroidCXX::java_lang_String const& arg0) ;
+
+protected:
+	com_facebook_model_GraphPlace();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

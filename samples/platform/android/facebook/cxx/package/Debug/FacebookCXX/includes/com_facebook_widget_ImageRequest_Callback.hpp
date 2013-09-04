@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <com_facebook_widget_ImageResponse.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace FacebookCXX {
 
 class com_facebook_widget_ImageResponse;
 
-class com_facebook_widget_ImageRequest_Callback
+class com_facebook_widget_ImageRequest_Callback : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_widget_ImageRequest_Callback(const com_facebook_widget_ImageRequest_Callback& cc);
-	com_facebook_widget_ImageRequest_Callback(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_widget_ImageRequest_Callback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageRequest_Callback();
 	// Functions
-	 void onCompleted(FacebookCXX::com_facebook_widget_ImageResponse const& arg0);
+	virtual void  onCompleted(FacebookCXX::com_facebook_widget_ImageResponse const& arg0) ;
+
+protected:
+	com_facebook_widget_ImageRequest_Callback();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,26 +8,27 @@
 //
 
 
+
  		 
+ 	
  		 
  		 
  		 
  	
  		 
- 	
- 	
  		 
- 		 
- 	
  		 
 	
  	
  		 
  		 
- 		 
  	
  		 
  		 
+ 		 
+ 	
+ 		 
+ 	
  	
  		 
  		 
@@ -64,10 +65,8 @@
 //
 
 
-#include <java_lang_Object.hpp>
 
-
-#include <java_util_Iterator.hpp>
+#include <java_lang_Iterable.hpp>
 
 #include <vector>
 #include <map>
@@ -85,38 +84,43 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
-class java_util_Collection;
+class java_lang_Object;
 
 class java_util_Iterator;
 
-class java_util_Collection
+class java_util_Collection : public AndroidCXX::java_lang_Iterable
 {
 public:
 
 	java_util_Collection(const java_util_Collection& cc);
-	java_util_Collection(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_util_Collection(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_util_Collection();
 	// Functions
-	 bool add(AndroidCXX::java_lang_Object const& arg0);
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 int hashCode();
-	 void clear();
-	 bool isEmpty();
-	 bool contains(AndroidCXX::java_lang_Object const& arg0);
-	 bool addAll(AndroidCXX::java_util_Collection const& arg0);
-	 int size();
-	 std::vector<AndroidCXX::java_lang_Object > toArray(std::vector<AndroidCXX::java_lang_Object > const& arg0);
-	 std::vector<AndroidCXX::java_lang_Object > toArray();
-	 AndroidCXX::java_util_Iterator iterator();
-	 bool remove(AndroidCXX::java_lang_Object const& arg0);
-	 bool removeAll(AndroidCXX::java_util_Collection const& arg0);
-	 bool containsAll(AndroidCXX::java_util_Collection const& arg0);
-	 bool retainAll(AndroidCXX::java_util_Collection const& arg0);
+	virtual bool  addAll(AndroidCXX::java_util_Collection const& arg0) ;
+	virtual bool  add(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  clear() ;
+	virtual bool  containsAll(AndroidCXX::java_util_Collection const& arg0) ;
+	virtual bool  contains(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	virtual bool  isEmpty() ;
+	virtual AndroidCXX::java_util_Iterator * iterator() ;
+	virtual bool  removeAll(AndroidCXX::java_util_Collection const& arg0) ;
+	virtual bool  remove(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual bool  retainAll(AndroidCXX::java_util_Collection const& arg0) ;
+	virtual int  size() ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  toArray(std::vector<AndroidCXX::java_lang_Object> const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  toArray() ;
+
+protected:
+	java_util_Collection();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

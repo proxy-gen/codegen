@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -87,11 +88,11 @@
 
 #include <android_view_ViewGroup_LayoutParams.hpp>
 
-#include <android_view_MotionEvent.hpp>
-
 #include <android_view_KeyEvent.hpp>
 
-#include <android_graphics_Rect.hpp>
+#include <android_graphics_Canvas.hpp>
+
+#include <android_view_MotionEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
@@ -99,11 +100,12 @@
 
 #include <android_os_Bundle.hpp>
 
-#include <android_graphics_Canvas.hpp>
+#include <android_graphics_Rect.hpp>
 
 #include <android_content_Context.hpp>
 
 #include <android_util_AttributeSet.hpp>
+
 
 #include <vector>
 #include <map>
@@ -125,11 +127,11 @@ class android_view_View;
 
 class android_view_ViewGroup_LayoutParams;
 
-class android_view_MotionEvent;
-
 class android_view_KeyEvent;
 
-class android_graphics_Rect;
+class android_graphics_Canvas;
+
+class android_view_MotionEvent;
 
 class android_view_accessibility_AccessibilityEvent;
 
@@ -137,58 +139,64 @@ class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_os_Bundle;
 
-class android_graphics_Canvas;
+class android_graphics_Rect;
 
 class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_HorizontalScrollView
+class android_widget_HorizontalScrollView 
 {
 public:
 
+	// Public Constructor
+	android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_HorizontalScrollView(const android_widget_HorizontalScrollView& cc);
-	android_widget_HorizontalScrollView(Proxy proxy);
-	// Public Constructors
-	android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0);
-	android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_HorizontalScrollView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
-	Proxy proxy() const;	
+	android_widget_HorizontalScrollView(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_HorizontalScrollView();
 	// Functions
-	 void addView(AndroidCXX::android_view_View const& arg0,int const& arg1);
-	 void addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1);
-	 void addView(AndroidCXX::android_view_View const& arg0);
-	 void addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2);
-	 bool onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
-	 bool onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0);
-	 bool dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0);
-	 void requestChildFocus(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1);
-	 bool requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2);
-	 void requestDisallowInterceptTouchEvent(bool const& arg0);
-	 bool onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0);
-	 bool shouldDelayChildPressedState();
-	 void requestLayout();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
-	 bool performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1);
-	 void scrollTo(int const& arg0,int const& arg1);
-	 void computeScroll();
-	 void draw(AndroidCXX::android_graphics_Canvas const& arg0);
-	 void setOverScrollMode(int const& arg0);
-	 void smoothScrollBy(int const& arg0,int const& arg1);
-	 int getMaxScrollAmount();
-	 void fling(int const& arg0);
-	 bool isFillViewport();
-	 void setFillViewport(bool const& arg0);
-	 bool isSmoothScrollingEnabled();
-	 void setSmoothScrollingEnabled(bool const& arg0);
-	 bool executeKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0);
-	 bool pageScroll(int const& arg0);
-	 bool fullScroll(int const& arg0);
-	 bool arrowScroll(int const& arg0);
-	 void smoothScrollTo(int const& arg0,int const& arg1);
+	virtual void  addView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg1) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
+	virtual void  addView(AndroidCXX::android_view_View const& arg0) ;
+	virtual bool  arrowScroll(int const& arg0) ;
+	virtual void  computeScroll() ;
+	virtual bool  dispatchKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
+	virtual void  draw(AndroidCXX::android_graphics_Canvas const& arg0) ;
+	virtual bool  executeKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
+	virtual void  fling(int const& arg0) ;
+	virtual bool  fullScroll(int const& arg0) ;
+	virtual int  getMaxScrollAmount() ;
+	virtual bool  isFillViewport() ;
+	virtual bool  isSmoothScrollingEnabled() ;
+	virtual bool  onGenericMotionEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual bool  onInterceptTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual bool  onTouchEvent(AndroidCXX::android_view_MotionEvent const& arg0) ;
+	virtual bool  pageScroll(int const& arg0) ;
+	virtual bool  performAccessibilityAction(int const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual void  requestChildFocus(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;
+	virtual bool  requestChildRectangleOnScreen(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_graphics_Rect const& arg1,bool const& arg2) ;
+	virtual void  requestDisallowInterceptTouchEvent(bool const& arg0) ;
+	virtual void  requestLayout() ;
+	virtual void  scrollTo(int const& arg0,int const& arg1) ;
+	virtual void  setFillViewport(bool const& arg0) ;
+	virtual void  setOverScrollMode(int const& arg0) ;
+	virtual void  setSmoothScrollingEnabled(bool const& arg0) ;
+	virtual bool  shouldDelayChildPressedState() ;
+	virtual void  smoothScrollBy(int const& arg0,int const& arg1) ;
+	virtual void  smoothScrollTo(int const& arg0,int const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

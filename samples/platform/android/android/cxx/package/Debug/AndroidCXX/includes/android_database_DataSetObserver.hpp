@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -27,6 +28,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -43,20 +47,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_database_DataSetObserver
+class android_database_DataSetObserver : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_database_DataSetObserver(const android_database_DataSetObserver& cc);
-	android_database_DataSetObserver(Proxy proxy);
-	// Public Constructors
-	android_database_DataSetObserver();
-	Proxy proxy() const;	
+	android_database_DataSetObserver(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_database_DataSetObserver();
 	// Functions
-	 void onChanged();
-	 void onInvalidated();
+	virtual void  onChanged() ;
+	virtual void  onInvalidated() ;
+
+protected:
+	android_database_DataSetObserver();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -33,11 +34,8 @@
 //
 
 
-#include <com_facebook_widget_GraphObjectAdapter.hpp>
 
-#include <com_facebook_model_GraphObject.hpp>
-
-#include <com_facebook_Request.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -61,22 +59,28 @@ class com_facebook_model_GraphObject;
 
 class com_facebook_Request;
 
-class com_facebook_widget_PickerFragment_LoadingStrategy
+class com_facebook_widget_PickerFragment_LoadingStrategy : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_widget_PickerFragment_LoadingStrategy(const com_facebook_widget_PickerFragment_LoadingStrategy& cc);
-	com_facebook_widget_PickerFragment_LoadingStrategy(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_widget_PickerFragment_LoadingStrategy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_PickerFragment_LoadingStrategy();
 	// Functions
-	 void attach(FacebookCXX::com_facebook_widget_GraphObjectAdapter const& arg0);
-	 void detach();
-	 bool isDataPresentOrLoading();
-	 void clearResults();
-	 void startLoading(FacebookCXX::com_facebook_Request const& arg0);
+	virtual void  attach(FacebookCXX::com_facebook_widget_GraphObjectAdapter const& arg0) ;
+	virtual void  clearResults() ;
+	virtual void  detach() ;
+	virtual bool  isDataPresentOrLoading() ;
+	virtual void  startLoading(FacebookCXX::com_facebook_Request const& arg0) ;
+
+protected:
+	com_facebook_widget_PickerFragment_LoadingStrategy();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

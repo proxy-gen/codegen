@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <android_media_MediaPlayer.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class android_media_MediaPlayer;
 
-class android_media_MediaPlayer_OnSeekCompleteListener
+class android_media_MediaPlayer_OnSeekCompleteListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_media_MediaPlayer_OnSeekCompleteListener(const android_media_MediaPlayer_OnSeekCompleteListener& cc);
-	android_media_MediaPlayer_OnSeekCompleteListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_media_MediaPlayer_OnSeekCompleteListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnSeekCompleteListener();
 	// Functions
-	 void onSeekComplete(AndroidCXX::android_media_MediaPlayer const& arg0);
+	virtual void  onSeekComplete(AndroidCXX::android_media_MediaPlayer const& arg0) ;
+
+protected:
+	android_media_MediaPlayer_OnSeekCompleteListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

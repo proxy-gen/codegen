@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,6 +29,9 @@
 
 #include <android_os_Bundle.hpp>
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -45,18 +49,24 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_GetTokenClient_CompletedListener
+class com_facebook_GetTokenClient_CompletedListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_GetTokenClient_CompletedListener(const com_facebook_GetTokenClient_CompletedListener& cc);
-	com_facebook_GetTokenClient_CompletedListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_GetTokenClient_CompletedListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_GetTokenClient_CompletedListener();
 	// Functions
-	 void completed(AndroidCXX::android_os_Bundle const& arg0);
+	virtual void  completed(AndroidCXX::android_os_Bundle const& arg0) ;
+
+protected:
+	com_facebook_GetTokenClient_CompletedListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace
