@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,9 @@
 //
 
 
+
+#include <com_facebook_AuthorizationClient_KatanaAuthHandler.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +44,23 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler
+class com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler : public FacebookCXX::com_facebook_AuthorizationClient_KatanaAuthHandler
 {
 public:
 
+	// Public Constructor
 	com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler(const com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler& cc);
-	com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_webkit_WebStorage_QuotaUpdater
+class android_webkit_WebStorage_QuotaUpdater : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_webkit_WebStorage_QuotaUpdater(const android_webkit_WebStorage_QuotaUpdater& cc);
-	android_webkit_WebStorage_QuotaUpdater(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_webkit_WebStorage_QuotaUpdater(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_WebStorage_QuotaUpdater();
 	// Functions
-	 void updateQuota(long const& arg0);
+	virtual void  updateQuota(long const& arg0) ;
+
+protected:
+	android_webkit_WebStorage_QuotaUpdater();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

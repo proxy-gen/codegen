@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -30,7 +31,8 @@
 //
 
 
-#include <android_view_View.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -50,19 +52,25 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_view_ViewGroup_OnHierarchyChangeListener
+class android_view_ViewGroup_OnHierarchyChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_ViewGroup_OnHierarchyChangeListener(const android_view_ViewGroup_OnHierarchyChangeListener& cc);
-	android_view_ViewGroup_OnHierarchyChangeListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_ViewGroup_OnHierarchyChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewGroup_OnHierarchyChangeListener();
 	// Functions
-	 void onChildViewAdded(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1);
-	 void onChildViewRemoved(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1);
+	virtual void  onChildViewAdded(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;
+	virtual void  onChildViewRemoved(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_View const& arg1) ;
+
+protected:
+	android_view_ViewGroup_OnHierarchyChangeListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

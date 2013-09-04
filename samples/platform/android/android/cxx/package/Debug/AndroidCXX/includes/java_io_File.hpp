@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,24 +8,27 @@
 //
 
 
+
+ 		 
+ 		 
+ 		 
  		 
 	
  		 
+ 		 
+	
+ 		 
+	
+	
+	
+	
+	
 	
 	
 	
  		 
  	
  		 
- 	
- 		 
-	
-	
-	
-	
-	
-	
-	
  		 
  	
  		 
@@ -34,15 +37,13 @@
  		 
  	
  		 
+ 	
  		 
  	
  		 
  		 
- 		 
 	
- 		 
- 		 
- 		 
+	
 	
 
 
@@ -119,18 +120,22 @@
 //
 
 
-#include <java_lang_Object.hpp>
-
 #include <java_lang_String.hpp>
 
+#include <java_lang_Object.hpp>
+
+#include <java_io_FileFilter.hpp>
 
 #include <java_io_FilenameFilter.hpp>
 
-#include <java_net_URL.hpp>
-
 #include <java_net_URI.hpp>
 
-#include <java_io_FileFilter.hpp>
+#include <java_net_URL.hpp>
+
+
+#include <java_io_Serializable.hpp>
+
+#include <java_lang_Comparable.hpp>
 
 #include <vector>
 #include <map>
@@ -148,84 +153,89 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
 class java_lang_String;
 
-class java_io_File;
-
-class java_io_FilenameFilter;
-
-class java_net_URL;
-
-class java_net_URI;
+class java_lang_Object;
 
 class java_io_FileFilter;
 
-class java_io_File
+class java_io_FilenameFilter;
+
+class java_net_URI;
+
+class java_net_URL;
+
+class java_io_File : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Comparable
 {
 public:
 
+	// Public Constructor
+	java_io_File(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
+	java_io_File(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_io_File(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
+	java_io_File(AndroidCXX::java_net_URI const& arg0,Proxy * aProxy = new Proxy());
 	java_io_File(const java_io_File& cc);
-	java_io_File(Proxy proxy);
-	// Public Constructors
-	java_io_File(AndroidCXX::java_net_URI const& arg0);
-	java_io_File(AndroidCXX::java_lang_String const& arg0);
-	java_io_File(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
-	java_io_File(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1);
-	Proxy proxy() const;	
+	java_io_File(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_File();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 int compareTo(AndroidCXX::java_io_File const& arg0);
-	 AndroidCXX::java_lang_String getName();
-	 long length();
-	 AndroidCXX::java_lang_String getParent();
-	 bool isAbsolute();
-	 AndroidCXX::java_lang_String getCanonicalPath();
-	 bool setReadOnly();
-	 std::vector<AndroidCXX::java_lang_String > list(AndroidCXX::java_io_FilenameFilter const& arg0);
-	 std::vector<AndroidCXX::java_lang_String > list();
-	 bool _delete();
-	 bool exists();
-	 AndroidCXX::java_io_File getParentFile();
-	 AndroidCXX::java_lang_String getPath();
-	 AndroidCXX::java_lang_String getAbsolutePath();
-	 AndroidCXX::java_io_File getAbsoluteFile();
-	 AndroidCXX::java_io_File getCanonicalFile();
-	 AndroidCXX::java_net_URL toURL();
-	 AndroidCXX::java_net_URI toURI();
-	 bool canRead();
-	 bool canWrite();
-	 bool isDirectory();
-	 bool isFile();
-	 bool isHidden();
-	 long lastModified();
-	 bool createNewFile();
-	 void deleteOnExit();
-	 std::vector<AndroidCXX::java_io_File > listFiles(AndroidCXX::java_io_FileFilter const& arg0);
-	 std::vector<AndroidCXX::java_io_File > listFiles();
-	 std::vector<AndroidCXX::java_io_File > listFiles(AndroidCXX::java_io_FilenameFilter const& arg0);
-	 bool mkdir();
-	 bool mkdirs();
-	 bool renameTo(AndroidCXX::java_io_File const& arg0);
-	 bool setLastModified(long const& arg0);
-	 bool setWritable(bool const& arg0,bool const& arg1);
-	 bool setWritable(bool const& arg0);
-	 bool setReadable(bool const& arg0,bool const& arg1);
-	 bool setReadable(bool const& arg0);
-	 bool setExecutable(bool const& arg0,bool const& arg1);
-	 bool setExecutable(bool const& arg0);
-	 bool canExecute();
-	static std::vector<AndroidCXX::java_io_File > listRoots();
-	 long getTotalSpace();
-	 long getFreeSpace();
-	 long getUsableSpace();
-	static AndroidCXX::java_io_File createTempFile(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
-	static AndroidCXX::java_io_File createTempFile(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_io_File const& arg2);
+	virtual bool  canExecute() ;
+	virtual bool  canRead() ;
+	virtual bool  canWrite() ;
+	virtual int  compareTo(AndroidCXX::java_io_File const& arg0) ;
+	virtual bool  createNewFile() ;
+	static AndroidCXX::java_io_File * createTempFile(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_io_File const& arg2) ;
+	static AndroidCXX::java_io_File * createTempFile(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  deleteOnExit() ;
+	virtual bool  _delete() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual bool  exists() ;
+	virtual AndroidCXX::java_io_File * getAbsoluteFile() ;
+	virtual AndroidCXX::java_lang_String * getAbsolutePath() ;
+	virtual AndroidCXX::java_io_File * getCanonicalFile() ;
+	virtual AndroidCXX::java_lang_String * getCanonicalPath() ;
+	virtual long  getFreeSpace() ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+	virtual AndroidCXX::java_io_File * getParentFile() ;
+	virtual AndroidCXX::java_lang_String * getParent() ;
+	virtual AndroidCXX::java_lang_String * getPath() ;
+	virtual long  getTotalSpace() ;
+	virtual long  getUsableSpace() ;
+	virtual int  hashCode() ;
+	virtual bool  isAbsolute() ;
+	virtual bool  isDirectory() ;
+	virtual bool  isFile() ;
+	virtual bool  isHidden() ;
+	virtual long  lastModified() ;
+	virtual long  length() ;
+	virtual std::vector<AndroidCXX::java_io_File>  listFiles(AndroidCXX::java_io_FileFilter const& arg0) ;
+	virtual std::vector<AndroidCXX::java_io_File>  listFiles(AndroidCXX::java_io_FilenameFilter const& arg0) ;
+	virtual std::vector<AndroidCXX::java_io_File>  listFiles() ;
+	virtual std::vector<AndroidCXX::java_lang_String>  list(AndroidCXX::java_io_FilenameFilter const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_String>  list() ;
+	static std::vector<AndroidCXX::java_io_File>  listRoots() ;
+	virtual bool  mkdir() ;
+	virtual bool  mkdirs() ;
+	virtual bool  renameTo(AndroidCXX::java_io_File const& arg0) ;
+	virtual bool  setExecutable(bool const& arg0,bool const& arg1) ;
+	virtual bool  setExecutable(bool const& arg0) ;
+	virtual bool  setLastModified(long const& arg0) ;
+	virtual bool  setReadOnly() ;
+	virtual bool  setReadable(bool const& arg0,bool const& arg1) ;
+	virtual bool  setReadable(bool const& arg0) ;
+	virtual bool  setWritable(bool const& arg0,bool const& arg1) ;
+	virtual bool  setWritable(bool const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual AndroidCXX::java_net_URI * toURI() ;
+	virtual AndroidCXX::java_net_URL * toURL() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

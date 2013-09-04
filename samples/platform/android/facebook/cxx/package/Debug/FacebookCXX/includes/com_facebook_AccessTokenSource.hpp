@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -11,6 +11,7 @@
 
  			
 		
+	
 
 
 #ifndef _com_facebook_AccessTokenSource
@@ -34,13 +35,13 @@ namespace com_facebook_AccessTokenSource {
 
 enum com_facebook_AccessTokenSource
 {
-	NONE,
-	FACEBOOK_APPLICATION_WEB,
+	CLIENT_TOKEN,
 	FACEBOOK_APPLICATION_NATIVE,
 	FACEBOOK_APPLICATION_SERVICE,
-	WEB_VIEW,
+	FACEBOOK_APPLICATION_WEB,
+	NONE,
 	TEST_USER,
-	CLIENT_TOKEN,
+	WEB_VIEW,
 };
 
 } // namespace

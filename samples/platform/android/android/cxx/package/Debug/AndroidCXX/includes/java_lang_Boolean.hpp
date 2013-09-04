@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,15 +8,16 @@
 //
 
 
+
+ 		 
+ 		 
+ 		 
  		 
 	
 	
- 		 
- 		 
- 		 
-	
 	
  		 
+	
 
 
  		 
@@ -51,6 +52,10 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_io_Serializable.hpp>
+
+#include <java_lang_Comparable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -67,35 +72,40 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+
 class java_lang_Object;
 
 class java_lang_String;
 
-class java_lang_Boolean;
-
-class java_lang_Boolean
+class java_lang_Boolean : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Comparable
 {
 public:
 
+	// Public Constructor
+	java_lang_Boolean(bool const& arg0,Proxy * aProxy = new Proxy());
+	java_lang_Boolean(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	java_lang_Boolean(const java_lang_Boolean& cc);
-	java_lang_Boolean(Proxy proxy);
-	// Public Constructors
-	java_lang_Boolean(bool const& arg0);
-	java_lang_Boolean(AndroidCXX::java_lang_String const& arg0);
-	Proxy proxy() const;	
+	java_lang_Boolean(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Boolean();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	static AndroidCXX::java_lang_String toString(bool const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 int compareTo(AndroidCXX::java_lang_Boolean const& arg0);
-	static bool getBoolean(AndroidCXX::java_lang_String const& arg0);
-	 bool booleanValue();
-	static AndroidCXX::java_lang_Boolean valueOf(AndroidCXX::java_lang_String const& arg0);
-	static AndroidCXX::java_lang_Boolean valueOf(bool const& arg0);
-	static bool parseBoolean(AndroidCXX::java_lang_String const& arg0);
+	virtual bool  booleanValue() ;
+	virtual int  compareTo(AndroidCXX::java_lang_Boolean const& arg0) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	static bool  getBoolean(AndroidCXX::java_lang_String const& arg0) ;
+	virtual int  hashCode() ;
+	static bool  parseBoolean(AndroidCXX::java_lang_String const& arg0) ;
+	static AndroidCXX::java_lang_String * toString(bool const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	static AndroidCXX::java_lang_Boolean * valueOf(bool const& arg0) ;
+	static AndroidCXX::java_lang_Boolean * valueOf(AndroidCXX::java_lang_String const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,8 @@
 //
 
 
-#include <android_view_View.hpp>
 
-#include <android_view_MotionEvent.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +51,24 @@ class android_view_View;
 
 class android_view_MotionEvent;
 
-class android_view_View_OnTouchListener
+class android_view_View_OnTouchListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_View_OnTouchListener(const android_view_View_OnTouchListener& cc);
-	android_view_View_OnTouchListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_View_OnTouchListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnTouchListener();
 	// Functions
-	 bool onTouch(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1);
+	virtual bool  onTouch(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_view_MotionEvent const& arg1) ;
+
+protected:
+	android_view_View_OnTouchListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

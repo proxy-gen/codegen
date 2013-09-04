@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,14 +8,15 @@
 //
 
 
-	
-	
-	
- 		 
-	
+
  		 
  		 
  		 
+ 		 
+	
+	
+	
+	
  		 
  		 
  		 
@@ -57,21 +58,8 @@
 //
 
 
-#include <java_lang_CharSequence.hpp>
 
-#include <android_view_inputmethod_ExtractedTextRequest.hpp>
-
-#include <android_view_inputmethod_ExtractedText.hpp>
-
-#include <android_view_inputmethod_CompletionInfo.hpp>
-
-#include <android_view_inputmethod_CorrectionInfo.hpp>
-
-#include <android_view_KeyEvent.hpp>
-
-#include <java_lang_String.hpp>
-
-#include <android_os_Bundle.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -89,54 +77,60 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class android_view_inputmethod_CompletionInfo;
+
+class android_view_inputmethod_CorrectionInfo;
+
 class java_lang_CharSequence;
 
 class android_view_inputmethod_ExtractedTextRequest;
 
 class android_view_inputmethod_ExtractedText;
 
-class android_view_inputmethod_CompletionInfo;
-
-class android_view_inputmethod_CorrectionInfo;
-
-class android_view_KeyEvent;
-
 class java_lang_String;
 
 class android_os_Bundle;
 
-class android_view_inputmethod_InputConnection
+class android_view_KeyEvent;
+
+class android_view_inputmethod_InputConnection : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_inputmethod_InputConnection(const android_view_inputmethod_InputConnection& cc);
-	android_view_inputmethod_InputConnection(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_inputmethod_InputConnection(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_InputConnection();
 	// Functions
-	 AndroidCXX::java_lang_CharSequence getTextBeforeCursor(int const& arg0,int const& arg1);
-	 AndroidCXX::java_lang_CharSequence getTextAfterCursor(int const& arg0,int const& arg1);
-	 AndroidCXX::java_lang_CharSequence getSelectedText(int const& arg0);
-	 int getCursorCapsMode(int const& arg0);
-	 AndroidCXX::android_view_inputmethod_ExtractedText getExtractedText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest const& arg0,int const& arg1);
-	 bool deleteSurroundingText(int const& arg0,int const& arg1);
-	 bool setComposingText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1);
-	 bool setComposingRegion(int const& arg0,int const& arg1);
-	 bool finishComposingText();
-	 bool commitText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1);
-	 bool commitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo const& arg0);
-	 bool commitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo const& arg0);
-	 bool setSelection(int const& arg0,int const& arg1);
-	 bool performEditorAction(int const& arg0);
-	 bool performContextMenuAction(int const& arg0);
-	 bool beginBatchEdit();
-	 bool endBatchEdit();
-	 bool sendKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0);
-	 bool clearMetaKeyStates(int const& arg0);
-	 bool reportFullscreenMode(bool const& arg0);
-	 bool performPrivateCommand(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1);
+	virtual bool  beginBatchEdit() ;
+	virtual bool  clearMetaKeyStates(int const& arg0) ;
+	virtual bool  commitCompletion(AndroidCXX::android_view_inputmethod_CompletionInfo const& arg0) ;
+	virtual bool  commitCorrection(AndroidCXX::android_view_inputmethod_CorrectionInfo const& arg0) ;
+	virtual bool  commitText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) ;
+	virtual bool  deleteSurroundingText(int const& arg0,int const& arg1) ;
+	virtual bool  endBatchEdit() ;
+	virtual bool  finishComposingText() ;
+	virtual int  getCursorCapsMode(int const& arg0) ;
+	virtual AndroidCXX::android_view_inputmethod_ExtractedText * getExtractedText(AndroidCXX::android_view_inputmethod_ExtractedTextRequest const& arg0,int const& arg1) ;
+	virtual AndroidCXX::java_lang_CharSequence * getSelectedText(int const& arg0) ;
+	virtual AndroidCXX::java_lang_CharSequence * getTextAfterCursor(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::java_lang_CharSequence * getTextBeforeCursor(int const& arg0,int const& arg1) ;
+	virtual bool  performContextMenuAction(int const& arg0) ;
+	virtual bool  performEditorAction(int const& arg0) ;
+	virtual bool  performPrivateCommand(AndroidCXX::java_lang_String const& arg0,AndroidCXX::android_os_Bundle const& arg1) ;
+	virtual bool  reportFullscreenMode(bool const& arg0) ;
+	virtual bool  sendKeyEvent(AndroidCXX::android_view_KeyEvent const& arg0) ;
+	virtual bool  setComposingRegion(int const& arg0,int const& arg1) ;
+	virtual bool  setComposingText(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) ;
+	virtual bool  setSelection(int const& arg0,int const& arg1) ;
+
+protected:
+	android_view_inputmethod_InputConnection();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

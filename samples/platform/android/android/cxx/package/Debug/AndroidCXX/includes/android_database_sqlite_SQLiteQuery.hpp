@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -28,6 +29,9 @@
 
 #include <java_lang_String.hpp>
 
+
+#include <android_database_sqlite_SQLiteProgram.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,18 +50,24 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_database_sqlite_SQLiteQuery
+class android_database_sqlite_SQLiteQuery : public AndroidCXX::android_database_sqlite_SQLiteProgram
 {
 public:
 
+	// Public Constructor
 	android_database_sqlite_SQLiteQuery(const android_database_sqlite_SQLiteQuery& cc);
-	android_database_sqlite_SQLiteQuery(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_database_sqlite_SQLiteQuery(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_database_sqlite_SQLiteQuery();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

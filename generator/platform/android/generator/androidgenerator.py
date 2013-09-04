@@ -303,7 +303,7 @@ class Generator(BaseGenerator):
 		if not os.path.exists(self.proxy_converter_outdir_name):
 			os.makedirs(self.proxy_converter_outdir_name)		
 		logging.debug("self.proxy_converter_outdir_name " + str(self.proxy_converter_outdir_name))
-		self._generate_cxx_proxy_converter_code()
+		self._generate_cxx_converter_code()
 		self.impl_outdir_name = os.path.join(self.output_dir_name, "project", self.package_name, "jni", "cxx", "impl")
 		if not os.path.exists(self.impl_outdir_name):
 			os.makedirs(self.impl_outdir_name)		
@@ -315,8 +315,8 @@ class Generator(BaseGenerator):
 		self.config_module = None
 		logging.debug("_generate_cxx_code exit")
 
-	def _generate_cxx_proxy_converter_code(self):
-		logging.debug("_generate_cxx_proxy_converter_code enter")
+	def _generate_cxx_converter_code(self):
+		logging.debug("_generate_cxx_converter_code enter")
 		self.proxy_converter_head_file_name = self.package_name + "Converter.hpp"
 		logging.debug("proxy_converter_head_file_name " + str(self.proxy_converter_head_file_name))	
 		proxy_converter_head_file_path = os.path.join(self.proxy_converter_outdir_name, self.proxy_converter_head_file_name)
@@ -343,7 +343,7 @@ class Generator(BaseGenerator):
 		self.proxy_converter_impl_file.close()
 		self.proxy_converter_impl_file = None
 		self.proxy_converter_impl_file_name = None
-		logging.debug("_generate_cxx_proxy_converter_code exit")
+		logging.debug("_generate_cxx_converter_code exit")
 
 	def _generate_cxx_class_code(self):
 		logging.debug("_generate_cxx_class_code enter")
@@ -1096,21 +1096,24 @@ class ConfigModule(object):
 						if not no_proxy:
 							convertible["converter"] = 'convert_proxy'					
 		if "converter" not in convertible:
+			if jindex.ArrayType.is_array_id(convertible['type']):
+				convertible['converter'] = 'convert_' + convertible['type']
+		if "converter" not in convertible:
 			converters = config_data["converters"]
 			for converter in converters:
 				if "java" in converter:
-						if "cxx" in converter:
-							if 	jindex.PrimitiveType.is_primitive_id(convertible["type"]) or\
-								jindex.VoidType.is_void_id(convertible["type"]) or\
-								jindex.ArrayType.is_array_id(convertible["type"]) or\
-							   	jindex.PrimitiveType.is_primitive_id(converter["java"]["type"]) or\
-							   	jindex.VoidType.is_void_id(converter["java"]["type"]) or\
-							   	jindex.ArrayType.is_array_id(converter["java"]["type"]):
-								if convertible["type"] == converter["java"]["type"]:
-									convertible["converter"] = converter["name"]
-							else:
-								if jindex.TypeHierarchy.canCastClass1ToClass2(convertible["type"],converter["java"]["type"]):
-									convertible["converter"] = converter["name"]
+					if "cxx" in converter:
+						if convertible["type"] == converter["java"]["type"]:
+							convertible["converter"] = converter["name"]
+							break
+		if "converter" not in convertible:
+			converters = config_data["converters"]
+			for converter in converters:
+				if "java" in converter:
+					if "cxx" in converter:
+						if jindex.TypeHierarchy.canCastClass1ToClass2(convertible["type"],converter["java"]["type"]):
+							convertible["converter"] = converter["name"]
+							break
 		if "converter" not in convertible:
 			convertible["converter"] = "_TODO_"
 		if "children" in convertible:
@@ -1147,42 +1150,75 @@ class ConfigModule(object):
 
 	def _attach_derived_class_data(self, class_config, config_data):
 		logging.debug("_attach_derived_class_data enter")
-		if "deriveddata" not in class_config:
-			class_config['deriveddata'] = dict()
+		self._build_class_info_data(class_config)
 		self._attach_derived_target_class_data(class_config, config_data)
 		self._attach_derived_jni_class_data(class_config, config_data)
 		logging.debug("_attach_derived_class_data exit")
 
 	def _attach_derived_target_class_data(self, class_config, config_data):
 		logging.debug("_attach_derived_target_class_data enter")
-		deriveddata = class_config['deriveddata']
-		if "targetdata" not in deriveddata:
-			deriveddata['targetdata'] = dict()
+		self._build_class_info_data(class_config)
 		self._attach_derived_target_class_info(class_config, config_data)
 		logging.debug("_attach_derived_target_class_data exit")
 
 	def _attach_derived_target_class_info(self, class_config, config_data):
 		logging.debug("_attach_derived_target_class_name enter")
-		deriveddata = class_config['deriveddata']
-		targetdata = deriveddata['targetdata']
-		if 'classinfo' not in targetdata:
-			classinfo = targetdata['classinfo'] = dict()
-			class_name = class_config['name']
-			class_name = Utils.to_class_name(class_name)					
-			classinfo['typename'] = class_name
-			class_file_name = Utils.to_file_name(class_name,"hpp")
-			classinfo['filename'] = class_file_name
-			classinfo['namespace'] = config_data['namespace']
-			if '_enum' in class_config['tags']:
-				classinfo['namespace'] = class_name
-			classinfo['no_copy_constructor'] = True
-			if 'constructors' in class_config:
-				for constructor in class_config['constructors']:
-					if len(constructor['params']) == 1:
-						if constructor['params'][0]['type'] == class_config['name']:
-							classinfo['no_copy_constructor'] = False
-							break
-		assert "classinfo" in targetdata, "classinfo not attached to " + str(class_config)
+		classinfo = self._build_class_info_data(class_config)
+		class_name = class_config['name']
+		class_name = Utils.to_class_name(class_name)					
+		classinfo['typename'] = class_name
+		class_file_name = Utils.to_file_name(class_name,"hpp")
+		classinfo['filename'] = class_file_name
+		classinfo['namespace'] = config_data['namespace']
+		classinfo['isenum'] = True if '_enum' in class_config['tags'] else False
+		classinfo['isinterface'] = True if '_interface' in class_config['tags'] else False
+		classinfo['isabstract'] = True if '_abstract' in class_config['tags'] else False
+		if '_enum' in class_config['tags']:
+			classinfo['namespace'] = class_name
+		classinfo['no_copy_constructor'] = True
+		if 'constructors' in class_config:
+			for constructor in class_config['constructors']:
+				if len(constructor['params']) == 1:
+					if constructor['params'][0]['type'] == class_config['name']:
+						classinfo['no_copy_constructor'] = False
+						break
+		classinfo['no_default_constructor'] = True
+		if 'constructors' in class_config:
+			for constructor in class_config['constructors']:
+				if len(constructor['params']) == 0:
+					classinfo['no_default_constructor'] = False
+					break
+		config_superclasses = list()
+		if 'extends' in class_config:
+			config_superclasses.extend(class_config['extends'])
+		if 'implements' in class_config:
+			config_superclasses.extend(class_config['implements'])
+		superclasses = [ config_superclass['name'] for config_superclass in config_superclasses ]
+		superclass_rankings = { superclass : 0 for superclass in superclasses }
+		self._rank_superclasses(superclasses, superclass_rankings)
+		# update after ranking
+		superclasses = list()
+		for config_superclass in config_superclasses:
+			if superclass_rankings[config_superclass['name']] == 1:
+				namespaced_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=config_superclass['name'])
+				for namespaced_class in namespaced_classes:
+					superclass_tags = namespaced_class['clazz']['tags']
+					is_superclass_abstract = '_abstract' in superclass_tags
+					is_superclass_interface = '_interface' in superclass_tags
+					is_superclass_root_java_object = config_superclass['name'] == jindex.JAVA_OBJECT
+					if is_superclass_abstract or is_superclass_interface or is_superclass_root_java_object: 					
+						superclass = dict(config_superclass)
+						superclass['namespace'] = namespaced_class['namespace']
+						superclass['name'] = config_superclass['name']
+						superclass['typename'] = Utils.to_class_name(superclass['name'])
+						file_name = Utils.to_file_name(superclass['typename'],"hpp")
+						superclass['filename'] = file_name	
+						superclass['isenum'] = True if '_enum' in namespaced_class['clazz']['tags'] else False
+						superclass['isinterface'] = True if '_interface' in namespaced_class['clazz']['tags'] else False
+						superclass['isabstract'] = True if '_abstract' in namespaced_class['clazz']['tags'] else False
+						superclasses.append(superclass)
+		if len(superclasses) > 0:
+			classinfo['superclasses'] = superclasses			
 		logging.debug("_attach_derived_target_class_info exit")	
 
 	def _attach_derived_jni_class_data(self, class_config, config_data):
@@ -1340,45 +1376,43 @@ class ConfigModule(object):
 					typeinfo['isproxied'] = True
 					typeinfo['typename'] = type_name
 					break
-			elif type_config['converter'] == 'convert__object_array_type':
-				temp_config_stack = list()	
-				temp_config = type_config			
-				while True:
-					if 'children' in temp_config:
-						temp_config = temp_config['children'][0]
-						temp_config_stack.append(temp_config)
-						temp_type_name = temp_config['type']
-						if not jindex.ArrayType.is_array_id(temp_type_name):						
-							break
-				type_name = ""
-				if len(temp_config_stack) == 0:
-					class_name = "java.lang.Object"
-					namespaced_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=class_name)
-					for namespaced_class in namespaced_classes:
-						clazz = namespaced_class["clazz"]
-						class_name = clazz['name']
-						class_name = Utils.to_class_name(class_name)
-						type_name = "<" + namespaced_class['namespace'] + "::" + class_name + ">"
-						break
-				else:
-					while len(temp_config_stack) > 0:
-						temp_config = temp_config_stack.pop()
-						temp_name = temp_config['type']
-						if jindex.ArrayType.is_array_id(temp_name):
-							type_name = "<" + "std::vector" + type_name + " >"
-						elif temp_config['converter'] == 'convert_proxy':
-							namespaced_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=temp_name)
-							for namespaced_class in namespaced_classes:
-								clazz = namespaced_class["clazz"]
-								class_name = clazz['name']
-								temp_name = namespaced_class["namespace"] + "::" + class_name
-								temp_name = Utils.to_class_name(temp_name)
-								type_name = "<" + temp_name + type_name + " >"
-								break
-						else:
-							type_name = "<" + temp_name + type_name + " >"
-				typeinfo['typename'] = "std::vector" + type_name 
-				typeinfo['typeconverter'] = type_config['converter']
+			elif type_config['converter'] == 'convert__array_array':
+				child_type_config = type_config['children'][0]
+				child_type_name = child_type_config['type']				
+				if jindex.ArrayType.is_array_id(child_type_name):
+					array_type = jindex.ArrayType.from_id(child_type_name)
+					typeinfo['typename'] = 'std::vector<std::vector<' + array_type.type + '> >'
+					typeinfo['typeconverter'] = 'convert_' + child_type_name + '_array'
+				grand_child_type_config = child_type_config['children'][0]
+				grand_child_type_name = grand_child_type_config['type']				
+				#TODO: Currently supportint STL by default support Boost to defaults
+				namespaced_child_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=grand_child_type_name)				
+				for namespaced_child_class in namespaced_child_classes:	
+					child_clazz = namespaced_child_class["clazz"]
+					child_class_info = self._build_class_info_data(child_clazz)				
+					child_class_info['usedinarrayarray'] = True
+					child_namespace = namespaced_child_class['namespace']
+					child_type_name = child_clazz['name']
+					child_type_name = Utils.to_class_name(child_type_name)					
+					child_qualified_type_name = child_namespace + '::' + child_type_name
+					typeinfo['namespace'] = child_namespace
+					typeinfo['typename'] = 'std::vector<std::vector<' + child_qualified_type_name + '> >'
+					typeinfo['typeconverter'] = 'convert_' + child_type_name + '_array_array'
+			elif type_config['converter'] == 'convert__object_array':
+				child_type_config = type_config['children'][0]
+				#TODO: Currently supportint STL by default support Boost to defaults
+				namespaced_child_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=child_type_config['type'])
+				for namespaced_child_class in namespaced_child_classes:	
+					child_clazz = namespaced_child_class["clazz"]
+					child_class_info = self._build_class_info_data(child_clazz)								
+					child_class_info['usedinarray'] = True
+					child_type_name = child_clazz['name']
+					child_type_name = Utils.to_class_name(child_type_name)					
+					child_namespace = namespaced_child_class['namespace']
+					child_qualified_type_name = child_namespace + '::' + child_type_name
+					typeinfo['namespace'] = child_namespace
+					typeinfo['typename'] = 'std::vector<' + child_qualified_type_name + '>'
+					typeinfo['typeconverter'] = 'convert_' + child_type_name + '_array'
 			else:
 				converters = self.list_all_converters(name=type_config['converter'],cxx_type=None,java_type=None)
 				for converter in converters:
@@ -1486,6 +1520,29 @@ class ConfigModule(object):
 				self._detach_derived_type_data(child_type_config, config_data)
 		logging.debug("_detach_derived_type_data exit")	
 
+	def _rank_superclasses(self, superclasses, superclass_rankings):
+		for superclass in superclasses:
+			if superclass in superclass_rankings:
+				superclass_rankings[superclass] += 1
+			superclass_configs = self.list_all_classes(tags=None,xtags=None,name=superclass)
+			for superclass_config in superclass_configs:
+				superclass_superclass_config_list = list()
+				if 'extends' in superclass_config:
+					superclass_superclass_config_list.extend(superclass_config['extends'])
+				if 'implements' in superclass_config:
+					superclass_superclass_config_list.extend(superclass_config['implements'])
+				superclass_superclasses = [ superclass_superclass_config['name'] for superclass_superclass_config in superclass_superclass_config_list ]
+				self._rank_superclasses(superclass_superclasses, superclass_rankings)
+
+	def _build_class_info_data(self, class_config):
+		if 'deriveddata' not in class_config:
+			class_config['deriveddata'] = dict()
+		if 'targetdata' not in class_config['deriveddata']:
+			class_config['deriveddata']['targetdata'] = dict()
+		if 'classinfo' not in class_config['deriveddata']['targetdata']:
+			class_config['deriveddata']['targetdata']['classinfo'] = dict()
+		return class_config['deriveddata']['targetdata']['classinfo']
+
 	@classmethod
 	def load_config(cls, config_file_name):
 		try:
@@ -1514,7 +1571,6 @@ class ConfigModule(object):
 						if include_config_data is not None:
 							include_config_data_list.append(include_config_data)
 		return include_config_data_list
-
 
 
 

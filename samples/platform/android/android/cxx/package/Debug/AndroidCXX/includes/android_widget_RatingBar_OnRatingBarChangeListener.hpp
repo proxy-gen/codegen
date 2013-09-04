@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <android_widget_RatingBar.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class android_widget_RatingBar;
 
-class android_widget_RatingBar_OnRatingBarChangeListener
+class android_widget_RatingBar_OnRatingBarChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_RatingBar_OnRatingBarChangeListener(const android_widget_RatingBar_OnRatingBarChangeListener& cc);
-	android_widget_RatingBar_OnRatingBarChangeListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_RatingBar_OnRatingBarChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RatingBar_OnRatingBarChangeListener();
 	// Functions
-	 void onRatingChanged(AndroidCXX::android_widget_RatingBar const& arg0,float const& arg1,bool const& arg2);
+	virtual void  onRatingChanged(AndroidCXX::android_widget_RatingBar const& arg0,float const& arg1,bool const& arg2) ;
+
+protected:
+	android_widget_RatingBar_OnRatingBarChangeListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

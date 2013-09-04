@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,7 +28,8 @@
 //
 
 
-#include <android_content_res_Configuration.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -47,19 +49,25 @@ namespace AndroidCXX {
 
 class android_content_res_Configuration;
 
-class android_content_ComponentCallbacks
+class android_content_ComponentCallbacks : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_content_ComponentCallbacks(const android_content_ComponentCallbacks& cc);
-	android_content_ComponentCallbacks(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_content_ComponentCallbacks(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_ComponentCallbacks();
 	// Functions
-	 void onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0);
-	 void onLowMemory();
+	virtual void  onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0) ;
+	virtual void  onLowMemory() ;
+
+protected:
+	android_content_ComponentCallbacks();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

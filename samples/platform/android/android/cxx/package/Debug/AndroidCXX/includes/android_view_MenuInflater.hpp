@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -32,6 +33,9 @@
 
 #include <android_content_Context.hpp>
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -52,19 +56,25 @@ class android_view_Menu;
 
 class android_content_Context;
 
-class android_view_MenuInflater
+class android_view_MenuInflater : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	android_view_MenuInflater(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
 	android_view_MenuInflater(const android_view_MenuInflater& cc);
-	android_view_MenuInflater(Proxy proxy);
-	// Public Constructors
-	android_view_MenuInflater(AndroidCXX::android_content_Context const& arg0);
-	Proxy proxy() const;	
+	android_view_MenuInflater(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_MenuInflater();
 	// Functions
-	 void inflate(int const& arg0,AndroidCXX::android_view_Menu const& arg1);
+	virtual void  inflate(int const& arg0,AndroidCXX::android_view_Menu const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

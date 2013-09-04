@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -31,6 +32,9 @@
 
 #include <android_graphics_drawable_Drawable.hpp>
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,20 +53,26 @@ namespace AndroidCXX {
 
 class android_graphics_drawable_Drawable;
 
-class android_view_ViewOverlay
+class android_view_ViewOverlay : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
 	android_view_ViewOverlay(const android_view_ViewOverlay& cc);
-	android_view_ViewOverlay(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_ViewOverlay(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewOverlay();
 	// Functions
-	 void add(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
-	 void clear();
-	 void remove(AndroidCXX::android_graphics_drawable_Drawable const& arg0);
+	virtual void  add(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+	virtual void  clear() ;
+	virtual void  remove(AndroidCXX::android_graphics_drawable_Drawable const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

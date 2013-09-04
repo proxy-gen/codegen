@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -40,6 +41,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -56,31 +59,36 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+
 class java_lang_String;
 
-class java_nio_charset_CoderResult;
-
-class java_nio_charset_CoderResult
+class java_nio_charset_CoderResult : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
 	java_nio_charset_CoderResult(const java_nio_charset_CoderResult& cc);
-	java_nio_charset_CoderResult(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_nio_charset_CoderResult(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_charset_CoderResult();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 int length();
-	 void throwException();
-	 bool isUnderflow();
-	 bool isError();
-	 bool isOverflow();
-	static AndroidCXX::java_nio_charset_CoderResult malformedForLength(int const& arg0);
-	 bool isMalformed();
-	 bool isUnmappable();
-	static AndroidCXX::java_nio_charset_CoderResult unmappableForLength(int const& arg0);
+	virtual bool  isError() ;
+	virtual bool  isMalformed() ;
+	virtual bool  isOverflow() ;
+	virtual bool  isUnderflow() ;
+	virtual bool  isUnmappable() ;
+	virtual int  length() ;
+	static AndroidCXX::java_nio_charset_CoderResult * malformedForLength(int const& arg0) ;
+	virtual void  throwException() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	static AndroidCXX::java_nio_charset_CoderResult * unmappableForLength(int const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

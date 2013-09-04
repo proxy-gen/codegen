@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -29,7 +30,8 @@
 
 #include <android_os_Bundle.hpp>
 
-#include <com_facebook_FacebookException.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -50,18 +52,24 @@ namespace FacebookCXX {
 
 class com_facebook_FacebookException;
 
-class com_facebook_widget_WebDialog_OnCompleteListener
+class com_facebook_widget_WebDialog_OnCompleteListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_widget_WebDialog_OnCompleteListener(const com_facebook_widget_WebDialog_OnCompleteListener& cc);
-	com_facebook_widget_WebDialog_OnCompleteListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_widget_WebDialog_OnCompleteListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_WebDialog_OnCompleteListener();
 	// Functions
-	 void onComplete(AndroidCXX::android_os_Bundle const& arg0,FacebookCXX::com_facebook_FacebookException const& arg1);
+	virtual void  onComplete(AndroidCXX::android_os_Bundle const& arg0,FacebookCXX::com_facebook_FacebookException const& arg1) ;
+
+protected:
+	com_facebook_widget_WebDialog_OnCompleteListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

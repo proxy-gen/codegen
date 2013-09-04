@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -33,9 +34,8 @@
 
 #include <android_os_Bundle.hpp>
 
-#include <com_facebook_android_FacebookError.hpp>
 
-#include <com_facebook_android_DialogError.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -54,25 +54,31 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_android_FacebookError;
-
 class com_facebook_android_DialogError;
 
-class com_facebook_android_Facebook_DialogListener
+class com_facebook_android_FacebookError;
+
+class com_facebook_android_Facebook_DialogListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_android_Facebook_DialogListener(const com_facebook_android_Facebook_DialogListener& cc);
-	com_facebook_android_Facebook_DialogListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_android_Facebook_DialogListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_DialogListener();
 	// Functions
-	 void onComplete(AndroidCXX::android_os_Bundle const& arg0);
-	 void onCancel();
-	 void onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0);
-	 void onError(FacebookCXX::com_facebook_android_DialogError const& arg0);
+	virtual void  onCancel() ;
+	virtual void  onComplete(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual void  onError(FacebookCXX::com_facebook_android_DialogError const& arg0) ;
+	virtual void  onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0) ;
+
+protected:
+	com_facebook_android_Facebook_DialogListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

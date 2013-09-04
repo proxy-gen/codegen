@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <android_widget_CompoundButton.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class android_widget_CompoundButton;
 
-class android_widget_CompoundButton_OnCheckedChangeListener
+class android_widget_CompoundButton_OnCheckedChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_CompoundButton_OnCheckedChangeListener(const android_widget_CompoundButton_OnCheckedChangeListener& cc);
-	android_widget_CompoundButton_OnCheckedChangeListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_CompoundButton_OnCheckedChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CompoundButton_OnCheckedChangeListener();
 	// Functions
-	 void onCheckedChanged(AndroidCXX::android_widget_CompoundButton const& arg0,bool const& arg1);
+	virtual void  onCheckedChanged(AndroidCXX::android_widget_CompoundButton const& arg0,bool const& arg1) ;
+
+protected:
+	android_widget_CompoundButton_OnCheckedChangeListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_ViewTreeObserver_OnTouchModeChangeListener
+class android_view_ViewTreeObserver_OnTouchModeChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_ViewTreeObserver_OnTouchModeChangeListener(const android_view_ViewTreeObserver_OnTouchModeChangeListener& cc);
-	android_view_ViewTreeObserver_OnTouchModeChangeListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_ViewTreeObserver_OnTouchModeChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnTouchModeChangeListener();
 	// Functions
-	 void onTouchModeChanged(bool const& arg0);
+	virtual void  onTouchModeChanged(bool const& arg0) ;
+
+protected:
+	android_view_ViewTreeObserver_OnTouchModeChangeListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

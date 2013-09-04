@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,9 @@
 //
 
 
+
+#include <java_io_Serializable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +44,23 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_AuthorizationClient_AuthHandler
+class com_facebook_AuthorizationClient_AuthHandler : public AndroidCXX::java_io_Serializable
 {
 public:
 
 	com_facebook_AuthorizationClient_AuthHandler(const com_facebook_AuthorizationClient_AuthHandler& cc);
-	com_facebook_AuthorizationClient_AuthHandler(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_AuthorizationClient_AuthHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_AuthHandler();
 	// Functions
+
+protected:
+	com_facebook_AuthorizationClient_AuthHandler();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

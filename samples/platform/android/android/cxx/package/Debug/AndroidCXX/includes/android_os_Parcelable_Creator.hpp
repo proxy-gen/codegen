@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,10 +8,11 @@
 //
 
 
- 	
- 		 
+
  		 
 	
+ 	
+ 		 
 
 
 
@@ -30,9 +31,8 @@
 //
 
 
-#include <java_lang_Object.hpp>
 
-#include <android_os_Parcel.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -50,23 +50,28 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
-
 class android_os_Parcel;
 
-class android_os_Parcelable_Creator
+
+class android_os_Parcelable_Creator : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_os_Parcelable_Creator(const android_os_Parcelable_Creator& cc);
-	android_os_Parcelable_Creator(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_os_Parcelable_Creator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Parcelable_Creator();
 	// Functions
-	 std::vector<AndroidCXX::java_lang_Object > newArray(int const& arg0);
-	 AndroidCXX::java_lang_Object createFromParcel(AndroidCXX::android_os_Parcel const& arg0);
+	virtual AndroidCXX::java_lang_Object * createFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_Object>  newArray(int const& arg0) ;
+
+protected:
+	android_os_Parcelable_Creator();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

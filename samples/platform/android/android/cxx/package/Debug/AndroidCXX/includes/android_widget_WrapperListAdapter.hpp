@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -26,6 +27,7 @@
 //
 
 
+
 #include <android_widget_ListAdapter.hpp>
 
 #include <vector>
@@ -44,20 +46,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_ListAdapter;
 
-class android_widget_WrapperListAdapter
+class android_widget_WrapperListAdapter : public AndroidCXX::android_widget_ListAdapter
 {
 public:
 
 	android_widget_WrapperListAdapter(const android_widget_WrapperListAdapter& cc);
-	android_widget_WrapperListAdapter(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_WrapperListAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_WrapperListAdapter();
 	// Functions
-	 AndroidCXX::android_widget_ListAdapter getWrappedAdapter();
+	virtual AndroidCXX::android_widget_ListAdapter * getWrappedAdapter() ;
+
+protected:
+	android_widget_WrapperListAdapter();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,7 +28,8 @@
 //
 
 
-#include <java_lang_String.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -47,18 +49,24 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_net_FileNameMap
+class java_net_FileNameMap : public AndroidCXX::java_lang_Object
 {
 public:
 
 	java_net_FileNameMap(const java_net_FileNameMap& cc);
-	java_net_FileNameMap(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_net_FileNameMap(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_FileNameMap();
 	// Functions
-	 AndroidCXX::java_lang_String getContentTypeFor(AndroidCXX::java_lang_String const& arg0);
+	virtual AndroidCXX::java_lang_String * getContentTypeFor(AndroidCXX::java_lang_String const& arg0) ;
+
+protected:
+	java_net_FileNameMap();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

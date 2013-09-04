@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,10 +8,11 @@
 //
 
 
+
+ 		 
  		 
  		 
 	
- 		 
 
 
 
@@ -37,8 +38,8 @@
 
 #include <java_lang_Object.hpp>
 
-
 #include <java_lang_String.hpp>
+
 
 #include <vector>
 #include <map>
@@ -56,30 +57,33 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
-class android_util_DisplayMetrics;
 
 class java_lang_String;
 
-class android_util_DisplayMetrics
+class android_util_DisplayMetrics : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	android_util_DisplayMetrics(Proxy * aProxy = new Proxy());
 	android_util_DisplayMetrics(const android_util_DisplayMetrics& cc);
-	android_util_DisplayMetrics(Proxy proxy);
-	// Public Constructors
-	android_util_DisplayMetrics();
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_util_DisplayMetrics();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 bool equals(AndroidCXX::android_util_DisplayMetrics const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 void setTo(AndroidCXX::android_util_DisplayMetrics const& arg0);
-	 void setToDefaults();
+	virtual bool  equals(AndroidCXX::android_util_DisplayMetrics const& arg0) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	virtual void  setToDefaults() ;
+	virtual void  setTo(AndroidCXX::android_util_DisplayMetrics const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

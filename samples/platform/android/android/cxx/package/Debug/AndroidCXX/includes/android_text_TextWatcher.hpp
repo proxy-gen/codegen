@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -30,9 +31,8 @@
 //
 
 
-#include <java_lang_CharSequence.hpp>
 
-#include <android_text_Editable.hpp>
+#include <android_text_NoCopySpan.hpp>
 
 #include <vector>
 #include <map>
@@ -50,24 +50,30 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_CharSequence;
-
 class android_text_Editable;
 
-class android_text_TextWatcher
+class java_lang_CharSequence;
+
+class android_text_TextWatcher : public AndroidCXX::android_text_NoCopySpan
 {
 public:
 
 	android_text_TextWatcher(const android_text_TextWatcher& cc);
-	android_text_TextWatcher(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_text_TextWatcher(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_TextWatcher();
 	// Functions
-	 void beforeTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3);
-	 void onTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3);
-	 void afterTextChanged(AndroidCXX::android_text_Editable const& arg0);
+	virtual void  afterTextChanged(AndroidCXX::android_text_Editable const& arg0) ;
+	virtual void  beforeTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+	virtual void  onTextChanged(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2,int const& arg3) ;
+
+protected:
+	android_text_TextWatcher();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

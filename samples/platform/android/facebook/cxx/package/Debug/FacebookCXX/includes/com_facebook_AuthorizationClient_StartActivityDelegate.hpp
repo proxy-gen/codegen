@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,8 +8,9 @@
 //
 
 
- 		 
+
 	
+ 		 
 
 
 
@@ -28,9 +29,12 @@
 //
 
 
+#include <android_app_Activity.hpp>
+
 #include <android_content_Intent.hpp>
 
-#include <android_app_Activity.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -50,19 +54,25 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_AuthorizationClient_StartActivityDelegate
+class com_facebook_AuthorizationClient_StartActivityDelegate : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_AuthorizationClient_StartActivityDelegate(const com_facebook_AuthorizationClient_StartActivityDelegate& cc);
-	com_facebook_AuthorizationClient_StartActivityDelegate(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_AuthorizationClient_StartActivityDelegate(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_AuthorizationClient_StartActivityDelegate();
 	// Functions
-	 void startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1);
-	 AndroidCXX::android_app_Activity getActivityContext();
+	virtual AndroidCXX::android_app_Activity * getActivityContext() ;
+	virtual void  startActivityForResult(AndroidCXX::android_content_Intent const& arg0,int const& arg1) ;
+
+protected:
+	com_facebook_AuthorizationClient_StartActivityDelegate();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

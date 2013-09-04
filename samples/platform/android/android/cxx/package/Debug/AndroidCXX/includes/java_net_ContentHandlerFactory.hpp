@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,8 @@
 //
 
 
-#include <java_lang_String.hpp>
 
-#include <java_net_ContentHandler.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +51,24 @@ class java_lang_String;
 
 class java_net_ContentHandler;
 
-class java_net_ContentHandlerFactory
+class java_net_ContentHandlerFactory : public AndroidCXX::java_lang_Object
 {
 public:
 
 	java_net_ContentHandlerFactory(const java_net_ContentHandlerFactory& cc);
-	java_net_ContentHandlerFactory(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_net_ContentHandlerFactory(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_ContentHandlerFactory();
 	// Functions
-	 AndroidCXX::java_net_ContentHandler createContentHandler(AndroidCXX::java_lang_String const& arg0);
+	virtual AndroidCXX::java_net_ContentHandler * createContentHandler(AndroidCXX::java_lang_String const& arg0) ;
+
+protected:
+	java_net_ContentHandlerFactory();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

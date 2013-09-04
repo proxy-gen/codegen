@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -33,6 +34,7 @@
 
 #include <android_os_Bundle.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -50,22 +52,27 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_LoginActivity
+class com_facebook_LoginActivity 
 {
 public:
 
+	// Public Constructor
+	com_facebook_LoginActivity(Proxy * aProxy = new Proxy());
 	com_facebook_LoginActivity(const com_facebook_LoginActivity& cc);
-	com_facebook_LoginActivity(Proxy proxy);
-	// Public Constructors
-	com_facebook_LoginActivity();
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_LoginActivity();
 	// Functions
-	 void onCreate(AndroidCXX::android_os_Bundle const& arg0);
-	 void onResume();
-	 void onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0);
-	 void onPause();
+	virtual void  onCreate(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual void  onPause() ;
+	virtual void  onResume() ;
+	virtual void  onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

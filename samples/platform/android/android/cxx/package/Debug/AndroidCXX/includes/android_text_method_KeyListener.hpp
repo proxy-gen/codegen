@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -40,11 +41,8 @@
 //
 
 
-#include <android_view_View.hpp>
 
-#include <android_text_Editable.hpp>
-
-#include <android_view_KeyEvent.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -68,22 +66,28 @@ class android_text_Editable;
 
 class android_view_KeyEvent;
 
-class android_text_method_KeyListener
+class android_text_method_KeyListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_text_method_KeyListener(const android_text_method_KeyListener& cc);
-	android_text_method_KeyListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_text_method_KeyListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_method_KeyListener();
 	// Functions
-	 bool onKeyDown(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3);
-	 bool onKeyUp(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3);
-	 int getInputType();
-	 bool onKeyOther(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,AndroidCXX::android_view_KeyEvent const& arg2);
-	 void clearMetaKeyState(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2);
+	virtual void  clearMetaKeyState(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2) ;
+	virtual int  getInputType() ;
+	virtual bool  onKeyDown(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) ;
+	virtual bool  onKeyOther(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,AndroidCXX::android_view_KeyEvent const& arg2) ;
+	virtual bool  onKeyUp(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_text_Editable const& arg1,int const& arg2,AndroidCXX::android_view_KeyEvent const& arg3) ;
+
+protected:
+	android_text_method_KeyListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

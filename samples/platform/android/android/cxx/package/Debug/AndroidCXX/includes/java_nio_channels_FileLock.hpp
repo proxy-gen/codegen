@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -34,9 +35,8 @@
 //
 
 
-#include <java_lang_String.hpp>
 
-#include <java_nio_channels_FileChannel.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -54,29 +54,35 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 class java_nio_channels_FileChannel;
 
-class java_nio_channels_FileLock
+class java_lang_String;
+
+class java_nio_channels_FileLock : public AndroidCXX::java_lang_Object
 {
 public:
 
 	java_nio_channels_FileLock(const java_nio_channels_FileLock& cc);
-	java_nio_channels_FileLock(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_nio_channels_FileLock(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_FileLock();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 long size();
-	 long position();
-	 void release();
-	 AndroidCXX::java_nio_channels_FileChannel channel();
-	 bool isShared();
-	 bool isValid();
-	 bool overlaps(long const& arg0,long const& arg1);
+	virtual AndroidCXX::java_nio_channels_FileChannel * channel() ;
+	virtual bool  isShared() ;
+	virtual bool  isValid() ;
+	virtual bool  overlaps(long const& arg0,long const& arg1) ;
+	virtual long  position() ;
+	virtual void  release() ;
+	virtual long  size() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+	java_nio_channels_FileLock();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

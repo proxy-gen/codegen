@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -31,11 +32,12 @@
 //
 
 
+#include <android_os_Bundle.hpp>
+
 #include <android_content_Intent.hpp>
 
 #include <com_facebook_Session.hpp>
 
-#include <android_os_Bundle.hpp>
 
 #include <vector>
 #include <map>
@@ -54,24 +56,30 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
+
 class com_facebook_Session;
 
-
-class com_facebook_widget_FacebookFragment
+class com_facebook_widget_FacebookFragment 
 {
 public:
 
+	// Public Constructor
 	com_facebook_widget_FacebookFragment(const com_facebook_widget_FacebookFragment& cc);
-	com_facebook_widget_FacebookFragment(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_widget_FacebookFragment(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_FacebookFragment();
 	// Functions
-	 void onDestroy();
-	 void onActivityResult(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2);
-	 void setSession(FacebookCXX::com_facebook_Session const& arg0);
-	 void onActivityCreated(AndroidCXX::android_os_Bundle const& arg0);
+	virtual void  onActivityCreated(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual void  onActivityResult(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2) ;
+	virtual void  onDestroy() ;
+	virtual void  setSession(FacebookCXX::com_facebook_Session const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -29,6 +30,7 @@
 
 #include <java_lang_Object.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,19 +48,25 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_widget_ImageDownloader_RequestKey
+class com_facebook_widget_ImageDownloader_RequestKey : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
 	com_facebook_widget_ImageDownloader_RequestKey(const com_facebook_widget_ImageDownloader_RequestKey& cc);
-	com_facebook_widget_ImageDownloader_RequestKey(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_widget_ImageDownloader_RequestKey(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_ImageDownloader_RequestKey();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 int hashCode();
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -31,7 +32,8 @@
 //
 
 
-#include <java_lang_CharSequence.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -51,20 +53,26 @@ namespace AndroidCXX {
 
 class java_lang_CharSequence;
 
-class android_widget_MultiAutoCompleteTextView_Tokenizer
+class android_widget_MultiAutoCompleteTextView_Tokenizer : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_MultiAutoCompleteTextView_Tokenizer(const android_widget_MultiAutoCompleteTextView_Tokenizer& cc);
-	android_widget_MultiAutoCompleteTextView_Tokenizer(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_MultiAutoCompleteTextView_Tokenizer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_MultiAutoCompleteTextView_Tokenizer();
 	// Functions
-	 int findTokenStart(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1);
-	 int findTokenEnd(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1);
-	 AndroidCXX::java_lang_CharSequence terminateToken(AndroidCXX::java_lang_CharSequence const& arg0);
+	virtual int  findTokenEnd(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) ;
+	virtual int  findTokenStart(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1) ;
+	virtual AndroidCXX::java_lang_CharSequence * terminateToken(AndroidCXX::java_lang_CharSequence const& arg0) ;
+
+protected:
+	android_widget_MultiAutoCompleteTextView_Tokenizer();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

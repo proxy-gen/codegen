@@ -138,72 +138,7 @@ void convert_double(long& java_value, long& cxx_value, const CXXTypeHierarchy cx
 	}
 }
 
-void convert__object_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
-{
-	JNIContext *jni = JNIContext::sharedInstance();
-
-	if (converter_type == CONVERT_TO_JAVA)
-	{
-		jni->pushLocalFrame();
-
-		cxx_converter item_converter = get_converter(converter_stack);
-
-		std::vector<long> *cxx_vector = (std::vector<long> *) cxx_value;
-		int count = cxx_vector->size();
-
-		std::string child_type = jni->getJNIName( std::string("java.lang.Object") );
-		CXXTypeHierarchy item_type;
-		item_type.type_name = child_type;
-		std::vector<CXXTypeHierarchy> child_types = cxx_type_hierarchy.child_types;
-		if (child_types.size() > 0)
-		{
-			item_type = child_types.at(0);
-			child_type = jni->getJNIName( item_type.type_name );
-		}
-
-		java_value = (long) jni->createObjectArray(count, jni->getClassRef( child_type.c_str() ));
-
-		for(std::vector<long>::iterator it = cxx_vector->begin(); it != cxx_vector->end(); ++it)
-		{
-			long cxx_item_ptr = (long) *it;
-			long java_item_ptr = 0;
-			int item_idx = it - cxx_vector->begin();
-			item_converter(java_item_ptr, cxx_item_ptr, item_type, converter_type, converter_stack);
-			jni->setObjectArrayElement((jobjectArray) java_value, item_idx, (jobject) java_item_ptr);
-		}
-
-		java_value = (long) jni->popLocalFrame((jobject) java_value);
-	}
-	else if (converter_type == CONVERT_TO_CXX)
-	{
-		jni->pushLocalFrame();
-
-		std::string child_type = jni->getJNIName( std::string("java.lang.Object") );
-		CXXTypeHierarchy item_type;
-		item_type.type_name = child_type;
-		std::vector<CXXTypeHierarchy> child_types = cxx_type_hierarchy.child_types;
-		if (child_types.size() > 0)
-		{
-			item_type = child_types.at(0);
-			child_type = jni->getJNIName( item_type.type_name );
-		}
-
-		cxx_converter item_converter = get_converter(converter_stack);
-		std::vector<long> *cxx_vector = (std::vector<long> *) cxx_value;
-		int size = (int) jni->getArrayLength((jobjectArray) java_value);
-		for (int idx = 0 ; idx < size; idx++)
-		{
-			long java_item_ptr = (long) jni->getObjectArrayElement((jobjectArray) java_value, idx);
-			long cxx_item_ptr = 0;
-			item_converter(java_item_ptr, cxx_item_ptr, item_type, converter_type, converter_stack);
-			cxx_vector->push_back(cxx_item_ptr);
-		}
-
-		jni->popLocalFrame();
-	}
-}
-
-void convert__byte_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+void convert__byte_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	JNIContext *jni = JNIContext::sharedInstance();
 
@@ -239,10 +174,10 @@ void convert__byte_array_type(long& java_value, long& cxx_value, const CXXTypeHi
 		jni->popLocalFrame();
 	}
 
-	log("convert__byte_array_type exit");
+	log("convert__byte_array exit");
 }
 
-void convert__char_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+void convert__char_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	JNIContext *jni = JNIContext::sharedInstance();
 
@@ -279,7 +214,7 @@ void convert__char_array_type(long& java_value, long& cxx_value, const CXXTypeHi
 	}
 }
 
-void convert__short_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+void convert__short_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	JNIContext *jni = JNIContext::sharedInstance();
 
@@ -316,7 +251,7 @@ void convert__short_array_type(long& java_value, long& cxx_value, const CXXTypeH
 	}
 }
 
-void convert__int_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+void convert__int_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	JNIContext *jni = JNIContext::sharedInstance();
 
@@ -353,7 +288,7 @@ void convert__int_array_type(long& java_value, long& cxx_value, const CXXTypeHie
 	}
 }
 
-void convert__long_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+void convert__long_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	JNIContext *jni = JNIContext::sharedInstance();
 
@@ -390,7 +325,7 @@ void convert__long_array_type(long& java_value, long& cxx_value, const CXXTypeHi
 	}
 }
 
-void convert__float_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+void convert__float_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	JNIContext *jni = JNIContext::sharedInstance();
 
@@ -427,7 +362,7 @@ void convert__float_array_type(long& java_value, long& cxx_value, const CXXTypeH
 	}
 }
 
-void convert__double_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+void convert__double_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	JNIContext *jni = JNIContext::sharedInstance();
 
@@ -464,7 +399,7 @@ void convert__double_array_type(long& java_value, long& cxx_value, const CXXType
 	}
 }
 
-void convert__boolean_array_type(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+void convert__boolean_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
 {
 	JNIContext *jni = JNIContext::sharedInstance();
 
@@ -500,4 +435,45 @@ void convert__boolean_array_type(long& java_value, long& cxx_value, const CXXTyp
 		jni->popLocalFrame();
 	}
 }
+
+void convert__boolean_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+
+}
+
+void convert__byte_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+
+}
+
+void convert__char_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+
+}
+
+void convert__short_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+
+}
+
+void convert__int_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+
+}
+
+void convert__long_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+
+}
+
+void convert__float_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+
+}
+
+void convert__double_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack)
+{
+	
+}
+
 

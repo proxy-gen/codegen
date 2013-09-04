@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,6 +29,7 @@
 
 #include <java_lang_Object.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -45,18 +47,24 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_widget_GraphObjectAdapter_Filter
+class com_facebook_widget_GraphObjectAdapter_Filter : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_widget_GraphObjectAdapter_Filter(const com_facebook_widget_GraphObjectAdapter_Filter& cc);
-	com_facebook_widget_GraphObjectAdapter_Filter(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_widget_GraphObjectAdapter_Filter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_GraphObjectAdapter_Filter();
 	// Functions
-	 bool includeItem(AndroidCXX::java_lang_Object const& arg0);
+	virtual bool  includeItem(AndroidCXX::java_lang_Object const& arg0) ;
+
+protected:
+	com_facebook_widget_GraphObjectAdapter_Filter();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

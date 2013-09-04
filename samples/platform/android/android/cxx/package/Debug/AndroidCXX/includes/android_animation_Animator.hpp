@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,15 +8,16 @@
 //
 
 
-	
+
  		 
 	
 	
- 		 
- 		 
- 		 
 	
  	
+ 		 
+ 		 
+	
+ 		 
  		 
 
 
@@ -55,13 +56,7 @@
 
 
 
-#include <android_animation_TimeInterpolator.hpp>
-
-#include <java_lang_Object.hpp>
-
-#include <android_animation_Animator_AnimatorListener.hpp>
-
-#include <java_util_ArrayList.hpp>
+#include <java_lang_Cloneable.hpp>
 
 #include <vector>
 #include <map>
@@ -79,47 +74,51 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_animation_Animator;
+class android_animation_Animator_AnimatorListener;
+
 
 class android_animation_TimeInterpolator;
 
-class java_lang_Object;
-
-class android_animation_Animator_AnimatorListener;
-
 class java_util_ArrayList;
 
-class android_animation_Animator
+class java_lang_Object;
+
+class android_animation_Animator : public AndroidCXX::java_lang_Cloneable
 {
 public:
 
 	android_animation_Animator(const android_animation_Animator& cc);
-	android_animation_Animator(Proxy proxy);
-	// Public Constructors
-	android_animation_Animator();
-	Proxy proxy() const;	
+	android_animation_Animator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_Animator();
 	// Functions
-	 AndroidCXX::android_animation_Animator clone();
-	 void start();
-	 void end();
-	 void cancel();
-	 void setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0);
-	 AndroidCXX::android_animation_Animator setDuration(long const& arg0);
-	 AndroidCXX::android_animation_TimeInterpolator getInterpolator();
-	 long getDuration();
-	 void setTarget(AndroidCXX::java_lang_Object const& arg0);
-	 long getStartDelay();
-	 void setStartDelay(long const& arg0);
-	 bool isRunning();
-	 bool isStarted();
-	 void addListener(AndroidCXX::android_animation_Animator_AnimatorListener const& arg0);
-	 void removeListener(AndroidCXX::android_animation_Animator_AnimatorListener const& arg0);
-	 AndroidCXX::java_util_ArrayList getListeners();
-	 void removeAllListeners();
-	 void setupStartValues();
-	 void setupEndValues();
+	virtual void  addListener(AndroidCXX::android_animation_Animator_AnimatorListener const& arg0) ;
+	virtual void  cancel() ;
+	virtual AndroidCXX::android_animation_Animator * clone() ;
+	virtual void  end() ;
+	virtual long  getDuration() ;
+	virtual AndroidCXX::android_animation_TimeInterpolator * getInterpolator() ;
+	virtual AndroidCXX::java_util_ArrayList * getListeners() ;
+	virtual long  getStartDelay() ;
+	virtual bool  isRunning() ;
+	virtual bool  isStarted() ;
+	virtual void  removeAllListeners() ;
+	virtual void  removeListener(AndroidCXX::android_animation_Animator_AnimatorListener const& arg0) ;
+	virtual AndroidCXX::android_animation_Animator * setDuration(long const& arg0) ;
+	virtual void  setInterpolator(AndroidCXX::android_animation_TimeInterpolator const& arg0) ;
+	virtual void  setStartDelay(long const& arg0) ;
+	virtual void  setTarget(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  setupEndValues() ;
+	virtual void  setupStartValues() ;
+	virtual void  start() ;
+
+protected:
+	android_animation_Animator();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

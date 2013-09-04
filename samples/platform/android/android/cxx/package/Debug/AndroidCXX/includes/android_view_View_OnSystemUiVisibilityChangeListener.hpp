@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_View_OnSystemUiVisibilityChangeListener
+class android_view_View_OnSystemUiVisibilityChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_View_OnSystemUiVisibilityChangeListener(const android_view_View_OnSystemUiVisibilityChangeListener& cc);
-	android_view_View_OnSystemUiVisibilityChangeListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_View_OnSystemUiVisibilityChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnSystemUiVisibilityChangeListener();
 	// Functions
-	 void onSystemUiVisibilityChange(int const& arg0);
+	virtual void  onSystemUiVisibilityChange(int const& arg0) ;
+
+protected:
+	android_view_View_OnSystemUiVisibilityChangeListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

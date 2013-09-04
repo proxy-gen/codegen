@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,18 +8,19 @@
 //
 
 
- 		 
-	
-	
- 	
+
  		 
 	
  	
  		 
+ 		 
+ 	
  	
 	
  	
  		 
+	
+	
 
 
 
@@ -44,15 +45,8 @@
 //
 
 
-#include <java_lang_Object.hpp>
 
-#include <java_lang_String.hpp>
-
-#include <java_util_List.hpp>
-
-#include <java_security_cert_Certificate.hpp>
-
-#include <java_util_Iterator.hpp>
+#include <java_io_Serializable.hpp>
 
 #include <vector>
 #include <map>
@@ -72,33 +66,39 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_lang_String;
-
 class java_util_List;
 
 class java_security_cert_Certificate;
 
+class java_lang_String;
+
 class java_util_Iterator;
 
-class java_security_cert_CertPath
+class java_security_cert_CertPath : public AndroidCXX::java_io_Serializable
 {
 public:
 
 	java_security_cert_CertPath(const java_security_cert_CertPath& cc);
-	java_security_cert_CertPath(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_security_cert_CertPath(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_cert_CertPath();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_util_List getCertificates();
-	 AndroidCXX::java_lang_String getType();
-	 std::vector<byte> getEncoded();
-	 std::vector<byte> getEncoded(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_util_Iterator getEncodings();
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_util_List * getCertificates() ;
+	virtual std::vector<byte>  getEncoded(AndroidCXX::java_lang_String const& arg0) ;
+	virtual std::vector<byte>  getEncoded() ;
+	virtual AndroidCXX::java_util_Iterator * getEncodings() ;
+	virtual AndroidCXX::java_lang_String * getType() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+	java_security_cert_CertPath();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

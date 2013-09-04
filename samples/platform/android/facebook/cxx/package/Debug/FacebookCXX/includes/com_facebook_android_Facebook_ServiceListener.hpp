@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -32,9 +33,10 @@
 
 #include <android_os_Bundle.hpp>
 
-#include <com_facebook_android_FacebookError.hpp>
-
 #include <java_lang_Error.hpp>
+
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -53,23 +55,29 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
+
 class com_facebook_android_FacebookError;
 
-
-class com_facebook_android_Facebook_ServiceListener
+class com_facebook_android_Facebook_ServiceListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_android_Facebook_ServiceListener(const com_facebook_android_Facebook_ServiceListener& cc);
-	com_facebook_android_Facebook_ServiceListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_android_Facebook_ServiceListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_android_Facebook_ServiceListener();
 	// Functions
-	 void onComplete(AndroidCXX::android_os_Bundle const& arg0);
-	 void onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0);
-	 void onError(AndroidCXX::java_lang_Error const& arg0);
+	virtual void  onComplete(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual void  onError(AndroidCXX::java_lang_Error const& arg0) ;
+	virtual void  onFacebookError(FacebookCXX::com_facebook_android_FacebookError const& arg0) ;
+
+protected:
+	com_facebook_android_Facebook_ServiceListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

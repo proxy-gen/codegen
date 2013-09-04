@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -38,6 +39,11 @@
 
 #include <android_os_Parcel.hpp>
 
+
+#include <android_os_Parcelable.hpp>
+
+#include <android_text_InputType.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -60,22 +66,27 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_view_inputmethod_EditorInfo
+class android_view_inputmethod_EditorInfo : public AndroidCXX::android_os_Parcelable,public AndroidCXX::android_text_InputType
 {
 public:
 
+	// Public Constructor
+	android_view_inputmethod_EditorInfo(Proxy * aProxy = new Proxy());
 	android_view_inputmethod_EditorInfo(const android_view_inputmethod_EditorInfo& cc);
-	android_view_inputmethod_EditorInfo(Proxy proxy);
-	// Public Constructors
-	android_view_inputmethod_EditorInfo();
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_EditorInfo();
 	// Functions
-	 void dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1);
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 void makeCompatible(int const& arg0);
+	virtual int  describeContents() ;
+	virtual void  dump(AndroidCXX::android_util_Printer const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  makeCompatible(int const& arg0) ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -32,6 +33,7 @@
 
 #include <android_os_Parcel.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -52,19 +54,25 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_widget_TextView_SavedState
+class android_widget_TextView_SavedState 
 {
 public:
 
+	// Public Constructor
 	android_widget_TextView_SavedState(const android_widget_TextView_SavedState& cc);
-	android_widget_TextView_SavedState(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_TextView_SavedState(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TextView_SavedState();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

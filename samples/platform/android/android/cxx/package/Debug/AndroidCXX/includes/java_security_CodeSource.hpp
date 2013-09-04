@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,14 +8,15 @@
 //
 
 
- 		 
-	
-	
- 	
- 		 
+
  		 
  	
  		 
+ 	
+ 		 
+	
+ 		 
+	
 
 
  		 
@@ -49,14 +50,16 @@
 
 #include <java_lang_Object.hpp>
 
-#include <java_lang_String.hpp>
+#include <java_security_cert_Certificate.hpp>
+
+#include <java_security_CodeSigner.hpp>
 
 #include <java_net_URL.hpp>
 
-#include <java_security_cert_Certificate.hpp>
+#include <java_lang_String.hpp>
 
 
-#include <java_security_CodeSigner.hpp>
+#include <java_io_Serializable.hpp>
 
 #include <vector>
 #include <map>
@@ -76,36 +79,41 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_lang_String;
-
-class java_net_URL;
-
 class java_security_cert_Certificate;
-
-class java_security_CodeSource;
 
 class java_security_CodeSigner;
 
-class java_security_CodeSource
+class java_net_URL;
+
+
+class java_lang_String;
+
+class java_security_CodeSource : public AndroidCXX::java_io_Serializable
 {
 public:
 
+	// Public Constructor
+	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_CodeSigner> const& arg1,Proxy * aProxy = new Proxy());
+	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_cert_Certificate> const& arg1,Proxy * aProxy = new Proxy());
 	java_security_CodeSource(const java_security_CodeSource& cc);
-	java_security_CodeSource(Proxy proxy);
-	// Public Constructors
-	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_CodeSigner > const& arg1);
-	java_security_CodeSource(AndroidCXX::java_net_URL const& arg0,std::vector<AndroidCXX::java_security_cert_Certificate > const& arg1);
-	Proxy proxy() const;	
+	java_security_CodeSource(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_CodeSource();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_net_URL getLocation();
-	 std::vector<AndroidCXX::java_security_cert_Certificate > getCertificates();
-	 bool implies(AndroidCXX::java_security_CodeSource const& arg0);
-	 std::vector<AndroidCXX::java_security_CodeSigner > getCodeSigners();
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual std::vector<AndroidCXX::java_security_cert_Certificate>  getCertificates() ;
+	virtual std::vector<AndroidCXX::java_security_CodeSigner>  getCodeSigners() ;
+	virtual AndroidCXX::java_net_URL * getLocation() ;
+	virtual int  hashCode() ;
+	virtual bool  implies(AndroidCXX::java_security_CodeSource const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

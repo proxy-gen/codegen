@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_animation_TimeInterpolator
+class android_animation_TimeInterpolator : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_animation_TimeInterpolator(const android_animation_TimeInterpolator& cc);
-	android_animation_TimeInterpolator(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_animation_TimeInterpolator(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_animation_TimeInterpolator();
 	// Functions
-	 float getInterpolation(float const& arg0);
+	virtual float  getInterpolation(float const& arg0) ;
+
+protected:
+	android_animation_TimeInterpolator();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

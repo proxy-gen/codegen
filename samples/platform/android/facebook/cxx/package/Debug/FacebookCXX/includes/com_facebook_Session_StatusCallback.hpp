@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,11 +29,12 @@
 //
 
 
-#include <com_facebook_Session.hpp>
-
 #include <com_facebook_SessionState.hpp>
 
 #include <java_lang_Exception.hpp>
+
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -54,19 +56,26 @@ class com_facebook_Session;
 
 
 
-class com_facebook_Session_StatusCallback
+class com_facebook_Session_StatusCallback : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
 	com_facebook_Session_StatusCallback(const com_facebook_Session_StatusCallback& cc);
-	com_facebook_Session_StatusCallback(Proxy proxy);
-	// Public Constructors
-	com_facebook_Session_StatusCallback();
-	Proxy proxy() const;	
+	com_facebook_Session_StatusCallback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_Session_StatusCallback();
 	// Functions
-	virtual void call(FacebookCXX::com_facebook_Session const& arg0,com_facebook_SessionState::com_facebook_SessionState const& arg1,AndroidCXX::java_lang_Exception const& arg2);
+	virtual void  call(FacebookCXX::com_facebook_Session const& arg0,com_facebook_SessionState::com_facebook_SessionState const& arg1,AndroidCXX::java_lang_Exception const& arg2) ;
+
+protected:
+	void setCXXCallbackPtr(void * callbackPtr);
+	com_facebook_Session_StatusCallback();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

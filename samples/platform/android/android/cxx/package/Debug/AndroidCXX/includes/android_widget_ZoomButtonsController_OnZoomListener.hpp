@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -26,6 +27,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,19 +46,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_ZoomButtonsController_OnZoomListener
+class android_widget_ZoomButtonsController_OnZoomListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_ZoomButtonsController_OnZoomListener(const android_widget_ZoomButtonsController_OnZoomListener& cc);
-	android_widget_ZoomButtonsController_OnZoomListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_ZoomButtonsController_OnZoomListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ZoomButtonsController_OnZoomListener();
 	// Functions
-	 void onVisibilityChanged(bool const& arg0);
-	 void onZoom(bool const& arg0);
+	virtual void  onVisibilityChanged(bool const& arg0) ;
+	virtual void  onZoom(bool const& arg0) ;
+
+protected:
+	android_widget_ZoomButtonsController_OnZoomListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

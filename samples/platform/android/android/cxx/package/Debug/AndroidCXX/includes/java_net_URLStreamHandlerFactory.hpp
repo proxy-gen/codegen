@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,8 @@
 //
 
 
-#include <java_lang_String.hpp>
 
-#include <java_net_URLStreamHandler.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +51,24 @@ class java_lang_String;
 
 class java_net_URLStreamHandler;
 
-class java_net_URLStreamHandlerFactory
+class java_net_URLStreamHandlerFactory : public AndroidCXX::java_lang_Object
 {
 public:
 
 	java_net_URLStreamHandlerFactory(const java_net_URLStreamHandlerFactory& cc);
-	java_net_URLStreamHandlerFactory(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_net_URLStreamHandlerFactory(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_URLStreamHandlerFactory();
 	// Functions
-	 AndroidCXX::java_net_URLStreamHandler createURLStreamHandler(AndroidCXX::java_lang_String const& arg0);
+	virtual AndroidCXX::java_net_URLStreamHandler * createURLStreamHandler(AndroidCXX::java_lang_String const& arg0) ;
+
+protected:
+	java_net_URLStreamHandlerFactory();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

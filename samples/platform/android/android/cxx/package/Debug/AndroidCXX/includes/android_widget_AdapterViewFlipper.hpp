@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -55,6 +56,9 @@
 
 #include <android_util_AttributeSet.hpp>
 
+
+#include <android_widget_AdapterViewAnimator.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -81,32 +85,38 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_AdapterViewFlipper
+class android_widget_AdapterViewFlipper : public AndroidCXX::android_widget_AdapterViewAnimator
 {
 public:
 
+	// Public Constructor
+	android_widget_AdapterViewFlipper(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_AdapterViewFlipper(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
 	android_widget_AdapterViewFlipper(const android_widget_AdapterViewFlipper& cc);
-	android_widget_AdapterViewFlipper(Proxy proxy);
-	// Public Constructors
-	android_widget_AdapterViewFlipper(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_AdapterViewFlipper(AndroidCXX::android_content_Context const& arg0);
-	Proxy proxy() const;	
+	android_widget_AdapterViewFlipper(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AdapterViewFlipper();
 	// Functions
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
-	 void setAdapter(AndroidCXX::android_widget_Adapter const& arg0);
-	 void fyiWillBeAdvancedByHostKThx();
-	 void showNext();
-	 void showPrevious();
-	 int getFlipInterval();
-	 void setFlipInterval(int const& arg0);
-	 void startFlipping();
-	 void stopFlipping();
-	 bool isFlipping();
-	 void setAutoStart(bool const& arg0);
-	 bool isAutoStart();
+	virtual void  fyiWillBeAdvancedByHostKThx() ;
+	virtual int  getFlipInterval() ;
+	virtual bool  isAutoStart() ;
+	virtual bool  isFlipping() ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  setAdapter(AndroidCXX::android_widget_Adapter const& arg0) ;
+	virtual void  setAutoStart(bool const& arg0) ;
+	virtual void  setFlipInterval(int const& arg0) ;
+	virtual void  showNext() ;
+	virtual void  showPrevious() ;
+	virtual void  startFlipping() ;
+	virtual void  stopFlipping() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

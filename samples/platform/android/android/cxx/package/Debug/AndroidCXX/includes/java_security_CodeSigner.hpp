@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -38,11 +39,14 @@
 
 #include <java_lang_Object.hpp>
 
-#include <java_lang_String.hpp>
-
 #include <java_security_cert_CertPath.hpp>
 
 #include <java_security_Timestamp.hpp>
+
+#include <java_lang_String.hpp>
+
+
+#include <java_io_Serializable.hpp>
 
 #include <vector>
 #include <map>
@@ -62,29 +66,35 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_lang_String;
-
 class java_security_cert_CertPath;
 
 class java_security_Timestamp;
 
-class java_security_CodeSigner
+class java_lang_String;
+
+class java_security_CodeSigner : public AndroidCXX::java_io_Serializable
 {
 public:
 
+	// Public Constructor
+	java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath const& arg0,AndroidCXX::java_security_Timestamp const& arg1,Proxy * aProxy = new Proxy());
 	java_security_CodeSigner(const java_security_CodeSigner& cc);
-	java_security_CodeSigner(Proxy proxy);
-	// Public Constructors
-	java_security_CodeSigner(AndroidCXX::java_security_cert_CertPath const& arg0,AndroidCXX::java_security_Timestamp const& arg1);
-	Proxy proxy() const;	
+	java_security_CodeSigner(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_CodeSigner();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_security_cert_CertPath getSignerCertPath();
-	 AndroidCXX::java_security_Timestamp getTimestamp();
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_security_cert_CertPath * getSignerCertPath() ;
+	virtual AndroidCXX::java_security_Timestamp * getTimestamp() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

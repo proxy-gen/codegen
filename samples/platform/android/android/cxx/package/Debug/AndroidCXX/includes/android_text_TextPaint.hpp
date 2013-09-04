@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -30,8 +31,8 @@
 //
 
 
-
 #include <android_graphics_Paint.hpp>
+
 
 #include <vector>
 #include <map>
@@ -49,25 +50,29 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_text_TextPaint;
 
 class android_graphics_Paint;
 
-class android_text_TextPaint
+class android_text_TextPaint 
 {
 public:
 
+	// Public Constructor
+	android_text_TextPaint(Proxy * aProxy = new Proxy());
+	android_text_TextPaint(AndroidCXX::android_graphics_Paint const& arg0,Proxy * aProxy = new Proxy());
+	android_text_TextPaint(int const& arg0,Proxy * aProxy = new Proxy());
 	android_text_TextPaint(const android_text_TextPaint& cc);
-	android_text_TextPaint(Proxy proxy);
-	// Public Constructors
-	android_text_TextPaint();
-	android_text_TextPaint(int const& arg0);
-	android_text_TextPaint(AndroidCXX::android_graphics_Paint const& arg0);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_text_TextPaint();
 	// Functions
-	 void set(AndroidCXX::android_text_TextPaint const& arg0);
+	virtual void  set(AndroidCXX::android_text_TextPaint const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <android_media_MediaPlayer.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class android_media_MediaPlayer;
 
-class android_media_MediaPlayer_OnBufferingUpdateListener
+class android_media_MediaPlayer_OnBufferingUpdateListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_media_MediaPlayer_OnBufferingUpdateListener(const android_media_MediaPlayer_OnBufferingUpdateListener& cc);
-	android_media_MediaPlayer_OnBufferingUpdateListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_media_MediaPlayer_OnBufferingUpdateListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_OnBufferingUpdateListener();
 	// Functions
-	 void onBufferingUpdate(AndroidCXX::android_media_MediaPlayer const& arg0,int const& arg1);
+	virtual void  onBufferingUpdate(AndroidCXX::android_media_MediaPlayer const& arg0,int const& arg1) ;
+
+protected:
+	android_media_MediaPlayer_OnBufferingUpdateListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -28,7 +29,6 @@
 //
 
 
-#include <com_facebook_model_GraphObjectList.hpp>
 
 #include <com_facebook_model_GraphObject.hpp>
 
@@ -50,20 +50,25 @@ namespace FacebookCXX {
 
 class com_facebook_model_GraphObjectList;
 
-class com_facebook_model_GraphObject;
 
-class com_facebook_model_GraphMultiResult
+class com_facebook_model_GraphMultiResult : public FacebookCXX::com_facebook_model_GraphObject
 {
 public:
 
 	com_facebook_model_GraphMultiResult(const com_facebook_model_GraphMultiResult& cc);
-	com_facebook_model_GraphMultiResult(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_model_GraphMultiResult(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphMultiResult();
 	// Functions
-	 FacebookCXX::com_facebook_model_GraphObjectList getData();
+	virtual FacebookCXX::com_facebook_model_GraphObjectList * getData() ;
+
+protected:
+	com_facebook_model_GraphMultiResult();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

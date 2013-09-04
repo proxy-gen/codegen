@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,23 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_animation_LayoutAnimationController_AnimationParameters
+class android_view_animation_LayoutAnimationController_AnimationParameters : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	android_view_animation_LayoutAnimationController_AnimationParameters(Proxy * aProxy = new Proxy());
 	android_view_animation_LayoutAnimationController_AnimationParameters(const android_view_animation_LayoutAnimationController_AnimationParameters& cc);
-	android_view_animation_LayoutAnimationController_AnimationParameters(Proxy proxy);
-	// Public Constructors
-	android_view_animation_LayoutAnimationController_AnimationParameters();
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_LayoutAnimationController_AnimationParameters();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

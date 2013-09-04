@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -26,6 +27,7 @@
 //
 
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,19 +44,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_webkit_SslErrorHandler
+class android_webkit_SslErrorHandler 
 {
 public:
 
+	// Public Constructor
 	android_webkit_SslErrorHandler(const android_webkit_SslErrorHandler& cc);
-	android_webkit_SslErrorHandler(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_webkit_SslErrorHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_SslErrorHandler();
 	// Functions
-	 void cancel();
-	 void proceed();
+	virtual void  cancel() ;
+	virtual void  proceed() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

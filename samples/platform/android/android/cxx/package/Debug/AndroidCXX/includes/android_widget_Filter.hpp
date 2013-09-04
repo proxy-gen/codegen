@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,11 +8,12 @@
 //
 
 
- 		 
- 		 
- 		 
+
  		 
 	
+ 		 
+ 		 
+ 		 
 
 
 
@@ -33,9 +34,6 @@
 //
 
 
-#include <java_lang_CharSequence.hpp>
-
-#include <android_widget_Filter_FilterListener.hpp>
 
 #include <java_lang_Object.hpp>
 
@@ -55,27 +53,31 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+
 class java_lang_CharSequence;
 
 class android_widget_Filter_FilterListener;
 
-class java_lang_Object;
-
-class android_widget_Filter
+class android_widget_Filter : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_Filter(const android_widget_Filter& cc);
-	android_widget_Filter(Proxy proxy);
-	// Public Constructors
-	android_widget_Filter();
-	Proxy proxy() const;	
+	android_widget_Filter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_Filter();
 	// Functions
-	 void filter(AndroidCXX::java_lang_CharSequence const& arg0);
-	 void filter(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_widget_Filter_FilterListener const& arg1);
-	 AndroidCXX::java_lang_CharSequence convertResultToString(AndroidCXX::java_lang_Object const& arg0);
+	virtual AndroidCXX::java_lang_CharSequence * convertResultToString(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  filter(AndroidCXX::java_lang_CharSequence const& arg0,AndroidCXX::android_widget_Filter_FilterListener const& arg1) ;
+	virtual void  filter(AndroidCXX::java_lang_CharSequence const& arg0) ;
+
+protected:
+	android_widget_Filter();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

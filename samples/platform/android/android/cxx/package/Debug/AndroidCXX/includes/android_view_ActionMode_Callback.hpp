@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -35,11 +36,8 @@
 //
 
 
-#include <android_view_ActionMode.hpp>
 
-#include <android_view_Menu.hpp>
-
-#include <android_view_MenuItem.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -59,25 +57,31 @@ namespace AndroidCXX {
 
 class android_view_ActionMode;
 
-class android_view_Menu;
-
 class android_view_MenuItem;
 
-class android_view_ActionMode_Callback
+class android_view_Menu;
+
+class android_view_ActionMode_Callback : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_ActionMode_Callback(const android_view_ActionMode_Callback& cc);
-	android_view_ActionMode_Callback(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_ActionMode_Callback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ActionMode_Callback();
 	// Functions
-	 bool onCreateActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1);
-	 bool onPrepareActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1);
-	 bool onActionItemClicked(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_MenuItem const& arg1);
-	 void onDestroyActionMode(AndroidCXX::android_view_ActionMode const& arg0);
+	virtual bool  onActionItemClicked(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_MenuItem const& arg1) ;
+	virtual bool  onCreateActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1) ;
+	virtual void  onDestroyActionMode(AndroidCXX::android_view_ActionMode const& arg0) ;
+	virtual bool  onPrepareActionMode(AndroidCXX::android_view_ActionMode const& arg0,AndroidCXX::android_view_Menu const& arg1) ;
+
+protected:
+	android_view_ActionMode_Callback();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

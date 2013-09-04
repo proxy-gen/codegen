@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,11 +8,12 @@
 //
 
 
+
+	
+	
+	
 	
  		 
-	
-	
-	
 
 
 
@@ -39,15 +40,18 @@
 //
 
 
-#include <java_lang_String.hpp>
-
-#include <android_os_Parcel.hpp>
-
 #include <android_content_ClipData.hpp>
 
 #include <android_content_ClipDescription.hpp>
 
 #include <java_lang_Object.hpp>
+
+#include <java_lang_String.hpp>
+
+#include <android_os_Parcel.hpp>
+
+
+#include <android_os_Parcelable.hpp>
 
 #include <vector>
 #include <map>
@@ -65,37 +69,43 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
-class android_os_Parcel;
-
 class android_content_ClipData;
 
 class android_content_ClipDescription;
 
 class java_lang_Object;
 
-class android_view_DragEvent
+class java_lang_String;
+
+class android_os_Parcel;
+
+class android_view_DragEvent : public AndroidCXX::android_os_Parcelable
 {
 public:
 
+	// Public Constructor
 	android_view_DragEvent(const android_view_DragEvent& cc);
-	android_view_DragEvent(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_DragEvent(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_DragEvent();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 float getY();
-	 float getX();
-	 bool getResult();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 int getAction();
-	 AndroidCXX::android_content_ClipData getClipData();
-	 AndroidCXX::android_content_ClipDescription getClipDescription();
-	 AndroidCXX::java_lang_Object getLocalState();
+	virtual int  describeContents() ;
+	virtual int  getAction() ;
+	virtual AndroidCXX::android_content_ClipData * getClipData() ;
+	virtual AndroidCXX::android_content_ClipDescription * getClipDescription() ;
+	virtual AndroidCXX::java_lang_Object * getLocalState() ;
+	virtual bool  getResult() ;
+	virtual float  getX() ;
+	virtual float  getY() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

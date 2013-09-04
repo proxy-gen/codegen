@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -28,6 +29,7 @@
 
 #include <java_lang_String.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class org_json_JSONException
+class org_json_JSONException 
 {
 public:
 
+	// Public Constructor
+	org_json_JSONException(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
 	org_json_JSONException(const org_json_JSONException& cc);
-	org_json_JSONException(Proxy proxy);
-	// Public Constructors
-	org_json_JSONException(AndroidCXX::java_lang_String const& arg0);
-	Proxy proxy() const;	
+	org_json_JSONException(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~org_json_JSONException();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

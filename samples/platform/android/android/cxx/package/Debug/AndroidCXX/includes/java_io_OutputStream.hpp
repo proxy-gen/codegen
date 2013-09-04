@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  	
@@ -32,6 +33,11 @@
 //
 
 
+
+#include <java_io_Closeable.hpp>
+
+#include <java_io_Flushable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -48,23 +54,28 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_io_OutputStream
+class java_io_OutputStream : public AndroidCXX::java_io_Closeable,public AndroidCXX::java_io_Flushable
 {
 public:
 
 	java_io_OutputStream(const java_io_OutputStream& cc);
-	java_io_OutputStream(Proxy proxy);
-	// Public Constructors
-	java_io_OutputStream();
-	Proxy proxy() const;	
+	java_io_OutputStream(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_OutputStream();
 	// Functions
-	 void write(int const& arg0);
-	 void write(std::vector<byte> const& arg0);
-	 void write(std::vector<byte> const& arg0,int const& arg1,int const& arg2);
-	 void flush();
-	 void close();
+	virtual void  close() ;
+	virtual void  flush() ;
+	virtual void  write(std::vector<byte> const& arg0,int const& arg1,int const& arg2) ;
+	virtual void  write(std::vector<byte> const& arg0) ;
+	virtual void  write(int const& arg0) ;
+
+protected:
+	java_io_OutputStream();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

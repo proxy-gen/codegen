@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,13 +8,14 @@
 //
 
 
+
  		 
+ 		 
+	
 	
  		 
  		 
  		 
- 		 
-	
 
 
  		 
@@ -42,10 +43,12 @@
 
 #include <java_lang_Object.hpp>
 
-#include <java_lang_String.hpp>
-
 #include <android_os_Parcel.hpp>
 
+#include <java_lang_String.hpp>
+
+
+#include <android_os_Parcelable.hpp>
 
 #include <vector>
 #include <map>
@@ -65,31 +68,36 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_lang_String;
-
 class android_os_Parcel;
 
-class android_os_UserHandle;
 
-class android_os_UserHandle
+class java_lang_String;
+
+class android_os_UserHandle : public AndroidCXX::android_os_Parcelable
 {
 public:
 
+	// Public Constructor
+	android_os_UserHandle(AndroidCXX::android_os_Parcel const& arg0,Proxy * aProxy = new Proxy());
 	android_os_UserHandle(const android_os_UserHandle& cc);
-	android_os_UserHandle(Proxy proxy);
-	// Public Constructors
-	android_os_UserHandle(AndroidCXX::android_os_Parcel const& arg0);
-	Proxy proxy() const;	
+	android_os_UserHandle(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_UserHandle();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	static void writeToParcel(AndroidCXX::android_os_UserHandle const& arg0,AndroidCXX::android_os_Parcel const& arg1);
-	static AndroidCXX::android_os_UserHandle readFromParcel(AndroidCXX::android_os_Parcel const& arg0);
+	virtual int  describeContents() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	static AndroidCXX::android_os_UserHandle * readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+	static void  writeToParcel(AndroidCXX::android_os_UserHandle const& arg0,AndroidCXX::android_os_Parcel const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

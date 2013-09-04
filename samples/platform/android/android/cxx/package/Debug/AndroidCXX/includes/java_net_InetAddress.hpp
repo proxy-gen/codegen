@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,22 +8,23 @@
 //
 
 
+
  		 
-	
  	
-	
-	
  		 
-	
+ 	
  		 
-	
  	
 	
  		 
  	
 	
  		 
- 	
+	
+	
+	
+	
+	
  		 
 	
 
@@ -70,8 +71,10 @@
 
 #include <java_lang_String.hpp>
 
-
 #include <java_net_NetworkInterface.hpp>
+
+
+#include <java_io_Serializable.hpp>
 
 #include <vector>
 #include <map>
@@ -93,45 +96,50 @@ class java_lang_Object;
 
 class java_lang_String;
 
-class java_net_InetAddress;
 
 class java_net_NetworkInterface;
 
-class java_net_InetAddress
+class java_net_InetAddress : public AndroidCXX::java_io_Serializable
 {
 public:
 
+	// Public Constructor
 	java_net_InetAddress(const java_net_InetAddress& cc);
-	java_net_InetAddress(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_net_InetAddress(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_InetAddress();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 std::vector<byte> getAddress();
-	 AndroidCXX::java_lang_String getHostName();
-	 AndroidCXX::java_lang_String getHostAddress();
-	static AndroidCXX::java_net_InetAddress getByName(AndroidCXX::java_lang_String const& arg0);
-	 bool isMulticastAddress();
-	 bool isAnyLocalAddress();
-	 bool isLoopbackAddress();
-	 bool isLinkLocalAddress();
-	 bool isSiteLocalAddress();
-	 bool isMCGlobal();
-	 bool isMCNodeLocal();
-	 bool isMCLinkLocal();
-	 bool isMCSiteLocal();
-	 bool isMCOrgLocal();
-	 bool isReachable(AndroidCXX::java_net_NetworkInterface const& arg0,int const& arg1,int const& arg2);
-	 bool isReachable(int const& arg0);
-	 AndroidCXX::java_lang_String getCanonicalHostName();
-	static AndroidCXX::java_net_InetAddress getByAddress(std::vector<byte> const& arg0);
-	static AndroidCXX::java_net_InetAddress getByAddress(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1);
-	static std::vector<AndroidCXX::java_net_InetAddress > getAllByName(AndroidCXX::java_lang_String const& arg0);
-	static AndroidCXX::java_net_InetAddress getLocalHost();
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual std::vector<byte>  getAddress() ;
+	static std::vector<AndroidCXX::java_net_InetAddress>  getAllByName(AndroidCXX::java_lang_String const& arg0) ;
+	static AndroidCXX::java_net_InetAddress * getByAddress(std::vector<byte> const& arg0) ;
+	static AndroidCXX::java_net_InetAddress * getByAddress(AndroidCXX::java_lang_String const& arg0,std::vector<byte> const& arg1) ;
+	static AndroidCXX::java_net_InetAddress * getByName(AndroidCXX::java_lang_String const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getCanonicalHostName() ;
+	virtual AndroidCXX::java_lang_String * getHostAddress() ;
+	virtual AndroidCXX::java_lang_String * getHostName() ;
+	static AndroidCXX::java_net_InetAddress * getLocalHost() ;
+	virtual int  hashCode() ;
+	virtual bool  isAnyLocalAddress() ;
+	virtual bool  isLinkLocalAddress() ;
+	virtual bool  isLoopbackAddress() ;
+	virtual bool  isMCGlobal() ;
+	virtual bool  isMCLinkLocal() ;
+	virtual bool  isMCNodeLocal() ;
+	virtual bool  isMCOrgLocal() ;
+	virtual bool  isMCSiteLocal() ;
+	virtual bool  isMulticastAddress() ;
+	virtual bool  isReachable(int const& arg0) ;
+	virtual bool  isReachable(AndroidCXX::java_net_NetworkInterface const& arg0,int const& arg1,int const& arg2) ;
+	virtual bool  isSiteLocalAddress() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

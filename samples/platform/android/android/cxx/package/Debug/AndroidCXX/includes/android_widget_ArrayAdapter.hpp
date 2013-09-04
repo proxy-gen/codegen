@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,37 +8,38 @@
 //
 
 
- 		 
- 		 
+
  	
- 		 
- 	
- 		 
- 		 
-	
  		 
  		 
  	
  		 
  		 
  		 
+	
+ 	
+ 		 
+	
+ 		 
  		 
 	
 	
 	
  		 
  		 
-	
  		 
 	
+ 		 
+ 		 
+ 		 
  	
  		 
 
 
  		 
  		 
- 		 
  	
+ 		 
  		 
  		 
  	
@@ -96,7 +97,7 @@
 
 #include <android_content_Context.hpp>
 
-#include <java_util_Comparator.hpp>
+#include <java_lang_CharSequence.hpp>
 
 #include <android_view_View.hpp>
 
@@ -104,10 +105,14 @@
 
 #include <android_widget_Filter.hpp>
 
-
-#include <java_lang_CharSequence.hpp>
+#include <java_util_Comparator.hpp>
 
 #include <java_util_List.hpp>
+
+
+#include <android_widget_BaseAdapter.hpp>
+
+#include <android_widget_Filterable.hpp>
 
 #include <vector>
 #include <map>
@@ -131,7 +136,8 @@ class java_util_Collection;
 
 class android_content_Context;
 
-class java_util_Comparator;
+
+class java_lang_CharSequence;
 
 class android_view_View;
 
@@ -139,48 +145,52 @@ class android_view_ViewGroup;
 
 class android_widget_Filter;
 
-class android_widget_ArrayAdapter;
-
-class java_lang_CharSequence;
+class java_util_Comparator;
 
 class java_util_List;
 
-class android_widget_ArrayAdapter
+class android_widget_ArrayAdapter : public AndroidCXX::android_widget_BaseAdapter,public AndroidCXX::android_widget_Filterable
 {
 public:
 
+	// Public Constructor
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,std::vector<AndroidCXX::java_lang_Object> const& arg2,Proxy * aProxy = new Proxy());
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_Object> const& arg3,Proxy * aProxy = new Proxy());
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_util_List const& arg3,Proxy * aProxy = new Proxy());
+	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::java_util_List const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_ArrayAdapter(const android_widget_ArrayAdapter& cc);
-	android_widget_ArrayAdapter(Proxy proxy);
-	// Public Constructors
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2,std::vector<AndroidCXX::java_lang_Object > const& arg3);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,AndroidCXX::java_util_List const& arg2);
-	android_widget_ArrayAdapter(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2,AndroidCXX::java_util_List const& arg3);
-	Proxy proxy() const;	
+	android_widget_ArrayAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_ArrayAdapter();
 	// Functions
-	 void add(AndroidCXX::java_lang_Object const& arg0);
-	 void clear();
-	 void addAll(AndroidCXX::java_util_Collection const& arg0);
-	 void addAll(std::vector<AndroidCXX::java_lang_Object > const& arg0);
-	 void remove(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::android_content_Context getContext();
-	 void insert(AndroidCXX::java_lang_Object const& arg0,int const& arg1);
-	 void sort(AndroidCXX::java_util_Comparator const& arg0);
-	 int getPosition(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::android_view_View getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
-	 AndroidCXX::android_widget_Filter getFilter();
-	 AndroidCXX::java_lang_Object getItem(int const& arg0);
-	 long getItemId(int const& arg0);
-	 int getCount();
-	 AndroidCXX::android_view_View getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
-	 void notifyDataSetChanged();
-	 void setNotifyOnChange(bool const& arg0);
-	 void setDropDownViewResource(int const& arg0);
-	static AndroidCXX::android_widget_ArrayAdapter createFromResource(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2);
+	virtual void  addAll(std::vector<AndroidCXX::java_lang_Object> const& arg0) ;
+	virtual void  addAll(AndroidCXX::java_util_Collection const& arg0) ;
+	virtual void  add(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  clear() ;
+	static AndroidCXX::android_widget_ArrayAdapter * createFromResource(AndroidCXX::android_content_Context const& arg0,int const& arg1,int const& arg2) ;
+	virtual AndroidCXX::android_content_Context * getContext() ;
+	virtual int  getCount() ;
+	virtual AndroidCXX::android_view_View * getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
+	virtual AndroidCXX::android_widget_Filter * getFilter() ;
+	virtual long  getItemId(int const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * getItem(int const& arg0) ;
+	virtual int  getPosition(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::android_view_View * getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
+	virtual void  insert(AndroidCXX::java_lang_Object const& arg0,int const& arg1) ;
+	virtual void  notifyDataSetChanged() ;
+	virtual void  remove(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  setDropDownViewResource(int const& arg0) ;
+	virtual void  setNotifyOnChange(bool const& arg0) ;
+	virtual void  sort(AndroidCXX::java_util_Comparator const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

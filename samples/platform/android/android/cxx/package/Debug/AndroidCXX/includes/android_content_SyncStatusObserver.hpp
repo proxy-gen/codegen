@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_content_SyncStatusObserver
+class android_content_SyncStatusObserver : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_content_SyncStatusObserver(const android_content_SyncStatusObserver& cc);
-	android_content_SyncStatusObserver(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_content_SyncStatusObserver(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_SyncStatusObserver();
 	// Functions
-	 void onStatusChanged(int const& arg0);
+	virtual void  onStatusChanged(int const& arg0) ;
+
+protected:
+	android_content_SyncStatusObserver();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

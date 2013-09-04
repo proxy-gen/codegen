@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,35 +8,36 @@
 //
 
 
- 		 
- 		 
-	
-	
-	
- 		 
- 		 
-	
- 		 
-	
-	
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
-	
+
  		 
  		 
  		 
  		 
  		 
 	
+	
+ 		 
  		 
 	
 	
+	
+	
  		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+	
+ 		 
+ 		 
+	
 
 
  		 
@@ -79,21 +80,10 @@
 //
 
 
-#include <android_view_View.hpp>
 
-#include <android_view_ViewGroup.hpp>
+#include <android_widget_BaseAdapter.hpp>
 
-#include <android_widget_Filter.hpp>
-
-#include <java_lang_Object.hpp>
-
-#include <android_database_Cursor.hpp>
-
-#include <java_lang_CharSequence.hpp>
-
-#include <android_content_Context.hpp>
-
-#include <android_widget_FilterQueryProvider.hpp>
+#include <android_widget_Filterable.hpp>
 
 #include <vector>
 #include <map>
@@ -113,51 +103,54 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_view_ViewGroup;
-
-class android_widget_Filter;
-
-class java_lang_Object;
+class android_content_Context;
 
 class android_database_Cursor;
 
 class java_lang_CharSequence;
 
-class android_content_Context;
+class android_view_ViewGroup;
 
 class android_widget_FilterQueryProvider;
 
-class android_widget_CursorAdapter
+class android_widget_Filter;
+
+class java_lang_Object;
+
+class android_widget_CursorAdapter : public AndroidCXX::android_widget_BaseAdapter,public AndroidCXX::android_widget_Filterable
 {
 public:
 
 	android_widget_CursorAdapter(const android_widget_CursorAdapter& cc);
-	android_widget_CursorAdapter(Proxy proxy);
-	// Public Constructors
-	android_widget_CursorAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,bool const& arg2);
-	android_widget_CursorAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,int const& arg2);
-	android_widget_CursorAdapter(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1);
-	Proxy proxy() const;	
+	android_widget_CursorAdapter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_CursorAdapter();
 	// Functions
-	 AndroidCXX::android_view_View getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
-	 AndroidCXX::android_widget_Filter getFilter();
-	 AndroidCXX::java_lang_Object getItem(int const& arg0);
-	 long getItemId(int const& arg0);
-	 int getCount();
-	 AndroidCXX::android_view_View getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
-	 bool hasStableIds();
-	 AndroidCXX::java_lang_CharSequence convertToString(AndroidCXX::android_database_Cursor const& arg0);
-	 AndroidCXX::android_database_Cursor getCursor();
-	 AndroidCXX::android_view_View newView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
-	 AndroidCXX::android_view_View newDropDownView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,AndroidCXX::android_view_ViewGroup const& arg2);
-	 void bindView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_database_Cursor const& arg2);
-	 void changeCursor(AndroidCXX::android_database_Cursor const& arg0);
-	 AndroidCXX::android_database_Cursor swapCursor(AndroidCXX::android_database_Cursor const& arg0);
-	 AndroidCXX::android_database_Cursor runQueryOnBackgroundThread(AndroidCXX::java_lang_CharSequence const& arg0);
-	 AndroidCXX::android_widget_FilterQueryProvider getFilterQueryProvider();
-	 void setFilterQueryProvider(AndroidCXX::android_widget_FilterQueryProvider const& arg0);
+	virtual void  bindView(AndroidCXX::android_view_View const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::android_database_Cursor const& arg2) ;
+	virtual void  changeCursor(AndroidCXX::android_database_Cursor const& arg0) ;
+	virtual AndroidCXX::java_lang_CharSequence * convertToString(AndroidCXX::android_database_Cursor const& arg0) ;
+	virtual int  getCount() ;
+	virtual AndroidCXX::android_database_Cursor * getCursor() ;
+	virtual AndroidCXX::android_view_View * getDropDownView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
+	virtual AndroidCXX::android_widget_FilterQueryProvider * getFilterQueryProvider() ;
+	virtual AndroidCXX::android_widget_Filter * getFilter() ;
+	virtual long  getItemId(int const& arg0) ;
+	virtual AndroidCXX::java_lang_Object * getItem(int const& arg0) ;
+	virtual AndroidCXX::android_view_View * getView(int const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
+	virtual bool  hasStableIds() ;
+	virtual AndroidCXX::android_view_View * newDropDownView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
+	virtual AndroidCXX::android_view_View * newView(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_database_Cursor const& arg1,AndroidCXX::android_view_ViewGroup const& arg2) ;
+	virtual AndroidCXX::android_database_Cursor * runQueryOnBackgroundThread(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  setFilterQueryProvider(AndroidCXX::android_widget_FilterQueryProvider const& arg0) ;
+	virtual AndroidCXX::android_database_Cursor * swapCursor(AndroidCXX::android_database_Cursor const& arg0) ;
+
+protected:
+	android_widget_CursorAdapter();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

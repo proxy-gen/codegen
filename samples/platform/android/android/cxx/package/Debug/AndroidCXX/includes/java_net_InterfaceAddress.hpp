@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -36,9 +37,10 @@
 
 #include <java_lang_Object.hpp>
 
+#include <java_net_InetAddress.hpp>
+
 #include <java_lang_String.hpp>
 
-#include <java_net_InetAddress.hpp>
 
 #include <vector>
 #include <map>
@@ -56,29 +58,34 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
-
-class java_lang_String;
 
 class java_net_InetAddress;
 
-class java_net_InterfaceAddress
+class java_lang_String;
+
+class java_net_InterfaceAddress : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
 	java_net_InterfaceAddress(const java_net_InterfaceAddress& cc);
-	java_net_InterfaceAddress(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_net_InterfaceAddress(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_InterfaceAddress();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_net_InetAddress getAddress();
-	 AndroidCXX::java_net_InetAddress getBroadcast();
-	 short getNetworkPrefixLength();
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_net_InetAddress * getAddress() ;
+	virtual AndroidCXX::java_net_InetAddress * getBroadcast() ;
+	virtual short  getNetworkPrefixLength() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

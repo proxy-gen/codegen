@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,14 +8,15 @@
 //
 
 
+
  		 
-	
-	
  	
- 		 
- 		 
- 		 
 	
+	
+	
+ 		 
+ 		 
+ 		 
 
 
 
@@ -40,11 +41,8 @@
 //
 
 
-#include <java_lang_Object.hpp>
 
-#include <java_lang_String.hpp>
-
-#include <java_security_PublicKey.hpp>
+#include <java_io_Serializable.hpp>
 
 #include <vector>
 #include <map>
@@ -64,29 +62,35 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_lang_String;
-
 class java_security_PublicKey;
 
-class java_security_cert_Certificate
+class java_lang_String;
+
+class java_security_cert_Certificate : public AndroidCXX::java_io_Serializable
 {
 public:
 
 	java_security_cert_Certificate(const java_security_cert_Certificate& cc);
-	java_security_cert_Certificate(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_security_cert_Certificate(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_cert_Certificate();
 	// Functions
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_lang_String getType();
-	 std::vector<byte> getEncoded();
-	 void verify(AndroidCXX::java_security_PublicKey const& arg0);
-	 void verify(AndroidCXX::java_security_PublicKey const& arg0,AndroidCXX::java_lang_String const& arg1);
-	 AndroidCXX::java_security_PublicKey getPublicKey();
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual std::vector<byte>  getEncoded() ;
+	virtual AndroidCXX::java_security_PublicKey * getPublicKey() ;
+	virtual AndroidCXX::java_lang_String * getType() ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  verify(AndroidCXX::java_security_PublicKey const& arg0,AndroidCXX::java_lang_String const& arg1) ;
+	virtual void  verify(AndroidCXX::java_security_PublicKey const& arg0) ;
+
+protected:
+	java_security_cert_Certificate();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -30,6 +31,8 @@
 
 
 
+#include <java_nio_ByteBuffer.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -46,22 +49,27 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_MappedByteBuffer;
 
-class java_nio_MappedByteBuffer
+class java_nio_MappedByteBuffer : public AndroidCXX::java_nio_ByteBuffer
 {
 public:
 
 	java_nio_MappedByteBuffer(const java_nio_MappedByteBuffer& cc);
-	java_nio_MappedByteBuffer(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_nio_MappedByteBuffer(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_MappedByteBuffer();
 	// Functions
-	 AndroidCXX::java_nio_MappedByteBuffer load();
-	 bool isLoaded();
-	 AndroidCXX::java_nio_MappedByteBuffer force();
+	virtual AndroidCXX::java_nio_MappedByteBuffer * force() ;
+	virtual bool  isLoaded() ;
+	virtual AndroidCXX::java_nio_MappedByteBuffer * load() ;
+
+protected:
+	java_nio_MappedByteBuffer();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

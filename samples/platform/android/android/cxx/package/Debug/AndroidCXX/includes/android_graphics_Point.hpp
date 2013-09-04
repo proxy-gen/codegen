@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,9 +8,10 @@
 //
 
 
+
+ 		 
  		 
 	
- 		 
  		 
 
 
@@ -44,10 +45,12 @@
 
 #include <java_lang_Object.hpp>
 
-#include <java_lang_String.hpp>
-
 #include <android_os_Parcel.hpp>
 
+#include <java_lang_String.hpp>
+
+
+#include <android_os_Parcelable.hpp>
 
 #include <vector>
 #include <map>
@@ -67,35 +70,39 @@ namespace AndroidCXX {
 
 class java_lang_Object;
 
-class java_lang_String;
-
 class android_os_Parcel;
 
-class android_graphics_Point;
+class java_lang_String;
 
-class android_graphics_Point
+
+class android_graphics_Point : public AndroidCXX::android_os_Parcelable
 {
 public:
 
-	android_graphics_Point(Proxy proxy);
-	// Public Constructors
-	android_graphics_Point();
-	android_graphics_Point(int const& arg0,int const& arg1);
-	android_graphics_Point(AndroidCXX::android_graphics_Point const& arg0);
-	Proxy proxy() const;	
+	// Public Constructor
+	android_graphics_Point(Proxy * aProxy = new Proxy());
+	android_graphics_Point(AndroidCXX::android_graphics_Point const& arg0,Proxy * aProxy = new Proxy());
+	android_graphics_Point(int const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Point();
 	// Functions
-	 bool equals(int const& arg0,int const& arg1);
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 void offset(int const& arg0,int const& arg1);
-	 void set(int const& arg0,int const& arg1);
-	 void negate();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 void readFromParcel(AndroidCXX::android_os_Parcel const& arg0);
+	virtual int  describeContents() ;
+	virtual bool  equals(int const& arg0,int const& arg1) ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	virtual void  negate() ;
+	virtual void  offset(int const& arg0,int const& arg1) ;
+	virtual void  readFromParcel(AndroidCXX::android_os_Parcel const& arg0) ;
+	virtual void  set(int const& arg0,int const& arg1) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

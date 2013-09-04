@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,7 +29,6 @@
 //
 
 
-#include <android_content_Loader.hpp>
 
 #include <java_lang_Object.hpp>
 
@@ -50,20 +50,25 @@ namespace AndroidCXX {
 
 class android_content_Loader;
 
-class java_lang_Object;
 
-class android_content_Loader_OnLoadCanceledListener
+class android_content_Loader_OnLoadCanceledListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_content_Loader_OnLoadCanceledListener(const android_content_Loader_OnLoadCanceledListener& cc);
-	android_content_Loader_OnLoadCanceledListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_content_Loader_OnLoadCanceledListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_content_Loader_OnLoadCanceledListener();
 	// Functions
-	 void onLoadCanceled(AndroidCXX::android_content_Loader const& arg0);
+	virtual void  onLoadCanceled(AndroidCXX::android_content_Loader const& arg0) ;
+
+protected:
+	android_content_Loader_OnLoadCanceledListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

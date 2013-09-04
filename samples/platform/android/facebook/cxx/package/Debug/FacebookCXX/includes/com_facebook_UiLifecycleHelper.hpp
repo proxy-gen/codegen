@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -36,13 +37,16 @@
 //
 
 
-#include <android_os_Bundle.hpp>
-
 #include <android_content_Intent.hpp>
+
+#include <android_os_Bundle.hpp>
 
 #include <android_app_Activity.hpp>
 
 #include <com_facebook_Session_StatusCallback.hpp>
+
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -65,24 +69,30 @@ namespace FacebookCXX {
 
 class com_facebook_Session_StatusCallback;
 
-class com_facebook_UiLifecycleHelper
+class com_facebook_UiLifecycleHelper : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity const& arg0,FacebookCXX::com_facebook_Session_StatusCallback const& arg1,Proxy * aProxy = new Proxy());
 	com_facebook_UiLifecycleHelper(const com_facebook_UiLifecycleHelper& cc);
-	com_facebook_UiLifecycleHelper(Proxy proxy);
-	// Public Constructors
-	com_facebook_UiLifecycleHelper(AndroidCXX::android_app_Activity const& arg0,FacebookCXX::com_facebook_Session_StatusCallback const& arg1);
-	Proxy proxy() const;	
+	com_facebook_UiLifecycleHelper(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_UiLifecycleHelper();
 	// Functions
-	 void onCreate(AndroidCXX::android_os_Bundle const& arg0);
-	 void onResume();
-	 void onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0);
-	 void onPause();
-	 void onDestroy();
-	 void onActivityResult(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2);
+	virtual void  onActivityResult(int const& arg0,int const& arg1,AndroidCXX::android_content_Intent const& arg2) ;
+	virtual void  onCreate(AndroidCXX::android_os_Bundle const& arg0) ;
+	virtual void  onDestroy() ;
+	virtual void  onPause() ;
+	virtual void  onResume() ;
+	virtual void  onSaveInstanceState(AndroidCXX::android_os_Bundle const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

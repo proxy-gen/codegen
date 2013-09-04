@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <com_facebook_FacebookException.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace FacebookCXX {
 
 class com_facebook_FacebookException;
 
-class com_facebook_widget_LoginButton_OnErrorListener
+class com_facebook_widget_LoginButton_OnErrorListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_widget_LoginButton_OnErrorListener(const com_facebook_widget_LoginButton_OnErrorListener& cc);
-	com_facebook_widget_LoginButton_OnErrorListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_widget_LoginButton_OnErrorListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_widget_LoginButton_OnErrorListener();
 	// Functions
-	 void onError(FacebookCXX::com_facebook_FacebookException const& arg0);
+	virtual void  onError(FacebookCXX::com_facebook_FacebookException const& arg0) ;
+
+protected:
+	com_facebook_widget_LoginButton_OnErrorListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

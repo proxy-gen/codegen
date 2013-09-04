@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <java_nio_ByteBuffer.hpp>
+
+#include <java_nio_channels_Channel.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class java_nio_ByteBuffer;
 
-class java_nio_channels_WritableByteChannel
+class java_nio_channels_WritableByteChannel : public AndroidCXX::java_nio_channels_Channel
 {
 public:
 
 	java_nio_channels_WritableByteChannel(const java_nio_channels_WritableByteChannel& cc);
-	java_nio_channels_WritableByteChannel(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_nio_channels_WritableByteChannel(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_channels_WritableByteChannel();
 	// Functions
-	 int write(AndroidCXX::java_nio_ByteBuffer const& arg0);
+	virtual int  write(AndroidCXX::java_nio_ByteBuffer const& arg0) ;
+
+protected:
+	java_nio_channels_WritableByteChannel();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -35,6 +36,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -51,28 +55,34 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_MediaController_MediaPlayerControl
+class android_widget_MediaController_MediaPlayerControl : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_MediaController_MediaPlayerControl(const android_widget_MediaController_MediaPlayerControl& cc);
-	android_widget_MediaController_MediaPlayerControl(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_MediaController_MediaPlayerControl(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_MediaController_MediaPlayerControl();
 	// Functions
-	 void start();
-	 int getDuration();
-	 void pause();
-	 int getCurrentPosition();
-	 void seekTo(int const& arg0);
-	 bool isPlaying();
-	 int getBufferPercentage();
-	 bool canPause();
-	 bool canSeekBackward();
-	 bool canSeekForward();
-	 int getAudioSessionId();
+	virtual bool  canPause() ;
+	virtual bool  canSeekBackward() ;
+	virtual bool  canSeekForward() ;
+	virtual int  getAudioSessionId() ;
+	virtual int  getBufferPercentage() ;
+	virtual int  getCurrentPosition() ;
+	virtual int  getDuration() ;
+	virtual bool  isPlaying() ;
+	virtual void  pause() ;
+	virtual void  seekTo(int const& arg0) ;
+	virtual void  start() ;
+
+protected:
+	android_widget_MediaController_MediaPlayerControl();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

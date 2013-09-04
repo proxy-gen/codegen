@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -40,6 +41,8 @@
 
 
 
+#include <java_lang_Cloneable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -56,33 +59,37 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_util_SparseBooleanArray;
 
-class android_util_SparseBooleanArray
+class android_util_SparseBooleanArray : public AndroidCXX::java_lang_Cloneable
 {
 public:
 
+	// Public Constructor
+	android_util_SparseBooleanArray(Proxy * aProxy = new Proxy());
+	android_util_SparseBooleanArray(int const& arg0,Proxy * aProxy = new Proxy());
 	android_util_SparseBooleanArray(const android_util_SparseBooleanArray& cc);
-	android_util_SparseBooleanArray(Proxy proxy);
-	// Public Constructors
-	android_util_SparseBooleanArray(int const& arg0);
-	android_util_SparseBooleanArray();
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_util_SparseBooleanArray();
 	// Functions
-	 bool get(int const& arg0);
-	 bool get(int const& arg0,bool const& arg1);
-	 void put(int const& arg0,bool const& arg1);
-	 void append(int const& arg0,bool const& arg1);
-	 AndroidCXX::android_util_SparseBooleanArray clone();
-	 void clear();
-	 int size();
-	 void _delete(int const& arg0);
-	 int keyAt(int const& arg0);
-	 bool valueAt(int const& arg0);
-	 int indexOfKey(int const& arg0);
-	 int indexOfValue(bool const& arg0);
+	virtual void  append(int const& arg0,bool const& arg1) ;
+	virtual void  clear() ;
+	virtual AndroidCXX::android_util_SparseBooleanArray * clone() ;
+	virtual void  _delete(int const& arg0) ;
+	virtual bool  get(int const& arg0,bool const& arg1) ;
+	virtual bool  get(int const& arg0) ;
+	virtual int  indexOfKey(int const& arg0) ;
+	virtual int  indexOfValue(bool const& arg0) ;
+	virtual int  keyAt(int const& arg0) ;
+	virtual void  put(int const& arg0,bool const& arg1) ;
+	virtual int  size() ;
+	virtual bool  valueAt(int const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

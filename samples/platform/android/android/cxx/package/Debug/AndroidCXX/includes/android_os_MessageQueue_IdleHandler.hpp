@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_MessageQueue_IdleHandler
+class android_os_MessageQueue_IdleHandler : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_os_MessageQueue_IdleHandler(const android_os_MessageQueue_IdleHandler& cc);
-	android_os_MessageQueue_IdleHandler(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_os_MessageQueue_IdleHandler(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_MessageQueue_IdleHandler();
 	// Functions
-	 bool queueIdle();
+	virtual bool  queueIdle() ;
+
+protected:
+	android_os_MessageQueue_IdleHandler();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

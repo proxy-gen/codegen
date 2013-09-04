@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -35,7 +36,8 @@
 //
 
 
-#include <android_widget_RemoteViews.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -55,26 +57,32 @@ namespace AndroidCXX {
 
 class android_widget_RemoteViews;
 
-class android_widget_RemoteViewsService_RemoteViewsFactory
+class android_widget_RemoteViewsService_RemoteViewsFactory : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_RemoteViewsService_RemoteViewsFactory(const android_widget_RemoteViewsService_RemoteViewsFactory& cc);
-	android_widget_RemoteViewsService_RemoteViewsFactory(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_RemoteViewsService_RemoteViewsFactory(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_RemoteViewsService_RemoteViewsFactory();
 	// Functions
-	 void onCreate();
-	 void onDestroy();
-	 long getItemId(int const& arg0);
-	 int getCount();
-	 bool hasStableIds();
-	 int getViewTypeCount();
-	 void onDataSetChanged();
-	 AndroidCXX::android_widget_RemoteViews getViewAt(int const& arg0);
-	 AndroidCXX::android_widget_RemoteViews getLoadingView();
+	virtual int  getCount() ;
+	virtual long  getItemId(int const& arg0) ;
+	virtual AndroidCXX::android_widget_RemoteViews * getLoadingView() ;
+	virtual AndroidCXX::android_widget_RemoteViews * getViewAt(int const& arg0) ;
+	virtual int  getViewTypeCount() ;
+	virtual bool  hasStableIds() ;
+	virtual void  onCreate() ;
+	virtual void  onDataSetChanged() ;
+	virtual void  onDestroy() ;
+
+protected:
+	android_widget_RemoteViewsService_RemoteViewsFactory();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

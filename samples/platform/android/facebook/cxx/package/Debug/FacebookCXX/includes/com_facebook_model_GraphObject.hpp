@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,19 +8,20 @@
 //
 
 
- 		 
- 		 
- 		 
+
 	
+ 	
+ 		 
+ 		 
  		 
  	
 	
  		 
 	
- 	
- 		 
  		 
 	
+ 		 
+ 		 
  		 
 
 
@@ -44,16 +45,16 @@
 //
 
 
-#include <java_lang_String.hpp>
+#include <java_util_Map.hpp>
 
 #include <java_lang_Object.hpp>
 
+#include <java_lang_String.hpp>
+
 #include <java_lang_Class.hpp>
 
-
-#include <java_util_Map.hpp>
-
 #include <org_json_JSONObject.hpp>
+
 
 #include <vector>
 #include <map>
@@ -74,27 +75,32 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_model_GraphObject;
 
 
 
-class com_facebook_model_GraphObject
+class com_facebook_model_GraphObject : public AndroidCXX::java_lang_Object
 {
 public:
 
 	com_facebook_model_GraphObject(const com_facebook_model_GraphObject& cc);
-	com_facebook_model_GraphObject(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	com_facebook_model_GraphObject(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject();
 	// Functions
-	 void setProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1);
-	 AndroidCXX::java_lang_Object getProperty(AndroidCXX::java_lang_String const& arg0);
-	 FacebookCXX::com_facebook_model_GraphObject cast(AndroidCXX::java_lang_Class const& arg0);
-	 AndroidCXX::java_util_Map asMap();
-	 AndroidCXX::org_json_JSONObject getInnerJSONObject();
-	 void removeProperty(AndroidCXX::java_lang_String const& arg0);
+	virtual AndroidCXX::java_util_Map * asMap() ;
+	virtual FacebookCXX::com_facebook_model_GraphObject * cast(AndroidCXX::java_lang_Class const& arg0) ;
+	virtual AndroidCXX::org_json_JSONObject * getInnerJSONObject() ;
+	virtual AndroidCXX::java_lang_Object * getProperty(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  removeProperty(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  setProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
+
+protected:
+	com_facebook_model_GraphObject();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,7 +29,8 @@
 //
 
 
-#include <android_view_View.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -48,19 +50,25 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_view_View_OnAttachStateChangeListener
+class android_view_View_OnAttachStateChangeListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_View_OnAttachStateChangeListener(const android_view_View_OnAttachStateChangeListener& cc);
-	android_view_View_OnAttachStateChangeListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_View_OnAttachStateChangeListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnAttachStateChangeListener();
 	// Functions
-	 void onViewAttachedToWindow(AndroidCXX::android_view_View const& arg0);
-	 void onViewDetachedFromWindow(AndroidCXX::android_view_View const& arg0);
+	virtual void  onViewAttachedToWindow(AndroidCXX::android_view_View const& arg0) ;
+	virtual void  onViewDetachedFromWindow(AndroidCXX::android_view_View const& arg0) ;
+
+protected:
+	android_view_View_OnAttachStateChangeListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

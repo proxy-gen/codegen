@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -26,6 +27,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,19 +46,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_ViewTreeObserver_OnWindowAttachListener
+class android_view_ViewTreeObserver_OnWindowAttachListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_ViewTreeObserver_OnWindowAttachListener(const android_view_ViewTreeObserver_OnWindowAttachListener& cc);
-	android_view_ViewTreeObserver_OnWindowAttachListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_ViewTreeObserver_OnWindowAttachListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_ViewTreeObserver_OnWindowAttachListener();
 	// Functions
-	 void onWindowAttached();
-	 void onWindowDetached();
+	virtual void  onWindowAttached() ;
+	virtual void  onWindowDetached() ;
+
+protected:
+	android_view_ViewTreeObserver_OnWindowAttachListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

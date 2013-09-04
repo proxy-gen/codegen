@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,8 +8,9 @@
 //
 
 
-	
+
  		 
+	
  		 
 	
 	
@@ -40,10 +41,12 @@
 //
 
 
+#include <android_graphics_Matrix.hpp>
+
 #include <java_lang_String.hpp>
 
 
-#include <android_graphics_Matrix.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -61,34 +64,38 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
-class android_view_animation_Transformation;
 
 class android_graphics_Matrix;
 
-class android_view_animation_Transformation
+class java_lang_String;
+
+class android_view_animation_Transformation : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	android_view_animation_Transformation(Proxy * aProxy = new Proxy());
 	android_view_animation_Transformation(const android_view_animation_Transformation& cc);
-	android_view_animation_Transformation(Proxy proxy);
-	// Public Constructors
-	android_view_animation_Transformation();
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_animation_Transformation();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 void clear();
-	 void set(AndroidCXX::android_view_animation_Transformation const& arg0);
-	 void compose(AndroidCXX::android_view_animation_Transformation const& arg0);
-	 AndroidCXX::android_graphics_Matrix getMatrix();
-	 float getAlpha();
-	 void setAlpha(float const& arg0);
-	 AndroidCXX::java_lang_String toShortString();
-	 int getTransformationType();
-	 void setTransformationType(int const& arg0);
+	virtual void  clear() ;
+	virtual void  compose(AndroidCXX::android_view_animation_Transformation const& arg0) ;
+	virtual float  getAlpha() ;
+	virtual AndroidCXX::android_graphics_Matrix * getMatrix() ;
+	virtual int  getTransformationType() ;
+	virtual void  setAlpha(float const& arg0) ;
+	virtual void  set(AndroidCXX::android_view_animation_Transformation const& arg0) ;
+	virtual void  setTransformationType(int const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toShortString() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

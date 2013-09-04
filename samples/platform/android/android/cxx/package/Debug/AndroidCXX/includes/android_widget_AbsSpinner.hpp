@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,13 +8,13 @@
 //
 
 
+
 	
  		 
  		 
  		 
+	
  		 
-	
-	
 
 
  		 
@@ -22,7 +22,6 @@
  		 
  		 
  		 
-
 
 
 
@@ -51,19 +50,8 @@
 //
 
 
-#include <android_os_Parcelable.hpp>
 
-#include <android_view_accessibility_AccessibilityEvent.hpp>
-
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
-
-#include <android_widget_SpinnerAdapter.hpp>
-
-#include <android_view_View.hpp>
-
-#include <android_content_Context.hpp>
-
-#include <android_util_AttributeSet.hpp>
+#include <android_widget_AdapterView.hpp>
 
 #include <vector>
 #include <map>
@@ -81,46 +69,48 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_Parcelable;
+class android_view_View;
 
 class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
-class android_widget_SpinnerAdapter;
+class android_os_Parcelable;
 
-class android_view_View;
+class android_widget_SpinnerAdapter;
 
 class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_AbsSpinner
+class android_widget_AbsSpinner : public AndroidCXX::android_widget_AdapterView
 {
 public:
 
 	android_widget_AbsSpinner(const android_widget_AbsSpinner& cc);
-	android_widget_AbsSpinner(Proxy proxy);
-	// Public Constructors
-	android_widget_AbsSpinner(AndroidCXX::android_content_Context const& arg0);
-	android_widget_AbsSpinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_AbsSpinner(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
-	Proxy proxy() const;	
+	android_widget_AbsSpinner(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_AbsSpinner();
 	// Functions
-	 AndroidCXX::android_os_Parcelable onSaveInstanceState();
-	 void onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0);
-	 void requestLayout();
-	 void onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0);
-	 void onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0);
-	 int getCount();
-	 void setSelection(int const& arg0);
-	 void setSelection(int const& arg0,bool const& arg1);
-	 void setAdapter(AndroidCXX::android_widget_SpinnerAdapter const& arg0);
-	 AndroidCXX::android_view_View getSelectedView();
-	 int pointToPosition(int const& arg0,int const& arg1);
-	 AndroidCXX::android_widget_SpinnerAdapter getAdapter();
+	virtual int  getCount() ;
+	virtual AndroidCXX::android_view_View * getSelectedView() ;
+	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
+	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;
+	virtual void  onRestoreInstanceState(AndroidCXX::android_os_Parcelable const& arg0) ;
+	virtual AndroidCXX::android_os_Parcelable * onSaveInstanceState() ;
+	virtual int  pointToPosition(int const& arg0,int const& arg1) ;
+	virtual void  requestLayout() ;
+	virtual void  setAdapter(AndroidCXX::android_widget_SpinnerAdapter const& arg0) ;
+	virtual void  setSelection(int const& arg0,bool const& arg1) ;
+	virtual void  setSelection(int const& arg0) ;
+
+protected:
+	android_widget_AbsSpinner();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

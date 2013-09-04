@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,23 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_graphics_Rasterizer
+class android_graphics_Rasterizer : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	android_graphics_Rasterizer(Proxy * aProxy = new Proxy());
 	android_graphics_Rasterizer(const android_graphics_Rasterizer& cc);
-	android_graphics_Rasterizer(Proxy proxy);
-	// Public Constructors
-	android_graphics_Rasterizer();
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Rasterizer();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

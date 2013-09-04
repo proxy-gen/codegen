@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -34,6 +35,9 @@
 
 #include <android_os_Parcel.hpp>
 
+
+#include <android_os_Parcelable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,21 +58,27 @@ class java_lang_String;
 
 class android_os_Parcel;
 
-class android_media_MediaPlayer_TrackInfo
+class android_media_MediaPlayer_TrackInfo : public AndroidCXX::android_os_Parcelable
 {
 public:
 
+	// Public Constructor
 	android_media_MediaPlayer_TrackInfo(const android_media_MediaPlayer_TrackInfo& cc);
-	android_media_MediaPlayer_TrackInfo(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_media_MediaPlayer_TrackInfo(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_media_MediaPlayer_TrackInfo();
 	// Functions
-	 AndroidCXX::java_lang_String getLanguage();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 int getTrackType();
+	virtual int  describeContents() ;
+	virtual AndroidCXX::java_lang_String * getLanguage() ;
+	virtual int  getTrackType() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

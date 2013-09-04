@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,10 +8,11 @@
 //
 
 
+
+	
+	
 	
  		 
-	
-	
 
 
  		 
@@ -40,11 +41,14 @@
 //
 
 
+#include <java_lang_CharSequence.hpp>
+
 #include <java_lang_String.hpp>
 
 #include <android_os_Parcel.hpp>
 
-#include <java_lang_CharSequence.hpp>
+
+#include <android_os_Parcelable.hpp>
 
 #include <vector>
 #include <map>
@@ -62,32 +66,38 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_lang_CharSequence;
+
 class java_lang_String;
 
 class android_os_Parcel;
 
-class java_lang_CharSequence;
-
-class android_view_inputmethod_CompletionInfo
+class android_view_inputmethod_CompletionInfo : public AndroidCXX::android_os_Parcelable
 {
 public:
 
+	// Public Constructor
+	android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,Proxy * aProxy = new Proxy());
+	android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,AndroidCXX::java_lang_CharSequence const& arg3,Proxy * aProxy = new Proxy());
 	android_view_inputmethod_CompletionInfo(const android_view_inputmethod_CompletionInfo& cc);
-	android_view_inputmethod_CompletionInfo(Proxy proxy);
-	// Public Constructors
-	android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2);
-	android_view_inputmethod_CompletionInfo(long const& arg0,int const& arg1,AndroidCXX::java_lang_CharSequence const& arg2,AndroidCXX::java_lang_CharSequence const& arg3);
-	Proxy proxy() const;	
+	android_view_inputmethod_CompletionInfo(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_inputmethod_CompletionInfo();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 long getId();
-	 int getPosition();
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
-	 AndroidCXX::java_lang_CharSequence getText();
-	 AndroidCXX::java_lang_CharSequence getLabel();
+	virtual int  describeContents() ;
+	virtual long  getId() ;
+	virtual AndroidCXX::java_lang_CharSequence * getLabel() ;
+	virtual int  getPosition() ;
+	virtual AndroidCXX::java_lang_CharSequence * getText() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

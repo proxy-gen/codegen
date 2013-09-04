@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,13 +8,14 @@
 //
 
 
+
 	
 	
 	
  	
  		 
-	
  		 
+	
 
 
  		 
@@ -46,17 +47,20 @@
 //
 
 
-#include <java_lang_String.hpp>
-
 #include <java_lang_ClassLoader.hpp>
 
 #include <java_security_CodeSource.hpp>
 
-#include <java_security_Principal.hpp>
-
 #include <java_security_PermissionCollection.hpp>
 
+#include <java_security_Principal.hpp>
+
 #include <java_security_Permission.hpp>
+
+#include <java_lang_String.hpp>
+
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -74,37 +78,43 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 class java_lang_ClassLoader;
 
 class java_security_CodeSource;
 
-class java_security_Principal;
-
 class java_security_PermissionCollection;
+
+class java_security_Principal;
 
 class java_security_Permission;
 
-class java_security_ProtectionDomain
+class java_lang_String;
+
+class java_security_ProtectionDomain : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1,Proxy * aProxy = new Proxy());
+	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1,AndroidCXX::java_lang_ClassLoader const& arg2,std::vector<AndroidCXX::java_security_Principal> const& arg3,Proxy * aProxy = new Proxy());
 	java_security_ProtectionDomain(const java_security_ProtectionDomain& cc);
-	java_security_ProtectionDomain(Proxy proxy);
-	// Public Constructors
-	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1);
-	java_security_ProtectionDomain(AndroidCXX::java_security_CodeSource const& arg0,AndroidCXX::java_security_PermissionCollection const& arg1,AndroidCXX::java_lang_ClassLoader const& arg2,std::vector<AndroidCXX::java_security_Principal > const& arg3);
-	Proxy proxy() const;	
+	java_security_ProtectionDomain(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_security_ProtectionDomain();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 AndroidCXX::java_lang_ClassLoader getClassLoader();
-	 AndroidCXX::java_security_CodeSource getCodeSource();
-	 std::vector<AndroidCXX::java_security_Principal > getPrincipals();
-	 AndroidCXX::java_security_PermissionCollection getPermissions();
-	 bool implies(AndroidCXX::java_security_Permission const& arg0);
+	virtual AndroidCXX::java_lang_ClassLoader * getClassLoader() ;
+	virtual AndroidCXX::java_security_CodeSource * getCodeSource() ;
+	virtual AndroidCXX::java_security_PermissionCollection * getPermissions() ;
+	virtual std::vector<AndroidCXX::java_security_Principal>  getPrincipals() ;
+	virtual bool  implies(AndroidCXX::java_security_Permission const& arg0) ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

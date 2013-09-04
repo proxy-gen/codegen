@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -28,7 +29,8 @@
 //
 
 
-#include <java_lang_String.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -48,19 +50,25 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_widget_SearchView_OnQueryTextListener
+class android_widget_SearchView_OnQueryTextListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_SearchView_OnQueryTextListener(const android_widget_SearchView_OnQueryTextListener& cc);
-	android_widget_SearchView_OnQueryTextListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_SearchView_OnQueryTextListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SearchView_OnQueryTextListener();
 	// Functions
-	 bool onQueryTextSubmit(AndroidCXX::java_lang_String const& arg0);
-	 bool onQueryTextChange(AndroidCXX::java_lang_String const& arg0);
+	virtual bool  onQueryTextChange(AndroidCXX::java_lang_String const& arg0) ;
+	virtual bool  onQueryTextSubmit(AndroidCXX::java_lang_String const& arg0) ;
+
+protected:
+	android_widget_SearchView_OnQueryTextListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

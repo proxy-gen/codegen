@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -31,6 +32,9 @@
 
 #include <android_graphics_Matrix.hpp>
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,20 +53,25 @@ namespace AndroidCXX {
 
 class android_graphics_Matrix;
 
-class android_graphics_Shader
+class android_graphics_Shader : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	android_graphics_Shader(Proxy * aProxy = new Proxy());
 	android_graphics_Shader(const android_graphics_Shader& cc);
-	android_graphics_Shader(Proxy proxy);
-	// Public Constructors
-	android_graphics_Shader();
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_graphics_Shader();
 	// Functions
-	 bool getLocalMatrix(AndroidCXX::android_graphics_Matrix const& arg0);
-	 void setLocalMatrix(AndroidCXX::android_graphics_Matrix const& arg0);
+	virtual bool  getLocalMatrix(AndroidCXX::android_graphics_Matrix const& arg0) ;
+	virtual void  setLocalMatrix(AndroidCXX::android_graphics_Matrix const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

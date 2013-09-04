@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -36,13 +37,14 @@
 //
 
 
-#include <java_net_Proxy_Type.hpp>
+#include <java_net_SocketAddress.hpp>
 
 #include <java_lang_Object.hpp>
 
 #include <java_lang_String.hpp>
 
-#include <java_net_SocketAddress.hpp>
+#include <java_net_Proxy_Type.hpp>
+
 
 #include <vector>
 #include <map>
@@ -60,30 +62,35 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_net_SocketAddress;
 
-class java_lang_Object;
 
 class java_lang_String;
 
-class java_net_SocketAddress;
 
-class java_net_Proxy
+class java_net_Proxy : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
+	java_net_Proxy(java_net_Proxy_Type::java_net_Proxy_Type const& arg0,AndroidCXX::java_net_SocketAddress const& arg1,Proxy * aProxy = new Proxy());
 	java_net_Proxy(const java_net_Proxy& cc);
-	java_net_Proxy(Proxy proxy);
-	// Public Constructors
-	java_net_Proxy(java_net_Proxy_Type::java_net_Proxy_Type const& arg0,AndroidCXX::java_net_SocketAddress const& arg1);
-	Proxy proxy() const;	
+	java_net_Proxy(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_net_Proxy();
 	// Functions
-	 java_net_Proxy_Type::java_net_Proxy_Type type();
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_net_SocketAddress address();
+	virtual AndroidCXX::java_net_SocketAddress * address() ;
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual int  hashCode() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual java_net_Proxy_Type::java_net_Proxy_Type  type() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,11 +8,12 @@
 //
 
 
+
  		 
-	
 	
  	
  		 
+	
 
 
 
@@ -40,10 +41,6 @@
 
 
 
-#include <java_lang_String.hpp>
-
-#include <java_lang_Class.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -60,33 +57,37 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
-
-class java_lang_String;
 
 class java_lang_Class;
 
-class java_lang_Object
+class java_lang_String;
+
+class java_lang_Object 
 {
 public:
 
 	java_lang_Object(const java_lang_Object& cc);
-	java_lang_Object(Proxy proxy);
-	// Public Constructors
-	java_lang_Object();
-	Proxy proxy() const;	
+	java_lang_Object(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_Object();
 	// Functions
-	 void wait();
-	 void wait(long const& arg0);
-	 void wait(long const& arg0,int const& arg1);
-	 bool equals(AndroidCXX::java_lang_Object const& arg0);
-	 AndroidCXX::java_lang_String toString();
-	 int hashCode();
-	 AndroidCXX::java_lang_Class getClass();
-	 void notify();
-	 void notifyAll();
+	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual AndroidCXX::java_lang_Class * getClass() ;
+	virtual int  hashCode() ;
+	virtual void  notifyAll() ;
+	virtual void  notify() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+	virtual void  wait(long const& arg0,int const& arg1) ;
+	virtual void  wait(long const& arg0) ;
+	virtual void  wait() ;
+
+protected:
+	java_lang_Object();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

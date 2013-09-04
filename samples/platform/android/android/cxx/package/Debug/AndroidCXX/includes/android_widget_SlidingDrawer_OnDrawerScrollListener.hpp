@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -26,6 +27,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,19 +46,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_SlidingDrawer_OnDrawerScrollListener
+class android_widget_SlidingDrawer_OnDrawerScrollListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_SlidingDrawer_OnDrawerScrollListener(const android_widget_SlidingDrawer_OnDrawerScrollListener& cc);
-	android_widget_SlidingDrawer_OnDrawerScrollListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_SlidingDrawer_OnDrawerScrollListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SlidingDrawer_OnDrawerScrollListener();
 	// Functions
-	 void onScrollStarted();
-	 void onScrollEnded();
+	virtual void  onScrollEnded() ;
+	virtual void  onScrollStarted() ;
+
+protected:
+	android_widget_SlidingDrawer_OnDrawerScrollListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

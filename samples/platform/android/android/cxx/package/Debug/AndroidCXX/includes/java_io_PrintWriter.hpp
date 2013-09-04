@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,30 +8,12 @@
 //
 
 
- 		 
- 		 
- 	
- 		 
+
 	
  		 
 	
+ 		 
 	
- 		 
- 		 
- 	
-	
- 		 
- 		 
- 	
-	
- 		 
- 	
- 	
- 		 
- 		 
- 		 
- 		 
- 	
  		 
  	
 	
@@ -40,6 +22,25 @@
  		 
  	
 	
+ 		 
+ 	
+ 		 
+ 		 
+ 		 
+ 	
+	
+ 		 
+ 		 
+ 		 
+ 	
+	
+ 		 
+ 	
+ 		 
+ 		 
+ 	
+ 	
+ 		 
  		 
 
 
@@ -109,20 +110,20 @@
 //
 
 
-#include <java_lang_Object.hpp>
+#include <java_lang_CharSequence.hpp>
 
 #include <java_lang_String.hpp>
 
-#include <java_lang_CharSequence.hpp>
-
+#include <java_lang_Object.hpp>
 
 #include <java_util_Locale.hpp>
 
-#include <java_io_Writer.hpp>
+#include <java_io_File.hpp>
 
 #include <java_io_OutputStream.hpp>
 
-#include <java_io_File.hpp>
+#include <java_io_Writer.hpp>
+
 
 #include <vector>
 #include <map>
@@ -140,75 +141,79 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
-
-class java_lang_String;
 
 class java_lang_CharSequence;
 
-class java_io_PrintWriter;
+class java_lang_String;
+
+class java_lang_Object;
 
 class java_util_Locale;
 
-class java_io_Writer;
+class java_io_File;
 
 class java_io_OutputStream;
 
-class java_io_File;
 
-class java_io_PrintWriter
+class java_io_PrintWriter : public AndroidCXX::java_io_Writer
 {
 public:
 
+	// Public Constructor
+	java_io_PrintWriter(AndroidCXX::java_io_File const& arg0,Proxy * aProxy = new Proxy());
+	java_io_PrintWriter(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
+	java_io_PrintWriter(AndroidCXX::java_io_OutputStream const& arg0,Proxy * aProxy = new Proxy());
+	java_io_PrintWriter(AndroidCXX::java_io_OutputStream const& arg0,bool const& arg1,Proxy * aProxy = new Proxy());
+	java_io_PrintWriter(AndroidCXX::java_io_Writer const& arg0,Proxy * aProxy = new Proxy());
+	java_io_PrintWriter(AndroidCXX::java_io_Writer const& arg0,bool const& arg1,Proxy * aProxy = new Proxy());
+	java_io_PrintWriter(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
+	java_io_PrintWriter(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
 	java_io_PrintWriter(const java_io_PrintWriter& cc);
-	java_io_PrintWriter(Proxy proxy);
-	// Public Constructors
-	java_io_PrintWriter(AndroidCXX::java_io_Writer const& arg0,bool const& arg1);
-	java_io_PrintWriter(AndroidCXX::java_io_OutputStream const& arg0,bool const& arg1);
-	java_io_PrintWriter(AndroidCXX::java_lang_String const& arg0);
-	java_io_PrintWriter(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_String const& arg1);
-	java_io_PrintWriter(AndroidCXX::java_io_File const& arg0);
-	java_io_PrintWriter(AndroidCXX::java_io_File const& arg0,AndroidCXX::java_lang_String const& arg1);
-	java_io_PrintWriter(AndroidCXX::java_io_Writer const& arg0);
-	java_io_PrintWriter(AndroidCXX::java_io_OutputStream const& arg0);
-	Proxy proxy() const;	
+	java_io_PrintWriter(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_io_PrintWriter();
 	// Functions
-	 void println(char const& arg0);
-	 void println();
-	 void println(bool const& arg0);
-	 void println(AndroidCXX::java_lang_Object const& arg0);
-	 void println(AndroidCXX::java_lang_String const& arg0);
-	 void println(std::vector<char> const& arg0);
-	 void println(double const& arg0);
-	 void println(float const& arg0);
-	 void println(long const& arg0);
-	 void println(int const& arg0);
-	 AndroidCXX::java_io_PrintWriter append(AndroidCXX::java_lang_CharSequence const& arg0);
-	 AndroidCXX::java_io_PrintWriter append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2);
-	 AndroidCXX::java_io_PrintWriter append(char const& arg0);
-	 AndroidCXX::java_io_PrintWriter format(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2);
-	 AndroidCXX::java_io_PrintWriter format(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Object > const& arg1);
-	 void write(std::vector<char> const& arg0);
-	 void write(std::vector<char> const& arg0,int const& arg1,int const& arg2);
-	 void write(int const& arg0);
-	 void write(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2);
-	 void write(AndroidCXX::java_lang_String const& arg0);
-	 void print(AndroidCXX::java_lang_String const& arg0);
-	 void print(AndroidCXX::java_lang_Object const& arg0);
-	 void print(bool const& arg0);
-	 void print(char const& arg0);
-	 void print(int const& arg0);
-	 void print(long const& arg0);
-	 void print(float const& arg0);
-	 void print(double const& arg0);
-	 void print(std::vector<char> const& arg0);
-	 void flush();
-	 void close();
-	 bool checkError();
-	 AndroidCXX::java_io_PrintWriter printf(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Object > const& arg1);
-	 AndroidCXX::java_io_PrintWriter printf(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_Object > const& arg2);
+	virtual AndroidCXX::java_io_PrintWriter * append(char const& arg0) ;
+	virtual AndroidCXX::java_io_PrintWriter * append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) ;
+	virtual AndroidCXX::java_io_PrintWriter * append(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual bool  checkError() ;
+	virtual void  close() ;
+	virtual void  flush() ;
+	virtual AndroidCXX::java_io_PrintWriter * format(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Object> const& arg1) ;
+	virtual AndroidCXX::java_io_PrintWriter * format(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_Object> const& arg2) ;
+	virtual void  print(std::vector<char> const& arg0) ;
+	virtual void  print(bool const& arg0) ;
+	virtual void  print(char const& arg0) ;
+	virtual void  print(double const& arg0) ;
+	virtual void  print(float const& arg0) ;
+	virtual void  print(int const& arg0) ;
+	virtual void  print(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  print(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  print(long const& arg0) ;
+	virtual AndroidCXX::java_io_PrintWriter * printf(AndroidCXX::java_lang_String const& arg0,std::vector<AndroidCXX::java_lang_Object> const& arg1) ;
+	virtual AndroidCXX::java_io_PrintWriter * printf(AndroidCXX::java_util_Locale const& arg0,AndroidCXX::java_lang_String const& arg1,std::vector<AndroidCXX::java_lang_Object> const& arg2) ;
+	virtual void  println(std::vector<char> const& arg0) ;
+	virtual void  println(bool const& arg0) ;
+	virtual void  println(char const& arg0) ;
+	virtual void  println(double const& arg0) ;
+	virtual void  println(float const& arg0) ;
+	virtual void  println(int const& arg0) ;
+	virtual void  println(AndroidCXX::java_lang_Object const& arg0) ;
+	virtual void  println(AndroidCXX::java_lang_String const& arg0) ;
+	virtual void  println(long const& arg0) ;
+	virtual void  println() ;
+	virtual void  write(std::vector<char> const& arg0,int const& arg1,int const& arg2) ;
+	virtual void  write(std::vector<char> const& arg0) ;
+	virtual void  write(int const& arg0) ;
+	virtual void  write(AndroidCXX::java_lang_String const& arg0,int const& arg1,int const& arg2) ;
+	virtual void  write(AndroidCXX::java_lang_String const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

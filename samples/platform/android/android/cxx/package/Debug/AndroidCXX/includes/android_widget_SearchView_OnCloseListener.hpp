@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_SearchView_OnCloseListener
+class android_widget_SearchView_OnCloseListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_SearchView_OnCloseListener(const android_widget_SearchView_OnCloseListener& cc);
-	android_widget_SearchView_OnCloseListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_SearchView_OnCloseListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_SearchView_OnCloseListener();
 	// Functions
-	 bool onClose();
+	virtual bool  onClose() ;
+
+protected:
+	android_widget_SearchView_OnCloseListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

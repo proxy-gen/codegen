@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <java_lang_String.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_webkit_GeolocationPermissions_Callback
+class android_webkit_GeolocationPermissions_Callback : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_webkit_GeolocationPermissions_Callback(const android_webkit_GeolocationPermissions_Callback& cc);
-	android_webkit_GeolocationPermissions_Callback(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_webkit_GeolocationPermissions_Callback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_GeolocationPermissions_Callback();
 	// Functions
-	 void invoke(AndroidCXX::java_lang_String const& arg0,bool const& arg1,bool const& arg2);
+	virtual void  invoke(AndroidCXX::java_lang_String const& arg0,bool const& arg1,bool const& arg2) ;
+
+protected:
+	android_webkit_GeolocationPermissions_Callback();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

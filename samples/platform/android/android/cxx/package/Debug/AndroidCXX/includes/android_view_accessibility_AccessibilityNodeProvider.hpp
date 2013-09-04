@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,11 +8,12 @@
 //
 
 
+
 	
- 		 
  		 
 	
  	
+ 		 
  		 
 
 
@@ -34,13 +35,8 @@
 //
 
 
-#include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
-#include <android_os_Bundle.hpp>
-
-#include <java_lang_String.hpp>
-
-#include <java_util_List.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -60,27 +56,32 @@ namespace AndroidCXX {
 
 class android_view_accessibility_AccessibilityNodeInfo;
 
-class android_os_Bundle;
-
 class java_lang_String;
 
 class java_util_List;
 
-class android_view_accessibility_AccessibilityNodeProvider
+class android_os_Bundle;
+
+class android_view_accessibility_AccessibilityNodeProvider : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_accessibility_AccessibilityNodeProvider(const android_view_accessibility_AccessibilityNodeProvider& cc);
-	android_view_accessibility_AccessibilityNodeProvider(Proxy proxy);
-	// Public Constructors
-	android_view_accessibility_AccessibilityNodeProvider();
-	Proxy proxy() const;	
+	android_view_accessibility_AccessibilityNodeProvider(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_accessibility_AccessibilityNodeProvider();
 	// Functions
-	 AndroidCXX::android_view_accessibility_AccessibilityNodeInfo createAccessibilityNodeInfo(int const& arg0);
-	 bool performAction(int const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2);
-	 AndroidCXX::java_util_List findAccessibilityNodeInfosByText(AndroidCXX::java_lang_String const& arg0,int const& arg1);
+	virtual AndroidCXX::android_view_accessibility_AccessibilityNodeInfo * createAccessibilityNodeInfo(int const& arg0) ;
+	virtual AndroidCXX::java_util_List * findAccessibilityNodeInfosByText(AndroidCXX::java_lang_String const& arg0,int const& arg1) ;
+	virtual bool  performAction(int const& arg0,int const& arg1,AndroidCXX::android_os_Bundle const& arg2) ;
+
+protected:
+	android_view_accessibility_AccessibilityNodeProvider();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,7 +27,8 @@
 //
 
 
-#include <android_view_View.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -46,18 +48,24 @@ namespace AndroidCXX {
 
 class android_view_View;
 
-class android_view_View_OnClickListener
+class android_view_View_OnClickListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_view_View_OnClickListener(const android_view_View_OnClickListener& cc);
-	android_view_View_OnClickListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_View_OnClickListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_View_OnClickListener();
 	// Functions
-	 void onClick(AndroidCXX::android_view_View const& arg0);
+	virtual void  onClick(AndroidCXX::android_view_View const& arg0) ;
+
+protected:
+	android_view_View_OnClickListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

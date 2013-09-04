@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,9 +28,8 @@
 //
 
 
-#include <java_lang_CharSequence.hpp>
 
-#include <android_database_Cursor.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -51,18 +51,24 @@ class java_lang_CharSequence;
 
 class android_database_Cursor;
 
-class android_widget_FilterQueryProvider
+class android_widget_FilterQueryProvider : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_FilterQueryProvider(const android_widget_FilterQueryProvider& cc);
-	android_widget_FilterQueryProvider(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_FilterQueryProvider(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_FilterQueryProvider();
 	// Functions
-	 AndroidCXX::android_database_Cursor runQuery(AndroidCXX::java_lang_CharSequence const& arg0);
+	virtual AndroidCXX::android_database_Cursor * runQuery(AndroidCXX::java_lang_CharSequence const& arg0) ;
+
+protected:
+	android_widget_FilterQueryProvider();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

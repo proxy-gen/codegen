@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,11 +8,12 @@
 //
 
 
+
+	
+	
 	
  		 
-	
  		 
-	
  		 
 
 
@@ -45,13 +46,14 @@
 //
 
 
-#include <java_lang_String.hpp>
-
 #include <java_lang_CharSequence.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <android_content_Context.hpp>
 
 #include <android_util_AttributeSet.hpp>
+
 
 #include <vector>
 #include <map>
@@ -69,35 +71,41 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 class java_lang_CharSequence;
+
+class java_lang_String;
 
 class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_TextClock
+class android_widget_TextClock 
 {
 public:
 
+	// Public Constructor
+	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_TextClock(const android_widget_TextClock& cc);
-	android_widget_TextClock(Proxy proxy);
-	// Public Constructors
-	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0);
-	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_TextClock(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,int const& arg2);
-	Proxy proxy() const;	
+	android_widget_TextClock(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TextClock();
 	// Functions
-	 AndroidCXX::java_lang_String getTimeZone();
-	 void setTimeZone(AndroidCXX::java_lang_String const& arg0);
-	 AndroidCXX::java_lang_CharSequence getFormat12Hour();
-	 void setFormat12Hour(AndroidCXX::java_lang_CharSequence const& arg0);
-	 AndroidCXX::java_lang_CharSequence getFormat24Hour();
-	 void setFormat24Hour(AndroidCXX::java_lang_CharSequence const& arg0);
-	 bool is24HourModeEnabled();
+	virtual AndroidCXX::java_lang_CharSequence * getFormat12Hour() ;
+	virtual AndroidCXX::java_lang_CharSequence * getFormat24Hour() ;
+	virtual AndroidCXX::java_lang_String * getTimeZone() ;
+	virtual bool  is24HourModeEnabled() ;
+	virtual void  setFormat12Hour(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  setFormat24Hour(AndroidCXX::java_lang_CharSequence const& arg0) ;
+	virtual void  setTimeZone(AndroidCXX::java_lang_String const& arg0) ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -27,7 +28,8 @@
 //
 
 
-#include <android_os_Parcel.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -47,19 +49,25 @@ namespace AndroidCXX {
 
 class android_os_Parcel;
 
-class android_os_Parcelable
+class android_os_Parcelable : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_os_Parcelable(const android_os_Parcelable& cc);
-	android_os_Parcelable(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_os_Parcelable(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_os_Parcelable();
 	// Functions
-	 int describeContents();
-	 void writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1);
+	virtual int  describeContents() ;
+	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
+
+protected:
+	android_os_Parcelable();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

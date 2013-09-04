@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
  		 
@@ -26,6 +27,7 @@
 //
 
 
+
 #include <java_lang_Object.hpp>
 
 #include <vector>
@@ -44,20 +46,25 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
-class android_webkit_ValueCallback
+class android_webkit_ValueCallback : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_webkit_ValueCallback(const android_webkit_ValueCallback& cc);
-	android_webkit_ValueCallback(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_webkit_ValueCallback(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_webkit_ValueCallback();
 	// Functions
-	 void onReceiveValue(AndroidCXX::java_lang_Object const& arg0);
+	virtual void  onReceiveValue(AndroidCXX::java_lang_Object const& arg0) ;
+
+protected:
+	android_webkit_ValueCallback();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

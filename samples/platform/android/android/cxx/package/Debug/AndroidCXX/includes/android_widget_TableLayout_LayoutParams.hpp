@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -42,6 +43,7 @@
 
 #include <android_view_ViewGroup_MarginLayoutParams.hpp>
 
+
 #include <vector>
 #include <map>
 #include <string>
@@ -66,23 +68,28 @@ class android_view_ViewGroup_LayoutParams;
 
 class android_view_ViewGroup_MarginLayoutParams;
 
-class android_widget_TableLayout_LayoutParams
+class android_widget_TableLayout_LayoutParams 
 {
 public:
 
+	// Public Constructor
+	android_widget_TableLayout_LayoutParams(Proxy * aProxy = new Proxy());
+	android_widget_TableLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_TableLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_TableLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0,Proxy * aProxy = new Proxy());
+	android_widget_TableLayout_LayoutParams(int const& arg0,int const& arg1,Proxy * aProxy = new Proxy());
+	android_widget_TableLayout_LayoutParams(int const& arg0,int const& arg1,float const& arg2,Proxy * aProxy = new Proxy());
 	android_widget_TableLayout_LayoutParams(const android_widget_TableLayout_LayoutParams& cc);
-	android_widget_TableLayout_LayoutParams(Proxy proxy);
-	// Public Constructors
-	android_widget_TableLayout_LayoutParams(AndroidCXX::android_content_Context const& arg0,AndroidCXX::android_util_AttributeSet const& arg1);
-	android_widget_TableLayout_LayoutParams(int const& arg0,int const& arg1);
-	android_widget_TableLayout_LayoutParams(int const& arg0,int const& arg1,float const& arg2);
-	android_widget_TableLayout_LayoutParams();
-	android_widget_TableLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_LayoutParams const& arg0);
-	android_widget_TableLayout_LayoutParams(AndroidCXX::android_view_ViewGroup_MarginLayoutParams const& arg0);
-	Proxy proxy() const;	
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_TableLayout_LayoutParams();
 	// Functions
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 	
@@ -31,6 +32,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -47,23 +50,28 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+
 class java_lang_String;
 
-class java_nio_ByteOrder;
-
-class java_nio_ByteOrder
+class java_nio_ByteOrder : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
 	java_nio_ByteOrder(const java_nio_ByteOrder& cc);
-	java_nio_ByteOrder(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_nio_ByteOrder(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_nio_ByteOrder();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	static AndroidCXX::java_nio_ByteOrder nativeOrder();
+	static AndroidCXX::java_nio_ByteOrder * nativeOrder() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

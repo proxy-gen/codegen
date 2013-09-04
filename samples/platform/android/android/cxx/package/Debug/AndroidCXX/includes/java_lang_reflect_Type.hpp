@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -24,6 +25,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -40,17 +44,23 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_reflect_Type
+class java_lang_reflect_Type : public AndroidCXX::java_lang_Object
 {
 public:
 
 	java_lang_reflect_Type(const java_lang_reflect_Type& cc);
-	java_lang_reflect_Type(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	java_lang_reflect_Type(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~java_lang_reflect_Type();
 	// Functions
+
+protected:
+	java_lang_reflect_Type();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

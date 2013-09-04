@@ -1,11 +1,12 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
 // Scroll Down 
 //
+
 
 
 
@@ -25,6 +26,9 @@
 //
 
 
+
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -41,18 +45,24 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_PopupWindow_OnDismissListener
+class android_widget_PopupWindow_OnDismissListener : public AndroidCXX::java_lang_Object
 {
 public:
 
 	android_widget_PopupWindow_OnDismissListener(const android_widget_PopupWindow_OnDismissListener& cc);
-	android_widget_PopupWindow_OnDismissListener(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_widget_PopupWindow_OnDismissListener(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_widget_PopupWindow_OnDismissListener();
 	// Functions
-	 void onDismiss();
+	virtual void  onDismiss() ;
+
+protected:
+	android_widget_PopupWindow_OnDismissListener();
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace

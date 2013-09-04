@@ -1,6 +1,6 @@
 /*
  * Header (Instance CXX)
- * Author: cxx-bindings-generator
+ * Author: codegen
  */
 
 //
@@ -8,15 +8,16 @@
 //
 
 
+
+ 		 
+ 		 
+ 		 
 	
+ 		 
+ 		 
+ 		 
+ 		 
 	
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
 
 
 
@@ -50,13 +51,16 @@
 //
 
 
-#include <java_lang_String.hpp>
-
 #include <android_graphics_Point.hpp>
+
+#include <android_util_DisplayMetrics.hpp>
+
+#include <java_lang_String.hpp>
 
 #include <android_graphics_Rect.hpp>
 
-#include <android_util_DisplayMetrics.hpp>
+
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -74,42 +78,48 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
 class android_graphics_Point;
-
-class android_graphics_Rect;
 
 class android_util_DisplayMetrics;
 
-class android_view_Display
+class java_lang_String;
+
+class android_graphics_Rect;
+
+class android_view_Display : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
 	android_view_Display(const android_view_Display& cc);
-	android_view_Display(Proxy proxy);
-	// Public Constructors
-	Proxy proxy() const;	
+	android_view_Display(Proxy * aProxy);
+	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_view_Display();
 	// Functions
-	 AndroidCXX::java_lang_String toString();
-	 AndroidCXX::java_lang_String getName();
-	 void getSize(AndroidCXX::android_graphics_Point const& arg0);
-	 bool isValid();
-	 int getFlags();
-	 int getWidth();
-	 int getHeight();
-	 int getRotation();
-	 int getDisplayId();
-	 void getRectSize(AndroidCXX::android_graphics_Rect const& arg0);
-	 void getCurrentSizeRange(AndroidCXX::android_graphics_Point const& arg0,AndroidCXX::android_graphics_Point const& arg1);
-	 int getOrientation();
-	 int getPixelFormat();
-	 float getRefreshRate();
-	 void getMetrics(AndroidCXX::android_util_DisplayMetrics const& arg0);
-	 void getRealSize(AndroidCXX::android_graphics_Point const& arg0);
-	 void getRealMetrics(AndroidCXX::android_util_DisplayMetrics const& arg0);
+	virtual void  getCurrentSizeRange(AndroidCXX::android_graphics_Point const& arg0,AndroidCXX::android_graphics_Point const& arg1) ;
+	virtual int  getDisplayId() ;
+	virtual int  getFlags() ;
+	virtual int  getHeight() ;
+	virtual void  getMetrics(AndroidCXX::android_util_DisplayMetrics const& arg0) ;
+	virtual AndroidCXX::java_lang_String * getName() ;
+	virtual int  getOrientation() ;
+	virtual int  getPixelFormat() ;
+	virtual void  getRealMetrics(AndroidCXX::android_util_DisplayMetrics const& arg0) ;
+	virtual void  getRealSize(AndroidCXX::android_graphics_Point const& arg0) ;
+	virtual void  getRectSize(AndroidCXX::android_graphics_Rect const& arg0) ;
+	virtual float  getRefreshRate() ;
+	virtual int  getRotation() ;
+	virtual void  getSize(AndroidCXX::android_graphics_Point const& arg0) ;
+	virtual int  getWidth() ;
+	virtual bool  isValid() ;
+	virtual AndroidCXX::java_lang_String * toString() ;
+
+protected:
+
+private:
+	Proxy * _proxy;
+
 };	
 
 } // namespace
