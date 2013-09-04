@@ -37,8 +37,6 @@
 #include <java_lang_String.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -58,7 +56,7 @@ namespace FacebookCXX {
 class com_facebook_FacebookRequestError;
 
 
-class com_facebook_FacebookServiceException : public AndroidCXX::java_lang_Object
+class com_facebook_FacebookServiceException 
 {
 public:
 

@@ -31,6 +31,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +51,7 @@ namespace AndroidCXX {
 
 class android_view_WindowId;
 
-class android_view_WindowId_FocusObserver 
+class android_view_WindowId_FocusObserver : public AndroidCXX::java_lang_Object
 {
 public:
 

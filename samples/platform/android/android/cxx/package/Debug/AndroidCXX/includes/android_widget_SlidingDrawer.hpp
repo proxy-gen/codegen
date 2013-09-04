@@ -78,7 +78,7 @@
 #include <android_util_AttributeSet.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <android_view_ViewGroup.hpp>
 
 #include <vector>
 #include <map>
@@ -114,7 +114,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_SlidingDrawer : public AndroidCXX::java_lang_Object
+class android_widget_SlidingDrawer : public AndroidCXX::android_view_ViewGroup
 {
 public:
 

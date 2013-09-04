@@ -96,6 +96,8 @@
 #include <java_lang_Runnable.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -119,7 +121,7 @@ class android_animation_Animator_AnimatorListener;
 
 class java_lang_Runnable;
 
-class android_view_ViewPropertyAnimator 
+class android_view_ViewPropertyAnimator : public AndroidCXX::java_lang_Object
 {
 public:
 

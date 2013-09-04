@@ -170,7 +170,6 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_lang_Object;
 
 
 class org_json_JSONArray;
@@ -183,7 +182,7 @@ class java_util_Map;
 
 class org_json_JSONTokener;
 
-class org_json_JSONObject 
+class org_json_JSONObject : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -56,6 +56,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -74,12 +76,11 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_lang_Object;
 
 class java_lang_Class;
 
 
-class android_util_Property 
+class android_util_Property : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -121,6 +121,8 @@
 #include <android_util_AttributeSet.hpp>
 
 
+#include <android_widget_AbsListView.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -139,6 +141,7 @@ namespace AndroidCXX {
 
 class android_view_View;
 
+class java_lang_Object;
 
 class android_view_KeyEvent;
 
@@ -158,7 +161,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_ListView : public AndroidCXX::java_lang_Object
+class android_widget_ListView : public AndroidCXX::android_widget_AbsListView
 {
 public:
 

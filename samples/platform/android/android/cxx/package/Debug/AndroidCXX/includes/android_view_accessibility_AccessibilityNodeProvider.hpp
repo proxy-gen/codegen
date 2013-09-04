@@ -36,6 +36,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -60,7 +62,7 @@ class java_util_List;
 
 class android_os_Bundle;
 
-class android_view_accessibility_AccessibilityNodeProvider 
+class android_view_accessibility_AccessibilityNodeProvider : public AndroidCXX::java_lang_Object
 {
 public:
 

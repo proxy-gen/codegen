@@ -60,7 +60,7 @@
 
 
 
-#include <java_lang_Object.hpp>
+#include <android_widget_ResourceCursorTreeAdapter.hpp>
 
 #include <vector>
 #include <map>
@@ -88,7 +88,7 @@ class android_content_Context;
 
 class android_database_Cursor;
 
-class android_widget_SimpleCursorTreeAdapter : public AndroidCXX::java_lang_Object
+class android_widget_SimpleCursorTreeAdapter : public AndroidCXX::android_widget_ResourceCursorTreeAdapter
 {
 public:
 

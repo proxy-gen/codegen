@@ -33,7 +33,7 @@
 #include <android_content_Intent.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <android_content_BroadcastReceiver.hpp>
 
 #include <vector>
 #include <map>
@@ -53,7 +53,7 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver : public AndroidCXX::java_lang_Object
+class com_facebook_UiLifecycleHelper_ActiveSessionBroadcastReceiver : public AndroidCXX::android_content_BroadcastReceiver
 {
 public:
 

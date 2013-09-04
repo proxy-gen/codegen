@@ -44,8 +44,6 @@
 #include <android_os_Bundle.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -67,7 +65,7 @@ class com_facebook_Session;
 
 
 
-class com_facebook_widget_WebDialog_Builder : public AndroidCXX::java_lang_Object
+class com_facebook_widget_WebDialog_Builder 
 {
 public:
 

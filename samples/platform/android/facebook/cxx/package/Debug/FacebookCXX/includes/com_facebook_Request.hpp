@@ -292,6 +292,8 @@
 #include <java_io_File.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -337,7 +339,7 @@ class com_facebook_model_GraphObject;
 
 
 
-class com_facebook_Request 
+class com_facebook_Request : public AndroidCXX::java_lang_Object
 {
 public:
 

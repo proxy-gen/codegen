@@ -56,6 +56,8 @@
 #include <android_os_Parcel.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -85,7 +87,7 @@ class android_content_res_XmlResourceParser;
 class android_os_Parcel;
 
 
-class android_content_pm_PackageItemInfo 
+class android_content_pm_PackageItemInfo : public AndroidCXX::java_lang_Object
 {
 public:
 

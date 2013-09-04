@@ -15,6 +15,8 @@ obj/local/armeabi/objs/SessionLoginSampleCXX_shared/./SessionLoginSampleCXX.o: \
  /Users/rvergis/Documents/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.6/include/list \
  jni/../../../../../../../../generator/platform/android/runtime/ZyngaCXX/jni/cxx/exported/CXXTypes.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_StringBuffer.hpp \
+ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_AbstractStringBuilder.hpp \
+ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_Appendable.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_io_Serializable.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_Locale.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_Cloneable.hpp \
@@ -63,15 +65,17 @@ obj/local/armeabi/objs/SessionLoginSampleCXX_shared/./SessionLoginSampleCXX.o: \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_net_URLStreamHandler.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_io_OutputStream.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_io_Flushable.hpp \
- jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_Appendable.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_io_PrintWriter.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_io_Writer.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_os_Bundle.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_os_IBinder.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_Byte.hpp \
+ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_Number.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_ArrayList.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_Collection.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_Iterable.hpp \
+ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_AbstractList.hpp \
+ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_AbstractCollection.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_List.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_RandomAccess.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_Integer.hpp \
@@ -88,9 +92,13 @@ obj/local/armeabi/objs/SessionLoginSampleCXX_shared/./SessionLoginSampleCXX.o: \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_Enumeration.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_net_InterfaceAddress.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_DatagramChannel.hpp \
+ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_spi_AbstractSelectableChannel.hpp \
+ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_SelectableChannel.hpp \
+ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_spi_AbstractInterruptibleChannel.hpp \
+ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_InterruptibleChannel.hpp \
+ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_Channel.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_ByteChannel.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_ReadableByteChannel.hpp \
- jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_Channel.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_WritableByteChannel.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_GatheringByteChannel.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_ScatteringByteChannel.hpp \
@@ -102,6 +110,7 @@ obj/local/armeabi/objs/SessionLoginSampleCXX_shared/./SessionLoginSampleCXX.o: \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_HashMap.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_Map_Entry.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_Map.hpp \
+ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_AbstractMap.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_util_SparseBooleanArray.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_os_IInterface.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_app_Activity.hpp \
@@ -180,6 +189,7 @@ obj/local/armeabi/objs/SessionLoginSampleCXX_shared/./SessionLoginSampleCXX.o: \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_view_MotionEvent.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_view_MotionEvent_PointerCoords.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_view_MotionEvent_PointerProperties.hpp \
+ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_view_InputEvent.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_view_KeyEvent.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_view_KeyEvent_Callback.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_view_KeyEvent_DispatcherState.hpp \
@@ -289,7 +299,6 @@ obj/local/armeabi/objs/SessionLoginSampleCXX_shared/./SessionLoginSampleCXX.o: \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/org_json_JSONTokener.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/org_json_JSONException.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_Iterator.hpp \
- jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_Number.hpp \
  jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/FacebookCXX/includes/com_facebook_model_GraphObject.hpp \
  jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/FacebookCXX/includes/com_facebook_model_GraphObjectList.hpp \
  jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/FacebookCXX/includes/com_facebook_Response_PagingDirection.hpp \
@@ -303,6 +312,8 @@ obj/local/armeabi/objs/SessionLoginSampleCXX_shared/./SessionLoginSampleCXX.o: \
  jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/FacebookCXX/includes/com_facebook_Request_GraphPlaceListCallback.hpp \
  jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/FacebookCXX/includes/com_facebook_HttpMethod.hpp \
  jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/FacebookCXX/includes/com_facebook_model_GraphUser.hpp \
+ jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/FacebookCXX/includes/com_facebook_Session_Builder.hpp \
+ jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/FacebookCXX/includes/com_facebook_SharedPreferencesTokenCachingStrategy.hpp \
  jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_widget_Toast.hpp \
  /Users/rvergis/Documents/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream \
  /Users/rvergis/Documents/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.6/include/sstream
@@ -338,6 +349,10 @@ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/A
 jni/../../../../../../../../generator/platform/android/runtime/ZyngaCXX/jni/cxx/exported/CXXTypes.hpp:
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_StringBuffer.hpp:
+
+jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_AbstractStringBuilder.hpp:
+
+jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_Appendable.hpp:
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_io_Serializable.hpp:
 
@@ -435,8 +450,6 @@ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/A
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_io_Flushable.hpp:
 
-jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_Appendable.hpp:
-
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_io_PrintWriter.hpp:
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_io_Writer.hpp:
@@ -447,11 +460,17 @@ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/A
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_Byte.hpp:
 
+jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_Number.hpp:
+
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_ArrayList.hpp:
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_Collection.hpp:
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_Iterable.hpp:
+
+jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_AbstractList.hpp:
+
+jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_AbstractCollection.hpp:
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_List.hpp:
 
@@ -485,11 +504,19 @@ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/A
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_DatagramChannel.hpp:
 
+jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_spi_AbstractSelectableChannel.hpp:
+
+jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_SelectableChannel.hpp:
+
+jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_spi_AbstractInterruptibleChannel.hpp:
+
+jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_InterruptibleChannel.hpp:
+
+jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_Channel.hpp:
+
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_ByteChannel.hpp:
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_ReadableByteChannel.hpp:
-
-jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_Channel.hpp:
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_nio_channels_WritableByteChannel.hpp:
 
@@ -512,6 +539,8 @@ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/A
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_Map_Entry.hpp:
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_Map.hpp:
+
+jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_AbstractMap.hpp:
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_util_SparseBooleanArray.hpp:
 
@@ -668,6 +697,8 @@ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/A
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_view_MotionEvent_PointerCoords.hpp:
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_view_MotionEvent_PointerProperties.hpp:
+
+jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_view_InputEvent.hpp:
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_view_KeyEvent.hpp:
 
@@ -887,8 +918,6 @@ jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/A
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_util_Iterator.hpp:
 
-jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/java_lang_Number.hpp:
-
 jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/FacebookCXX/includes/com_facebook_model_GraphObject.hpp:
 
 jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/FacebookCXX/includes/com_facebook_model_GraphObjectList.hpp:
@@ -914,6 +943,10 @@ jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/
 jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/FacebookCXX/includes/com_facebook_HttpMethod.hpp:
 
 jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/FacebookCXX/includes/com_facebook_model_GraphUser.hpp:
+
+jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/FacebookCXX/includes/com_facebook_Session_Builder.hpp:
+
+jni/../../../../../../../../samples/platform/android/facebook/cxx/package/Debug/FacebookCXX/includes/com_facebook_SharedPreferencesTokenCachingStrategy.hpp:
 
 jni/../../../../../../../../samples/platform/android/android/cxx/package/Debug/AndroidCXX/includes/android_widget_Toast.hpp:
 

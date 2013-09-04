@@ -34,6 +34,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -53,7 +55,7 @@ namespace AndroidCXX {
 
 class android_text_TextPaint;
 
-class android_text_style_CharacterStyle 
+class android_text_style_CharacterStyle : public AndroidCXX::java_lang_Object
 {
 public:
 

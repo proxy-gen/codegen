@@ -45,7 +45,7 @@
 
 
 
-#include <java_nio_channels_Channel.hpp>
+#include <java_nio_channels_spi_AbstractInterruptibleChannel.hpp>
 
 #include <vector>
 #include <map>
@@ -72,7 +72,7 @@ class java_nio_channels_SelectionKey;
 
 class java_nio_channels_spi_SelectorProvider;
 
-class java_nio_channels_SelectableChannel : public AndroidCXX::java_nio_channels_Channel
+class java_nio_channels_SelectableChannel : public AndroidCXX::java_nio_channels_spi_AbstractInterruptibleChannel
 {
 public:
 

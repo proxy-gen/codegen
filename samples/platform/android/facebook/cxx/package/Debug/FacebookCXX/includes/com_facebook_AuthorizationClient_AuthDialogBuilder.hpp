@@ -40,8 +40,6 @@
 #include <android_os_Bundle.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -63,7 +61,7 @@ class com_facebook_widget_WebDialog;
 
 
 
-class com_facebook_AuthorizationClient_AuthDialogBuilder : public AndroidCXX::java_lang_Object
+class com_facebook_AuthorizationClient_AuthDialogBuilder 
 {
 public:
 

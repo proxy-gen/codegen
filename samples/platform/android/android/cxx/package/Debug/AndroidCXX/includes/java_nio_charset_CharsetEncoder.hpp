@@ -62,6 +62,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -91,7 +93,7 @@ class java_nio_charset_CoderResult;
 class java_nio_charset_CodingErrorAction;
 
 
-class java_nio_charset_CharsetEncoder 
+class java_nio_charset_CharsetEncoder : public AndroidCXX::java_lang_Object
 {
 public:
 

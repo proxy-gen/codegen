@@ -137,6 +137,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
+class java_lang_Object;
 
 class android_util_Property;
 
@@ -148,7 +149,7 @@ class android_animation_TypeEvaluator;
 
 class android_animation_PropertyValuesHolder;
 
-class android_animation_ObjectAnimator : public AndroidCXX::java_lang_Object
+class android_animation_ObjectAnimator 
 {
 public:
 

@@ -16,8 +16,6 @@
 	
 	
 	
-	
-
 
 
 
@@ -51,6 +49,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -67,10 +67,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
-
-class java_nio_Buffer 
+class java_nio_Buffer : public AndroidCXX::java_lang_Object
 {
 public:
 
@@ -81,7 +79,6 @@ public:
 	virtual ~java_nio_Buffer();
 	// Functions
 	virtual int  arrayOffset() ;
-	virtual AndroidCXX::java_lang_Object * array() ;
 	virtual int  capacity() ;
 	virtual AndroidCXX::java_nio_Buffer * clear() ;
 	virtual AndroidCXX::java_nio_Buffer * flip() ;

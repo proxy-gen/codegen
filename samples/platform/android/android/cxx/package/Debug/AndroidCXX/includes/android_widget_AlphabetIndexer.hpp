@@ -44,6 +44,8 @@
 #include <java_lang_CharSequence.hpp>
 
 
+#include <android_database_DataSetObserver.hpp>
+
 #include <android_widget_SectionIndexer.hpp>
 
 #include <vector>
@@ -68,7 +70,7 @@ class android_database_Cursor;
 
 class java_lang_CharSequence;
 
-class android_widget_AlphabetIndexer : public AndroidCXX::android_widget_SectionIndexer
+class android_widget_AlphabetIndexer : public AndroidCXX::android_database_DataSetObserver,public AndroidCXX::android_widget_SectionIndexer
 {
 public:
 

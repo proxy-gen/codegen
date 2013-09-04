@@ -87,7 +87,7 @@
 #include <android_widget_TextView.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <android_widget_ResourceCursorAdapter.hpp>
 
 #include <vector>
 #include <map>
@@ -123,7 +123,7 @@ class android_widget_ImageView;
 
 class android_widget_TextView;
 
-class android_widget_SimpleCursorAdapter : public AndroidCXX::java_lang_Object
+class android_widget_SimpleCursorAdapter : public AndroidCXX::android_widget_ResourceCursorAdapter
 {
 public:
 

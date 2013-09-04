@@ -35,7 +35,7 @@
 #include <java_lang_String.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <com_facebook_widget_PickerFragment_SelectionStrategy.hpp>
 
 #include <vector>
 #include <map>
@@ -55,7 +55,7 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_widget_PickerFragment_MultiSelectionStrategy : public AndroidCXX::java_lang_Object
+class com_facebook_widget_PickerFragment_MultiSelectionStrategy : public FacebookCXX::com_facebook_widget_PickerFragment_SelectionStrategy
 {
 public:
 

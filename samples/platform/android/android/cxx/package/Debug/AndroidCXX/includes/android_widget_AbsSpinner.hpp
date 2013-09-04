@@ -10,7 +10,6 @@
 
 
 	
-	
  		 
  		 
  		 
@@ -23,7 +22,6 @@
  		 
  		 
  		 
-
 
 
 
@@ -53,7 +51,7 @@
 
 
 
-#include <java_lang_Object.hpp>
+#include <android_widget_AdapterView.hpp>
 
 #include <vector>
 #include <map>
@@ -71,8 +69,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_widget_SpinnerAdapter;
-
 class android_view_View;
 
 class android_view_accessibility_AccessibilityEvent;
@@ -81,11 +77,13 @@ class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_os_Parcelable;
 
+class android_widget_SpinnerAdapter;
+
 class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_AbsSpinner : public AndroidCXX::java_lang_Object
+class android_widget_AbsSpinner : public AndroidCXX::android_widget_AdapterView
 {
 public:
 
@@ -95,7 +93,6 @@ public:
 	// Default Destructor
 	virtual ~android_widget_AbsSpinner();
 	// Functions
-	virtual AndroidCXX::android_widget_SpinnerAdapter * getAdapter() ;
 	virtual int  getCount() ;
 	virtual AndroidCXX::android_view_View * getSelectedView() ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;

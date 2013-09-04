@@ -47,6 +47,8 @@
 #include <java_io_OutputStream.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -70,7 +72,7 @@ class java_io_InputStream;
 
 class java_io_OutputStream;
 
-class android_graphics_Picture 
+class android_graphics_Picture : public AndroidCXX::java_lang_Object
 {
 public:
 

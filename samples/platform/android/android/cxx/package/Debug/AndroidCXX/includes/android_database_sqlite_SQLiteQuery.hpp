@@ -30,7 +30,7 @@
 #include <java_lang_String.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <android_database_sqlite_SQLiteProgram.hpp>
 
 #include <vector>
 #include <map>
@@ -50,7 +50,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_database_sqlite_SQLiteQuery : public AndroidCXX::java_lang_Object
+class android_database_sqlite_SQLiteQuery : public AndroidCXX::android_database_sqlite_SQLiteProgram
 {
 public:
 

@@ -96,8 +96,6 @@
 #include <android_util_AttributeSet.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -130,7 +128,7 @@ class com_facebook_Session;
 
 
 
-class com_facebook_widget_LoginButton : public AndroidCXX::java_lang_Object
+class com_facebook_widget_LoginButton 
 {
 public:
 

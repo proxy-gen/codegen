@@ -63,6 +63,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -90,9 +92,8 @@ class java_util_Enumeration;
 
 class java_lang_Class;
 
-class java_lang_Object;
 
-class java_lang_ClassLoader 
+class java_lang_ClassLoader : public AndroidCXX::java_lang_Object
 {
 public:
 

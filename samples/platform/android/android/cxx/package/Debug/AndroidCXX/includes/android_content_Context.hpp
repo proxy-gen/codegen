@@ -292,6 +292,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -339,7 +341,6 @@ class android_content_res_Resources;
 
 class android_content_SharedPreferences;
 
-class java_lang_Object;
 
 class java_lang_CharSequence;
 
@@ -381,7 +382,7 @@ class android_content_ComponentName;
 
 class android_content_IntentSender;
 
-class android_content_Context 
+class android_content_Context : public AndroidCXX::java_lang_Object
 {
 public:
 

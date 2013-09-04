@@ -39,8 +39,6 @@
 #include <android_view_ViewGroup_LayoutParams.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -63,7 +61,7 @@ class android_util_AttributeSet;
 
 class android_view_ViewGroup_LayoutParams;
 
-class android_widget_AbsListView_LayoutParams : public AndroidCXX::java_lang_Object
+class android_widget_AbsListView_LayoutParams 
 {
 public:
 

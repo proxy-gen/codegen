@@ -81,9 +81,8 @@ class java_lang_String;
 
 class java_io_File;
 
-class java_lang_Object;
 
-class android_graphics_Typeface 
+class android_graphics_Typeface : public AndroidCXX::java_lang_Object
 {
 public:
 

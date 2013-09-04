@@ -83,6 +83,8 @@
 #include <java_net_DatagramSocketImplFactory.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -109,7 +111,7 @@ class java_net_DatagramPacket;
 
 class java_net_DatagramSocketImplFactory;
 
-class java_net_DatagramSocket 
+class java_net_DatagramSocket : public AndroidCXX::java_lang_Object
 {
 public:
 

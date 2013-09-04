@@ -78,11 +78,11 @@
 #include <java_lang_Object.hpp>
 
 
+#include <java_util_AbstractList.hpp>
+
 #include <java_io_Serializable.hpp>
 
 #include <java_lang_Cloneable.hpp>
-
-#include <java_util_List.hpp>
 
 #include <java_util_RandomAccess.hpp>
 
@@ -106,7 +106,7 @@ class java_util_Collection;
 
 class java_lang_Object;
 
-class java_util_ArrayList : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Cloneable,public AndroidCXX::java_util_List,public AndroidCXX::java_util_RandomAccess
+class java_util_ArrayList : public AndroidCXX::java_util_AbstractList,public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Cloneable,public AndroidCXX::java_util_RandomAccess
 {
 public:
 

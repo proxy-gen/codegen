@@ -78,6 +78,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_util_AbstractList.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -102,7 +104,7 @@ class com_facebook_model_GraphObject;
 
 
 
-class com_facebook_model_GraphObject_Factory_GraphObjectListImpl : public FacebookCXX::com_facebook_model_GraphObjectList
+class com_facebook_model_GraphObject_Factory_GraphObjectListImpl : public AndroidCXX::java_util_AbstractList,public FacebookCXX::com_facebook_model_GraphObjectList
 {
 public:
 

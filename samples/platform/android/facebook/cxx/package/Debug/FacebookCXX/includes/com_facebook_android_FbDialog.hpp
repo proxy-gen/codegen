@@ -52,8 +52,6 @@
 #include <com_facebook_android_Facebook_DialogListener.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -75,7 +73,7 @@ namespace FacebookCXX {
 
 class com_facebook_android_Facebook_DialogListener;
 
-class com_facebook_android_FbDialog : public AndroidCXX::java_lang_Object
+class com_facebook_android_FbDialog 
 {
 public:
 

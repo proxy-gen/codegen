@@ -33,6 +33,8 @@
 #include <android_graphics_drawable_Drawable.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -51,7 +53,7 @@ namespace AndroidCXX {
 
 class android_graphics_drawable_Drawable;
 
-class android_view_ViewOverlay 
+class android_view_ViewOverlay : public AndroidCXX::java_lang_Object
 {
 public:
 

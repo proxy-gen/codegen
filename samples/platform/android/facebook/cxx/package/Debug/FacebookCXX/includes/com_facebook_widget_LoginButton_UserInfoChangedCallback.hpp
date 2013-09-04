@@ -62,7 +62,6 @@ public:
 
 protected:
 	com_facebook_widget_LoginButton_UserInfoChangedCallback();
-	void setCXXCallbackPtr(void * callbackPtr);
 
 private:
 	Proxy * _proxy;

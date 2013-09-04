@@ -26,7 +26,7 @@
 
 
 
-#include <java_lang_Object.hpp>
+#include <com_facebook_AuthorizationClient_KatanaAuthHandler.hpp>
 
 #include <vector>
 #include <map>
@@ -44,7 +44,7 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler : public AndroidCXX::java_lang_Object
+class com_facebook_AuthorizationClient_KatanaLoginDialogAuthHandler : public FacebookCXX::com_facebook_AuthorizationClient_KatanaAuthHandler
 {
 public:
 

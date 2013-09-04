@@ -41,6 +41,8 @@
 #include <android_net_http_SslCertificate.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -61,7 +63,7 @@ class java_lang_String;
 
 class android_net_http_SslCertificate;
 
-class android_net_http_SslCertificate_DName 
+class android_net_http_SslCertificate_DName : public AndroidCXX::java_lang_Object
 {
 public:
 

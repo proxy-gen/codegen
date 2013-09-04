@@ -52,6 +52,8 @@
 #include <android_util_TypedValue.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -77,7 +79,7 @@ class android_util_AttributeSet;
 class android_util_TypedValue;
 
 
-class android_content_res_Resources_Theme 
+class android_content_res_Resources_Theme : public AndroidCXX::java_lang_Object
 {
 public:
 

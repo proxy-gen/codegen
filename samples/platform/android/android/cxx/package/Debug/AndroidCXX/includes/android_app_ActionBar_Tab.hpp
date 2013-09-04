@@ -65,6 +65,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -87,12 +89,11 @@ class android_view_View;
 
 class android_graphics_drawable_Drawable;
 
-class java_lang_Object;
 
 
 class android_app_ActionBar_TabListener;
 
-class android_app_ActionBar_Tab 
+class android_app_ActionBar_Tab : public AndroidCXX::java_lang_Object
 {
 public:
 

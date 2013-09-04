@@ -71,6 +71,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_lang_Object;
 
 class android_content_Context;
 
@@ -83,7 +84,7 @@ class android_view_ViewGroup_MarginLayoutParams;
 
 class android_widget_GridLayout_Spec;
 
-class android_widget_GridLayout_LayoutParams : public AndroidCXX::java_lang_Object
+class android_widget_GridLayout_LayoutParams 
 {
 public:
 

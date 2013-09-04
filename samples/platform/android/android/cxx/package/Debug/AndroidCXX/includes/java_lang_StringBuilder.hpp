@@ -124,6 +124,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_lang_AbstractStringBuilder.hpp>
+
 #include <java_io_Serializable.hpp>
 
 #include <vector>
@@ -143,6 +145,7 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
+class java_lang_CharSequence;
 
 class java_lang_Object;
 
@@ -150,7 +153,7 @@ class java_lang_StringBuffer;
 
 class java_lang_String;
 
-class java_lang_StringBuilder : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_CharSequence
+class java_lang_StringBuilder : public AndroidCXX::java_lang_AbstractStringBuilder,public AndroidCXX::java_io_Serializable
 {
 public:
 

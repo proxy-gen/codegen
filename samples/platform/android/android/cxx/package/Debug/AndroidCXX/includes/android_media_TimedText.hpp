@@ -34,6 +34,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -54,7 +56,7 @@ class android_graphics_Rect;
 
 class java_lang_String;
 
-class android_media_TimedText 
+class android_media_TimedText : public AndroidCXX::java_lang_Object
 {
 public:
 

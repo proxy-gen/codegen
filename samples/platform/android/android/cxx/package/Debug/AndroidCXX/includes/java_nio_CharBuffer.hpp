@@ -15,7 +15,6 @@
 	
  		 
 	
- 	
 	
 	
  		 
@@ -50,7 +49,6 @@
 	
  		 
 	
-
 
 
 
@@ -103,6 +101,8 @@
 
 
 
+#include <java_nio_Buffer.hpp>
+
 #include <java_lang_Appendable.hpp>
 
 #include <java_lang_CharSequence.hpp>
@@ -135,7 +135,7 @@ class java_nio_ByteOrder;
 
 class java_lang_String;
 
-class java_nio_CharBuffer : public AndroidCXX::java_lang_Appendable,public AndroidCXX::java_lang_CharSequence,public AndroidCXX::java_lang_Comparable,public AndroidCXX::java_lang_Readable
+class java_nio_CharBuffer : public AndroidCXX::java_nio_Buffer,public AndroidCXX::java_lang_Appendable,public AndroidCXX::java_lang_CharSequence,public AndroidCXX::java_lang_Comparable,public AndroidCXX::java_lang_Readable
 {
 public:
 
@@ -150,7 +150,6 @@ public:
 	virtual AndroidCXX::java_nio_CharBuffer * append(AndroidCXX::java_lang_CharSequence const& arg0,int const& arg1,int const& arg2) ;
 	virtual AndroidCXX::java_nio_CharBuffer * append(AndroidCXX::java_lang_CharSequence const& arg0) ;
 	virtual int  arrayOffset() ;
-	virtual std::vector<char>  array() ;
 	virtual AndroidCXX::java_nio_CharBuffer * asReadOnlyBuffer() ;
 	virtual char  charAt(int const& arg0) ;
 	virtual AndroidCXX::java_nio_CharBuffer * compact() ;

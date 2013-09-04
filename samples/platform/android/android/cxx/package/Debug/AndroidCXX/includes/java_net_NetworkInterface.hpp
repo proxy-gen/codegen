@@ -95,7 +95,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
 class java_net_InetAddress;
 
@@ -108,7 +107,7 @@ class java_util_List;
 
 class java_net_InterfaceAddress;
 
-class java_net_NetworkInterface 
+class java_net_NetworkInterface : public AndroidCXX::java_lang_Object
 {
 public:
 

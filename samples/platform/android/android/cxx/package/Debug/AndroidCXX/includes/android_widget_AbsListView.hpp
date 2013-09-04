@@ -16,8 +16,6 @@
  		 
  		 
  		 
- 		 
-	
  	
 	
  		 
@@ -59,7 +57,6 @@
  		 
  		 
  		 
-
 
 
 
@@ -170,6 +167,8 @@
 
 
 
+#include <android_widget_AdapterView.hpp>
+
 #include <android_text_TextWatcher.hpp>
 
 #include <android_view_ViewTreeObserver_OnGlobalLayoutListener.hpp>
@@ -203,10 +202,6 @@ class android_text_Editable;
 class java_lang_CharSequence;
 
 class android_graphics_Canvas;
-
-class android_util_AttributeSet;
-
-class android_widget_AbsListView_LayoutParams;
 
 class android_util_SparseBooleanArray;
 
@@ -246,7 +241,9 @@ class android_content_Intent;
 
 class android_content_Context;
 
-class android_widget_AbsListView : public AndroidCXX::android_text_TextWatcher,public AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener,public AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener,public AndroidCXX::android_widget_Filter_FilterListener
+class android_util_AttributeSet;
+
+class android_widget_AbsListView : public AndroidCXX::android_widget_AdapterView,public AndroidCXX::android_text_TextWatcher,public AndroidCXX::android_view_ViewTreeObserver_OnGlobalLayoutListener,public AndroidCXX::android_view_ViewTreeObserver_OnTouchModeChangeListener,public AndroidCXX::android_widget_Filter_FilterListener
 {
 public:
 
@@ -264,7 +261,6 @@ public:
 	virtual void  clearTextFilter() ;
 	virtual void  deferNotifyDataSetChanged() ;
 	virtual void  draw(AndroidCXX::android_graphics_Canvas const& arg0) ;
-	virtual AndroidCXX::android_widget_AbsListView_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
 	virtual int  getCacheColorHint() ;
 	virtual int  getCheckedItemCount() ;
 	virtual std::vector<long>  getCheckedItemIds() ;

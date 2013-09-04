@@ -30,8 +30,6 @@
 #include <android_os_Message.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -49,7 +47,7 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_android_Facebook_TokenRefreshConnectionHandler : public AndroidCXX::java_lang_Object
+class com_facebook_android_Facebook_TokenRefreshConnectionHandler 
 {
 public:
 

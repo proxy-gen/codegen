@@ -122,6 +122,8 @@
 #include <com_facebook_Session.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -150,7 +152,7 @@ class com_facebook_android_Facebook_ServiceListener;
 
 class com_facebook_Session;
 
-class com_facebook_android_Facebook 
+class com_facebook_android_Facebook : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -103,6 +103,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -132,7 +134,7 @@ class android_view_View;
 
 class java_lang_String;
 
-class android_view_accessibility_AccessibilityRecord 
+class android_view_accessibility_AccessibilityRecord : public AndroidCXX::java_lang_Object
 {
 public:
 

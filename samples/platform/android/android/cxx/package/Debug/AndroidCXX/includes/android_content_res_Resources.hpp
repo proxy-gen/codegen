@@ -198,7 +198,6 @@ class java_lang_String;
 
 class android_graphics_Movie;
 
-class java_lang_Object;
 
 class java_lang_CharSequence;
 
@@ -217,7 +216,7 @@ class java_io_InputStream;
 
 class android_os_Bundle;
 
-class android_content_res_Resources 
+class android_content_res_Resources : public AndroidCXX::java_lang_Object
 {
 public:
 

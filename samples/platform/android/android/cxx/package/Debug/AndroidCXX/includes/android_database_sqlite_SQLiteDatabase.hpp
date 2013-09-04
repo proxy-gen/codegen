@@ -287,6 +287,8 @@
 #include <java_util_Locale.hpp>
 
 
+#include <android_database_sqlite_SQLiteClosable.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -314,6 +316,7 @@ class android_database_sqlite_SQLiteDatabase_CursorFactory;
 
 class java_io_File;
 
+class java_lang_Object;
 
 class java_util_List;
 
@@ -331,7 +334,7 @@ class android_database_Cursor;
 
 class java_util_Locale;
 
-class android_database_sqlite_SQLiteDatabase : public AndroidCXX::java_lang_Object
+class android_database_sqlite_SQLiteDatabase : public AndroidCXX::android_database_sqlite_SQLiteClosable
 {
 public:
 

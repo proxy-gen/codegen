@@ -45,6 +45,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -68,7 +70,7 @@ class java_nio_channels_SelectionKey;
 
 class java_nio_channels_spi_SelectorProvider;
 
-class java_nio_channels_Selector 
+class java_nio_channels_Selector : public AndroidCXX::java_lang_Object
 {
 public:
 

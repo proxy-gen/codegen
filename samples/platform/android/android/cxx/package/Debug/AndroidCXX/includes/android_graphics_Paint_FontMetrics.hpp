@@ -27,6 +27,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -43,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_graphics_Paint_FontMetrics 
+class android_graphics_Paint_FontMetrics : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -38,8 +38,6 @@
 #include <java_lang_Throwable.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -58,7 +56,7 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_FacebookException : public AndroidCXX::java_lang_Object
+class com_facebook_FacebookException 
 {
 public:
 

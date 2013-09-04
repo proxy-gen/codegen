@@ -63,6 +63,8 @@
 #include <java_lang_Object.hpp>
 
 
+#include <java_lang_Number.hpp>
+
 #include <java_lang_Comparable.hpp>
 
 #include <vector>
@@ -86,7 +88,7 @@ class java_lang_String;
 
 class java_lang_Object;
 
-class java_lang_Byte : public AndroidCXX::java_lang_Comparable
+class java_lang_Byte : public AndroidCXX::java_lang_Number,public AndroidCXX::java_lang_Comparable
 {
 public:
 

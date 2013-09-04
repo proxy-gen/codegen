@@ -30,6 +30,8 @@
 #include <android_widget_ListView.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -48,7 +50,7 @@ namespace AndroidCXX {
 
 class android_widget_ListView;
 
-class android_widget_ListView_FixedViewInfo 
+class android_widget_ListView_FixedViewInfo : public AndroidCXX::java_lang_Object
 {
 public:
 

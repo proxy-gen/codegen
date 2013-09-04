@@ -60,8 +60,6 @@
 #include <android_support_v4_app_Fragment.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -87,7 +85,7 @@ class com_facebook_Session_StatusCallback;
 
 
 
-class com_facebook_Session_OpenRequest : public AndroidCXX::java_lang_Object
+class com_facebook_Session_OpenRequest 
 {
 public:
 

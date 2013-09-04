@@ -111,6 +111,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -145,7 +147,7 @@ class android_widget_SpinnerAdapter;
 
 class android_app_ActionBar_OnNavigationListener;
 
-class android_app_ActionBar 
+class android_app_ActionBar : public AndroidCXX::java_lang_Object
 {
 public:
 

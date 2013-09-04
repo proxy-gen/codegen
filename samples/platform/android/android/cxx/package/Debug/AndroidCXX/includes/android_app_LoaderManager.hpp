@@ -55,6 +55,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -79,13 +81,12 @@ class java_io_PrintWriter;
 
 class android_content_Loader;
 
-class java_lang_Object;
 
 class android_os_Bundle;
 
 class android_app_LoaderManager_LoaderCallbacks;
 
-class android_app_LoaderManager 
+class android_app_LoaderManager : public AndroidCXX::java_lang_Object
 {
 public:
 

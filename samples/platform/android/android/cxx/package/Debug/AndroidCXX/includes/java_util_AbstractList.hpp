@@ -65,6 +65,8 @@
 
 
 
+#include <java_util_AbstractCollection.hpp>
+
 #include <java_util_List.hpp>
 
 #include <vector>
@@ -92,7 +94,7 @@ class java_util_Iterator;
 class java_util_ListIterator;
 
 
-class java_util_AbstractList : public AndroidCXX::java_util_List
+class java_util_AbstractList : public AndroidCXX::java_util_AbstractCollection,public AndroidCXX::java_util_List
 {
 public:
 

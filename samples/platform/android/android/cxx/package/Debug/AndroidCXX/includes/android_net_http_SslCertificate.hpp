@@ -68,6 +68,8 @@
 #include <java_security_cert_X509Certificate.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -95,7 +97,7 @@ class android_os_Bundle;
 
 class java_security_cert_X509Certificate;
 
-class android_net_http_SslCertificate 
+class android_net_http_SslCertificate : public AndroidCXX::java_lang_Object
 {
 public:
 

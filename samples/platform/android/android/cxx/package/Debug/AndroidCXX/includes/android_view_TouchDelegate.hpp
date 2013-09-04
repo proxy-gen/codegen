@@ -37,6 +37,8 @@
 #include <android_view_View.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -59,7 +61,7 @@ class android_graphics_Rect;
 
 class android_view_View;
 
-class android_view_TouchDelegate 
+class android_view_TouchDelegate : public AndroidCXX::java_lang_Object
 {
 public:
 

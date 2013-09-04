@@ -42,6 +42,8 @@
 #include <android_graphics_Point.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -64,7 +66,7 @@ class android_graphics_Canvas;
 
 class android_graphics_Point;
 
-class android_view_View_DragShadowBuilder 
+class android_view_View_DragShadowBuilder : public AndroidCXX::java_lang_Object
 {
 public:
 

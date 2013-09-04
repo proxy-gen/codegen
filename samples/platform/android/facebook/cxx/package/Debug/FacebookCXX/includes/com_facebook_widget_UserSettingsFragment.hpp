@@ -84,8 +84,6 @@
 #include <com_facebook_Session.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -116,7 +114,7 @@ class com_facebook_Session_StatusCallback;
 
 class com_facebook_Session;
 
-class com_facebook_widget_UserSettingsFragment : public AndroidCXX::java_lang_Object
+class com_facebook_widget_UserSettingsFragment 
 {
 public:
 

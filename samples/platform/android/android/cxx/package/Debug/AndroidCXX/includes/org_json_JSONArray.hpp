@@ -127,7 +127,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
 
 class org_json_JSONObject;
@@ -138,7 +137,7 @@ class java_util_Collection;
 
 class org_json_JSONTokener;
 
-class org_json_JSONArray 
+class org_json_JSONArray : public AndroidCXX::java_lang_Object
 {
 public:
 

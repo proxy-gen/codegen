@@ -70,6 +70,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -104,7 +106,7 @@ class android_os_Bundle;
 
 class android_app_Fragment_SavedState;
 
-class android_app_FragmentManager 
+class android_app_FragmentManager : public AndroidCXX::java_lang_Object
 {
 public:
 

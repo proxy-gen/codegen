@@ -40,7 +40,7 @@
 #include <java_lang_String.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <android_database_sqlite_SQLiteProgram.hpp>
 
 #include <vector>
 #include <map>
@@ -62,7 +62,7 @@ class android_os_ParcelFileDescriptor;
 
 class java_lang_String;
 
-class android_database_sqlite_SQLiteStatement : public AndroidCXX::java_lang_Object
+class android_database_sqlite_SQLiteStatement : public AndroidCXX::android_database_sqlite_SQLiteProgram
 {
 public:
 

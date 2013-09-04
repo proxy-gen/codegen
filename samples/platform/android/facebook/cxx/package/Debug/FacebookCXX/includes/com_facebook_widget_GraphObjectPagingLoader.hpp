@@ -61,8 +61,6 @@
 #include <java_lang_Class.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -89,7 +87,7 @@ class com_facebook_Request;
 
 
 
-class com_facebook_widget_GraphObjectPagingLoader : public AndroidCXX::java_lang_Object
+class com_facebook_widget_GraphObjectPagingLoader 
 {
 public:
 

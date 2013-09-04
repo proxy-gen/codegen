@@ -35,6 +35,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -57,7 +59,7 @@ class com_facebook_model_GraphObject;
 
 class com_facebook_Request;
 
-class com_facebook_widget_PickerFragment_LoadingStrategy 
+class com_facebook_widget_PickerFragment_LoadingStrategy : public AndroidCXX::java_lang_Object
 {
 public:
 

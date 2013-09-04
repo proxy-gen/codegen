@@ -254,6 +254,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -308,7 +310,7 @@ class android_content_res_XmlResourceParser;
 
 class android_content_pm_ResolveInfo;
 
-class android_content_pm_PackageManager 
+class android_content_pm_PackageManager : public AndroidCXX::java_lang_Object
 {
 public:
 

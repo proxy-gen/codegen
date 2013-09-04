@@ -68,7 +68,7 @@
 #include <android_util_AttributeSet.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <com_facebook_widget_PickerFragment.hpp>
 
 #include <vector>
 #include <map>
@@ -93,7 +93,7 @@ class com_facebook_model_GraphPlace;
 
 
 
-class com_facebook_widget_PlacePickerFragment : public AndroidCXX::java_lang_Object
+class com_facebook_widget_PlacePickerFragment : public FacebookCXX::com_facebook_widget_PickerFragment
 {
 public:
 

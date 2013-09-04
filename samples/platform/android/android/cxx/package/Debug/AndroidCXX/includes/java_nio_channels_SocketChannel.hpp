@@ -55,6 +55,8 @@
 
 
 
+#include <java_nio_channels_spi_AbstractSelectableChannel.hpp>
+
 #include <java_nio_channels_ByteChannel.hpp>
 
 #include <java_nio_channels_GatheringByteChannel.hpp>
@@ -84,7 +86,7 @@ class java_nio_ByteBuffer;
 
 class java_net_Socket;
 
-class java_nio_channels_SocketChannel : public AndroidCXX::java_nio_channels_ByteChannel,public AndroidCXX::java_nio_channels_GatheringByteChannel,public AndroidCXX::java_nio_channels_ScatteringByteChannel
+class java_nio_channels_SocketChannel : public AndroidCXX::java_nio_channels_spi_AbstractSelectableChannel,public AndroidCXX::java_nio_channels_ByteChannel,public AndroidCXX::java_nio_channels_GatheringByteChannel,public AndroidCXX::java_nio_channels_ScatteringByteChannel
 {
 public:
 

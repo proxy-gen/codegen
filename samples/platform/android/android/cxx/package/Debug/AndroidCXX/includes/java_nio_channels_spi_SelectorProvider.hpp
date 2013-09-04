@@ -40,6 +40,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -69,7 +71,7 @@ class java_nio_channels_ServerSocketChannel;
 class java_nio_channels_SocketChannel;
 
 
-class java_nio_channels_spi_SelectorProvider 
+class java_nio_channels_spi_SelectorProvider : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -65,7 +65,7 @@ class com_facebook_widget_WebDialog_OnCompleteListener;
 
 
 
-class com_facebook_widget_WebDialog_BuilderBase 
+class com_facebook_widget_WebDialog_BuilderBase : public AndroidCXX::java_lang_Object
 {
 public:
 

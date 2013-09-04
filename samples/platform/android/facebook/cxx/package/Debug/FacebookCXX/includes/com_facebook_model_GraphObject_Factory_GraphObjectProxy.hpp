@@ -49,6 +49,8 @@
 #include <java_lang_Class.hpp>
 
 
+#include <com_facebook_model_GraphObject_Factory_ProxyBase.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -70,7 +72,7 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_model_GraphObject_Factory_GraphObjectProxy : public AndroidCXX::java_lang_Object
+class com_facebook_model_GraphObject_Factory_GraphObjectProxy : public FacebookCXX::com_facebook_model_GraphObject_Factory_ProxyBase
 {
 public:
 

@@ -143,6 +143,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -198,7 +200,7 @@ class android_view_InputQueue_Callback;
 
 class android_view_SurfaceHolder_Callback2;
 
-class android_view_Window 
+class android_view_Window : public AndroidCXX::java_lang_Object
 {
 public:
 

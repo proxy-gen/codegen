@@ -113,6 +113,8 @@
 #include <java_net_Proxy.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -145,7 +147,7 @@ class java_lang_String;
 
 class java_net_Proxy;
 
-class java_net_Socket 
+class java_net_Socket : public AndroidCXX::java_lang_Object
 {
 public:
 

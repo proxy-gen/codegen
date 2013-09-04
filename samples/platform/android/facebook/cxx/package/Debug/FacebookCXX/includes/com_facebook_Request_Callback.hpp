@@ -52,6 +52,7 @@ class com_facebook_Request_Callback : public AndroidCXX::java_lang_Object
 {
 public:
 
+	// Public Constructor
 	com_facebook_Request_Callback(const com_facebook_Request_Callback& cc);
 	com_facebook_Request_Callback(Proxy * aProxy);
 	Proxy * proxy() const;	
@@ -61,8 +62,8 @@ public:
 	virtual void  onCompleted(FacebookCXX::com_facebook_Response const& arg0) ;
 
 protected:
-	com_facebook_Request_Callback();
 	void setCXXCallbackPtr(void * callbackPtr);
+	com_facebook_Request_Callback();
 
 private:
 	Proxy * _proxy;

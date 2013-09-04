@@ -92,7 +92,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
 class java_lang_String;
 
@@ -104,7 +103,7 @@ class android_content_Context;
 
 class android_support_v4_content_Loader_OnLoadCompleteListener;
 
-class android_support_v4_content_Loader 
+class android_support_v4_content_Loader : public AndroidCXX::java_lang_Object
 {
 public:
 

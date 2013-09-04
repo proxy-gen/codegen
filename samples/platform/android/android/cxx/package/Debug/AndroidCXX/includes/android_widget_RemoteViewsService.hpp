@@ -33,7 +33,7 @@
 
 
 
-#include <java_lang_Object.hpp>
+#include <android_app_Service.hpp>
 
 #include <vector>
 #include <map>
@@ -57,7 +57,7 @@ class android_os_IBinder;
 
 class android_widget_RemoteViewsService_RemoteViewsFactory;
 
-class android_widget_RemoteViewsService : public AndroidCXX::java_lang_Object
+class android_widget_RemoteViewsService : public AndroidCXX::android_app_Service
 {
 public:
 

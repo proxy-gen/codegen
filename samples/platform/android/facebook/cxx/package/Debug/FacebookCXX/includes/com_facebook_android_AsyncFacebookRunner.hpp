@@ -100,7 +100,7 @@ class com_facebook_android_AsyncFacebookRunner_RequestListener;
 
 class com_facebook_android_Facebook;
 
-class com_facebook_android_AsyncFacebookRunner 
+class com_facebook_android_AsyncFacebookRunner : public AndroidCXX::java_lang_Object
 {
 public:
 

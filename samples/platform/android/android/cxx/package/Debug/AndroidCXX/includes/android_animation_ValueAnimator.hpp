@@ -107,6 +107,8 @@
 #include <android_animation_TypeEvaluator.hpp>
 
 
+#include <android_animation_Animator.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -128,6 +130,7 @@ class android_animation_ValueAnimator_AnimatorUpdateListener;
 
 class java_lang_String;
 
+class java_lang_Object;
 
 class android_animation_TimeInterpolator;
 
@@ -135,7 +138,7 @@ class android_animation_PropertyValuesHolder;
 
 class android_animation_TypeEvaluator;
 
-class android_animation_ValueAnimator : public AndroidCXX::java_lang_Object
+class android_animation_ValueAnimator : public AndroidCXX::android_animation_Animator
 {
 public:
 

@@ -65,6 +65,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -100,7 +102,7 @@ class android_view_ViewGroup;
 
 class org_xmlpull_v1_XmlPullParser;
 
-class android_view_LayoutInflater 
+class android_view_LayoutInflater : public AndroidCXX::java_lang_Object
 {
 public:
 

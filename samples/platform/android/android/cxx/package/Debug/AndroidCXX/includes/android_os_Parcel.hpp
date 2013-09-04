@@ -319,7 +319,6 @@ class java_lang_String;
 
 class android_os_Parcelable_Creator;
 
-class java_lang_Object;
 
 class java_lang_ClassLoader;
 
@@ -347,7 +346,7 @@ class java_io_FileDescriptor;
 
 class android_os_IInterface;
 
-class android_os_Parcel 
+class android_os_Parcel : public AndroidCXX::java_lang_Object
 {
 public:
 

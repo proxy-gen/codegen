@@ -53,8 +53,6 @@
 #include <android_view_ViewGroup_MarginLayoutParams.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -81,7 +79,7 @@ class android_view_ViewGroup_LayoutParams;
 
 class android_view_ViewGroup_MarginLayoutParams;
 
-class android_widget_RelativeLayout_LayoutParams : public AndroidCXX::java_lang_Object
+class android_widget_RelativeLayout_LayoutParams 
 {
 public:
 

@@ -123,6 +123,8 @@
 #include <android_database_Cursor.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -163,7 +165,7 @@ class android_os_CancellationSignal;
 
 class android_database_Cursor;
 
-class android_content_ContentProviderClient 
+class android_content_ContentProviderClient : public AndroidCXX::java_lang_Object
 {
 public:
 

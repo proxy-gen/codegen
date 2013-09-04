@@ -38,6 +38,8 @@
 #include <android_net_Uri.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -58,7 +60,7 @@ class java_lang_String;
 
 class android_net_Uri;
 
-class android_content_IntentFilter_AuthorityEntry 
+class android_content_IntentFilter_AuthorityEntry : public AndroidCXX::java_lang_Object
 {
 public:
 

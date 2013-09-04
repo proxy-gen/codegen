@@ -57,6 +57,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -85,7 +87,7 @@ class android_content_Intent;
 
 class android_os_IBinder;
 
-class android_content_BroadcastReceiver 
+class android_content_BroadcastReceiver : public AndroidCXX::java_lang_Object
 {
 public:
 

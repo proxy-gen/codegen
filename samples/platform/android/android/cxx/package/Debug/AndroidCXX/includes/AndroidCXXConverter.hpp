@@ -218,7 +218,6 @@
 #include <android_support_v4_app_LoaderManager_LoaderCallbacks.hpp>
 #include <android_support_v4_content_Loader.hpp>
 #include <android_support_v4_content_Loader_OnLoadCompleteListener.hpp>
-#include <android_text_AlteredCharSequence.hpp>
 #include <android_text_Editable.hpp>
 #include <android_text_Editable_Factory.hpp>
 #include <android_text_GetChars.hpp>
@@ -1308,10 +1307,6 @@ using namespace AndroidCXX;
 // 
 // 
 // using namespace android_graphics_Region_Op;
-// 
-// 
-// 
-// 
 // 
 // 
 // 
@@ -3741,7 +3736,6 @@ void convert_android_support_v4_app_LoaderManager(long& java_value, long& cxx_va
 void convert_android_support_v4_app_LoaderManager_LoaderCallbacks(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_android_support_v4_content_Loader(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_android_support_v4_content_Loader_OnLoadCompleteListener(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
-void convert_android_text_AlteredCharSequence(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_android_text_Editable(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_android_text_Editable_Factory(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 void convert_android_text_GetChars(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);

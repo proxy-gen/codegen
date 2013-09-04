@@ -54,8 +54,6 @@
 #include <android_util_AttributeSet.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -77,7 +75,7 @@ class com_facebook_widget_ProfilePictureView_OnErrorListener;
 
 
 
-class com_facebook_widget_ProfilePictureView : public AndroidCXX::java_lang_Object
+class com_facebook_widget_ProfilePictureView 
 {
 public:
 

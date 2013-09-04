@@ -117,6 +117,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -136,7 +138,6 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_lang_Object;
 
 class java_io_File;
 
@@ -144,7 +145,7 @@ class java_util_List;
 
 class java_util_Set;
 
-class android_net_Uri 
+class android_net_Uri : public AndroidCXX::java_lang_Object
 {
 public:
 

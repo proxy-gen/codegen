@@ -16,9 +16,7 @@
  	
  		 
 	
-	
  		 
-	
  		 
 	
 
@@ -29,8 +27,6 @@
  		 
  	
  		 
-
-
 
 
 
@@ -73,7 +69,7 @@
 #include <java_util_Collection.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <java_util_AbstractList.hpp>
 
 #include <vector>
 #include <map>
@@ -102,7 +98,7 @@ class com_facebook_RequestAsyncTask;
 
 
 
-class com_facebook_RequestBatch : public AndroidCXX::java_lang_Object
+class com_facebook_RequestBatch : public AndroidCXX::java_util_AbstractList
 {
 public:
 
@@ -121,10 +117,8 @@ public:
 	virtual void  clear() ;
 	virtual AndroidCXX::java_util_List * executeAndWait() ;
 	virtual FacebookCXX::com_facebook_RequestAsyncTask * executeAsync() ;
-	virtual FacebookCXX::com_facebook_Request * get(int const& arg0) ;
 	virtual int  getTimeout() ;
 	virtual void  removeCallback(FacebookCXX::com_facebook_RequestBatch_Callback const& arg0) ;
-	virtual FacebookCXX::com_facebook_Request * remove(int const& arg0) ;
 	virtual FacebookCXX::com_facebook_Request * set(int const& arg0,FacebookCXX::com_facebook_Request const& arg1) ;
 	virtual void  setTimeout(int const& arg0) ;
 	virtual int  size() ;

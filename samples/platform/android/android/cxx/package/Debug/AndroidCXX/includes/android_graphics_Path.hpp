@@ -101,6 +101,8 @@
 #include <android_graphics_Path_FillType.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -124,7 +126,7 @@ class android_graphics_RectF;
 class android_graphics_Matrix;
 
 
-class android_graphics_Path 
+class android_graphics_Path : public AndroidCXX::java_lang_Object
 {
 public:
 

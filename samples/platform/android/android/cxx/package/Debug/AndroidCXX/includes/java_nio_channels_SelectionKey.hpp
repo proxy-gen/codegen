@@ -45,6 +45,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -61,14 +63,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
 class java_nio_channels_SelectableChannel;
 
 
 class java_nio_channels_Selector;
 
-class java_nio_channels_SelectionKey 
+class java_nio_channels_SelectionKey : public AndroidCXX::java_lang_Object
 {
 public:
 

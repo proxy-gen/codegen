@@ -72,6 +72,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -100,7 +102,7 @@ class com_facebook_model_GraphObjectList;
 class com_facebook_Request;
 
 
-class com_facebook_Response 
+class com_facebook_Response : public AndroidCXX::java_lang_Object
 {
 public:
 

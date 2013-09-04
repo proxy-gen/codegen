@@ -52,6 +52,8 @@
 #include <android_view_View.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -80,7 +82,7 @@ class android_content_Context;
 
 class android_view_View;
 
-class android_widget_PopupMenu 
+class android_widget_PopupMenu : public AndroidCXX::java_lang_Object
 {
 public:
 

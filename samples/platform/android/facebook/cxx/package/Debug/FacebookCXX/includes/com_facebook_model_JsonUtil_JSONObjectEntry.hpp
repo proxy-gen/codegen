@@ -10,10 +10,8 @@
 
 
 	
-	
  		 
 	
-
 
 
 
@@ -65,7 +63,6 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_model_JsonUtil_JSONObjectEntry();
 	// Functions
-	virtual AndroidCXX::java_lang_Object * getKey() ;
 	virtual AndroidCXX::java_lang_Object * getValue() ;
 	virtual AndroidCXX::java_lang_Object * setValue(AndroidCXX::java_lang_Object const& arg0) ;
 

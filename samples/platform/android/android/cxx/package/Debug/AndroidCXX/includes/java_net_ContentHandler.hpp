@@ -35,6 +35,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -53,11 +55,10 @@ namespace AndroidCXX {
 
 class java_net_URLConnection;
 
-class java_lang_Object;
 
 class java_lang_Class;
 
-class java_net_ContentHandler 
+class java_net_ContentHandler : public AndroidCXX::java_lang_Object
 {
 public:
 

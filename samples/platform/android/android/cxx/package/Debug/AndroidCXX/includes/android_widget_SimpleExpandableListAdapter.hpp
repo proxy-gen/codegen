@@ -130,6 +130,8 @@
 #include <java_util_Map.hpp>
 
 
+#include <android_widget_BaseExpandableListAdapter.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -146,6 +148,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
+class java_lang_Object;
 
 class android_view_View;
 
@@ -159,7 +162,7 @@ class java_lang_String;
 
 class java_util_Map;
 
-class android_widget_SimpleExpandableListAdapter : public AndroidCXX::java_lang_Object
+class android_widget_SimpleExpandableListAdapter : public AndroidCXX::android_widget_BaseExpandableListAdapter
 {
 public:
 

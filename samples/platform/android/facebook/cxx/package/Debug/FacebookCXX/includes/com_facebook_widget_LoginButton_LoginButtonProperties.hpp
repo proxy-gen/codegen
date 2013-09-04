@@ -67,6 +67,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -93,7 +95,7 @@ class com_facebook_Session_StatusCallback;
 class com_facebook_Session;
 
 
-class com_facebook_widget_LoginButton_LoginButtonProperties 
+class com_facebook_widget_LoginButton_LoginButtonProperties : public AndroidCXX::java_lang_Object
 {
 public:
 

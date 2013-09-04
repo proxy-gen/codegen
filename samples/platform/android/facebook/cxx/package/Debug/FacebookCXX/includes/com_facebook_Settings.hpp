@@ -81,6 +81,8 @@
 #include <com_facebook_Request_Callback.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -107,7 +109,7 @@ class com_facebook_Response;
 
 class com_facebook_Request_Callback;
 
-class com_facebook_Settings 
+class com_facebook_Settings : public AndroidCXX::java_lang_Object
 {
 public:
 

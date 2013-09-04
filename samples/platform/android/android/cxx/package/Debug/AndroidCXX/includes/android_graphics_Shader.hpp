@@ -33,6 +33,8 @@
 #include <android_graphics_Matrix.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -51,7 +53,7 @@ namespace AndroidCXX {
 
 class android_graphics_Matrix;
 
-class android_graphics_Shader 
+class android_graphics_Shader : public AndroidCXX::java_lang_Object
 {
 public:
 

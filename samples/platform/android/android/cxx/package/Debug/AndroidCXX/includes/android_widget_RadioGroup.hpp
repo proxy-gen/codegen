@@ -12,8 +12,6 @@
  		 
  		 
  		 
-	
- 		 
  		 
  		 
  		 
@@ -22,7 +20,6 @@
  		 
  		 
  		 
-
 
 
 
@@ -51,10 +48,6 @@
 
 #include <android_view_ViewGroup_LayoutParams.hpp>
 
-#include <android_util_AttributeSet.hpp>
-
-#include <android_widget_RadioGroup_LayoutParams.hpp>
-
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
@@ -65,8 +58,8 @@
 
 #include <android_content_Context.hpp>
 
+#include <android_util_AttributeSet.hpp>
 
-#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -88,10 +81,6 @@ class android_view_View;
 
 class android_view_ViewGroup_LayoutParams;
 
-class android_util_AttributeSet;
-
-class android_widget_RadioGroup_LayoutParams;
-
 class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
@@ -102,7 +91,9 @@ class android_view_ViewGroup_OnHierarchyChangeListener;
 
 class android_content_Context;
 
-class android_widget_RadioGroup : public AndroidCXX::java_lang_Object
+class android_util_AttributeSet;
+
+class android_widget_RadioGroup 
 {
 public:
 
@@ -118,7 +109,6 @@ public:
 	virtual void  addView(AndroidCXX::android_view_View const& arg0,int const& arg1,AndroidCXX::android_view_ViewGroup_LayoutParams const& arg2) ;
 	virtual void  check(int const& arg0) ;
 	virtual void  clearCheck() ;
-	virtual AndroidCXX::android_widget_RadioGroup_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
 	virtual int  getCheckedRadioButtonId() ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
 	virtual void  onInitializeAccessibilityNodeInfo(AndroidCXX::android_view_accessibility_AccessibilityNodeInfo const& arg0) ;

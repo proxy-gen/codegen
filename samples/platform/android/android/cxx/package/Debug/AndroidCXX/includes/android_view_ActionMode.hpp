@@ -54,6 +54,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -78,9 +80,8 @@ class android_view_Menu;
 
 class java_lang_CharSequence;
 
-class java_lang_Object;
 
-class android_view_ActionMode 
+class android_view_ActionMode : public AndroidCXX::java_lang_Object
 {
 public:
 

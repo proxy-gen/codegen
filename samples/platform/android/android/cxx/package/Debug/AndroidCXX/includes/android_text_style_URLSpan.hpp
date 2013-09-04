@@ -44,6 +44,8 @@
 #include <android_os_Parcel.hpp>
 
 
+#include <android_text_style_ClickableSpan.hpp>
+
 #include <android_text_ParcelableSpan.hpp>
 
 #include <vector>
@@ -68,7 +70,7 @@ class android_view_View;
 
 class android_os_Parcel;
 
-class android_text_style_URLSpan : public AndroidCXX::android_text_ParcelableSpan
+class android_text_style_URLSpan : public AndroidCXX::android_text_style_ClickableSpan,public AndroidCXX::android_text_ParcelableSpan
 {
 public:
 

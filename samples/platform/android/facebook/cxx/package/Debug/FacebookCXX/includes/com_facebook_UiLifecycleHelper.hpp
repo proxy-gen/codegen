@@ -46,6 +46,8 @@
 #include <com_facebook_Session_StatusCallback.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -67,7 +69,7 @@ namespace FacebookCXX {
 
 class com_facebook_Session_StatusCallback;
 
-class com_facebook_UiLifecycleHelper 
+class com_facebook_UiLifecycleHelper : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -146,6 +146,7 @@ class java_lang_CharSequence;
 
 class java_lang_String;
 
+class java_lang_Object;
 
 class java_util_Locale;
 
@@ -153,9 +154,8 @@ class java_io_File;
 
 class java_io_OutputStream;
 
-class java_io_Writer;
 
-class java_io_PrintWriter : public AndroidCXX::java_lang_Object
+class java_io_PrintWriter : public AndroidCXX::java_io_Writer
 {
 public:
 

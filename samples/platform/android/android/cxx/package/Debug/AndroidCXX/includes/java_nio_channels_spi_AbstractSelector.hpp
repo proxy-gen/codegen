@@ -30,7 +30,7 @@
 
 
 
-#include <java_lang_Object.hpp>
+#include <java_nio_channels_Selector.hpp>
 
 #include <vector>
 #include <map>
@@ -50,7 +50,7 @@ namespace AndroidCXX {
 
 class java_nio_channels_spi_SelectorProvider;
 
-class java_nio_channels_spi_AbstractSelector : public AndroidCXX::java_lang_Object
+class java_nio_channels_spi_AbstractSelector : public AndroidCXX::java_nio_channels_Selector
 {
 public:
 

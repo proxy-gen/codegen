@@ -733,11 +733,11 @@ class TranslationUnit(JavaObject):
 		config_data["classes"] = sorted(config_data["classes"],key=lambda clazz: TranslationUnit._build_class_signature(clazz))
 		for class_config_data in config_data["classes"]:
 			if "fields" in class_config_data:
-				class_config_data["fields"] = sorted(class_config_data["fields"],key=lambda field: TranslationUnit._build_field_signature(field))
+				class_config_data["fields"] = sorted(class_config_data["fields"],key=lambda field: TranslationUnit._build_field_signature(field,class_config_data))
 			if "constructors" in class_config_data:
-				class_config_data["constructors"] = sorted(class_config_data["constructors"],key=lambda constructor: TranslationUnit._build_constructor_signature(constructor))
+				class_config_data["constructors"] = sorted(class_config_data["constructors"],key=lambda constructor: TranslationUnit._build_constructor_signature(constructor,class_config_data))
 			if "functions" in class_config_data:
-				class_config_data["functions"] = sorted(class_config_data["functions"],key=lambda function: TranslationUnit._build_function_signature(function))
+				class_config_data["functions"] = sorted(class_config_data["functions"],key=lambda function: TranslationUnit._build_function_signature(function,class_config_data))
 
 	@classmethod
 	def from_source(cls, res, index):
@@ -884,47 +884,37 @@ class TranslationUnit(JavaObject):
 
 	@classmethod
 	def _update_class_config_data(cls, clazz, _type, modifiers, idx):
-		if "tags" in clazz:
-			tags = clazz["tags"]
-		else:
-			tags = list()
-
+		tags = list()
 		tags = sorted(list(set(tags)))
+		if Modifier.is_modifier(modifiers, Modifier.JAVA_FINAL):
+			if '_callback' in tags:
+				tags.remove('_callback')
+			tags.append('_no_callback')
+		elif not Modifier.is_modifier(modifiers, Modifier.JAVA_PUBLIC):
+			if '_callback' in tags:
+				tags.remove('_callback')
+			tags.append('_no_callback')
+		type_kind = TypeKind.from_id(_type)
+		if type_kind == TypeKind.JAVA_ENUM:
+			tags.append("_enum")
+		elif type_kind == TypeKind.JAVA_INTERFACE:
+			tags.append("_interface")
+		elif type_kind == TypeKind.JAVA_ABSTRACT:
+			tags.append("_abstract")
+		elif type_kind == TypeKind.JAVA_INSTANCE:
+			tags.append("_instance")
+		elif type_kind == TypeKind.JAVA_STATIC_METHODS:
+			tags.append("_static")
+		elif type_kind == TypeKind.JAVA_SINGLETON_INSTANCE:
+			tags.append("_instance")
+			tags.append("_singleton")
+		elif type_kind == TypeKind.JAVA_SINGLETON_FIELD:
+			tags.append("_instance")
+			tags.append("_singleton")
+		elif type_kind == TypeKind.JAVA_NOT_INSTANTIATABLE:
+			pass
 
-		if "_no_proxy" in tags:
-			tags = list()
-			tags.append("_no_proxy")
-		else:
-			if Modifier.is_modifier(modifiers, Modifier.JAVA_FINAL):
-				if '_callback' in tags:
-					tags.remove('_callback')
-				tags.append('_no_callback')
-			elif not Modifier.is_modifier(modifiers, Modifier.JAVA_PUBLIC):
-				if '_callback' in tags:
-					tags.remove('_callback')
-				tags.append('_no_callback')
-			type_kind = TypeKind.from_id(_type)
-			if type_kind == TypeKind.JAVA_ENUM:
-				tags.append("_enum")
-			elif type_kind == TypeKind.JAVA_INTERFACE:
-				tags.append("_interface")
-			elif type_kind == TypeKind.JAVA_ABSTRACT:
-				tags.append("_abstract")
-			elif type_kind == TypeKind.JAVA_INSTANCE:
-				tags.append("_instance")
-			elif type_kind == TypeKind.JAVA_STATIC_METHODS:
-				tags.append("_static")
-			elif type_kind == TypeKind.JAVA_SINGLETON_INSTANCE:
-				tags.append("_instance")
-				tags.append("_singleton")
-			elif type_kind == TypeKind.JAVA_SINGLETON_FIELD:
-				tags.append("_instance")
-				tags.append("_singleton")
-			elif type_kind == TypeKind.JAVA_NOT_INSTANTIATABLE:
-				pass
-			if "_no_proxy" in tags:
-				tags.remove("_no_proxy")
-			tags.append("_proxy")
+		tags.append("_proxy")
 
 		tags = sorted(list(set(tags)))
 
@@ -936,19 +926,9 @@ class TranslationUnit(JavaObject):
 
 	@classmethod
 	def _update_constructor_config_data(cls, clazz, constructor, _type, modifiers, idx):
-		if "tags" in constructor:
-			tags = constructor["tags"]
-		else:
-			tags = list()
-
+		tags = list()
 		tags = sorted(list(set(tags)))
-
-		if "_no_proxy" in tags:
-			tags = list()
-			tags.append("_no_proxy")
-		else:
-			tags.append("_proxy")
-
+		tags.append("_proxy")
 		tags = sorted(list(set(tags)))
 		if len(tags) > 0:
 			constructor["tags"] = tags
@@ -958,39 +938,27 @@ class TranslationUnit(JavaObject):
 
 	@classmethod
 	def _update_function_config_data(cls, clazz, function, _type, modifiers, idx):
-		if "tags" in function:
-			tags = function["tags"]
-		else:
-			tags = list()
-
+		tags = list()
 		tags = sorted(list(set(tags)))
-
-		if "_no_proxy" in tags:
-			tags = list()
-			tags.append("_no_proxy")
-		else:
-			if Modifier.is_modifier(modifiers, Modifier.JAVA_FINAL):
-				if '_callback' in tags:
-					tags.remove('_callback')
-				tags.append('_no_callback')
-			elif not Modifier.is_modifier(modifiers, Modifier.JAVA_PUBLIC):
-				if '_callback' in tags:
-					tags.remove('_callback')
-				tags.append('_no_callback')
-			type_kind = TypeKind.from_id(_type)
-			if type_kind == TypeKind.JAVA_PUBLIC_STATIC_METHOD:
-				tags.append("_static")
-				if "returns" in function:
-					for retrn in function["returns"]:
-						if retrn["type"] == clazz["name"]:
-							if "children" not in retrn:
-								tags.append("_singleton")
-			elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_METHOD:
-				tags.append("_instance")
-			if "_no_proxy" in tags:
-				tags.remove("_no_proxy")
-			tags.append("_proxy")
-
+		if Modifier.is_modifier(modifiers, Modifier.JAVA_FINAL):
+			if '_callback' in tags:
+				tags.remove('_callback')
+			tags.append('_no_callback')
+		elif not Modifier.is_modifier(modifiers, Modifier.JAVA_PUBLIC):
+			if '_callback' in tags:
+				tags.remove('_callback')
+			tags.append('_no_callback')
+		type_kind = TypeKind.from_id(_type)
+		if type_kind == TypeKind.JAVA_PUBLIC_STATIC_METHOD:
+			tags.append("_static")
+			if "returns" in function:
+				for retrn in function["returns"]:
+					if retrn["type"] == clazz["name"]:
+						if "children" not in retrn:
+							tags.append("_singleton")
+		elif type_kind == TypeKind.JAVA_PUBLIC_INSTANCE_METHOD:
+			tags.append("_instance")
+		tags.append("_proxy")
 		tags = sorted(list(set(tags)))
 		if len(tags) > 0:
 			function["tags"] = tags
@@ -1050,7 +1018,7 @@ class TranslationUnit(JavaObject):
 			elif key == "implements":
 				implements.append(item)
 		if class_name != JAVA_OBJECT:
-			if JAVA_OBJECT not in extends:
+			if len(filter(lambda item: item['name'] == JAVA_OBJECT, extends)) == 0:
 				item = dict()
 				item['name'] = JAVA_OBJECT
 				extends.append(item)
@@ -1142,6 +1110,10 @@ class TranslationUnit(JavaObject):
 
 	@classmethod
 	def _migrate_tag(cls, new_tags, old_tags):
+		if '_proxy' in old_tags and '_proxy' not in new_tags:
+			if '_no_proxy' in new_tags:
+				new_tags.remove('_no_proxy')
+			new_tags.append('_proxy')
 		if '_no_proxy' in old_tags and '_no_proxy' not in new_tags:
 			if '_proxy' in new_tags:
 				new_tags.remove('_proxy')
@@ -1149,6 +1121,10 @@ class TranslationUnit(JavaObject):
 		if '_callback' in old_tags and '_callback' not in new_tags:
 			if not '_no_callback' in new_tags:
 				new_tags.append('_callback')
+		if '_no_callback' in old_tags and '_no_callback' not in new_tags:
+			if '_callback' in new_tags:
+				new_tags.remove('_callback')
+			new_tags.append('_no_callback')
 
 	@classmethod
 	def _build_signatures_in_class_hierarchy(cls, classes):
@@ -1158,15 +1134,15 @@ class TranslationUnit(JavaObject):
 			signatures[signature] = clazz['tags'] if 'tags' in clazz else list()		
 			if 'fields' in clazz:
 				for field in clazz['fields']:
-					signature = TranslationUnit._build_field_signature(field)
+					signature = TranslationUnit._build_field_signature(field,clazz)
 					signatures[signature] = field['tags']
 			if 'constructors' in clazz:
 				for constructor in clazz['constructors']:
-					signature = TranslationUnit._build_constructor_signature(constructor)
+					signature = TranslationUnit._build_constructor_signature(constructor,clazz)
 					signatures[signature] = constructor['tags'] if 'tags' in constructor else list()
 			if 'functions' in clazz:
 				for function in clazz['functions']:
-					signature = TranslationUnit._build_function_signature(function)
+					signature = TranslationUnit._build_function_signature(function,clazz)
 					signatures[signature] = function['tags'] if 'tags' in function else list()					
 		return signatures
 
@@ -1176,24 +1152,27 @@ class TranslationUnit(JavaObject):
 		return signature
 
 	@classmethod
-	def _build_field_signature(cls, field):
-		signature = "I" + field['name']
+	def _build_field_signature(cls, field, clazz):
+		signature = TranslationUnit._build_class_signature(clazz)
+		signature += "I" + field['name']
 		return signature
 
 	@classmethod
-	def _build_constructor_signature(cls, constructor):
-		signature = "O" + constructor['name']
+	def _build_constructor_signature(cls, constructor, clazz):
+		signature = TranslationUnit._build_class_signature(clazz)
+		signature += "O" + constructor['name']
 		for param in constructor['params']:
-			signature = signature + "P" + TranslationUnit._build_type_signature(param)
+			signature += "P" + TranslationUnit._build_type_signature(param)
 		return signature
 
 	@classmethod
-	def _build_function_signature(cls, function):
-		signature = "F" + function['name']
+	def _build_function_signature(cls, function, clazz):
+		signature = TranslationUnit._build_class_signature(clazz)
+		signature += "F" + function['name']
 		for param in function['params']:
-			signature = signature + "P" + TranslationUnit._build_type_signature(param)
+			signature += "P" + TranslationUnit._build_type_signature(param)
 		for retrn in function['returns']:
-			signature = signature + "R" + TranslationUnit._build_type_signature(retrn)
+			signature += "R" + TranslationUnit._build_type_signature(retrn)
 		return signature
 
 	@classmethod
@@ -1201,7 +1180,7 @@ class TranslationUnit(JavaObject):
 		signature = "T" + type_['type']
 		if 'children' in type_:
 			for child_type in type_['children']:
-				signature = signature + TranslationUnit._build_type_signature(child_type)
+				signature += TranslationUnit._build_type_signature(child_type)
 		return signature
 
 class DummyType(Type):

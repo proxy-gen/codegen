@@ -216,6 +216,8 @@
 #include <android_graphics_Xfermode.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -265,7 +267,7 @@ class android_graphics_Typeface;
 class android_graphics_Xfermode;
 
 
-class android_graphics_Paint 
+class android_graphics_Paint : public AndroidCXX::java_lang_Object
 {
 public:
 

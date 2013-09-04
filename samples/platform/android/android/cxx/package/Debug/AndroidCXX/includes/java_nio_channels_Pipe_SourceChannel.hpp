@@ -27,6 +27,8 @@
 
 
 
+#include <java_nio_channels_spi_AbstractSelectableChannel.hpp>
+
 #include <java_nio_channels_ScatteringByteChannel.hpp>
 
 #include <vector>
@@ -45,7 +47,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_channels_Pipe_SourceChannel : public AndroidCXX::java_nio_channels_ScatteringByteChannel
+class java_nio_channels_Pipe_SourceChannel : public AndroidCXX::java_nio_channels_spi_AbstractSelectableChannel,public AndroidCXX::java_nio_channels_ScatteringByteChannel
 {
 public:
 

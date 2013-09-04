@@ -86,6 +86,8 @@
 #include <java_util_List.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -114,7 +116,7 @@ class android_animation_TimeInterpolator;
 
 class java_util_List;
 
-class android_animation_LayoutTransition 
+class android_animation_LayoutTransition : public AndroidCXX::java_lang_Object
 {
 public:
 

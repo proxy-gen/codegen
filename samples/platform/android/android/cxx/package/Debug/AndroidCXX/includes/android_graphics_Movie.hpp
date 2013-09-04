@@ -53,6 +53,8 @@
 #include <android_graphics_Paint.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -78,7 +80,7 @@ class android_graphics_Canvas;
 
 class android_graphics_Paint;
 
-class android_graphics_Movie 
+class android_graphics_Movie : public AndroidCXX::java_lang_Object
 {
 public:
 

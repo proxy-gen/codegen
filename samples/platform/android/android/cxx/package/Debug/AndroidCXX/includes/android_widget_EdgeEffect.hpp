@@ -40,6 +40,8 @@
 #include <android_content_Context.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -60,7 +62,7 @@ class android_graphics_Canvas;
 
 class android_content_Context;
 
-class android_widget_EdgeEffect 
+class android_widget_EdgeEffect : public AndroidCXX::java_lang_Object
 {
 public:
 

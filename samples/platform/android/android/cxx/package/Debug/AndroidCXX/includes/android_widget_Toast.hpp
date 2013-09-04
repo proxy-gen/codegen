@@ -59,6 +59,8 @@
 #include <java_lang_CharSequence.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -82,7 +84,7 @@ class android_content_Context;
 
 class java_lang_CharSequence;
 
-class android_widget_Toast 
+class android_widget_Toast : public AndroidCXX::java_lang_Object
 {
 public:
 

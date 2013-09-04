@@ -36,6 +36,8 @@
 #include <android_text_Editable.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -57,7 +59,7 @@ class java_lang_CharSequence;
 
 class android_text_Editable;
 
-class android_text_Editable_Factory 
+class android_text_Editable_Factory : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -11,8 +11,6 @@
 
  		 
  		 
- 		 
-	
 	
  		 
  		 
@@ -24,7 +22,6 @@
  		 
  		 
  		 
-
 
 
 
@@ -59,10 +56,6 @@
 
 #include <android_graphics_Region.hpp>
 
-#include <android_util_AttributeSet.hpp>
-
-#include <android_widget_FrameLayout_LayoutParams.hpp>
-
 #include <android_graphics_drawable_Drawable.hpp>
 
 #include <android_view_accessibility_AccessibilityEvent.hpp>
@@ -71,8 +64,10 @@
 
 #include <android_content_Context.hpp>
 
+#include <android_util_AttributeSet.hpp>
 
-#include <java_lang_Object.hpp>
+
+#include <android_view_ViewGroup.hpp>
 
 #include <vector>
 #include <map>
@@ -94,10 +89,6 @@ class android_graphics_Canvas;
 
 class android_graphics_Region;
 
-class android_util_AttributeSet;
-
-class android_widget_FrameLayout_LayoutParams;
-
 class android_graphics_drawable_Drawable;
 
 class android_view_accessibility_AccessibilityEvent;
@@ -106,7 +97,9 @@ class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_content_Context;
 
-class android_widget_FrameLayout : public AndroidCXX::java_lang_Object
+class android_util_AttributeSet;
+
+class android_widget_FrameLayout : public AndroidCXX::android_view_ViewGroup
 {
 public:
 
@@ -122,7 +115,6 @@ public:
 	// Functions
 	virtual void  draw(AndroidCXX::android_graphics_Canvas const& arg0) ;
 	virtual bool  gatherTransparentRegion(AndroidCXX::android_graphics_Region const& arg0) ;
-	virtual AndroidCXX::android_widget_FrameLayout_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
 	virtual bool  getConsiderGoneChildrenWhenMeasuring() ;
 	virtual int  getForegroundGravity() ;
 	virtual AndroidCXX::android_graphics_drawable_Drawable * getForeground() ;

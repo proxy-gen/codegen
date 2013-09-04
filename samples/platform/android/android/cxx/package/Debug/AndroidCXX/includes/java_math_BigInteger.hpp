@@ -140,6 +140,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_lang_Number.hpp>
+
 #include <java_lang_Comparable.hpp>
 
 #include <vector>
@@ -165,7 +167,7 @@ class java_util_Random;
 
 class java_lang_String;
 
-class java_math_BigInteger : public AndroidCXX::java_lang_Comparable
+class java_math_BigInteger : public AndroidCXX::java_lang_Number,public AndroidCXX::java_lang_Comparable
 {
 public:
 

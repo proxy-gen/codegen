@@ -772,7 +772,7 @@ config = {
 		{
 			'name' : 'android.accounts.Account',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -908,7 +908,7 @@ config = {
 		{
 			'name' : 'android.animation.Animator',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Cloneable'}],
 			'fields' : [
 			],	
@@ -1254,7 +1254,7 @@ config = {
 		{
 			'name' : 'android.animation.Keyframe',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Cloneable'}],
 			'fields' : [
 			],	
@@ -1500,7 +1500,7 @@ config = {
 		{
 			'name' : 'android.animation.LayoutTransition',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'APPEARING',
@@ -2085,7 +2085,7 @@ config = {
 		},
 		{
 			'name' : 'android.animation.ObjectAnimator',
-			'tags' : ['_instance', '_proxy'],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'android.animation.ValueAnimator'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
@@ -2501,7 +2501,7 @@ config = {
 		{
 			'name' : 'android.animation.PropertyValuesHolder',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Cloneable'}],
 			'fields' : [
 			],	
@@ -3522,7 +3522,7 @@ config = {
 		{
 			'name' : 'android.app.ActionBar',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'DISPLAY_HOME_AS_UP',
@@ -4609,7 +4609,7 @@ config = {
 		{
 			'name' : 'android.app.ActionBar$Tab',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'INVALID_POSITION',
@@ -8193,7 +8193,7 @@ config = {
 		{
 			'name' : 'android.app.Fragment',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.content.ComponentCallbacks2'}, {'name': 'android.view.View$OnCreateContextMenuListener'}],
 			'fields' : [
 			],	
@@ -9337,7 +9337,7 @@ config = {
 		{
 			'name' : 'android.app.Fragment$SavedState',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -9391,7 +9391,7 @@ config = {
 		{
 			'name' : 'android.app.FragmentManager',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'POP_BACK_STACK_INCLUSIVE',
@@ -9872,7 +9872,7 @@ config = {
 		{
 			'name' : 'android.app.FragmentTransaction',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'TRANSIT_ENTER_MASK',
@@ -10360,7 +10360,7 @@ config = {
 		{
 			'name' : 'android.app.LoaderManager',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10577,7 +10577,7 @@ config = {
 		{
 			'name' : 'android.app.LocalActivityManager',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -10778,7 +10778,7 @@ config = {
 		{
 			'name' : 'android.app.Notification',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -11269,8 +11269,8 @@ config = {
 		},
 		{
 			'name' : 'android.app.PendingIntent',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -11872,8 +11872,8 @@ config = {
 		},
 		{
 			'name' : 'android.app.SearchableInfo',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -12564,7 +12564,7 @@ config = {
 		{
 			'name' : 'android.app.TaskStackBuilder',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -12785,7 +12785,7 @@ config = {
 		{
 			'name' : 'android.content.BroadcastReceiver',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13070,7 +13070,7 @@ config = {
 		{
 			'name' : 'android.content.BroadcastReceiver$PendingResult',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13241,7 +13241,7 @@ config = {
 		{
 			'name' : 'android.content.ClipData',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -13514,7 +13514,7 @@ config = {
 		{
 			'name' : 'android.content.ClipData$Item',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -13717,7 +13717,7 @@ config = {
 		{
 			'name' : 'android.content.ClipDescription',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -14066,8 +14066,8 @@ config = {
 		},
 		{
 			'name' : 'android.content.ComponentName',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}, {'name': 'java.lang.Cloneable'}, {'name': 'java.lang.Comparable'}],
 			'fields' : [
 				{
@@ -14366,7 +14366,7 @@ config = {
 		{
 			'name' : 'android.content.ContentProvider',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.content.ComponentCallbacks2'}],
 			'fields' : [
 			],	
@@ -14932,7 +14932,7 @@ config = {
 		{
 			'name' : 'android.content.ContentProviderClient',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15277,7 +15277,7 @@ config = {
 		{
 			'name' : 'android.content.ContentProviderOperation',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -15523,7 +15523,7 @@ config = {
 		{
 			'name' : 'android.content.ContentProviderOperation$Builder',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -15691,7 +15691,7 @@ config = {
 		{
 			'name' : 'android.content.ContentProviderResult',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -15805,7 +15805,7 @@ config = {
 		{
 			'name' : 'android.content.ContentResolver',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'CURSOR_DIR_BASE_TYPE',
@@ -16913,8 +16913,8 @@ config = {
 		},
 		{
 			'name' : 'android.content.ContentValues',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -17499,7 +17499,7 @@ config = {
 		{
 			'name' : 'android.content.Context',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'ACCESSIBILITY_SERVICE',
@@ -21590,7 +21590,7 @@ config = {
 		{
 			'name' : 'android.content.Intent',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}, {'name': 'java.lang.Cloneable'}],
 			'fields' : [
 				{
@@ -25779,7 +25779,7 @@ config = {
 		{
 			'name' : 'android.content.IntentFilter',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -26691,8 +26691,8 @@ config = {
 		},
 		{
 			'name' : 'android.content.IntentFilter$AuthorityEntry',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -26757,7 +26757,7 @@ config = {
 		{
 			'name' : 'android.content.IntentSender',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -27046,7 +27046,7 @@ config = {
 		{
 			'name' : 'android.content.Loader',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -27464,7 +27464,7 @@ config = {
 		{
 			'name' : 'android.content.PeriodicSync',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -28060,7 +28060,7 @@ config = {
 		{
 			'name' : 'android.content.SyncAdapterType',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -28293,7 +28293,7 @@ config = {
 		{
 			'name' : 'android.content.SyncInfo',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -29701,7 +29701,7 @@ config = {
 		{
 			'name' : 'android.content.pm.ConfigurationInfo',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -29867,7 +29867,7 @@ config = {
 		{
 			'name' : 'android.content.pm.FeatureInfo',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -30142,7 +30142,7 @@ config = {
 		{
 			'name' : 'android.content.pm.PackageInfo',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -30424,7 +30424,7 @@ config = {
 		{
 			'name' : 'android.content.pm.PackageItemInfo',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'icon',
@@ -30602,7 +30602,7 @@ config = {
 		{
 			'name' : 'android.content.pm.PackageManager',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'COMPONENT_ENABLED_STATE_DEFAULT',
@@ -33106,7 +33106,7 @@ config = {
 		},
 		{
 			'name' : 'android.content.pm.ProviderInfo',
-			'tags' : ['_instance', '_proxy'],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'android.content.pm.ComponentInfo'}, {'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
@@ -33290,7 +33290,7 @@ config = {
 		{
 			'name' : 'android.content.pm.ResolveInfo',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -33691,7 +33691,7 @@ config = {
 		{
 			'name' : 'android.content.pm.Signature',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -33855,7 +33855,7 @@ config = {
 		{
 			'name' : 'android.content.res.AssetFileDescriptor',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -34043,8 +34043,8 @@ config = {
 		},
 		{
 			'name' : 'android.content.res.AssetManager',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'ACCESS_BUFFER',
@@ -34257,7 +34257,7 @@ config = {
 		{
 			'name' : 'android.content.res.ColorStateList',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -34435,8 +34435,8 @@ config = {
 		},
 		{
 			'name' : 'android.content.res.Configuration',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}, {'name': 'java.lang.Comparable'}],
 			'fields' : [
 				{
@@ -35400,7 +35400,7 @@ config = {
 		{
 			'name' : 'android.content.res.Resources',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -36254,8 +36254,8 @@ config = {
 		},
 		{
 			'name' : 'android.content.res.Resources$Theme',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -36417,7 +36417,7 @@ config = {
 		{
 			'name' : 'android.content.res.TypedArray',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -36936,8 +36936,8 @@ config = {
 		},
 		{
 			'name' : 'android.database.CharArrayBuffer',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'data',
@@ -36988,7 +36988,7 @@ config = {
 		{
 			'name' : 'android.database.ContentObserver',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -37712,7 +37712,7 @@ config = {
 		{
 			'name' : 'android.database.DataSetObserver',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -37780,7 +37780,7 @@ config = {
 		{
 			'name' : 'android.database.sqlite.SQLiteClosable',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Closeable'}],
 			'fields' : [
 			],	
@@ -37934,7 +37934,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.sqlite.SQLiteDatabase',
-			'tags' : ['_proxy'],
+			'tags' : ['_no_callback', '_proxy'],
 			'extends' : [{'name': 'android.database.sqlite.SQLiteClosable'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -39588,7 +39588,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.sqlite.SQLiteQuery',
-			'tags' : ['_proxy'],
+			'tags' : ['_no_callback', '_proxy'],
 			'extends' : [{'name': 'android.database.sqlite.SQLiteProgram'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
@@ -39611,7 +39611,7 @@ config = {
 		},
 		{
 			'name' : 'android.database.sqlite.SQLiteStatement',
-			'tags' : ['_proxy'],
+			'tags' : ['_no_callback', '_proxy'],
 			'extends' : [{'name': 'android.database.sqlite.SQLiteProgram'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
@@ -39753,8 +39753,8 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Bitmap',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -40716,7 +40716,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Bitmap$CompressFormat',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -40783,7 +40783,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Bitmap$Config',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -40860,7 +40860,7 @@ config = {
 		{
 			'name' : 'android.graphics.BitmapFactory$Options',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'inBitmap',
@@ -41052,7 +41052,7 @@ config = {
 		{
 			'name' : 'android.graphics.Canvas',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'ALL_SAVE_FLAG',
@@ -43085,7 +43085,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Canvas$EdgeType',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -43143,7 +43143,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Canvas$VertexMode',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -43211,7 +43211,7 @@ config = {
 		{
 			'name' : 'android.graphics.ColorFilter',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -43228,7 +43228,7 @@ config = {
 		{
 			'name' : 'android.graphics.DrawFilter',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -43245,7 +43245,7 @@ config = {
 		{
 			'name' : 'android.graphics.MaskFilter',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -43262,7 +43262,7 @@ config = {
 		{
 			'name' : 'android.graphics.Matrix',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'MPERSP_0',
@@ -44335,7 +44335,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Matrix$ScaleToFit',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -44412,7 +44412,7 @@ config = {
 		{
 			'name' : 'android.graphics.Movie',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -44596,7 +44596,7 @@ config = {
 		{
 			'name' : 'android.graphics.Paint',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'ANTI_ALIAS_FLAG',
@@ -46179,7 +46179,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Paint$Align',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -46246,7 +46246,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Paint$Cap',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -46314,7 +46314,7 @@ config = {
 		{
 			'name' : 'android.graphics.Paint$FontMetrics',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'ascent',
@@ -46376,7 +46376,7 @@ config = {
 		{
 			'name' : 'android.graphics.Paint$FontMetricsInt',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'ascent',
@@ -46449,7 +46449,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Paint$Join',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -46516,7 +46516,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Paint$Style',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -46584,7 +46584,7 @@ config = {
 		{
 			'name' : 'android.graphics.Path',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -47375,7 +47375,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Path$Direction',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -47433,7 +47433,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Path$FillType',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -47510,7 +47510,7 @@ config = {
 		{
 			'name' : 'android.graphics.PathEffect',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -47527,7 +47527,7 @@ config = {
 		{
 			'name' : 'android.graphics.Picture',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -47658,7 +47658,7 @@ config = {
 		{
 			'name' : 'android.graphics.Point',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -47887,7 +47887,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.PorterDuff$Mode',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -48090,7 +48090,7 @@ config = {
 		{
 			'name' : 'android.graphics.Rasterizer',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -48106,8 +48106,8 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Rect',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -48783,7 +48783,7 @@ config = {
 		{
 			'name' : 'android.graphics.RectF',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -49465,7 +49465,7 @@ config = {
 		{
 			'name' : 'android.graphics.Region',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -50082,7 +50082,7 @@ config = {
 		},
 		{
 			'name' : 'android.graphics.Region$Op',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -50177,7 +50177,7 @@ config = {
 		{
 			'name' : 'android.graphics.Shader',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -50226,7 +50226,7 @@ config = {
 		{
 			'name' : 'android.graphics.SurfaceTexture',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -50391,7 +50391,7 @@ config = {
 		{
 			'name' : 'android.graphics.Typeface',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'BOLD',
@@ -50655,7 +50655,7 @@ config = {
 		{
 			'name' : 'android.graphics.Xfermode',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -50672,7 +50672,7 @@ config = {
 		{
 			'name' : 'android.graphics.drawable.Drawable',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -51482,7 +51482,7 @@ config = {
 		{
 			'name' : 'android.graphics.drawable.Drawable$ConstantState',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -51539,7 +51539,7 @@ config = {
 		{
 			'name' : 'android.location.Location',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -52189,7 +52189,7 @@ config = {
 		{
 			'name' : 'android.media.MediaPlayer',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'MEDIA_ERROR_IO',
@@ -53430,7 +53430,7 @@ config = {
 		{
 			'name' : 'android.media.MediaPlayer$TrackInfo',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -53533,8 +53533,8 @@ config = {
 		},
 		{
 			'name' : 'android.media.TimedText',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -53569,7 +53569,7 @@ config = {
 		{
 			'name' : 'android.net.Uri',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -54119,7 +54119,7 @@ config = {
 		{
 			'name' : 'android.net.http.SslCertificate',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -54300,7 +54300,7 @@ config = {
 		{
 			'name' : 'android.net.http.SslCertificate$DName',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -54373,7 +54373,7 @@ config = {
 		{
 			'name' : 'android.net.http.SslError',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'SSL_DATE_INVALID',
@@ -54590,8 +54590,8 @@ config = {
 		},
 		{
 			'name' : 'android.os.Bundle',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}, {'name': 'java.lang.Cloneable'}],
 			'fields' : [
 				{
@@ -56194,8 +56194,8 @@ config = {
 		},
 		{
 			'name' : 'android.os.CancellationSignal',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -56287,7 +56287,7 @@ config = {
 		{
 			'name' : 'android.os.Handler',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -57273,8 +57273,8 @@ config = {
 		},
 		{
 			'name' : 'android.os.Looper',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -57440,8 +57440,8 @@ config = {
 		},
 		{
 			'name' : 'android.os.Message',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -57857,8 +57857,8 @@ config = {
 		},
 		{
 			'name' : 'android.os.MessageQueue',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -57923,8 +57923,8 @@ config = {
 		},
 		{
 			'name' : 'android.os.Messenger',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -58089,8 +58089,8 @@ config = {
 		},
 		{
 			'name' : 'android.os.Parcel',
-			'tags' : ['_instance', '_proxy', '_singleton'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy', '_singleton'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'STRING_CREATOR',
@@ -59674,7 +59674,7 @@ config = {
 		{
 			'name' : 'android.os.ParcelFileDescriptor',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}, {'name': 'java.io.Closeable'}],
 			'fields' : [
 				{
@@ -60144,7 +60144,7 @@ config = {
 		{
 			'name' : 'android.os.PatternMatcher',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -60300,8 +60300,8 @@ config = {
 		},
 		{
 			'name' : 'android.os.UserHandle',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -60441,7 +60441,7 @@ config = {
 		{
 			'name' : 'android.os.Vibrator',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -60513,7 +60513,7 @@ config = {
 		{
 			'name' : 'android.support.v4.app.Fragment',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.content.ComponentCallbacks'}, {'name': 'android.view.View$OnCreateContextMenuListener'}],
 			'fields' : [
 			],	
@@ -61617,7 +61617,7 @@ config = {
 		{
 			'name' : 'android.support.v4.app.Fragment$SavedState',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -62017,7 +62017,7 @@ config = {
 		{
 			'name' : 'android.support.v4.app.FragmentManager',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'POP_BACK_STACK_INCLUSIVE',
@@ -62499,7 +62499,7 @@ config = {
 		{
 			'name' : 'android.support.v4.app.FragmentTransaction',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'TRANSIT_ENTER_MASK',
@@ -62987,7 +62987,7 @@ config = {
 		{
 			'name' : 'android.support.v4.app.LoaderManager',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -63216,7 +63216,7 @@ config = {
 		{
 			'name' : 'android.support.v4.content.Loader',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -63546,136 +63546,6 @@ config = {
 			],
 		},
 		{
-			'name' : 'android.text.AlteredCharSequence',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
-			'implements' : [{'name': 'android.text.GetChars'}, {'name': 'java.lang.CharSequence'}],
-			'fields' : [
-			],	
-			'functions' : [
-				{
-					'name' : 'charAt',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'char',
-								'converter' : 'convert_char',
-						},
-					],
-				},
-				{
-					'name' : 'getChars',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-						{
-								'type' : '_char_array',
-								'children' : [{'type': 'char', 'converter': 'convert_char'}],
-								'converter' : 'convert__char_array',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'void',
-								'converter' : 'convert_void',
-						},
-					],
-				},
-				{
-					'name' : 'length',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-				},
-				{
-					'name' : 'make',
-					'tags' : ['_proxy', '_singleton', '_static'],
-					'params' : [
-						{
-								'type' : 'java.lang.CharSequence',
-								'converter' : 'convert_proxy',
-						},
-						{
-								'type' : '_char_array',
-								'children' : [{'type': 'char', 'converter': 'convert_char'}],
-								'converter' : 'convert__char_array',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'android.text.AlteredCharSequence',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'subSequence',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-						{
-								'type' : 'int',
-								'converter' : 'convert_int',
-						},
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.CharSequence',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-				{
-					'name' : 'toString',
-					'tags' : ['_instance', '_proxy'],
-					'params' : [
-					],
-					'returns' : [
-						{
-								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-			],	
-			'constructors' : [	
-			],
-		},
-		{
 			'name' : 'android.text.Editable',
 			'tags' : ['_interface', '_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}],
@@ -63924,7 +63794,7 @@ config = {
 		{
 			'name' : 'android.text.Editable$Factory',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -64410,7 +64280,7 @@ config = {
 		{
 			'name' : 'android.text.Layout',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'DIR_LEFT_TO_RIGHT',
@@ -65198,7 +65068,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.Layout$Alignment',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -65266,7 +65136,7 @@ config = {
 		{
 			'name' : 'android.text.Layout$Directions',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -65368,7 +65238,7 @@ config = {
 		{
 			'name' : 'android.text.Spannable$Factory',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -65765,7 +65635,7 @@ config = {
 		},
 		{
 			'name' : 'android.text.TextUtils$TruncateAt',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -66344,7 +66214,7 @@ config = {
 		{
 			'name' : 'android.text.style.CharacterStyle',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -66999,7 +66869,7 @@ config = {
 		{
 			'name' : 'android.util.DisplayMetrics',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'DENSITY_DEFAULT',
@@ -67235,7 +67105,7 @@ config = {
 		{
 			'name' : 'android.util.Pair',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'first',
@@ -67354,7 +67224,7 @@ config = {
 		{
 			'name' : 'android.util.Property',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -67480,7 +67350,7 @@ config = {
 		{
 			'name' : 'android.util.SparseArray',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Cloneable'}],
 			'fields' : [
 			],	
@@ -67753,7 +67623,7 @@ config = {
 		{
 			'name' : 'android.util.SparseBooleanArray',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Cloneable'}],
 			'fields' : [
 			],	
@@ -67973,7 +67843,7 @@ config = {
 		{
 			'name' : 'android.util.TypedValue',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'COMPLEX_MANTISSA_MASK',
@@ -68647,7 +68517,7 @@ config = {
 		{
 			'name' : 'android.view.AbsSavedState',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -68722,7 +68592,7 @@ config = {
 		{
 			'name' : 'android.view.ActionMode',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -69058,7 +68928,7 @@ config = {
 		{
 			'name' : 'android.view.ActionProvider',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -69478,8 +69348,8 @@ config = {
 		},
 		{
 			'name' : 'android.view.Display',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'DEFAULT_DISPLAY',
@@ -69749,7 +69619,7 @@ config = {
 		{
 			'name' : 'android.view.DragEvent',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -70083,8 +69953,8 @@ config = {
 		},
 		{
 			'name' : 'android.view.InputDevice',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -70602,8 +70472,8 @@ config = {
 		},
 		{
 			'name' : 'android.view.InputDevice$MotionRange',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -70726,7 +70596,7 @@ config = {
 		{
 			'name' : 'android.view.InputEvent',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -70823,8 +70693,8 @@ config = {
 		},
 		{
 			'name' : 'android.view.InputQueue',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -70878,7 +70748,7 @@ config = {
 		{
 			'name' : 'android.view.KeyCharacterMap',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -71295,7 +71165,7 @@ config = {
 		{
 			'name' : 'android.view.KeyCharacterMap$KeyData',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'META_LENGTH',
@@ -74844,7 +74714,7 @@ config = {
 		{
 			'name' : 'android.view.KeyEvent$DispatcherState',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -74957,7 +74827,7 @@ config = {
 		{
 			'name' : 'android.view.LayoutInflater',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -75880,7 +75750,7 @@ config = {
 		{
 			'name' : 'android.view.MenuInflater',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -76622,7 +76492,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.MotionEvent',
-			'tags' : ['_proxy'],
+			'tags' : ['_no_callback', '_proxy'],
 			'extends' : [{'name': 'android.view.InputEvent'}, {'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
@@ -78921,8 +78791,8 @@ config = {
 		},
 		{
 			'name' : 'android.view.MotionEvent$PointerCoords',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'orientation',
@@ -79093,8 +78963,8 @@ config = {
 		},
 		{
 			'name' : 'android.view.MotionEvent$PointerProperties',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'id',
@@ -79343,7 +79213,7 @@ config = {
 		{
 			'name' : 'android.view.Surface',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -80042,7 +79912,7 @@ config = {
 		{
 			'name' : 'android.view.TouchDelegate',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'ABOVE',
@@ -80119,7 +79989,7 @@ config = {
 		{
 			'name' : 'android.view.View',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.graphics.drawable.Drawable$Callback'}, {'name': 'android.view.KeyEvent$Callback'}, {'name': 'android.view.accessibility.AccessibilityEventSource'}],
 			'fields' : [
 				{
@@ -86354,7 +86224,7 @@ config = {
 		{
 			'name' : 'android.view.View$AccessibilityDelegate',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -86596,7 +86466,7 @@ config = {
 		{
 			'name' : 'android.view.View$DragShadowBuilder',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -87763,7 +87633,7 @@ config = {
 				},
 				{
 					'name' : 'generateLayoutParams',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.AttributeSet',
@@ -88819,7 +88689,7 @@ config = {
 		{
 			'name' : 'android.view.ViewGroup$LayoutParams',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'FILL_PARENT',
@@ -89334,7 +89204,7 @@ config = {
 		{
 			'name' : 'android.view.ViewOverlay',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -89773,7 +89643,7 @@ config = {
 		{
 			'name' : 'android.view.ViewPropertyAnimator',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -90271,8 +90141,8 @@ config = {
 		},
 		{
 			'name' : 'android.view.ViewTreeObserver',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -90815,7 +90685,7 @@ config = {
 		{
 			'name' : 'android.view.Window',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'FEATURE_ACTION_BAR',
@@ -92543,7 +92413,7 @@ config = {
 		{
 			'name' : 'android.view.WindowId',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -92681,7 +92551,7 @@ config = {
 		{
 			'name' : 'android.view.WindowId$FocusObserver',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -94037,7 +93907,7 @@ config = {
 		},
 		{
 			'name' : 'android.view.accessibility.AccessibilityEvent',
-			'tags' : ['_instance', '_proxy', '_singleton'],
+			'tags' : ['_instance', '_no_callback', '_proxy', '_singleton'],
 			'extends' : [{'name': 'android.view.accessibility.AccessibilityRecord'}, {'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
@@ -94644,7 +94514,7 @@ config = {
 		{
 			'name' : 'android.view.accessibility.AccessibilityNodeInfo',
 			'tags' : ['_instance', '_proxy', '_singleton'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -96122,7 +95992,7 @@ config = {
 		{
 			'name' : 'android.view.accessibility.AccessibilityNodeProvider',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -96200,7 +96070,7 @@ config = {
 		{
 			'name' : 'android.view.accessibility.AccessibilityRecord',
 			'tags' : ['_instance', '_proxy', '_singleton'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -96868,7 +96738,7 @@ config = {
 		{
 			'name' : 'android.view.animation.Animation',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Cloneable'}],
 			'fields' : [
 				{
@@ -97657,7 +97527,7 @@ config = {
 		{
 			'name' : 'android.view.animation.LayoutAnimationController',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'ORDER_NORMAL',
@@ -97937,7 +97807,7 @@ config = {
 		{
 			'name' : 'android.view.animation.LayoutAnimationController$AnimationParameters',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'count',
@@ -97972,7 +97842,7 @@ config = {
 		{
 			'name' : 'android.view.animation.Transformation',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'TYPE_ALPHA',
@@ -98160,8 +98030,8 @@ config = {
 		},
 		{
 			'name' : 'android.view.inputmethod.CompletionInfo',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -98314,8 +98184,8 @@ config = {
 		},
 		{
 			'name' : 'android.view.inputmethod.CorrectionInfo',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -98435,7 +98305,7 @@ config = {
 		{
 			'name' : 'android.view.inputmethod.EditorInfo',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}, {'name': 'android.text.InputType'}],
 			'fields' : [
 				{
@@ -98810,7 +98680,7 @@ config = {
 		{
 			'name' : 'android.view.inputmethod.ExtractedText',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -98951,7 +98821,7 @@ config = {
 		{
 			'name' : 'android.view.inputmethod.ExtractedTextRequest',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}],
 			'fields' : [
 				{
@@ -99436,7 +99306,7 @@ config = {
 		{
 			'name' : 'android.webkit.ConsoleMessage',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -99516,7 +99386,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.ConsoleMessage$MessageLevel',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -99762,7 +99632,7 @@ config = {
 		{
 			'name' : 'android.webkit.JsResult',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -99859,7 +99729,7 @@ config = {
 		{
 			'name' : 'android.webkit.WebBackForwardList',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.lang.Cloneable'}],
 			'fields' : [
 			],	
@@ -99923,7 +99793,7 @@ config = {
 		{
 			'name' : 'android.webkit.WebChromeClient',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -100464,7 +100334,7 @@ config = {
 		{
 			'name' : 'android.webkit.WebHistoryItem',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Cloneable'}],
 			'fields' : [
 			],	
@@ -100524,7 +100394,7 @@ config = {
 		{
 			'name' : 'android.webkit.WebResourceResponse',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -100637,7 +100507,7 @@ config = {
 		{
 			'name' : 'android.webkit.WebSettings',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'LOAD_CACHE_ELSE_NETWORK',
@@ -101968,7 +101838,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebSettings$LayoutAlgorithm',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -102035,7 +101905,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebSettings$PluginState',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -102102,7 +101972,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebSettings$RenderPriority',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -102169,7 +102039,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebSettings$TextSize',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -102254,7 +102124,7 @@ config = {
 		},
 		{
 			'name' : 'android.webkit.WebSettings$ZoomDensity',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -104087,7 +103957,7 @@ config = {
 		{
 			'name' : 'android.webkit.WebView$HitTestResult',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'ANCHOR_TYPE',
@@ -104243,7 +104113,7 @@ config = {
 		{
 			'name' : 'android.webkit.WebViewClient',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'ERROR_AUTHENTICATION',
@@ -104942,7 +104812,7 @@ config = {
 				},
 				{
 					'name' : 'generateLayoutParams',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.AttributeSet',
@@ -106821,7 +106691,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'getAdapter',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -107054,7 +106924,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'generateLayoutParams',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.AttributeSet',
@@ -108042,7 +107912,7 @@ config = {
 		{
 			'name' : 'android.widget.AdapterView$AdapterContextMenuInfo',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.view.ContextMenu$ContextMenuInfo'}],
 			'fields' : [
 				{
@@ -110324,7 +110194,7 @@ config = {
 		{
 			'name' : 'android.widget.BaseAdapter',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.widget.ListAdapter'}, {'name': 'android.widget.SpinnerAdapter'}],
 			'fields' : [
 			],	
@@ -110502,7 +110372,7 @@ config = {
 		{
 			'name' : 'android.widget.BaseExpandableListAdapter',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.widget.ExpandableListAdapter'}, {'name': 'android.widget.HeterogeneousExpandableList'}],
 			'fields' : [
 			],	
@@ -112667,7 +112537,7 @@ config = {
 				},
 				{
 					'name' : 'getChild',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -112799,7 +112669,7 @@ config = {
 				},
 				{
 					'name' : 'getGroup',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
@@ -113787,7 +113657,7 @@ config = {
 		{
 			'name' : 'android.widget.EdgeEffect',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -115146,7 +115016,7 @@ config = {
 		{
 			'name' : 'android.widget.ExpandableListView$ExpandableListContextMenuInfo',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.view.ContextMenu$ContextMenuInfo'}],
 			'fields' : [
 				{
@@ -115339,7 +115209,7 @@ config = {
 		{
 			'name' : 'android.widget.Filter',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -115434,8 +115304,8 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Filter$FilterResults',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'count',
@@ -115558,7 +115428,7 @@ config = {
 				},
 				{
 					'name' : 'generateLayoutParams',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.AttributeSet',
@@ -115898,7 +115768,7 @@ config = {
 				},
 				{
 					'name' : 'generateLayoutParams',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.AttributeSet',
@@ -116478,7 +116348,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'generateLayoutParams',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.AttributeSet',
@@ -116861,7 +116731,7 @@ config = {
 		{
 			'name' : 'android.widget.GridLayout$Alignment',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -117009,7 +116879,7 @@ config = {
 		{
 			'name' : 'android.widget.GridLayout$Spec',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -117526,7 +117396,7 @@ config = {
 		{
 			'name' : 'android.widget.HeaderViewListAdapter',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.widget.Filterable'}, {'name': 'android.widget.WrapperListAdapter'}],
 			'fields' : [
 			],	
@@ -119320,7 +119190,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.ImageView$ScaleType',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -119493,7 +119363,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'generateLayoutParams',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.AttributeSet',
@@ -120035,7 +119905,7 @@ config = {
 		{
 			'name' : 'android.widget.ListPopupWindow',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'INPUT_METHOD_FROM_FOCUSABLE',
@@ -121491,7 +121361,7 @@ config = {
 		{
 			'name' : 'android.widget.ListView$FixedViewInfo',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'data',
@@ -122072,7 +121942,7 @@ config = {
 		{
 			'name' : 'android.widget.MultiAutoCompleteTextView$CommaTokenizer',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.widget.MultiAutoCompleteTextView$Tokenizer'}],
 			'fields' : [
 			],	
@@ -122760,7 +122630,7 @@ config = {
 		{
 			'name' : 'android.widget.OverScroller',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -123247,7 +123117,7 @@ config = {
 		{
 			'name' : 'android.widget.PopupMenu',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -123422,7 +123292,7 @@ config = {
 		{
 			'name' : 'android.widget.PopupWindow',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'INPUT_METHOD_FROM_FOCUSABLE',
@@ -125128,7 +124998,7 @@ config = {
 				},
 				{
 					'name' : 'generateLayoutParams',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.AttributeSet',
@@ -125862,7 +125732,7 @@ config = {
 				},
 				{
 					'name' : 'generateLayoutParams',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.AttributeSet',
@@ -126234,7 +126104,7 @@ config = {
 		{
 			'name' : 'android.widget.RemoteViews',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}, {'name': 'android.view.LayoutInflater$Filter'}],
 			'fields' : [
 				{
@@ -128432,7 +128302,7 @@ config = {
 		{
 			'name' : 'android.widget.Scroller',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -131470,7 +131340,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Space',
-			'tags' : ['_instance', '_proxy'],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'android.view.View'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
@@ -133076,7 +132946,7 @@ config = {
 		{
 			'name' : 'android.widget.TabHost$TabSpec',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -133683,7 +133553,7 @@ config = {
 				},
 				{
 					'name' : 'generateLayoutParams',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.AttributeSet',
@@ -134041,7 +133911,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'generateLayoutParams',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.util.AttributeSet',
@@ -137891,7 +137761,7 @@ config = {
 		},
 		{
 			'name' : 'android.widget.TextView$BufferType',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -138339,7 +138209,7 @@ config = {
 		{
 			'name' : 'android.widget.Toast',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'LENGTH_LONG',
@@ -140272,7 +140142,7 @@ config = {
 		{
 			'name' : 'android.widget.ZoomButtonsController',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.view.View$OnTouchListener'}],
 			'fields' : [
 			],	
@@ -140827,7 +140697,7 @@ config = {
 		{
 			'name' : 'java.io.File',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.lang.Comparable'}],
 			'fields' : [
 				{
@@ -141600,8 +141470,8 @@ config = {
 		},
 		{
 			'name' : 'java.io.FileDescriptor',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'err',
@@ -142253,7 +142123,7 @@ config = {
 		{
 			'name' : 'java.io.InputStream',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Closeable'}],
 			'fields' : [
 			],	
@@ -142405,7 +142275,7 @@ config = {
 		{
 			'name' : 'java.io.OutputStream',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Closeable'}, {'name': 'java.io.Flushable'}],
 			'fields' : [
 			],	
@@ -143825,7 +143695,7 @@ config = {
 		{
 			'name' : 'java.io.Reader',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Closeable'}, {'name': 'java.lang.Readable'}],
 			'fields' : [
 			],	
@@ -143998,7 +143868,7 @@ config = {
 		{
 			'name' : 'java.io.Writer',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Closeable'}, {'name': 'java.io.Flushable'}, {'name': 'java.lang.Appendable'}],
 			'fields' : [
 			],	
@@ -144187,8 +144057,8 @@ config = {
 		},
 		{
 			'name' : 'java.lang.AbstractStringBuilder',
-			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_abstract', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Appendable'}, {'name': 'java.lang.CharSequence'}],
 			'fields' : [
 			],	
@@ -145183,8 +145053,8 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Boolean',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.lang.Comparable'}],
 			'fields' : [
 				{
@@ -145391,7 +145261,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Byte',
-			'tags' : ['_instance', '_proxy'],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Number'}, {'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Comparable'}],
 			'fields' : [
@@ -145779,8 +145649,8 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Class',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.lang.reflect.AnnotatedElement'}, {'name': 'java.lang.reflect.GenericDeclaration'}, {'name': 'java.lang.reflect.Type'}],
 			'fields' : [
 			],	
@@ -146589,7 +146459,7 @@ config = {
 		{
 			'name' : 'java.lang.ClassLoader',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -146844,7 +146714,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Double',
-			'tags' : ['_instance', '_proxy'],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Number'}, {'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Comparable'}],
 			'fields' : [
@@ -147300,7 +147170,7 @@ config = {
 		{
 			'name' : 'java.lang.Enum',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.lang.Comparable'}],
 			'fields' : [
 			],	
@@ -147527,7 +147397,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Float',
-			'tags' : ['_instance', '_proxy'],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Number'}, {'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Comparable'}],
 			'fields' : [
@@ -147992,7 +147862,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Integer',
-			'tags' : ['_instance', '_proxy'],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Number'}, {'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Comparable'}],
 			'fields' : [
@@ -148625,7 +148495,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Long',
-			'tags' : ['_instance', '_proxy'],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Number'}, {'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Comparable'}],
 			'fields' : [
@@ -149235,7 +149105,7 @@ config = {
 		{
 			'name' : 'java.lang.Number',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 			],	
@@ -149466,7 +149336,7 @@ config = {
 		{
 			'name' : 'java.lang.Package',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.reflect.AnnotatedElement'}],
 			'fields' : [
 			],	
@@ -149819,7 +149689,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Short',
-			'tags' : ['_instance', '_proxy'],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Number'}, {'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Comparable'}],
 			'fields' : [
@@ -150152,8 +150022,8 @@ config = {
 		},
 		{
 			'name' : 'java.lang.StackTraceElement',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 			],	
@@ -150286,8 +150156,8 @@ config = {
 		},
 		{
 			'name' : 'java.lang.String',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.lang.CharSequence'}, {'name': 'java.lang.Comparable'}],
 			'fields' : [
 				{
@@ -151687,7 +151557,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.StringBuffer',
-			'tags' : ['_instance', '_proxy'],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.AbstractStringBuilder'}, {'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.lang.CharSequence'}],
 			'fields' : [
@@ -152652,7 +152522,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.StringBuilder',
-			'tags' : ['_instance', '_proxy'],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.AbstractStringBuilder'}, {'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.lang.CharSequence'}],
 			'fields' : [
@@ -153357,7 +153227,7 @@ config = {
 		{
 			'name' : 'java.lang.Thread',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Runnable'}],
 			'fields' : [
 				{
@@ -154070,7 +153940,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.Thread$State',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -154196,7 +154066,7 @@ config = {
 		{
 			'name' : 'java.lang.ThreadGroup',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Thread$UncaughtExceptionHandler'}],
 			'fields' : [
 			],	
@@ -154572,7 +154442,7 @@ config = {
 		{
 			'name' : 'java.lang.Throwable',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 			],	
@@ -154838,7 +154708,7 @@ config = {
 		{
 			'name' : 'java.lang.reflect.AccessibleObject',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.reflect.AnnotatedElement'}],
 			'fields' : [
 			],	
@@ -155029,7 +154899,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.Constructor',
-			'tags' : ['_proxy'],
+			'tags' : ['_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.reflect.AccessibleObject'}],
 			'implements' : [{'name': 'java.lang.reflect.GenericDeclaration'}, {'name': 'java.lang.reflect.Member'}],
 			'fields' : [
@@ -155279,7 +155149,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.Field',
-			'tags' : ['_proxy'],
+			'tags' : ['_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.reflect.AccessibleObject'}],
 			'implements' : [{'name': 'java.lang.reflect.Member'}],
 			'fields' : [
@@ -155885,7 +155755,7 @@ config = {
 		},
 		{
 			'name' : 'java.lang.reflect.Method',
-			'tags' : ['_proxy'],
+			'tags' : ['_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.reflect.AccessibleObject'}],
 			'implements' : [{'name': 'java.lang.reflect.GenericDeclaration'}, {'name': 'java.lang.reflect.Member'}],
 			'fields' : [
@@ -158292,8 +158162,8 @@ config = {
 		},
 		{
 			'name' : 'java.math.MathContext',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 				{
@@ -158438,7 +158308,7 @@ config = {
 		},
 		{
 			'name' : 'java.math.RoundingMode',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -158567,7 +158437,7 @@ config = {
 		{
 			'name' : 'java.net.ContentHandler',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -158647,8 +158517,8 @@ config = {
 		},
 		{
 			'name' : 'java.net.DatagramPacket',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -158964,7 +158834,7 @@ config = {
 		{
 			'name' : 'java.net.DatagramSocket',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -159427,7 +159297,7 @@ config = {
 		{
 			'name' : 'java.net.DatagramSocketImpl',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.net.SocketOptions'}],
 			'fields' : [
 			],	
@@ -160070,7 +159940,7 @@ config = {
 		{
 			'name' : 'java.net.InetAddress',
 			'tags' : ['_instance', '_proxy', '_singleton'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 			],	
@@ -160414,7 +160284,7 @@ config = {
 		{
 			'name' : 'java.net.InterfaceAddress',
 			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -160527,8 +160397,8 @@ config = {
 		},
 		{
 			'name' : 'java.net.NetworkInterface',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -160784,7 +160654,7 @@ config = {
 		{
 			'name' : 'java.net.Proxy',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'NO_PROXY',
@@ -160881,7 +160751,7 @@ config = {
 		},
 		{
 			'name' : 'java.net.Proxy$Type',
-			'tags' : ['_enum', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -160949,7 +160819,7 @@ config = {
 		{
 			'name' : 'java.net.ServerSocket',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -161276,7 +161146,7 @@ config = {
 		{
 			'name' : 'java.net.Socket',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -161991,7 +161861,7 @@ config = {
 		{
 			'name' : 'java.net.SocketAddress',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 			],	
@@ -162009,7 +161879,7 @@ config = {
 		{
 			'name' : 'java.net.SocketImpl',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.net.SocketOptions'}],
 			'fields' : [
 			],	
@@ -162234,8 +162104,8 @@ config = {
 		},
 		{
 			'name' : 'java.net.URI',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.lang.Comparable'}],
 			'fields' : [
 			],	
@@ -162728,8 +162598,8 @@ config = {
 		},
 		{
 			'name' : 'java.net.URL',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 			],	
@@ -163134,7 +163004,7 @@ config = {
 		{
 			'name' : 'java.net.URLConnection',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -163852,7 +163722,7 @@ config = {
 		{
 			'name' : 'java.net.URLStreamHandler',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -163896,7 +163766,7 @@ config = {
 		{
 			'name' : 'java.nio.Buffer',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -163914,7 +163784,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -164170,7 +164040,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -165005,8 +164875,8 @@ config = {
 		},
 		{
 			'name' : 'java.nio.ByteOrder',
-			'tags' : ['_instance', '_proxy', '_singleton'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy', '_singleton'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'BIG_ENDIAN',
@@ -165150,7 +165020,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -165693,7 +165563,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -166092,7 +165962,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -166491,7 +166361,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -166890,7 +166760,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -167336,7 +167206,7 @@ config = {
 				},
 				{
 					'name' : 'array',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
@@ -168372,7 +168242,7 @@ config = {
 		{
 			'name' : 'java.nio.channels.FileChannel$MapMode',
 			'tags' : ['_instance', '_proxy', '_singleton'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'PRIVATE',
@@ -168422,7 +168292,7 @@ config = {
 		{
 			'name' : 'java.nio.channels.FileLock',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -168615,7 +168485,7 @@ config = {
 		{
 			'name' : 'java.nio.channels.Pipe',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -168940,7 +168810,7 @@ config = {
 		{
 			'name' : 'java.nio.channels.SelectionKey',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'OP_ACCEPT',
@@ -169151,7 +169021,7 @@ config = {
 		{
 			'name' : 'java.nio.channels.Selector',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -169607,7 +169477,7 @@ config = {
 		{
 			'name' : 'java.nio.channels.spi.AbstractInterruptibleChannel',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.nio.channels.Channel'}, {'name': 'java.nio.channels.InterruptibleChannel'}],
 			'fields' : [
 			],	
@@ -169805,7 +169675,7 @@ config = {
 		{
 			'name' : 'java.nio.channels.spi.SelectorProvider',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -169900,7 +169770,7 @@ config = {
 		{
 			'name' : 'java.nio.charset.Charset',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.lang.Comparable'}],
 			'fields' : [
 			],	
@@ -170190,7 +170060,7 @@ config = {
 		{
 			'name' : 'java.nio.charset.CharsetDecoder',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -170425,7 +170295,7 @@ config = {
 		{
 			'name' : 'java.nio.charset.CharsetEncoder',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -170675,7 +170545,7 @@ config = {
 		{
 			'name' : 'java.nio.charset.CoderResult',
 			'tags' : ['_instance', '_proxy', '_singleton'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'OVERFLOW',
@@ -170832,7 +170702,7 @@ config = {
 		{
 			'name' : 'java.nio.charset.CodingErrorAction',
 			'tags' : ['_instance', '_proxy', '_singleton'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'IGNORE',
@@ -170881,8 +170751,8 @@ config = {
 		},
 		{
 			'name' : 'java.security.CodeSigner',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 			],	
@@ -170972,7 +170842,7 @@ config = {
 		{
 			'name' : 'java.security.CodeSource',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 			],	
@@ -171193,7 +171063,7 @@ config = {
 		{
 			'name' : 'java.security.Permission',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.security.Guard'}],
 			'fields' : [
 			],	
@@ -171323,7 +171193,7 @@ config = {
 		{
 			'name' : 'java.security.PermissionCollection',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 			],	
@@ -171485,7 +171355,7 @@ config = {
 		{
 			'name' : 'java.security.ProtectionDomain',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -171630,8 +171500,8 @@ config = {
 		},
 		{
 			'name' : 'java.security.Timestamp',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 			],	
@@ -171721,7 +171591,7 @@ config = {
 		{
 			'name' : 'java.security.cert.CertPath',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 			],	
@@ -171841,7 +171711,7 @@ config = {
 		{
 			'name' : 'java.security.cert.Certificate',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 			],	
@@ -172321,7 +172191,7 @@ config = {
 		{
 			'name' : 'java.util.AbstractCollection',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.util.Collection'}],
 			'fields' : [
 			],	
@@ -172798,7 +172668,7 @@ config = {
 		{
 			'name' : 'java.util.AbstractMap',
 			'tags' : ['_abstract', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.util.Map'}],
 			'fields' : [
 			],	
@@ -173644,8 +173514,8 @@ config = {
 		},
 		{
 			'name' : 'java.util.Currency',
-			'tags' : ['_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 			],	
@@ -173753,7 +173623,7 @@ config = {
 		{
 			'name' : 'java.util.Date',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.lang.Cloneable'}, {'name': 'java.lang.Comparable'}],
 			'fields' : [
 			],	
@@ -175123,8 +174993,8 @@ config = {
 		},
 		{
 			'name' : 'java.util.Locale',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.lang.Cloneable'}],
 			'fields' : [
 				{
@@ -175961,7 +175831,7 @@ config = {
 		{
 			'name' : 'java.util.Random',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 			],	
@@ -176526,8 +176396,8 @@ config = {
 		},
 		{
 			'name' : 'javax.security.auth.x500.X500Principal',
-			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'tags' : ['_instance', '_no_callback', '_proxy'],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.security.Principal'}],
 			'fields' : [
 				{
@@ -176714,7 +176584,7 @@ config = {
 		{
 			'name' : 'org.json.JSONArray',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
@@ -177434,7 +177304,7 @@ config = {
 		{
 			'name' : 'org.json.JSONObject',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'NULL',
@@ -178161,7 +178031,7 @@ config = {
 		{
 			'name' : 'org.json.JSONTokener',
 			'tags' : ['_instance', '_proxy'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.Object'}],
+			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [

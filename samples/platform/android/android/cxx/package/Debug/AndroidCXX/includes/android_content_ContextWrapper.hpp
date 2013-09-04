@@ -361,7 +361,6 @@ class android_net_Uri;
 
 class android_content_res_Configuration;
 
-class android_content_Context;
 
 class android_view_Display;
 
@@ -383,6 +382,7 @@ class android_content_res_Resources;
 
 class android_content_SharedPreferences;
 
+class java_lang_Object;
 
 class android_content_res_Resources_Theme;
 
@@ -416,7 +416,7 @@ class android_content_ComponentName;
 
 class android_content_IntentSender;
 
-class android_content_ContextWrapper : public AndroidCXX::java_lang_Object
+class android_content_ContextWrapper : public AndroidCXX::android_content_Context
 {
 public:
 

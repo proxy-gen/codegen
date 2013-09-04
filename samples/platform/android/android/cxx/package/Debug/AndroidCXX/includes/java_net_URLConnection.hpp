@@ -121,6 +121,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -139,7 +141,6 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_lang_Object;
 
 class java_lang_Class;
 
@@ -159,7 +160,7 @@ class java_net_URL;
 
 class java_net_ContentHandlerFactory;
 
-class java_net_URLConnection 
+class java_net_URLConnection : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -9,8 +9,6 @@
 
 
 
- 		 
-	
 
 
  		 
@@ -18,7 +16,6 @@
  		 
  		 
  		 
-
 
 
 
@@ -37,14 +34,12 @@
 //
 
 
-#include <android_util_AttributeSet.hpp>
-
-#include <android_view_ViewGroup_LayoutParams.hpp>
-
 #include <android_content_Context.hpp>
 
+#include <android_util_AttributeSet.hpp>
 
-#include <java_lang_Object.hpp>
+
+#include <android_view_ViewGroup.hpp>
 
 #include <vector>
 #include <map>
@@ -62,13 +57,11 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_util_AttributeSet;
-
-class android_view_ViewGroup_LayoutParams;
-
 class android_content_Context;
 
-class android_widget_AbsoluteLayout : public AndroidCXX::java_lang_Object
+class android_util_AttributeSet;
+
+class android_widget_AbsoluteLayout : public AndroidCXX::android_view_ViewGroup
 {
 public:
 
@@ -82,7 +75,6 @@ public:
 	// Default Destructor
 	virtual ~android_widget_AbsoluteLayout();
 	// Functions
-	virtual AndroidCXX::android_view_ViewGroup_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
 	virtual bool  shouldDelayChildPressedState() ;
 
 protected:

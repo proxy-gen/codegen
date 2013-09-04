@@ -86,6 +86,8 @@
 #include <java_util_Map.hpp>
 
 
+#include <android_widget_BaseAdapter.hpp>
+
 #include <android_widget_Filterable.hpp>
 
 #include <vector>
@@ -126,7 +128,7 @@ class java_util_List;
 
 class java_util_Map;
 
-class android_widget_SimpleAdapter : public AndroidCXX::android_widget_Filterable
+class android_widget_SimpleAdapter : public AndroidCXX::android_widget_BaseAdapter,public AndroidCXX::android_widget_Filterable
 {
 public:
 

@@ -77,6 +77,8 @@
 
 
 
+#include <java_security_cert_Certificate.hpp>
+
 #include <java_security_cert_X509Extension.hpp>
 
 #include <vector>
@@ -111,7 +113,7 @@ class javax_security_auth_x500_X500Principal;
 
 class java_math_BigInteger;
 
-class java_security_cert_X509Certificate : public AndroidCXX::java_security_cert_X509Extension
+class java_security_cert_X509Certificate : public AndroidCXX::java_security_cert_Certificate,public AndroidCXX::java_security_cert_X509Extension
 {
 public:
 

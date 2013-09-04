@@ -145,11 +145,10 @@ class android_os_Looper;
 
 class java_lang_Runnable;
 
-class java_lang_Object;
 
 class android_os_Handler_Callback;
 
-class android_os_Handler 
+class android_os_Handler : public AndroidCXX::java_lang_Object
 {
 public:
 

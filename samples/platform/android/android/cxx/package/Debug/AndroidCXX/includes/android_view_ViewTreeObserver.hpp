@@ -80,6 +80,8 @@
 #include <android_view_ViewTreeObserver_OnWindowFocusChangeListener.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -112,7 +114,7 @@ class android_view_ViewTreeObserver_OnWindowAttachListener;
 
 class android_view_ViewTreeObserver_OnWindowFocusChangeListener;
 
-class android_view_ViewTreeObserver 
+class android_view_ViewTreeObserver : public AndroidCXX::java_lang_Object
 {
 public:
 

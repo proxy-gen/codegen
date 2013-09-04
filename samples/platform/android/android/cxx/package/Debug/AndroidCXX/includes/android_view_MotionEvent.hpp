@@ -146,7 +146,7 @@
 #include <android_os_Parcel.hpp>
 
 
-#include <android_os_Parcelable.hpp>
+#include <android_view_InputEvent.hpp>
 
 #include <vector>
 #include <map>
@@ -175,7 +175,7 @@ class android_graphics_Matrix;
 
 class android_os_Parcel;
 
-class android_view_MotionEvent : public AndroidCXX::android_os_Parcelable
+class android_view_MotionEvent : public AndroidCXX::android_view_InputEvent
 {
 public:
 

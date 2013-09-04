@@ -60,6 +60,8 @@
 #include <android_content_Context.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -80,7 +82,7 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_android_Util 
+class com_facebook_android_Util : public AndroidCXX::java_lang_Object
 {
 public:
 

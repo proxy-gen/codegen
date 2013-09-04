@@ -123,6 +123,7 @@ class java_io_FileDescriptor;
 
 class java_io_PrintWriter;
 
+class java_lang_Object;
 
 class android_support_v4_app_FragmentManager;
 
@@ -146,7 +147,7 @@ class android_view_MenuItem;
 
 class android_content_Intent;
 
-class android_support_v4_app_FragmentActivity : public AndroidCXX::java_lang_Object
+class android_support_v4_app_FragmentActivity 
 {
 public:
 

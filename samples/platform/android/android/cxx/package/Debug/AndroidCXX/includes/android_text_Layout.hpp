@@ -92,6 +92,8 @@
 #include <android_text_Layout_Alignment.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -123,7 +125,7 @@ class android_graphics_Rect;
 
 class android_text_Layout_Directions;
 
-class android_text_Layout 
+class android_text_Layout : public AndroidCXX::java_lang_Object
 {
 public:
 

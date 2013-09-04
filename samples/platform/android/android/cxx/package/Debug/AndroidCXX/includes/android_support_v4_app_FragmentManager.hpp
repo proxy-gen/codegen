@@ -74,6 +74,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -110,7 +112,7 @@ class java_util_List;
 
 class android_support_v4_app_Fragment_SavedState;
 
-class android_support_v4_app_FragmentManager 
+class android_support_v4_app_FragmentManager : public AndroidCXX::java_lang_Object
 {
 public:
 

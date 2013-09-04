@@ -32,6 +32,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -53,7 +55,7 @@ class java_nio_channels_Pipe_SinkChannel;
 
 class java_nio_channels_Pipe_SourceChannel;
 
-class java_nio_channels_Pipe 
+class java_nio_channels_Pipe : public AndroidCXX::java_lang_Object
 {
 public:
 

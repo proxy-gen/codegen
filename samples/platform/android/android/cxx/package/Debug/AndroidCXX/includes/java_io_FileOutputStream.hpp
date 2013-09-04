@@ -54,7 +54,7 @@
 #include <java_lang_String.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <java_io_OutputStream.hpp>
 
 #include <vector>
 #include <map>
@@ -80,7 +80,7 @@ class java_io_File;
 
 class java_lang_String;
 
-class java_io_FileOutputStream : public AndroidCXX::java_lang_Object
+class java_io_FileOutputStream : public AndroidCXX::java_io_OutputStream
 {
 public:
 

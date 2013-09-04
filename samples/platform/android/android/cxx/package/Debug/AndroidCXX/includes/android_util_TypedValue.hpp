@@ -57,6 +57,8 @@
 #include <java_lang_CharSequence.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -80,7 +82,7 @@ class java_lang_String;
 class java_lang_CharSequence;
 
 
-class android_util_TypedValue 
+class android_util_TypedValue : public AndroidCXX::java_lang_Object
 {
 public:
 

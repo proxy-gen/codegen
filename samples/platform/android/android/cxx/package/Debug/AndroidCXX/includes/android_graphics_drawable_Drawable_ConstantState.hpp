@@ -33,6 +33,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -53,7 +55,7 @@ class android_content_res_Resources;
 
 class android_graphics_drawable_Drawable;
 
-class android_graphics_drawable_Drawable_ConstantState 
+class android_graphics_drawable_Drawable_ConstantState : public AndroidCXX::java_lang_Object
 {
 public:
 

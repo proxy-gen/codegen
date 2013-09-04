@@ -98,7 +98,7 @@
 
 
 
-#include <java_lang_Object.hpp>
+#include <android_view_ViewGroup.hpp>
 
 #include <vector>
 #include <map>
@@ -124,6 +124,7 @@ class android_view_accessibility_AccessibilityEvent;
 
 class android_widget_Adapter;
 
+class java_lang_Object;
 
 class android_widget_AdapterView_OnItemClickListener;
 
@@ -139,7 +140,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_AdapterView : public AndroidCXX::java_lang_Object
+class android_widget_AdapterView : public AndroidCXX::android_view_ViewGroup
 {
 public:
 

@@ -37,6 +37,8 @@
 #include <com_facebook_model_GraphObject.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -57,7 +59,7 @@ namespace FacebookCXX {
 
 class com_facebook_model_GraphObject;
 
-class com_facebook_widget_GraphObjectAdapter_SectionAndItem 
+class com_facebook_widget_GraphObjectAdapter_SectionAndItem : public AndroidCXX::java_lang_Object
 {
 public:
 

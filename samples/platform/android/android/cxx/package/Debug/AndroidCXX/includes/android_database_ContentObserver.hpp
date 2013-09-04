@@ -35,6 +35,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -55,7 +57,7 @@ class android_net_Uri;
 
 class android_os_Handler;
 
-class android_database_ContentObserver 
+class android_database_ContentObserver : public AndroidCXX::java_lang_Object
 {
 public:
 

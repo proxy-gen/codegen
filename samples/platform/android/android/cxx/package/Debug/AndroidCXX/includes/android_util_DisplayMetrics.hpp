@@ -58,11 +58,10 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class java_lang_Object;
 
 class java_lang_String;
 
-class android_util_DisplayMetrics 
+class android_util_DisplayMetrics : public AndroidCXX::java_lang_Object
 {
 public:
 

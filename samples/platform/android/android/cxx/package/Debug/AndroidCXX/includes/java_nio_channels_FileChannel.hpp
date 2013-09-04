@@ -68,6 +68,8 @@
 
 
 
+#include <java_nio_channels_spi_AbstractInterruptibleChannel.hpp>
+
 #include <java_nio_channels_ByteChannel.hpp>
 
 #include <java_nio_channels_GatheringByteChannel.hpp>
@@ -103,7 +105,7 @@ class java_nio_channels_ReadableByteChannel;
 
 class java_nio_channels_WritableByteChannel;
 
-class java_nio_channels_FileChannel : public AndroidCXX::java_nio_channels_ByteChannel,public AndroidCXX::java_nio_channels_GatheringByteChannel,public AndroidCXX::java_nio_channels_ScatteringByteChannel
+class java_nio_channels_FileChannel : public AndroidCXX::java_nio_channels_spi_AbstractInterruptibleChannel,public AndroidCXX::java_nio_channels_ByteChannel,public AndroidCXX::java_nio_channels_GatheringByteChannel,public AndroidCXX::java_nio_channels_ScatteringByteChannel
 {
 public:
 

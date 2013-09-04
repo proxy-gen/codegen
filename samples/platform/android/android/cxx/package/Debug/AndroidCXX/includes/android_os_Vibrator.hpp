@@ -31,6 +31,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -47,7 +49,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_Vibrator 
+class android_os_Vibrator : public AndroidCXX::java_lang_Object
 {
 public:
 

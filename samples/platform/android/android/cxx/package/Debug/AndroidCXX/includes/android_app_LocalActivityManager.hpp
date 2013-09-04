@@ -61,6 +61,8 @@
 #include <android_content_Intent.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -87,7 +89,7 @@ class android_app_Activity;
 
 class android_content_Intent;
 
-class android_app_LocalActivityManager 
+class android_app_LocalActivityManager : public AndroidCXX::java_lang_Object
 {
 public:
 

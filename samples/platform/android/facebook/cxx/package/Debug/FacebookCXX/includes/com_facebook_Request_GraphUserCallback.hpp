@@ -55,6 +55,7 @@ class com_facebook_Request_GraphUserCallback : public AndroidCXX::java_lang_Obje
 {
 public:
 
+	// Public Constructor
 	com_facebook_Request_GraphUserCallback(const com_facebook_Request_GraphUserCallback& cc);
 	com_facebook_Request_GraphUserCallback(Proxy * aProxy);
 	Proxy * proxy() const;	
@@ -64,8 +65,8 @@ public:
 	virtual void  onCompleted(FacebookCXX::com_facebook_model_GraphUser const& arg0,FacebookCXX::com_facebook_Response const& arg1) ;
 
 protected:
-	com_facebook_Request_GraphUserCallback();
 	void setCXXCallbackPtr(void * callbackPtr);
+	com_facebook_Request_GraphUserCallback();
 
 private:
 	Proxy * _proxy;

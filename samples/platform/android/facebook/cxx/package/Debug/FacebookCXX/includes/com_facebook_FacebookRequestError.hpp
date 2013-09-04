@@ -87,7 +87,7 @@ namespace FacebookCXX {
 class com_facebook_FacebookException;
 
 
-class com_facebook_FacebookRequestError 
+class com_facebook_FacebookRequestError : public AndroidCXX::java_lang_Object
 {
 public:
 

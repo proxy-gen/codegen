@@ -58,6 +58,8 @@
 #include <android_graphics_drawable_Drawable.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -87,7 +89,7 @@ class java_lang_CharSequence;
 
 class android_graphics_drawable_Drawable;
 
-class android_widget_TabHost_TabSpec 
+class android_widget_TabHost_TabSpec : public AndroidCXX::java_lang_Object
 {
 public:
 

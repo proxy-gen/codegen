@@ -99,6 +99,8 @@
 #include <android_webkit_WebResourceResponse.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -133,7 +135,7 @@ class android_view_KeyEvent;
 
 class android_webkit_WebResourceResponse;
 
-class android_webkit_WebViewClient 
+class android_webkit_WebViewClient : public AndroidCXX::java_lang_Object
 {
 public:
 

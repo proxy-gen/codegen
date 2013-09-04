@@ -60,6 +60,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -88,7 +90,7 @@ class java_security_Permission;
 
 class java_lang_String;
 
-class java_security_ProtectionDomain 
+class java_security_ProtectionDomain : public AndroidCXX::java_lang_Object
 {
 public:
 

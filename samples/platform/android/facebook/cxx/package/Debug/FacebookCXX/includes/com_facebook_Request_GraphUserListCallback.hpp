@@ -60,6 +60,7 @@ class com_facebook_Request_GraphUserListCallback : public AndroidCXX::java_lang_
 {
 public:
 
+	// Public Constructor
 	com_facebook_Request_GraphUserListCallback(const com_facebook_Request_GraphUserListCallback& cc);
 	com_facebook_Request_GraphUserListCallback(Proxy * aProxy);
 	Proxy * proxy() const;	
@@ -69,8 +70,8 @@ public:
 	virtual void  onCompleted(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Response const& arg1) ;
 
 protected:
-	com_facebook_Request_GraphUserListCallback();
 	void setCXXCallbackPtr(void * callbackPtr);
+	com_facebook_Request_GraphUserListCallback();
 
 private:
 	Proxy * _proxy;

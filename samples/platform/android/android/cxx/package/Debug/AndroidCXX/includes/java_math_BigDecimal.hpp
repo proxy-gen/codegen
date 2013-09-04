@@ -215,6 +215,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_lang_Number.hpp>
+
 #include <java_lang_Comparable.hpp>
 
 #include <vector>
@@ -243,7 +245,7 @@ class java_math_BigInteger;
 
 class java_lang_String;
 
-class java_math_BigDecimal : public AndroidCXX::java_lang_Comparable
+class java_math_BigDecimal : public AndroidCXX::java_lang_Number,public AndroidCXX::java_lang_Comparable
 {
 public:
 

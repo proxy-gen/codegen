@@ -54,6 +54,8 @@
 #include <android_os_MessageQueue.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -79,7 +81,7 @@ class java_lang_Thread;
 
 class android_os_MessageQueue;
 
-class android_os_Looper 
+class android_os_Looper : public AndroidCXX::java_lang_Object
 {
 public:
 

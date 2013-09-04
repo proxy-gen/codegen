@@ -77,11 +77,10 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class java_lang_Object;
 
 class org_json_JSONException;
 
-class org_json_JSONTokener 
+class org_json_JSONTokener : public AndroidCXX::java_lang_Object
 {
 public:
 

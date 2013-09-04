@@ -70,6 +70,8 @@
 #include <java_lang_String.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -98,7 +100,7 @@ class java_net_SocketImplFactory;
 
 class java_lang_String;
 
-class java_net_ServerSocket 
+class java_net_ServerSocket : public AndroidCXX::java_lang_Object
 {
 public:
 

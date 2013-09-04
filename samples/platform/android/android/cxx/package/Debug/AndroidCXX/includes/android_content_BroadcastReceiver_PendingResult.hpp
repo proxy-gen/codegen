@@ -47,6 +47,8 @@
 #include <android_os_Bundle.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -67,7 +69,7 @@ class java_lang_String;
 
 class android_os_Bundle;
 
-class android_content_BroadcastReceiver_PendingResult 
+class android_content_BroadcastReceiver_PendingResult : public AndroidCXX::java_lang_Object
 {
 public:
 

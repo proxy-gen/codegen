@@ -63,6 +63,8 @@
 #include <android_content_res_XmlResourceParser.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -87,7 +89,7 @@ class java_io_InputStream;
 
 class android_content_res_XmlResourceParser;
 
-class android_content_res_AssetManager 
+class android_content_res_AssetManager : public AndroidCXX::java_lang_Object
 {
 public:
 

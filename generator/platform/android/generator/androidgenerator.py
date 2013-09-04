@@ -1190,9 +1190,7 @@ class ConfigModule(object):
 					break
 		config_superclasses = list()
 		if 'extends' in class_config:
-			for config_extend in class_config['extends']:
-				if config_extend['name'] == jindex.JAVA_OBJECT:
-					config_superclasses.append(config_extend)
+			config_superclasses.extend(class_config['extends'])
 		if 'implements' in class_config:
 			config_superclasses.extend(class_config['implements'])
 		superclasses = [ config_superclass['name'] for config_superclass in config_superclasses ]
@@ -1204,16 +1202,21 @@ class ConfigModule(object):
 			if superclass_rankings[config_superclass['name']] == 1:
 				namespaced_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=config_superclass['name'])
 				for namespaced_class in namespaced_classes:
-					superclass = dict(config_superclass)
-					superclass['namespace'] = namespaced_class['namespace']
-					superclass['name'] = config_superclass['name']
-					superclass['typename'] = Utils.to_class_name(superclass['name'])
-					file_name = Utils.to_file_name(superclass['typename'],"hpp")
-					superclass['filename'] = file_name	
-					superclass['isenum'] = True if '_enum' in namespaced_class['clazz']['tags'] else False
-					superclass['isinterface'] = True if '_interface' in namespaced_class['clazz']['tags'] else False
-					superclass['isabstract'] = True if '_abstract' in namespaced_class['clazz']['tags'] else False
-					superclasses.append(superclass)
+					superclass_tags = namespaced_class['clazz']['tags']
+					is_superclass_abstract = '_abstract' in superclass_tags
+					is_superclass_interface = '_interface' in superclass_tags
+					is_superclass_root_java_object = config_superclass['name'] == jindex.JAVA_OBJECT
+					if is_superclass_abstract or is_superclass_interface or is_superclass_root_java_object: 					
+						superclass = dict(config_superclass)
+						superclass['namespace'] = namespaced_class['namespace']
+						superclass['name'] = config_superclass['name']
+						superclass['typename'] = Utils.to_class_name(superclass['name'])
+						file_name = Utils.to_file_name(superclass['typename'],"hpp")
+						superclass['filename'] = file_name	
+						superclass['isenum'] = True if '_enum' in namespaced_class['clazz']['tags'] else False
+						superclass['isinterface'] = True if '_interface' in namespaced_class['clazz']['tags'] else False
+						superclass['isabstract'] = True if '_abstract' in namespaced_class['clazz']['tags'] else False
+						superclasses.append(superclass)
 		if len(superclasses) > 0:
 			classinfo['superclasses'] = superclasses			
 		logging.debug("_attach_derived_target_class_info exit")	

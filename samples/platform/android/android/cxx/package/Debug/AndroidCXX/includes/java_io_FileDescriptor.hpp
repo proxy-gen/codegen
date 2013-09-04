@@ -29,6 +29,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -45,7 +47,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_io_FileDescriptor 
+class java_io_FileDescriptor : public AndroidCXX::java_lang_Object
 {
 public:
 

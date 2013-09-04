@@ -64,12 +64,11 @@ namespace AndroidCXX {
 
 class java_net_SocketAddress;
 
-class java_lang_Object;
 
 class java_lang_String;
 
 
-class java_net_Proxy 
+class java_net_Proxy : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -65,6 +65,8 @@
 #include <java_net_SocketAddress.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -85,7 +87,7 @@ class java_net_InetAddress;
 
 class java_net_SocketAddress;
 
-class java_net_DatagramPacket 
+class java_net_DatagramPacket : public AndroidCXX::java_lang_Object
 {
 public:
 

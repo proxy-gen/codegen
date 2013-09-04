@@ -34,7 +34,7 @@
 #include <com_facebook_model_GraphPlace.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <com_facebook_widget_PickerFragment_LoadingStrategy.hpp>
 
 #include <vector>
 #include <map>
@@ -56,7 +56,7 @@ class com_facebook_widget_GraphObjectAdapter;
 
 class com_facebook_model_GraphPlace;
 
-class com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy : public AndroidCXX::java_lang_Object
+class com_facebook_widget_PlacePickerFragment_AsNeededLoadingStrategy : public FacebookCXX::com_facebook_widget_PickerFragment_LoadingStrategy
 {
 public:
 

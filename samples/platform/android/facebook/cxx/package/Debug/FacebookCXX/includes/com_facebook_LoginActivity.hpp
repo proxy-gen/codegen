@@ -35,8 +35,6 @@
 #include <android_os_Bundle.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -54,7 +52,7 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_LoginActivity : public AndroidCXX::java_lang_Object
+class com_facebook_LoginActivity 
 {
 public:
 

@@ -33,7 +33,7 @@
 
 
 
-#include <java_lang_Object.hpp>
+#include <java_nio_channels_spi_AbstractSelectableChannel.hpp>
 
 #include <vector>
 #include <map>
@@ -56,7 +56,7 @@ class java_nio_channels_SocketChannel;
 
 class java_net_ServerSocket;
 
-class java_nio_channels_ServerSocketChannel : public AndroidCXX::java_lang_Object
+class java_nio_channels_ServerSocketChannel : public AndroidCXX::java_nio_channels_spi_AbstractSelectableChannel
 {
 public:
 

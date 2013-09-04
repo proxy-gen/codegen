@@ -11,8 +11,6 @@
 
  		 
  		 
-	
- 		 
  		 
 
 
@@ -21,7 +19,6 @@
  		 
  		 
  		 
-
 
 
 
@@ -52,16 +49,14 @@
 
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
-#include <android_util_AttributeSet.hpp>
-
-#include <android_widget_RelativeLayout_LayoutParams.hpp>
-
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
 
 #include <android_content_Context.hpp>
 
+#include <android_util_AttributeSet.hpp>
 
-#include <java_lang_Object.hpp>
+
+#include <android_view_ViewGroup.hpp>
 
 #include <vector>
 #include <map>
@@ -81,15 +76,13 @@ namespace AndroidCXX {
 
 class android_view_accessibility_AccessibilityEvent;
 
-class android_util_AttributeSet;
-
-class android_widget_RelativeLayout_LayoutParams;
-
 class android_view_accessibility_AccessibilityNodeInfo;
 
 class android_content_Context;
 
-class android_widget_RelativeLayout : public AndroidCXX::java_lang_Object
+class android_util_AttributeSet;
+
+class android_widget_RelativeLayout : public AndroidCXX::android_view_ViewGroup
 {
 public:
 
@@ -104,7 +97,6 @@ public:
 	virtual ~android_widget_RelativeLayout();
 	// Functions
 	virtual bool  dispatchPopulateAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;
-	virtual AndroidCXX::android_widget_RelativeLayout_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
 	virtual int  getBaseline() ;
 	virtual int  getGravity() ;
 	virtual void  onInitializeAccessibilityEvent(AndroidCXX::android_view_accessibility_AccessibilityEvent const& arg0) ;

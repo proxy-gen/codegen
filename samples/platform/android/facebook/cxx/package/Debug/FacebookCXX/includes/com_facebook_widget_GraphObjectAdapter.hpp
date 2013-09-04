@@ -110,6 +110,8 @@
 #include <android_content_Context.hpp>
 
 
+#include <android_widget_BaseAdapter.hpp>
+
 #include <android_widget_SectionIndexer.hpp>
 
 #include <vector>
@@ -143,7 +145,7 @@ class com_facebook_widget_GraphObjectAdapter_OnErrorListener;
 
 
 
-class com_facebook_widget_GraphObjectAdapter : public AndroidCXX::android_widget_SectionIndexer
+class com_facebook_widget_GraphObjectAdapter : public AndroidCXX::android_widget_BaseAdapter,public AndroidCXX::android_widget_SectionIndexer
 {
 public:
 

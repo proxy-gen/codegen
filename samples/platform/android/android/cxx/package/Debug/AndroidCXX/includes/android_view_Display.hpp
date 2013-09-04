@@ -60,6 +60,8 @@
 #include <android_graphics_Rect.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -84,7 +86,7 @@ class java_lang_String;
 
 class android_graphics_Rect;
 
-class android_view_Display 
+class android_view_Display : public AndroidCXX::java_lang_Object
 {
 public:
 

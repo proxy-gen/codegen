@@ -101,7 +101,6 @@ class android_content_ComponentName;
 
 class java_lang_Class;
 
-class java_lang_Object;
 
 class android_content_Context;
 
@@ -109,7 +108,7 @@ class android_os_Bundle;
 
 class android_app_PendingIntent;
 
-class android_app_TaskStackBuilder 
+class android_app_TaskStackBuilder : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -118,6 +118,8 @@
 #include <android_graphics_PorterDuff_Mode.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -164,7 +166,7 @@ class java_lang_Runnable;
 class android_graphics_ColorFilter;
 
 
-class android_graphics_drawable_Drawable 
+class android_graphics_drawable_Drawable : public AndroidCXX::java_lang_Object
 {
 public:
 

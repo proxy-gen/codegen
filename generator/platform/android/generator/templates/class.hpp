@@ -200,8 +200,9 @@
 #set $constructor['proxied_typeinfo_list'] = $proxied_typeinfo_list
 #end for
 
-#set $no_copy_constructor = $entity_class_info['no_copy_constructor'] or $entity_virtual
-#set $no_default_constructor = $entity_class_info['no_default_constructor'] or $entity_virtual
+#set $no_copy_constructor = $entity_class_info['no_copy_constructor']
+#set $no_default_constructor = $entity_class_info['no_default_constructor']
+#set $constructor_count = $len(constructors)
 
 #set $proxied_typeinfos = list()
 
@@ -308,8 +309,8 @@ class $entity_class_name $superclassStr
 {
 public:
 
-	#if not $entity_virtual
 	#if not '_static' in $entity_class_config['tags']
+	#if $entity_callback or (not $entity_abstract and not $entity_interface and not $entity_object)
 	// Public Constructor
 	#for $constructor in $constructors
 	${entity_class_name}($constructor['param_str']);
@@ -322,7 +323,7 @@ public:
 	#end if
 	#end if
 	#if not '_static' in $entity_class_config['tags']
-	#if $no_default_constructor
+	#if $no_default_constructor or $entity_abstract or $entity_object
 	${entity_class_name}(Proxy * aProxy);
 	#end if
 	#end if
@@ -339,11 +340,11 @@ public:
 	#end for
 
 protected:
-	#if $entity_virtual or $entity_callback
-	${entity_class_name}();
-	#end if
 	#if $entity_callback
 	void setCXXCallbackPtr(void * callbackPtr);
+	#end if
+	#if ($entity_callback and $constructor_count == 0 ) or ($entity_abstract or $entity_interface or $entity_object)
+	${entity_class_name}();
 	#end if
 
 private:

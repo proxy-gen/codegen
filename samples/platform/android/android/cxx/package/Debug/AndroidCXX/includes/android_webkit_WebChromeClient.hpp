@@ -122,6 +122,8 @@
 #include <android_webkit_WebChromeClient_CustomViewCallback.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -162,7 +164,7 @@ class android_webkit_JsPromptResult;
 
 class android_webkit_WebChromeClient_CustomViewCallback;
 
-class android_webkit_WebChromeClient 
+class android_webkit_WebChromeClient : public AndroidCXX::java_lang_Object
 {
 public:
 

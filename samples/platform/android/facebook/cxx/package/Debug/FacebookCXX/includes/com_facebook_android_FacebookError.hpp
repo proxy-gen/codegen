@@ -36,8 +36,6 @@
 #include <java_lang_String.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -55,7 +53,7 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_android_FacebookError : public AndroidCXX::java_lang_Object
+class com_facebook_android_FacebookError 
 {
 public:
 

@@ -34,6 +34,8 @@
 #include <android_os_CancellationSignal_OnCancelListener.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -52,7 +54,7 @@ namespace AndroidCXX {
 
 class android_os_CancellationSignal_OnCancelListener;
 
-class android_os_CancellationSignal 
+class android_os_CancellationSignal : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -73,6 +73,8 @@
 #include <android_net_Uri.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -99,7 +101,7 @@ class android_content_Intent;
 
 class android_net_Uri;
 
-class android_content_ClipData_Item 
+class android_content_ClipData_Item : public AndroidCXX::java_lang_Object
 {
 public:
 

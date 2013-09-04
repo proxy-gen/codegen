@@ -57,7 +57,7 @@
 #include <android_os_Bundle.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <com_facebook_widget_PickerFragment.hpp>
 
 #include <vector>
 #include <map>
@@ -82,7 +82,7 @@ class com_facebook_model_GraphUser;
 
 
 
-class com_facebook_widget_FriendPickerFragment : public AndroidCXX::java_lang_Object
+class com_facebook_widget_FriendPickerFragment : public FacebookCXX::com_facebook_widget_PickerFragment
 {
 public:
 

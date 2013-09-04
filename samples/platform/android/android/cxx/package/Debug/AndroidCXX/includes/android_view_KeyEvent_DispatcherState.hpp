@@ -61,9 +61,8 @@ namespace AndroidCXX {
 
 class android_view_KeyEvent;
 
-class java_lang_Object;
 
-class android_view_KeyEvent_DispatcherState 
+class android_view_KeyEvent_DispatcherState : public AndroidCXX::java_lang_Object
 {
 public:
 

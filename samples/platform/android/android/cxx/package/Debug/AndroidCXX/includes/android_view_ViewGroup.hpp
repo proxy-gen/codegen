@@ -46,8 +46,6 @@
 	
  		 
  		 
- 		 
-	
 	
  		 
  		 
@@ -205,7 +203,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_view_ViewGroup
@@ -254,8 +251,6 @@ class java_lang_CharSequence;
 
 class android_graphics_Region;
 
-class android_util_AttributeSet;
-
 class android_graphics_Rect;
 
 class android_graphics_Point;
@@ -278,6 +273,8 @@ class android_view_ActionMode_Callback;
 class android_view_ActionMode;
 
 class android_content_Context;
+
+class android_util_AttributeSet;
 
 class android_view_ViewGroup : public AndroidCXX::android_view_ViewManager,public AndroidCXX::android_view_ViewParent
 {
@@ -324,7 +321,6 @@ public:
 	virtual AndroidCXX::android_view_View * focusSearch(AndroidCXX::android_view_View const& arg0,int const& arg1) ;
 	virtual void  focusableViewAvailable(AndroidCXX::android_view_View const& arg0) ;
 	virtual bool  gatherTransparentRegion(AndroidCXX::android_graphics_Region const& arg0) ;
-	virtual AndroidCXX::android_view_ViewGroup_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
 	virtual AndroidCXX::android_view_View * getChildAt(int const& arg0) ;
 	virtual int  getChildCount() ;
 	static int  getChildMeasureSpec(int const& arg0,int const& arg1,int const& arg2) ;

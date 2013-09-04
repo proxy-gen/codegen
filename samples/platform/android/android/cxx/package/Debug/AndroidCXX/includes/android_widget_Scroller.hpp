@@ -58,6 +58,8 @@
 #include <android_view_animation_Interpolator.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -78,7 +80,7 @@ class android_content_Context;
 
 class android_view_animation_Interpolator;
 
-class android_widget_Scroller 
+class android_widget_Scroller : public AndroidCXX::java_lang_Object
 {
 public:
 

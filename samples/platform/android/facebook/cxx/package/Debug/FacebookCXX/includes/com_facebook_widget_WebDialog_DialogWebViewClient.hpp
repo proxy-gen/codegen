@@ -54,8 +54,6 @@
 #include <android_net_http_SslError.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -77,7 +75,7 @@ namespace FacebookCXX {
 
 
 
-class com_facebook_widget_WebDialog_DialogWebViewClient : public AndroidCXX::java_lang_Object
+class com_facebook_widget_WebDialog_DialogWebViewClient 
 {
 public:
 

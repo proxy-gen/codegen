@@ -36,6 +36,8 @@
 #include <android_text_Spannable.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -57,7 +59,7 @@ class java_lang_CharSequence;
 
 class android_text_Spannable;
 
-class android_text_Spannable_Factory 
+class android_text_Spannable_Factory : public AndroidCXX::java_lang_Object
 {
 public:
 

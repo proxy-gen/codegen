@@ -93,7 +93,7 @@
 #include <android_util_AttributeSet.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <android_widget_CompoundButton.hpp>
 
 #include <vector>
 #include <map>
@@ -127,7 +127,7 @@ class android_graphics_Typeface;
 
 class android_util_AttributeSet;
 
-class android_widget_Switch : public AndroidCXX::java_lang_Object
+class android_widget_Switch : public AndroidCXX::android_widget_CompoundButton
 {
 public:
 

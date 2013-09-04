@@ -152,6 +152,8 @@
 #include <android_view_Surface.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -201,7 +203,7 @@ class android_media_MediaPlayer_OnVideoSizeChangedListener;
 
 class android_view_Surface;
 
-class android_media_MediaPlayer 
+class android_media_MediaPlayer : public AndroidCXX::java_lang_Object
 {
 public:
 

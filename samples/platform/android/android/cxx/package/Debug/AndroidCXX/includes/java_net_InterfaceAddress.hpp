@@ -58,13 +58,12 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
 class java_net_InetAddress;
 
 class java_lang_String;
 
-class java_net_InterfaceAddress 
+class java_net_InterfaceAddress : public AndroidCXX::java_lang_Object
 {
 public:
 

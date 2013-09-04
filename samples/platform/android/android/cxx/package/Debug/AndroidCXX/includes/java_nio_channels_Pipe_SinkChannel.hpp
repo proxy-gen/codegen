@@ -27,6 +27,8 @@
 
 
 
+#include <java_nio_channels_spi_AbstractSelectableChannel.hpp>
+
 #include <java_nio_channels_GatheringByteChannel.hpp>
 
 #include <vector>
@@ -45,7 +47,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_nio_channels_Pipe_SinkChannel : public AndroidCXX::java_nio_channels_GatheringByteChannel
+class java_nio_channels_Pipe_SinkChannel : public AndroidCXX::java_nio_channels_spi_AbstractSelectableChannel,public AndroidCXX::java_nio_channels_GatheringByteChannel
 {
 public:
 

@@ -49,8 +49,6 @@
 #include <android_view_ViewGroup_LayoutParams.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -74,7 +72,7 @@ class android_util_AttributeSet;
 class android_view_ViewGroup_LayoutParams;
 
 
-class android_view_ViewGroup_MarginLayoutParams : public AndroidCXX::java_lang_Object
+class android_view_ViewGroup_MarginLayoutParams 
 {
 public:
 

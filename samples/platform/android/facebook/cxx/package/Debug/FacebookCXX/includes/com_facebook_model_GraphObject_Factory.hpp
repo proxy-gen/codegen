@@ -96,7 +96,7 @@ class com_facebook_model_GraphObjectList;
 class com_facebook_model_GraphObject;
 
 
-class com_facebook_model_GraphObject_Factory 
+class com_facebook_model_GraphObject_Factory : public AndroidCXX::java_lang_Object
 {
 public:
 

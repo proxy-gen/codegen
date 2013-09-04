@@ -129,7 +129,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
 
 class android_graphics_RectF;
@@ -137,7 +136,7 @@ class android_graphics_RectF;
 
 class java_lang_String;
 
-class android_graphics_Matrix 
+class android_graphics_Matrix : public AndroidCXX::java_lang_Object
 {
 public:
 

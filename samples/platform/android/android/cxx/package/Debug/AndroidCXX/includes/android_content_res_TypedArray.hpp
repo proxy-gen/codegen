@@ -79,6 +79,8 @@
 #include <android_util_TypedValue.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -107,7 +109,7 @@ class java_lang_CharSequence;
 
 class android_util_TypedValue;
 
-class android_content_res_TypedArray 
+class android_content_res_TypedArray : public AndroidCXX::java_lang_Object
 {
 public:
 

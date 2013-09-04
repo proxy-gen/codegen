@@ -195,6 +195,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -223,7 +225,6 @@ class android_os_Bundle;
 
 class android_content_SyncStatusObserver;
 
-class java_lang_Object;
 
 class java_util_ArrayList;
 
@@ -257,7 +258,7 @@ class android_database_Cursor;
 
 class android_content_Context;
 
-class android_content_ContentResolver 
+class android_content_ContentResolver : public AndroidCXX::java_lang_Object
 {
 public:
 

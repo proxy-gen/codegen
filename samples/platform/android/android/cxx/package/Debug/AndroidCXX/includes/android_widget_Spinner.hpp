@@ -94,6 +94,8 @@
 #include <android_util_AttributeSet.hpp>
 
 
+#include <android_widget_AbsSpinner.hpp>
+
 #include <android_content_DialogInterface_OnClickListener.hpp>
 
 #include <vector>
@@ -132,7 +134,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_Spinner : public AndroidCXX::android_content_DialogInterface_OnClickListener
+class android_widget_Spinner : public AndroidCXX::android_widget_AbsSpinner,public AndroidCXX::android_content_DialogInterface_OnClickListener
 {
 public:
 

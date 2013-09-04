@@ -35,6 +35,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -51,13 +53,12 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
 
 class java_lang_CharSequence;
 
 class android_widget_Filter_FilterListener;
 
-class android_widget_Filter 
+class android_widget_Filter : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -48,7 +48,7 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_widget_ImageDownloader_RequestKey 
+class com_facebook_widget_ImageDownloader_RequestKey : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -34,7 +34,7 @@
 #include <android_os_Parcelable.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <android_view_AbsSavedState.hpp>
 
 #include <vector>
 #include <map>
@@ -56,7 +56,7 @@ class android_os_Parcel;
 
 class android_os_Parcelable;
 
-class android_view_View_BaseSavedState : public AndroidCXX::java_lang_Object
+class android_view_View_BaseSavedState : public AndroidCXX::android_view_AbsSavedState
 {
 public:
 

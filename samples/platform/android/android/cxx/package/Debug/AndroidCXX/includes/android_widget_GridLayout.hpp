@@ -10,8 +10,6 @@
 
 
  		 
-	
- 		 
  		 
  		 
 	
@@ -26,7 +24,6 @@
  		 
  		 
  		 
-
 
 
 
@@ -65,10 +62,6 @@
 //
 
 
-#include <android_util_AttributeSet.hpp>
-
-#include <android_widget_GridLayout_LayoutParams.hpp>
-
 #include <android_view_accessibility_AccessibilityEvent.hpp>
 
 #include <android_view_accessibility_AccessibilityNodeInfo.hpp>
@@ -79,8 +72,10 @@
 
 #include <android_content_Context.hpp>
 
+#include <android_util_AttributeSet.hpp>
 
-#include <java_lang_Object.hpp>
+
+#include <android_view_ViewGroup.hpp>
 
 #include <vector>
 #include <map>
@@ -98,10 +93,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_util_AttributeSet;
-
-class android_widget_GridLayout_LayoutParams;
-
 class android_view_accessibility_AccessibilityEvent;
 
 class android_view_accessibility_AccessibilityNodeInfo;
@@ -112,7 +103,9 @@ class android_widget_GridLayout_Spec;
 
 class android_content_Context;
 
-class android_widget_GridLayout : public AndroidCXX::java_lang_Object
+class android_util_AttributeSet;
+
+class android_widget_GridLayout : public AndroidCXX::android_view_ViewGroup
 {
 public:
 
@@ -126,7 +119,6 @@ public:
 	// Default Destructor
 	virtual ~android_widget_GridLayout();
 	// Functions
-	virtual AndroidCXX::android_widget_GridLayout_LayoutParams * generateLayoutParams(AndroidCXX::android_util_AttributeSet const& arg0) ;
 	virtual int  getAlignmentMode() ;
 	virtual int  getColumnCount() ;
 	virtual int  getOrientation() ;

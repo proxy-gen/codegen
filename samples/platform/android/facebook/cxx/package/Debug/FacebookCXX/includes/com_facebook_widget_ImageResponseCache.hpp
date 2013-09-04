@@ -26,6 +26,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -42,7 +44,7 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-class com_facebook_widget_ImageResponseCache 
+class com_facebook_widget_ImageResponseCache : public AndroidCXX::java_lang_Object
 {
 public:
 

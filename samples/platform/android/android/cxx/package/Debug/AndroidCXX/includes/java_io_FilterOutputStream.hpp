@@ -37,8 +37,6 @@
 #include <java_io_OutputStream.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -55,9 +53,8 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_io_OutputStream;
 
-class java_io_FilterOutputStream : public AndroidCXX::java_lang_Object
+class java_io_FilterOutputStream : public AndroidCXX::java_io_OutputStream
 {
 public:
 

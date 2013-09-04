@@ -35,6 +35,8 @@
 
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -51,7 +53,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_InputDevice_MotionRange 
+class android_view_InputDevice_MotionRange : public AndroidCXX::java_lang_Object
 {
 public:
 

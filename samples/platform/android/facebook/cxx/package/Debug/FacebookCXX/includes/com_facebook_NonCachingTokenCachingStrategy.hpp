@@ -34,7 +34,7 @@
 #include <android_os_Bundle.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <com_facebook_TokenCachingStrategy.hpp>
 
 #include <vector>
 #include <map>
@@ -53,7 +53,7 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-class com_facebook_NonCachingTokenCachingStrategy : public AndroidCXX::java_lang_Object
+class com_facebook_NonCachingTokenCachingStrategy : public FacebookCXX::com_facebook_TokenCachingStrategy
 {
 public:
 

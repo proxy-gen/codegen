@@ -142,7 +142,6 @@ class android_graphics_drawable_Drawable;
 
 class android_widget_ListView;
 
-class java_lang_Object;
 
 class android_view_KeyEvent;
 
@@ -158,7 +157,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_ListPopupWindow 
+class android_widget_ListPopupWindow : public AndroidCXX::java_lang_Object
 {
 public:
 

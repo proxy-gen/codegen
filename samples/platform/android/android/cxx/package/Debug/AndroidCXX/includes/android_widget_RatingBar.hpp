@@ -61,7 +61,7 @@
 #include <android_util_AttributeSet.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <android_widget_AbsSeekBar.hpp>
 
 #include <vector>
 #include <map>
@@ -89,7 +89,7 @@ class android_content_Context;
 
 class android_util_AttributeSet;
 
-class android_widget_RatingBar : public AndroidCXX::java_lang_Object
+class android_widget_RatingBar : public AndroidCXX::android_widget_AbsSeekBar
 {
 public:
 

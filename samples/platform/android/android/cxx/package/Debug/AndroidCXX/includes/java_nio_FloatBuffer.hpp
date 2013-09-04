@@ -10,7 +10,6 @@
 
 
 	
- 	
 	
 	
  		 
@@ -35,7 +34,6 @@
 	
  	
 	
-
 
 
 
@@ -77,6 +75,8 @@
 
 
 
+#include <java_nio_Buffer.hpp>
+
 #include <java_lang_Comparable.hpp>
 
 #include <vector>
@@ -102,7 +102,7 @@ class java_nio_ByteOrder;
 
 class java_lang_String;
 
-class java_nio_FloatBuffer : public AndroidCXX::java_lang_Comparable
+class java_nio_FloatBuffer : public AndroidCXX::java_nio_Buffer,public AndroidCXX::java_lang_Comparable
 {
 public:
 
@@ -114,7 +114,6 @@ public:
 	// Functions
 	static AndroidCXX::java_nio_FloatBuffer * allocate(int const& arg0) ;
 	virtual int  arrayOffset() ;
-	virtual std::vector<float>  array() ;
 	virtual AndroidCXX::java_nio_FloatBuffer * asReadOnlyBuffer() ;
 	virtual AndroidCXX::java_nio_FloatBuffer * compact() ;
 	virtual int  compareTo(AndroidCXX::java_nio_FloatBuffer const& arg0) ;

@@ -252,6 +252,8 @@
 #include <android_graphics_Canvas_EdgeType.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -294,7 +296,7 @@ class java_lang_CharSequence;
 class android_graphics_DrawFilter;
 
 
-class android_graphics_Canvas 
+class android_graphics_Canvas : public AndroidCXX::java_lang_Object
 {
 public:
 

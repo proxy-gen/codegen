@@ -62,6 +62,8 @@
 #include <com_facebook_Session.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -86,7 +88,7 @@ namespace FacebookCXX {
 class com_facebook_Session;
 
 
-class com_facebook_InsightsLogger 
+class com_facebook_InsightsLogger : public AndroidCXX::java_lang_Object
 {
 public:
 

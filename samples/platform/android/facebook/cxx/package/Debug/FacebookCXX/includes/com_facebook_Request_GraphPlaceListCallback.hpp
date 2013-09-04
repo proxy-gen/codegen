@@ -60,6 +60,7 @@ class com_facebook_Request_GraphPlaceListCallback : public AndroidCXX::java_lang
 {
 public:
 
+	// Public Constructor
 	com_facebook_Request_GraphPlaceListCallback(const com_facebook_Request_GraphPlaceListCallback& cc);
 	com_facebook_Request_GraphPlaceListCallback(Proxy * aProxy);
 	Proxy * proxy() const;	
@@ -69,8 +70,8 @@ public:
 	virtual void  onCompleted(AndroidCXX::java_util_List const& arg0,FacebookCXX::com_facebook_Response const& arg1) ;
 
 protected:
-	com_facebook_Request_GraphPlaceListCallback();
 	void setCXXCallbackPtr(void * callbackPtr);
+	com_facebook_Request_GraphPlaceListCallback();
 
 private:
 	Proxy * _proxy;

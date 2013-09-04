@@ -83,9 +83,8 @@ class java_lang_String;
 
 class android_content_ContentValues;
 
-class java_lang_Object;
 
-class android_content_ContentProviderOperation_Builder 
+class android_content_ContentProviderOperation_Builder : public AndroidCXX::java_lang_Object
 {
 public:
 

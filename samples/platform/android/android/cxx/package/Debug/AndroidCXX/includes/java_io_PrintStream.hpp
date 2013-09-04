@@ -116,8 +116,6 @@
 #include <java_io_OutputStream.hpp>
 
 
-#include <java_io_Closeable.hpp>
-
 #include <java_lang_Appendable.hpp>
 
 #include <vector>
@@ -149,7 +147,7 @@ class java_io_File;
 
 class java_io_OutputStream;
 
-class java_io_PrintStream : public AndroidCXX::java_io_Closeable,public AndroidCXX::java_lang_Appendable
+class java_io_PrintStream : public AndroidCXX::java_lang_Appendable
 {
 public:
 

@@ -157,6 +157,8 @@
 #include <android_webkit_WebSettings_RenderPriority.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -182,7 +184,7 @@ class android_content_Context;
 
 
 
-class android_webkit_WebSettings 
+class android_webkit_WebSettings : public AndroidCXX::java_lang_Object
 {
 public:
 

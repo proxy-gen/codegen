@@ -44,6 +44,8 @@
 #include <android_content_Context.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -67,7 +69,7 @@ class com_facebook_Session;
 class com_facebook_TokenCachingStrategy;
 
 
-class com_facebook_Session_Builder 
+class com_facebook_Session_Builder : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -32,6 +32,8 @@
 #include <android_os_MessageQueue_IdleHandler.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -50,7 +52,7 @@ namespace AndroidCXX {
 
 class android_os_MessageQueue_IdleHandler;
 
-class android_os_MessageQueue 
+class android_os_MessageQueue : public AndroidCXX::java_lang_Object
 {
 public:
 

@@ -113,8 +113,6 @@
 #include <java_util_Collection.hpp>
 
 
-#include <java_lang_Object.hpp>
-
 #include <vector>
 #include <map>
 #include <string>
@@ -154,7 +152,7 @@ class com_facebook_Session;
 
 
 
-class com_facebook_widget_PickerFragment : public AndroidCXX::java_lang_Object
+class com_facebook_widget_PickerFragment 
 {
 public:
 

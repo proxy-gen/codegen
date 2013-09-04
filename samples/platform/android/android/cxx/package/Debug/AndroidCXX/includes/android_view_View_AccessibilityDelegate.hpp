@@ -66,6 +66,8 @@
 #include <android_os_Bundle.hpp>
 
 
+#include <java_lang_Object.hpp>
+
 #include <vector>
 #include <map>
 #include <string>
@@ -94,7 +96,7 @@ class android_view_ViewGroup;
 
 class android_os_Bundle;
 
-class android_view_View_AccessibilityDelegate 
+class android_view_View_AccessibilityDelegate : public AndroidCXX::java_lang_Object
 {
 public:
 
