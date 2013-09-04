@@ -32,7 +32,6 @@ android_generator_dir=$android_dir/generator
 android_generator_runtime_dir=$android_generator_dir/runtime
 android_indexer=$android_generator_dir/indexer
 android_indexer_cxx=$android_indexer/cxx
-codegen_base_config_file=./config.py
 codegen_config_file=./config.py
 
 
@@ -42,7 +41,7 @@ package_flag=0
 
 function usage
 {
-	echo "Usage: $0 [--configure [--base-config-file <base-config-file>]] | [--generate  [--config-file <config-file>]] | [--package [--config-file <config-file>]]"
+	echo "Usage: $0 [--configure [--config-file <base-config-file>]] | [--generate  [--config-file <config-file>]] | [--package [--config-file <config-file>]]"
     echo "--help: Usage"
     echo "--configure: Generate config file (using a base config file)"
     echo "--generate: Generate code (using a config file)"
@@ -66,7 +65,7 @@ function setup
 function configure
 {
 	# Generate Config
-	LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $codegen_base_config_file --platform android --generate-config --namespace $CODEGEN_TARGET --output-dir $my_dir/generated --package $CODEGEN_TARGET --include-codegen-package $CODEGEN_INCLUDE_CODEGEN_PACKAGE --log info
+	LD_LIBRARY_PATH=${android_indexer_cxx} python ${generator_dir}/generator.py --config $codegen_config_file --platform android --generate-config --namespace $CODEGEN_TARGET --output-dir $my_dir/generated --package $CODEGEN_TARGET --include-codegen-package $CODEGEN_INCLUDE_CODEGEN_PACKAGE --log info
 }
 
 function generate
@@ -118,9 +117,6 @@ do
 	--config-file) shift
 			codegen_config_file=$1
 			;;
-	--base-config-file) shift
-			codegen_base_config_file=$1
-			;;
 	--help) usage
         exit;;
 	*)  
@@ -138,7 +134,7 @@ export CXX_JVM_CLASSPATH=$android_generator_runtime_dir/bin:$sdk_dir/platforms/a
 if [ $configure_flag -ne 0 ]
 then
 	setup
-	echo "using base config file " $codegen_base_config_file
+	echo "using config file " $codegen_config_file
 	configure
 	echo "generated config file " $codegen_config_file
 	echo "configure complete"

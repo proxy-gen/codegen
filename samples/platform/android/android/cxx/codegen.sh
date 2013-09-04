@@ -42,15 +42,12 @@ update_tag=_proxy
 
 function usage
 {
-	#echo "Usage: $0 [--configure [--config-file <config-file>]] | [--generate  [--config-file <config-file>]] | [--package [--config-file <config-file>]] | [--Xupdate-tags [[_proxy | _no_proxy | _callback | _no_callback] [--classes <classes-jni-sig-regexp> | --functions <functions-jni-sig-regexp> | --constructors <constructors-jni-regexp> ]] ]"
 	echo "Usage: $0 [--configure [--config-file <config-file>]] | [--generate  [--config-file <config-file>]] | [--package [--config-file <config-file>]] ]"
     echo "--help: Usage"
     echo "--configure: Generate config file (using a config file)"
     echo "--generate: Generate code (using a config file)"
     echo "--package: Package generated code"
     echo "--config-file: Config file used to generate code"
-    #echo "--Xupdate-tags: Update the tags for classes, functions or constructors in config file using Python regexp for their JNI signature"
-    #echo "			(JNI signatures defined in http://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/types.html)"
 }
 
 function setup
@@ -119,9 +116,6 @@ do
 			;;
 	--config-file) shift
 			codegen_config_file=$1
-			;;
-	--Xupdate-tags) shift
-			update_tag=$1
 			;;
 	--help) usage
         exit;;
