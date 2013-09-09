@@ -51,7 +51,7 @@ For example, the `com.facebook.Session#open` function accepts an implementation 
 
 By tagging the `com.facebook.Session#open` as a callback, we make sure that the code generator will propagate the callback invocation all the way into the C++ layer.
 
-Before getting started, navigate to `java\facebook-android-sdk-3.0.5\facebook` and then run `ant debug` to build the facebook sdk
+Before getting started, navigate to `java\facebook-android-sdk-3.5\facebook` and then run `ant debug` to build the facebook sdk
 
 Then, as usual,
 
