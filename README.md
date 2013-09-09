@@ -51,7 +51,7 @@ For example, the `com.facebook.Session#open` function accepts an implementation 
 
 By tagging the `com.facebook.Session#open` as a callback, we make sure that the code generator will propagate the callback invocation all the way into the C++ layer.
 
-Before getting started, navigate to `java\facebook-android-sdk-3.0.1\facebook` and then run `ant debug` to build the facebook sdk
+Before getting started, navigate to `java\facebook-android-sdk-3.0.5\facebook` and then run `ant debug` to build the facebook sdk
 
 Then, as usual,
 
@@ -133,4 +133,4 @@ To build a static library for the `armv7` and `i386` architectures, change to th
 Open the `TestFacebookCXX` Xcode project and notice that the target's `Header Search Path` settings contain the generated includes directory. Also notice that the project links with the fat library that we created with `make`. This project uses Objective-C for the UI, but all button callbacks are written in C++. You can build an run this project on the iOS Simulator.
 
 ### Authors and Contributors
-This project is open sourced as part of the work the Mobile ZDK team did for Zynga. Android work was lead by Ron Vergis (@rvergis), iOS work was lead by Wesley Souza (@wesjarrettsouza) and an iOS prototype was lead by Andrew Ushnakov. The project and team was managed by Shiva Bhattacharjee (@bhattas)
+This project is open sourced as part of the work the Mobile ZDK team did for Zynga. Android work is lead by Ron Vergis (@rvergis), iOS work is lead by Wesley Souza (@wesjarrettsouza) and an iOS prototype was lead by Andrew Ushnakov. The project and team was managed by Shiva Bhattacharjee (@bhattas)
