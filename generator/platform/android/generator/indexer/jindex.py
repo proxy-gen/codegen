@@ -729,6 +729,7 @@ class TranslationUnit(JavaObject):
 		TranslationUnit_classes_visit(c_types_packages, c_types_packages_count, c_types_classes, c_types_classes_count, TranslationUnit_classes_visit_callback(visitor), config_data_stack)
 		#migrate tags from old config to new config
 		TranslationUnit._migrate_tags_in_class_hierarchy(config_data["classes"],classes_config)
+		TranslationUnit._filter_class_hierarchy(config_data["classes"], classes_config)
 		#sort config
 		config_data["classes"] = sorted(config_data["classes"],key=lambda clazz: TranslationUnit._build_class_signature(clazz))
 		for class_config_data in config_data["classes"]:
@@ -915,6 +916,7 @@ class TranslationUnit(JavaObject):
 			pass
 
 		tags.append("_proxy")
+		tags.append("_no_deep")
 
 		tags = sorted(list(set(tags)))
 
@@ -1107,9 +1109,31 @@ class TranslationUnit(JavaObject):
 		for new_signature_key in new_signatures:
 			if new_signature_key in old_signatures:
 				TranslationUnit._migrate_tag(new_signatures[new_signature_key], old_signatures[new_signature_key])
+		for new_clazz in new_class_hierarchy:
+			if '_no_deep' in new_clazz['tags']:
+				for function in new_clazz['functions']:
+					function_tags = function['tags']
+					if '_proxy' in function_tags:
+						function_tags.remove('_proxy')
+					if '_no_proxy' not in function_tags:
+						function_tags.append('_no_proxy')
+				for field in new_clazz['fields']:
+					field_tags = field['tags']
+					if '_proxy' in field_tags:
+						field_tags.remove('_proxy')
+					if '_no_proxy' not in field_tags:
+						field_tags.append('_no_proxy')
 
 	@classmethod
 	def _migrate_tag(cls, new_tags, old_tags):
+		if '_deep' in old_tags and '_deep' not in new_tags:
+			if '_no_deep' in new_tags:
+				new_tags.remove('_no_deep')
+			new_tags.append('_deep')
+		if '_no_deep' in old_tags and '_no_deep' not in new_tags:
+			if '_deep' in new_tags:
+				new_tags.remove('_deep')
+			new_tags.append('_no_deep')		
 		if '_proxy' in old_tags and '_proxy' not in new_tags:
 			if '_no_proxy' in new_tags:
 				new_tags.remove('_no_proxy')
@@ -1182,6 +1206,91 @@ class TranslationUnit(JavaObject):
 			for child_type in type_['children']:
 				signature += TranslationUnit._build_type_signature(child_type)
 		return signature
+
+	@classmethod
+	def _filter_class_hierarchy(cls, new_class_hierarchy, old_class_hierarchy):
+		class_dict=dict()
+		class_lookup=dict()
+		for clazz in new_class_hierarchy:
+			clazz_name = clazz['name']
+			class_lookup[clazz_name] = clazz
+		for clazz in old_class_hierarchy:
+			clazz_name = clazz['name']
+			class_dict[clazz_name] = 0 if '_no_proxy' in clazz['tags'] else 1
+		for clazz in new_class_hierarchy:
+			clazz_name = clazz['name']
+			class_dict[clazz_name] = 0 if '_no_proxy' in clazz['tags'] else \
+												(class_dict[clazz_name] if clazz_name in class_dict else \
+												-1)
+		for clazz in new_class_hierarchy:
+			TranslationUnit._filter_clazz(clazz, class_dict, class_lookup)
+		for clazz in new_class_hierarchy:
+			clazz_name = clazz['name']
+			clazz_tags = clazz['tags']
+			assert clazz_name in class_dict
+			if class_dict[clazz_name] != 1:
+				if '_proxy' in clazz_tags:
+					clazz_tags.remove('_proxy')
+				if '_no_proxy' not in clazz_tags:
+					clazz_tags.append('_no_proxy')
+
+	@classmethod 
+	def _filter_clazz(cls, clazz, class_dict, class_lookup):
+		clazz_name = clazz['name']
+		if class_dict[clazz_name] == 1:
+			if 'extends' in clazz:
+				extends = clazz['extends']
+				for extends_clazz in extends:
+					extends_clazz_name = extends_clazz['name']
+					if extends_clazz_name in class_dict:
+						if extends_clazz_name != clazz_name:
+							if class_dict[extends_clazz_name] == -1:
+								class_dict[extends_clazz_name] = 1
+								TranslationUnit._filter_clazz(class_lookup[extends_clazz_name], class_dict, class_lookup)
+			if 'implements' in clazz:
+				implements = clazz['implements']
+				for implements_clazz in implements:
+					implements_clazz_name = implements_clazz['name']
+					if implements_clazz_name in class_dict:
+						if implements_clazz_name != clazz_name:
+							if class_dict[implements_clazz_name] == -1:
+								class_dict[implements_clazz_name] = 1
+								TranslationUnit._filter_clazz(class_lookup[implements_clazz_name], class_dict, class_lookup)
+			fields = clazz['fields']
+			for field in fields:
+				if '_no_proxy' not in field['tags']:
+					_field_type = field['type']
+					TranslationUnit._filter_param(clazz, _field_type, class_dict, class_lookup)
+			constructors = clazz['constructors']
+			for constructor in constructors:
+				if '_no_proxy' not in constructor['tags']:
+					params = constructor['params']
+					for param in params:
+						TranslationUnit._filter_param(clazz, param, class_dict, class_lookup)
+			functions = clazz['functions']
+			for function in functions:
+				if '_no_proxy' not in function['tags']:
+					params = function['params']
+					for param in params:
+						TranslationUnit._filter_param(clazz, param, class_dict, class_lookup)
+					retrns = function['returns']
+					for retrn in retrns:
+						TranslationUnit._filter_param(clazz, retrn, class_dict, class_lookup)
+
+	@classmethod
+	def _filter_param(cls, clazz, param, class_dict, class_lookup):
+		clazz_name = clazz['name']		
+		if 'type' in param:
+			_type = param['type']
+			if _type in class_dict:
+				if _type != clazz_name:
+					if class_dict[_type] == -1:
+						class_dict[_type] = 1
+						TranslationUnit._filter_clazz(class_lookup[_type], class_dict, class_lookup)
+		if 'children' in param:
+			child_params = param['children']
+			for child_param in child_params:
+				TranslationUnit._filter_param(clazz, child_param, class_dict, class_lookup)
 
 class DummyType(Type):
 

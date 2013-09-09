@@ -8,175 +8,243 @@
 //
 
 
+ 		 
+	
+	
+	
+ 	
+	
+ 	
+ 		 
+ 		 
+ 		 
+	
+ 	
+ 		 
+ 		 
+ 	
+	
+ 	
+ 		 
+ 		 
+ 	
+	
+ 		 
+ 		 
+	
+ 		 
+ 	
+	
+ 		 
+ 		 
+ 		 
+	
+ 	
+ 		 
+ 		 
+ 		 
+ 	
+	
+ 	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+	
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 
+ 	
+	
+ 		 
+ 		 
+	
+ 		 
+ 	
+	
+ 		 
+	
+
 
  		 
-	
-	
-	
- 	
-	
- 	
  		 
  		 
  		 
-	
- 	
  		 
  		 
- 	
-	
- 	
  		 
  		 
- 	
-	
  		 
  		 
-	
  		 
- 	
-	
- 		 
- 		 
- 		 
-	
- 	
- 		 
- 		 
- 		 
- 	
-	
- 	
- 		 
- 		 
- 		 
- 		 
- 		 
-	
- 		 
- 		 
-	
- 		 
- 		 
- 		 
-	
- 		 
- 		 
-	
- 		 
- 		 
-	
- 		 
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
- 		 
- 		 
- 		 
-	
- 		 
- 		 
-	
- 		 
- 		 
-	
- 		 
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
-	
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 	
-	
- 		 
- 		 
-	
- 		 
- 	
-	
- 		 
-	
 
 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
- 		 
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -291,8 +359,16 @@
 
 #include <java_io_File.hpp>
 
-
 #include <java_lang_Object.hpp>
+
+#include <android_content_Context.hpp>
+
+#include <com_facebook_model_OpenGraphObject.hpp>
+
+#include <com_facebook_model_GraphPlace.hpp>
+
+#include <com_facebook_model_GraphUser.hpp>
+
 
 #include <vector>
 #include <map>
@@ -339,6 +415,14 @@ class com_facebook_model_GraphObject;
 
 
 
+
+
+class com_facebook_model_OpenGraphObject;
+
+class com_facebook_model_GraphPlace;
+
+class com_facebook_model_GraphUser;
+
 class com_facebook_Request : public AndroidCXX::java_lang_Object
 {
 public:
@@ -356,10 +440,10 @@ public:
 	static FacebookCXX::com_facebook_Response * executeAndWait(FacebookCXX::com_facebook_Request const& arg0) ;
 	virtual FacebookCXX::com_facebook_Response * executeAndWait() ;
 	virtual FacebookCXX::com_facebook_RequestAsyncTask * executeAsync() ;
-	static AndroidCXX::java_util_List * executeBatchAndWait(std::vector<FacebookCXX::com_facebook_Request> const& arg0) ;
+	static AndroidCXX::java_util_List * executeBatchAndWait(std::vector<FacebookCXX::com_facebook_Request*> const& arg0) ;
 	static AndroidCXX::java_util_List * executeBatchAndWait(FacebookCXX::com_facebook_RequestBatch const& arg0) ;
 	static AndroidCXX::java_util_List * executeBatchAndWait(AndroidCXX::java_util_Collection const& arg0) ;
-	static FacebookCXX::com_facebook_RequestAsyncTask * executeBatchAsync(std::vector<FacebookCXX::com_facebook_Request> const& arg0) ;
+	static FacebookCXX::com_facebook_RequestAsyncTask * executeBatchAsync(std::vector<FacebookCXX::com_facebook_Request*> const& arg0) ;
 	static FacebookCXX::com_facebook_RequestAsyncTask * executeBatchAsync(FacebookCXX::com_facebook_RequestBatch const& arg0) ;
 	static FacebookCXX::com_facebook_RequestAsyncTask * executeBatchAsync(AndroidCXX::java_util_Collection const& arg0) ;
 	static AndroidCXX::java_util_List * executeConnectionAndWait(AndroidCXX::java_net_HttpURLConnection const& arg0,FacebookCXX::com_facebook_RequestBatch const& arg1) ;
@@ -386,15 +470,26 @@ public:
 	virtual AndroidCXX::android_os_Bundle * getParameters() ;
 	virtual AndroidCXX::java_lang_String * getRestMethod() ;
 	virtual FacebookCXX::com_facebook_Session * getSession() ;
+	virtual AndroidCXX::java_lang_Object * getTag() ;
+	static FacebookCXX::com_facebook_Request * newCustomAudienceThirdPartyIdRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_content_Context const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) ;
+	static FacebookCXX::com_facebook_Request * newCustomAudienceThirdPartyIdRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_content_Context const& arg1,AndroidCXX::java_lang_String const& arg2,FacebookCXX::com_facebook_Request_Callback const& arg3) ;
+	static FacebookCXX::com_facebook_Request * newDeleteObjectRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) ;
 	static FacebookCXX::com_facebook_Request * newGraphPathRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) ;
 	static FacebookCXX::com_facebook_Request * newMeRequest(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserCallback const& arg1) ;
 	static FacebookCXX::com_facebook_Request * newMyFriendsRequest(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_Request_GraphUserListCallback const& arg1) ;
 	static FacebookCXX::com_facebook_Request * newPlacesSearchRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_location_Location const& arg1,int const& arg2,int const& arg3,AndroidCXX::java_lang_String const& arg4,FacebookCXX::com_facebook_Request_GraphPlaceListCallback const& arg5) ;
+	static FacebookCXX::com_facebook_Request * newPostOpenGraphObjectRequest(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_model_OpenGraphObject const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) ;
+	static FacebookCXX::com_facebook_Request * newPostOpenGraphObjectRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::java_lang_String const& arg4,AndroidCXX::java_lang_String const& arg5,FacebookCXX::com_facebook_model_GraphObject const& arg6,FacebookCXX::com_facebook_Request_Callback const& arg7) ;
 	static FacebookCXX::com_facebook_Request * newPostRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_model_GraphObject const& arg2,FacebookCXX::com_facebook_Request_Callback const& arg3) ;
 	static FacebookCXX::com_facebook_Request * newRestRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_os_Bundle const& arg2,com_facebook_HttpMethod::com_facebook_HttpMethod const& arg3) ;
 	static FacebookCXX::com_facebook_Request * newStatusUpdateRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) ;
+	static FacebookCXX::com_facebook_Request * newStatusUpdateRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,FacebookCXX::com_facebook_model_GraphPlace const& arg2,AndroidCXX::java_util_List const& arg3,FacebookCXX::com_facebook_Request_Callback const& arg4) ;
+	static FacebookCXX::com_facebook_Request * newUpdateOpenGraphObjectRequest(FacebookCXX::com_facebook_Session const& arg0,FacebookCXX::com_facebook_model_OpenGraphObject const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) ;
+	static FacebookCXX::com_facebook_Request * newUpdateOpenGraphObjectRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::java_lang_String const& arg2,AndroidCXX::java_lang_String const& arg3,AndroidCXX::java_lang_String const& arg4,AndroidCXX::java_lang_String const& arg5,FacebookCXX::com_facebook_model_GraphObject const& arg6,FacebookCXX::com_facebook_Request_Callback const& arg7) ;
 	static FacebookCXX::com_facebook_Request * newUploadPhotoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) ;
 	static FacebookCXX::com_facebook_Request * newUploadPhotoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) ;
+	static FacebookCXX::com_facebook_Request * newUploadStagingResourceWithImageRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::android_graphics_Bitmap const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) ;
+	static FacebookCXX::com_facebook_Request * newUploadStagingResourceWithImageRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) ;
 	static FacebookCXX::com_facebook_Request * newUploadVideoRequest(FacebookCXX::com_facebook_Session const& arg0,AndroidCXX::java_io_File const& arg1,FacebookCXX::com_facebook_Request_Callback const& arg2) ;
 	virtual void  setBatchEntryDependsOn(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setBatchEntryName(AndroidCXX::java_lang_String const& arg0) ;
@@ -407,7 +502,8 @@ public:
 	virtual void  setParameters(AndroidCXX::android_os_Bundle const& arg0) ;
 	virtual void  setRestMethod(AndroidCXX::java_lang_String const& arg0) ;
 	virtual void  setSession(FacebookCXX::com_facebook_Session const& arg0) ;
-	static AndroidCXX::java_net_HttpURLConnection * toHttpConnection(std::vector<FacebookCXX::com_facebook_Request> const& arg0) ;
+	virtual void  setTag(AndroidCXX::java_lang_Object const& arg0) ;
+	static AndroidCXX::java_net_HttpURLConnection * toHttpConnection(std::vector<FacebookCXX::com_facebook_Request*> const& arg0) ;
 	static AndroidCXX::java_net_HttpURLConnection * toHttpConnection(FacebookCXX::com_facebook_RequestBatch const& arg0) ;
 	static AndroidCXX::java_net_HttpURLConnection * toHttpConnection(AndroidCXX::java_util_Collection const& arg0) ;
 	virtual AndroidCXX::java_lang_String * toString() ;

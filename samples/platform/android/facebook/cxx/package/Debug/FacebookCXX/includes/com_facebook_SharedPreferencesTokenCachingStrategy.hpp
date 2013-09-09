@@ -9,16 +9,10 @@
 
 
 
-	
- 		 
-
 
  		 
  		 
  		 
-
-
-
 
 
 
@@ -34,8 +28,6 @@
 // Scroll Down 
 //
 
-
-#include <android_os_Bundle.hpp>
 
 #include <android_content_Context.hpp>
 
@@ -62,7 +54,6 @@ namespace FacebookCXX {
 
 
 
-
 class com_facebook_SharedPreferencesTokenCachingStrategy : public FacebookCXX::com_facebook_TokenCachingStrategy
 {
 public:
@@ -76,9 +67,6 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_SharedPreferencesTokenCachingStrategy();
 	// Functions
-	virtual void  clear() ;
-	virtual AndroidCXX::android_os_Bundle * load() ;
-	virtual void  save(AndroidCXX::android_os_Bundle const& arg0) ;
 
 protected:
 

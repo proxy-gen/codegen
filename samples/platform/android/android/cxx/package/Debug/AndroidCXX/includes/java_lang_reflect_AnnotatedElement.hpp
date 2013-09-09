@@ -9,22 +9,6 @@
 
 
 
- 		 
- 	
-	
- 		 
- 	
- 		 
- 	
- 		 
- 		 
- 	
- 		 
-
-
-
-
-
 
 
 
@@ -59,10 +43,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Class;
-
-class java_lang_annotation_Annotation;
-
 class java_lang_reflect_AnnotatedElement : public AndroidCXX::java_lang_Object
 {
 public:
@@ -73,10 +53,6 @@ public:
 	// Default Destructor
 	virtual ~java_lang_reflect_AnnotatedElement();
 	// Functions
-	virtual AndroidCXX::java_lang_annotation_Annotation * getAnnotation(AndroidCXX::java_lang_Class const& arg0) ;
-	virtual std::vector<AndroidCXX::java_lang_annotation_Annotation>  getAnnotations() ;
-	virtual std::vector<AndroidCXX::java_lang_annotation_Annotation>  getDeclaredAnnotations() ;
-	virtual bool  isAnnotationPresent(AndroidCXX::java_lang_Class const& arg0) ;
 
 protected:
 	java_lang_reflect_AnnotatedElement();

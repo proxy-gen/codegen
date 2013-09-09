@@ -158,8 +158,9 @@ class Utils(object):
 		type_name = type_config['type']
 		if jindex.ArrayType.is_array_id(type_name):
 			array_type_name = 'java.lang.Object'
-			if type_config['children']:
-				array_type_name = type_config['children'][0]['type']
+			if 'children' in type_config:
+				if type_config['children']:
+					array_type_name = type_config['children'][0]['type']
 			return array_type_name + '[]'
 		return type_name
 

@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_io_Serializable

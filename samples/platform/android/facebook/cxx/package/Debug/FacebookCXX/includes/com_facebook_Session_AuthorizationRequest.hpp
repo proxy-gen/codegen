@@ -15,8 +15,6 @@
 
 
 
-
-
 // Generated Code 
 
 #ifndef _com_facebook_Session_AuthorizationRequest
@@ -56,7 +54,6 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_Session_AuthorizationRequest();
 	// Functions
-	virtual void  setIsLegacy(bool const& arg0) ;
 
 protected:
 

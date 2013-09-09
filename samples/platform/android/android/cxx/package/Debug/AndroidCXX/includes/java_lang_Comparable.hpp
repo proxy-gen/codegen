@@ -9,9 +9,6 @@
 
 
 
- 		 
-
-
 
 
 
@@ -46,7 +43,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-
 class java_lang_Comparable : public AndroidCXX::java_lang_Object
 {
 public:
@@ -57,7 +53,6 @@ public:
 	// Default Destructor
 	virtual ~java_lang_Comparable();
 	// Functions
-	virtual int  compareTo(AndroidCXX::java_lang_Object const& arg0) ;
 
 protected:
 	java_lang_Comparable();

@@ -9,10 +9,6 @@
 
 
 
- 		 
-
-
-
 
 
 
@@ -47,8 +43,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_Parcel;
-
 class android_os_Parcelable : public AndroidCXX::java_lang_Object
 {
 public:
@@ -59,8 +53,6 @@ public:
 	// Default Destructor
 	virtual ~android_os_Parcelable();
 	// Functions
-	virtual int  describeContents() ;
-	virtual void  writeToParcel(AndroidCXX::android_os_Parcel const& arg0,int const& arg1) ;
 
 protected:
 	android_os_Parcelable();

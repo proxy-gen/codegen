@@ -9,20 +9,12 @@
 
 
 
-		
- 			
-		
-	
 
 
 #ifndef _java_math_RoundingMode
 #define _java_math_RoundingMode
 
 
-
-
-
-#include <java_lang_String.hpp>
 #include <vector>
 #include <map>
 #include <string>

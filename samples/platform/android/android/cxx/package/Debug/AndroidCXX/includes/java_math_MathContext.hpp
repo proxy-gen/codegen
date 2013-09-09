@@ -9,18 +9,9 @@
 
 
 
- 		 
-	
-	
-
 
  		 
  		 
-
-
-
-
-
 
 
 
@@ -37,8 +28,6 @@
 // Scroll Down 
 //
 
-
-#include <java_lang_Object.hpp>
 
 #include <java_math_RoundingMode.hpp>
 
@@ -63,8 +52,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
-
 
 class java_lang_String;
 
@@ -82,11 +69,6 @@ public:
 	// Default Destructor
 	virtual ~java_math_MathContext();
 	// Functions
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual int  getPrecision() ;
-	virtual java_math_RoundingMode::java_math_RoundingMode  getRoundingMode() ;
-	virtual int  hashCode() ;
-	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 

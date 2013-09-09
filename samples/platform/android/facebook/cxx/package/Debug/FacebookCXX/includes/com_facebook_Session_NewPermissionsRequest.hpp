@@ -8,7 +8,6 @@
 //
 
 
-
  		 
 	
  		 
@@ -18,6 +17,12 @@
 	
 
 
+ 		 
+ 	
+ 		 
+ 		 
+ 		 
+ 	
  		 
  		 
  	
@@ -26,6 +31,8 @@
  		 
  	
  		 
+
+
 
 
 
@@ -54,9 +61,9 @@
 
 #include <android_app_Activity.hpp>
 
-#include <java_util_List.hpp>
-
 #include <java_lang_String.hpp>
+
+#include <java_util_List.hpp>
 
 #include <android_support_v4_app_Fragment.hpp>
 
@@ -91,7 +98,9 @@ class com_facebook_Session_NewPermissionsRequest
 public:
 
 	// Public Constructor
+	com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity const& arg0,std::vector<AndroidCXX::java_lang_String*> const& arg1,Proxy * aProxy = new Proxy());
 	com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_app_Activity const& arg0,AndroidCXX::java_util_List const& arg1,Proxy * aProxy = new Proxy());
+	com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment const& arg0,std::vector<AndroidCXX::java_lang_String*> const& arg1,Proxy * aProxy = new Proxy());
 	com_facebook_Session_NewPermissionsRequest(AndroidCXX::android_support_v4_app_Fragment const& arg0,AndroidCXX::java_util_List const& arg1,Proxy * aProxy = new Proxy());
 	com_facebook_Session_NewPermissionsRequest(const com_facebook_Session_NewPermissionsRequest& cc);
 	com_facebook_Session_NewPermissionsRequest(Proxy * aProxy);

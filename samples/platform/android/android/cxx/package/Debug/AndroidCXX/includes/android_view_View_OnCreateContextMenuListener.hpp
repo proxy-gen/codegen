@@ -9,11 +9,6 @@
 
 
 
- 		 
- 		 
- 		 
-
-
 
 
 
@@ -48,12 +43,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_ContextMenu;
-
-class android_view_View;
-
-class android_view_ContextMenu_ContextMenuInfo;
-
 class android_view_View_OnCreateContextMenuListener : public AndroidCXX::java_lang_Object
 {
 public:
@@ -64,7 +53,6 @@ public:
 	// Default Destructor
 	virtual ~android_view_View_OnCreateContextMenuListener();
 	// Functions
-	virtual void  onCreateContextMenu(AndroidCXX::android_view_ContextMenu const& arg0,AndroidCXX::android_view_View const& arg1,AndroidCXX::android_view_ContextMenu_ContextMenuInfo const& arg2) ;
 
 protected:
 	android_view_View_OnCreateContextMenuListener();

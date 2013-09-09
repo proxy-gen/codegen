@@ -32,7 +32,10 @@ android_generator_dir=$android_dir/generator
 android_generator_runtime_dir=$android_generator_dir/runtime
 android_indexer=$android_generator_dir/indexer
 android_indexer_cxx=$android_indexer/cxx
-codegen_config_file=./config.py
+default_configure_config_file=./config.py
+default_generate_config_file=./generated/config/$CODEGEN_TARGET/config.py
+default_package_config_file=./generated/config/$CODEGEN_TARGET/config.py
+codegen_config_file=""
 
 configure_flag=0
 generate_flag=0
@@ -134,6 +137,10 @@ export CXX_JVM_CLASSPATH=$android_generator_runtime_dir/bin:$sdk_dir/platforms/a
 if [ $configure_flag -ne 0 ]
 then
 	setup
+	if [ "$codegen_config_file" == "" ]
+	then
+		codegen_config_file=$default_configure_config_file
+	fi
 	echo "using config file " $codegen_config_file
 	configure
 	echo "configure complete"
@@ -142,6 +149,10 @@ fi
 if [ $generate_flag -ne 0 ]
 then
 	setup
+	if [ "$codegen_config_file" == "" ]
+	then
+		codegen_config_file=$default_generate_config_file
+	fi
 	echo "using config file " $codegen_config_file
     generate
     echo "generate complete"
@@ -150,6 +161,10 @@ fi
 if [ $package_flag -ne 0 ]
 then
     setup
+	if [ "$codegen_config_file" == "" ]
+	then
+		codegen_config_file=$default_package_config_file
+	fi
     package
     echo "package complete"
 fi

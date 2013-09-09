@@ -9,10 +9,6 @@
 
 
 
- 		 
-
-
-
 
 
 
@@ -47,8 +43,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_content_res_Configuration;
-
 class android_content_ComponentCallbacks : public AndroidCXX::java_lang_Object
 {
 public:
@@ -59,8 +53,6 @@ public:
 	// Default Destructor
 	virtual ~android_content_ComponentCallbacks();
 	// Functions
-	virtual void  onConfigurationChanged(AndroidCXX::android_content_res_Configuration const& arg0) ;
-	virtual void  onLowMemory() ;
 
 protected:
 	android_content_ComponentCallbacks();

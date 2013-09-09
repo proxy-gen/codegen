@@ -8,13 +8,15 @@
 //
 
 
-
  		 
 	
  		 
 	
  		 
 	
+ 	
+	
+ 		 
  		 
  	
 	
@@ -24,6 +26,7 @@
 
  		 
  		 
+
 
 
 
@@ -51,9 +54,9 @@
 
 #include <com_facebook_SessionLoginBehavior.hpp>
 
-#include <java_util_List.hpp>
-
 #include <java_lang_String.hpp>
+
+#include <java_util_List.hpp>
 
 #include <android_app_Activity.hpp>
 
@@ -101,6 +104,7 @@ public:
 	virtual FacebookCXX::com_facebook_Session_OpenRequest * setCallback(FacebookCXX::com_facebook_Session_StatusCallback const& arg0) ;
 	virtual FacebookCXX::com_facebook_Session_OpenRequest * setDefaultAudience(com_facebook_SessionDefaultAudience::com_facebook_SessionDefaultAudience const& arg0) ;
 	virtual FacebookCXX::com_facebook_Session_OpenRequest * setLoginBehavior(com_facebook_SessionLoginBehavior::com_facebook_SessionLoginBehavior const& arg0) ;
+	virtual FacebookCXX::com_facebook_Session_OpenRequest * setPermissions(std::vector<AndroidCXX::java_lang_String*> const& arg0) ;
 	virtual FacebookCXX::com_facebook_Session_OpenRequest * setPermissions(AndroidCXX::java_util_List const& arg0) ;
 	virtual FacebookCXX::com_facebook_Session_OpenRequest * setRequestCode(int const& arg0) ;
 

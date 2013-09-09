@@ -46,6 +46,7 @@
 #set $entity_object = $entity_class_info['typename'] == 'java_lang_Object' 
 #set $entity_virtual = $entity_interface or $entity_abstract or $entity_object
 #set $entity_callback = '_callback' in $entity_class_config['tags']
+#set $isdeep_proxied = '_deep' in $entity_class_config['tags'] 
 #set $superclass_typeinfos = $entity_class_info['superclasses'] if 'superclasses' in $entity_class_info else None
 
 #set $superclassCCStr = ""
@@ -72,6 +73,8 @@
 #end for
 #end if
 
+#set $functions = list()
+#if $isdeep_proxied
 #set $functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_proxy'],function_xtags=None,function_name=None)	
 
 #for $function in $functions
@@ -140,6 +143,7 @@
 #set $function['proxied_typeinfo_list'] = $proxied_typeinfo_list
 #set $function['modifier_str'] = $modifier_str
 #end for
+#end if
 
 #set $constructors = $config_module.list_constructors(class_tags=None,class_xtags=None,class_name=$class_name,constructor_tags=['_proxy'],constructor_xtags=None,constructor_name=None)	
 
@@ -304,6 +308,7 @@ $function['jni_retrn_type'] Java_${safe_package_name}_${safe_class_name}_${safe_
 			#while $len(type_stack) > 0
 			{
 				#set $current_type = $type_stack.pop()
+				#if 'children' in $current_type
 				#for $idx in $range(0,len(current_type['children']))
 				{
 					#set $child_type = $current_type['children'][idx]
@@ -315,6 +320,7 @@ $function['jni_retrn_type'] Java_${safe_package_name}_${safe_class_name}_${safe_
 					#end if
 				}
 				#end for
+				#end if
 			}
 			#end while
 			converter_t converter_type = (converter_t) CONVERT_TO_CXX;
@@ -340,12 +346,17 @@ $function['jni_retrn_type'] Java_${safe_package_name}_${safe_class_name}_${safe_
 	#while True	
 	#set $retrn  = $function['returns'][0]
 	#set $retrn_typeinfo = $retrn['deriveddata']['targetdata']['typeinfo']
+	#set $retrn_isenum = $retrn_typeinfo["isenum"];
 	#if $function['retrn_type'] != "void"
 	$function['jni_retrn_type'] result;
 	#set $retrn_jnidata = $retrn['deriveddata']['jnidata']
 
 	${retrn_typeinfo['typename']} cxx_result = (${retrn_typeinfo['typename']}) callback->$Utils.to_safe_cxx_name(function['name'])($methodvararg);
+	#if $retrn_isenum
+	cxx_value = (long) cxx_result;
+	#else
 	cxx_value = (long) &cxx_result;
+	#end if
 	java_value = 0;
 	{
 		## Create CXXTypeHierarchy
@@ -381,6 +392,7 @@ $function['jni_retrn_type'] Java_${safe_package_name}_${safe_class_name}_${safe_
 		#while $len(type_stack) > 0
 		{
 			#set $current_type = $type_stack.pop()
+			#if 'children' in $current_type	
 			#for $idx in $range(0,len(current_type['children']))
 			{
 				#set $child_type = $current_type['children'][idx]
@@ -392,6 +404,7 @@ $function['jni_retrn_type'] Java_${safe_package_name}_${safe_class_name}_${safe_
 				#end if
 			}
 			#end for
+			#end if
 		}
 		#end while
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
@@ -482,7 +495,11 @@ ${entity_class_name}::${entity_class_name}($constructor['param_str']) $superclas
 		#set $isproxied = 'isproxied' in $param_typeinfo
 		$param_jnidata['jnitypename'] $jarg;
 		{
+			#if $isenum
+			long cxx_value = (long) $arg;
+			#else
 			long cxx_value = (long) & $arg;
+			#end if
 			long java_value = 0;
 
 			## Create CXXTypeHierarchy
@@ -518,6 +535,7 @@ ${entity_class_name}::${entity_class_name}($constructor['param_str']) $superclas
 			#while $len(type_stack) > 0
 			{
 				#set $current_type = $type_stack.pop()
+				#if 'children' in $current_type
 				#for $idx in $range(0,len(current_type['children']))
 				{
 					#set $child_type = $current_type['children'][idx]
@@ -529,6 +547,7 @@ ${entity_class_name}::${entity_class_name}($constructor['param_str']) $superclas
 					#end if
 				}
 				#end for
+				#end if
 			}
 			#end while
 			converter_t converter_type = (converter_t) CONVERT_TO_JAVA;
@@ -659,9 +678,14 @@ $function['retrn_type'] $function['retrn_type_modifier'] ${entity_class_name}::$
 	#set $jarg = "jarg" + str($param_idx)
 	#set $param_jnidata = $param['deriveddata']['jnidata']
 	#set $param_typeinfo = $param['deriveddata']['targetdata']['typeinfo']
+	#set $param_isenum = $param_typeinfo['isenum']
 	$param_jnidata['jnitypename'] $jarg;
 	{
+		#if $param_isenum
+		long cxx_value = (long) $arg;
+		#else
 		long cxx_value = (long) & $arg;
+		#end if
 		long java_value = 0;
 
 		## Create CXXTypeHierarchy
@@ -697,6 +721,7 @@ $function['retrn_type'] $function['retrn_type_modifier'] ${entity_class_name}::$
 		#while $len(type_stack) > 0
 		{
 			#set $current_type = $type_stack.pop()
+			#if 'children' in $current_type
 			#for $idx in $range(0,len(current_type['children']))
 			{
 				#set $child_type = $current_type['children'][idx]
@@ -708,6 +733,7 @@ $function['retrn_type'] $function['retrn_type_modifier'] ${entity_class_name}::$
 				#end if
 			}
 			#end for
+			#end if
 		}
 		#end while
 		converter_t converter_type = (converter_t) CONVERT_TO_JAVA;

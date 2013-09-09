@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  	
  		 
@@ -154,8 +153,8 @@ public:
 	virtual AndroidCXX::java_lang_Object * set(int const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 	virtual int  size() ;
 	virtual AndroidCXX::java_util_List * subList(int const& arg0,int const& arg1) ;
-	virtual std::vector<AndroidCXX::java_lang_Object>  toArray(std::vector<AndroidCXX::java_lang_Object> const& arg0) ;
-	virtual std::vector<AndroidCXX::java_lang_Object>  toArray() ;
+	virtual std::vector<AndroidCXX::java_lang_Object*>  toArray(std::vector<AndroidCXX::java_lang_Object*> const& arg0) ;
+	virtual std::vector<AndroidCXX::java_lang_Object*>  toArray() ;
 
 protected:
 	java_util_List();

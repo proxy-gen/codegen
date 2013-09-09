@@ -9,11 +9,6 @@
 
 
 
-	
- 	
- 		 
-
-
 
 
 
@@ -48,9 +43,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_util_Iterator;
-
-
 class java_lang_Iterable : public AndroidCXX::java_lang_Object
 {
 public:
@@ -61,7 +53,6 @@ public:
 	// Default Destructor
 	virtual ~java_lang_Iterable();
 	// Functions
-	virtual AndroidCXX::java_util_Iterator * iterator() ;
 
 protected:
 	java_lang_Iterable();
