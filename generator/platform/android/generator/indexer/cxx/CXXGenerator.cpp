@@ -22,7 +22,7 @@
 #include <CXXGenerator.h>
 #include <JNIContext.hpp>
 #include <sys/resource.h>
-#include <stack>
+#include <queue>
 
 #define LOG_ENABLED 0
 #define log(...) if (LOG_ENABLED) fprintf(stderr, __VA_ARGS__)
@@ -91,7 +91,7 @@ typedef struct ProcessClass
 	ProcessorContext *ctx;
 } ProcessClass;
 
-static std::stack<ProcessClass> process_class_stack;
+static std::queue<ProcessClass> process_class_queue;
 
 void process_classes();
 
@@ -260,15 +260,15 @@ void add_to_process_class(std::string class_name, jclass clazz, ProcessorContext
 	process_class.clazz = (jclass) jni->localToGlobalRef(clazz);
 	process_class.ctx = &ctx;
 
-	process_class_stack.push(process_class);
+	process_class_queue.push(process_class);
 }
 
 void process_classes()
 {
-	while (process_class_stack.empty() == false)
+	while (process_class_queue.empty() == false)
 	{
-		ProcessClass item = process_class_stack.top();
-		process_class_stack.pop();
+		ProcessClass item = process_class_queue.front();
+		process_class_queue.pop();
 		process_class(item.class_name, item.clazz, *item.ctx);
 		jni->deleteGlobalRef(item.clazz);
 	}
@@ -309,38 +309,40 @@ void process_class(std::string class_name, jclass clazz, ProcessorContext& ctx)
 		}
 		jni->popLocalFrame();
 	}
-	jobjectArray jmethods = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredMethods", "()[Ljava/lang/reflect/Method;");
-	int methodCount = (int) jni->getArrayLength(jmethods);
-	for (int idx = 0; idx < methodCount; idx++)
 	{
-		jni->pushLocalFrame();
-		jobject jmethod = jni->getObjectArrayElement(jmethods, idx);
-		std::string method_name = jni->getUTFString(jni->invokeStringMethod(jmethod, "java/lang/reflect/Method", "getName", "()Ljava/lang/String;"));
-		bool isBridge = (bool) jni->invokeBooleanMethod(jmethod, "java/lang/reflect/Method", "isBridge", "()Z");
-		if (!isBridge) 
+		jobjectArray jmethods = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredMethods", "()[Ljava/lang/reflect/Method;");
+		int methodCount = (int) jni->getArrayLength(jmethods);
+		for (int idx = 0; idx < methodCount; idx++)
 		{
-			bool isSynthetic = (bool) jni->invokeBooleanMethod(jmethod, "java/lang/reflect/Method", "isSynthetic", "()Z");
-			if (!isSynthetic)
+			jni->pushLocalFrame();
+			jobject jmethod = jni->getObjectArrayElement(jmethods, idx);
+			std::string method_name = jni->getUTFString(jni->invokeStringMethod(jmethod, "java/lang/reflect/Method", "getName", "()Ljava/lang/String;"));
+			bool isBridge = (bool) jni->invokeBooleanMethod(jmethod, "java/lang/reflect/Method", "isBridge", "()Z");
+			if (!isBridge) 
 			{
-				process_method(class_name, clazz, method_name, jmethod, idx, ctx);
+				bool isSynthetic = (bool) jni->invokeBooleanMethod(jmethod, "java/lang/reflect/Method", "isSynthetic", "()Z");
+				if (!isSynthetic)
+				{
+					process_method(class_name, clazz, method_name, jmethod, idx, ctx);
+				}
 			}
+			jni->popLocalFrame();
 		}
-		jni->popLocalFrame();
-	}
-	jobjectArray jfields = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredFields", "()[Ljava/lang/reflect/Field;");
-	int fieldCount = (int) jni->getArrayLength(jfields);
-	for (int idx = 0; idx < fieldCount; idx++)
-	{
-		jni->pushLocalFrame();
-		jobject jfield = jni->getObjectArrayElement(jfields, idx);
-		std::string field_name = jni->getUTFString(jni->invokeStringMethod(jfield, "java/lang/reflect/Field", "getName", "()Ljava/lang/String;"));
-		int fieldModifiers = jni->invokeIntMethod(jfield, "java/lang/reflect/Field", "getModifiers", "()I");
-		bool isFieldPublic = (fieldModifiers & MODIFIER_JAVA_PUBLIC) == MODIFIER_JAVA_PUBLIC;
-		if (isFieldPublic)
+		jobjectArray jfields = (jobjectArray) jni->invokeObjectMethod(clazz, "java/lang/Class", "getDeclaredFields", "()[Ljava/lang/reflect/Field;");
+		int fieldCount = (int) jni->getArrayLength(jfields);
+		for (int idx = 0; idx < fieldCount; idx++)
 		{
-			process_field(class_name, clazz, field_name, jfield, idx, ctx);
-		}		
-		jni->popLocalFrame();
+			jni->pushLocalFrame();
+			jobject jfield = jni->getObjectArrayElement(jfields, idx);
+			std::string field_name = jni->getUTFString(jni->invokeStringMethod(jfield, "java/lang/reflect/Field", "getName", "()Ljava/lang/String;"));
+			int fieldModifiers = jni->invokeIntMethod(jfield, "java/lang/reflect/Field", "getModifiers", "()I");
+			bool isFieldPublic = (fieldModifiers & MODIFIER_JAVA_PUBLIC) == MODIFIER_JAVA_PUBLIC;
+			if (isFieldPublic)
+			{
+				process_field(class_name, clazz, field_name, jfield, idx, ctx);
+			}		
+			jni->popLocalFrame();
+		}
 	}
 	{
 		char name[STR_ATTR_SIZE];

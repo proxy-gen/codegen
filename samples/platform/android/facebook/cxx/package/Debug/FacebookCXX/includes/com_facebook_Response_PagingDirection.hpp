@@ -9,18 +9,12 @@
 
 
 
- 			
-		
-	
 
 
 #ifndef _com_facebook_Response_PagingDirection
 #define _com_facebook_Response_PagingDirection
 
 
-
-
-#include <java_lang_String.hpp>
 #include <vector>
 #include <map>
 #include <string>

@@ -9,9 +9,6 @@
 
 
 
- 		 
-
-
 
 
 
@@ -46,8 +43,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_os_Message;
-
 class android_os_Handler_Callback : public AndroidCXX::java_lang_Object
 {
 public:
@@ -58,7 +53,6 @@ public:
 	// Default Destructor
 	virtual ~android_os_Handler_Callback();
 	// Functions
-	virtual bool  handleMessage(AndroidCXX::android_os_Message const& arg0) ;
 
 protected:
 	android_os_Handler_Callback();

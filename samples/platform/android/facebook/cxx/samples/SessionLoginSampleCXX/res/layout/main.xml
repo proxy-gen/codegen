@@ -26,10 +26,25 @@
         android:layout_height="wrap_content"
         android:text="@string/login" />
     <Button
+        android:id="@+id/buttonGetUserAttrActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/getUserAttr" />    
+    <Button
         android:id="@+id/buttonGetFriendsActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/getfriends" />
+    <Button
+        android:id="@+id/buttonPublishStoryActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/publishStory" />
+    <Button
+        android:id="@+id/buttonRunFQLActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/runFQL" />    
     <Button
         android:id="@+id/buttonLogoutActivity"
         android:layout_width="match_parent"

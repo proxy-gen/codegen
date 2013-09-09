@@ -8,7 +8,6 @@
 //
 
 
-
  		 
  		 
 	
@@ -23,6 +22,7 @@
  		 
  		 
  		 
+ 		 
 	
  		 
  		 
@@ -54,6 +54,7 @@
 
 
  		 
+
 
 
 
@@ -194,6 +195,7 @@ public:
 	virtual int  hashCode() ;
 	virtual bool  isClosed() ;
 	virtual bool  isOpened() ;
+	static bool  isPublishPermission(AndroidCXX::java_lang_String const& arg0) ;
 	virtual bool  onActivityResult(AndroidCXX::android_app_Activity const& arg0,int const& arg1,int const& arg2,AndroidCXX::android_content_Intent const& arg3) ;
 	static FacebookCXX::com_facebook_Session * openActiveSessionFromCache(AndroidCXX::android_content_Context const& arg0) ;
 	static FacebookCXX::com_facebook_Session * openActiveSession(AndroidCXX::android_app_Activity const& arg0,bool const& arg1,FacebookCXX::com_facebook_Session_StatusCallback const& arg2) ;

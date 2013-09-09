@@ -42,6 +42,7 @@
 #set $entity_object = $entity_class_info['typename'] == 'java_lang_Object' 
 #set $entity_virtual = $entity_interface or $entity_abstract or $entity_object
 #set $entity_callback = '_callback' in $entity_class_config['tags']
+#set $isdeep_proxied = '_deep' in $entity_class_config['tags']
 #set $superclass_typeinfos = $entity_class_info['superclasses'] if 'superclasses' in $entity_class_info else None
 
 #set $superclassStr = ""
@@ -68,8 +69,9 @@
 #end for
 #end if
 
+#set $functions = list()
+#if $isdeep_proxied
 #set $functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_proxy'],function_xtags=None,function_name=None)	
-
 #for $function in $functions
 #set $param_str = ""
 #set $jni_param_str = ""
@@ -155,6 +157,7 @@
 #set $function['modifier_prefix'] = $modifier_prefix
 #set $function['modifier_postfix'] = $modifier_postfix
 #end for
+#end if
 
 #set $constructors = $config_module.list_constructors(class_tags=None,class_xtags=None,class_name=$class_name,constructor_tags=['_proxy'],constructor_xtags=None,constructor_name=None)	
 

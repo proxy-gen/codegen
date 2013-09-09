@@ -9,13 +9,6 @@
 
 
 
- 		 
- 		 
- 		 
- 		 
-	
-
-
 
 
 
@@ -50,14 +43,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_view_View;
-
-class java_lang_String;
-
-class android_content_Context;
-
-class android_util_AttributeSet;
-
 class android_view_LayoutInflater_Factory2 : public AndroidCXX::android_view_LayoutInflater_Factory
 {
 public:
@@ -68,7 +53,6 @@ public:
 	// Default Destructor
 	virtual ~android_view_LayoutInflater_Factory2();
 	// Functions
-	virtual AndroidCXX::android_view_View * onCreateView(AndroidCXX::android_view_View const& arg0,AndroidCXX::java_lang_String const& arg1,AndroidCXX::android_content_Context const& arg2,AndroidCXX::android_util_AttributeSet const& arg3) ;
 
 protected:
 	android_view_LayoutInflater_Factory2();

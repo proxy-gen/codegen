@@ -9,13 +9,6 @@
 
 
 
-	
-	
-
-
-
-
-
 
 
 
@@ -50,9 +43,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-
-class java_lang_String;
-
 class java_lang_CharSequence : public AndroidCXX::java_lang_Object
 {
 public:
@@ -63,10 +53,6 @@ public:
 	// Default Destructor
 	virtual ~java_lang_CharSequence();
 	// Functions
-	virtual char  charAt(int const& arg0) ;
-	virtual int  length() ;
-	virtual AndroidCXX::java_lang_CharSequence * subSequence(int const& arg0,int const& arg1) ;
-	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 	java_lang_CharSequence();

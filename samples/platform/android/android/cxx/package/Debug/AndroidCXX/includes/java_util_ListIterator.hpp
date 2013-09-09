@@ -9,20 +9,6 @@
 
 
 
- 		 
-	
-	
- 		 
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -57,8 +43,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_Object;
-
 class java_util_ListIterator : public AndroidCXX::java_util_Iterator
 {
 public:
@@ -69,15 +53,6 @@ public:
 	// Default Destructor
 	virtual ~java_util_ListIterator();
 	// Functions
-	virtual void  add(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual bool  hasNext() ;
-	virtual bool  hasPrevious() ;
-	virtual int  nextIndex() ;
-	virtual AndroidCXX::java_lang_Object * next() ;
-	virtual int  previousIndex() ;
-	virtual AndroidCXX::java_lang_Object * previous() ;
-	virtual void  remove() ;
-	virtual void  set(AndroidCXX::java_lang_Object const& arg0) ;
 
 protected:
 	java_util_ListIterator();

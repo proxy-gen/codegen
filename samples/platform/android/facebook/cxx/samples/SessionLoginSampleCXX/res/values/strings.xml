@@ -22,6 +22,8 @@
     <string name="logout">Logout</string>
     <string name="getfriends">Get Friends</string>
     <string name="publishStory">Publish Story</string>
+    <string name="runFQL">Fetch Friend Profiles (FQL Query) </string>
+    <string name="getUserAttr">Get My Birthday</string>
     <string name="applicationId">380615018626574</string>
 
 </resources>
