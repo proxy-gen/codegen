@@ -9,21 +9,6 @@
 
 
 
- 		 
-	
- 	
- 		 
-	
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -57,11 +42,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-
-class java_lang_Class;
-
-class java_lang_String;
-
 class java_lang_Object 
 {
 public:
@@ -72,15 +52,6 @@ public:
 	// Default Destructor
 	virtual ~java_lang_Object();
 	// Functions
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual AndroidCXX::java_lang_Class * getClass() ;
-	virtual int  hashCode() ;
-	virtual void  notifyAll() ;
-	virtual void  notify() ;
-	virtual AndroidCXX::java_lang_String * toString() ;
-	virtual void  wait(long const& arg0,int const& arg1) ;
-	virtual void  wait(long const& arg0) ;
-	virtual void  wait() ;
 
 protected:
 	java_lang_Object();

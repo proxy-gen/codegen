@@ -9,23 +9,6 @@
 
 
 
-	
- 		 
-	
- 		 
-	
- 		 
-	
-	
-	
-
-
-
-
-
-
-
-
 
 
 
@@ -40,10 +23,6 @@
 // Scroll Down 
 //
 
-
-#include <java_lang_String.hpp>
-
-#include <java_util_Locale.hpp>
 
 
 #include <java_io_Serializable.hpp>
@@ -64,11 +43,6 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
-
-class java_util_Locale;
-
 class java_util_Currency : public AndroidCXX::java_io_Serializable
 {
 public:
@@ -80,13 +54,6 @@ public:
 	// Default Destructor
 	virtual ~java_util_Currency();
 	// Functions
-	virtual AndroidCXX::java_lang_String * getCurrencyCode() ;
-	virtual int  getDefaultFractionDigits() ;
-	static AndroidCXX::java_util_Currency * getInstance(AndroidCXX::java_lang_String const& arg0) ;
-	static AndroidCXX::java_util_Currency * getInstance(AndroidCXX::java_util_Locale const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getSymbol(AndroidCXX::java_util_Locale const& arg0) ;
-	virtual AndroidCXX::java_lang_String * getSymbol() ;
-	virtual AndroidCXX::java_lang_String * toString() ;
 
 protected:
 

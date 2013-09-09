@@ -35,6 +35,8 @@
 #		_no_proxy											Tag to indicate class will not be proxied
 #		_callback 											Tag to indicate class is a callback
 #		_no_callback										Tag to indicate class will not be made a callback
+#		_deep												Tag to indicate class including functions will be proxied
+#		_no_deep											Tag to indicate class excluding functions will be proxied
 #
 #	Special Field Tags
 #		_static												Tag to indicate field is a static field

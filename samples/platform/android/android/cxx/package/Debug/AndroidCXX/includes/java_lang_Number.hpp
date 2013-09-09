@@ -16,13 +16,6 @@
 
 
 
-
-
-
-
-
-
-
 // Generated Code 
 
 #ifndef _java_lang_Number
@@ -61,12 +54,6 @@ public:
 	// Default Destructor
 	virtual ~java_lang_Number();
 	// Functions
-	virtual byte  byteValue() ;
-	virtual double  doubleValue() ;
-	virtual float  floatValue() ;
-	virtual int  intValue() ;
-	virtual long  longValue() ;
-	virtual short  shortValue() ;
 
 protected:
 	java_lang_Number();

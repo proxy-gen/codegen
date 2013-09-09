@@ -9,16 +9,6 @@
 
 
 
- 		 
- 	
-	
- 	
- 		 
- 		 
-	
-
-
-
 
 
 
@@ -33,10 +23,6 @@
 // Scroll Down 
 //
 
-
-#include <java_lang_Class.hpp>
-
-#include <org_json_JSONArray.hpp>
 
 
 #include <java_util_List.hpp>
@@ -57,11 +43,6 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-
-
-class com_facebook_model_GraphObject;
-
-
 class com_facebook_model_GraphObjectList : public AndroidCXX::java_util_List
 {
 public:
@@ -72,8 +53,6 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObjectList();
 	// Functions
-	virtual FacebookCXX::com_facebook_model_GraphObjectList * castToListOf(AndroidCXX::java_lang_Class const& arg0) ;
-	virtual AndroidCXX::org_json_JSONArray * getInnerJSONArray() ;
 
 protected:
 	com_facebook_model_GraphObjectList();

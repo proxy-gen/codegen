@@ -9,18 +9,12 @@
 
 
 
- 			
-		
-	
 
 
 #ifndef _com_facebook_SessionLoginBehavior
 #define _com_facebook_SessionLoginBehavior
 
 
-
-
-#include <java_lang_String.hpp>
 #include <vector>
 #include <map>
 #include <string>

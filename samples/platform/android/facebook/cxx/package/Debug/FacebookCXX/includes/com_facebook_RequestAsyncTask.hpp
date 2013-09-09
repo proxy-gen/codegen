@@ -8,7 +8,6 @@
 //
 
 
-
 	
 
 
@@ -59,7 +58,7 @@
 #include <java_util_Collection.hpp>
 
 
-#include <java_lang_Object.hpp>
+#include <android_os_AsyncTask.hpp>
 
 #include <vector>
 #include <map>
@@ -84,14 +83,14 @@ class com_facebook_RequestBatch;
 
 
 
-class com_facebook_RequestAsyncTask : public AndroidCXX::java_lang_Object
+class com_facebook_RequestAsyncTask : public AndroidCXX::android_os_AsyncTask
 {
 public:
 
 	// Public Constructor
-	com_facebook_RequestAsyncTask(std::vector<FacebookCXX::com_facebook_Request> const& arg0,Proxy * aProxy = new Proxy());
+	com_facebook_RequestAsyncTask(std::vector<FacebookCXX::com_facebook_Request*> const& arg0,Proxy * aProxy = new Proxy());
 	com_facebook_RequestAsyncTask(FacebookCXX::com_facebook_RequestBatch const& arg0,Proxy * aProxy = new Proxy());
-	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection const& arg0,std::vector<FacebookCXX::com_facebook_Request> const& arg1,Proxy * aProxy = new Proxy());
+	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection const& arg0,std::vector<FacebookCXX::com_facebook_Request*> const& arg1,Proxy * aProxy = new Proxy());
 	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection const& arg0,FacebookCXX::com_facebook_RequestBatch const& arg1,Proxy * aProxy = new Proxy());
 	com_facebook_RequestAsyncTask(AndroidCXX::java_net_HttpURLConnection const& arg0,AndroidCXX::java_util_Collection const& arg1,Proxy * aProxy = new Proxy());
 	com_facebook_RequestAsyncTask(AndroidCXX::java_util_Collection const& arg0,Proxy * aProxy = new Proxy());

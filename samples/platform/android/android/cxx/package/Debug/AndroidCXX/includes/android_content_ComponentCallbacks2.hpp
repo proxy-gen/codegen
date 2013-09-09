@@ -15,8 +15,6 @@
 
 
 
-
-
 // Generated Code 
 
 #ifndef _android_content_ComponentCallbacks2
@@ -55,7 +53,6 @@ public:
 	// Default Destructor
 	virtual ~android_content_ComponentCallbacks2();
 	// Functions
-	virtual void  onTrimMemory(int const& arg0) ;
 
 protected:
 	android_content_ComponentCallbacks2();

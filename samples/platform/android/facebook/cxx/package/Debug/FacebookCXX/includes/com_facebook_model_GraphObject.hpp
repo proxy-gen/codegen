@@ -9,27 +9,6 @@
 
 
 
-	
- 	
- 		 
- 		 
- 		 
- 	
-	
- 		 
-	
- 		 
-	
- 		 
- 		 
- 		 
-
-
-
-
-
-
-
 
 
 
@@ -45,16 +24,8 @@
 //
 
 
-#include <java_util_Map.hpp>
 
 #include <java_lang_Object.hpp>
-
-#include <java_lang_String.hpp>
-
-#include <java_lang_Class.hpp>
-
-#include <org_json_JSONObject.hpp>
-
 
 #include <vector>
 #include <map>
@@ -72,12 +43,6 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-
-
-
-
-
-
 class com_facebook_model_GraphObject : public AndroidCXX::java_lang_Object
 {
 public:
@@ -88,12 +53,6 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_model_GraphObject();
 	// Functions
-	virtual AndroidCXX::java_util_Map * asMap() ;
-	virtual FacebookCXX::com_facebook_model_GraphObject * cast(AndroidCXX::java_lang_Class const& arg0) ;
-	virtual AndroidCXX::org_json_JSONObject * getInnerJSONObject() ;
-	virtual AndroidCXX::java_lang_Object * getProperty(AndroidCXX::java_lang_String const& arg0) ;
-	virtual void  removeProperty(AndroidCXX::java_lang_String const& arg0) ;
-	virtual void  setProperty(AndroidCXX::java_lang_String const& arg0,AndroidCXX::java_lang_Object const& arg1) ;
 
 protected:
 	com_facebook_model_GraphObject();

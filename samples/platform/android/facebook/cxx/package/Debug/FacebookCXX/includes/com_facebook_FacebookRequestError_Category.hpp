@@ -9,18 +9,12 @@
 
 
 
- 			
-		
-	
 
 
 #ifndef _com_facebook_FacebookRequestError_Category
 #define _com_facebook_FacebookRequestError_Category
 
 
-
-
-#include <java_lang_String.hpp>
 #include <vector>
 #include <map>
 #include <string>

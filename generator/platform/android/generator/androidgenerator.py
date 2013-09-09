@@ -1062,20 +1062,25 @@ class ConfigModule(object):
 		else:
 			if "classes" in config_item_data:
 				for clazz in config_item_data["classes"]:
-					self._attach_config_converters(clazz, config_data)
+					if '_no_proxy' not in clazz['tags']:
+						self._attach_config_converters(clazz, config_data)
 			if "functions" in config_item_data:
 				for function in config_item_data["functions"]:
-					self._attach_config_converters(function, config_data)
+					if '_no_proxy' not in function['tags']:
+						self._attach_config_converters(function, config_data)
 			if "constructors" in config_item_data:
 				for constructor in config_item_data["constructors"]:
-					self._attach_config_converters(constructor, config_data)
+					if '_no_proxy' not in constructor['tags']:
+						self._attach_config_converters(constructor, config_data)
 			if "fields" in config_item_data:
 				for field in config_item_data["fields"]:
-					self._attach_config_converter(field["type"], config_data)
+					if '_no_proxy' not in field['tags']:
+						self._attach_config_converter(field["type"], config_data)
 		logging.debug("_attach_config_converters enter")
 
 	def _attach_config_converter(self, convertible, config_data):
 		logging.debug("_attach_config_converter enter")
+		logging.debug("_attaching converter for " + str(convertible["type"]))
 		if "converter" not in convertible:
 			for clazz in config_data["classes"]:
 				if clazz["name"] == convertible["type"]:
@@ -1111,10 +1116,14 @@ class ConfigModule(object):
 			for converter in converters:
 				if "java" in converter:
 					if "cxx" in converter:
-						if jindex.TypeHierarchy.canCastClass1ToClass2(convertible["type"],converter["java"]["type"]):
-							convertible["converter"] = converter["name"]
-							break
+						if not jindex.ArrayType.is_array_id(converter["java"]["type"]) \
+							and not jindex.PrimitiveType.is_primitive_id(converter["java"]["type"]) \
+							and not jindex.VoidType.is_void_id(converter["java"]["type"]):
+							if jindex.TypeHierarchy.canCastClass1ToClass2(convertible["type"],converter["java"]["type"]):
+								convertible["converter"] = converter["name"]
+								break
 		if "converter" not in convertible:
+			logging.warn("Check generated config.py - some converters are _TODO_")
 			convertible["converter"] = "_TODO_"
 		if "children" in convertible:
 			for child_convertible in convertible["children"]:
@@ -1133,19 +1142,23 @@ class ConfigModule(object):
 		else:
 			if "classes" in config_item_data:
 				for clazz in config_item_data["classes"]:
-					self._attach_derived_data(clazz, config_data)
-					self._attach_derived_class_data(clazz, config_data)
+					if '_no_proxy' not in clazz['tags']:
+						self._attach_derived_data(clazz, config_data)
+						self._attach_derived_class_data(clazz, config_data)
 			if "functions" in config_item_data:
 				for function in config_item_data["functions"]:
-					self._attach_derived_data(function, config_data)
-					self._attach_derived_function_data(function, config_data)
+					if '_no_proxy' not in function['tags']:
+						self._attach_derived_data(function, config_data)
+						self._attach_derived_function_data(function, config_data)
 			if "constructors" in config_item_data:
 				for constructor in config_item_data["constructors"]:
-					self._attach_derived_data(constructor, config_data)
-					self._attach_derived_constructor_data(constructor, config_data)
+					if '_no_proxy' not in constructor['tags']:
+						self._attach_derived_data(constructor, config_data)
+						self._attach_derived_constructor_data(constructor, config_data)
 			if "fields" in config_item_data:
 				for field in config_item_data["fields"]:
-					self._attach_derived_type_data(field["type"], config_data)
+					if '_no_proxy' not in field['tags']:
+						self._attach_derived_type_data(field["type"], config_data)
 		logging.debug("_attach_derived_data enter")
 
 	def _attach_derived_class_data(self, class_config, config_data):
@@ -1179,15 +1192,17 @@ class ConfigModule(object):
 		if 'constructors' in class_config:
 			for constructor in class_config['constructors']:
 				if len(constructor['params']) == 1:
-					if constructor['params'][0]['type'] == class_config['name']:
-						classinfo['no_copy_constructor'] = False
-						break
+					if '_no_proxy' not in constructor['tags']:
+						if constructor['params'][0]['type'] == class_config['name']:
+							classinfo['no_copy_constructor'] = False
+							break
 		classinfo['no_default_constructor'] = True
 		if 'constructors' in class_config:
 			for constructor in class_config['constructors']:
 				if len(constructor['params']) == 0:
-					classinfo['no_default_constructor'] = False
-					break
+					if '_no_proxy' not in constructor['tags']:
+						classinfo['no_default_constructor'] = False
+						break
 		config_superclasses = list()
 		if 'extends' in class_config:
 			config_superclasses.extend(class_config['extends'])
@@ -1222,12 +1237,12 @@ class ConfigModule(object):
 		logging.debug("_attach_derived_target_class_info exit")	
 
 	def _attach_derived_jni_class_data(self, class_config, config_data):
-			logging.debug("_attach_derived_class_data enter")
-			deriveddata = class_config['deriveddata']
-			if "jnidata" not in deriveddata:
-				deriveddata['jnidata'] = dict()
-			self._attach_derived_jni_class_signature(class_config, config_data)
-			logging.debug("_attach_derived_class_data enter")	
+		logging.debug("_attach_derived_class_data enter")
+		deriveddata = class_config['deriveddata']
+		if "jnidata" not in deriveddata:
+			deriveddata['jnidata'] = dict()
+		self._attach_derived_jni_class_signature(class_config, config_data)
+		logging.debug("_attach_derived_class_data enter")	
 
 	def _attach_derived_jni_class_signature(self, class_config, config_data):
 		logging.debug("_attach_derived_jni_class_signature enter")
@@ -1346,10 +1361,11 @@ class ConfigModule(object):
 		logging.debug("_attach_derived_target_type_data exit")
 
 	def _attach_derived_target_type_info(self, type_config, config_data):
-		logging.debug("_attach_derived_target_type_name enter")
+		logging.debug("_attach_derived_target_type_info enter")
 		deriveddata = type_config['deriveddata']
 		targetdata = deriveddata['targetdata']
 		if 'typeinfo' not in targetdata:
+			logging.debug('updating typeinfo')
 			typeinfo = targetdata['typeinfo'] = dict()
 			typeinfo['isenum'] = False
 			typeinfo['isprimitive'] = jindex.PrimitiveType.is_primitive_id(type_config["type"])
@@ -1357,6 +1373,7 @@ class ConfigModule(object):
 			typeinfo['isvoid'] = jindex.VoidType.is_void_id(type_config["type"])
 			typeinfo['namespace'] = config_data['namespace']
 			typeinfo['javatypename'] = Utils.to_java_name(type_config)
+			logging.debug('type_config converter is ' + str(type_config['converter']))
 			if type_config['converter'] == 'convert_proxy':
 				namespaced_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=type_config['type'])
 				for namespaced_class in namespaced_classes:
@@ -1383,8 +1400,11 @@ class ConfigModule(object):
 					array_type = jindex.ArrayType.from_id(child_type_name)
 					typeinfo['typename'] = 'std::vector<std::vector<' + array_type.type + '> >'
 					typeinfo['typeconverter'] = 'convert_' + child_type_name + '_array'
-				grand_child_type_config = child_type_config['children'][0]
-				grand_child_type_name = grand_child_type_config['type']				
+				if 'children' in child_type_config:
+					grand_child_type_config = child_type_config['children'][0]
+					grand_child_type_name = grand_child_type_config['type']				
+				else:
+					grand_child_type_name = 'java.lang.Object'
 				#TODO: Currently supportint STL by default support Boost to defaults
 				namespaced_child_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=grand_child_type_name)				
 				for namespaced_child_class in namespaced_child_classes:	
@@ -1394,14 +1414,20 @@ class ConfigModule(object):
 					child_namespace = namespaced_child_class['namespace']
 					child_type_name = child_clazz['name']
 					child_type_name = Utils.to_class_name(child_type_name)					
+					if '_enum' in child_clazz['tags']:
+						child_namespace = child_type_name
 					child_qualified_type_name = child_namespace + '::' + child_type_name
 					typeinfo['namespace'] = child_namespace
-					typeinfo['typename'] = 'std::vector<std::vector<' + child_qualified_type_name + '> >'
+					typeinfo['typename'] = 'std::vector<std::vector<' + child_qualified_type_name + '*' + '> >'
 					typeinfo['typeconverter'] = 'convert_' + child_type_name + '_array_array'
 			elif type_config['converter'] == 'convert__object_array':
-				child_type_config = type_config['children'][0]
+				if 'children' in type_config:
+					child_type_config = type_config['children'][0]
+					child_type_name = child_type_config['type']
+				else:
+					child_type_name = 'java.lang.Object'
 				#TODO: Currently supportint STL by default support Boost to defaults
-				namespaced_child_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=child_type_config['type'])
+				namespaced_child_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=child_type_name)
 				for namespaced_child_class in namespaced_child_classes:	
 					child_clazz = namespaced_child_class["clazz"]
 					child_class_info = self._build_class_info_data(child_clazz)								
@@ -1409,9 +1435,11 @@ class ConfigModule(object):
 					child_type_name = child_clazz['name']
 					child_type_name = Utils.to_class_name(child_type_name)					
 					child_namespace = namespaced_child_class['namespace']
+					if '_enum' in child_clazz['tags']:
+						child_namespace = child_type_name
 					child_qualified_type_name = child_namespace + '::' + child_type_name
 					typeinfo['namespace'] = child_namespace
-					typeinfo['typename'] = 'std::vector<' + child_qualified_type_name + '>'
+					typeinfo['typename'] = 'std::vector<' + child_qualified_type_name + '*' + '>'
 					typeinfo['typeconverter'] = 'convert_' + child_type_name + '_array'
 			else:
 				converters = self.list_all_converters(name=type_config['converter'],cxx_type=None,java_type=None)

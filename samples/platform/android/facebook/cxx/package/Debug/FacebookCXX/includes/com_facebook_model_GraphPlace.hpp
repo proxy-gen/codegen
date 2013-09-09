@@ -9,23 +9,6 @@
 
 
 
-	
-	
-	
-	
- 		 
- 		 
- 		 
- 		 
-
-
-
-
-
-
-
-
-
 
 
 
@@ -40,8 +23,6 @@
 // Scroll Down 
 //
 
-
-#include <java_lang_String.hpp>
 
 
 #include <com_facebook_model_GraphObject.hpp>
@@ -62,9 +43,6 @@ namespace FacebookCXX {
 
 // Forward Declarations
 
-
-class com_facebook_model_GraphLocation;
-
 class com_facebook_model_GraphPlace : public FacebookCXX::com_facebook_model_GraphObject
 {
 public:
@@ -75,14 +53,6 @@ public:
 	// Default Destructor
 	virtual ~com_facebook_model_GraphPlace();
 	// Functions
-	virtual AndroidCXX::java_lang_String * getCategory() ;
-	virtual AndroidCXX::java_lang_String * getId() ;
-	virtual FacebookCXX::com_facebook_model_GraphLocation * getLocation() ;
-	virtual AndroidCXX::java_lang_String * getName() ;
-	virtual void  setCategory(AndroidCXX::java_lang_String const& arg0) ;
-	virtual void  setId(AndroidCXX::java_lang_String const& arg0) ;
-	virtual void  setLocation(FacebookCXX::com_facebook_model_GraphLocation const& arg0) ;
-	virtual void  setName(AndroidCXX::java_lang_String const& arg0) ;
 
 protected:
 	com_facebook_model_GraphPlace();
