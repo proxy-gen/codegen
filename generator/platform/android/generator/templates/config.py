@@ -31,12 +31,22 @@
 #		_instance											Tag to indicate class is an instance
 #		_singleton											Tag to indicate class instance is a singleton (field or instance)									
 #		_static 											Tag to indicate class has only static methods
-#		_proxy 												Tag to indicate class will be proxied
+#		_proxy 												Tag to indicate class will be proxied (default)
 #		_no_proxy											Tag to indicate class will not be proxied
 #		_callback 											Tag to indicate class is a callback
 #		_no_callback										Tag to indicate class will not be made a callback
-#		_deep												Tag to indicate class including functions will be proxied
-#		_no_deep											Tag to indicate class excluding functions will be proxied
+#		_proxy_functions									Tag to indicate class including functions will be proxied
+#		_no_proxy_functions									Tag to indicate class excluding functions will be proxied (default)
+#		_proxy_fields										Tag to indicate class including fields will be proxied
+#		_no_proxy_fields									Tag to indicate class excluding fields will be proxied (default)
+#		_proxy_constructors									Tag to indicate class including constructors will be proxied
+#		_no_proxy_constructors								Tag to indicate class excluding constructors will be proxied (default)
+#		_gen_converters										Tag to indicate class converters will be generated (default)
+#		_no_gen_converters									Tag to indicate class converters will not be generated
+#		_gen_array_converters								Tag to indicate class array converters will be generated (default)
+#		_no_gen_array_converters							Tag to indicate class array converters will not be generated
+#		_gen_2d_array_converters							Tag to indicate class 2d array converters will be generated (default)
+#		_no_gen_2d_array_converters							Tag to indicate class 2d array converters will not be generated
 #
 #	Special Field Tags
 #		_static												Tag to indicate field is a static field

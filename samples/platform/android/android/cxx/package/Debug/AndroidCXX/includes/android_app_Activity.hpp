@@ -14,8 +14,6 @@
 
 
 
-
-
 // Generated Code 
 
 #ifndef _android_app_Activity
@@ -26,15 +24,7 @@
 
 
 
-#include <android_content_ComponentCallbacks2.hpp>
-
-#include <android_view_KeyEvent_Callback.hpp>
-
-#include <android_view_LayoutInflater_Factory2.hpp>
-
-#include <android_view_View_OnCreateContextMenuListener.hpp>
-
-#include <android_view_Window_Callback.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -52,13 +42,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class android_app_Activity : public AndroidCXX::android_content_ComponentCallbacks2,public AndroidCXX::android_view_KeyEvent_Callback,public AndroidCXX::android_view_LayoutInflater_Factory2,public AndroidCXX::android_view_View_OnCreateContextMenuListener,public AndroidCXX::android_view_Window_Callback
+class android_app_Activity : public AndroidCXX::java_lang_Object
 {
 public:
 
 	// Public Constructor
-	android_app_Activity(Proxy * aProxy = new Proxy());
 	android_app_Activity(const android_app_Activity& cc);
+	android_app_Activity(Proxy * aProxy);
 	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~android_app_Activity();

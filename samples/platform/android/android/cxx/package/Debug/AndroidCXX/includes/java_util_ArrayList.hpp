@@ -15,7 +15,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _java_util_ArrayList
@@ -26,13 +25,9 @@
 
 
 
-#include <java_util_AbstractList.hpp>
-
-#include <java_io_Serializable.hpp>
-
 #include <java_lang_Cloneable.hpp>
 
-#include <java_util_RandomAccess.hpp>
+#include <java_util_List.hpp>
 
 #include <vector>
 #include <map>
@@ -50,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_util_ArrayList : public AndroidCXX::java_util_AbstractList,public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_Cloneable,public AndroidCXX::java_util_RandomAccess
+class java_util_ArrayList : public AndroidCXX::java_lang_Cloneable,public AndroidCXX::java_util_List
 {
 public:
 

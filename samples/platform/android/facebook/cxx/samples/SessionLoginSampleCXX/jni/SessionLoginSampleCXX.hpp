@@ -25,6 +25,7 @@
 #include <com_facebook_Session_OpenRequest.hpp>
 #include <com_facebook_Session_StatusCallback.hpp>
 #include <com_facebook_SessionState.hpp>
+#include <com_facebook_Response.hpp>
 #include <com_facebook_Request.hpp>
 #include <com_facebook_Request_Callback.hpp>
 #include <com_facebook_Request_GraphUserCallback.hpp>

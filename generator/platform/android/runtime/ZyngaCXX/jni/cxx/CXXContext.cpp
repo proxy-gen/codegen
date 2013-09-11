@@ -20,7 +20,6 @@
  */
 
 #include "CXXContext.hpp"
-#include "ProxiedCallback.hpp"
 #include "com_zynga_sdk_cxx_CXXContext.h"
 #include "JNIContext.hpp"
 #include <map>
@@ -316,14 +315,6 @@ long CXXContext::findCallbackData(long contextAddress)
 	value = callbackDataMap[contextAddress];
 	pthread_mutex_unlock(&callbackDataMapMutex);
 	return value;
-}
-
-jobject CXXContext::notify(long proxiedObjectAddress, long proxiedObjectID, std::string methodName, void * payload)
-{
-	LOGV("CXXContext::notifyMethod for proxiedObjectAddress %ld proxiedObjectID %ld methodName %s", proxiedObjectAddress, proxiedObjectID, methodName.c_str());
-	ProxiedCallback *callback = (ProxiedCallback *) reinterpret_cast<ProxiedCallback*>(proxiedObjectID);
-	LOGV("CXXContext::notifyMethod callback %d", callback);
-	return callback->callMethod(proxiedObjectAddress, methodName, payload);
 }
 
 void CXXContext::clearException()

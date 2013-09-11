@@ -770,100 +770,46 @@ config = {
 	],
 	'classes' : [
 		{
-			'name' : 'java.io.File',
-			'tags' : ['_no_deep'],
-		},
-		{
 			'name' : 'java.lang.Object',
-			'tags' : ['_no_deep'],
+			'tags' : ['_no_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_gen_array_converters', '_gen_converters'],
 		},
 		{
 			'name' : 'java.lang.Void',
-			'tags' : ['_no_deep'],
+			'tags' : ['_no_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters'],
 		},
 		{
 			'name' : 'java.lang.CharSequence',
-			'tags' : ['_no_deep'],
+			'tags' : ['_no_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_gen_converters'],
+		},
+		{
+			'name' : 'java.lang.Cloneable',
+			'tags' : ['_no_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters'],
 		},
 		{
 			'name' : 'java.lang.Exception',
-			'tags' : ['_no_deep'],
+			'tags' : ['_proxy','_no_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', ],
 		},
-		{
-			'name' : 'java.lang.Throwable',
-			'tags' : ['_no_deep'],	
-		},
-		{
-			'name' : 'java.math.BigDecimal',
-			'tags' : ['_no_deep'],
-		},
-		{
-			'name' : 'java.net.HttpURLConnection',
-			'tags' : ['_no_deep'],
-		},
-		{
-			'name' : 'java.util.Currency',
-			'tags' : ['_no_deep'],
-		},
-		{
-			'name' : 'java.util.Date',
-			'tags' : ['_no_deep'],
-		},
-		{
-			'name' : 'java.util.UUID',
-			'tags' : ['_no_deep'],
-		},		
 		{
 			'name' : 'org.json.JSONObject',
-			'tags' : ['_no_deep'],
+			'tags' : ['_no_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters'],		
 		},
 		{
 			'name' : 'android.app.Activity',
-			'tags' : ['_no_deep'],
+			'tags' : ['_no_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', ],
 		},
 		{
 			'name' : 'android.content.Context',
-			'tags' : ['_no_deep'],
+			'tags' : ['_no_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_gen_converters'],
 		},
 		{
 			'name' : 'android.content.Intent',
-			'tags' : ['_no_deep'],
-		},
-		{
-			'name' : 'android.graphics.Bitmap',
-			'tags' : ['_no_deep'],
-		},
-		{
-			'name' : 'android.location.Location',
-			'tags' : ['_no_deep'],
-		},
-		{
-			'name' : 'android.os.Handler',
-			'tags' : ['_no_deep'],
-		},
-		{
-			'name' : 'android.support.v4.app.Fragment',
-			'tags' : ['_no_deep'],			
+			'tags' : ['_no_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', ],		
 		},
 		{
 			'name' : 'java.lang.String',
-			'tags' : ['_instance', '_no_callback', '_proxy', '_deep'],
+			'tags' : ['_instance', '_no_callback', '_proxy', '_proxy_functions', '_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters',],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.lang.CharSequence'}, {'name': 'java.lang.Comparable'}],
-			'fields' : [
-			],	
-			'fields' : [
-				{
-					'name' : 'CASE_INSENSITIVE_ORDER',
-					'tags' : ['_proxy', '_static'],
-					'type' : 
-					{
-							'type' : 'java.util.Comparator',
-							'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
-							'converter' : 'convert_proxy',
-					},
-				},
-			],	
 			'functions' : [
 				{
 					'name' : 'charAt',
@@ -2250,23 +2196,9 @@ config = {
 		},		
 		{
 			'name' : 'java.util.List',
-			'tags' : ['_deep'],
-		},
-		{
-			'name' : 'java.util.Collection',
-			'tags' : ['_deep'],
-		},
-		{
-			'name' : 'java.util.Iterator',
-			'tags' : ['_deep'],
-		},
-		{
-			'name' : 'java.util.ArrayList',
-			'tags' : ['_instance', '_proxy', '_deep'],
-			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.util.AbstractList'}],
-			'implements' : [{'name': 'java.io.Serializable'}, {'name': 'java.lang.Cloneable'}, {'name': 'java.util.List'}, {'name': 'java.util.RandomAccess'}],
-			'fields' : [
-			],	
+			'tags' : ['_interface', '_proxy', '_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_gen_converters'],
+			'extends' : [{'name': 'java.lang.Object'}],
+			'implements' : [{'name': 'java.util.Collection'}],
 			'functions' : [
 				{
 					'name' : 'addAll',
@@ -2328,7 +2260,7 @@ config = {
 				},
 				{
 					'name' : 'add',
-					'tags' : ['_instance', '_no_proxy'],
+					'tags' : ['_instance', '_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
@@ -2355,14 +2287,19 @@ config = {
 					],
 				},
 				{
-					'name' : 'clone',
+					'name' : 'containsAll',
 					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
+						{
+								'type' : 'java.util.Collection',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
 					],
 					'returns' : [
 						{
-								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						},
 					],
 				},
@@ -2383,18 +2320,18 @@ config = {
 					],
 				},
 				{
-					'name' : 'ensureCapacity',
+					'name' : 'equals',
 					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
-								'type' : 'int',
-								'converter' : 'convert_int',
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
-								'type' : 'void',
-								'converter' : 'convert_void',
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						},
 					],
 				},
@@ -2411,6 +2348,18 @@ config = {
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'hashCode',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -2443,6 +2392,19 @@ config = {
 					],
 				},
 				{
+					'name' : 'iterator',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.Iterator',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
 					'name' : 'lastIndexOf',
 					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
@@ -2455,6 +2417,53 @@ config = {
 						{
 								'type' : 'int',
 								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'listIterator',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.ListIterator',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'listIterator',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.ListIterator',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'removeAll',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+						{
+								'type' : 'java.util.Collection',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						},
 					],
 				},
@@ -2491,6 +2500,23 @@ config = {
 					],
 				},
 				{
+					'name' : 'retainAll',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+						{
+								'type' : 'java.util.Collection',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
 					'name' : 'set',
 					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
@@ -2507,6 +2533,259 @@ config = {
 						{
 								'type' : 'java.lang.Object',
 								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'size',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'subList',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.List',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'toArray',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+						{
+								'type' : '_object_array',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array',
+						},
+					],
+					'returns' : [
+						{
+								'type' : '_object_array',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array',
+						},
+					],
+				},
+				{
+					'name' : 'toArray',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : '_object_array',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert__object_array',
+						},
+					],
+				},
+			],	
+		},
+		{
+			'name' : 'java.util.Collection',
+			'tags' : ['_interface', '_proxy', '_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', ],
+			'extends' : [{'name': 'java.lang.Object'}],
+			'implements' : [{'name': 'java.lang.Iterable'}],
+			'functions' : [
+				{
+					'name' : 'addAll',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+						{
+								'type' : 'java.util.Collection',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'add',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'clear',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'void',
+								'converter' : 'convert_void',
+						},
+					],
+				},
+				{
+					'name' : 'containsAll',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+						{
+								'type' : 'java.util.Collection',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'contains',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'equals',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'hashCode',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'int',
+								'converter' : 'convert_int',
+						},
+					],
+				},
+				{
+					'name' : 'isEmpty',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'iterator',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.util.Iterator',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'removeAll',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+						{
+								'type' : 'java.util.Collection',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'remove',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'retainAll',
+					'tags' : ['_instance', '_no_proxy'],
+					'params' : [
+						{
+								'type' : 'java.util.Collection',
+								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
+								'converter' : 'convert_proxy',
+						},
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
 						},
 					],
 				},
@@ -2553,8 +2832,39 @@ config = {
 						},
 					],
 				},
+			],	
+		},
+		{
+			'name' : 'java.util.Iterator',
+			'tags' : ['_interface', '_proxy', '_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_gen_converters'],
+			'extends' : [{'name': 'java.lang.Object'}],
+			'functions' : [
 				{
-					'name' : 'trimToSize',
+					'name' : 'hasNext',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'boolean',
+								'converter' : 'convert_boolean',
+						},
+					],
+				},
+				{
+					'name' : 'next',
+					'tags' : ['_instance', '_proxy'],
+					'params' : [
+					],
+					'returns' : [
+						{
+								'type' : 'java.lang.Object',
+								'converter' : 'convert_proxy',
+						},
+					],
+				},
+				{
+					'name' : 'remove',
 					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 					],
@@ -2566,6 +2876,10 @@ config = {
 					],
 				},
 			],	
+		},
+		{
+			'name' : 'java.util.ArrayList',
+			'tags' : ['_instance', '_proxy', '_no_proxy_functions', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters'],
 			'constructors' : [	
 				{
 					'name' : 'java.util.ArrayList',
@@ -2579,7 +2893,6 @@ config = {
 					'params' : [
 						{
 								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 					],
 				},
@@ -2589,19 +2902,16 @@ config = {
 					'params' : [
 						{
 								'type' : 'java.util.Collection',
-								'children' : [{'type': 'java.lang.Object', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'java.lang.Object'}],
 						},
 					],
 				},
-			],
+			],			
 		},
-{
+		{
 			'name' : 'java.util.Arrays',
-			'tags' : ['_proxy', '_deep'],
+			'tags' : ['_proxy', '_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters'],
 			'extends' : [{'name': 'java.lang.Object'}],
-			'fields' : [
-			],	
 			'functions' : [
 				{
 					'name' : 'asList',
@@ -4970,33 +5280,11 @@ config = {
 					],
 				},
 			],	
-			'constructors' : [	
-			],
 		},
 		{
 			'name' : 'android.os.AsyncTask',
-			'tags' : ['_abstract', '_proxy', '_deep'],
+			'tags' : ['_abstract', '_proxy', '_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_gen_converters'],
 			'extends' : [{'name': 'java.lang.Object'}],
-			'fields' : [
-				{
-					'name' : 'SERIAL_EXECUTOR',
-					'tags' : ['_no_proxy', '_static'],
-					'type' : 
-					{
-							'type' : 'java.util.concurrent.Executor',
-							'converter' : 'convert_proxy',
-					},
-				},
-				{
-					'name' : 'THREAD_POOL_EXECUTOR',
-					'tags' : ['_no_proxy', '_static'],
-					'type' : 
-					{
-							'type' : 'java.util.concurrent.Executor',
-							'converter' : 'convert_proxy',
-					},
-				},
-			],	
 			'functions' : [
 				{
 					'name' : 'cancel',
@@ -5127,41 +5415,12 @@ config = {
 					],
 				},
 			],	
-			'constructors' : [	
-				{
-					'name' : 'android.os.AsyncTask',
-					'tags' : ['_no_proxy'],
-					'params' : [
-					],
-				},
-			],
 		},
 		{
 			'name' : 'android.os.Bundle',
-			'tags' : ['_instance', '_no_callback', '_proxy', '_deep'],
+			'tags' : ['_instance', '_no_callback', '_proxy', '_proxy_functions', '_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', ],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'android.os.Parcelable'}, {'name': 'java.lang.Cloneable'}],
-			'fields' : [
-				{
-					'name' : 'CREATOR',
-					'tags' : ['_no_proxy', '_static'],
-					'type' : 
-					{
-							'type' : 'android.os.Parcelable$Creator',
-							'children' : [{'type': 'android.os.Bundle', 'converter': 'convert_proxy'}],
-							'converter' : 'convert_proxy',
-					},
-				},
-				{
-					'name' : 'EMPTY',
-					'tags' : ['_no_proxy', '_singleton', '_static'],
-					'type' : 
-					{
-							'type' : 'android.os.Bundle',
-							'converter' : 'convert_proxy',
-					},
-				},
-			],	
 			'functions' : [
 				{
 					'name' : 'clear',
@@ -6742,28 +7001,8 @@ config = {
 		},
 		{
 			'name' : 'android.widget.Toast',
-			'tags' : ['_instance', '_proxy', '_deep'],
+			'tags' : ['_instance', '_proxy', '_proxy_functions', '_no_proxy_constructors', '_no_proxy_fields', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_gen_converters'],
 			'extends' : [{'name': 'java.lang.Object'}],
-			'fields' : [
-				{
-					'name' : 'LENGTH_LONG',
-					'tags' : ['_no_proxy', '_static'],
-					'type' : 
-					{
-							'type' : 'int',
-							'converter' : 'convert_int',
-					},
-				},
-				{
-					'name' : 'LENGTH_SHORT',
-					'tags' : ['_no_proxy', '_static'],
-					'type' : 
-					{
-							'type' : 'int',
-							'converter' : 'convert_int',
-					},
-				},
-			],	
 			'functions' : [
 				{
 					'name' : 'cancel',
@@ -7030,18 +7269,6 @@ config = {
 					],
 				},
 			],	
-			'constructors' : [	
-				{
-					'name' : 'android.widget.Toast',
-					'tags' : ['_no_proxy'],
-					'params' : [
-						{
-								'type' : 'android.content.Context',
-								'converter' : 'convert_proxy',
-						},
-					],
-				},
-			],
 		},
 	],
 }

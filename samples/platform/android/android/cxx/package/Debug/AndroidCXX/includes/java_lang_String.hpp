@@ -9,7 +9,6 @@
 
 
 
-
  	
 
 
@@ -28,11 +27,7 @@
 
 
 
-#include <java_io_Serializable.hpp>
-
 #include <java_lang_CharSequence.hpp>
-
-#include <java_lang_Comparable.hpp>
 
 #include <vector>
 #include <map>
@@ -50,7 +45,7 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String : public AndroidCXX::java_io_Serializable,public AndroidCXX::java_lang_CharSequence,public AndroidCXX::java_lang_Comparable
+class java_lang_String : public AndroidCXX::java_lang_CharSequence
 {
 public:
 

@@ -71,7 +71,7 @@ class Generator(BaseGenerator):
 		self._teardown_index()
 
 	def generate_reports(self):
-		self._generate_converters_report()
+		pass
 
 	def generate_config(self):
 		self._generate_config()
@@ -254,15 +254,14 @@ class Generator(BaseGenerator):
 		logging.debug("self.config_report_file_name " + str(self.config_report_file_name))
 		config_report_file_path = os.path.join(self.report_outdir_name, self.config_report_file_name)
 		logging.debug("config_report_file_path " + str(config_report_file_path))
-		self.config_module = ConfigModule(self.config_file_name, self.include_config_file_paths)
 		assert self.config_module.is_valid, "config_module is not valid"
 		self._update_config(self.config_module)
 		config_report = self.config_module.analyze_config()
 		config_report_file = open(config_report_file_path, "w+")
-		config_report_md = Template(file=os.path.join(self.target, "templates", "report.md"), searchList=[{'CONFIG': self}])
+		config_report_md = Template(file=os.path.join(self.target, "templates", "report.md"), searchList=[{'CONFIG': self, 'report': config_report}])
 		logging.debug("config_report_md " + str(config_report_md))
-		self.config_report_file.write(str(config_report_md))
-		self.config_report_file.close()
+		config_report_file.write(str(config_report_md))
+		config_report_file.close()
 		self.config_module = None
 		logging.debug("Generator _generate_converters_report exit")
 
@@ -285,6 +284,7 @@ class Generator(BaseGenerator):
 		logging.debug("config.py " + str(config_py))
 		self.config_py_file.write(str(config_py))
 		self.config_py_file.close()
+		self._generate_converters_report()
 		self.config_module = None
 		logging.debug("_generate_config exit")
 
@@ -808,6 +808,100 @@ class Generator(BaseGenerator):
 		config_module.attach_config_converters()
 		logging.debug("Generator _update_config_data exit")	
 
+class ConfigReport(object):
+	def __init__(self):
+		self.missing_classes = set()
+		self.missing_gen_converters = set()
+		self.missing_gen_array_converters = set()
+		self.missing_gen_2d_array_converters = set()
+		self.unused_gen_converters = set()
+		self.unused_gen_array_converters = set()
+		self.unused_gen_2d_array_converters = set()
+
+	def analyze(self, config_module):
+		class_lookup = self._build_class_lookup(config_module)
+		classes = list()
+		classes.extend(config_module.config_data['classes'])
+		for include_config_data in config_module.include_config_data_list:
+			classes.extend(include_config_data['classes'])
+		for clazz in classes:
+			if '_no_proxy' not in clazz['tags']:
+				for function in clazz['functions']:
+					if '_no_proxy' not in function['tags']:
+						for param in function['params']:
+							self._analyze_type(param, class_lookup)
+						for retrn in function['returns']:
+							self._analyze_type(retrn, class_lookup)
+				for constructor in clazz['constructors']:
+					if '_no_proxy' not in constructor['tags']:
+						for param in constructor['params']:
+							self._analyze_type(param, class_lookup)
+				for field in clazz['fields']:
+					if '_no_proxy' not in field['tags']:
+						self._analyze_type(field['type'], class_lookup)
+		for clazz_name in class_lookup:
+			clazz = class_lookup[clazz_name]
+			referenced_by = clazz['_referenced_by']
+			if '_proxy' not in referenced_by:
+				if '_no_gen_converters' not in clazz['tags']:
+					self.unused_gen_converters.add(clazz_name)
+			if '_object_array' not in referenced_by:
+				if '_no_gen_array_converters' not in clazz['tags']:
+					self.unused_gen_array_converters.add(clazz_name)
+			if '_array_array' not in referenced_by:
+				if '_no_gen_2d_array_converters' not in clazz['tags']:
+					self.unused_gen_2d_array_converters.add(clazz_name)
+
+	def _analyze_type(self, type_, class_lookup):
+		# _TODO_ markers
+		if type_['converter'] == '_TODO_':
+			self.missing_classes.add(type_['type'])
+		elif type_['converter'] == 'convert_proxy':
+			# classes that are in params or return types that have _no_gen_converters
+			type_class = class_lookup[type_['type']]
+			type_class['_referenced_by'].add('_proxy')
+			if '_no_gen_converters' in class_lookup[type_['type']]['tags']:
+				self.missing_gen_converters.add(type_['type'])
+			if 'children' in type_:
+				for child_type in type_['children']:
+					self._analyze_type(child_type, class_lookup)
+		if type_['type'] == '_object_array':
+			if 'children' in type_:
+				child_type = type_['children'][0]
+				if child_type['converter'] == '_TODO_':
+					self.missing_classes.add(child_type['type'])
+				elif child_type['converter'] == 'convert_proxy':
+					child_type_class = class_lookup[child_type['type']]
+					child_type_class['_referenced_by'].add('_object_array')
+					if '_no_gen_array_converters' in class_lookup[child_type['type']]['tags']:
+						self.missing_gen_array_converters.add(child_type['type'])
+		elif type_['type'] == '_array_array':
+			if 'children' in type_:
+				child_type = type_['children'][0]
+				if 'children' in child_type:
+					grand_child_type = child_type['children'][0]
+					if grand_child_type['converter'] == '_TODO_':
+						self.missing_classes.add(grand_child_type['type'])
+					elif grand_child_type['converter'] == 'convert_proxy':
+						grand_child_type_class = class_lookup[grand_child_type['type']]
+						grand_child_type_class['_referenced_by'].add('_array_array')
+						if '_no_gen_2d_array_converters' in class_lookup[grand_child_type['type']]['tags']:
+							self.missing_gen_2d_array_converters.add(grand_child_type_class['type'])
+
+	def _build_class_lookup(self, config_module):
+		class_lookup = dict()
+		for clazz in config_module.config_data['classes']:
+			if '_no_proxy' not in clazz['tags']:
+				clazz = clazz.copy()
+				clazz['_referenced_by'] = set()
+				class_lookup[clazz['name']] = clazz
+		for include_config_data in config_module.include_config_data_list:
+			for include_clazz in include_config_data['classes']:
+				if '_no_proxy' not in include_clazz['tags']:
+					include_clazz = include_clazz.copy()
+					include_clazz['_referenced_by'] = set()
+					class_lookup[include_clazz['name']] = include_clazz
+		return class_lookup
 
 class ConfigModule(object):
 	def __init__(self, config_file_name, include_config_file_paths):
@@ -816,6 +910,11 @@ class ConfigModule(object):
 		if include_config_file_paths is not None:
 			self.include_config_data_list = ConfigModule.load_included_configs(self.config_data, include_config_file_paths)
 		self.is_valid = self.config_data is not None
+
+	def analyze_config(self):
+		config_report = ConfigReport()
+		config_report.analyze(self)
+		return config_report
 
 	def add_namespace_to_config_data(self, namespace_name):
 		logging.debug("_add_namespace_to_config_data enter")
@@ -867,10 +966,6 @@ class ConfigModule(object):
 		self._detach_derived_data(self.config_data, self.config_data)
 		for include_config_data in self.include_config_data_list:
 			self._detach_derived_data(include_config_data, include_config_data)
-
-	def analyze_config(self, config_module):
-		config_report = dict()
-		return config_report
 
 	def list_converters(self, name, cxx_type, java_type):
 		self._init_info()
@@ -1123,7 +1218,6 @@ class ConfigModule(object):
 								convertible["converter"] = converter["name"]
 								break
 		if "converter" not in convertible:
-			logging.warn("Check generated config.py - some converters are _TODO_")
 			convertible["converter"] = "_TODO_"
 		if "children" in convertible:
 			for child_convertible in convertible["children"]:
@@ -1218,20 +1312,21 @@ class ConfigModule(object):
 				namespaced_classes = self.list_all_namespaced_classes(tags=None,xtags=None,name=config_superclass['name'])
 				for namespaced_class in namespaced_classes:
 					superclass_tags = namespaced_class['clazz']['tags']
-					is_superclass_abstract = '_abstract' in superclass_tags
-					is_superclass_interface = '_interface' in superclass_tags
-					is_superclass_root_java_object = config_superclass['name'] == jindex.JAVA_OBJECT
-					if is_superclass_abstract or is_superclass_interface or is_superclass_root_java_object: 					
-						superclass = dict(config_superclass)
-						superclass['namespace'] = namespaced_class['namespace']
-						superclass['name'] = config_superclass['name']
-						superclass['typename'] = Utils.to_class_name(superclass['name'])
-						file_name = Utils.to_file_name(superclass['typename'],"hpp")
-						superclass['filename'] = file_name	
-						superclass['isenum'] = True if '_enum' in namespaced_class['clazz']['tags'] else False
-						superclass['isinterface'] = True if '_interface' in namespaced_class['clazz']['tags'] else False
-						superclass['isabstract'] = True if '_abstract' in namespaced_class['clazz']['tags'] else False
-						superclasses.append(superclass)
+					if '_no_proxy' not in superclass_tags:
+						is_superclass_abstract = '_abstract' in superclass_tags
+						is_superclass_interface = '_interface' in superclass_tags
+						is_superclass_root_java_object = config_superclass['name'] == jindex.JAVA_OBJECT
+						if is_superclass_abstract or is_superclass_interface or is_superclass_root_java_object: 					
+							superclass = dict(config_superclass)
+							superclass['namespace'] = namespaced_class['namespace']
+							superclass['name'] = config_superclass['name']
+							superclass['typename'] = Utils.to_class_name(superclass['name'])
+							file_name = Utils.to_file_name(superclass['typename'],"hpp")
+							superclass['filename'] = file_name	
+							superclass['isenum'] = True if '_enum' in namespaced_class['clazz']['tags'] else False
+							superclass['isinterface'] = True if '_interface' in namespaced_class['clazz']['tags'] else False
+							superclass['isabstract'] = True if '_abstract' in namespaced_class['clazz']['tags'] else False
+							superclasses.append(superclass)
 		if len(superclasses) > 0:
 			classinfo['superclasses'] = superclasses			
 		logging.debug("_attach_derived_target_class_info exit")	
@@ -1410,7 +1505,6 @@ class ConfigModule(object):
 				for namespaced_child_class in namespaced_child_classes:	
 					child_clazz = namespaced_child_class["clazz"]
 					child_class_info = self._build_class_info_data(child_clazz)				
-					child_class_info['usedinarrayarray'] = True
 					child_namespace = namespaced_child_class['namespace']
 					child_type_name = child_clazz['name']
 					child_type_name = Utils.to_class_name(child_type_name)					
@@ -1431,7 +1525,6 @@ class ConfigModule(object):
 				for namespaced_child_class in namespaced_child_classes:	
 					child_clazz = namespaced_child_class["clazz"]
 					child_class_info = self._build_class_info_data(child_clazz)								
-					child_class_info['usedinarray'] = True
 					child_type_name = child_clazz['name']
 					child_type_name = Utils.to_class_name(child_type_name)					
 					child_namespace = namespaced_child_class['namespace']
@@ -1552,7 +1645,7 @@ class ConfigModule(object):
 		for superclass in superclasses:
 			if superclass in superclass_rankings:
 				superclass_rankings[superclass] += 1
-			superclass_configs = self.list_all_classes(tags=None,xtags=None,name=superclass)
+			superclass_configs = self.list_all_classes(tags=None,xtags=['_no_proxy'],name=superclass)
 			for superclass_config in superclass_configs:
 				superclass_superclass_config_list = list()
 				if 'extends' in superclass_config:

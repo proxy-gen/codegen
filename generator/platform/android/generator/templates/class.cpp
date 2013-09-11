@@ -46,7 +46,9 @@
 #set $entity_object = $entity_class_info['typename'] == 'java_lang_Object' 
 #set $entity_virtual = $entity_interface or $entity_abstract or $entity_object
 #set $entity_callback = '_callback' in $entity_class_config['tags']
-#set $isdeep_proxied = '_deep' in $entity_class_config['tags'] 
+#set $isfunctions_proxied = '_proxy_functions' in $entity_class_config['tags'] 
+#set $isfields_proxied = '_proxy_fields' in $entity_class_config['tags']  
+#set $isconstructors_proxied = '_proxy_constructors' in $entity_class_config['tags'] 
 #set $superclass_typeinfos = $entity_class_info['superclasses'] if 'superclasses' in $entity_class_info else None
 
 #set $superclassCCStr = ""
@@ -74,9 +76,8 @@
 #end if
 
 #set $functions = list()
-#if $isdeep_proxied
+#if $isfunctions_proxied
 #set $functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_proxy'],function_xtags=None,function_name=None)	
-
 #for $function in $functions
 #set $param_str = ""
 #set $jni_param_str = "" 
@@ -145,8 +146,9 @@
 #end for
 #end if
 
+#set $constructors = list()
+#if $isconstructors_proxied
 #set $constructors = $config_module.list_constructors(class_tags=None,class_xtags=None,class_name=$class_name,constructor_tags=['_proxy'],constructor_xtags=None,constructor_name=None)	
-
 #for $constructor in $constructors
 #set $param_str = ""
 #set $params = $constructor['params']
@@ -188,6 +190,7 @@
 #end while
 #set $constructor['proxied_typeinfo_list'] = $proxied_typeinfo_list
 #end for
+#end if
 
 #set $no_copy_constructor = $entity_class_info['no_copy_constructor']
 #set $no_default_constructor = $entity_class_info['no_default_constructor']
@@ -600,7 +603,7 @@ ${entity_class_name}::~${entity_class_name}()
 #if $entity_callback
 void ${entity_class_name}::setCXXCallbackPtr(void * callbackPtr) 
 {
-	LOGV("$function['retrn_type'] ${entity_class_name}::setCXXCallbackPtr enter");
+	LOGV("${entity_class_name}::setCXXCallbackPtr(void * callbackPtr) enter");
 
 	const char *methodName = "setCXXCallbackPtr";
 	const char *methodSignature = "(J)V";
@@ -617,7 +620,7 @@ void ${entity_class_name}::setCXXCallbackPtr(void * callbackPtr)
 	LOGV("${entity_class_name} jni address %ld", javaObject);	
 	jni->invokeVoidMethod(javaObject,className,methodName,methodSignature, jcallbackAddress);
 
-	LOGV("$function['retrn_type'] ${entity_class_name}::setCXXCallbackPtr exit");
+	LOGV("${entity_class_name}::setCXXCallbackPtr(void * callbackPtr) exit");
 }
 #end if
 #if ($entity_callback and $constructor_count == 0 ) or ($entity_abstract or $entity_interface or $entity_object)

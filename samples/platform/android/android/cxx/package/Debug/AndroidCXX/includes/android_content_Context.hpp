@@ -14,8 +14,6 @@
 
 
 
-
-
 // Generated Code 
 
 #ifndef _android_content_Context

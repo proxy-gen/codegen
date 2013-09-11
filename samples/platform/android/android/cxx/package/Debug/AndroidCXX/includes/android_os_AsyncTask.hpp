@@ -22,7 +22,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_os_AsyncTask

@@ -17,8 +17,6 @@
 
 
 
-
-
 // Generated Code 
 
 #ifndef _java_util_Iterator
@@ -60,7 +58,6 @@ public:
 	// Functions
 	virtual bool  hasNext() ;
 	virtual AndroidCXX::java_lang_Object * next() ;
-	virtual void  remove() ;
 
 protected:
 	java_util_Iterator();
