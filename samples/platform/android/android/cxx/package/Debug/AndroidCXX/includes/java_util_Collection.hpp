@@ -9,44 +9,9 @@
 
 
  		 
- 	
- 		 
- 		 
- 		 
- 	
- 		 
- 		 
- 		 
 	
  	
  		 
- 		 
- 	
- 		 
- 		 
- 		 
- 	
- 		 
- 	
- 	
- 		 
- 		 
- 	
- 		 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -65,7 +30,7 @@
 
 
 
-#include <java_lang_Iterable.hpp>
+#include <java_lang_Object.hpp>
 
 #include <vector>
 #include <map>
@@ -84,11 +49,9 @@ namespace AndroidCXX {
 // Forward Declarations
 
 
-class java_lang_Object;
-
 class java_util_Iterator;
 
-class java_util_Collection : public AndroidCXX::java_lang_Iterable
+class java_util_Collection : public AndroidCXX::java_lang_Object
 {
 public:
 
@@ -98,21 +61,8 @@ public:
 	// Default Destructor
 	virtual ~java_util_Collection();
 	// Functions
-	virtual bool  addAll(AndroidCXX::java_util_Collection const& arg0) ;
-	virtual bool  add(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual void  clear() ;
-	virtual bool  containsAll(AndroidCXX::java_util_Collection const& arg0) ;
 	virtual bool  contains(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual bool  equals(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual int  hashCode() ;
-	virtual bool  isEmpty() ;
 	virtual AndroidCXX::java_util_Iterator * iterator() ;
-	virtual bool  removeAll(AndroidCXX::java_util_Collection const& arg0) ;
-	virtual bool  remove(AndroidCXX::java_lang_Object const& arg0) ;
-	virtual bool  retainAll(AndroidCXX::java_util_Collection const& arg0) ;
-	virtual int  size() ;
-	virtual std::vector<AndroidCXX::java_lang_Object*>  toArray(std::vector<AndroidCXX::java_lang_Object*> const& arg0) ;
-	virtual std::vector<AndroidCXX::java_lang_Object*>  toArray() ;
 
 protected:
 	java_util_Collection();

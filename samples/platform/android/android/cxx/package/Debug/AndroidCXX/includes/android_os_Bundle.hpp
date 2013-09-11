@@ -18,7 +18,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_os_Bundle
@@ -30,8 +29,6 @@
 
 #include <java_lang_String.hpp>
 
-
-#include <android_os_Parcelable.hpp>
 
 #include <java_lang_Cloneable.hpp>
 
@@ -53,7 +50,7 @@ namespace AndroidCXX {
 
 class java_lang_String;
 
-class android_os_Bundle : public AndroidCXX::android_os_Parcelable,public AndroidCXX::java_lang_Cloneable
+class android_os_Bundle : public AndroidCXX::java_lang_Cloneable
 {
 public:
 

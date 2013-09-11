@@ -21,7 +21,6 @@
 
 
 
-
 // Generated Code 
 
 #ifndef _android_widget_Toast

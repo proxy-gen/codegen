@@ -36,21 +36,22 @@ default_configure_config_file=./config.py
 default_generate_config_file=./generated/config/$CODEGEN_TARGET/config.py
 default_package_config_file=./generated/config/$CODEGEN_TARGET/config.py
 codegen_config_file=""
+codegen_report_file=./generated/config/$CODEGEN_TARGET/report.md
 
 
 configure_flag=0
 generate_flag=0
 package_flag=0
+clean_flag=0
 
 function usage
 {
-	echo "Usage: $0 [--configure [--config-file <base-config-file>]] | [--generate  [--config-file <config-file>]] | [--package [--config-file <config-file>]]"
+	echo "Usage: $0 [--configure [--config-file <config-file>]] | [--generate  [--config-file <config-file>]] | [--package [--config-file <config-file>]] ]  [--clean]"
     echo "--help: Usage"
-    echo "--configure: Generate config file (using a base config file)"
+    echo "--configure: Generate config file (using a config file)"
     echo "--generate: Generate code (using a config file)"
     echo "--package: Package generated code"
-    echo "--base-config-file: Base config file"
-    echo "--config-file: Config file used to generate code"
+    echo "--clean: Clean generated code"
 }
 
 function setup
@@ -102,6 +103,14 @@ function package
 	popd
 }
 
+function clean
+{
+	pushd $my_dir > /dev/null
+	rm -rf generated > /dev/null
+	rm -rf package > /dev/null
+	popd
+}
+
 if [ -z "$1" ]
 	then
 		usage
@@ -116,6 +125,8 @@ do
 	--generate) generate_flag=1
 		   	;;
  	--package) package_flag=1
+			;;
+	--clean) clean_flag=1
 			;;
 	--config-file) shift
 			codegen_config_file=$1
@@ -144,6 +155,7 @@ then
 	echo "using config file " $codegen_config_file
 	configure
 	echo "generated config file " $codegen_config_file
+	echo "generated report file " $codegen_report_file
 	echo "configure complete"
 fi
 
@@ -168,4 +180,10 @@ then
 	fi
     package
     echo "package complete"
+fi
+
+if [ $clean_flag -ne 0 ]
+then
+    clean
+    echo "clean complete"
 fi
