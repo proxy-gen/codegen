@@ -42,7 +42,9 @@
 #set $entity_object = $entity_class_info['typename'] == 'java_lang_Object' 
 #set $entity_virtual = $entity_interface or $entity_abstract or $entity_object
 #set $entity_callback = '_callback' in $entity_class_config['tags']
-#set $isdeep_proxied = '_deep' in $entity_class_config['tags']
+#set $isfunctions_proxied = '_proxy_functions' in $entity_class_config['tags']
+#set $isfields_proxied = '_proxy_fields' in $entity_class_config['tags']  
+#set $isconstructors_proxied = '_proxy_constructors' in $entity_class_config['tags']  
 #set $superclass_typeinfos = $entity_class_info['superclasses'] if 'superclasses' in $entity_class_info else None
 
 #set $superclassStr = ""
@@ -70,7 +72,7 @@
 #end if
 
 #set $functions = list()
-#if $isdeep_proxied
+#if $isfunctions_proxied
 #set $functions = $config_module.list_functions(class_tags=None,class_xtags=None,class_name=$class_name,function_tags=['_proxy'],function_xtags=None,function_name=None)	
 #for $function in $functions
 #set $param_str = ""
@@ -159,8 +161,9 @@
 #end for
 #end if
 
+#set $constructors = list()
+#if $isconstructors_proxied
 #set $constructors = $config_module.list_constructors(class_tags=None,class_xtags=None,class_name=$class_name,constructor_tags=['_proxy'],constructor_xtags=None,constructor_name=None)	
-
 #for $constructor in $constructors
 #set $param_str = ""
 #set $params = $constructor['params']
@@ -202,6 +205,7 @@
 #end while
 #set $constructor['proxied_typeinfo_list'] = $proxied_typeinfo_list
 #end for
+#end if
 
 #set $no_copy_constructor = $entity_class_info['no_copy_constructor']
 #set $no_default_constructor = $entity_class_info['no_default_constructor']

@@ -37,8 +37,6 @@ JNIEXPORT void JNICALL Java_com_zynga_sdk_cxx_CXXContext_destroyNativeContext(JN
 
 JNIEXPORT void JNICALL Java_com_zynga_sdk_cxx_CXXContext_setAndroidContext(JNIEnv *env, jclass classRef, jobject applicationContext);
 
-JNIEXPORT jobject JNICALL Java_com_zynga_sdk_cxx_CXXContext_notifyCXX(JNIEnv *env, jobject objectRef, jlong proxiedAddressRef, jlong proxiedCallbackIDRef, jstring methodNameRef, jobjectArray payload);
-
 #ifdef __cplusplus
 }
 #endif //__cplusplus

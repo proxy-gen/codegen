@@ -915,8 +915,14 @@ class TranslationUnit(JavaObject):
 		elif type_kind == TypeKind.JAVA_NOT_INSTANTIATABLE:
 			pass
 
+		# defaults
 		tags.append("_proxy")
-		tags.append("_no_deep")
+		tags.append("_no_proxy_functions")
+		tags.append("_no_proxy_fields") 
+		tags.append("_no_proxy_constructors") 
+		tags.append("_no_gen_converters")
+		tags.append("_no_gen_array_converters")
+		tags.append("_no_gen_2d_array_converters")
 
 		tags = sorted(list(set(tags)))
 
@@ -1110,30 +1116,102 @@ class TranslationUnit(JavaObject):
 			if new_signature_key in old_signatures:
 				TranslationUnit._migrate_tag(new_signatures[new_signature_key], old_signatures[new_signature_key])
 		for new_clazz in new_class_hierarchy:
-			if '_no_deep' in new_clazz['tags']:
+			if '_no_proxy_functions' in new_clazz['tags']:
 				for function in new_clazz['functions']:
 					function_tags = function['tags']
 					if '_proxy' in function_tags:
 						function_tags.remove('_proxy')
 					if '_no_proxy' not in function_tags:
 						function_tags.append('_no_proxy')
+			if '_no_proxy_fields' in new_clazz['tags']:
 				for field in new_clazz['fields']:
 					field_tags = field['tags']
 					if '_proxy' in field_tags:
 						field_tags.remove('_proxy')
 					if '_no_proxy' not in field_tags:
 						field_tags.append('_no_proxy')
+			if '_no_proxy_constructors' in new_clazz['tags']:
+				for constructor in new_clazz['constructors']:
+					constructor_tags = constructor['tags']
+					if '_proxy' in constructor_tags:
+						constructor_tags.remove('_proxy')
+					if '_no_proxy' not in constructor_tags:
+						constructor_tags.append('_no_proxy')
 
 	@classmethod
 	def _migrate_tag(cls, new_tags, old_tags):
-		if '_deep' in old_tags and '_deep' not in new_tags:
-			if '_no_deep' in new_tags:
-				new_tags.remove('_no_deep')
-			new_tags.append('_deep')
-		if '_no_deep' in old_tags and '_no_deep' not in new_tags:
-			if '_deep' in new_tags:
-				new_tags.remove('_deep')
-			new_tags.append('_no_deep')		
+		if '_gen_converters' in old_tags and '_gen_converters' not in new_tags:
+			if '_no_gen_converters' in new_tags:
+				new_tags.remove('_no_gen_converters')
+			new_tags.append('_gen_converters')
+		if '_no_gen_converters' not in old_tags and '_gen_converters' not in new_tags:
+			if '_no_gen_converters' in new_tags:
+				new_tags.remove('_no_gen_converters')
+			new_tags.append('_gen_converters')
+		if '_no_gen_converters' in old_tags and '_no_gen_converters' not in new_tags:
+			if '_gen_converters' in new_tags:
+				new_tags.remove('_gen_converters')
+			new_tags.append('_no_gen_converters')		
+		if '_gen_array_converters' in old_tags and '_gen_array_converters' not in new_tags:
+			if '_no_gen_array_converters' in new_tags:
+				new_tags.remove('_no_gen_array_converters')
+			new_tags.append('_gen_array_converters')
+		if '_no_gen_array_converters' not in old_tags and '_gen_array_converters' not in new_tags:
+			if '_no_gen_array_converters' in new_tags:
+				new_tags.remove('_no_gen_array_converters')
+			new_tags.append('_gen_array_converters')
+		if '_no_gen_array_converters' in old_tags and '_no_gen_array_converters' not in new_tags:
+			if '_gen_array_converters' in new_tags:
+				new_tags.remove('_gen_array_converters')
+			new_tags.append('_no_gen_array_converters')		
+		if '_gen_2d_array_converters' in old_tags and '_gen_2d_array_converters' not in new_tags:
+			if '_no_gen_2d_array_converters' in new_tags:
+				new_tags.remove('_no_gen_2d_array_converters')
+			new_tags.append('_gen_2d_array_converters')
+		if '_no_gen_2d_array_converters' not in old_tags and '_gen_2d_array_converters' not in new_tags:
+			if '_no_gen_2d_array_converters' in new_tags:
+				new_tags.remove('_no_gen_2d_array_converters')
+			new_tags.append('_gen_2d_array_converters')
+		if '_no_gen_2d_array_converters' in old_tags and '_no_gen_2d_array_converters' not in new_tags:
+			if '_gen_2d_array_converters' in new_tags:
+				new_tags.remove('_gen_2d_array_converters')
+			new_tags.append('_no_gen_2d_array_converters')		
+		if '_proxy_constructors' in old_tags and '_proxy_constructors' not in new_tags:
+			if '_no_proxy_constructors' in new_tags:
+				new_tags.remove('_no_proxy_constructors')
+			new_tags.append('_proxy_constructors')
+		if '_no_proxy_constructors' not in old_tags and '_proxy_constructors' not in new_tags:
+			if '_no_proxy_constructors' in new_tags:
+				new_tags.remove('_no_proxy_constructors')
+			new_tags.append('_proxy_constructors')
+		if '_no_proxy_constructors' in old_tags and '_no_proxy_constructors' not in new_tags:
+			if '_proxy_constructors' in new_tags:
+				new_tags.remove('_proxy_constructors')
+			new_tags.append('_no_proxy_constructors')		
+		if '_proxy_fields' in old_tags and '_proxy_fields' not in new_tags:
+			if '_no_proxy_fields' in new_tags:
+				new_tags.remove('_no_proxy_fields')
+			new_tags.append('_proxy_fields')
+		if '_no_proxy_fields' not in old_tags and '_proxy_fields' not in new_tags:
+			if '_no_proxy_fields' in new_tags:
+				new_tags.remove('_no_proxy_fields')
+			new_tags.append('_proxy_fields')
+		if '_no_proxy_fields' in old_tags and '_no_proxy_fields' not in new_tags:
+			if '_proxy_fields' in new_tags:
+				new_tags.remove('_proxy_fields')
+			new_tags.append('_no_proxy_fields')		
+		if '_proxy_functions' in old_tags and '_proxy_functions' not in new_tags:
+			if '_no_proxy_functions' in new_tags:
+				new_tags.remove('_no_proxy_functions')
+			new_tags.append('_proxy_functions')
+		if '_no_proxy_functions' not in old_tags and '_proxy_functions' not in new_tags:
+			if '_no_proxy_functions' in new_tags:
+				new_tags.remove('_no_proxy_functions')
+			new_tags.append('_proxy_functions')
+		if '_no_proxy_functions' in old_tags and '_no_proxy_functions' not in new_tags:
+			if '_proxy_functions' in new_tags:
+				new_tags.remove('_proxy_functions')
+			new_tags.append('_no_proxy_functions')		
 		if '_proxy' in old_tags and '_proxy' not in new_tags:
 			if '_no_proxy' in new_tags:
 				new_tags.remove('_no_proxy')
@@ -1238,24 +1316,25 @@ class TranslationUnit(JavaObject):
 	def _filter_clazz(cls, clazz, class_dict, class_lookup):
 		clazz_name = clazz['name']
 		if class_dict[clazz_name] == 1:
-			if 'extends' in clazz:
-				extends = clazz['extends']
-				for extends_clazz in extends:
-					extends_clazz_name = extends_clazz['name']
-					if extends_clazz_name in class_dict:
-						if extends_clazz_name != clazz_name:
-							if class_dict[extends_clazz_name] == -1:
-								class_dict[extends_clazz_name] = 1
-								TranslationUnit._filter_clazz(class_lookup[extends_clazz_name], class_dict, class_lookup)
-			if 'implements' in clazz:
-				implements = clazz['implements']
-				for implements_clazz in implements:
-					implements_clazz_name = implements_clazz['name']
-					if implements_clazz_name in class_dict:
-						if implements_clazz_name != clazz_name:
-							if class_dict[implements_clazz_name] == -1:
-								class_dict[implements_clazz_name] = 1
-								TranslationUnit._filter_clazz(class_lookup[implements_clazz_name], class_dict, class_lookup)
+			# Skip extends and implements generation unless explicit in config
+			# if 'extends' in clazz:
+			# 	extends = clazz['extends']
+			# 	for extends_clazz in extends:
+			# 		extends_clazz_name = extends_clazz['name']
+			# 		if extends_clazz_name in class_dict:
+			# 			if extends_clazz_name != clazz_name:
+			# 				if class_dict[extends_clazz_name] == -1:
+			# 					class_dict[extends_clazz_name] = 1
+			# 					TranslationUnit._filter_clazz(class_lookup[extends_clazz_name], class_dict, class_lookup)
+			# if 'implements' in clazz:
+			# 	implements = clazz['implements']
+			# 	for implements_clazz in implements:
+			# 		implements_clazz_name = implements_clazz['name']
+			# 		if implements_clazz_name in class_dict:
+			# 			if implements_clazz_name != clazz_name:
+			# 				if class_dict[implements_clazz_name] == -1:
+			# 					class_dict[implements_clazz_name] = 1
+			# 					TranslationUnit._filter_clazz(class_lookup[implements_clazz_name], class_dict, class_lookup)
 			fields = clazz['fields']
 			for field in fields:
 				if '_no_proxy' not in field['tags']:

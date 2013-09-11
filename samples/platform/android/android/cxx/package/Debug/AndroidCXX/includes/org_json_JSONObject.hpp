@@ -10,18 +10,6 @@
 
 
 
- 		 
- 		 
- 		 
- 	
- 		 
- 		 
-
-
-
-
-
-
 
 
 
@@ -34,12 +22,6 @@
 // Scroll Down 
 //
 
-
-#include <java_lang_String.hpp>
-
-#include <java_util_Map.hpp>
-
-#include <org_json_JSONTokener.hpp>
 
 
 #include <java_lang_Object.hpp>
@@ -60,24 +42,13 @@ namespace AndroidCXX {
 
 // Forward Declarations
 
-class java_lang_String;
-
-class java_util_Map;
-
-
-class org_json_JSONTokener;
-
 class org_json_JSONObject : public AndroidCXX::java_lang_Object
 {
 public:
 
 	// Public Constructor
-	org_json_JSONObject(Proxy * aProxy = new Proxy());
-	org_json_JSONObject(AndroidCXX::java_lang_String const& arg0,Proxy * aProxy = new Proxy());
-	org_json_JSONObject(AndroidCXX::java_util_Map const& arg0,Proxy * aProxy = new Proxy());
-	org_json_JSONObject(AndroidCXX::org_json_JSONObject const& arg0,std::vector<AndroidCXX::java_lang_String*> const& arg1,Proxy * aProxy = new Proxy());
-	org_json_JSONObject(AndroidCXX::org_json_JSONTokener const& arg0,Proxy * aProxy = new Proxy());
 	org_json_JSONObject(const org_json_JSONObject& cc);
+	org_json_JSONObject(Proxy * aProxy);
 	Proxy * proxy() const;	
 	// Default Destructor
 	virtual ~org_json_JSONObject();

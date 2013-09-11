@@ -40,7 +40,6 @@ obj/local/armeabi/objs/ZyngaCXX_static/cxx/CXXContext.o: \
  /Users/rvergis/Documents/android-ndk-r8e/platforms/android-9/arch-arm/usr/include/asm/sigcontext.h \
  /Users/rvergis/Documents/android-ndk-r8e/platforms/android-9/arch-arm/usr/include/sched.h \
  /Users/rvergis/Documents/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.6/include/string \
- jni/../../../../../../../../generator/platform/android/runtime/ZyngaCXX/jni/cxx/ProxiedCallback.hpp \
  jni/../../../../../../../../generator/platform/android/runtime/ZyngaCXX/jni/cxx/com_zynga_sdk_cxx_CXXContext.h \
  jni/../../../../../../../../generator/platform/android/runtime/ZyngaCXX/jni/cxx/exported/JNIContext.hpp \
  /Users/rvergis/Documents/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.6/include/map \
@@ -125,8 +124,6 @@ jni/../../../../../../../../generator/platform/android/runtime/ZyngaCXX/jni/cxx/
 /Users/rvergis/Documents/android-ndk-r8e/platforms/android-9/arch-arm/usr/include/sched.h:
 
 /Users/rvergis/Documents/android-ndk-r8e/sources/cxx-stl/gnu-libstdc++/4.6/include/string:
-
-jni/../../../../../../../../generator/platform/android/runtime/ZyngaCXX/jni/cxx/ProxiedCallback.hpp:
 
 jni/../../../../../../../../generator/platform/android/runtime/ZyngaCXX/jni/cxx/com_zynga_sdk_cxx_CXXContext.h:
 

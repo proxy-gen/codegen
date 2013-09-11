@@ -59,7 +59,6 @@ public:
 	bool deleteProxyComponent(jobject externalObject);
 	long findProxiedComponent(jobject javaObject);
 
-	jobject notify(long proxiedObjectAddress, long proxiedObjectID, std::string methodName, void * payload);
 	void setAndroidContext(jobject applicationContext);
 	jobject getAndroidContext();
 

@@ -15,12 +15,22 @@
 #		_instance											Tag to indicate class is an instance
 #		_singleton											Tag to indicate class instance is a singleton (field or instance)									
 #		_static 											Tag to indicate class has only static methods
-#		_proxy 												Tag to indicate class will be proxied
+#		_proxy 												Tag to indicate class will be proxied (default)
 #		_no_proxy											Tag to indicate class will not be proxied
 #		_callback 											Tag to indicate class is a callback
 #		_no_callback										Tag to indicate class will not be made a callback
-#		_deep												Tag to indicate class including functions will be proxied
-#		_no_deep											Tag to indicate class excluding functions will be proxied
+#		_proxy_functions									Tag to indicate class including functions will be proxied
+#		_no_proxy_functions									Tag to indicate class excluding functions will be proxied (default)
+#		_proxy_fields										Tag to indicate class including fields will be proxied
+#		_no_proxy_fields									Tag to indicate class excluding fields will be proxied (default)
+#		_proxy_constructors									Tag to indicate class including constructors will be proxied
+#		_no_proxy_constructors								Tag to indicate class excluding constructors will be proxied (default)
+#		_gen_converters										Tag to indicate class converters will be generated (default)
+#		_no_gen_converters									Tag to indicate class converters will not be generated
+#		_gen_array_converters								Tag to indicate class array converters will be generated (default)
+#		_no_gen_array_converters							Tag to indicate class array converters will not be generated
+#		_gen_2d_array_converters							Tag to indicate class 2d array converters will be generated (default)
+#		_no_gen_2d_array_converters							Tag to indicate class 2d array converters will not be generated
 #	Special Field Tags
 #		_static												Tag to indicate field is a static field
 #		_instance 											Tag to indicate field is an instance field
@@ -253,7 +263,7 @@ config = {
 	'classes' : [
 		{
 			'name' : 'com.facebook.AccessToken',
-			'tags' : ['_no_callback', '_no_deep', '_proxy'],
+			'tags' : ['_no_callback', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
@@ -373,7 +383,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.AccessTokenSource',
-			'tags' : ['_enum', '_no_callback', '_no_deep', '_no_proxy'],
+			'tags' : ['_enum', '_no_callback', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -466,7 +476,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookException',
-			'tags' : ['_instance', '_no_deep', '_proxy'],
+			'tags' : ['_instance', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.lang.RuntimeException'}],
 			'fields' : [
 			],	
@@ -475,41 +485,37 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.FacebookException',
-					'tags' : ['_proxy'],
+					'tags' : ['_no_proxy'],
 					'params' : [
 					],
 				},
 				{
 					'name' : 'com.facebook.FacebookException',
-					'tags' : ['_proxy'],
+					'tags' : ['_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'com.facebook.FacebookException',
-					'tags' : ['_proxy'],
+					'tags' : ['_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.Throwable',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'com.facebook.FacebookException',
-					'tags' : ['_proxy'],
+					'tags' : ['_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Throwable',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -517,68 +523,63 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookRequestError',
-			'tags' : ['_instance', '_no_callback', '_proxy', '_deep'],
+			'tags' : ['_instance', '_no_callback', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_proxy_constructors', '_no_proxy_fields', '_proxy', '_gen_converters', '_proxy_functions'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'INVALID_ERROR_CODE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'type' : 
 					{
 							'type' : 'int',
-							'converter' : 'convert_int',
 					},
 				},
 				{
 					'name' : 'INVALID_HTTP_STATUS_CODE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'type' : 
 					{
 							'type' : 'int',
-							'converter' : 'convert_int',
 					},
 				},
 			],	
 			'functions' : [
 				{
 					'name' : 'getBatchRequestResult',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getCategory',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.FacebookRequestError$Category',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getConnection',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.net.HttpURLConnection',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getErrorCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 					],
 					'returns' : [
@@ -590,121 +591,111 @@ config = {
 				},
 				{
 					'name' : 'getErrorMessage',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getErrorType',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getException',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.FacebookException',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getRequestResultBody',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'org.json.JSONObject',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getRequestResult',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'org.json.JSONObject',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getRequestStatusCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 					],
 				},
 				{
 					'name' : 'getSubErrorCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 					],
 				},
 				{
 					'name' : 'getUserActionMessageId',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 					],
 				},
 				{
 					'name' : 'shouldNotifyUser',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'boolean',
-								'converter' : 'convert_boolean',
 						},
 					],
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -712,19 +703,16 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.FacebookRequestError',
-					'tags' : ['_proxy'],
+					'tags' : ['_no_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -732,7 +720,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.FacebookRequestError$Category',
-			'tags' : ['_enum', '_no_callback', '_no_deep', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -833,7 +821,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.HttpMethod',
-			'tags' : ['_enum', '_no_callback', '_proxy', '_deep'],
+			'tags' : ['_enum', '_no_callback', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_proxy', '_gen_converters', '_no_proxy_constructors', '_proxy_fields', '_no_proxy_functions'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -867,30 +855,27 @@ config = {
 			'functions' : [
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.HttpMethod',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'values',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : '_object_array',
-								'children' : [{'type': 'com.facebook.HttpMethod', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array',
+								'children' : [{'type': 'com.facebook.HttpMethod'}],
 						},
 					],
 				},
@@ -900,149 +885,134 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request',
-			'tags' : ['_instance', '_proxy', '_deep'],
+			'tags' : ['_instance', '_no_gen_2d_array_converters', '_no_proxy_fields', '_proxy', '_gen_converters', '_gen_array_converters', '_proxy_constructors', '_proxy_functions'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'MAXIMUM_BATCH_SIZE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'type' : 
 					{
 							'type' : 'int',
-							'converter' : 'convert_int',
 					},
 				},
 			],	
 			'functions' : [
 				{
 					'name' : 'executeAndWait',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Response',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executeAndWait',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Response',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executeAsync',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.RequestAsyncTask',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executeBatchAndWait',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array',
-								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array',
+								'children' : [{'type': 'com.facebook.Request'}],
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'com.facebook.Response', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.Response'}],
 						},
 					],
 				},
 				{
 					'name' : 'executeBatchAndWait',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.RequestBatch',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'com.facebook.Response', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.Response'}],
 						},
 					],
 				},
 				{
 					'name' : 'executeBatchAndWait',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.Collection',
-								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.Request'}],
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'com.facebook.Response', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.Response'}],
 						},
 					],
 				},
 				{
 					'name' : 'executeBatchAsync',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array',
-								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array',
+								'children' : [{'type': 'com.facebook.Request'}],
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.RequestAsyncTask',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executeBatchAsync',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.RequestBatch',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.RequestAsyncTask',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executeBatchAsync',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'java.util.Collection',
@@ -1059,118 +1029,101 @@ config = {
 				},
 				{
 					'name' : 'executeConnectionAndWait',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.net.HttpURLConnection',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.RequestBatch',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'com.facebook.Response', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.Response'}],
 						},
 					],
 				},
 				{
 					'name' : 'executeConnectionAndWait',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.net.HttpURLConnection',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Collection',
-								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.Request'}],
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'com.facebook.Response', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.Response'}],
 						},
 					],
 				},
 				{
 					'name' : 'executeConnectionAsync',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Handler',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.net.HttpURLConnection',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.RequestBatch',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.RequestAsyncTask',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executeConnectionAsync',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.net.HttpURLConnection',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.RequestBatch',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.RequestAsyncTask',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executeGraphPathRequestAsync',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.RequestAsyncTask',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executeMeRequestAsync',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_proxy', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -1190,455 +1143,391 @@ config = {
 				},
 				{
 					'name' : 'executeMyFriendsRequestAsync',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$GraphUserListCallback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.RequestAsyncTask',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executePlacesSearchRequestAsync',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.location.Location',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$GraphPlaceListCallback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.RequestAsyncTask',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executePostRequestAsync',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.model.GraphObject',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.RequestAsyncTask',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executeRestRequestAsync',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.HttpMethod',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.RequestAsyncTask',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executeStatusUpdateRequestAsync',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.RequestAsyncTask',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executeUploadPhotoRequestAsync',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.graphics.Bitmap',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.RequestAsyncTask',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'executeUploadPhotoRequestAsync',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.File',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.RequestAsyncTask',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getBatchEntryDependsOn',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getBatchEntryName',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getBatchEntryOmitResultOnSuccess',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'boolean',
-								'converter' : 'convert_boolean',
 						},
 					],
 				},
 				{
 					'name' : 'getCallback',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getDefaultBatchApplicationId',
-					'tags' : ['_no_callback', '_proxy', '_static'],
+					'tags' : ['_no_callback', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getGraphObject',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.model.GraphObject',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getGraphPath',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getHttpMethod',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.HttpMethod',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getParameters',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'android.os.Bundle',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getRestMethod',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getSession',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getTag',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newCustomAudienceThirdPartyIdRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.Context',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newCustomAudienceThirdPartyIdRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.content.Context',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newDeleteObjectRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newGraphPathRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newMeRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$GraphUserCallback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newMyFriendsRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_proxy', '_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -1658,660 +1547,556 @@ config = {
 				},
 				{
 					'name' : 'newPlacesSearchRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.location.Location',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$GraphPlaceListCallback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newPostOpenGraphObjectRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.model.OpenGraphObject',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newPostOpenGraphObjectRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.model.GraphObject',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newPostRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.model.GraphObject',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newRestRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.HttpMethod',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newStatusUpdateRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newStatusUpdateRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.model.GraphPlace',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'com.facebook.model.GraphUser', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.model.GraphUser'}],
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newUpdateOpenGraphObjectRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.model.OpenGraphObject',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newUpdateOpenGraphObjectRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.model.GraphObject',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newUploadPhotoRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.graphics.Bitmap',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newUploadPhotoRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.File',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newUploadStagingResourceWithImageRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.graphics.Bitmap',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newUploadStagingResourceWithImageRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.File',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'newUploadVideoRequest',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.io.File',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'setBatchEntryDependsOn',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setBatchEntryName',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setBatchEntryOmitResultOnSuccess',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'boolean',
-								'converter' : 'convert_boolean',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setCallback',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Request$Callback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setDefaultBatchApplicationId',
-					'tags' : ['_no_callback', '_proxy', '_static'],
+					'tags' : ['_no_callback', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setGraphObject',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.model.GraphObject',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setGraphPath',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setHttpMethod',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.HttpMethod',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setParameters',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.os.Bundle',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setRestMethod',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setSession',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setTag',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'toHttpConnection',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array',
-								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array',
+								'children' : [{'type': 'com.facebook.Request'}],
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.net.HttpURLConnection',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'toHttpConnection',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.RequestBatch',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.net.HttpURLConnection',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'toHttpConnection',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.Collection',
-								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.Request'}],
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'java.net.HttpURLConnection',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -2319,49 +2104,43 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Request',
-					'tags' : ['_proxy'],
+					'tags' : ['_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 				},
 				{
 					'name' : 'com.facebook.Request',
-					'tags' : ['_proxy'],
+					'tags' : ['_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'com.facebook.Request',
-					'tags' : ['_proxy'],
+					'tags' : ['_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.HttpMethod',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'com.facebook.Request',
-					'tags' : ['_proxy'],
+					'tags' : ['_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -2389,14 +2168,14 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$Callback',
-			'tags' : ['_interface', '_proxy', '_deep', '_callback'],
+			'tags' : ['_interface', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_proxy_constructors', '_no_proxy_fields', '_proxy', '_gen_converters', '_proxy_functions', '_callback'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'onCompleted',
-					'tags' : ['_instance', '_proxy', '_callback'],
+					'tags' : ['_instance', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_callback'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Response',
@@ -2416,29 +2195,26 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphPlaceListCallback',
-			'tags' : ['_interface', '_proxy', '_deep', '_callback'],
+			'tags' : ['_interface', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'onCompleted',
-					'tags' : ['_instance', '_proxy', '_callback'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'com.facebook.model.GraphPlace', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.model.GraphPlace'}],
 						},
 						{
 								'type' : 'com.facebook.Response',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
@@ -2448,14 +2224,14 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphUserCallback',
-			'tags' : ['_interface', '_proxy', '_deep', '_callback'],
+			'tags' : ['_interface', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_proxy_constructors', '_no_proxy_fields', '_proxy', '_gen_converters', '_proxy_functions', '_callback'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'onCompleted',
-					'tags' : ['_instance', '_proxy', '_callback'],
+					'tags' : ['_instance', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_callback'],
 					'params' : [
 						{
 								'type' : 'com.facebook.model.GraphUser',
@@ -2479,14 +2255,14 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Request$GraphUserListCallback',
-			'tags' : ['_interface', '_proxy', '_deep', '_callback'],
+			'tags' : ['_interface', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_proxy_constructors', '_no_proxy_fields', '_proxy', '_gen_converters', '_proxy_functions', '_callback'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'onCompleted',
-					'tags' : ['_instance', '_proxy', '_callback'],
+					'tags' : ['_instance', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_callback'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
@@ -2511,20 +2287,19 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.RequestAsyncTask',
-			'tags' : ['_instance', '_proxy', '_deep'],
+			'tags' : ['_instance', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_proxy_fields', '_no_proxy_functions', '_proxy', '_gen_converters', '_proxy_constructors'],
 			'extends' : [{'name': 'android.os.AsyncTask'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -2532,7 +2307,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.RequestAsyncTask',
-					'tags' : ['_proxy'],
+					'tags' : ['_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : '_object_array',
@@ -2543,66 +2318,58 @@ config = {
 				},
 				{
 					'name' : 'com.facebook.RequestAsyncTask',
-					'tags' : ['_proxy'],
+					'tags' : ['_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.RequestBatch',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'com.facebook.RequestAsyncTask',
-					'tags' : ['_proxy'],
+					'tags' : ['_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.net.HttpURLConnection',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array',
-								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array',
+								'children' : [{'type': 'com.facebook.Request'}],
 						},
 					],
 				},
 				{
 					'name' : 'com.facebook.RequestAsyncTask',
-					'tags' : ['_proxy'],
+					'tags' : ['_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.net.HttpURLConnection',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.RequestBatch',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'com.facebook.RequestAsyncTask',
-					'tags' : ['_proxy'],
+					'tags' : ['_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.net.HttpURLConnection',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.Collection',
-								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.Request'}],
 						},
 					],
 				},
 				{
 					'name' : 'com.facebook.RequestAsyncTask',
-					'tags' : ['_proxy'],
+					'tags' : ['_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.Collection',
-								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.Request'}],
 						},
 					],
 				},
@@ -2610,7 +2377,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.RequestBatch',
-			'tags' : ['_instance', '_no_deep', '_proxy'],
+			'tags' : ['_instance', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}, {'name': 'java.util.AbstractList'}],
 			'fields' : [
 			],	
@@ -2793,39 +2560,36 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.RequestBatch',
-					'tags' : ['_proxy'],
+					'tags' : ['_no_proxy'],
 					'params' : [
 					],
 				},
 				{
 					'name' : 'com.facebook.RequestBatch',
-					'tags' : ['_proxy'],
+					'tags' : ['_no_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array',
-								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array',
+								'children' : [{'type': 'com.facebook.Request'}],
 						},
 					],
 				},
 				{
 					'name' : 'com.facebook.RequestBatch',
-					'tags' : ['_proxy'],
+					'tags' : ['_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.RequestBatch',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'com.facebook.RequestBatch',
-					'tags' : ['_proxy'],
+					'tags' : ['_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.Collection',
-								'children' : [{'type': 'com.facebook.Request', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.Request'}],
 						},
 					],
 				},
@@ -2833,7 +2597,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.RequestBatch$Callback',
-			'tags' : ['_interface', '_no_deep', '_no_proxy'],
+			'tags' : ['_interface', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
@@ -2858,35 +2622,33 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Response',
-			'tags' : ['_proxy', '_deep'],
+			'tags' : ['_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_proxy_constructors', '_no_proxy_fields', '_proxy', '_gen_converters', '_proxy_functions'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
 					'name' : 'NON_JSON_RESPONSE_PROPERTY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_proxy',
 					},
 				},
 			],	
 			'functions' : [
 				{
 					'name' : 'getConnection',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.net.HttpURLConnection',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getError',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 					],
 					'returns' : [
@@ -2898,107 +2660,97 @@ config = {
 				},
 				{
 					'name' : 'getGraphObjectAs',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Class',
-								'children' : [{'type': 'com.facebook.model.GraphObject', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.model.GraphObject'}],
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.model.GraphObject',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getGraphObjectListAs',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Class',
-								'children' : [{'type': 'com.facebook.model.GraphObject', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.model.GraphObject'}],
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.model.GraphObjectList',
-								'children' : [{'type': 'com.facebook.model.GraphObject', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.model.GraphObject'}],
 						},
 					],
 				},
 				{
 					'name' : 'getGraphObjectList',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.model.GraphObjectList',
-								'children' : [{'type': 'com.facebook.model.GraphObject', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'com.facebook.model.GraphObject'}],
 						},
 					],
 				},
 				{
 					'name' : 'getGraphObject',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.model.GraphObject',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getIsFromCache',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'boolean',
-								'converter' : 'convert_boolean',
 						},
 					],
 				},
 				{
 					'name' : 'getRequestForPagedResults',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Response$PagingDirection',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getRequest',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Request',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 					],
 					'returns' : [
@@ -3014,7 +2766,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Response$PagingDirection',
-			'tags' : ['_enum', '_no_callback', '_no_deep', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -3067,112 +2819,101 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session',
-			'tags' : ['_instance', '_proxy', '_deep'],
+			'tags' : ['_instance', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_proxy_constructors', '_no_proxy_fields', '_proxy', '_gen_converters', '_proxy_functions'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
 				{
 					'name' : 'ACTION_ACTIVE_SESSION_CLOSED',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'ACTION_ACTIVE_SESSION_OPENED',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'ACTION_ACTIVE_SESSION_SET',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'ACTION_ACTIVE_SESSION_UNSET',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'APPLICATION_ID_PROPERTY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'DEFAULT_AUTHORIZE_ACTIVITY_CODE',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'type' : 
 					{
 							'type' : 'int',
-							'converter' : 'convert_int',
 					},
 				},
 				{
 					'name' : 'TAG',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'WEB_VIEW_ERROR_CODE_KEY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_proxy',
 					},
 				},
 				{
 					'name' : 'WEB_VIEW_FAILING_URL_KEY',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'type' : 
 					{
 							'type' : 'java.lang.String',
-							'converter' : 'convert_proxy',
 					},
 				},
 			],	
 			'functions' : [
 				{
 					'name' : 'addCallback',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'closeAndClearTokenInformation',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 					],
 					'returns' : [
@@ -3184,47 +2925,43 @@ config = {
 				},
 				{
 					'name' : 'close',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'equals',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.Object',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'boolean',
-								'converter' : 'convert_boolean',
 						},
 					],
 				},
 				{
 					'name' : 'getAccessToken',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getActiveSession',
-					'tags' : ['_no_callback', '_proxy', '_singleton', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 					],
 					'returns' : [
@@ -3236,43 +2973,40 @@ config = {
 				},
 				{
 					'name' : 'getApplicationId',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getAuthorizationBundle',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'android.os.Bundle',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getExpirationDate',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.util.Date',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getPermissions',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 					],
 					'returns' : [
@@ -3285,31 +3019,29 @@ config = {
 				},
 				{
 					'name' : 'getState',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.SessionState',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'hashCode',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 					],
 				},
 				{
 					'name' : 'isClosed',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 					],
 					'returns' : [
@@ -3321,7 +3053,7 @@ config = {
 				},
 				{
 					'name' : 'isOpened',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 					],
 					'returns' : [
@@ -3333,23 +3065,21 @@ config = {
 				},
 				{
 					'name' : 'isPublishPermission',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'boolean',
-								'converter' : 'convert_boolean',
 						},
 					],
 				},
 				{
 					'name' : 'onActivityResult',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
@@ -3377,115 +3107,98 @@ config = {
 				},
 				{
 					'name' : 'openActiveSessionFromCache',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'openActiveSession',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
-								'converter' : 'convert_boolean',
 						},
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'openActiveSession',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.support.v4.app.Fragment',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'boolean',
-								'converter' : 'convert_boolean',
 						},
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'openActiveSessionWithAccessToken',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.AccessToken',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'openForPublish',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'openForRead',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
@@ -3501,43 +3214,38 @@ config = {
 				},
 				{
 					'name' : 'open',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.AccessToken',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'removeCallback',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'requestNewPublishPermissions',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
@@ -3553,7 +3261,7 @@ config = {
 				},
 				{
 					'name' : 'requestNewReadPermissions',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
@@ -3569,55 +3277,47 @@ config = {
 				},
 				{
 					'name' : 'restoreSession',
-					'tags' : ['_no_callback', '_proxy', '_singleton', '_static'],
+					'tags' : ['_no_callback', '_singleton', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.TokenCachingStrategy',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'saveSession',
-					'tags' : ['_no_callback', '_proxy', '_static'],
+					'tags' : ['_no_callback', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'android.os.Bundle',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setActiveSession',
-					'tags' : ['_no_callback', '_proxy', '_static'],
+					'tags' : ['_no_callback', '_proxy', '_static', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -3633,13 +3333,12 @@ config = {
 				},
 				{
 					'name' : 'toString',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3647,11 +3346,10 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Session',
-					'tags' : ['_proxy'],
+					'tags' : ['_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3659,7 +3357,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$AuthorizationRequest',
-			'tags' : ['_no_deep', '_proxy'],
+			'tags' : ['_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.io.Serializable'}],
 			'fields' : [
@@ -3685,14 +3383,14 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$Builder',
-			'tags' : ['_instance', '_no_callback', '_proxy', '_deep'],
+			'tags' : ['_instance', '_no_callback', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_proxy_fields', '_proxy', '_gen_converters', '_proxy_constructors', '_proxy_functions'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'build',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 					],
 					'returns' : [
@@ -3704,7 +3402,7 @@ config = {
 				},
 				{
 					'name' : 'setApplicationId',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
@@ -3720,7 +3418,7 @@ config = {
 				},
 				{
 					'name' : 'setTokenCachingStrategy',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'com.facebook.TokenCachingStrategy',
@@ -3738,7 +3436,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Session$Builder',
-					'tags' : ['_proxy'],
+					'tags' : ['_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -3750,72 +3448,64 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$NewPermissionsRequest',
-			'tags' : ['_instance', '_no_callback', '_proxy', '_deep'],
+			'tags' : ['_instance', '_no_callback', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_proxy_fields', '_no_proxy_functions', '_proxy', '_gen_converters', '_proxy_constructors'],
 			'extends' : [{'name': 'com.facebook.Session$AuthorizationRequest'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'setCallback',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'setDefaultAudience',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionDefaultAudience',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'setLoginBehavior',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionLoginBehavior',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'setRequestCode',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$NewPermissionsRequest',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3823,22 +3513,20 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Session$NewPermissionsRequest',
-					'tags' : ['_proxy'],
+					'tags' : ['_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array',
+								'children' : [{'type': 'java.lang.String'}],
 						},
 					],
 				},
 				{
 					'name' : 'com.facebook.Session$NewPermissionsRequest',
-					'tags' : ['_proxy'],
+					'tags' : ['_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
@@ -3853,31 +3541,27 @@ config = {
 				},
 				{
 					'name' : 'com.facebook.Session$NewPermissionsRequest',
-					'tags' : ['_proxy'],
+					'tags' : ['_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.support.v4.app.Fragment',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : '_object_array',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array',
+								'children' : [{'type': 'java.lang.String'}],
 						},
 					],
 				},
 				{
 					'name' : 'com.facebook.Session$NewPermissionsRequest',
-					'tags' : ['_proxy'],
+					'tags' : ['_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.support.v4.app.Fragment',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'java.lang.String'}],
 						},
 					],
 				},
@@ -3885,14 +3569,14 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$OpenRequest',
-			'tags' : ['_instance', '_no_callback', '_proxy', '_deep'],
+			'tags' : ['_instance', '_no_callback', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_proxy_fields', '_proxy', '_gen_converters', '_proxy_constructors', '_proxy_functions'],
 			'extends' : [{'name': 'com.facebook.Session$AuthorizationRequest'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'setCallback',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session$StatusCallback',
@@ -3908,83 +3592,73 @@ config = {
 				},
 				{
 					'name' : 'setDefaultAudience',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionDefaultAudience',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'setLoginBehavior',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.SessionLoginBehavior',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'setPermissions',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : '_object_array',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array',
+								'children' : [{'type': 'java.lang.String'}],
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'setPermissions',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.util.List',
-								'children' : [{'type': 'java.lang.String', 'converter': 'convert_proxy'}],
-								'converter' : 'convert_proxy',
+								'children' : [{'type': 'java.lang.String'}],
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'setRequestCode',
-					'tags' : ['_instance', '_no_callback', '_proxy'],
+					'tags' : ['_instance', '_no_callback', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'int',
-								'converter' : 'convert_int',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.Session$OpenRequest',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -3992,7 +3666,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.Session$OpenRequest',
-					'tags' : ['_proxy'],
+					'tags' : ['_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'android.app.Activity',
@@ -4002,11 +3676,10 @@ config = {
 				},
 				{
 					'name' : 'com.facebook.Session$OpenRequest',
-					'tags' : ['_proxy'],
+					'tags' : ['_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.support.v4.app.Fragment',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -4014,14 +3687,14 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.Session$StatusCallback',
-			'tags' : ['_interface', '_proxy', '_deep', '_callback'],
+			'tags' : ['_interface', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_proxy', '_gen_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_callback'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
 			'functions' : [
 				{
 					'name' : 'call',
-					'tags' : ['_instance', '_proxy', '_callback'],
+					'tags' : ['_instance', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_callback'],
 					'params' : [
 						{
 								'type' : 'com.facebook.Session',
@@ -4049,7 +3722,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SessionDefaultAudience',
-			'tags' : ['_enum', '_no_callback', '_no_deep', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -4118,7 +3791,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SessionLoginBehavior',
-			'tags' : ['_enum', '_no_callback', '_no_deep', '_proxy'],
+			'tags' : ['_enum', '_no_callback', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -4179,7 +3852,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SessionState',
-			'tags' : ['_enum', '_no_callback', '_proxy', '_deep'],
+			'tags' : ['_enum', '_no_callback', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_proxy_constructors', '_no_proxy_functions', '_proxy', '_gen_converters', '_proxy_fields'],
 			'extends' : [{'name': 'java.lang.Enum'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -4249,54 +3922,49 @@ config = {
 			'functions' : [
 				{
 					'name' : 'isClosed',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'boolean',
-								'converter' : 'convert_boolean',
 						},
 					],
 				},
 				{
 					'name' : 'isOpened',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'boolean',
-								'converter' : 'convert_boolean',
 						},
 					],
 				},
 				{
 					'name' : 'valueOf',
-					'tags' : ['_proxy', '_singleton', '_static'],
+					'tags' : ['_singleton', '_static', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.SessionState',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'values',
-					'tags' : ['_proxy', '_static'],
+					'tags' : ['_static', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : '_object_array',
-								'children' : [{'type': 'com.facebook.SessionState', 'converter': 'convert_proxy'}],
-								'converter' : 'convert__object_array',
+								'children' : [{'type': 'com.facebook.SessionState'}],
 						},
 					],
 				},
@@ -4306,7 +3974,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.SharedPreferencesTokenCachingStrategy',
-			'tags' : ['_instance', '_no_deep', '_proxy'],
+			'tags' : ['_instance', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_fields', '_no_proxy_functions', '_proxy', '_proxy_constructors'],
 			'extends' : [{'name': 'com.facebook.TokenCachingStrategy'}, {'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
@@ -4351,7 +4019,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.SharedPreferencesTokenCachingStrategy',
-					'tags' : ['_proxy'],
+					'tags' : ['_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
@@ -4361,15 +4029,13 @@ config = {
 				},
 				{
 					'name' : 'com.facebook.SharedPreferencesTokenCachingStrategy',
-					'tags' : ['_proxy'],
+					'tags' : ['_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'android.content.Context',
-								'converter' : 'convert_proxy',
 						},
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
@@ -4377,7 +4043,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.TokenCachingStrategy',
-			'tags' : ['_abstract', '_no_deep', '_proxy'],
+			'tags' : ['_abstract', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_proxy', '_gen_converters'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 				{
@@ -4703,7 +4369,7 @@ config = {
 			'constructors' : [	
 				{
 					'name' : 'com.facebook.TokenCachingStrategy',
-					'tags' : ['_proxy'],
+					'tags' : ['_no_proxy'],
 					'params' : [
 					],
 				},
@@ -4711,7 +4377,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphLocation',
-			'tags' : ['_interface', '_no_deep', '_proxy'],
+			'tags' : ['_interface', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'com.facebook.model.GraphObject'}],
 			'fields' : [
@@ -4898,7 +4564,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObject',
-			'tags' : ['_interface', '_no_deep', '_proxy'],
+			'tags' : ['_interface', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'fields' : [
 			],	
@@ -5029,7 +4695,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphObjectList',
-			'tags' : ['_interface', '_no_deep', '_proxy'],
+			'tags' : ['_interface', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'java.util.List'}],
 			'fields' : [
@@ -5068,7 +4734,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphPlace',
-			'tags' : ['_interface', '_no_deep', '_proxy'],
+			'tags' : ['_interface', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'com.facebook.model.GraphObject'}],
 			'fields' : [
@@ -5180,7 +4846,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.GraphUser',
-			'tags' : ['_interface', '_proxy', '_deep'],
+			'tags' : ['_interface', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_proxy_constructors', '_no_proxy_fields', '_proxy', '_gen_converters', '_proxy_functions'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'com.facebook.model.GraphObject'}],
 			'fields' : [
@@ -5188,7 +4854,7 @@ config = {
 			'functions' : [
 				{
 					'name' : 'getBirthday',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_proxy', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions'],
 					'params' : [
 					],
 					'returns' : [
@@ -5200,241 +4866,215 @@ config = {
 				},
 				{
 					'name' : 'getFirstName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getId',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getLastName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getLink',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getLocation',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'com.facebook.model.GraphLocation',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getMiddleName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'getUsername',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 					],
 					'returns' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 				},
 				{
 					'name' : 'setBirthday',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setFirstName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setId',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setLastName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setLink',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setLocation',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'com.facebook.model.GraphLocation',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setMiddleName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setName',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
 				{
 					'name' : 'setUsername',
-					'tags' : ['_instance', '_proxy'],
+					'tags' : ['_instance', '_gen_converters', '_gen_array_converters', '_gen_2d_array_converters', '_proxy_constructors', '_proxy_fields', '_proxy_functions', '_no_proxy'],
 					'params' : [
 						{
 								'type' : 'java.lang.String',
-								'converter' : 'convert_proxy',
 						},
 					],
 					'returns' : [
 						{
 								'type' : 'void',
-								'converter' : 'convert_void',
 						},
 					],
 				},
@@ -5444,7 +5084,7 @@ config = {
 		},
 		{
 			'name' : 'com.facebook.model.OpenGraphObject',
-			'tags' : ['_interface', '_no_deep', '_proxy'],
+			'tags' : ['_interface', '_no_gen_2d_array_converters', '_no_gen_array_converters', '_no_gen_converters', '_no_proxy_constructors', '_no_proxy_fields', '_no_proxy_functions', '_no_proxy'],
 			'extends' : [{'name': 'java.lang.Object'}],
 			'implements' : [{'name': 'com.facebook.model.GraphObject'}],
 			'fields' : [

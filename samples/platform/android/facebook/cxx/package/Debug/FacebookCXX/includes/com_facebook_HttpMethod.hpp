@@ -9,18 +9,12 @@
 
 
 
- 			
-		
-	
 
 
 #ifndef _com_facebook_HttpMethod
 #define _com_facebook_HttpMethod
 
 
-
-
-#include <java_lang_String.hpp>
 #include <vector>
 #include <map>
 #include <string>

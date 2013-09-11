@@ -9,11 +9,7 @@
 
 
 
-
  		 
- 		 
- 		 
-
 
 
 
@@ -30,8 +26,6 @@
 
 
 #include <android_content_Context.hpp>
-
-#include <java_lang_String.hpp>
 
 
 #include <com_facebook_TokenCachingStrategy.hpp>
@@ -53,14 +47,12 @@ namespace FacebookCXX {
 // Forward Declarations
 
 
-
 class com_facebook_SharedPreferencesTokenCachingStrategy : public FacebookCXX::com_facebook_TokenCachingStrategy
 {
 public:
 
 	// Public Constructor
 	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context const& arg0,Proxy * aProxy = new Proxy());
-	com_facebook_SharedPreferencesTokenCachingStrategy(AndroidCXX::android_content_Context const& arg0,AndroidCXX::java_lang_String const& arg1,Proxy * aProxy = new Proxy());
 	com_facebook_SharedPreferencesTokenCachingStrategy(const com_facebook_SharedPreferencesTokenCachingStrategy& cc);
 	com_facebook_SharedPreferencesTokenCachingStrategy(Proxy * aProxy);
 	Proxy * proxy() const;	

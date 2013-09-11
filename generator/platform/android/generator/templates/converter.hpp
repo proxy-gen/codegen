@@ -57,15 +57,17 @@ using namespace ${namespace};
 
 // Proxy Converter Types
 #for $class_config in $classes
+#if '_no_gen_converters' not in $class_config['tags']
 #set $classinfo = $class_config['deriveddata']['targetdata']['classinfo']
 #set $entity_class_name = $classinfo['typename']
 void convert_${entity_class_name}(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
+#end if
 #end for
 
 // Array Converter Types
 #for $class_config in $classes
+#if '_no_gen_array_converters' not in $class_config['tags']
 #set $classinfo = $class_config['deriveddata']['targetdata']['classinfo']
-#if 'usedinarray' in $classinfo
 #set $entity_class_name = $classinfo['typename']
 void convert_${entity_class_name}_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 #end if
@@ -73,8 +75,8 @@ void convert_${entity_class_name}_array(long& java_value, long& cxx_value, const
 
 // Array Of Array Converter Types
 #for $class_config in $classes
+#if '_no_gen_2d_array_converters' not in $class_config['tags']
 #set $classinfo = $class_config['deriveddata']['targetdata']['classinfo']
-#if 'usedinarrayarray' in $classinfo
 #set $entity_class_name = $classinfo['typename']
 void convert_${entity_class_name}_array_array(long& java_value, long& cxx_value, const CXXTypeHierarchy cxx_type_hierarchy, const converter_t& converter_type, std::stack<long>& converter_stack);
 #end if

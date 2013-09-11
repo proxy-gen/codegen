@@ -103,7 +103,6 @@ void convert_${entity_class_name}(long& java_value, long& cxx_value, const CXXTy
 // Array Converter Types
 #for $class_config in $classes
 #set $class_classinfo = $class_config['deriveddata']['targetdata']['classinfo']
-#if 'usedinarray' in $class_classinfo
 #set $entity_class_name = $class_classinfo['typename']
 #set $entity_namespace_name = $class_classinfo['namespace']
 #set $entity_qualified_name = $entity_namespace_name + '::' + $entity_class_name
@@ -177,13 +176,11 @@ void convert_${entity_class_name}_array(long& java_value, long& cxx_value, const
 		}
 	}
 }
-#end if
 #end for
 
 // Array Of Array Converter Types
 #for $class_config in $classes
 #set $class_classinfo = $class_config['deriveddata']['targetdata']['classinfo']
-#if 'usedinarrayarray' in $class_classinfo
 #set $entity_class_name = $class_classinfo['typename']
 #set $entity_namespace_name = $class_classinfo['namespace']
 #set $entity_qualified_name = $entity_namespace_name + '::' + $entity_class_name
@@ -269,6 +266,5 @@ void convert_${entity_class_name}_array_array(long& java_value, long& cxx_value,
 		}
 	}
 }
-#end if
 #end for
 

@@ -14,8 +14,6 @@
 
 
 
-
-
 // Generated Code 
 
 #ifndef _java_lang_Object
