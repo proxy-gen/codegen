@@ -36,6 +36,7 @@
 
 // Proxy Converter Types
 #for $class_config in $classes
+#if '_no_gen_converters' not in $class_config['tags']
 #set $class_classinfo = $class_config['deriveddata']['targetdata']['classinfo']
 #set $class_jnidata = $class_config['deriveddata']['jnidata']
 #set $entity_class_name = $class_classinfo['typename']
@@ -98,10 +99,12 @@ void convert_${entity_class_name}(long& java_value, long& cxx_value, const CXXTy
 		#end if
 	}
 }
+#end if
 #end for
 
 // Array Converter Types
 #for $class_config in $classes
+#if '_no_gen_array_converters' not in $class_config['tags']
 #set $class_classinfo = $class_config['deriveddata']['targetdata']['classinfo']
 #set $entity_class_name = $class_classinfo['typename']
 #set $entity_namespace_name = $class_classinfo['namespace']
@@ -176,10 +179,12 @@ void convert_${entity_class_name}_array(long& java_value, long& cxx_value, const
 		}
 	}
 }
+#end if
 #end for
 
 // Array Of Array Converter Types
 #for $class_config in $classes
+#if '_no_gen_2d_array_converters' not in $class_config['tags']
 #set $class_classinfo = $class_config['deriveddata']['targetdata']['classinfo']
 #set $entity_class_name = $class_classinfo['typename']
 #set $entity_namespace_name = $class_classinfo['namespace']
@@ -266,5 +271,6 @@ void convert_${entity_class_name}_array_array(long& java_value, long& cxx_value,
 		}
 	}
 }
+#end if
 #end for
 
